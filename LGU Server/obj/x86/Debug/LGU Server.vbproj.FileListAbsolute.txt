@@ -1,0 +1,426 @@
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGU Server.vbproj.ResolveComReference.cache
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmAccountableForm.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmCashFlowItem.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmFundPeriod.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmFund.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmTransactionCodeFilter.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmSystemDownloader.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmDBFileUploader.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmDBFileViewer.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmDataPicked.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmBackupTool.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmChangeOwnPassword.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmBlockedAccounts.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmClientConnetions.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmResetDatabase.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmDatabaseRepair.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmChangePassword.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmCoffeecupClientAccess.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmDepartmentInfo.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmClientUserPermission.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmCoffeecupServerPermissionInfo.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmCoffeecupServerPermission.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmComunicationBox.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmConnectionSetup.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmColumnFilter.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmAppearance.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmChangeUser.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmCompanySettings.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmDepartment.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmGeneralSettings.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmLogin.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmConversation.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmUserProfile.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.frmUsersAccounts.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.Resources.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.MdiMainmenu.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGUFinancial.WaitForm1.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGU Server.vbproj.GenerateResource.Cache
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGU Server.TrustInfo.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGU Server.exe.manifest
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGU Server.exe
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGU Server.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGU Server.pdb
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\LGU Server.exe.config
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\LGU Server.exe.manifest
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\LGU Server.application
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\LGU Server.exe
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\LGU Server.pdb
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\LGU Server.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.BonusSkins.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.Charts.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.CodeParser.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.Data.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.Office.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.PivotGrid.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.Printing.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.RichEdit.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.RichEdit.v18.1.Export.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.Sparkline.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.Utils.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.Utils.v18.1.UI.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraBars.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraCharts.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraCharts.v18.1.UI.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraCharts.v18.1.Wizard.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraEditors.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraGrid.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraNavBar.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraPivotGrid.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraPrinting.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraReports.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraReports.v18.1.Extensions.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraScheduler.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraScheduler.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraScheduler.v18.1.Extensions.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraTreeList.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\System.Data.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\System.Data.Linq.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\System.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\System.Drawing.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\System.Windows.Forms.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\System.Xml.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\System.Xml.Linq.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\WindowsBase.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.PivotGrid.v18.1.Core.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.Pdf.v18.1.Core.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.Office.v18.1.Core.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.RichEdit.v18.1.Core.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.Printing.v18.1.Core.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.Data.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.Utils.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraBars.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraCharts.v18.1.Wizard.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraCharts.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraCharts.v18.1.UI.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraEditors.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraPrinting.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraGrid.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraNavBar.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraPivotGrid.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraReports.v18.1.Extensions.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.Sparkline.v18.1.Core.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.Utils.v18.1.UI.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraReports.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraScheduler.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraScheduler.v18.1.Core.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraScheduler.v18.1.Extensions.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\DevExpress.XtraTreeList.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.Office.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.Office.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.Office.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.Office.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.Printing.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.Printing.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.Printing.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.Printing.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.Data.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.Data.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.Data.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.Data.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.Utils.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.Utils.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.Utils.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.Utils.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.XtraBars.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.XtraBars.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.XtraBars.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.XtraBars.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.XtraCharts.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.XtraCharts.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.XtraCharts.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.XtraCharts.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.XtraEditors.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.XtraEditors.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.XtraEditors.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.XtraEditors.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.XtraGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.XtraGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.XtraGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.XtraGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.Utils.v18.1.UI.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.Utils.v18.1.UI.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.Utils.v18.1.UI.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.Utils.v18.1.UI.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.XtraReports.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.XtraReports.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.XtraReports.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.XtraReports.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.XtraScheduler.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.XtraScheduler.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.XtraScheduler.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.XtraScheduler.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.XtraScheduler.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.XtraScheduler.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.XtraScheduler.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.XtraScheduler.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.XtraScheduler.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.XtraScheduler.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.XtraScheduler.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.XtraScheduler.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\de\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\es\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ja\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\bin\Debug\ru\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\Source Code\obj\x86\Debug\LGU Server.application
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\LGU Server.exe.config
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\LGU Server.exe.manifest
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\LGU Server.application
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\LGU Server.exe
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\LGU Server.pdb
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\LGU Server.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.BonusSkins.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.Charts.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.CodeParser.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.Data.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.Office.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.PivotGrid.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.Printing.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.RichEdit.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.RichEdit.v18.1.Export.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.Sparkline.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.Utils.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.Utils.v18.1.UI.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraBars.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraCharts.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraCharts.v18.1.UI.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraCharts.v18.1.Wizard.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraEditors.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraGrid.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraNavBar.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraPivotGrid.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraPrinting.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraReports.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraReports.v18.1.Extensions.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraScheduler.v18.1.Core.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraScheduler.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraScheduler.v18.1.Extensions.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraTreeList.v18.1.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\System.Data.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\System.Data.Linq.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\System.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\System.Drawing.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\System.Windows.Forms.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\System.Xml.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\System.Xml.Linq.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\WindowsBase.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.PivotGrid.v18.1.Core.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.Pdf.v18.1.Core.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.Office.v18.1.Core.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.RichEdit.v18.1.Core.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.Printing.v18.1.Core.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.Data.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.Utils.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraBars.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraCharts.v18.1.Wizard.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraCharts.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraCharts.v18.1.UI.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraEditors.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraPrinting.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraGrid.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraNavBar.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraPivotGrid.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraReports.v18.1.Extensions.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.Sparkline.v18.1.Core.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.Utils.v18.1.UI.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraReports.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraScheduler.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraScheduler.v18.1.Core.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraScheduler.v18.1.Extensions.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\DevExpress.XtraTreeList.v18.1.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.PivotGrid.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.Office.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.Office.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.Office.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.Office.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.Printing.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.Printing.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.Printing.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.Printing.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.Data.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.Data.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.Data.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.Data.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.Utils.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.Utils.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.Utils.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.Utils.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.XtraBars.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.XtraBars.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.XtraBars.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.XtraBars.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.XtraCharts.v18.1.Wizard.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.XtraCharts.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.XtraCharts.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.XtraCharts.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.XtraCharts.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.XtraEditors.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.XtraEditors.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.XtraEditors.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.XtraEditors.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.XtraGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.XtraGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.XtraGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.XtraGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.XtraPivotGrid.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.XtraReports.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.Utils.v18.1.UI.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.Utils.v18.1.UI.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.Utils.v18.1.UI.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.Utils.v18.1.UI.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.XtraReports.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.XtraReports.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.XtraReports.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.XtraReports.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.XtraScheduler.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.XtraScheduler.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.XtraScheduler.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.XtraScheduler.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.XtraScheduler.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.XtraScheduler.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.XtraScheduler.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.XtraScheduler.v18.1.Core.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.XtraScheduler.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.XtraScheduler.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.XtraScheduler.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.XtraScheduler.v18.1.Extensions.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\de\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\es\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ja\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\bin\Debug\ru\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.ResolveComReference.cache
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmJevEntries.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmApprovingProcess.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBankAccounts.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmExpenditureItem.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetComposition.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmExpenditureClass.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDocumentType.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmRequisitionType.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmProductCategory.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmProductClass.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmProductInfo.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmProductManagement.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmProductMeasurement.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmTaxpayerRecord.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCollectionItem.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmReportEntries.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmAccountableForm.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCashFlowItem.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmFundPeriod.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmFund.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmTransactionCodeFilter.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmSystemDownloader.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDBFileUploader.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDBFileViewer.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDataPicked.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBackupTool.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmChangeOwnPassword.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBlockedAccounts.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmClientConnetions.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmResetDatabase.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDatabaseRepair.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmChangePassword.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCoffeecupClientAccess.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDepartmentInfo.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmClientUserPermission.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCoffeecupServerPermissionInfo.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCoffeecupServerPermission.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmConnectionSetup.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmColumnFilter.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmAppearance.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmChangeUser.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCompanySettings.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDepartment.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGeneralSettings.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmLogin.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmConversation.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmUserProfile.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmUsersAccounts.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.Resources.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.MdiMainmenu.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.WaitForm1.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmTaxPayerInfo.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.GenerateResource.Cache
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGU Server.TrustInfo.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGU Server.exe.manifest
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGU Server.application
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGU Server.exe
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGU Server.xml
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGU Server.pdb
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGLCaptureChartofAccount.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGLChartofAccounts.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmErrorCorrect.resources
+C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGU Server.vbprojResolveAssemblyReference.cache

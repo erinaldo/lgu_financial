@@ -1,0 +1,1226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A2676E1B-13AF-49A1-8E50-8B34590D470B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>LGUFinancial.My.MyApplication</StartupObject>
+    <RootNamespace>LGUFinancial</RootNamespace>
+    <AssemblyName>LGU Server</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>LGU Server.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>LGU Server.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ico.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.DemoReports.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Win.v18.1.Fakes, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.1.Export, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v18.1.Wizard, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v18.1.Extensions, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v18.1.Extensions, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>bin\Debug\SharpZipLib_0860_Bin\net-20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySqlBackup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>bin\Debug\MySqlBackup.dll</HintPath>
+    </Reference>
+    <Reference Include="NReco.PdfGenerator, Version=1.1.14.0, Culture=neutral, PublicKeyToken=231663d50a41b451, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NReco.PdfGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounting\frmErrorCorrect.Designer.vb">
+      <DependentUpon>frmErrorCorrect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frmErrorCorrect.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frmJevEntries.Designer.vb">
+      <DependentUpon>frmJevEntries.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frmJevEntries.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frmApprovingProcess.Designer.vb">
+      <DependentUpon>frmApprovingProcess.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frmApprovingProcess.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frmBankAccounts.Designer.vb">
+      <DependentUpon>frmBankAccounts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frmBankAccounts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\GL\frmGLCaptureChartofAccount.Designer.vb">
+      <DependentUpon>frmGLCaptureChartofAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\GL\frmGLCaptureChartofAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\GL\frmGLChartofAccounts.Designer.vb">
+      <DependentUpon>frmGLChartofAccounts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\GL\frmGLChartofAccounts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Budget\frmExpenditureItem.Designer.vb">
+      <DependentUpon>frmExpenditureItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\frmExpenditureItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Budget\frmBudgetComposition.Designer.vb">
+      <DependentUpon>frmBudgetComposition.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\frmBudgetComposition.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Budget\frmExpenditureClass.Designer.vb">
+      <DependentUpon>frmExpenditureClass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\frmExpenditureClass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procurement\frmDocumentType.Designer.vb">
+      <DependentUpon>frmDocumentType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procurement\frmDocumentType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procurement\frmRequisitionType.Designer.vb">
+      <DependentUpon>frmRequisitionType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procurement\frmRequisitionType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product\frmProductCategory.Designer.vb">
+      <DependentUpon>frmProductCategory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Product\frmProductCategory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product\frmProductClass.Designer.vb">
+      <DependentUpon>frmProductClass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Product\frmProductClass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product\frmProductInfo.Designer.vb">
+      <DependentUpon>frmProductInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Product\frmProductInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product\frmProductManagement.Designer.vb">
+      <DependentUpon>frmProductManagement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Product\frmProductManagement.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product\frmProductMeasurement.Designer.vb">
+      <DependentUpon>frmProductMeasurement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Product\frmProductMeasurement.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tax Payer\frmTaxpayerRecord.Designer.vb">
+      <DependentUpon>frmTaxpayerRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tax Payer\frmTaxpayerRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frmCollectionItem.Designer.vb">
+      <DependentUpon>frmCollectionItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frmCollectionItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frmReportEntries.Designer.vb">
+      <DependentUpon>frmReportEntries.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frmReportEntries.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frmAccountableForm.Designer.vb">
+      <DependentUpon>frmAccountableForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frmAccountableForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frmCashFlowItem.Designer.vb">
+      <DependentUpon>frmCashFlowItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frmCashFlowItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frmFundPeriod.Designer.vb">
+      <DependentUpon>frmFundPeriod.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frmFundPeriod.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frmFund.Designer.vb">
+      <DependentUpon>frmFund.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frmFund.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frmTransactionCodeFilter.Designer.vb">
+      <DependentUpon>frmTransactionCodeFilter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frmTransactionCodeFilter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Account Info.vb" />
+    <Compile Include="Module\Auto Updater\AutoUpdater.vb" />
+    <Compile Include="Module\Auto Updater\frmSystemDownloader.Designer.vb">
+      <DependentUpon>frmSystemDownloader.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Auto Updater\frmSystemDownloader.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Company.vb" />
+    <Compile Include="Module\File Management\FileManagementModule.vb" />
+    <Compile Include="Module\General Settings.vb" />
+    <Compile Include="Module\MailService.vb" />
+    <Compile Include="Module\Printing.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Module\File Management\frmDBFileUploader.Designer.vb">
+      <DependentUpon>frmDBFileUploader.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Module\File Management\frmDBFileUploader.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\File Management\frmDBFileViewer.Designer.vb">
+      <DependentUpon>frmDBFileViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Module\File Management\frmDBFileViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmDataPicked.Designer.vb">
+      <DependentUpon>frmDataPicked.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmDataPicked.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmBackupTool.Designer.vb">
+      <DependentUpon>frmBackupTool.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmBackupTool.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmChangeOwnPassword.Designer.vb">
+      <DependentUpon>frmChangeOwnPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmChangeOwnPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmBlockedAccounts.Designer.vb">
+      <DependentUpon>frmBlockedAccounts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmBlockedAccounts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmClientConnetions.designer.vb">
+      <DependentUpon>frmClientConnetions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmClientConnetions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmResetDatabase.designer.vb">
+      <DependentUpon>frmResetDatabase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmResetDatabase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmDatabaseRepair.Designer.vb">
+      <DependentUpon>frmDatabaseRepair.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmDatabaseRepair.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmChangePassword.Designer.vb">
+      <DependentUpon>frmChangePassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmChangePassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmCoffeecupClientAccess.Designer.vb">
+      <DependentUpon>frmCoffeecupClientAccess.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmCoffeecupClientAccess.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmDepartmentInfo.designer.vb">
+      <DependentUpon>frmDepartmentInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmDepartmentInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmClientUserPermission.Designer.vb">
+      <DependentUpon>frmClientUserPermission.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmClientUserPermission.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmCoffeecupServerPermissionInfo.Designer.vb">
+      <DependentUpon>frmCoffeecupServerPermissionInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmCoffeecupServerPermissionInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmCoffeecupServerPermission.designer.vb">
+      <DependentUpon>frmCoffeecupServerPermission.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmCoffeecupServerPermission.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\SystemInfo.vb" />
+    <Compile Include="Module\UpdateEngine.vb" />
+    <Compile Include="Settings\frmConnectionSetup.Designer.vb">
+      <DependentUpon>frmConnectionSetup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmConnectionSetup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmColumnFilter.designer.vb">
+      <DependentUpon>frmColumnFilter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmColumnFilter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmAppearance.Designer.vb">
+      <DependentUpon>frmAppearance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmAppearance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmChangeUser.Designer.vb">
+      <DependentUpon>frmChangeUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmChangeUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmCompanySettings.designer.vb">
+      <DependentUpon>frmCompanySettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmCompanySettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmDepartment.designer.vb">
+      <DependentUpon>frmDepartment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmDepartment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmGeneralSettings.Designer.vb">
+      <DependentUpon>frmGeneralSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmGeneralSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmLogin.designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmConversation.designer.vb">
+      <DependentUpon>frmConversation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmConversation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmUserProfile.Designer.vb">
+      <DependentUpon>frmUserProfile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmUserProfile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmUsersAccounts.designer.vb">
+      <DependentUpon>frmUsersAccounts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmUsersAccounts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="MdiMainmenu.Designer.vb">
+      <DependentUpon>MdiMainmenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MdiMainmenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Connection.vb" />
+    <Compile Include="Module\SystemSecurity.vb" />
+    <Compile Include="Module\Libraries.vb" />
+    <Compile Include="Module\MySettings.vb" />
+    <Compile Include="Module\Reports.vb" />
+    <Compile Include="Module\Module.vb" />
+    <Compile Include="Settings\WaitForm1.Designer.vb">
+      <DependentUpon>WaitForm1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\WaitForm1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tax Payer\frmTaxPayerInfo.Designer.vb">
+      <DependentUpon>frmTaxPayerInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tax Payer\frmTaxPayerInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Accounting\frmErrorCorrect.resx">
+      <DependentUpon>frmErrorCorrect.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frmJevEntries.resx">
+      <DependentUpon>frmJevEntries.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frmApprovingProcess.resx">
+      <DependentUpon>frmApprovingProcess.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frmBankAccounts.resx">
+      <DependentUpon>frmBankAccounts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\GL\frmGLCaptureChartofAccount.resx">
+      <DependentUpon>frmGLCaptureChartofAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\GL\frmGLChartofAccounts.resx">
+      <DependentUpon>frmGLChartofAccounts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\frmExpenditureItem.resx">
+      <DependentUpon>frmExpenditureItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\frmBudgetComposition.resx">
+      <DependentUpon>frmBudgetComposition.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\frmExpenditureClass.resx">
+      <DependentUpon>frmExpenditureClass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procurement\frmDocumentType.resx">
+      <DependentUpon>frmDocumentType.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procurement\frmRequisitionType.resx">
+      <DependentUpon>frmRequisitionType.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\frmProductCategory.resx">
+      <DependentUpon>frmProductCategory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\frmProductClass.resx">
+      <DependentUpon>frmProductClass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\frmProductInfo.resx">
+      <DependentUpon>frmProductInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\frmProductManagement.resx">
+      <DependentUpon>frmProductManagement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\frmProductMeasurement.resx">
+      <DependentUpon>frmProductMeasurement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tax Payer\frmTaxpayerRecord.resx">
+      <DependentUpon>frmTaxpayerRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frmCollectionItem.resx">
+      <DependentUpon>frmCollectionItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frmReportEntries.resx">
+      <DependentUpon>frmReportEntries.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frmAccountableForm.resx">
+      <DependentUpon>frmAccountableForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frmCashFlowItem.resx">
+      <DependentUpon>frmCashFlowItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frmFundPeriod.resx">
+      <DependentUpon>frmFundPeriod.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frmFund.resx">
+      <DependentUpon>frmFund.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frmTransactionCodeFilter.resx">
+      <DependentUpon>frmTransactionCodeFilter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Auto Updater\frmSystemDownloader.resx">
+      <DependentUpon>frmSystemDownloader.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\File Management\frmDBFileUploader.resx">
+      <DependentUpon>frmDBFileUploader.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\File Management\frmDBFileViewer.resx">
+      <DependentUpon>frmDBFileViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmDataPicked.resx">
+      <DependentUpon>frmDataPicked.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmBackupTool.resx">
+      <DependentUpon>frmBackupTool.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmChangeOwnPassword.resx">
+      <DependentUpon>frmChangeOwnPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmBlockedAccounts.resx">
+      <DependentUpon>frmBlockedAccounts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmClientConnetions.resx">
+      <DependentUpon>frmClientConnetions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmResetDatabase.resx">
+      <DependentUpon>frmResetDatabase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmDatabaseRepair.resx">
+      <DependentUpon>frmDatabaseRepair.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmCoffeecupClientAccess.resx">
+      <DependentUpon>frmCoffeecupClientAccess.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmDepartmentInfo.resx">
+      <DependentUpon>frmDepartmentInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmClientUserPermission.resx">
+      <DependentUpon>frmClientUserPermission.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmCoffeecupServerPermissionInfo.resx">
+      <DependentUpon>frmCoffeecupServerPermissionInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmCoffeecupServerPermission.resx">
+      <DependentUpon>frmCoffeecupServerPermission.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmConnectionSetup.resx">
+      <DependentUpon>frmConnectionSetup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmColumnFilter.resx">
+      <DependentUpon>frmColumnFilter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmAppearance.resx">
+      <DependentUpon>frmAppearance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmChangeUser.resx">
+      <DependentUpon>frmChangeUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmCompanySettings.resx">
+      <DependentUpon>frmCompanySettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmDepartment.resx">
+      <DependentUpon>frmDepartment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmGeneralSettings.resx">
+      <DependentUpon>frmGeneralSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmConversation.resx">
+      <DependentUpon>frmConversation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmUserProfile.resx">
+      <DependentUpon>frmUserProfile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmUsersAccounts.resx">
+      <DependentUpon>frmUsersAccounts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiMainmenu.resx">
+      <DependentUpon>MdiMainmenu.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\WaitForm1.resx">
+      <DependentUpon>WaitForm1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tax Payer\frmTaxPayerInfo.resx">
+      <DependentUpon>frmTaxPayerInfo.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\licenses.licx" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User %282%29.png" />
+    <None Include="Resources\Person.png" />
+    <None Include="Resources\Quality.png" />
+    <None Include="Resources\Administration.png" />
+    <None Include="Resources\layers-stack.png" />
+    <None Include="Resources\blue-document-view.png" />
+    <None Include="Resources\printer--exclamation.png" />
+    <None Include="Resources\exclamation.png" />
+    <None Include="Resources\key.png" />
+    <None Include="Resources\Action_New_12x12.png" />
+    <None Include="Resources\001_01.png" />
+    <None Include="Resources\SearchNew.png" />
+    <None Include="Resources\folder-tree1.png" />
+    <None Include="Resources\broom.png" />
+    <None Include="Resources\088.png" />
+    <None Include="Resources\Download_32x32 %282%29.png" />
+    <None Include="Resources\Accounting_32x32.png" />
+    <None Include="Resources\Categories_32x32.png" />
+    <None Include="Resources\Version_32x32 %282%29.png" />
+    <None Include="Resources\Compatibility_32x32.png" />
+    <None Include="Resources\blue-document-bookmark.png" />
+    <None Include="Resources\truck--plus.png" />
+    <None Include="Resources\user-yellow-female.png" />
+    <None Include="Resources\address-book-open.png" />
+    <None Include="Resources\system-switch-user-3.png" />
+    <None Include="Resources\folder-bug.png" />
+    <None Include="Resources\truck--pencil.png" />
+    <None Include="Resources\truck--arrow.png" />
+    <None Include="Resources\category1.png" />
+    <Content Include="ico.ico" />
+    <Content Include="Module\Auto Updater\Note.txt" />
+    <None Include="Resources\Image2.png" />
+    <None Include="Resources\inbox-upload.png" />
+    <None Include="Resources\NewItem_32x32.png" />
+    <None Include="Resources\074.png" />
+    <None Include="Resources\Product_16x16.png" />
+    <None Include="Resources\TaskList_16x16 %282%29.png" />
+    <None Include="Resources\Demo_Collection_Properties_32x32.png" />
+    <None Include="Resources\Card_32x32 %282%29.png" />
+    <None Include="Resources\032.png" />
+    <None Include="Resources\xfn-friend-met.png" />
+    <None Include="Resources\xfn-sweetheart.png" />
+    <None Include="Resources\book-open-next.png" />
+    <None Include="Resources\arrow-continue-090-left.png" />
+    <None Include="Resources\coffeecupfinal.png" />
+    <None Include="Resources\coffeecupmain2.png" />
+    <None Include="Resources\coffeecupmain.jpg" />
+    <None Include="Resources\view-refresh-4.png" />
+    <None Include="Resources\wrench-screwdriver.png" />
+    <None Include="Resources\Run %286%29.png" />
+    <None Include="Resources\folder-stand.png" />
+    <None Include="Resources\checkbox-2.png" />
+    <None Include="Resources\printer New 32.png" />
+    <None Include="Resources\printer2.png" />
+    <None Include="Resources\cross-octagon-frame.png" />
+    <None Include="Resources\building-old.png" />
+    <None Include="Resources\book-bookmark1.png" />
+    <None Include="Resources\ui-toolbar-bookmark1.png" />
+    <None Include="Resources\cross-button.png" />
+    <None Include="Resources\lock-unlock.png" />
+    <None Include="Resources\arrow-transition-270.png" />
+    <None Include="Resources\user-red1.png" />
+    <None Include="Resources\document-excel-table.png" />
+    <None Include="Resources\computer--exclamation.png" />
+    <None Include="Resources\user--arrow2.png" />
+    <None Include="Resources\database-import.png" />
+    <None Include="Resources\E-Mail.png" />
+    <None Include="Resources\lock1.png" />
+    <None Include="Resources\user-red.png" />
+    <None Include="Resources\Time Normal.png" />
+    <None Include="Resources\user-business-gray.png" />
+    <None Include="Resources\card-address1.png" />
+    <None Include="Resources\User %283%29.png" />
+    <None Include="Resources\layers-arrange.png" />
+    <None Include="Resources\database--arrow1.png" />
+    <None Include="Resources\User Program Group2.png" />
+    <None Include="Resources\calendar-blue.png" />
+    <None Include="Resources\accessories-calculator-31.png" />
+    <None Include="Resources\edit-group.png" />
+    <None Include="Resources\users.png" />
+    <None Include="Resources\User Program Group1.png" />
+    <None Include="Resources\book-open-text1.png" />
+    <None Include="Resources\folders-stack1.png" />
+    <None Include="Resources\folder-tree.png" />
+    <None Include="Resources\ui-color-picker-switch.png" />
+    <None Include="Resources\user--pencil.png" />
+    <None Include="Resources\lock--exclamation.png" />
+    <None Include="Resources\login2 copy.PNG" />
+    <None Include="Resources\notebook--backarrow.png" />
+    <None Include="Resources\notebooks.png" />
+    <None Include="Resources\hotel.png" />
+    <None Include="Resources\inbox--arrow1.png" />
+    <None Include="Resources\inbox--minus.png" />
+    <None Include="Resources\product-icon1.png" />
+    <None Include="Resources\product-icon %281%29.png" />
+    <None Include="Resources\product-icon.png" />
+    <None Include="Resources\money--pencil.png" />
+    <None Include="Resources\application-export.png" />
+    <None Include="Resources\notebook--arrow1.png" />
+    <None Include="Resources\credit-card--minus.png" />
+    <None Include="Resources\money--arrow1.png" />
+    <None Include="Resources\notebook--arrow.png" />
+    <None Include="Resources\computer-3.png" />
+    <None Include="Resources\gnucash1.png" />
+    <None Include="Resources\kthememgr-21.png" />
+    <None Include="Resources\accessories-calculator-3.png" />
+    <None Include="Resources\Printer1.png" />
+    <None Include="Resources\File Archive1.png" />
+    <None Include="Resources\documentation1.png" />
+    <None Include="Resources\cross1.png" />
+    <None Include="Resources\calculator--pencil.png" />
+    <None Include="Resources\calculator--arrow.png" />
+    <None Include="Resources\blogs-stack.png" />
+    <None Include="Resources\user--arrow1.png" />
+    <None Include="Resources\notebook--minus1.png" />
+    <None Include="Resources\clipboard-task1.png" />
+    <None Include="Resources\plasma.png" />
+    <None Include="Resources\hourglass--arrow.png" />
+    <None Include="Resources\applications-blue.png" />
+    <None Include="Resources\notebook-sticky-note.png" />
+    <None Include="Resources\Money Hot.png" />
+    <None Include="Resources\tick.png" />
+    <None Include="Resources\paper-bag--pencil.png" />
+    <None Include="Resources\Abort.png" />
+    <None Include="Resources\accepted_48.png" />
+    <None Include="Resources\Money Normal.png" />
+    <None Include="Resources\money - dollar.png" />
+    <None Include="Resources\129.png" />
+    <None Include="Resources\layers-1%402x.png" />
+    <None Include="Resources\home%402x.png" />
+    <None Include="Resources\85.png" />
+    <None Include="Resources\application-postscript.png" />
+    <None Include="Resources\mail-folder-inbox.png" />
+    <None Include="Resources\keyboard--minus.png" />
+    <None Include="Resources\application-table.png" />
+    <None Include="Resources\Mail %282%293.png" />
+    <None Include="Resources\Chat1.png" />
+    <None Include="Resources\conduit-2.png" />
+    <None Include="Resources\user--arrow.png" />
+    <None Include="Resources\box-label.png" />
+    <None Include="Resources\databases.png" />
+    <None Include="Resources\database--arrow.png" />
+    <None Include="Resources\coffeeimg2.PNG" />
+    <None Include="Resources\coffeeimg1.PNG" />
+    <None Include="Resources\coffeeimg.PNG" />
+    <None Include="Resources\Char2.png" />
+    <None Include="Resources\Char1.png" />
+    <None Include="Resources\hourglass-select-remain.png" />
+    <None Include="Resources\computer %283%29.png" />
+    <None Include="Resources\Mail_forward.png" />
+    <None Include="Resources\book-open-text.png" />
+    <None Include="Resources\book-open-bookmark.png" />
+    <None Include="Resources\book-bookmark.png" />
+    <None Include="Resources\blue-document-text1.png" />
+    <None Include="Resources\My_Computer.png" />
+    <None Include="Resources\Desktop.png" />
+    <None Include="Resources\User Accounts.png" />
+    <None Include="Resources\Documents2.png" />
+    <None Include="Resources\table money.jpg" />
+    <None Include="Resources\Home Hot.png" />
+    <None Include="Resources\Desktop Gadgets.png" />
+    <None Include="Resources\User Program Group.png" />
+    <None Include="Resources\door-open-in.png" />
+    <None Include="Resources\cup1.png" />
+    <None Include="Resources\cup.png" />
+    <None Include="Resources\home--arrow.png" />
+    <None Include="Resources\Home Hot21.png" />
+    <None Include="Resources\Home Hot2.png" />
+    <None Include="Resources\chart.png" />
+    <None Include="Resources\w3perl.png" />
+    <None Include="Resources\journal-new.png" />
+    <None Include="Resources\archive-extract-2.png" />
+    <None Include="Resources\office-chart-area-stacked.png" />
+    <None Include="Resources\edit-clear-history-3.png" />
+    <None Include="Resources\Scheduled.png" />
+    <None Include="Resources\Abacus.png" />
+    <None Include="Resources\inbox--arrow.png" />
+    <None Include="Resources\inbox--plus.png" />
+    <None Include="Resources\inbox-document-text.png" />
+    <None Include="Resources\check.jpg" />
+    <None Include="Resources\text-directory.png" />
+    <None Include="Resources\file-clipboard.png" />
+    <None Include="Resources\application-x-vmware-vmfoundry.png" />
+    <None Include="Resources\view-calendar-list.png" />
+    <None Include="Resources\view-calendar.png" />
+    <None Include="Resources\coin-delete.png" />
+    <None Include="Resources\Stop %282%29.png" />
+    <None Include="Resources\Credit report_revise.png" />
+    <None Include="Resources\Income.png" />
+    <None Include="Resources\lassists.png" />
+    <None Include="Resources\tasks.png" />
+    <None Include="Resources\xfce4-dict.png" />
+    <None Include="Resources\listmoney2.png" />
+    <None Include="Resources\money--arrow.png" />
+    <None Include="Resources\money-coin1.png" />
+    <None Include="Resources\credit-card--pencil.png" />
+    <None Include="Resources\Credit report.png" />
+    <None Include="Resources\Select date.png" />
+    <None Include="Resources\beidgui.png" />
+    <None Include="Resources\kaddressbook.png" />
+    <None Include="Resources\credit_card.png" />
+    <None Include="Resources\computer-laptop.png" />
+    <None Include="Resources\document-save-3.png" />
+    <None Include="Resources\download-later.png" />
+    <None Include="Resources\gnucash.png" />
+    <None Include="Resources\update_drivers.png" />
+    <None Include="Resources\application-put.png" />
+    <None Include="Resources\dialog-ok-3.png" />
+    <None Include="Resources\applications-development-6.png" />
+    <None Include="Resources\application-x-gnucash.png" />
+    <None Include="Resources\trash-empty-31.png" />
+    <None Include="Resources\trash-empty-3.png" />
+    <None Include="Resources\preferences-system-time.png" />
+    <None Include="Resources\preferences-system-login.png" />
+    <None Include="Resources\building-add.png" />
+    <None Include="Resources\applications-office-41.png" />
+    <None Include="Resources\edit-find-and-replace-21.png" />
+    <None Include="Resources\document-preview-archive.png" />
+    <None Include="Resources\layer--minus.png" />
+    <None Include="Resources\newspaper--plus.png" />
+    <None Include="Resources\newspaper--pencil.png" />
+    <None Include="Resources\user_info2.png" />
+    <None Include="Resources\user_info1.png" />
+    <None Include="Resources\report1.png" />
+    <None Include="Resources\folder-sync.png" />
+    <None Include="Resources\document-open-2.png" />
+    <None Include="Resources\document-open-recent1.png" />
+    <None Include="Resources\kspread-3.png" />
+    <None Include="Resources\text-x-copying.png" />
+    <None Include="Resources\Printer %282%29.png" />
+    <None Include="Resources\inbox-table.png" />
+    <None Include="Resources\header.jpg" />
+    <None Include="Resources\games-endturn.png" />
+    <None Include="Resources\window-suppressed.png" />
+    <None Include="Resources\folder-important.png" />
+    <None Include="Resources\mail-folder-outbox.png" />
+    <None Include="Resources\folder-txt.png" />
+    <None Include="Resources\folder-favorites.png" />
+    <None Include="Resources\folder-documents.png" />
+    <None Include="Resources\folder-downloads.png" />
+    <None Include="Resources\folder-html.png" />
+    <None Include="Resources\news-unsubscribe-2.png" />
+    <None Include="Resources\preferences-system-network-2.png" />
+    <None Include="Resources\edit-find-and-replace-2.png" />
+    <None Include="Resources\Print %282%29.png" />
+    <None Include="Resources\kthememgr-2.png" />
+    <None Include="Resources\tick-circle-frame.png" />
+    <None Include="Resources\arrow-curve-180-double.png" />
+    <None Include="Resources\arrow-curve.png" />
+    <None Include="Resources\document-save-2.png" />
+    <None Include="Resources\application-x-troff-man1.png" />
+    <None Include="Resources\application-x-kgetlist.png" />
+    <None Include="Resources\package-x-generic.png" />
+    <None Include="Resources\application-exit.png" />
+    <None Include="Resources\164.png" />
+    <None Include="Resources\URL_History.png" />
+    <None Include="Resources\report--arrow1.png" />
+    <None Include="Resources\report--minus.png" />
+    <None Include="Resources\reports-stack1.png" />
+    <None Include="Resources\kspread1.png" />
+    <None Include="Resources\ui-toolbar-bookmark.png" />
+    <None Include="Resources\1501.png" />
+    <None Include="Resources\microformats.png" />
+    <None Include="Resources\tables-stacks.png" />
+    <None Include="Resources\bookmark-5.png" />
+    <None Include="Resources\Folder-add.png" />
+    <None Include="Resources\notebook--plus.png" />
+    <None Include="Resources\notebook--pencil.png" />
+    <None Include="Resources\notebook--minus.png" />
+    <None Include="Resources\blue-document-convert.png" />
+    <None Include="Resources\blog--minus.png" />
+    <None Include="Resources\document-close-4.png" />
+    <None Include="Resources\edit-3.png" />
+    <None Include="Resources\osmo2.png" />
+    <None Include="Resources\report--arrow.png" />
+    <None Include="Resources\card-address.png" />
+    <None Include="Resources\Close.png" />
+    <None Include="Resources\Help.png" />
+    <None Include="Resources\question-frame.png" />
+    <None Include="Resources\osmo1.png" />
+    <None Include="Resources\run-build-configure.png" />
+    <None Include="Resources\svn-update.png" />
+    <None Include="Resources\svn-commit1.png" />
+    <None Include="Resources\start-here-2.png" />
+    <None Include="Resources\application-x-troff-man.png" />
+    <None Include="Resources\gnome-color-chooser.png" />
+    <None Include="Resources\project-development.png" />
+    <None Include="Resources\project-development-close-all.png" />
+    <None Include="Resources\applications-other1.png" />
+    <None Include="Resources\insert-object.png" />
+    <None Include="Resources\application-x-gnome-theme-package.png" />
+    <None Include="Resources\application-vnd.ms-excel.png" />
+    <None Include="Resources\building--minus1.png" />
+    <None Include="Resources\building--pencil1.png" />
+    <None Include="Resources\chart--arrow.png" />
+    <None Include="Resources\category.png" />
+    <None Include="Resources\document-block.png" />
+    <None Include="Resources\Graph.png" />
+    <None Include="Resources\lincity-2.png" />
+    <None Include="Resources\Ribbon_Exit_32x32.png" />
+    <None Include="Resources\osmo.png" />
+    <None Include="Resources\evolution-tasks.png" />
+    <None Include="Resources\applications-office-4.png" />
+    <None Include="Resources\applications-other-2.png" />
+    <None Include="Resources\applications-other.png" />
+    <None Include="Resources\emblem-money.png" />
+    <None Include="Resources\emblem-office.png" />
+    <None Include="Resources\text-x-patch.png" />
+    <None Include="Resources\text-x-todo.png" />
+    <None Include="Resources\kmines-2.png" />
+    <None Include="Resources\accessories-text-editor-2.png" />
+    <None Include="Resources\Business Man Blue2.png" />
+    <None Include="Resources\Mail %282%292.png" />
+    <None Include="Resources\blue_speech_bubble_48.png" />
+    <None Include="Resources\comment_48.png" />
+    <None Include="Resources\Char.png" />
+    <None Include="Resources\e-mail2.png" />
+    <None Include="Resources\Chat.png" />
+    <None Include="Resources\gnome-subtitles.png" />
+    <None Include="Resources\balloon--arrow1.png" />
+    <None Include="Resources\Mail %282%291.png" />
+    <None Include="Resources\balloon--arrow.png" />
+    <None Include="Resources\mail-mark-unread-new.png" />
+    <None Include="Resources\newspaper-delete.png" />
+    <None Include="Resources\book-next.png" />
+    <None Include="Resources\go-last-view-page.png" />
+    <None Include="Resources\go-next-view-page.png" />
+    <None Include="Resources\kspread.png" />
+    <None Include="Resources\basket-2.png" />
+    <None Include="Resources\NewReceived.png" />
+    <None Include="Resources\newspaper--minus.png" />
+    <None Include="Resources\edit-copy-3.png" />
+    <None Include="Resources\dialog-ok-4.png" />
+    <None Include="Resources\cross.png" />
+    <None Include="Resources\document-open-recent.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\fruit-lime.png" />
+    <None Include="Resources\server--minus.png" />
+    <None Include="Resources\server--pencil.png" />
+    <None Include="Resources\building--minus.png" />
+    <None Include="Resources\building--pencil.png" />
+    <None Include="Resources\building--arrow.png" />
+    <None Include="Resources\kde.png" />
+    <None Include="Resources\ktalkd.png" />
+    <None Include="Resources\paper_content_chart_48.png" />
+    <None Include="Resources\archive-insert-21.png" />
+    <None Include="Resources\listmoney1.png" />
+    <None Include="Resources\map--minus.png" />
+    <None Include="Resources\listmoney.png" />
+    <None Include="Resources\documentation.png" />
+    <None Include="Resources\money-coin.png" />
+    <None Include="Resources\Search3.png" />
+    <None Include="Resources\gpe-timesheet.png" />
+    <None Include="Resources\gpe-todo.png" />
+    <None Include="Resources\Desktop %286%29.png" />
+    <None Include="Resources\document-save-as-3.png" />
+    <None Include="Resources\PONewR.png" />
+    <None Include="Resources\New1.png" />
+    <None Include="Resources\view-sort-descending-2.png" />
+    <None Include="Resources\svn-commit.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\edit-size-down.png" />
+    <None Include="Resources\edit-size-up.png" />
+    <None Include="Resources\edit-italic.png" />
+    <None Include="Resources\edit-bold.png" />
+    <None Include="Resources\blue-document-hf-delete-footer.png" />
+    <None Include="Resources\blue-document--pencil.png" />
+    <None Include="Resources\kmenu-3.png" />
+    <None Include="Resources\document-edit.png" />
+    <None Include="Resources\Paper check1.png" />
+    <None Include="Resources\Paper-warning1.png" />
+    <None Include="Resources\archive-insert-2.png" />
+    <None Include="Resources\format-indent-more.png" />
+    <None Include="Resources\view-table-of-contents-ltr.png" />
+    <None Include="Resources\folders-stack.png" />
+    <None Include="Resources\reports-stack.png" />
+    <None Include="Resources\Refresh.png" />
+    <None Include="Resources\Recycle Bin Empty %283%29.png" />
+    <None Include="Resources\Recycle Bin Full %285%29.png" />
+    <None Include="Resources\book-open-text-image.png" />
+    <None Include="Resources\yawaa.png" />
+    <None Include="Resources\Download1.png" />
+    <None Include="Resources\arrow-repeat-once.png" />
+    <None Include="Resources\Documents1.png" />
+    <None Include="Resources\Documents %282%291.png" />
+    <None Include="Resources\Download.png" />
+    <None Include="Resources\Paper check.png" />
+    <None Include="Resources\Paper up1.png" />
+    <None Include="Resources\Paper up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel1">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

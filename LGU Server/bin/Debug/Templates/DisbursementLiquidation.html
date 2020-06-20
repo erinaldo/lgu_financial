@@ -1,0 +1,105 @@
+<!DOCTYPE html> 
+ <html> 
+ <head> 
+ <STYLE type="text/css">
+ body{ margin:0 auto;  font-family: Arial; font-size: 12px; } 
+ table {border-collapse: collapse ; border: 1px solid #d1d1d1; }
+ td, th {border: 1px solid black;padding: 2px 5px; border: 1px solid #d1d1d1;}
+ p{font-size: 12px; }
+ strong{font-size: 16px; }
+ h1, h2, h3, h4{margin:0;}
+ #container {
+	width: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.content {
+	float: left;
+}
+table{
+	page-break-inside: avoid;
+}
+ 
+</style>
+
+ </head> 
+ <body> 
+ <div id="container">
+	<div class="content">
+<table border='1' style='width:700px; margin:3px 0' cellpadding='4' cellspacing='0' style='border-collapse:collapse;'>  
+<tr> 
+	<td align="center" height="25px" width="450" colspan="3" rowspan="2" ><br/><br/><h1>LIQUIDATION REPORT</h1><h3>[companyname]</h3><br/><br/></td>
+	<td align="left" width="170"><b><span style="vertical-align: top; float:left">DV No.</span><br/><span style="font-size: 18px; vertical-align: middle center;">[voucherno]</span></b></td>
+</tr> 
+<tr> 
+	<td align="left"><span style="vertical-align: top; float:left">Liquidation Date:</span><br/> [date]</td>
+</tr>
+ 
+<tr> 
+	<td width="50%" style="vertical-align: top;" height="35" colspan="2">Name of Accountable:<br/><h3>[claimant]</h3></td>
+ 	<td style="vertical-align: top;" height="35" colspan="2">Department:<br/><h4>[department]</h4></td>
+</tr>
+</table>
+<table border='1' style='width:700px; margin:3px 0' cellpadding='0' cellspacing='0' style='border-collapse:collapse;'> 
+<tr > 
+	<td colspan="5" align="center" style="padding: 10px 0px;"><b>P A R T I C U L A R S</b></td>
+</tr> 
+[voucher_item]
+</table>
+<table border='1' style='width:700px; margin:3px 0' cellpadding='4' cellspacing='0' style='border-collapse:collapse;'>  
+<tr style="border-top: 1px solid #d1d1d1"> 
+	<td width='300' align="left" colspan="2" style="padding: 7px">TOTAL AMOUNT SPENT</td>
+	<td align="right" style="font-size: 15px"><span style="float: left;" >P</span>[amount_spent]</td>
+</tr> 
+<tr> 
+	<td width='300' align="left" colspan="2" style="padding: 7px">AMOUNT OF CASH ADVANCE PER <b>DV NO. [voucherno]</b> DATED <b>[voucherdate]</b></td>
+	<td align="right" style="font-size: 15px"><span style="float: left;" >P</span>[amount_voucher]</td>
+</tr> 
+<tr> 
+	<td width='300' align="left" colspan="2" style="padding: 7px">AMOUNT RETURNED</b></td>
+	<td align="right" style="font-size: 15px"><span style="float: left;" >P</span><b>[amount_refund]</b></td>
+</tr> 
+<tr style="border-bottom: 1px solid #d1d1d1"> 
+	<td width='300' align="left" colspan="2" style="padding: 7px">AMOUNT TO BE REIMBURSED</td>
+	<td align="right" style="font-size: 15px"><span style="float: left;" >P</span>[amount_reimbursed]</td>
+</tr> 
+</table>
+<table border='1' style='width:700px; margin:3px 0' cellpadding='4' cellspacing='0' style='border-collapse:collapse;'>  
+<tr> 
+	<td width='50%' align="center" style="vertical-align: top; ">
+		<table style="border: none;" width='100%'>
+			<tr>
+				<td style="border: none;">Liquidated by:</td>
+			</tr>
+			<tr>
+				<td style="border: none;" align="center"><br/><br/><br/><u><b>[claimant]</b></u></td>
+			</tr>
+			<tr>
+				<td style="border: none;vertical-align: top;" align="center">[position]</td>
+			</tr>
+		</table>
+
+	</td>
+	<td width='50%'>
+		<table style="border:none" width='100%'>
+			<tr><td style="border: none;" align="left">Received by:</td></tr>
+			<tr><td style="border: none;" align="center"><br/><br/><br/><u><b>___________________________</b></u></td></tr>
+			<tr><td style="border: none;" align="center">Name and Signature</td></tr>
+			<tr><td style="border: none;" align="left">Approved by:</td></tr>
+			<tr><td style="border: none;" align="center"><br/><br/><br/><u><b>___________________________</b></u></td></tr>
+			<tr><td style="border: none;" align="center">Name and Signature</td></tr>
+		</table>
+
+	</td>
+</tr> 
+</table>
+
+ 
+</div>
+<div>
+</body> 
+ </html>
+
+ 
+

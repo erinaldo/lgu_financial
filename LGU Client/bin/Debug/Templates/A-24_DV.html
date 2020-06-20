@@ -1,0 +1,98 @@
+<!DOCTYPE html> 
+ <html> 
+ <head> 
+ <STYLE type="text/css">
+ body{ margin:0 auto;  font-family: Arial; font-size: 12px; } 
+ table {border-collapse: collapse ;  }
+ td, th {border: 1px solid black;padding: 2px 5px;}
+ p{font-size: 12px; }
+ strong{font-size: 20px; }
+ h1, h2, h3, h4{margin:0;}
+ #container {
+	width: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.content {
+	float: left;
+}
+ 
+</style>
+
+ </head> 
+ <body> 
+ <div id="container">
+	<div class="content">
+<table border='1' style='width:700px; margin:3px 0' cellpadding='4' cellspacing='0' style='border-collapse:collapse;'>  
+<tr> 
+	<td align="center" height="150" width="450" colspan="3" rowspan="2" ><h1>DISBURSEMENT  VOUCHER</h1><h3>[municipality]</h3></td>
+	<td align="left" width="170"  style="font-size: 13px;"><b><span style="vertical-align: top; float:left">DV No.</span><br/>[voucherno]</b></td>
+</tr> 
+<tr> 
+	<td align="left"><span style="vertical-align: top; float:left">Date:</span><br/> [voucherdate]</td>
+</tr>
+<tr> 
+	<td align="center" height="80" colspan="4">
+		<p><strong><em>CLASIFICATION OF PAYMENT</em></strong></p> 
+		<input type="checkbox" [cash_advance] style=" width:1.8em;height:1.8em; border:none;vertical-align: middle;" onclick="return false;"> Cash Advance 
+		<input type="checkbox" [reimbursement] style="width:1.8em;height:1.8em; border:none;vertical-align: middle; margin-left: 30px;" onclick="return false;"> Reimbursement 
+		<input type="checkbox" [others] style="width:2em;height:2em;   border:none;vertical-align: middle;margin-left: 30px;" onclick="return false;"> Other Payments</td>
+</tr>  
+<tr> 
+	<td style="vertical-align: top;" height="40" colspan="3">Name of Claimant:<br/><h3>[suppliername]</h3></td>
+	<td align="left"  width="133"><span style="vertical-align: top; float:left">ID No./TIN:</span><br/>[tin]</td>
+</tr>
+<tr> 
+	<td style="vertical-align: top;" height="40" colspan="3">Address:<br/><h4>[supplieraddress]</h4></td>
+	<td align="left"  width="133"><span style="vertical-align: top; float:left">Responsibility<br/>Center: [responsibilty]</span></td>
+</tr>
+<tr style="border-top: 2px double black"> 
+	<td colspan="3" align="center" style="padding: 10px 0px;"><b>P A R T I C U L A R S</b></td>
+	<td align="center"><b>AMOUNT</b></td>
+</tr> 
+[voucher_item]
+ 
+ <tr style="border-top: 2px solid black;"> 
+	<td colspan="3" align="right" ><b>Amount Due <span style="margin: 0px; padding:0px;font-size:25px;vertical-align: middle;">&#10152;</span></b></td>
+	<td align="right" style="background-color: yellow"><b><span style="float: left;" >P</span><span style="font-size: 15px;">[total]</span></b></td>
+</tr> 
+
+<tr style="border-top: 2px double black"> 
+	<td style="vertical-align: top; padding:3px;" width="233" align="left" ><span style="float: left;"><span style="border: 1px solid black; padding: 1px 4px;">A</span><b> Certified:</b></span> <br/><br/><br/><br/><br/><br/><div style=" font-size: 11px; width: 100%; text-align: center;"><b><u>[officehead]</u></b><br/>Signature Over Printed Name/Position</</div></td>
+	<td style="vertical-align: top; padding:3px; "  width="233" ><div style="padding-bottom: 50px;float: left; margin-right: 3px;"><span style="border: 1px solid black; padding: 1px 4px; ">B</span> </div>Completeness and propriety of supporting documents/previous cash advance liquidated/existence of funds held in trust: <br/><br/><br/><div style=" font-size: 11px; width: 100%; text-align: center;"><b><u>[accounting]</u></b><br/>Signature Over Printed Name/Position</</div></td>
+	<td style="vertical-align: top; padding:3px;"  width="233" colspan="2"><span style="border: 1px solid black; padding: 1px 4px;">C</span><b> Cash available:</b><br/><br/><br/><br/><br/><br/><div style=" font-size: 11px; width: 100%; text-align: center;"><b><u>[treasurer]</u></b><br/>Signature Over Printed Name/Position</</div></td>
+</tr> 
+<tr> 
+	<td style="vertical-align: top; padding:3px;" width="233" align="left" ><span style="float: left;"><span style="border: 1px solid black; padding: 1px 4px;">D</span><b> Approved</b> for Payment:<b> P <u>[total]</u></b></span> <br/><br/><br/><br/><br/><div style=" font-size: 11px; width: 100%; text-align: center;"><b><u>[mayor]</u></b><br/>Signature Over Printed Name/Position</</div></td>
+	<td style="vertical-align: top; padding:3px;" align="center" width="233"><br/><br/>
+		<table style="border: none;" >
+			<tr>
+				<td style="border: none;" colspan="2">Payment:</td>
+			</tr>
+			<tr>
+				<td style="border: none;" align="center" rowspan="3"><span style="margin: 0px; padding:0px;font-size:35px;vertical-align: middle;">&#10152;</span></td>
+				<td style="border: none;"">Check No. <b><u>[checkno]</u></b></td>
+			</tr>
+			<tr>
+				<td style="border: none;"">Bank Name: <b><u>[bankname]</u></b></td>
+			</tr>
+			<tr>
+				<td style="border: none;"">Date: <b><u>[checkdate]</u></b></td>
+			</tr>
+		</table>
+
+	</td>
+	<td style="vertical-align: top; padding:3px;"  width="233" colspan="2"><span style="border: 1px solid black; padding: 1px 4px;">E</span><b> Received Payment:  </b><br/><br/><br/><br/><br/><div style=" font-size: 11px; width: 100%; text-align: center;"><b><u>[suppliername]</u></b><br/>Signature Over Printed Name/Position</</div><br/><br/><br/><b>JEV No._______ Date _____________</b></td>
+</tr> 
+</table>
+<p style="font-size: 9px; color: grey" align="center">[watermark]</p>
+
+ 
+</div>
+<div>
+</body> 
+ </html>
+
+ 
+

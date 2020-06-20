@@ -1,0 +1,48 @@
+Coffeecup Client Update Logs
+
+
+          Wash It Laundry Depot
+           TIN 000-000-000-000
+  Tumakay Bldg. Aguilar St. Dipolog City
+               09171266016
+              Permit: 003190
+
+
+              SALES BLOTTER
+
+Cashier: ROSIE LANGCAMON
+Blotter #: 1796
+From: July 29, 2018 07:15:06 AM
+To: Friday, August 3, 2018
+-----------------------------------------
+SALES
+ - Laundry Services               600.00
+ - Consumable                     154.00
+ - Other Services                 120.00
+                           -------------
+                                  874.00
+
+System Cash End                   874.00
+Shift Cash End                      0.00
+Cash Variance                    -874.00
+Total Bill                          0.00
+Total Coins                         0.00
+
+Next Cash Begginning                0.00
+Total Cash Remitted                 0.00
+-----------------------------------------
+         - E N D   R E P O R T -
+
+
+
+       Signature Over Printed Name
+
+
+
+
+
+
+
+
+Winter S. Bugahod
+IT-Devt. Katipunan Bank

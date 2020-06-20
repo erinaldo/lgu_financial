@@ -1,0 +1,79 @@
+<!DOCTYPE html> 
+ <html> 
+ <head> 
+ <STYLE type="text/css">
+ body{ margin:0 auto;  font-family: Arial; font-size: 13px; } 
+ table {border-collapse: collapse;font-size: 13px; border: 1px solid #d1d1d1; }
+ td, th {border: 1px solid black;padding: 2px 5px; border: 1px solid #d1d1d1; }
+ p{font-size: 13px; }
+ h1, h2, h3, h4{margin:0;}
+ #container {
+	width: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.content {
+	float: left;
+}
+ 
+</style>
+
+ </head> 
+ <body> 
+ <div id="container">
+	<div class="content">
+		<p align="right">Annex 23</p>
+<table border='1' style='width:700px; margin:3px 0' cellpadding='5' cellspacing='0' style='border-collapse:collapse;'>  
+<tr> 
+	<td align="center" height="100" width="450" colspan="4" rowspan="2" ><h1>JOURNAL ENTRY VOUCHER</h1><h3>[municipality]</h3></td>
+	<td align="left" width="170"  style="font-size: 13px;"><b><span style="vertical-align: top; float:left">JEV No.</span><br/>[jevno]</b></td>
+</tr> 
+<tr> 
+	<td align="left"><span style="vertical-align: top; float:left">Date:</span><br/> [postingdate]</td>
+</tr> 
+<tr style="border-top: 2px double #d1d1d1"> 
+	<td colspan="5" align="center" style="padding: 10px 0px;"><b>ACCOUNTING  ENTRIES</b></td>
+</tr> 
+</table>
+<table border='1' style='width:700px; margin:3px 0' cellpadding='5' cellspacing='0' style='border-collapse:collapse;'>  
+<tr style="border-top: 2px black"> 
+	<td align="center" style="padding: 5px;" rowspan="2"><b>Responsibility<br/>Center</b></td>
+	<td align="center" style="padding: 5px;" rowspan="2" width="300"><b>Accounts and Explanation</b></td>
+	<td align="center" style="padding: 5px;" rowspan="2"><b>Account Code</td>
+	<td align="center" style="padding: 5px;" colspan="2"><b>Amount</b></td>
+</tr> 
+<tr style="border-top: 1px solid #d1d1d1"> 
+	<td align="center" style="padding: 5px 0px;"><b>Debit</b></td>
+	<td align="center" style="padding: 5px 0px;"><b>Credit</b></td>
+</tr> 
+[journal_item]
+ <tr> 
+	<td colspan="3" align="right" ><b>TOTAL</b></td>
+	<td align="right" style="padding: 5px;"><b><span style="font-size: 15px;">[totaldebit]</span></b></td>
+	<td align="right" style="padding: 5px;"><b><span style="font-size: 15px;">[totalcredit]</span></b></td>
+</tr>
+</table>
+
+
+<div style="width:700px;" align="left">
+
+		<div style="width:120px; float: left" align="left">
+		<p align="left">Certified Correct by:</br></br></br>
+		 
+		</div>
+
+		<div style="width:200px;float: left" align="center">
+		<p align="center"></br></br></br>
+		<font style="text-decoration: underline;"><b>[certified]</b></font></br>
+		[position]</p>
+		</div>
+
+ 
+</div>
+<div>
+</body> 
+ </html>
+
+ 
+

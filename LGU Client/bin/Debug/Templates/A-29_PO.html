@@ -1,0 +1,156 @@
+<!DOCTYPE html> 
+ <html> 
+ <head> 
+ <STYLE type="text/css">
+ body{ margin:0 auto;  font-family: Arial; font-size: 13px; } 
+ .border {border-collapse: collapse ; border: 1px solid #a5a4a4; }
+ td, th { padding: 4px 4px; border: 1px solid #a5a4a4;}
+ p{font-size: 13px; }
+ strong{font-size: 13px; }
+ h1, h2, h3, h4{margin:0;}
+
+.noborder td, th {border: none; padding: 0; }
+
+ #container {
+	width: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.content {
+	float: left;
+}
+table{
+	page-break-inside: avoid;
+}
+
+.tableitems{
+	border-collapse: collapse ; border: 1px solid #a5a4a4; padding: 4px 4px;
+}
+
+.tableitems th{
+	border-collapse: collapse; border: 1px solid #a5a4a4;
+}
+
+.tableitems td{
+	border-collapse: collapse; border-left:  1px solid #a5a4a4; border-right:  1px solid #a5a4a4; border-top: none; border-bottom: none;margin-bottom: 20px;
+
+}
+
+ 
+</style>
+
+ </head> 
+ <body> 
+ <div id="container">
+	<div class="content">
+		<p align="right">Annex 29</p>
+<table class="border" border='1' style='width:700px; margin:3px 0' cellpadding='4' cellspacing='0' style='border-collapse:collapse;'>  
+<tr> 
+	<td align="center" height="20px" width="450" colspan="4"><br/><br/><h1>PURCHASE ORDER</h1><h3>[municipality]</h3><br/></td>
+</tr> 
+  
+	<tr>
+		<td align="right" width="auto">Supplier</td><td><b>[suppliername]</b></td>
+		<td align="right" width="auto">PO No</td><td><b>[ponumber]</b></td>
+	</tr>
+	<tr>
+		<td align="right">Address</td><td><b>[supplieraddress]</b></td>
+		<td align="right">PO Date</td><td><b>[po_date]</b></td>
+	</tr>
+	<tr>
+		<td align="right">TIN</td><td><b>[suppliertin]</b></td>
+		<td align="right">PR No</td><td><b>[pr_no]</b></td>
+	</tr>
+	<tr>
+		<td align="right">Procurement Mode</td><td><b>[procurementmode]</b></td>
+		<td align="right">PR Date</td><td><b>[pr_date]</b></td>
+	</tr>
+
+	<tr><td colspan="4" height="60">Gentlement: <br><br>&emsp;&emsp;&emsp; Please furnish this office the following articles subject to the term and conditions contained herein.</td></tr>
+	
+	<tr>
+		<td align="right">Place of Delivery</td><td><b>[placedelivery]</b></td>
+		<td align="right">Delivery Term</td><td><b>[deliveryterm]</b></td>
+	</tr>
+	<tr>
+		<td align="right">Date Delivery</td><td><b>[deliverydate]</b></td>
+		<td align="right">Payment Mode</td><td><b>[paymentmode]</b></td>
+	</tr>
+</table>
+<table class="tableitems" border='1' style='width:700px; margin:3px 0' cellpadding='0' cellspacing='0' style='border-collapse:collapse;'> 
+	<tr> 
+		<th align="center"><b>#</b></th>
+		<th align="center"><b>Stock<br/>No.</b></th>
+		<th align="center"><b>Unit</b></th>
+		<th align="center"><b>Description</b></th>
+		<th align="center"><b>Quantity</b></th>
+		<th align="center"><b>Unit Cost</b></th>
+		<th align="center"><b>Amount</b></th>
+	</tr>
+	 [itemrow]
+	<tr>
+		<td style="border-collapse: collapse ; border: 1px solid #a5a4a4; padding: 4px 4px;" colspan="6">Amount in Words: [amountinwords]</td>
+		<td style="border-collapse: collapse ; border: 1px solid #a5a4a4; padding: 4px 4px;" align="right"><b>[totalamount]</b></td>
+	</tr>
+</table>
+ <table class="border" border='1' style='width:700px; margin:3px 0' cellpadding='4' cellspacing='0' style='border-collapse:collapse;'>
+ <tr> 
+	<td colspan="4" height="60" align="center"><b>In case of failure to make the full delivery within the specific date above,<br/>a penalty of one-tenth (1/10) of one percent for every day of delay shall be imposed</b></td>
+</tr> 
+ <tr>
+ 	<td rowspan="2" width="50%">
+ 		<table class="noborder" align="center">
+ 			<tr align="center"><td style="font-size: 12px;">Conforme:</td></tr>
+ 			<tr align="center"><td>&nbsp;</td></tr>
+ 			<tr align="center"><td><b>[suppliername]</b></td></tr>
+ 			<tr align="center"><td>&nbsp;</td></tr>
+ 			<tr align="center"><td>_______________________________</td></tr>
+ 			<tr align="center"><td style="font-size: 12px;">Signature over Printed Name of Supplier</td></tr>
+ 			<tr align="center"><td>&nbsp;</td></tr>
+ 			<tr align="center"><td>______________</td></tr>
+ 			<tr align="center"><td style="font-size: 12px;">Date</td></tr>
+ 		</table>
+ 	</td>
+ 	<td>
+ 		<table class="noborder" align="center">
+ 			<tr align="center"><td style="font-size: 12px;">Very Truly Yours:</td></tr>
+ 			<tr align="center"><td height="40">&nbsp;</td></tr>
+ 			<tr align="center"><td><b><u>[mayorname]</u></b></td></tr>
+ 			<tr align="center"><td style="font-size: 12px;">[mayorposition]</td></tr>
+ 		</table>
+ 	</td>
+ </tr>
+ <tr><td>
+ 	<table class="noborder" align="center">
+ 			<tr align="center"><td style="font-size: 12px;">Funds Available:</td></tr>
+ 			<tr align="center"><td height="40">&nbsp;</td></tr>
+ 			<tr align="center"><td><b><u>[financename]</u></b></td></tr>
+ 			<tr align="center"><td style="font-size: 12px;">[financeposition]</td></tr>
+ 		</table>
+ </td></tr>
+ <tr id="sanggunian" style="visibility: [visibility];">
+ 	<td align="center" colspan="2">
+ 		<table class="noborder" style="line-height: 25px">
+ 			<tr><td colspan="3">(In case of Negotiated Purchase pursuant to Section 369 (a) of RA 7160, this portion must be accomplished.)</td></tr>
+ 			<tr><td colspan="3">Approved per Sanggunian Resolution No.: <b><u>[resolution_no]</u></b></td></tr>
+ 			<tr><td colspan="3" height="40">&nbsp;</td></tr>
+ 			<tr><td width="130" style="vertical-align: top;">Certified Correct:</td>
+ 				<td align="center"><b><u>[secretaryname]</u></b><br/>Secretary to the Sanggunian</td>
+ 				<td align="center"><b><u>[dateapproved]</u></b><br/>Date</td>
+ 			</tr>
+ 		</table>
+
+ 	</td>
+ </tr>
+ 
+</table>
+
+ 
+</div>
+<div>
+</body> 
+ </html>
+
+ 
+

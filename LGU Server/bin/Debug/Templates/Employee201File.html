@@ -1,0 +1,146 @@
+<!DOCTYPE html> 
+ <html> 
+ <head> 
+ <STYLE type="text/css">
+ body{ margin: auto; padding:0px;  font-family: Arial; font-size:  13px; } 
+ table {border-collapse: collapse;font-size: 13px; }
+ td, th {padding: 2px 5px; }
+
+.family {border-collapse: collapse;font-size: 13px; border: 1px solid #d1d1d1;}
+.family td, th {padding: 2px 5px; border: 1px solid #d1d1d1;}
+
+table tr {
+	page-break-inside: avoid;
+}
+
+ p{font-size: 13px;}
+ b{font-size: 13px;}
+ strong{font-size: 13px;}
+#container {
+	width: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: Arial; font-size:  13px;
+}
+.content {
+	float: left;
+	width: 700px;
+}
+.title1{
+	padding: 5px;
+	width: 150px;
+	background-color: #e4e4e4;
+	border: 1px solid #d1d1d1;
+}
+
+.details1{
+	font-family: Arial; font-size:  13px;
+	padding: 5px;
+
+	border: 1px solid #d1d1d1;
+}
+hr{ clear:both;  border: 0.5px solid #d1d1d1; }
+.break{ clear:both;  border:none;}
+@page {
+    size: Legal;
+    margin: 0.4in
+}
+
+</style>
+
+ </head> 
+ <body> 
+ <div id="container">
+	<div class="content">
+		[logo]
+		<div style="width: auto; border: 1px solid #FFF; ">[report header]</div>
+		<h2  style="width: auto; text-align: center;">COMPREHENSIVE EMPLOYEE FILE</h2>
+		<div style="width: auto; float: left; width: 350px" align="center">
+		    <img src="image/[employeeid].jpg" style="margin: 10px 10px 0px; width: 200px;  border: 1px solid #d1d1d1;">
+			<h3>[fullname][nickname]</h3>		
+		</div>
+		
+		<div style="width: 350px;  margin:10px 0px 10px 0px; float: right;">
+ 			<table Border='0' width="100%" Cellpadding='4' Cellspacing='0' >
+ 				<tr><td Colspan="2" Align="Left" class="details1"><Strong>Personal Information</Strong></td></tr>
+ 				<tr><td Class="title1">Employee ID</td><td Class="details1" >[employeeid]</td></tr> 
+ 				<tr><td Class="title1">Birth Date</td><td Class="details1">[birthdate]</td></tr>
+				<tr><td Class="title1">Birth Place</td><td Class="details1">[birthplace]</td></tr>
+				<tr><td Class="title1">Gender</td><td Class="details1">[gender]</td></tr>
+				<tr><td Class="title1">Civil Status</td><td Class="details1">[civilstatus]</td></tr>
+				<tr><td Class="title1">Spouse</td><td Class="details1">[spouse]</td></tr>
+				<tr><td Class="title1">Height</td><td Class="details1">[height]</td></tr>
+				<tr><td Class="title1">Weight</td><td Class="details1">[weight]</td></tr>
+				<tr><td Class="title1">Nationality</td><td Class="details1">[nationality]</td></tr>
+				<tr><td Class="title1">Religion</td><td Class="details1">[religion]</td></tr>
+ 			</Table>
+	</div>
+	<hr/>
+	<div style="width: 350px;  margin:10px 0px 10px 0px; float: left">
+ 			<table Border='0' width="100%" Cellpadding='4' Cellspacing='0' >
+ 				<tr><td Colspan="2" Align="Left"  class="details1"><Strong>Employment Status</Strong></td></tr>
+ 				<tr><td Class="title1">Current Status</td><td Class="details1">[employementstatus]</td></tr>
+				<tr><td Class="title1">Date Hired</td><td Class="details1" >[datehired]</td></tr> 
+ 				<tr><td Class="title1">Date Regular</td><td Class="details1">[dateregular]</td></tr>
+				<tr><td Class="title1">Assigned Office</td><td Class="details1">[office]</td></tr>
+				<tr><td Class="title1">Department</td><td Class="details1">[department]</td></tr>
+				<tr><td Class="title1">Position</td><td Class="details1">[position]</td></tr>
+				<tr><td Class="title1">Basic Rate</td><td Class="details1">[basicrate]</td></tr>
+				<tr><td Class="title1">Shift Time</td><td Class="details1">[shifttime]</td></tr>
+				<tr><td Class="title1">Actived</td><td Class="details1">[actived]</td></tr>
+
+				<tr><td Colspan="2" Align="Left"  class="details1"><Strong>Contact information</Strong></td></tr>
+				<tr><td Class="title1">Celphone Number</td><td Class="details1" >[contactnumber]</td></tr> 
+ 				<tr><td Class="title1">Home Number</td><td Class="details1">[homenumber]</td></tr>
+				<tr><td Class="title1">Email Address</td><td Class="details1">[emailaddress]</td></tr>
+				<tr><td Class="title1">Facebook</td><td Class="details1"><a href="[facebooklink]">[facebook]</a></td></tr>
+				
+ 			</Table>
+	</div>
+	<div style="width: 350px;  margin:10px 0px 10px 0px; float: right;">
+			<table Border='0' width="100%" Cellpadding='4' Cellspacing='0' style='Border-Collapse:Collapse;'> 
+				<tr><td Colspan="2" Align="Left" class="details1"><Strong>Incase of Imergency Contact</Strong></td></tr>
+				<tr><td Class="title1">Contact Person</td><td Class="details1">[incasecontactperson]</td></tr>
+				<tr><td Class="title1">Contact Number</td><td Class="details1">[incasecontactnumber]</td></tr>
+				<tr><td Class="title1">Address</td><td Class="details1">[incaseaddress]</td></tr>
+
+ 				<tr><td Colspan="2" Align="Left" class="details1"><Strong>Current Address</Strong></td></tr>
+ 				<tr><td Class="title1">Street</td><td Class="details1">[cur_purok]</td></tr>
+ 				<tr><td Class="title1">Barangay</td><td Class="details1">[cur_barangay]</td></tr>
+ 				<tr><td Class="title1">Province</td><td Class="details1" >[cur_province]</td></tr> 
+ 				<tr><td Class="title1">Municipality</td><td Class="details1">[cur_municipality]</td></tr>
+				
+				<tr><td Colspan="2" Align="Left" class="details1"><Strong>Permanent Address</Strong></td></tr>
+				<tr><td Class="title1">Street</td><td Class="details1">[per_purok]</td></tr>
+				<tr><td Class="title1">Barangay</td><td Class="details1">[per_barangay]</td></tr>
+				<tr><td Class="title1">Province</td><td Class="details1" >[per_province]</td></tr> 
+ 				<tr><td Class="title1">Municipality</td><td Class="details1">[per_municipality]</td></tr>
+				[governmentid]
+				
+			</table>
+  		   </div>
+  		    <hr/>
+  		  	[education]
+  		  	[workhistory]
+  		  	[certification]
+  		   
+  		   <p style="font-size: 10px; color: grey" align="center">[watermark]</p>
+		
+		 
+		
+	</div>
+</div>
+</body> 
+ </html>
+
+
+
+
+
+
+
+
+
+
+
