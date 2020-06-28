@@ -50,19 +50,19 @@ Module Printing
         Return PrintSetupHeaderGL
     End Function
 
-    Public Sub PrintViaInternetExplorer(ByVal location As String, ByVal form As Windows.Forms.Form)
+    Public Sub PrintViaInternetExplorer(ByVal location As String, ByVal form As Form)
         Try
             System.Diagnostics.Process.Start(location)
             'form.WindowState = FormWindowState.Minimized
         Catch ex As Exception
-            MessageBox.Show("File not found!", _
+            MessageBox.Show("File not found!",
                           "Error Reprint Transaction", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     Public Sub PrintDatagridview(ByVal ReportTitle As String, ByVal TableTitle As String, ByVal ReportDescription As String, ByVal gv As DevExpress.XtraGrid.Views.Grid.GridView, ByVal form As Form)
         If gv.RowCount = 0 Then
-            MessageBox.Show("No data report to print!", _
+            MessageBox.Show("No data report to print!",
                        "Error Print", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
@@ -241,14 +241,14 @@ Module Printing
         Return newCellData
     End Function
 
-    Public Sub PrintLXReceipt(ByVal location As String, ByVal form As Windows.Forms.Form)
+    Public Sub PrintLXReceipt(ByVal location As String, ByVal form As Form)
         Dim printProcess As New Diagnostics.ProcessStartInfo()
         printProcess.FileName = location
         Try
             Process.Start(printProcess)
             'form.WindowState = FormWindowState.Minimized
         Catch ex As Exception
-            MessageBox.Show("File not found!", _
+            MessageBox.Show("File not found!",
                           "Error Reprint Transaction", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub

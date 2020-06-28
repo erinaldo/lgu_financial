@@ -84,7 +84,7 @@ Public Class frmLXPrinterSettings
         End If
         If MessageBox.Show("Are you sure you want to save settings? ", GlobalOrganizationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             While MainForm.BackgroundWorker1.IsBusy()
-                Windows.Forms.Application.DoEvents()
+                Application.DoEvents()
             End While
             Try
                 If ckEnableLxPrinter.Checked = True Then

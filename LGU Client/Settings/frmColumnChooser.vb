@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 
 Public Class frmColumnChooser
-    Dim gv As Windows.Forms.DataGridView
+    Dim gv As DataGridView
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
         If keyData = (Keys.Escape) Then
             Me.Close()
@@ -32,7 +32,7 @@ Public Class frmColumnChooser
             End Try
         End If
     End Sub
-    Public Sub init_grid(ByVal grid As Windows.Forms.DataGridView)
+    Public Sub init_grid(ByVal grid As DataGridView)
         gv = grid
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmdSave.Click

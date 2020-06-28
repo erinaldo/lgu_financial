@@ -4,7 +4,7 @@ Imports DevExpress.Skins
 
 Public Class frmColumnFilter
     Public xgrid As DevExpress.XtraGrid.Views.Grid.GridView
-    Public xcmd As Windows.Forms.ToolStripMenuItem
+    Public xcmd As ToolStripMenuItem
     Public xfilterName As String
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
         If keyData = (Keys.Escape) Then

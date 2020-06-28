@@ -23,7 +23,7 @@ Module HTMLPrintingSetup
                             + "<b>" & UCase(compOfficename) & "</b><br/> "
         Return PrintSetupHeader
     End Function
-    Public Sub PrintViaInternetExplorer(ByVal location As String, ByVal form As Windows.Forms.Form)
+    Public Sub PrintViaInternetExplorer(ByVal location As String, ByVal form As  Form)
         Try
             System.Diagnostics.Process.Start(location)
             'form.WindowState = FormWindowState.Minimized

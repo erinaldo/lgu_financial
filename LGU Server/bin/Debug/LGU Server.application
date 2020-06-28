@@ -4,17 +4,17 @@
   <description asmv2:publisher="LGU Server" asmv2:product="LGU Server" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
-    <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="LGU Server.exe.manifest" size="123181">
+    <dependentAssembly dependencyType="install" codebase="LGU Server.exe.manifest" size="131861">
       <assemblyIdentity name="LGU Server.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Bl9gyfWym+f7Hr/OyA/c4qgNJIs=</dsig:DigestValue>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>SAP7EOP+RAwn86gCHBjvVy/5iF9B9eQRTg3f5AFiIMM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -157,7 +157,7 @@ Public Class frmRealPropertyTax
     Private Sub dgv_EditingControlShowing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewEditingControlShowingEventArgs) Handles dgv.EditingControlShowing
         Try
             If dgv.CurrentCell.ColumnIndex = 6 Then
-                Dim combo As Windows.Forms.ComboBox = CType(e.Control, Windows.Forms.ComboBox)
+                Dim combo As System.Windows.Forms.ComboBox = CType(e.Control, System.Windows.Forms.ComboBox)
                 If (combo IsNot Nothing) Then
                     RemoveHandler combo.SelectionChangeCommitted, New EventHandler(AddressOf Tax_SelectionChangeCommitted)
                     AddHandler combo.SelectionChangeCommitted, New EventHandler(AddressOf Tax_SelectionChangeCommitted)
@@ -173,7 +173,7 @@ Public Class frmRealPropertyTax
 
 
     Private Sub Tax_SelectionChangeCommitted(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Dim combo As Windows.Forms.CheckBox = CType(sender, Windows.Forms.CheckBox)
+        Dim combo As CheckBox = CType(sender, CheckBox)
 
     End Sub
 

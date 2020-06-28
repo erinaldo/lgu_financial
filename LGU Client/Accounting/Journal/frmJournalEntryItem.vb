@@ -23,7 +23,7 @@ Public Class frmJournalEntryItem
     End Sub
 
     Public Sub LoadOffice()
-        LoadXgridLookupSearch("select officeid as code,officename as 'Select' from tblcompoffice  order by officename asc", "tblcompoffice", txtOffice, gridOffice)
+        LoadXgridLookupSearch("select officeid as code,officename as 'Select' from tblcompoffice where deleted=0  order by officename asc", "tblcompoffice", txtOffice, gridOffice)
         gridOffice.Columns("code").Visible = False
     End Sub
 

@@ -393,7 +393,7 @@ Module library
             End Try
         End If
     End Sub
-    Public Function LoadToComboBox(ByVal cb As Windows.Forms.ComboBox, ByVal path As String)
+    Public Function LoadToComboBox(ByVal cb As ComboBox, ByVal path As String)
         Dim chpname As String = ""
         Dim strSetup As String = ""
         Dim sr As StreamReader = File.OpenText(path)
@@ -430,7 +430,7 @@ Module library
             grdView.Rows(grdView.RowCount - 1).DefaultCellStyle.ForeColor = Color.White
         End If
     End Function
-    Public Function LoadToComboBoxTxt(ByVal cb As Windows.Forms.ComboBox, ByVal path As String)
+    Public Function LoadToComboBoxTxt(ByVal cb As ComboBox, ByVal path As String)
         Dim chpname As String = ""
         Dim strSetup As String = ""
         Dim sr As StreamReader = File.OpenText(path)
@@ -443,7 +443,7 @@ Module library
         sr.Close()
         Return 0
     End Function
-    Public Function LoadToComboBoxDBWithID(ByVal cb As Windows.Forms.ComboBox, ByVal path As String)
+    Public Function LoadToComboBoxDBWithID(ByVal cb As ComboBox, ByVal path As String)
         Dim chpname As String = ""
         Dim strSetup As String = ""
         Dim sr As StreamReader = File.OpenText(path)
@@ -458,7 +458,7 @@ Module library
         sr.Close()
         Return 0
     End Function
-    Public Function LoadToComboBoxDB(ByVal query As String, ByVal fields As String, ByVal id As String, ByVal cb As Windows.Forms.ComboBox)
+    Public Function LoadToComboBoxDB(ByVal query As String, ByVal fields As String, ByVal id As String, ByVal cb As ComboBox)
         cb.Items.Clear()
         com.CommandText = query : rst = com.ExecuteReader
         While rst.Read
@@ -469,7 +469,7 @@ Module library
         rst.Close()
         Return 0
     End Function
-    Public Function LoadToToolStripComboBox(ByVal query As String, ByVal fields As String, ByVal id As String, ByVal cb As Windows.Forms.ToolStripComboBox)
+    Public Function LoadToToolStripComboBox(ByVal query As String, ByVal fields As String, ByVal id As String, ByVal cb As ToolStripComboBox)
         cb.Items.Clear()
         com.CommandText = query : rst = com.ExecuteReader
         While rst.Read
@@ -547,7 +547,7 @@ Module library
         End Try
         Return True
     End Function
-    Public Function LoadToGridComboBox(ByVal query As String, ByVal fields As String, ByVal cb As Windows.Forms.DataGridViewComboBoxColumn)
+    Public Function LoadToGridComboBox(ByVal query As String, ByVal fields As String, ByVal cb As DataGridViewComboBoxColumn)
         cb.Items.Clear()
         com.CommandText = query : rst = com.ExecuteReader
         While rst.Read

@@ -90,7 +90,7 @@ Public Class frmUsersAccounts
     End Sub
 
     Public Sub loadOffice()
-        LoadXgridLookupSearch("select officeid, officename as 'Select Office' from tblcompoffice order by officename asc", "tblcompoffice", txtoffice, txtofficeView, Me)
+        LoadXgridLookupSearch("select officeid, officename as 'Select Office' from tblcompoffice where deleted=0 order by officename asc", "tblcompoffice", txtoffice, txtofficeView, Me)
         txtofficeView.Columns("officeid").Visible = False
     End Sub
     Private Sub txtoffice_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtoffice.EditValueChanged

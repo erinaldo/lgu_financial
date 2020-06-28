@@ -28,7 +28,7 @@ Public Class frmBudgetComposition
     End Sub
 
     Public Sub LoadOffice()
-        LoadXgridLookupSearch("SELECT officeid as code, officename as 'Select'  from tblcompoffice order by officename asc", "tblcompoffice", txtOffice, gridoffice, Me)
+        LoadXgridLookupSearch("SELECT officeid as code, officename as 'Select'  from tblcompoffice where deleted=0 order by officename asc", "tblcompoffice", txtOffice, gridoffice, Me)
         XgridHideColumn({"code"}, gridoffice)
     End Sub
 

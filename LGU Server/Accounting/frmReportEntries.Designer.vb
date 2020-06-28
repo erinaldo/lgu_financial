@@ -117,7 +117,7 @@ Partial Class frmReportEntries
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(1158, 24)
+        Me.barDockControlTop.Size = New System.Drawing.Size(1158, 28)
         '
         'barDockControlBottom
         '
@@ -131,17 +131,17 @@ Partial Class frmReportEntries
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 24)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 28)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 629)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 625)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(1158, 24)
+        Me.BarDockControl1.Location = New System.Drawing.Point(1158, 28)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 629)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 625)
         '
         'RepositoryItemTextEdit1
         '
@@ -158,15 +158,15 @@ Partial Class frmReportEntries
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(1158, 24)
+        Me.barDockControlRight.Location = New System.Drawing.Point(1158, 28)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 629)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 625)
         '
         'SplitContainerControl1
         '
         Me.SplitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainerControl1.Horizontal = False
-        Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 24)
+        Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 28)
         Me.SplitContainerControl1.Name = "SplitContainerControl1"
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.LabelControl4)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.cmdRange)
@@ -184,7 +184,7 @@ Partial Class frmReportEntries
         Me.SplitContainerControl1.Panel1.Text = "Panel1"
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
-        Me.SplitContainerControl1.Size = New System.Drawing.Size(1158, 629)
+        Me.SplitContainerControl1.Size = New System.Drawing.Size(1158, 625)
         Me.SplitContainerControl1.SplitterPosition = 98
         Me.SplitContainerControl1.TabIndex = 6
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
@@ -271,7 +271,7 @@ Partial Class frmReportEntries
         Me.txtMonth.Properties.AppearanceDropDown.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtMonth.Properties.AppearanceDropDown.Options.UseFont = True
         Me.txtMonth.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.txtMonth.Properties.Items.AddRange(New Object() {"", "JANUARY", "FEBUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"})
+        Me.txtMonth.Properties.Items.AddRange(New Object() {"", "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"})
         Me.txtMonth.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.txtMonth.Size = New System.Drawing.Size(156, 26)
         Me.txtMonth.TabIndex = 641
@@ -364,7 +364,7 @@ Partial Class frmReportEntries
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(1158, 526)
+        Me.Em.Size = New System.Drawing.Size(1158, 517)
         Me.Em.TabIndex = 633
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '

@@ -523,7 +523,7 @@ Public Class MainForm
 
     Private Sub AboutCoffeecupToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutCoffeecupToolStripMenuItem.Click
         While BackgroundWorker1.IsBusy()
-            Windows.Forms.Application.DoEvents()
+            Application.DoEvents()
         End While
         frmSystemInfo.ShowDialog()
     End Sub
@@ -633,7 +633,7 @@ Public Class MainForm
 
     Private Sub ChangeAccountPasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangeAccountPasswordToolStripMenuItem.Click
         While BackgroundWorker1.IsBusy()
-            Windows.Forms.Application.DoEvents()
+            Application.DoEvents()
         End While
         If frmAccountInformation.Visible = False Then
             frmAccountInformation.Show(Me)

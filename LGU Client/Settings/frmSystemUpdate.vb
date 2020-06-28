@@ -33,7 +33,7 @@ Public Class frmSystemUpdate
         End If
 
         While MainForm.BackgroundWorker1.IsBusy()
-            Windows.Forms.Application.DoEvents()
+            Application.DoEvents()
         End While
 
         Dim fieldname As String = ""

@@ -83,7 +83,7 @@ Public Class frmAccountInformation
         End If
         If MessageBox.Show("Are you sure you want to update changes? ", GlobalOrganizationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             While MainForm.BackgroundWorker1.IsBusy()
-                Windows.Forms.Application.DoEvents()
+                Application.DoEvents()
             End While
             com.CommandText = "update tblaccounts set nickname='" & rchar(txtNickname.Text) & "', designation='" & rchar(txtPosition.Text) & "', emailaddress='" & txtEmail.Text & "', contactnumber='" & txtContactNumber.Text & "', iconfolderclient='" & txtSystemIcon.Text & "',bgcolorclient='" & txtBgColor.Text & "',fontcolorclient='" & txtFontColor.Text & "', requiredupdate=0 where accountid='" & If(globalAssistantUserId <> "", globalAssistantUserId, globaluserid) & "' " : com.ExecuteNonQuery()
 
