@@ -99,6 +99,8 @@ Module library
         Return def
     End Function
 
+
+
     Public Function qryDate(ByVal field As String, ByVal fqry As String)
         Dim def As String = ""
         com.CommandText = "select " & fqry : rst = com.ExecuteReader
@@ -203,16 +205,32 @@ Module library
             End If
         Catch errMYSQL As MySqlException
             MessageBox.Show("Module:" & "form_load" & vbCrLf _
-                             & "Message:" & errMYSQL.Message & vbCrLf, _
+                             & "Message:" & errMYSQL.Message & vbCrLf,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         Catch errMS As Exception
             MessageBox.Show("Module:" & "form_load" & vbCrLf _
-                             & "Message:" & errMS.Message & vbCrLf, _
+                             & "Message:" & errMS.Message & vbCrLf,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
         Return 0
     End Function
+
+    Public Function getAccountSignature(ByVal userid As String) As Image
+        Dim imageSign As Image = Nothing
+        com.CommandText = "select digitalsign from tblaccounts where accountid='" & userid & "'" : rst = com.ExecuteReader()
+        While rst.Read
+            If rst("digitalsign").ToString <> "" Then
+                imgBytes = CType(rst("digitalsign"), Byte())
+                stream = New MemoryStream(imgBytes, 0, imgBytes.Length)
+                img = Image.FromStream(stream)
+                imageSign = img
+            End If
+        End While
+        rst.Close()
+        Return imageSign
+    End Function
+
     Public Function ConvertImage(ByVal fld As String) As Image
         Try
             If rst(fld).ToString <> "" Then

@@ -330,11 +330,11 @@ Public Class MdiMainmenu
     End Sub
 
     Private Sub cmdProductClassification_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdProductClassification.ItemClick
-        If frmProductClass.Visible = True Then
-            frmProductClass.Focus()
-        Else
-            frmProductClass.Show(Me)
-        End If
+        'If frmProductClass.Visible = True Then
+        '    frmProductClass.Focus()
+        'Else
+        '    frmProductClass.Show(Me)
+        'End If
     End Sub
 
     Private Sub cmdProductManagement_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdProductManagement.ItemClick
@@ -421,5 +421,45 @@ Public Class MdiMainmenu
         frmErrorCorrect.Show()
         frmErrorCorrect.Focus()
         SplashScreenManager.CloseForm()
+    End Sub
+
+    Private Sub cmdRequisitionFilter_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdRequisitionFilter.ItemClick
+        If frmRequisitionFilter.Visible = True Then
+            frmRequisitionFilter.Focus()
+        Else
+            frmRequisitionFilter.Show(Me)
+        End If
+    End Sub
+
+    Private Sub cmdCashItem_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdCashItem.ItemClick
+        If frmCashItem.Visible = True Then
+            frmCashItem.Focus()
+        Else
+            frmCashItem.Show(Me)
+        End If
+    End Sub
+
+    Private Sub cmdQuarterlyBudget_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdQuarterlyBudget.ItemClick
+        If frmBudgetQuarterly.Visible = True Then
+            frmBudgetQuarterly.Focus()
+        Else
+            frmBudgetQuarterly.Show(Me)
+        End If
+    End Sub
+
+    Private Sub cmdAROexcemption_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdAROexcemption.ItemClick
+        If frmGLAroFilter.Visible = True Then
+            frmGLAroFilter.Focus()
+        Else
+            frmGLAroFilter.Show(Me)
+        End If
+    End Sub
+
+    Private Sub cmdCheckApprovalFilter_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdCheckApprovalFilter.ItemClick
+        If frmCheckApprovalFilter.Visible = True Then
+            frmCheckApprovalFilter.Focus()
+        Else
+            frmCheckApprovalFilter.Show(Me)
+        End If
     End Sub
 End Class

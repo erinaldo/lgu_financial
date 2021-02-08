@@ -52,10 +52,9 @@ Partial Class frmQuantitySelect
         '
         'LabelControl3
         '
-        Me.LabelControl3.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.LabelControl3.Appearance.Options.UseFont = True
-        Me.LabelControl3.Location = New System.Drawing.Point(51, 11)
+        Me.LabelControl3.Location = New System.Drawing.Point(12, 7)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(110, 15)
         Me.LabelControl3.TabIndex = 574
@@ -63,7 +62,7 @@ Partial Class frmQuantitySelect
         '
         'productid
         '
-        Me.productid.Location = New System.Drawing.Point(103, 275)
+        Me.productid.Location = New System.Drawing.Point(64, 271)
         Me.productid.Name = "productid"
         Me.productid.Properties.Appearance.Options.UseFont = True
         Me.productid.Properties.Appearance.Options.UseTextOptions = True
@@ -74,7 +73,7 @@ Partial Class frmQuantitySelect
         '
         'mode
         '
-        Me.mode.Location = New System.Drawing.Point(183, 275)
+        Me.mode.Location = New System.Drawing.Point(144, 271)
         Me.mode.Name = "mode"
         Me.mode.Properties.Appearance.Options.UseFont = True
         Me.mode.Properties.Appearance.Options.UseTextOptions = True
@@ -85,9 +84,7 @@ Partial Class frmQuantitySelect
         '
         'txtproduct
         '
-        Me.txtproduct.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtproduct.Location = New System.Drawing.Point(51, 30)
+        Me.txtproduct.Location = New System.Drawing.Point(12, 26)
         Me.txtproduct.Name = "txtproduct"
         Me.txtproduct.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI Semibold", 11.0!, System.Drawing.FontStyle.Bold)
         Me.txtproduct.Properties.Appearance.Options.UseFont = True
@@ -97,11 +94,10 @@ Partial Class frmQuantitySelect
         '
         'cmdaction
         '
-        Me.cmdaction.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdaction.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
         Me.cmdaction.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdaction.Appearance.Options.UseFont = True
-        Me.cmdaction.Location = New System.Drawing.Point(285, 488)
+        Me.cmdaction.Location = New System.Drawing.Point(246, 380)
         Me.cmdaction.Name = "cmdaction"
         Me.cmdaction.Size = New System.Drawing.Size(182, 36)
         Me.cmdaction.TabIndex = 3
@@ -109,8 +105,7 @@ Partial Class frmQuantitySelect
         '
         'txtUnit
         '
-        Me.txtUnit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtUnit.Location = New System.Drawing.Point(371, 61)
+        Me.txtUnit.Location = New System.Drawing.Point(332, 57)
         Me.txtUnit.Name = "txtUnit"
         Me.txtUnit.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtUnit.Properties.Appearance.Options.UseFont = True
@@ -123,10 +118,9 @@ Partial Class frmQuantitySelect
         '
         'txtQuantity
         '
-        Me.txtQuantity.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtQuantity.EditValue = "1"
         Me.txtQuantity.EnterMoveNextControl = True
-        Me.txtQuantity.Location = New System.Drawing.Point(285, 61)
+        Me.txtQuantity.Location = New System.Drawing.Point(246, 57)
         Me.txtQuantity.Name = "txtQuantity"
         Me.txtQuantity.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtQuantity.Properties.Appearance.Options.UseFont = True
@@ -136,15 +130,15 @@ Partial Class frmQuantitySelect
         Me.txtQuantity.Properties.Mask.EditMask = "n"
         Me.txtQuantity.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.txtQuantity.Properties.Mask.UseMaskAsDisplayFormat = True
+        Me.txtQuantity.Properties.NullText = "0"
         Me.txtQuantity.Size = New System.Drawing.Size(82, 28)
         Me.txtQuantity.TabIndex = 0
         '
         'LabelControl6
         '
-        Me.LabelControl6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Location = New System.Drawing.Point(229, 66)
+        Me.LabelControl6.Location = New System.Drawing.Point(190, 62)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(48, 17)
         Me.LabelControl6.TabIndex = 566
@@ -152,10 +146,9 @@ Partial Class frmQuantitySelect
         '
         'LabelControl1
         '
-        Me.LabelControl1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl1.Appearance.Options.UseFont = True
-        Me.LabelControl1.Location = New System.Drawing.Point(222, 98)
+        Me.LabelControl1.Location = New System.Drawing.Point(183, 94)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(55, 17)
         Me.LabelControl1.TabIndex = 567
@@ -163,9 +156,8 @@ Partial Class frmQuantitySelect
         '
         'txtUnitPrice
         '
-        Me.txtUnitPrice.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtUnitPrice.EditValue = ""
-        Me.txtUnitPrice.Location = New System.Drawing.Point(285, 93)
+        Me.txtUnitPrice.EditValue = "0"
+        Me.txtUnitPrice.Location = New System.Drawing.Point(246, 89)
         Me.txtUnitPrice.Name = "txtUnitPrice"
         Me.txtUnitPrice.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtUnitPrice.Properties.Appearance.Options.UseFont = True
@@ -175,15 +167,15 @@ Partial Class frmQuantitySelect
         Me.txtUnitPrice.Properties.Mask.EditMask = "n"
         Me.txtUnitPrice.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.txtUnitPrice.Properties.Mask.UseMaskAsDisplayFormat = True
+        Me.txtUnitPrice.Properties.NullText = "0"
         Me.txtUnitPrice.Size = New System.Drawing.Size(182, 28)
         Me.txtUnitPrice.TabIndex = 1
         '
         'LabelControl2
         '
-        Me.LabelControl2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(248, 130)
+        Me.LabelControl2.Location = New System.Drawing.Point(209, 126)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(29, 17)
         Me.LabelControl2.TabIndex = 568
@@ -191,9 +183,8 @@ Partial Class frmQuantitySelect
         '
         'txtTotalCost
         '
-        Me.txtTotalCost.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtTotalCost.EditValue = "0.00"
-        Me.txtTotalCost.Location = New System.Drawing.Point(285, 125)
+        Me.txtTotalCost.Location = New System.Drawing.Point(246, 121)
         Me.txtTotalCost.Name = "txtTotalCost"
         Me.txtTotalCost.Properties.Appearance.BackColor = System.Drawing.Color.Yellow
         Me.txtTotalCost.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
@@ -207,13 +198,14 @@ Partial Class frmQuantitySelect
         Me.txtTotalCost.Properties.Mask.EditMask = "n"
         Me.txtTotalCost.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.txtTotalCost.Properties.Mask.UseMaskAsDisplayFormat = True
+        Me.txtTotalCost.Properties.NullText = "0"
         Me.txtTotalCost.Properties.ReadOnly = True
         Me.txtTotalCost.Size = New System.Drawing.Size(182, 28)
         Me.txtTotalCost.TabIndex = 564
         '
         'id
         '
-        Me.id.Location = New System.Drawing.Point(143, 275)
+        Me.id.Location = New System.Drawing.Point(104, 271)
         Me.id.Name = "id"
         Me.id.Properties.Appearance.Options.UseFont = True
         Me.id.Properties.Appearance.Options.UseTextOptions = True
@@ -224,11 +216,8 @@ Partial Class frmQuantitySelect
         '
         'txtRemarks
         '
-        Me.txtRemarks.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtRemarks.EditValue = ""
-        Me.txtRemarks.Location = New System.Drawing.Point(51, 159)
+        Me.txtRemarks.Location = New System.Drawing.Point(12, 155)
         Me.txtRemarks.Name = "txtRemarks"
         Me.txtRemarks.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtRemarks.Properties.Appearance.Options.UseFont = True
@@ -236,13 +225,12 @@ Partial Class frmQuantitySelect
         Me.txtRemarks.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtRemarks.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtRemarks.Properties.NullValuePrompt = "Specify transaction remarks. i.e name of person, details, etc"
-        Me.txtRemarks.Properties.NullValuePromptShowForEmptyValue = True
-        Me.txtRemarks.Size = New System.Drawing.Size(416, 323)
+        Me.txtRemarks.Size = New System.Drawing.Size(416, 219)
         Me.txtRemarks.TabIndex = 2
         '
         'catid
         '
-        Me.catid.Location = New System.Drawing.Point(63, 275)
+        Me.catid.Location = New System.Drawing.Point(24, 271)
         Me.catid.Name = "catid"
         Me.catid.Properties.Appearance.Options.UseFont = True
         Me.catid.Properties.Appearance.Options.UseTextOptions = True
@@ -257,7 +245,7 @@ Partial Class frmQuantitySelect
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(506, 551)
+        Me.ClientSize = New System.Drawing.Size(444, 430)
         Me.Controls.Add(Me.txtRemarks)
         Me.Controls.Add(Me.LabelControl3)
         Me.Controls.Add(Me.txtproduct)
@@ -273,9 +261,9 @@ Partial Class frmQuantitySelect
         Me.Controls.Add(Me.productid)
         Me.Controls.Add(Me.mode)
         Me.Controls.Add(Me.id)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.HelpButton = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MinimumSize = New System.Drawing.Size(522, 590)
         Me.Name = "frmQuantitySelect"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Particular item confirmation"

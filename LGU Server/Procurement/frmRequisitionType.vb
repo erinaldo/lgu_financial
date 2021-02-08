@@ -15,7 +15,7 @@ Public Class frmRequisitionType
     End Sub
  
     Public Sub filter()
-        LoadXgrid("Select  Code, Description  from tblrequisitiontype order by code asc", "tblrequisitiontype", Em, GridView1, Me)
+        LoadXgrid("Select  Code, Description, directapproved as 'Direct Approved', enablepr as 'Enable PR', enablepo as 'Enable PO'  from tblrequisitiontype order by code asc", "tblrequisitiontype", Em, GridView1, Me)
         XgridColWidth({"Code"}, GridView1, 80)
         XgridColAlign({"Code"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
     End Sub
@@ -33,12 +33,12 @@ Public Class frmRequisitionType
  
         End If
         If mode.Text = "edit" Then
-            com.CommandText = "update tblrequisitiontype set description='" & rchar(txtDescription.Text) & "'  where code='" & code.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "update tblrequisitiontype set description='" & rchar(txtDescription.Text) & "', directapproved=" & ckDirectApproved.CheckState & ", enablepr=" & ckEnablePr.CheckState & ", enablepo=" & ckEnablePo.CheckState & "  where code='" & code.Text & "'" : com.ExecuteNonQuery()
             XtraMessageBox.Show("Item successfully saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
-            com.CommandText = "insert into tblrequisitiontype set description='" & rchar(txtDescription.Text) & "' " : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblrequisitiontype set description='" & rchar(txtDescription.Text) & "', directapproved=" & ckDirectApproved.CheckState & ", enablepr=" & ckEnablePr.CheckState & ", enablepo=" & ckEnablePo.CheckState & " " : com.ExecuteNonQuery()
         End If
-        code.Text = "" : mode.Text = "" : txtDescription.Text = "" : txtDescription.Focus() : filter()
+        code.Text = "" : mode.Text = "" : txtDescription.Text = "" : txtDescription.Focus() : ckDirectApproved.Checked = False : ckEnablePr.Checked = False : ckEnablePo.Checked = False : filter()
 
     End Sub
 
@@ -47,6 +47,9 @@ Public Class frmRequisitionType
         com.CommandText = "select * from tblrequisitiontype where code='" & code.Text & "'" : rst = com.ExecuteReader
         While rst.Read
             txtDescription.Text = rst("description").ToString
+            ckDirectApproved.Checked = CBool(rst("directapproved").ToString)
+            ckEnablePr.Checked = CBool(rst("enablepr").ToString)
+            ckEnablePo.Checked = CBool(rst("enablepo").ToString)
         End While
         rst.Close()
     End Sub

@@ -22,7 +22,6 @@ Partial Class frmVoucherItem
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVoucherItem))
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         Me.txtAmount = New DevExpress.XtraEditors.TextEdit()
         Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
@@ -162,7 +161,6 @@ Partial Class frmVoucherItem
         Me.Controls.Add(Me.txtExplaination)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.HelpButton = True
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmVoucherItem"

@@ -26,7 +26,13 @@ Public Class frmRequisitionDocManager
 
     Private Sub frmRequisitionDocManager_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Icon = ico
-        filecode.Text = getGlobalTrnid()
+        If mode.Text <> "edit" Then
+            cmdForApproval.Text = "Confirm Attachment Files"
+            filecode.Text = getGlobalTrnid()
+        Else
+            cmdForApproval.Text = "Close Attachment Manager"
+        End If
+
         filterItem()
     End Sub
 
@@ -51,6 +57,7 @@ Public Class frmRequisitionDocManager
         frmRequisitionBrowseFile.trncode.Text = pid.Text
         frmRequisitionBrowseFile.filecode.Text = filecode.Text
         frmRequisitionBrowseFile.trntype.Text = "requisition"
+        frmRequisitionBrowseFile.requesttype.Text = requesttype.Text
         If frmRequisitionBrowseFile.Visible = True Then
             frmRequisitionBrowseFile.Focus()
         Else
@@ -74,16 +81,21 @@ Public Class frmRequisitionDocManager
     End Sub
 
     Private Sub cmdForApproval_Click(sender As Object, e As EventArgs) Handles cmdForApproval.Click
-        If MessageBox.Show("Are you sure you want to continue?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
-            com.CommandText = "insert into tblrequisitionfiles set pid='" & pid.Text & "', requesttype='" & requesttype.Text & "', filecode='" & filecode.Text & "', applevel='" & applevel.Text & "', officeid='" & compOfficeid & "', trnby='" & globaluserid & "', datetrn=current_timestamp" : com.ExecuteNonQuery()
-            If frmRequisitionInfo.Visible = True Then
-                frmRequisitionInfo.LoadFiles()
-            End If
-            If frmRequisitionForApprovalInfo.Visible = True Then
-                frmRequisitionForApprovalInfo.LoadFiles()
-            End If
-            XtraMessageBox.Show("Files successfully attached!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+        If mode.Text = "edit" Then
             Me.Close()
+        Else
+            If MessageBox.Show("Are you sure you want to continue?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+                com.CommandText = "insert into tblrequisitionfiles set pid='" & pid.Text & "', requesttype='" & requesttype.Text & "', filecode='" & filecode.Text & "', applevel='" & applevel.Text & "', officeid='" & compOfficeid & "', trnby='" & globaluserid & "', datetrn=current_timestamp" : com.ExecuteNonQuery()
+                If frmRequisitionInfo.Visible = True Then
+                    frmRequisitionInfo.LoadFiles()
+                End If
+                If frmRequisitionForApprovalInfo.Visible = True Then
+                    frmRequisitionForApprovalInfo.LoadFiles()
+                End If
+                XtraMessageBox.Show("Files successfully attached!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.Close()
+            End If
         End If
+
     End Sub
 End Class

@@ -31,7 +31,6 @@ Public Class frmVoucherRequisitionItem
         PopulateGridViewControls("Entry Code", 50, "", dgv, True, True)
         PopulateGridViewControls("Request No", 50, "", dgv, True, True)
         PopulateGridViewControls("Request Type", 50, "", dgv, True, True)
-        PopulateGridViewControls("Office", 50, "", dgv, True, True)
         PopulateGridViewControls("Current Balance", 40, "", dgv, True, True)
         PopulateGridViewControls("Total", 30, "", dgv, True, True)
         PopulateGridViewControls("Payment", 10, "", dgv, True, False)
@@ -49,28 +48,28 @@ Public Class frmVoucherRequisitionItem
         dst = Nothing : dst = New DataSet
         msda = New MySqlDataAdapter("select *,ifnull((select sum(amount) from tbldisbursementdetails where pid=a.pid and cancelled=0),0) as payment, " _
                                     + " (select description from tblrequisitiontype where code=a.requesttype) as request_type, " _
-                                    + " (select officename from tblcompoffice where officeid=a.officeid) as office, " _
                                     + " date_format(postingdate,'%Y-%m-%d') as 'PostingDate', " _
                                     + " date_format(dateapproved,'%Y-%m-%d') as 'DateApproved', " _
                                     + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) as TotalAmount " _
-                                    + " from tblrequisition as a where approved=1 and paid=0 and cancelled=0 " & If(compAccountingOffice = True, "", " and officeid='" & compOfficeid & "'") & " " _
+                                    + " from tblrequisition as a where periodcode='" & periodcode.Text & "' and officeid='" & officeid.Text & "' and approved=1 and paid=0 and cancelled=0  " _
                                     + " and (pid like '%" & txtSearch.Text & "%' or " _
-                                    + " (select officename from tblcompoffice where officeid=a.officeid) like '%" & txtSearch.Text & "%' or " _
-                                    + " requestno like '%" & txtSearch.Text & "%') order by postingdate desc", conn)
+                                    + " requestno like '%" & txtSearch.Text & "%' or " _
+                                    + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) like '%" & txtSearch.Text & "%' or " _
+                                    + " date_format(postingdate,'%Y-%m-%d')  like '%" & txtSearch.Text & "%' or " _
+                                    + " (select description from tblrequisitiontype where code=a.requesttype)  like '%" & txtSearch.Text & "%') order by postingdate desc", conn)
 
         msda.Fill(dst, 0)
         For cnt = 0 To dst.Tables(0).Rows.Count - 1
             With (dst.Tables(0))
-                dgv.Rows.Add(False, .Rows(cnt)("pid").ToString(), _
-                                                 .Rows(cnt)("requestno").ToString(), _
-                                                 .Rows(cnt)("request_type").ToString(), _
-                                                 .Rows(cnt)("office").ToString(), _
-                                                 Val(.Rows(cnt)("TotalAmount").ToString()) - Val(.Rows(cnt)("payment").ToString()), _
-                                                 Val(.Rows(cnt)("TotalAmount").ToString()) - Val(.Rows(cnt)("payment").ToString()), _
-                                                 Val(.Rows(cnt)("TotalAmount").ToString()) - Val(.Rows(cnt)("payment").ToString()), _
-                                                 0, _
-                                                 .Rows(cnt)("PostingDate").ToString(), _
-                                                 .Rows(cnt)("DateApproved").ToString(), _
+                dgv.Rows.Add(False, .Rows(cnt)("pid").ToString(),
+                                                 .Rows(cnt)("requestno").ToString(),
+                                                 .Rows(cnt)("request_type").ToString(),
+                                                 Val(.Rows(cnt)("TotalAmount").ToString()) - Val(.Rows(cnt)("payment").ToString()),
+                                                 Val(.Rows(cnt)("TotalAmount").ToString()) - Val(.Rows(cnt)("payment").ToString()),
+                                                 Val(.Rows(cnt)("TotalAmount").ToString()) - Val(.Rows(cnt)("payment").ToString()),
+                                                 0,
+                                                 .Rows(cnt)("PostingDate").ToString(),
+                                                 .Rows(cnt)("DateApproved").ToString(),
                                                  .Rows(cnt)("purpose").ToString(),
                                                  .Rows(cnt)("requesttype").ToString(),
                                                  .Rows(cnt)("officeid").ToString())
@@ -103,7 +102,7 @@ Public Class frmVoucherRequisitionItem
                     Else
                         com.CommandText = "UPDATE tblrequisition set paid=1 where pid='" & dgv.Item("Entry Code", I).Value & "'" : com.ExecuteNonQuery()
                     End If
-                    com.CommandText = "insert into tbldisbursementdetails set voucherno='" & voucherno.Text & "', pid='" & dgv.Item("Entry Code", I).Value & "', officeid='" & dgv.Item("officeid", I).Value & "', requestno='" & dgv.Item("Request No", I).Value & "',requesttype='" & dgv.Item("requesttype", I).Value & "',postingdate='" & ConvertDate(dgv.Item("Posting Date", I).Value) & "',  purpose='" & rchar(dgv.Item("Purpose", I).Value) & "', amount='" & Val(CC(dgv.Item("Payment", I).Value)) & "'" : com.ExecuteNonQuery()
+                    com.CommandText = "insert into tbldisbursementdetails set voucherno='" & voucherno.Text & "', pid='" & dgv.Item("Entry Code", I).Value & "', officeid='" & dgv.Item("officeid", I).Value & "', requestno='" & dgv.Item("Request No", I).Value & "',requesttype='" & dgv.Item("requesttype", I).Value & "',postingdate='" & ConvertDate(dgv.Item("Posting Date", I).Value) & "',  purpose='" & rchar(dgv.Item("Purpose", I).Value) & "', amount='" & Val(CC(dgv.Item("Payment", I).Value)) & "', trnreference='" & trnreference.Text & "'" : com.ExecuteNonQuery()
                 End If
             Next
             LoadRequisition()
@@ -114,7 +113,7 @@ Public Class frmVoucherRequisitionItem
     Private Sub CellValueChanged(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles dgv.CellValueChanged
         Dim gv As DataGridView = DirectCast(sender, DataGridView)
         Dim originalamount As Double = If(gv("Current Balance", e.RowIndex).Value.ToString = "", 0, Val(CC(gv("Current Balance", e.RowIndex).Value)))
-        
+
         If e.ColumnIndex = 7 Then ' enter payment amount
             Dim Total As Double = If(gv("Total", e.RowIndex).Value.ToString = "", 0, Val(CC(gv("Total", e.RowIndex).Value)))
             Dim Tenderamount As Double = If(gv("Payment", e.RowIndex).Value.ToString = "", 0, Val(CC(gv("Payment", e.RowIndex).Value)))
@@ -164,7 +163,7 @@ Public Class frmVoucherRequisitionItem
             Next
         End If
     End Sub
- 
+
     Private Sub txtfilter_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSearch.KeyPress
         If e.KeyChar() = Chr(13) Then
             LoadRequisition()

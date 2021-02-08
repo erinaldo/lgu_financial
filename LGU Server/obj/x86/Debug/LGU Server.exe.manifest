@@ -2083,14 +2083,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LGU Server.exe" size="2800128">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LGU Server.exe" size="2928640">
       <assemblyIdentity name="LGU Server" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wuOp7jT85Sn1GToHAssMEyYUTVTegbia+3TMdm/N1SY=</dsig:DigestValue>
+        <dsig:DigestValue>y/oMQiLR95KVWQiiaOETiYfxh6MlKD30u5jDM7Z8mGk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

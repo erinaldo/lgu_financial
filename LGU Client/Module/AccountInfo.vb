@@ -74,6 +74,7 @@ Module AccountInfo
     Public globalAuthRealPropertyMgt As Boolean
     Public globalAuthJournalEntryVoucher As Boolean
     Public globalAuthForApproval As Boolean
+    Public globalAuthCheckIssuanceRequest As Boolean
     Public globalAuthNewRequisition As Boolean
     Public globalAuthRequisitionList As Boolean
     Public globalAuthNewDisbursement As Boolean
@@ -88,12 +89,26 @@ Module AccountInfo
     Public GlobalOrganizationWebsite As String
     Public GlobalOrganizationLogoURL As String
     Public GlobalOrganizationContactNumber As String
+
+    Public GlobalMayorID As String
     Public GlobalMayorName As String
     Public GlobalMayorPosition As String
+
+    Public GlobalViceMayorID As String
+    Public GlobalViceMayorName As String
+    Public GlobalViceMayorPosition As String
+
+    Public GlobalAccountantID As String
     Public GlobalAccountantName As String
     Public GlobalAccountantPosition As String
+
+    Public GlobalTreasurerID As String
     Public GlobalTreasurerName As String
     Public GlobalTreasurerPosition As String
+
+    Public GlobalBudgetID As String
+    Public GlobalBudgetName As String
+    Public GlobalBudgetPosition As String
 
     Public GlobalDefaultCollection As String
     Public GlobalDefaultCedulaIndividual As String
@@ -108,7 +123,7 @@ Module AccountInfo
     Public compOfficerIncharge As String
     Public compOfficerEmail As String
     Public compOfficerPosition As String
-    Public compAccountingOffice As Boolean
+
 
     Public GlobalGLitemname As String = "if(a.level=0, a.itemname,if(a.level=1,concat('   ',a.itemname),if(a.level=2,concat('           ',a.itemname),if(a.level=3,concat('                  ',a.itemname),concat('                         ',a.itemname)))))"
 
@@ -143,7 +158,7 @@ Module AccountInfo
             globalNickName = rst("nickname").ToString
             globalposition = StrConv(rst("designation").ToString, vbProperCase)
             globalusername = rst("username").ToString
-            globalpermissioncode = Val(rst("permission").ToString)
+            globalpermissioncode = rst("permission").ToString
             globalCoffeecupUser = rst("coffeecupuser")
             globalEmailaddress = rst("emailaddress").ToString
             globalBegginingCash = rst("cashbeggining")
@@ -189,6 +204,7 @@ Module AccountInfo
             globalAuthRealPropertyMgt = rst("realpropertymgt")
             globalAuthJournalEntryVoucher = rst("journalentryvoucher")
             globalAuthForApproval = rst("forapproval")
+            globalAuthCheckIssuanceRequest = rst("checkapproval")
             globalAuthNewRequisition = rst("newrequisition")
             globalAuthRequisitionList = rst("requisitionlist")
             globalAuthNewDisbursement = rst("newdisbursement")
@@ -215,12 +231,18 @@ Module AccountInfo
             compOfficerIncharge = rst("incharge").ToString
             compOfficerPosition = rst("position").ToString
             compOfficerEmail = rst("officeremail").ToString
-            compAccountingOffice = rst("accounting")
+
         End While
         rst.Close()
 
 
-        com.CommandText = "select * from tblcompanysettings"
+        com.CommandText = "select *, " _
+            + " (select fullname from tblaccounts where accountid=a.mayorname) as mayor, " _
+            + " (select fullname from tblaccounts where accountid=a.vicemayorname) as vicemayor, " _
+            + " (select fullname from tblaccounts where accountid=a.accountantname) as accountant, " _
+            + " (select fullname from tblaccounts where accountid=a.treasurermame) as treasurer, " _
+            + " (select fullname from tblaccounts where accountid=a.budgetname) as budget " _
+            + " from tblcompanysettings as a"
         rst = com.ExecuteReader
         While rst.Read
             GlobalOrganizationName = rst("companyname").ToString
@@ -235,15 +257,28 @@ Module AccountInfo
                 System.IO.File.Delete(Application.StartupPath.ToString & "\Logo\logo.png")
             End If
             If Not picbox.Image Is Nothing Then
-                picbox.Image.Save(Application.StartupPath.ToString & "\Logo\logo.png", System.Drawing.Imaging.ImageFormat.Png)
+                picbox.Image.Save(Application.StartupPath.ToString & "\Logo\logo.png", Imaging.ImageFormat.Png)
             End If
 
-            GlobalMayorName = rst("mayorname").ToString
+            GlobalMayorID = rst("mayorname").ToString
+            GlobalMayorName = rst("mayor").ToString
             GlobalMayorPosition = rst("mayorposition").ToString
-            GlobalAccountantName = rst("accountantname").ToString
+
+            GlobalViceMayorID = rst("vicemayorname").ToString
+            GlobalViceMayorName = rst("vicemayor").ToString
+            GlobalViceMayorPosition = rst("vicemayorposition").ToString
+
+            GlobalAccountantID = rst("accountantname").ToString
+            GlobalAccountantName = rst("accountant").ToString
             GlobalAccountantPosition = rst("accountantposition").ToString
-            GlobalTreasurerName = rst("treasurermame").ToString
+
+            GlobalTreasurerID = rst("treasurermame").ToString
+            GlobalTreasurerName = rst("treasurer").ToString
             GlobalTreasurerPosition = rst("treasurerposition").ToString
+
+            GlobalBudgetID = rst("budgetname").ToString
+            GlobalBudgetName = rst("budget").ToString
+            GlobalBudgetPosition = rst("budgetposition").ToString
         End While
         rst.Close()
 
@@ -341,25 +376,25 @@ Module AccountInfo
                     xgrid.OptionsView.ShowVertLines = False
                 End If
                 If gen_header_bold = True Then
-                    xgrid.Appearance.HeaderPanel.Font = New System.Drawing.Font(gen_fontfamily, gen_FontSize, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, (CByte(204)))
-                    xgrid.Appearance.GroupRow.Font = New System.Drawing.Font(gen_fontfamily, gen_FontSize, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, (CByte(204)))
+                    xgrid.Appearance.HeaderPanel.Font = New Font(gen_fontfamily, gen_FontSize, FontStyle.Bold, GraphicsUnit.Point, (CByte(204)))
+                    xgrid.Appearance.GroupRow.Font = New Font(gen_fontfamily, gen_FontSize, FontStyle.Bold, GraphicsUnit.Point, (CByte(204)))
                 Else
-                    xgrid.Appearance.HeaderPanel.Font = New System.Drawing.Font(gen_fontfamily, gen_FontSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (CByte(204)))
-                    xgrid.Appearance.GroupRow.Font = New System.Drawing.Font(gen_fontfamily, gen_FontSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (CByte(204)))
+                    xgrid.Appearance.HeaderPanel.Font = New Font(gen_fontfamily, gen_FontSize, FontStyle.Regular, GraphicsUnit.Point, (CByte(204)))
+                    xgrid.Appearance.GroupRow.Font = New Font(gen_fontfamily, gen_FontSize, FontStyle.Regular, GraphicsUnit.Point, (CByte(204)))
                 End If
 
                 If gen_main_bold = True Then
-                    xgrid.Appearance.Row.Font = New System.Drawing.Font(gen_fontfamily, gen_FontSize, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, (CByte(204)))
+                    xgrid.Appearance.Row.Font = New Font(gen_fontfamily, gen_FontSize, FontStyle.Bold, GraphicsUnit.Point, (CByte(204)))
                 Else
-                    xgrid.Appearance.Row.Font = New System.Drawing.Font(gen_fontfamily, gen_FontSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (CByte(204)))
+                    xgrid.Appearance.Row.Font = New Font(gen_fontfamily, gen_FontSize, FontStyle.Regular, GraphicsUnit.Point, (CByte(204)))
                 End If
 
                 If gen_footer_bold = True Then
-                    xgrid.Appearance.FooterPanel.Font = New System.Drawing.Font(gen_fontfamily, gen_FontSize, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, (CByte(204)))
-                    xgrid.Appearance.GroupFooter.Font = New System.Drawing.Font(gen_fontfamily, gen_FontSize, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, (CByte(204)))
+                    xgrid.Appearance.FooterPanel.Font = New Font(gen_fontfamily, gen_FontSize, FontStyle.Bold, GraphicsUnit.Point, (CByte(204)))
+                    xgrid.Appearance.GroupFooter.Font = New Font(gen_fontfamily, gen_FontSize, FontStyle.Bold, GraphicsUnit.Point, (CByte(204)))
                 Else
-                    xgrid.Appearance.FooterPanel.Font = New System.Drawing.Font(gen_fontfamily, gen_FontSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (CByte(204)))
-                    xgrid.Appearance.GroupFooter.Font = New System.Drawing.Font(gen_fontfamily, gen_FontSize, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, (CByte(204)))
+                    xgrid.Appearance.FooterPanel.Font = New Font(gen_fontfamily, gen_FontSize, FontStyle.Regular, GraphicsUnit.Point, (CByte(204)))
+                    xgrid.Appearance.GroupFooter.Font = New Font(gen_fontfamily, gen_FontSize, FontStyle.Regular, GraphicsUnit.Point, (CByte(204)))
                 End If
 
                 xgrid.Appearance.HeaderPanel.ForeColor = Color.FromName(gen_forecolor)
@@ -436,6 +471,7 @@ Module AccountInfo
         globalAuthRealPropertyMgt = False
         globalAuthJournalEntryVoucher = False
         globalAuthForApproval = False
+        globalAuthCheckIssuanceRequest = False
         globalAuthNewRequisition = False
         globalAuthRequisitionList = False
         globalAuthNewDisbursement = False
@@ -460,7 +496,7 @@ Module AccountInfo
         compOfficerIncharge = ""
         compOfficerEmail = ""
         compOfficerPosition = ""
-        compAccountingOffice = False
+        globalSpecialApprover = False
         MainForm.ShowAllMenu(False)
         conn.Close()
     End Sub

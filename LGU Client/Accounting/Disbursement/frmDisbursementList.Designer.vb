@@ -35,6 +35,7 @@ Partial Class frmDisbursementList
         Me.cms_em = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdClearedDisbursement = New System.Windows.Forms.ToolStripMenuItem()
         Me.CreateJEVTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CheckIssuanceInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdView = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdCancel = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
@@ -138,9 +139,9 @@ Partial Class frmDisbursementList
         '
         'cms_em
         '
-        Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdClearedDisbursement, Me.CreateJEVTransactionToolStripMenuItem, Me.cmdView, Me.cmdCancel, Me.ToolStripSeparator4, Me.cmdLocalData})
+        Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdClearedDisbursement, Me.CreateJEVTransactionToolStripMenuItem, Me.CheckIssuanceInfoToolStripMenuItem, Me.cmdView, Me.cmdCancel, Me.ToolStripSeparator4, Me.cmdLocalData})
         Me.cms_em.Name = "ContextMenuStrip1"
-        Me.cms_em.Size = New System.Drawing.Size(234, 120)
+        Me.cms_em.Size = New System.Drawing.Size(234, 142)
         '
         'cmdClearedDisbursement
         '
@@ -155,6 +156,13 @@ Partial Class frmDisbursementList
         Me.CreateJEVTransactionToolStripMenuItem.Name = "CreateJEVTransactionToolStripMenuItem"
         Me.CreateJEVTransactionToolStripMenuItem.Size = New System.Drawing.Size(233, 22)
         Me.CreateJEVTransactionToolStripMenuItem.Text = "Create JEV Transaction"
+        '
+        'CheckIssuanceInfoToolStripMenuItem
+        '
+        Me.CheckIssuanceInfoToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.Action_Inline_Edit
+        Me.CheckIssuanceInfoToolStripMenuItem.Name = "CheckIssuanceInfoToolStripMenuItem"
+        Me.CheckIssuanceInfoToolStripMenuItem.Size = New System.Drawing.Size(233, 22)
+        Me.CheckIssuanceInfoToolStripMenuItem.Text = "Check Issuance Info"
         '
         'cmdView
         '
@@ -217,7 +225,7 @@ Partial Class frmDisbursementList
         Me.cmdPrint.Image = Global.LGUClient.My.Resources.Resources.document_excel_table
         Me.cmdPrint.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.Size = New System.Drawing.Size(103, 24)
+        Me.cmdPrint.Size = New System.Drawing.Size(105, 24)
         Me.cmdPrint.Text = "Export to Excel"
         '
         'ToolStripSeparator3
@@ -295,7 +303,7 @@ Partial Class frmDisbursementList
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit1})
-        Me.Em.Size = New System.Drawing.Size(990, 504)
+        Me.Em.Size = New System.Drawing.Size(990, 499)
         Me.Em.TabIndex = 820
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -425,7 +433,6 @@ Partial Class frmDisbursementList
         Me.txtSearchBar.Properties.AutoHeight = False
         Me.txtSearchBar.Properties.MaxLength = 50
         Me.txtSearchBar.Properties.NullValuePrompt = "Enter any keyword to search"
-        Me.txtSearchBar.Properties.NullValuePromptShowForEmptyValue = True
         Me.txtSearchBar.Size = New System.Drawing.Size(284, 25)
         Me.txtSearchBar.TabIndex = 0
         '
@@ -481,8 +488,6 @@ Partial Class frmDisbursementList
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents cmdPrint As System.Windows.Forms.ToolStripButton
     Friend WithEvents cmdCancel As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmdNewProperty As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents RepositoryItemPictureEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents Em As DevExpress.XtraGrid.GridControl
@@ -499,4 +504,7 @@ Partial Class frmDisbursementList
     Friend WithEvents ckPendingRequisition As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents cmdClearedDisbursement As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CreateJEVTransactionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cmdNewProperty As ToolStripButton
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents CheckIssuanceInfoToolStripMenuItem As ToolStripMenuItem
 End Class

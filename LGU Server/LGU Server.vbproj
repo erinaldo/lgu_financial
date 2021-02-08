@@ -253,6 +253,18 @@
     <Compile Include="Accounting\frmBankAccounts.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Accounting\frmGLAroFilter.Designer.vb">
+      <DependentUpon>frmGLAroFilter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frmGLAroFilter.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\frmCheckApprovalFilter.Designer.vb">
+      <DependentUpon>frmCheckApprovalFilter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frmCheckApprovalFilter.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Accounting\GL\frmGLCaptureChartofAccount.Designer.vb">
       <DependentUpon>frmGLCaptureChartofAccount.vb</DependentUpon>
     </Compile>
@@ -263,6 +275,24 @@
       <DependentUpon>frmGLChartofAccounts.vb</DependentUpon>
     </Compile>
     <Compile Include="Accounting\GL\frmGLChartofAccounts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\GL\frmCashItem.Designer.vb">
+      <DependentUpon>frmCashItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\GL\frmCashItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Budget\frmBudgetQuarterly.Designer.vb">
+      <DependentUpon>frmBudgetQuarterly.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\frmBudgetQuarterly.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Budget\frmBudgetQuarterActivate.Designer.vb">
+      <DependentUpon>frmBudgetQuarterActivate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\frmBudgetQuarterActivate.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Budget\frmExpenditureItem.Designer.vb">
@@ -295,6 +325,12 @@
     <Compile Include="Procurement\frmRequisitionType.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Procurement\frmRequisitionFilter.Designer.vb">
+      <DependentUpon>frmRequisitionFilter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procurement\frmRequisitionFilter.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Product\frmProductCategory.Designer.vb">
       <DependentUpon>frmProductCategory.vb</DependentUpon>
     </Compile>
@@ -323,6 +359,12 @@
       <DependentUpon>frmProductMeasurement.vb</DependentUpon>
     </Compile>
     <Compile Include="Product\frmProductMeasurement.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product\frmSetProductCategory.Designer.vb">
+      <DependentUpon>frmSetProductCategory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Product\frmSetProductCategory.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Tax Payer\frmTaxpayerRecord.Designer.vb">
@@ -449,12 +491,6 @@
       <DependentUpon>frmChangePassword.vb</DependentUpon>
     </Compile>
     <Compile Include="Settings\frmChangePassword.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Settings\frmCoffeecupClientAccess.Designer.vb">
-      <DependentUpon>frmCoffeecupClientAccess.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\frmCoffeecupClientAccess.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Settings\frmDepartmentInfo.designer.vb">
@@ -598,11 +634,26 @@
     <EmbeddedResource Include="Accounting\frmBankAccounts.resx">
       <DependentUpon>frmBankAccounts.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frmGLAroFilter.resx">
+      <DependentUpon>frmGLAroFilter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frmCheckApprovalFilter.resx">
+      <DependentUpon>frmCheckApprovalFilter.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accounting\GL\frmGLCaptureChartofAccount.resx">
       <DependentUpon>frmGLCaptureChartofAccount.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\GL\frmGLChartofAccounts.resx">
       <DependentUpon>frmGLChartofAccounts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\GL\frmCashItem.resx">
+      <DependentUpon>frmCashItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\frmBudgetQuarterly.resx">
+      <DependentUpon>frmBudgetQuarterly.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\frmBudgetQuarterActivate.resx">
+      <DependentUpon>frmBudgetQuarterActivate.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Budget\frmExpenditureItem.resx">
       <DependentUpon>frmExpenditureItem.vb</DependentUpon>
@@ -619,6 +670,9 @@
     <EmbeddedResource Include="Procurement\frmRequisitionType.resx">
       <DependentUpon>frmRequisitionType.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Procurement\frmRequisitionFilter.resx">
+      <DependentUpon>frmRequisitionFilter.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Product\frmProductCategory.resx">
       <DependentUpon>frmProductCategory.vb</DependentUpon>
     </EmbeddedResource>
@@ -633,6 +687,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Product\frmProductMeasurement.resx">
       <DependentUpon>frmProductMeasurement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\frmSetProductCategory.resx">
+      <DependentUpon>frmSetProductCategory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tax Payer\frmTaxpayerRecord.resx">
       <DependentUpon>frmTaxpayerRecord.vb</DependentUpon>
@@ -690,9 +747,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings\frmCoffeecupClientAccess.resx">
-      <DependentUpon>frmCoffeecupClientAccess.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\frmDepartmentInfo.resx">
       <DependentUpon>frmDepartmentInfo.vb</DependentUpon>

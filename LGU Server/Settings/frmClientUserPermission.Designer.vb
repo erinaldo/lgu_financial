@@ -19,8 +19,9 @@ Partial Class frmClientUserPermission
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager()
-        Me.BarManager1 = New DevExpress.XtraBars.BarManager()
+        Me.components = New System.ComponentModel.Container()
+        Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
+        Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.BarLargeButtonItem2 = New DevExpress.XtraBars.BarLargeButtonItem()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
@@ -35,7 +36,7 @@ Partial Class frmClientUserPermission
         Me.id = New DevExpress.XtraEditors.ButtonEdit()
         Me.txtdesc = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.DuplicateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -141,7 +142,7 @@ Partial Class frmClientUserPermission
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(1028, 22)
+        Me.barDockControlTop.Size = New System.Drawing.Size(1036, 20)
         '
         'barDockControlBottom
         '
@@ -149,23 +150,23 @@ Partial Class frmClientUserPermission
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.barDockControlBottom.Location = New System.Drawing.Point(0, 451)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1028, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1036, 0)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 22)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 429)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 431)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(1028, 22)
+        Me.BarDockControl1.Location = New System.Drawing.Point(1036, 20)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 429)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 431)
         '
         'BarButtonItem4
         '
@@ -200,7 +201,7 @@ Partial Class frmClientUserPermission
         Me.txtdesc.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtdesc.Properties.Appearance.Options.UseFont = True
         Me.txtdesc.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtdesc.Size = New System.Drawing.Size(393, 26)
+        Me.txtdesc.Size = New System.Drawing.Size(438, 26)
         Me.txtdesc.TabIndex = 0
         '
         'Em
@@ -211,7 +212,7 @@ Partial Class frmClientUserPermission
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(606, 429)
+        Me.Em.Size = New System.Drawing.Size(564, 431)
         Me.Em.TabIndex = 2
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -279,15 +280,15 @@ Partial Class frmClientUserPermission
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(1028, 22)
+        Me.barDockControlRight.Location = New System.Drawing.Point(1036, 20)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 429)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 431)
         '
         'SplitContainerControl1
         '
         Me.SplitContainerControl1.CollapsePanel = DevExpress.XtraEditors.SplitCollapsePanel.Panel1
         Me.SplitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 22)
+        Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 20)
         Me.SplitContainerControl1.Name = "SplitContainerControl1"
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckAllowDelete)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckAllowEdit)
@@ -305,8 +306,8 @@ Partial Class frmClientUserPermission
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.id)
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
-        Me.SplitContainerControl1.Size = New System.Drawing.Size(1028, 429)
-        Me.SplitContainerControl1.SplitterPosition = 417
+        Me.SplitContainerControl1.Size = New System.Drawing.Size(1036, 431)
+        Me.SplitContainerControl1.SplitterPosition = 462
         Me.SplitContainerControl1.TabIndex = 386
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
         '
@@ -356,7 +357,7 @@ Partial Class frmClientUserPermission
         Me.checklistbox.HotTrackSelectMode = DevExpress.XtraEditors.HotTrackSelectMode.SelectItemOnClick
         Me.checklistbox.Location = New System.Drawing.Point(12, 106)
         Me.checklistbox.Name = "checklistbox"
-        Me.checklistbox.Size = New System.Drawing.Size(393, 275)
+        Me.checklistbox.Size = New System.Drawing.Size(438, 277)
         Me.checklistbox.TabIndex = 618
         '
         'ckSpecialApprover
@@ -366,8 +367,8 @@ Partial Class frmClientUserPermission
         Me.ckSpecialApprover.Name = "ckSpecialApprover"
         Me.ckSpecialApprover.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.ckSpecialApprover.Properties.Appearance.Options.UseFont = True
-        Me.ckSpecialApprover.Properties.Caption = "Special Authority"
-        Me.ckSpecialApprover.Size = New System.Drawing.Size(123, 21)
+        Me.ckSpecialApprover.Properties.Caption = "Manage Other Offices"
+        Me.ckSpecialApprover.Size = New System.Drawing.Size(159, 21)
         Me.ckSpecialApprover.TabIndex = 390
         '
         'ckGeneralApprover
@@ -378,19 +379,19 @@ Partial Class frmClientUserPermission
         Me.ckGeneralApprover.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.ckGeneralApprover.Properties.Appearance.Options.UseFont = True
         Me.ckGeneralApprover.Properties.Caption = "General Approver"
-        Me.ckGeneralApprover.Size = New System.Drawing.Size(123, 21)
+        Me.ckGeneralApprover.Size = New System.Drawing.Size(132, 21)
         Me.ckGeneralApprover.TabIndex = 389
         '
         'CheckEdit2
         '
         Me.CheckEdit2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.CheckEdit2.Location = New System.Drawing.Point(15, 392)
+        Me.CheckEdit2.Location = New System.Drawing.Point(15, 394)
         Me.CheckEdit2.MenuManager = Me.BarManager1
         Me.CheckEdit2.Name = "CheckEdit2"
         Me.CheckEdit2.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CheckEdit2.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit2.Properties.Caption = "Check all"
-        Me.CheckEdit2.Size = New System.Drawing.Size(75, 19)
+        Me.CheckEdit2.Size = New System.Drawing.Size(75, 20)
         Me.CheckEdit2.TabIndex = 388
         '
         'cmdUpdate
@@ -402,7 +403,7 @@ Partial Class frmClientUserPermission
         Me.cmdUpdate.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdUpdate.Appearance.Options.UseBackColor = True
         Me.cmdUpdate.Appearance.Options.UseFont = True
-        Me.cmdUpdate.Location = New System.Drawing.Point(284, 387)
+        Me.cmdUpdate.Location = New System.Drawing.Point(329, 389)
         Me.cmdUpdate.Name = "cmdUpdate"
         Me.cmdUpdate.Size = New System.Drawing.Size(121, 30)
         Me.cmdUpdate.TabIndex = 3
@@ -448,14 +449,14 @@ Partial Class frmClientUserPermission
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1028, 451)
+        Me.ClientSize = New System.Drawing.Size(1036, 451)
         Me.Controls.Add(Me.SplitContainerControl1)
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.BarDockControl1)
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.barDockControlTop)
-        Me.MinimumSize = New System.Drawing.Size(368, 374)
+        Me.MinimumSize = New System.Drawing.Size(360, 374)
         Me.Name = "frmClientUserPermission"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Client Access Management"

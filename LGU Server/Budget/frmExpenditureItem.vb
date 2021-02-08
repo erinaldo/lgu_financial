@@ -26,7 +26,7 @@ Public Class frmExpenditureItem
     End Sub
 
     Public Sub LoadData()
-        LoadXgrid("select id as Code, description as 'Item Name' from tblexpenditureitem where classcode='" & txtExpenseClass.EditValue & "' order by description asc ", "tblexpenditureitem", Em, GridView1, Me)
+        LoadXgrid("select id as Code, description as 'Item Name', isBank from tblexpenditureitem where classcode='" & txtExpenseClass.EditValue & "' order by description asc ", "tblexpenditureitem", Em, GridView1, Me)
         XgridColAlign({"Code"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         GridView1.Columns("Code").Width = 80
     End Sub
@@ -48,9 +48,9 @@ Public Class frmExpenditureItem
 
         End If
         If mode.Text = "edit" Then
-            com.CommandText = "update tblexpenditureitem set classcode='" & txtExpenseClass.EditValue & "', description='" & rchar(txtDescription.Text) & "' where id='" & code.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "update tblexpenditureitem set classcode='" & txtExpenseClass.EditValue & "', description='" & rchar(txtDescription.Text) & "', isbank=" & CheckEdit1.CheckState & " where id='" & code.Text & "'" : com.ExecuteNonQuery()
         Else
-            com.CommandText = "insert into tblexpenditureitem set classcode='" & txtExpenseClass.EditValue & "', description='" & rchar(txtDescription.Text) & "'" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblexpenditureitem set classcode='" & txtExpenseClass.EditValue & "', description='" & rchar(txtDescription.Text) & "', isbank=" & CheckEdit1.CheckState & "" : com.ExecuteNonQuery()
         End If
 
         LoadData()
@@ -74,6 +74,7 @@ Public Class frmExpenditureItem
         com.CommandText = "select * from tblexpenditureitem where id='" & code.Text & "'" : rst = com.ExecuteReader
         While rst.Read
             txtDescription.Text = rst("description").ToString
+            CheckEdit1.Checked = rst("isbank")
         End While
         rst.Close()
         mode.Text = "edit"

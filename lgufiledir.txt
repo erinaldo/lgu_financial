@@ -1,0 +1,27 @@
+DROP TABLE IF EXISTS `lgufiledir`.`tblattachmentlogs`;
+CREATE TABLE  `lgufiledir`.`tblattachmentlogs` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `refnumber` varchar(105) CHARACTER SET latin1 NOT NULL,
+  `trntype` varchar(45) NOT NULL DEFAULT '',
+  `docname` varchar(45) NOT NULL DEFAULT '',
+  `filecode` varchar(45) NOT NULL DEFAULT '',
+  `databasename` varchar(45) NOT NULL,
+  `filename` text NOT NULL,
+  `archievedname` text NOT NULL,
+  `filesize` bigint(20) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `refnumber` (`refnumber`),
+  KEY `docname` (`docname`),
+  KEY `filecode` (`filecode`)
+) ENGINE=MyISAM AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `lgufiledir`.`tblimagerepository`;
+CREATE TABLE  `lgufiledir`.`tblimagerepository` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `tablename` varchar(25) NOT NULL,
+  `referenceno` varchar(25) NOT NULL,
+  `imgdata` longblob,
+  PRIMARY KEY (`id`),
+  KEY `tablename` (`tablename`),
+  KEY `referenceno` (`referenceno`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;

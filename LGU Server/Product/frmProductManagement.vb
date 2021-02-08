@@ -28,7 +28,7 @@ Public Class frmProductManagement
 
     Public Sub LoadReport()
         If CheckEdit1.Checked = False And txtCategory.Text = "" Then Exit Sub
-        LoadXgrid("Select productid as 'Code', productname as 'Transaction Item Name',categoryname as 'Category Name',classificationname as'Clasification', NonInventory, PPE, Consumable from tblproducts as a where (productname like '%" & txtfilter.Text & "%' or categoryname like '%" & txtfilter.Text & "%' or classificationname like '%" & txtfilter.Text & "%') " & If(CheckEdit1.Checked = True, "", " and categoryid='" & categorycode.Text & "' ") & " and deleted=0 order by productname asc", "tblproducts", Em, GridView1, Me)
+        LoadXgrid("Select productid as 'Code', categoryname as 'Category Name', productname as 'Transaction Item Name', NonInventory, PPE, Consumable from tblproducts as a where (productname like '%" & txtfilter.Text & "%' or categoryname like '%" & txtfilter.Text & "%') " & If(CheckEdit1.Checked = True, "", " and categoryid='" & categorycode.Text & "' ") & " and deleted=0 order by productname asc", "tblproducts", Em, GridView1, Me)
         'XgridHideColumn({"Cancelled"}, GridView1)
         XgridColAlign({"Code", "NonInventory, PPE, Consumable"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         GridView1.BestFitColumns()
@@ -83,6 +83,21 @@ Public Class frmProductManagement
 
     Private Sub RefreshToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshToolStripMenuItem.Click
         LoadReport()
+    End Sub
+
+    Public Sub SetCategory(ByVal categoryname As String, ByVal catid As String)
+        For I = 0 To GridView1.SelectedRowsCount - 1
+            com.CommandText = "update tblproducts set categoryid='" & catid & "', categoryname='" & rchar(categoryname) & "'  where productid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Code").ToString & "'" : com.ExecuteNonQuery()
+            GridView1.SetRowCellValue(GridView1.GetSelectedRows(I), "Category Name", categoryname)
+        Next
+    End Sub
+
+    Private Sub SetProductCategoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SetProductCategoryToolStripMenuItem.Click
+        If frmSetProductCategory.Visible = True Then
+            frmSetProductCategory.Focus()
+        Else
+            frmSetProductCategory.Show(Me)
+        End If
     End Sub
 End Class
 

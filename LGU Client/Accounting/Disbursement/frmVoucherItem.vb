@@ -18,7 +18,6 @@ Public Class frmVoucherItem
             Else
                 com.CommandText = "insert into tbldisbursementvoucheritem set voucherno='" & voucherno.Text & "', explaination='" & rchar(txtExplaination.Text) & "', amount='" & Val(CC(txtAmount.Text)) & "'" : com.ExecuteNonQuery()
             End If
-            frmVoucherInfo.LoadDisbursementItem()
             Me.Close()
         End If
     End Sub

@@ -36,6 +36,7 @@ Partial Class frmExpenditureItem
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.txtExpenseClass = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridExpenseClass = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.CheckEdit1 = New DevExpress.XtraEditors.CheckEdit()
         CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gridmenustrip.SuspendLayout()
@@ -44,13 +45,14 @@ Partial Class frmExpenditureItem
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtExpenseClass.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridExpenseClass, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl6
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.25!)
         Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Location = New System.Drawing.Point(52, 42)
+        Me.LabelControl6.Location = New System.Drawing.Point(52, 41)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(68, 19)
         Me.LabelControl6.TabIndex = 571
@@ -61,7 +63,7 @@ Partial Class frmExpenditureItem
         Me.cmdOk.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
         Me.cmdOk.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdOk.Appearance.Options.UseFont = True
-        Me.cmdOk.Location = New System.Drawing.Point(287, 69)
+        Me.cmdOk.Location = New System.Drawing.Point(287, 70)
         Me.cmdOk.Name = "cmdOk"
         Me.cmdOk.Size = New System.Drawing.Size(119, 30)
         Me.cmdOk.TabIndex = 4
@@ -86,10 +88,10 @@ Partial Class frmExpenditureItem
         Me.Em.ContextMenuStrip = Me.gridmenustrip
         GridLevelNode1.RelationName = "Level1"
         Me.Em.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
-        Me.Em.Location = New System.Drawing.Point(1, 112)
+        Me.Em.Location = New System.Drawing.Point(1, 106)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(504, 372)
+        Me.Em.Size = New System.Drawing.Size(504, 378)
         Me.Em.TabIndex = 636
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -136,7 +138,7 @@ Partial Class frmExpenditureItem
         'txtDescription
         '
         Me.txtDescription.EditValue = ""
-        Me.txtDescription.Location = New System.Drawing.Point(128, 39)
+        Me.txtDescription.Location = New System.Drawing.Point(128, 38)
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.25!)
         Me.txtDescription.Properties.Appearance.Options.UseFont = True
@@ -186,12 +188,23 @@ Partial Class frmExpenditureItem
         Me.gridExpenseClass.OptionsSelection.EnableAppearanceFocusedCell = False
         Me.gridExpenseClass.OptionsView.ShowGroupPanel = False
         '
+        'CheckEdit1
+        '
+        Me.CheckEdit1.Location = New System.Drawing.Point(128, 66)
+        Me.CheckEdit1.Name = "CheckEdit1"
+        Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.CheckEdit1.Properties.Appearance.Options.UseFont = True
+        Me.CheckEdit1.Properties.Caption = "Is Bank Account"
+        Me.CheckEdit1.Size = New System.Drawing.Size(138, 23)
+        Me.CheckEdit1.TabIndex = 651
+        '
         'frmExpenditureItem
         '
         Me.AcceptButton = Me.cmdOk
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(507, 485)
+        Me.Controls.Add(Me.CheckEdit1)
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.txtExpenseClass)
         Me.Controls.Add(Me.mode)
@@ -202,7 +215,7 @@ Partial Class frmExpenditureItem
         Me.Controls.Add(Me.Em)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(407, 524)
+        Me.MinimumSize = New System.Drawing.Size(407, 517)
         Me.Name = "frmExpenditureItem"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Expenditure Item"
@@ -214,6 +227,7 @@ Partial Class frmExpenditureItem
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtExpenseClass.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridExpenseClass, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -233,4 +247,5 @@ Partial Class frmExpenditureItem
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents txtExpenseClass As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gridExpenseClass As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents CheckEdit1 As DevExpress.XtraEditors.CheckEdit
 End Class

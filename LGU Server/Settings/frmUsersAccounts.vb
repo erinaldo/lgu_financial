@@ -15,10 +15,7 @@ Public Class frmUsersAccounts
     Private cpass As Boolean = False
     Private gridid As String = ""
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
-        If keyData = Keys.Escape Then
-            Me.Close()
-
-        ElseIf keyData = Keys.F2 Then
+        If keyData = Keys.F2 Then
             If SplitContainerControl1.Collapsed = True Then
                 SplitContainerControl1.Collapsed = False
             Else
@@ -123,7 +120,7 @@ Public Class frmUsersAccounts
                                     + " from tblaccounts " & gladmin _
                                     + " order by fullname asc", "tblaccounts", Em, GridView1, Me)
 
-        XgridColAlign({"Account ID", "Username", "Phone Number", "Client User"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+        XgridColAlign({"Account ID", "Phone Number", "Client User"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         XgridHideColumn({"Client User"}, GridView1)
     End Sub
 
@@ -142,6 +139,10 @@ Public Class frmUsersAccounts
             Exit Sub
         ElseIf txtusername.Text = "" Then
             XtraMessageBox.Show("Please enter username!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txtusername.Focus()
+            Exit Sub
+        ElseIf ckClientUser.Checked = True And txtClientPermission.Text = "" Then
+            XtraMessageBox.Show("Please select client access permission!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtusername.Focus()
             Exit Sub
         ElseIf countqry("tblaccounts", "fullname = '" & txtfullname.Text & "'") <> 0 And mode.Text = "" Then
@@ -257,6 +258,7 @@ Public Class frmUsersAccounts
         txtClientPermission.Properties.DataSource = Nothing
         txtClientPermission.Text = ""
         accesscode.Text = ""
+        ckClientUser.Checked = False
         loadUserPosition()
 
         mode.Text = ""
@@ -276,6 +278,9 @@ Public Class frmUsersAccounts
     End Sub
 
     Private Sub EditToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdEdit.Click
+        loadOffice()
+        LoadPermission()
+
         Dim imgBytes As Byte() = Nothing
         Dim stream As MemoryStream = Nothing
         Dim img As Image = Nothing
@@ -404,16 +409,6 @@ Public Class frmUsersAccounts
             loadUserPosition()
             txtClientPermission.Enabled = False
         End If
-    End Sub
-
-    Private Sub UserAccountAccessToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UserAccountAccessToolStripMenuItem.Click
-        If CBool(GridView1.GetFocusedRowCellValue("Client User").ToString()) = False Then
-            XtraMessageBox.Show("Please activate coffeecup client user to continue this process!", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Exit Sub
-        End If
-        frmCoffeecupClientAccess.userid.Text = GridView1.GetFocusedRowCellValue("Account ID").ToString()
-        frmCoffeecupClientAccess.Text = "Access for " & GridView1.GetFocusedRowCellValue("Fullname").ToString()
-        frmCoffeecupClientAccess.Show(Me)
     End Sub
 
     Private Sub DeleteAccountsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteAccountsToolStripMenuItem.Click

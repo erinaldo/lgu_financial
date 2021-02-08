@@ -225,6 +225,12 @@
     <Compile Include="Accounting\Disbursement\frmDisbursementList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Accounting\Disbursement\frmVoucherCheckInfo.Designer.vb">
+      <DependentUpon>frmVoucherCheckInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\Disbursement\frmVoucherCheckInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Accounting\Disbursement\frmVoucherRequisitionItem.Designer.vb">
       <DependentUpon>frmVoucherRequisitionItem.vb</DependentUpon>
     </Compile>
@@ -255,6 +261,12 @@
     <Compile Include="Accounting\frmBudgetReports.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Accounting\Journal\frmJournalEntryCredit.Designer.vb">
+      <DependentUpon>frmJournalEntryCredit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\Journal\frmJournalEntryCredit.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Accounting\Journal\frmJournalEntryList.Designer.vb">
       <DependentUpon>frmJournalEntryList.vb</DependentUpon>
     </Compile>
@@ -267,16 +279,40 @@
     <Compile Include="Accounting\Journal\frmJournalEntry.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Accounting\Journal\frmJournalEntryItem.Designer.vb">
-      <DependentUpon>frmJournalEntryItem.vb</DependentUpon>
+    <Compile Include="Accounting\Journal\frmJournalEntryDebit.Designer.vb">
+      <DependentUpon>frmJournalEntryDebit.vb</DependentUpon>
     </Compile>
-    <Compile Include="Accounting\Journal\frmJournalEntryItem.vb">
+    <Compile Include="Accounting\Journal\frmJournalEntryDebit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\Journal\frmJournalEntryExpenditure.Designer.vb">
+      <DependentUpon>frmJournalEntryExpenditure.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\Journal\frmJournalEntryExpenditure.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accounting\Requisition\frmProductItem.Designer.vb">
       <DependentUpon>frmProductItem.vb</DependentUpon>
     </Compile>
     <Compile Include="Accounting\Requisition\frmProductItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\Requisition\frmSourceOfFundInfo.Designer.vb">
+      <DependentUpon>frmSourceOfFundInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\Requisition\frmSourceOfFundInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\Requisition\frmSourceOfFund.Designer.vb">
+      <DependentUpon>frmSourceOfFund.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\Requisition\frmSourceOfFund.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Approval Request\frmForApprovalCheckReleasing.Designer.vb">
+      <DependentUpon>frmForApprovalCheckReleasing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Approval Request\frmForApprovalCheckReleasing.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Approval Request\frmForApprovalRequisition.Designer.vb">
@@ -458,6 +494,12 @@
       <DependentUpon>frmAdminChangeUser.vb</DependentUpon>
     </Compile>
     <Compile Include="Settings\frmAdminChangeUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmAdminOveride.Designer.vb">
+      <DependentUpon>frmAdminOveride.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmAdminOveride.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Settings\frmLXPrinterSettings.Designer.vb">
@@ -648,6 +690,9 @@
     <EmbeddedResource Include="Accounting\Disbursement\frmDisbursementList.resx">
       <DependentUpon>frmDisbursementList.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\Disbursement\frmVoucherCheckInfo.resx">
+      <DependentUpon>frmVoucherCheckInfo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accounting\Disbursement\frmVoucherRequisitionItem.resx">
       <DependentUpon>frmVoucherRequisitionItem.vb</DependentUpon>
     </EmbeddedResource>
@@ -663,17 +708,32 @@
     <EmbeddedResource Include="Accounting\frmBudgetReports.resx">
       <DependentUpon>frmBudgetReports.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\Journal\frmJournalEntryCredit.resx">
+      <DependentUpon>frmJournalEntryCredit.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accounting\Journal\frmJournalEntryList.resx">
       <DependentUpon>frmJournalEntryList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\Journal\frmJournalEntry.resx">
       <DependentUpon>frmJournalEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\Journal\frmJournalEntryItem.resx">
-      <DependentUpon>frmJournalEntryItem.vb</DependentUpon>
+    <EmbeddedResource Include="Accounting\Journal\frmJournalEntryDebit.resx">
+      <DependentUpon>frmJournalEntryDebit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\Journal\frmJournalEntryExpenditure.resx">
+      <DependentUpon>frmJournalEntryExpenditure.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\Requisition\frmProductItem.resx">
       <DependentUpon>frmProductItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\Requisition\frmSourceOfFundInfo.resx">
+      <DependentUpon>frmSourceOfFundInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\Requisition\frmSourceOfFund.resx">
+      <DependentUpon>frmSourceOfFund.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Approval Request\frmForApprovalCheckReleasing.resx">
+      <DependentUpon>frmForApprovalCheckReleasing.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Approval Request\frmForApprovalRequisition.resx">
       <DependentUpon>frmForApprovalRequisition.vb</DependentUpon>
@@ -756,6 +816,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\frmAdminChangeUser.resx">
       <DependentUpon>frmAdminChangeUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmAdminOveride.resx">
+      <DependentUpon>frmAdminOveride.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\frmLXPrinterSettings.resx">
       <DependentUpon>frmLXPrinterSettings.vb</DependentUpon>
@@ -991,6 +1054,9 @@
   <ItemGroup>
     <Content Include="ico.ico" />
     <Content Include="Module\Auto Updater\Note.txt" />
+    <None Include="Resources\Action_Inline_Edit.png" />
+    <None Include="Resources\plus-circle-frame.png" />
+    <None Include="Resources\arrow-circle.png" />
     <None Include="Resources\script--pencil.png" />
     <None Include="Resources\report--pencil.png" />
     <None Include="Resources\report--arrow.png" />

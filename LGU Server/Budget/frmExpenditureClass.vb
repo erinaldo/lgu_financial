@@ -56,11 +56,12 @@ Public Class frmExpenditureClass
     End Sub
 
     Private Sub cmdDelete_Click(sender As Object, e As EventArgs) Handles cmdDelete.Click
+        If countqry("tblexpenditureitem", "classcode='" & GridView1.GetFocusedRowCellValue("Code").ToString() & "'") > 0 Then
+            XtraMessageBox.Show("Cannot remove selected class due to has item! " & Environment.NewLine & " please remove all expenditure item before removing it.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
         If XtraMessageBox.Show("Are you sure you want to permanently remove selected item? ", compname, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
-            Dim I As Integer = 0
-            For I = 0 To GridView1.SelectedRowsCount - 1
-                com.CommandText = "delete from tblexpenditureclass where code='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Code") & "' " : com.ExecuteNonQuery()
-            Next
+            com.CommandText = "delete from tblexpenditureclass where code='" & GridView1.GetFocusedRowCellValue("Code").ToString() & "' " : com.ExecuteNonQuery()
             filter()
         End If
     End Sub

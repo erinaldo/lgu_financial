@@ -39,8 +39,6 @@ Partial Class frmJournalEntryList
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdLocalData = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.cmdNewProperty = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdPrint = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdColumnSettings = New System.Windows.Forms.ToolStripButton()
@@ -139,28 +137,28 @@ Partial Class frmJournalEntryList
         '
         Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdClearedDisbursement, Me.cmdView, Me.cmdCancel, Me.ToolStripSeparator4, Me.cmdLocalData})
         Me.cms_em.Name = "ContextMenuStrip1"
-        Me.cms_em.Size = New System.Drawing.Size(234, 98)
+        Me.cms_em.Size = New System.Drawing.Size(181, 120)
         '
         'cmdClearedDisbursement
         '
         Me.cmdClearedDisbursement.Image = Global.LGUClient.My.Resources.Resources.tick
         Me.cmdClearedDisbursement.Name = "cmdClearedDisbursement"
-        Me.cmdClearedDisbursement.Size = New System.Drawing.Size(233, 22)
-        Me.cmdClearedDisbursement.Text = "Cleared Disbursement"
+        Me.cmdClearedDisbursement.Size = New System.Drawing.Size(180, 22)
+        Me.cmdClearedDisbursement.Text = "Cleared JEV"
         '
         'cmdView
         '
         Me.cmdView.Image = Global.LGUClient.My.Resources.Resources.notebook__arrow
         Me.cmdView.Name = "cmdView"
-        Me.cmdView.Size = New System.Drawing.Size(233, 22)
-        Me.cmdView.Text = "View Disbursement Info"
+        Me.cmdView.Size = New System.Drawing.Size(180, 22)
+        Me.cmdView.Text = "View JEV Info"
         '
         'cmdCancel
         '
         Me.cmdCancel.Image = Global.LGUClient.My.Resources.Resources.notebook__minus
         Me.cmdCancel.Name = "cmdCancel"
-        Me.cmdCancel.Size = New System.Drawing.Size(233, 22)
-        Me.cmdCancel.Text = "Cancel Selected Disbursement"
+        Me.cmdCancel.Size = New System.Drawing.Size(180, 22)
+        Me.cmdCancel.Text = "Cancel Selected JEV"
         '
         'ToolStripSeparator4
         '
@@ -180,7 +178,7 @@ Partial Class frmJournalEntryList
         Me.ToolStrip1.AutoSize = False
         Me.ToolStrip1.BackgroundImage = Global.LGUClient.My.Resources.Resources.wide_blank2
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdNewProperty, Me.ToolStripSeparator1, Me.cmdPrint, Me.ToolStripSeparator3, Me.cmdColumnSettings, Me.ToolStripSeparator2, Me.cmdClose})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdPrint, Me.ToolStripSeparator3, Me.cmdColumnSettings, Me.ToolStripSeparator2, Me.cmdClose})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Padding = New System.Windows.Forms.Padding(10, 2, 1, 2)
@@ -189,27 +187,13 @@ Partial Class frmJournalEntryList
         Me.ToolStrip1.TabIndex = 317
         Me.ToolStrip1.Text = "ToolStrip3"
         '
-        'cmdNewProperty
-        '
-        Me.cmdNewProperty.ForeColor = System.Drawing.Color.White
-        Me.cmdNewProperty.Image = Global.LGUClient.My.Resources.Resources.receipt__plus
-        Me.cmdNewProperty.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.cmdNewProperty.Name = "cmdNewProperty"
-        Me.cmdNewProperty.Size = New System.Drawing.Size(108, 24)
-        Me.cmdNewProperty.Text = "Create New JEV"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 27)
-        '
         'cmdPrint
         '
         Me.cmdPrint.ForeColor = System.Drawing.Color.White
         Me.cmdPrint.Image = Global.LGUClient.My.Resources.Resources.document_excel_table
         Me.cmdPrint.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.Size = New System.Drawing.Size(103, 24)
+        Me.cmdPrint.Size = New System.Drawing.Size(105, 24)
         Me.cmdPrint.Text = "Export to Excel"
         '
         'ToolStripSeparator3
@@ -287,7 +271,7 @@ Partial Class frmJournalEntryList
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit1})
-        Me.Em.Size = New System.Drawing.Size(990, 504)
+        Me.Em.Size = New System.Drawing.Size(990, 499)
         Me.Em.TabIndex = 820
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -417,7 +401,6 @@ Partial Class frmJournalEntryList
         Me.txtSearchBar.Properties.AutoHeight = False
         Me.txtSearchBar.Properties.MaxLength = 50
         Me.txtSearchBar.Properties.NullValuePrompt = "Enter any keyword to search"
-        Me.txtSearchBar.Properties.NullValuePromptShowForEmptyValue = True
         Me.txtSearchBar.Size = New System.Drawing.Size(284, 25)
         Me.txtSearchBar.TabIndex = 0
         '
@@ -473,8 +456,6 @@ Partial Class frmJournalEntryList
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents cmdPrint As System.Windows.Forms.ToolStripButton
     Friend WithEvents cmdCancel As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmdNewProperty As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents RepositoryItemPictureEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents Em As DevExpress.XtraGrid.GridControl

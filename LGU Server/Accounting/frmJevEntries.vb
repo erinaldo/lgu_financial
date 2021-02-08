@@ -29,7 +29,14 @@ Public Class frmJevEntries
         LoadReport()
     End Sub
     Public Sub LoadReport()
-        LoadXgrid("Select a.jevno as 'Jev No',itemname as 'Item Name',itemcode as 'Item Code',Debit,Credit,lcase(a.remarks) as 'Explaination of Entry', date_format(b.postingdate,'%d-%M-%y') as 'Date', (select shortname from tblcompoffice where officeid=b.centercode) as 'Office', (select description from tblexpenditureitem where id=b.classcode) as 'Expenditure Item', checkno as 'Check No.', dvno as 'DV #', payrollno as 'Payroll #',rcdno as 'RCD #',lrno as 'LR #',aeno as 'AE #', date_format(datetrn,'%Y-%m-%d %r') as 'Date Posted',(select fullname from tblaccounts where accountid=a.trnby) as 'Posted By', b.Cancelled from tbljournalentryvoucher as a inner join tbljournalentryitem as b on a.jevno=b.jevno where b.yeartrn='" & txtYear.Text & "' and b.fundcode='" & txtFund.EditValue & "' " & If(ckCancelled.Checked = True, "", " and b.cancelled=0") & " " & If(txtMonth.Text = "", "", " and ucase(date_format(b.postingdate,'%M')) ='" & txtMonth.Text & "'") & " order by b.jevno", "tbljournalentryvoucher", Em, GridView1, Me)
+        LoadXgrid("Select a.jevno as 'Jev No',itemname as 'Item Name',itemcode as 'Item Code',Debit,Credit,lcase(a.remarks) as 'Explaination of Entry', " _
+                  + " date_format(b.postingdate,'%d-%M-%y') as 'Date', " _
+                  + " (select shortname from tblcompoffice where officeid=b.centercode) as 'Office', " _
+                  + " concat((select shortname from tblcompoffice where officeid=b.centercode), '_',(select expenditurecode from tblexpendituretagging where glitemcode=b.classcode)) as 'Expenditure Classification', " _
+                  + " (select itemname from tblglitem where itemcode=b.classcode) as 'Expenditure Item', " _
+                  + " if(credit>0,(select checkno from tbldisbursementvoucher where voucherno=a.dvno),'') as 'Check No.', dvno as 'DV #', payrollno as 'Payroll #',rcdno as 'RCD #',lrno as 'LR #',aeno as 'AE #', " _
+                  + " (select cashflowname from tblcashflowitem where code=b.cashflowitem) as 'Cash Flow Item'," _
+                  + " date_format(datetrn,'%Y-%m-%d %r') as 'Date Posted',(select fullname from tblaccounts where accountid=a.trnby) as 'Posted By', b.Cancelled from tbljournalentryvoucher as a inner join tbljournalentryitem as b on a.jevno=b.jevno where b.yeartrn='" & txtYear.Text & "' and b.fundcode='" & txtFund.EditValue & "' " & If(ckCancelled.Checked = True, "", " and b.cancelled=0") & " " & If(txtMonth.Text = "", "", " and ucase(date_format(b.postingdate,'%M')) ='" & txtMonth.Text & "'") & " order by b.jevno", "tbljournalentryvoucher", Em, GridView1, Me)
         XgridHideColumn({"Cancelled"}, GridView1)
         XgridColCurrency({"Debit", "Credit"}, GridView1)
         XgridColAlign({"Jev No", "Item Code", "Check No.", "Date", "Date Posted"}, GridView1, DevExpress.Utils.HorzAlignment.Center)

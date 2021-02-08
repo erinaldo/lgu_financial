@@ -6,11 +6,17 @@ Public Class frmFund
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
         SetIcon(Me)
         filter()
+
+        LoadCategory()
+        ShowUnfilteredProducts()
+        ShowfilteredProducts()
     End Sub
 
+#Region "Information"
+
     Public Sub filter()
-        LoadXgrid("Select  Code, CodeName, Description  from tblfund order by code asc", "tblfund", Em, GridView1, Me)
-        XgridColAlign({"Code", "CodeName"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+        LoadXgrid("Select  Code, CodeName, Description, Template from tblfund order by code asc", "tblfund", Em, GridView1, Me)
+        XgridColAlign({"Code", "CodeName", "Template"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         GridView1.BestFitColumns()
     End Sub
 
@@ -27,13 +33,17 @@ Public Class frmFund
             XtraMessageBox.Show("Please enter description!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtDescription.Focus()
             Exit Sub
+        ElseIf txtTemplate.Text = "" Then
+            XtraMessageBox.Show("Please select template!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txtTemplate.Focus()
+            Exit Sub
         End If
         If mode.Text = "edit" Then
-            com.CommandText = "update tblfund set  codename='" & txtcodename.Text & "',description='" & rchar(txtDescription.Text) & "' where code='" & code.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "update tblfund set  codename='" & txtcodename.Text & "',description='" & rchar(txtDescription.Text) & "', template='" & txtTemplate.Text & "' where code='" & code.Text & "'" : com.ExecuteNonQuery()
         Else
-            com.CommandText = "insert into tblfund set code='" & code.Text & "',codename='" & txtcodename.Text & "',description='" & rchar(txtDescription.Text) & "'" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblfund set code='" & code.Text & "',codename='" & txtcodename.Text & "',description='" & rchar(txtDescription.Text) & "', template='" & txtTemplate.Text & "'" : com.ExecuteNonQuery()
         End If
-        code.Text = "" : mode.Text = "" : code.Enabled = True : txtcodename.Text = "" : txtDescription.Text = "" : code.Focus() : filter()
+        code.Text = "" : mode.Text = "" : code.Enabled = True : txtcodename.Text = "" : txtDescription.Text = "" : txtTemplate.SelectedIndex = -1 : code.Focus() : filter()
         XtraMessageBox.Show("fund successfully saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
     Public Sub showInfo()
@@ -42,6 +52,7 @@ Public Class frmFund
         While rst.Read
             txtcodename.Text = rst("codename").ToString
             txtDescription.Text = rst("description").ToString
+            txtTemplate.Text = rst("template").ToString
         End While
         rst.Close()
     End Sub
@@ -62,4 +73,73 @@ Public Class frmFund
             filter()
         End If
     End Sub
+#End Region
+
+#Region "Filter"
+    Private Sub XtraTabControl1_SelectedPageChanged(sender As Object, e As DevExpress.XtraTab.TabPageChangedEventArgs) Handles XtraTabControl1.SelectedPageChanged
+        LoadCategory()
+    End Sub
+
+
+    Public Sub LoadCategory()
+        LoadXgridLookupSearch("select code, description 'Select' from tblfund order by description asc", "tblfund", txtFund, gridFund, Me)
+        gridFund.Columns("code").Visible = False
+    End Sub
+
+    Private Sub txtprocat_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtFund.EditValueChanged
+        On Error Resume Next
+        Dim iCurrentRow As Integer = CInt(txtFund.Properties.View.FocusedRowHandle.ToString)
+        fundcode.Text = txtFund.Properties.View.GetFocusedRowCellValue("code").ToString()
+        ShowUnfilteredProducts()
+        ShowfilteredProducts()
+    End Sub
+
+    Public Sub ShowUnfilteredProducts()
+        Dim filter As String = ""
+        com.CommandText = "select officeid from tblfundfilter where fundcode='" & fundcode.Text & "'" : rst = com.ExecuteReader
+        While rst.Read
+            filter = filter + "'" & rst("officeid").ToString & "',"
+        End While
+        rst.Close()
+        If filter.Length > 0 Then
+            filter = filter.Remove(filter.Length - 1, 1)
+            filter = " and officeid not in (" & filter & ")"
+        End If
+        If fundcode.Text <> "" Then
+            LoadXgrid("select officeid, officename as 'Office' from tblcompoffice where deleted=0 " & filter & "  ", "tblcompoffice", Em_unfiltered, gridUnfiltered, Me)
+            gridUnfiltered.Columns("officeid").Visible = False
+            XgridColMemo({"Office"}, gridUnfiltered)
+            XgridColWidth({"Office"}, gridUnfiltered, Em_unfiltered.Width)
+        End If
+    End Sub
+
+    Public Sub ShowfilteredProducts()
+        If fundcode.Text <> "" Then
+            LoadXgrid("select officeid, (select officename from tblcompoffice where officeid= tblfundfilter.officeid) as 'Office' from tblfundfilter where fundcode='" & fundcode.Text & "' order by officeid asc", "tblfundfilter", Em_filtered, gridFiltered, Me)
+            gridFiltered.Columns("officeid").Visible = False
+            XgridColMemo({"Office"}, gridFiltered)
+            XgridColWidth({"Office"}, gridFiltered, Em_filtered.Width)
+        End If
+    End Sub
+
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles cmdMoveRight.Click
+        For I = 0 To gridUnfiltered.SelectedRowsCount - 1
+            com.CommandText = "insert into tblfundfilter set fundcode='" & fundcode.Text & "', officeid='" & gridUnfiltered.GetRowCellValue(gridUnfiltered.GetSelectedRows(I), "officeid").ToString & "'" : com.ExecuteNonQuery()
+        Next
+        ShowUnfilteredProducts()
+        ShowfilteredProducts()
+    End Sub
+
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles cmdMoveLeft.Click
+        For I = 0 To gridFiltered.SelectedRowsCount - 1
+            com.CommandText = "delete from tblfundfilter where officeid='" & gridFiltered.GetRowCellValue(gridFiltered.GetSelectedRows(I), "officeid").ToString & "' and fundcode='" & fundcode.Text & "'" : com.ExecuteNonQuery()
+        Next
+        ShowUnfilteredProducts()
+        ShowfilteredProducts()
+    End Sub
+
+
+#End Region
+
 End Class

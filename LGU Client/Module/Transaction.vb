@@ -119,13 +119,13 @@
 
     End Function
 
-    Public Function GetRequestNumber(ByVal fundcode As String, ByVal requesttype As String) As String
+    Public Function GetRequestNumber(ByVal fundcode As String) As String
         Dim strng As Integer = 0 : Dim newNumber As String = "" : Dim NumberLen As Integer = 0 : Dim seriesto As Integer = 0
-        If countqry("tblrequisitiontypeseries", "periodcode='" & fundcode & "' and requesttype='" & requesttype & "'") = 0 Then
-            com.CommandText = "insert into tblrequisitiontypeseries set periodcode='" & fundcode & "',requesttype='" & requesttype & "', seriesno='0000'" : com.ExecuteNonQuery()
+        If countqry("tblrequisitiontypeseries", "periodcode='" & fundcode & "'") = 0 Then
+            com.CommandText = "insert into tblrequisitiontypeseries set periodcode='" & fundcode & "', seriesno='0000'" : com.ExecuteNonQuery()
         End If
 
-        com.CommandText = "select seriesno from tblrequisitiontypeseries where periodcode='" & fundcode & "' and requesttype='" & requesttype & "'" : rst = com.ExecuteReader()
+        com.CommandText = "select seriesno from tblrequisitiontypeseries where periodcode='" & fundcode & "'" : rst = com.ExecuteReader()
         While rst.Read
             NumberLen = rst("seriesno").ToString.Length
             strng = Val(rst("seriesno").ToString) + 1
@@ -151,7 +151,7 @@
         Else
             newNumber = strng
         End If
-        com.CommandText = "update tblrequisitiontypeseries set seriesno='" & newNumber & "' where periodcode='" & fundcode & "' and requesttype='" & requesttype & "'" : com.ExecuteNonQuery()
+        com.CommandText = "update tblrequisitiontypeseries set seriesno='" & newNumber & "' where periodcode='" & fundcode & "'" : com.ExecuteNonQuery()
         Return newNumber
     End Function
 

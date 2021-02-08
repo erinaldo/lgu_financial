@@ -8,6 +8,7 @@ Imports DevExpress.XtraGrid.Views.Grid.ViewInfo
 Imports DevExpress.XtraSplashScreen
 
 Public Class frmJournalEntry
+
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
         If keyData = (Keys.Escape) Then
             Me.Close()
@@ -32,10 +33,11 @@ Public Class frmJournalEntry
     Private Sub frmBudgetVoucherInfo_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Icon = ico
         SplashScreenManager.ShowForm(GetType(WaitForm1), True, True)
-        LoadFund()
         If mode.Text <> "edit" Then
             txtJevNo.Text = "AUTO GENERATED"
             cmdSave.Text = "Save Journal"
+            txtJournalDate.EditValue = Now
+            loadFundSettings()
         Else
             ShowVoucherInfo()
         End If
@@ -43,26 +45,27 @@ Public Class frmJournalEntry
         SplashScreenManager.CloseForm()
     End Sub
 
-    Public Sub LoadFund()
-        LoadXgridLookupSearch("SELECT periodcode as code,fundcode,yeartrn, concat(yeartrn,'-',(select Description from tblfund where code=tblfundperiod.fundcode)) as 'Select'  from tblfundperiod where closed=0 order by yeartrn asc", "tblfundperiod", txtFund, gridFund)
-        XgridHideColumn({"code", "fundcode", "yeartrn"}, gridFund)
-    End Sub
-    Private Sub txtFund_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtFund.EditValueChanged
-        On Error Resume Next
-        periodcode.Text = txtFund.Properties.View.GetFocusedRowCellValue("code").ToString()
-        fundcode.Text = txtFund.Properties.View.GetFocusedRowCellValue("fundcode").ToString()
-        yeartrn.Text = txtFund.Properties.View.GetFocusedRowCellValue("yeartrn").ToString()
-    End Sub
 
+    Public Sub loadFundSettings()
+        com.CommandText = "SELECT *, concat(yeartrn,'-',(select Description from tblfund where code=tblfundperiod.fundcode)) as 'period'  from tblfundperiod where periodcode='" & periodcode.Text & "'" : rst = com.ExecuteReader
+        While rst.Read
+            txtFund.Text = rst("period").ToString()
+            fundcode.Text = rst("fundcode").ToString()
+            yeartrn.Text = rst("yeartrn").ToString()
+        End While
+        rst.Close()
+    End Sub
     Public Sub ShowVoucherInfo()
         Dim budgettitle As String = ""
-        com.CommandText = "select * from tbljournalentryvoucher as a where jevno='" & jevno.Text & "'" : rst = com.ExecuteReader
+        com.CommandText = "select *,(select officename from tblcompoffice where officeid=a.officeid) as office from tbljournalentryvoucher as a where jevno='" & jevno.Text & "'" : rst = com.ExecuteReader
         While rst.Read
             txtJevNo.Text = rst("jevno").ToString
             txtFund.EditValue = rst("periodcode").ToString
             yeartrn.Text = rst("yeartrn").ToString
             txtJournalDate.EditValue = rst("postingdate").ToString
             fundcode.Text = rst("fundcode").ToString
+            officeid.Text = rst("officeid").ToString
+            txtOffice.Text = rst("office").ToString
             periodcode.Text = rst("periodcode").ToString
             txtRemarks.Text = rst("remarks").ToString
             txtDVNo.Text = rst("dvno").ToString
@@ -90,9 +93,16 @@ Public Class frmJournalEntry
         txtFund.ReadOnly = readonlyform
         txtJournalDate.ReadOnly = readonlyform
         txtRemarks.ReadOnly = readonlyform
+        txtDVNo.ReadOnly = readonlyform
+        txtPayrollNo.ReadOnly = readonlyform
+        txtRCDNo.ReadOnly = readonlyform
+        txtLRNo.ReadOnly = readonlyform
+        txtAENo.ReadOnly = readonlyform
+
 
         If readonlyform = True Then
             Em.ContextMenuStrip = Nothing
+
             cmdSave.Text = "Close Window"
         Else
             Em.ContextMenuStrip = ContexEntries
@@ -102,7 +112,7 @@ Public Class frmJournalEntry
 
     Public Sub LoadAccountTitle()
         LoadXgrid("select id, (select officename from tblcompoffice where officeid=tbljournalentryitem.centercode) as 'Responsibility Center', " _
-                  + " (select description from tblexpenditureitem where id=tbljournalentryitem.classcode) as 'Expenditure Item',  " _
+                  + " (select itemname from tblglitem where itemcode=tbljournalentryitem.classcode) as 'Expenditure Item',  " _
                   + " itemname as 'Account and Explaination', itemcode as 'Account Code', Debit, Credit, checkno as 'Check No.' " _
                   + " from tbljournalentryitem where jevno='" & If(jevno.Text = "", globaluserid & "-temp", jevno.Text) & "' ", "tbljournalentryitem", Em, Gridview1, Me)
         XgridHideColumn({"id"}, Gridview1)
@@ -128,8 +138,8 @@ Public Class frmJournalEntry
             txtJournalDate.Focus()
             Exit Sub
         End If
-        frmVoucherRequisitionItem.voucherno.Text = jevno.Text
-        frmVoucherRequisitionItem.ShowDialog(Me)
+        frmJournalEntryExpenditure.voucherno.Text = jevno.Text
+        frmJournalEntryExpenditure.ShowDialog(Me)
     End Sub
 
     Private Sub cmdSave_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
@@ -179,6 +189,7 @@ Public Class frmJournalEntry
                    + " fundcode='" & fundcode.Text & "', " _
                    + " periodcode='" & periodcode.Text & "', " _
                    + " yeartrn='" & yeartrn.Text & "', " _
+                   + " officeid='" & officeid.Text & "', " _
                    + " postingdate='" & ConvertDate(txtJournalDate.EditValue) & "', " _
                    + " remarks='" & rchar(txtRemarks.Text) & "', " _
                    + " dvno='" & txtDVNo.Text & "', " _
@@ -194,6 +205,7 @@ Public Class frmJournalEntry
                    + " fundcode='" & fundcode.Text & "', " _
                    + " periodcode='" & periodcode.Text & "', " _
                    + " yeartrn='" & yeartrn.Text & "', " _
+                   + " officeid='" & officeid.Text & "', " _
                    + " postingdate='" & ConvertDate(txtJournalDate.EditValue) & "', " _
                    + " remarks='" & rchar(txtRemarks.Text) & "', " _
                    + " dvno='" & txtDVNo.Text & "', " _
@@ -214,24 +226,6 @@ Public Class frmJournalEntry
         LoadAccountTitle()
     End Sub
 
-    Private Sub cmdAdd_Click(sender As Object, e As EventArgs) Handles cmdAdd.Click
-        If txtFund.Text = "" Then
-            XtraMessageBox.Show("Please select fund ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtJournalDate.Focus()
-            Exit Sub
-        ElseIf txtJournalDate.Text = "" Then
-            XtraMessageBox.Show("Please select journal date ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtJournalDate.Focus()
-            Exit Sub
-        End If
-        frmJournalEntryItem.jevno.Text = jevno.Text
-        If frmJournalEntryItem.Visible = True Then
-            frmJournalEntryItem.Focus()
-        Else
-            frmJournalEntryItem.Show(Me)
-        End If
-    End Sub
-
     Private Sub cmdEdit_Click(sender As Object, e As EventArgs) Handles cmdEdit.Click
         If txtFund.Text = "" Then
             XtraMessageBox.Show("Please select fund ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -242,14 +236,29 @@ Public Class frmJournalEntry
             txtJournalDate.Focus()
             Exit Sub
         End If
-        frmJournalEntryItem.mode.Text = "edit"
-        frmJournalEntryItem.jevno.Text = jevno.Text
-        frmJournalEntryItem.id.Text = Gridview1.GetFocusedRowCellValue("id").ToString
-        If frmJournalEntryItem.Visible = True Then
-            frmJournalEntryItem.Focus()
+
+        If Val(CC(Gridview1.GetFocusedRowCellValue("Credit").ToString)) > 0 Then
+            frmJournalEntryCredit.mode.Text = "edit"
+            frmJournalEntryCredit.jevno.Text = jevno.Text
+            frmJournalEntryCredit.voucherno.Text = txtDVNo.Text
+            frmJournalEntryCredit.id.Text = Gridview1.GetFocusedRowCellValue("id").ToString
+            If frmJournalEntryCredit.Visible = True Then
+                frmJournalEntryCredit.Focus()
+            Else
+                frmJournalEntryCredit.Show(Me)
+            End If
         Else
-            frmJournalEntryItem.Show(Me)
+            frmJournalEntryDebit.mode.Text = "edit"
+            frmJournalEntryDebit.jevno.Text = jevno.Text
+            frmJournalEntryDebit.voucherno.Text = txtDVNo.Text
+            frmJournalEntryDebit.id.Text = Gridview1.GetFocusedRowCellValue("id").ToString
+            If frmJournalEntryDebit.Visible = True Then
+                frmJournalEntryDebit.Focus()
+            Else
+                frmJournalEntryDebit.Show(Me)
+            End If
         End If
+
     End Sub
 
     Private Sub cmdRemove_Click(sender As Object, e As EventArgs) Handles cmdRemove.Click
@@ -262,6 +271,7 @@ Public Class frmJournalEntry
             For I = 0 To Gridview1.SelectedRowsCount - 1
                 com.CommandText = "delete from tbljournalentryitem where id='" & Gridview1.GetRowCellValue(Gridview1.GetSelectedRows(I), "id") & "' " : com.ExecuteNonQuery()
             Next
+            LoadAccountTitle()
         End If
 
     End Sub
@@ -272,7 +282,7 @@ Public Class frmJournalEntry
         txtJournalDate.Properties.MaxValue = CDate("December 31, " & yeartrn.Text).ToString("MMMM dd, yyyy")
         txtJournalDate.EditValue = CDate(Now.ToString("MMMM dd, ") & yeartrn.Text)
     End Sub
-     
+
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles cmdPrint.Click
         If mode.Text = "view" Then
             PrintJournalVoucher(jevno.Text, Me)
@@ -283,6 +293,51 @@ Public Class frmJournalEntry
                     PrintJournalVoucher(jevno.Text, Me)
                 End If
             End If
+        End If
+    End Sub
+
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+        If txtFund.Text = "" Then
+            XtraMessageBox.Show("Please select fund ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txtJournalDate.Focus()
+            Exit Sub
+        ElseIf txtJournalDate.Text = "" Then
+            XtraMessageBox.Show("Please select journal date ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txtJournalDate.Focus()
+            Exit Sub
+        End If
+        frmJournalEntryCredit.voucherno.Text = txtDVNo.Text
+        frmJournalEntryCredit.jevno.Text = jevno.Text
+        If frmJournalEntryCredit.Visible = True Then
+            frmJournalEntryCredit.Focus()
+        Else
+            frmJournalEntryCredit.Show(Me)
+        End If
+    End Sub
+
+    Private Sub ExpenditureItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExpenditureItemToolStripMenuItem.Click
+        frmJournalEntryExpenditure.voucherno.Text = txtDVNo.Text
+        frmJournalEntryExpenditure.jevno.Text = jevno.Text
+        frmJournalEntryExpenditure.officeid.Text = jevno.Text
+        frmJournalEntryExpenditure.ShowDialog(Me)
+    End Sub
+
+    Private Sub ManualJournalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ManualJournalToolStripMenuItem.Click
+        If txtFund.Text = "" Then
+            XtraMessageBox.Show("Please select fund ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txtJournalDate.Focus()
+            Exit Sub
+        ElseIf txtJournalDate.Text = "" Then
+            XtraMessageBox.Show("Please select journal date ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txtJournalDate.Focus()
+            Exit Sub
+        End If
+        frmJournalEntryDebit.voucherno.Text = txtDVNo.Text
+        frmJournalEntryDebit.jevno.Text = jevno.Text
+        If frmJournalEntryDebit.Visible = True Then
+            frmJournalEntryDebit.Focus()
+        Else
+            frmJournalEntryDebit.Show(Me)
         End If
     End Sub
 End Class

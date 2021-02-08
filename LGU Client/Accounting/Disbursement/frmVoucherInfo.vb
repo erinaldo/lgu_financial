@@ -19,9 +19,8 @@ Public Class frmVoucherInfo
         Me.Dispose()
     End Sub
     Private Sub frmHotelGroupCheckin_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        If countqry("tbldisbursementvoucher", "voucherno='" & voucherno.Text & "'") = 0 And (Gridview1.RowCount > 0 Or gridRequisition.RowCount > 0) Then
-            If XtraMessageBox.Show("System found transaction currently not validated! Are you sure you want to cancel current transaction?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = vbYes Then
-                com.CommandText = "delete from tbldisbursementvoucheritem where voucherno='" & voucherno.Text & "'" : com.ExecuteNonQuery()
+        If countqry("tbldisbursementvoucher", "voucherno='" & voucherno.Text & "'") = 0 And gridRequisition.RowCount > 0 Then
+            If XtraMessageBox.Show("System found transaction currently not validated! " & Environment.NewLine & "Are you sure you want to cancel current transaction?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = vbYes Then
                 com.CommandText = "UPDATE tblrequisition set paid=0 where pid in (select pid from tbldisbursementdetails where voucherno='" & voucherno.Text & "')" : com.ExecuteNonQuery()
                 com.CommandText = "DELETE FROM tbldisbursementdetails where voucherno='" & voucherno.Text & "'" : com.ExecuteNonQuery()
             Else
@@ -34,17 +33,22 @@ Public Class frmVoucherInfo
     Private Sub frmBudgetVoucherInfo_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Icon = ico
         SplashScreenManager.ShowForm(GetType(WaitForm1), True, True)
+
         LoadFund()
         LoadSupplier()
+        txtVoucherDate.EditValue = Now
+        'txtCheckDate.EditValue = Now
         If mode.Text <> "edit" Then
-            CreateControlNumber()
+            CreateTrnReference()
             cmdSave.Text = "Save Voucher"
         Else
             ShowVoucherInfo()
         End If
-        LoadDisbursementItem()
-        LoadVoucherExpenses()
         SplashScreenManager.CloseForm()
+    End Sub
+
+    Public Sub CreateTrnReference()
+        trnreference.Text = getGlobalTrnid() & "-" & globaluserid
     End Sub
 
     Public Sub LoadFund()
@@ -56,23 +60,33 @@ Public Class frmVoucherInfo
         periodcode.Text = txtFund.Properties.View.GetFocusedRowCellValue("code").ToString()
         fundcode.Text = txtFund.Properties.View.GetFocusedRowCellValue("fundcode").ToString()
         yearcode.Text = txtFund.Properties.View.GetFocusedRowCellValue("yeartrn").ToString()
+        txtVoucherDate.Properties.MinValue = CDate("01/01/" & yearcode.Text)
+        txtVoucherDate.Properties.MaxValue = CDate("12/31/" & yearcode.Text)
+        LoadOffice()
+    End Sub
+
+    Public Sub LoadOffice()
+        If periodcode.Text = "" Then Exit Sub
+        LoadXgridLookupSearch("select officeid, officename as 'Select' from tblcompoffice where officeid in (select officeid from tblrequisition where approved=1 and periodcode='" & periodcode.Text & "')  order by officename asc", "tblcompoffice", txtOffice, gridOffice)
+        gridOffice.Columns("officeid").Visible = False
     End Sub
 
     Public Sub ShowVoucherInfo()
-        Dim budgettitle As String = ""
+        Dim budgettitle As String = "" : Dim officeid As String = ""
         com.CommandText = "select * from tbldisbursementvoucher as a where id='" & id.Text & "'" : rst = com.ExecuteReader
         While rst.Read
             txtFund.EditValue = rst("periodcode").ToString
+            periodcode.Text = rst("periodcode").ToString
             seriesno.Text = rst("seriesno").ToString
             yearcode.Text = rst("yearcode").ToString
             yeartrn.Text = rst("yeartrn").ToString
-            txtVoucherDate.EditValue = rst("voucherdate").ToString
+            officeid = rst("officeid").ToString
+            checkno.Text = rst("checkno").ToString
+            txtVoucherDate.EditValue = CDate(rst("voucherdate").ToString)
             voucherno.Text = rst("voucherno").ToString
             txtSupplier.EditValue = rst("supplierid").ToString
             fundcode.Text = rst("fundcode").ToString
-            periodcode.Text = rst("periodcode").ToString
-            radPaymentType.EditValue = rst("typeofpayment").ToString
-            txtRequisitionAmount.EditValue = rst("amount").ToString
+
             txtVoucherAmount.EditValue = rst("amount").ToString
             If CBool(rst("cleared")) = True Or CBool(rst("cancelled")) = True Then
                 mode.Text = "view"
@@ -82,50 +96,29 @@ Public Class frmVoucherInfo
             End If
         End While
         rst.Close()
+        LoadVoucherExpenses()
+        LoadOffice()
+        txtOffice.EditValue = officeid
 
     End Sub
 
     Public Function InfoControl(ByVal readonlyform As Boolean)
         txtFund.ReadOnly = readonlyform
         txtVoucherDate.ReadOnly = readonlyform
-        radPaymentType.ReadOnly = readonlyform
         txtSupplier.ReadOnly = readonlyform
 
         If readonlyform = True Then
-            Em.ContextMenuStrip = Nothing
             Em_requisition.ContextMenuStrip = Nothing
+            SimpleButton1.Visible = False
+            cmdPrint.Visible = False
             cmdSave.Text = "Close Window"
         Else
-            Em.ContextMenuStrip = ContexExplaination
             Em_requisition.ContextMenuStrip = ContextRequisition
+            SimpleButton1.Visible = True
+            cmdPrint.Visible = True
             cmdSave.Text = "Save Voucher"
         End If
     End Function
-
-
-    Public Sub CreateControlNumber()
-        If txtVoucherDate.Text <> "" Then
-            yeartrn.Text = CDate(txtVoucherDate.EditValue).ToString("yy")
-            Dim vno As String = getVoucherNumber(yeartrn.Text, "tbldisbursementvoucher")
-            voucherno.Text = fundcode.Text & "-" & yeartrn.Text & "-" & CDate(txtVoucherDate.EditValue).ToString("MM") & "-" & vno
-            seriesno.Text = vno
-        End If
-    End Sub
-
-    Public Sub LoadDisbursementItem()
-        LoadXgrid("select id,Explaination, Amount from tbldisbursementvoucheritem where voucherno='" & voucherno.Text & "' ", "tbldisbursementvoucheritem", Em, Gridview1, Me)
-        XgridHideColumn({"id"}, Gridview1)
-        XgridColWidth({"Amount"}, Gridview1, 186)
-        XgridColWidth({"Explaination"}, Gridview1, 450)
-        Gridview1.Columns("Explaination").OptionsColumn.AllowEdit = False
-        Gridview1.Columns("Explaination").OptionsColumn.AllowFocus = False
-
-        Gridview1.Columns("Explaination").AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Gridview1.Columns("Explaination").ColumnEdit = MemoEdit
-        XgridColCurrency({"Amount"}, Gridview1)
-        XgridGeneralSummaryCurrency({"Amount"}, Gridview1)
-        txtVoucherAmount.EditValue = Gridview1.Columns("Amount").SummaryText
-    End Sub
 
     Public Sub LoadVoucherExpenses()
         LoadXgrid("select id, pid as 'Entry Code', date_format(postingdate,'%Y-%m-%d') as 'Date', requestno as 'Request No',(select officename from tblcompoffice where officeid=a.officeid) as 'Office', (select description from tblrequisitiontype where code=a.requesttype) as 'Request Type', Amount,Purpose from tbldisbursementdetails as a where voucherno='" & voucherno.Text & "' order by postingdate asc", "tbldisbursementdetails", Em_requisition, gridRequisition, Me)
@@ -135,7 +128,15 @@ Public Class frmVoucherInfo
         XgridColCurrency({"Amount"}, gridRequisition)
         XgridGeneralSummaryCurrency({"Amount"}, gridRequisition)
         XgridColWidth({"Amount"}, gridRequisition, 100)
-        txtRequisitionAmount.EditValue = gridRequisition.Columns("Amount").SummaryText
+        txtVoucherAmount.EditValue = gridRequisition.Columns("Amount").SummaryText
+
+        If gridRequisition.RowCount > 0 Then
+            txtFund.ReadOnly = True
+            txtOffice.ReadOnly = True
+        Else
+            txtFund.ReadOnly = False
+            txtOffice.ReadOnly = False
+        End If
     End Sub
 
     Private Sub Em_requisition_DoubleClick(sender As Object, e As EventArgs) Handles Em_requisition.DoubleClick
@@ -154,12 +155,19 @@ Public Class frmVoucherInfo
             XtraMessageBox.Show("Please select fund ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtFund.Focus()
             Exit Sub
+        ElseIf txtOffice.Text = "" Then
+            XtraMessageBox.Show("Please select office ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txtOffice.Focus()
+            Exit Sub
         ElseIf txtVoucherDate.Text = "" Then
             XtraMessageBox.Show("Please select voucher date ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtVoucherDate.Focus()
             Exit Sub
         End If
+        frmVoucherRequisitionItem.periodcode.Text = periodcode.Text
         frmVoucherRequisitionItem.voucherno.Text = voucherno.Text
+        frmVoucherRequisitionItem.trnreference.Text = trnreference.Text
+        frmVoucherRequisitionItem.officeid.Text = txtOffice.EditValue
         frmVoucherRequisitionItem.ShowDialog(Me)
     End Sub
 
@@ -188,11 +196,12 @@ Public Class frmVoucherInfo
                     If frmDisbursementList.Visible = True Then
                         frmDisbursementList.ViewList()
                     End If
+                    CreateTrnReference()
                     XtraMessageBox.Show("Disbursement voucher successfully saved", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Me.Close()
                 End If
             End If
         End If
-       
     End Sub
 
     Public Function CheckSecurity() As Boolean
@@ -208,14 +217,8 @@ Public Class frmVoucherInfo
             XtraMessageBox.Show("Please select supplier ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtSupplier.Focus()
             Return False
-        ElseIf Gridview1.RowCount = 0 Then
-            XtraMessageBox.Show("Please add disbursment item atleast one item", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
         ElseIf gridRequisition.RowCount = 0 Then
             XtraMessageBox.Show("Please add requisition item atleast one item", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Return False
-        ElseIf Val(CC(txtVoucherAmount.EditValue)) <> Val(CC(txtRequisitionAmount.EditValue)) Then
-            XtraMessageBox.Show("Requisition amount does not match with voucher amount", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
         Else
             Return True
@@ -233,10 +236,16 @@ Public Class frmVoucherInfo
                    + " yeartrn='" & yeartrn.Text & "', " _
                    + " voucherdate='" & ConvertDate(txtVoucherDate.EditValue) & "', " _
                    + " supplierid='" & txtSupplier.EditValue & "', " _
-                   + " typeofpayment='" & radPaymentType.EditValue & "', " _
-                   + " amount='" & Val(CC(txtRequisitionAmount.EditValue)) & "' " _
+                   + " officeid='" & txtOffice.EditValue & "', " _
+                   + " amount='" & Val(CC(txtVoucherAmount.EditValue)) & "' " _
                    + " where id='" & id.Text & "'" : com.ExecuteNonQuery()
         Else
+
+            yeartrn.Text = CDate(txtVoucherDate.EditValue).ToString("yyyy")
+            Dim vno As String = getVoucherNumber(yeartrn.Text, "tbldisbursementvoucher")
+            voucherno.Text = fundcode.Text & "-" & yeartrn.Text & "-" & CDate(txtVoucherDate.EditValue).ToString("MM") & "-" & vno
+            seriesno.Text = vno
+
             com.CommandText = "insert into tbldisbursementvoucher set " _
                    + " voucherno='" & voucherno.Text & "', " _
                    + " fundcode='" & fundcode.Text & "', " _
@@ -246,64 +255,15 @@ Public Class frmVoucherInfo
                    + " yeartrn='" & yeartrn.Text & "', " _
                    + " voucherdate='" & ConvertDate(txtVoucherDate.EditValue) & "', " _
                    + " supplierid='" & txtSupplier.EditValue & "', " _
-                   + " typeofpayment='" & radPaymentType.EditValue & "', " _
-                   + " amount='" & Val(CC(txtRequisitionAmount.EditValue)) & "', " _
+                   + " officeid='" & txtOffice.EditValue & "', " _
+                   + " checkno='', " _
+                   + " checkbank='', " _
+                   + " checkdate=null, " _
+                   + " amount='" & Val(CC(txtVoucherAmount.EditValue)) & "', " _
                    + " trnby='" & globaluserid & "', " _
                    + " datetrn=current_timestamp " : com.ExecuteNonQuery()
+            com.CommandText = "update tbldisbursementdetails set voucherno='" & voucherno.Text & "' where trnreference='" & trnreference.Text & "'" : com.ExecuteNonQuery()
         End If
-    End Sub
-
-    Private Sub cmdRefresh_Click(sender As Object, e As EventArgs) Handles cmdRefresh.Click
-        LoadDisbursementItem()
-    End Sub
-
-    Private Sub cmdAdd_Click(sender As Object, e As EventArgs) Handles cmdAdd.Click
-        If txtVoucherDate.Text = "" Then
-            XtraMessageBox.Show("Please select voucher date ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtVoucherDate.Focus()
-            Exit Sub
-        End If
-        frmVoucherItem.voucherno.Text = voucherno.Text
-        If frmVoucherItem.Visible = True Then
-            frmVoucherItem.Focus()
-        Else
-            frmVoucherItem.Show(Me)
-        End If
-    End Sub
-
-    Private Sub cmdEdit_Click(sender As Object, e As EventArgs) Handles cmdEdit.Click
-        If txtVoucherDate.Text = "" Then
-            XtraMessageBox.Show("Please select voucher date ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtVoucherDate.Focus()
-            Exit Sub
-        End If
-        frmVoucherItem.mode.Text = "edit"
-        frmVoucherItem.voucherno.Text = voucherno.Text
-        frmVoucherItem.id.Text = Gridview1.GetFocusedRowCellValue("id").ToString
-        If frmVoucherItem.Visible = True Then
-            frmVoucherItem.Focus()
-        Else
-            frmVoucherItem.Show(Me)
-        End If
-    End Sub
-
-    Private Sub cmdRemove_Click(sender As Object, e As EventArgs) Handles cmdRemove.Click
-        If Gridview1.RowCount = 0 Then
-            XtraMessageBox.Show("There is no item selected! make sure, the selection is on the list", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Exit Sub
-        End If
-        If XtraMessageBox.Show("Are you sure you want to permanently delete this item? ", GlobalOrganizationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
-            Dim I As Integer = 0
-            For I = 0 To Gridview1.SelectedRowsCount - 1
-                com.CommandText = "delete tbldisbursementvoucheritem where id='" & Gridview1.GetRowCellValue(Gridview1.GetSelectedRows(I), "id") & "' " : com.ExecuteNonQuery()
-            Next
-        End If
-
-    End Sub
-
-    Private Sub txtVoucherDate_EditValueChanged(sender As Object, e As EventArgs) Handles txtVoucherDate.EditValueChanged
-        If mode.Text = "edit" Then Exit Sub
-        CreateControlNumber()
     End Sub
 
     Private Sub budgetyear_EditValueChanged(sender As Object, e As EventArgs) Handles yeartrn.EditValueChanged
@@ -330,5 +290,27 @@ Public Class frmVoucherInfo
         LoadVoucherExpenses()
     End Sub
 
-    
+    Private Sub cmdPrint_Click(sender As Object, e As EventArgs) Handles cmdPrint.Click
+        If countqry("tbljournalentryvoucher", "dvno='" & voucherno.Text & "'") = 0 Then
+            XtraMessageBox.Show("No journal entry for this voucher please create before print", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        ElseIf checkno.Text = "" Then
+            XtraMessageBox.Show("Voucher check is currently not issued! ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        If mode.Text = "view" Then
+            PrintDisbursementVoucher(voucherno.Text, Me)
+        Else
+            If CheckSecurity() = True Then
+                If XtraMessageBox.Show("Are you sure you want to continue? ", GlobalOrganizationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+                    SaveVoucherInfo()
+                    PrintDisbursementVoucher(voucherno.Text, Me)
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        cmdAddApprovedRequisition.PerformClick()
+    End Sub
 End Class

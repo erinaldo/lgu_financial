@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmDepartmentInfo
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,8 +17,9 @@ Partial Class frmDepartmentInfo
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDepartmentInfo))
         Me.txtShortName = New DevExpress.XtraEditors.ButtonEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
@@ -36,12 +37,12 @@ Partial Class frmDepartmentInfo
         Me.txtCompanyName = New DevExpress.XtraEditors.TextEdit()
         Me.id = New DevExpress.XtraEditors.ButtonEdit()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdRemove = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BarManager1 = New DevExpress.XtraBars.BarManager()
+        Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar2 = New DevExpress.XtraBars.Bar()
         Me.cmdClose = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
@@ -53,6 +54,7 @@ Partial Class frmDepartmentInfo
         Me.cmdUpdateAccountable = New DevExpress.XtraEditors.SimpleButton()
         Me.txtCenterCode = New DevExpress.XtraEditors.ButtonEdit()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
+        Me.ckSB = New DevExpress.XtraEditors.CheckEdit()
         CType(Me.txtShortName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtContactNumber.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAddress.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,6 +68,7 @@ Partial Class frmDepartmentInfo
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.userid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCenterCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ckSB.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtShortName
@@ -140,11 +143,11 @@ Partial Class frmDepartmentInfo
         Me.cmdSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.cmdSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSave.Appearance.Options.UseFont = True
-        Me.cmdSave.Location = New System.Drawing.Point(176, 231)
+        Me.cmdSave.Location = New System.Drawing.Point(176, 252)
         Me.cmdSave.Name = "cmdSave"
         Me.cmdSave.Size = New System.Drawing.Size(146, 36)
         Me.cmdSave.TabIndex = 7
-        Me.cmdSave.Text = "Save Department"
+        Me.cmdSave.Text = "Save Office"
         '
         'txtOfficerIncharge
         '
@@ -215,7 +218,7 @@ Partial Class frmDepartmentInfo
         Me.lbloffice.Name = "lbloffice"
         Me.lbloffice.Size = New System.Drawing.Size(129, 14)
         Me.lbloffice.TabIndex = 390
-        Me.lbloffice.Text = "Department Name"
+        Me.lbloffice.Text = "Office Name"
         '
         'txtCompanyName
         '
@@ -334,7 +337,7 @@ Partial Class frmDepartmentInfo
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 285)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 309)
         Me.barDockControlBottom.Manager = Me.BarManager1
         Me.barDockControlBottom.Size = New System.Drawing.Size(560, 0)
         '
@@ -344,7 +347,7 @@ Partial Class frmDepartmentInfo
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 265)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 289)
         '
         'barDockControlRight
         '
@@ -352,7 +355,7 @@ Partial Class frmDepartmentInfo
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
         Me.barDockControlRight.Location = New System.Drawing.Point(560, 20)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 265)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 289)
         '
         'userid
         '
@@ -367,7 +370,7 @@ Partial Class frmDepartmentInfo
         '
         Me.cmdUpdateAccountable.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.cmdUpdateAccountable.Appearance.Options.UseFont = True
-        Me.cmdUpdateAccountable.Location = New System.Drawing.Point(328, 231)
+        Me.cmdUpdateAccountable.Location = New System.Drawing.Point(328, 252)
         Me.cmdUpdateAccountable.Name = "cmdUpdateAccountable"
         Me.cmdUpdateAccountable.Size = New System.Drawing.Size(79, 36)
         Me.cmdUpdateAccountable.TabIndex = 12
@@ -398,12 +401,24 @@ Partial Class frmDepartmentInfo
         Me.LabelControl6.TabIndex = 636
         Me.LabelControl6.Text = "Responsibility Center"
         '
+        'ckSB
+        '
+        Me.ckSB.Location = New System.Drawing.Point(176, 228)
+        Me.ckSB.MenuManager = Me.BarManager1
+        Me.ckSB.Name = "ckSB"
+        Me.ckSB.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.ckSB.Properties.Appearance.Options.UseFont = True
+        Me.ckSB.Properties.Caption = "Tag as SB"
+        Me.ckSB.Size = New System.Drawing.Size(213, 21)
+        Me.ckSB.TabIndex = 646
+        '
         'frmDepartmentInfo
         '
         Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(560, 285)
+        Me.ClientSize = New System.Drawing.Size(560, 309)
+        Me.Controls.Add(Me.ckSB)
         Me.Controls.Add(Me.txtCenterCode)
         Me.Controls.Add(Me.LabelControl6)
         Me.Controls.Add(Me.cmdUpdateAccountable)
@@ -431,7 +446,7 @@ Partial Class frmDepartmentInfo
         Me.MaximizeBox = False
         Me.Name = "frmDepartmentInfo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Corporate Division"
+        Me.Text = "Office Info"
         Me.TopMost = True
         CType(Me.txtShortName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtContactNumber.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -446,6 +461,7 @@ Partial Class frmDepartmentInfo
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.userid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCenterCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ckSB.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -483,4 +499,5 @@ Partial Class frmDepartmentInfo
     Friend WithEvents cmdUpdateAccountable As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents txtCenterCode As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents ckSB As DevExpress.XtraEditors.CheckEdit
 End Class

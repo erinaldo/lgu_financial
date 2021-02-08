@@ -155,7 +155,7 @@ Partial Class frmExpenditureClass
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(1080, 389)
+        Me.Em.Size = New System.Drawing.Size(698, 389)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -196,7 +196,6 @@ Partial Class frmExpenditureClass
         Me.GridView1.GridControl = Me.Em
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.Editable = False
-        Me.GridView1.OptionsSelection.MultiSelect = True
         Me.GridView1.OptionsSelection.UseIndicatorForSelection = False
         Me.GridView1.OptionsView.ColumnAutoWidth = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
@@ -254,7 +253,7 @@ Partial Class frmExpenditureClass
         Me.tabExpenditureTagging.Controls.Add(Me.barDockControlRight)
         Me.tabExpenditureTagging.Controls.Add(Me.BarDockControl1)
         Me.tabExpenditureTagging.Name = "tabExpenditureTagging"
-        Me.tabExpenditureTagging.Size = New System.Drawing.Size(716, 503)
+        Me.tabExpenditureTagging.Size = New System.Drawing.Size(712, 504)
         Me.tabExpenditureTagging.Text = "Expenditure Tagging"
         '
         'SplitContainerControl2
@@ -402,17 +401,17 @@ Partial Class frmExpenditureClass
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(716, 0)
+        Me.barDockControlRight.Location = New System.Drawing.Point(712, 0)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 503)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 504)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(716, 0)
+        Me.BarDockControl1.Location = New System.Drawing.Point(712, 0)
         Me.BarDockControl1.Manager = Nothing
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 503)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 504)
         '
         'frmExpenditureClass
         '
@@ -421,7 +420,7 @@ Partial Class frmExpenditureClass
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(718, 536)
         Me.Controls.Add(Me.XtraTabControl1)
-        Me.MinimumSize = New System.Drawing.Size(734, 575)
+        Me.MinimumSize = New System.Drawing.Size(728, 568)
         Me.Name = "frmExpenditureClass"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Expenditure Class"

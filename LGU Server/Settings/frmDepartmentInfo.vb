@@ -36,11 +36,11 @@ Public Class frmDepartmentInfo
 
     Private Sub SimpleButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSave.Click
         If txtShortName.Text = "" Then
-            XtraMessageBox.Show("Please provide Department short name!", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            XtraMessageBox.Show("Please provide Office short name!", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtShortName.Focus()
             Exit Sub
         ElseIf txtCompanyName.Text = "" Then
-            XtraMessageBox.Show("Please provide Department Name!", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            XtraMessageBox.Show("Please provide Office Name!", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtCompanyName.Focus()
             Exit Sub
 
@@ -48,11 +48,11 @@ Public Class frmDepartmentInfo
 
         If mode.Text <> "edit" Then
            If countqry("tblcompoffice", "officename='" & rchar(txtCompanyName.Text) & "'") <> 0 Then
-                XtraMessageBox.Show("Duplicate Department Name! please use unique one.", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                XtraMessageBox.Show("Duplicate Office Name! please use unique one.", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 txtCompanyName.Focus()
                 Exit Sub
             ElseIf countqry("tblcompoffice", "shortname='" & txtShortName.Text & "'") <> 0 Then
-                XtraMessageBox.Show("Duplicate Department short name! please use unique one.", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                XtraMessageBox.Show("Duplicate Office short name! please use unique one.", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 txtShortName.Focus()
                 Exit Sub
             ElseIf countrecord("tblcompofficeseries") = 0 Then
@@ -60,9 +60,9 @@ Public Class frmDepartmentInfo
                 Exit Sub
             End If
             Dim officeid As String = GetOfficeid()
-            com.CommandText = "insert into tblcompoffice set officeid='" & officeid & "',officename='" & rchar(txtCompanyName.Text) & "',shortname='" & rchar(Trim(txtShortName.Text)) & "',centercode='" & txtCenterCode.Text & "', address='" & rchar(txtAddress.Text) & "', contactnumber='" & txtContactNumber.Text & "', officeemail='" & txtEmailAddress.Text & "',officerid='" & userid.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblcompoffice set officeid='" & officeid & "',officename='" & rchar(txtCompanyName.Text) & "',shortname='" & rchar(Trim(txtShortName.Text)) & "',centercode='" & txtCenterCode.Text & "', address='" & rchar(txtAddress.Text) & "', contactnumber='" & txtContactNumber.Text & "', officeemail='" & txtEmailAddress.Text & "',officerid='" & userid.Text & "', sb=" & ckSB.CheckState & "" : com.ExecuteNonQuery()
         Else
-            com.CommandText = "update tblcompoffice set officename='" & rchar(txtCompanyName.Text) & "',shortname='" & rchar(Trim(txtShortName.Text)) & "',centercode='" & txtCenterCode.Text & "',  address='" & rchar(txtAddress.Text) & "', contactnumber='" & txtContactNumber.Text & "', officeemail='" & txtEmailAddress.Text & "',officerid='" & userid.Text & "' where officeid='" & id.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "update tblcompoffice set officename='" & rchar(txtCompanyName.Text) & "',shortname='" & rchar(Trim(txtShortName.Text)) & "',centercode='" & txtCenterCode.Text & "',  address='" & rchar(txtAddress.Text) & "', contactnumber='" & txtContactNumber.Text & "', officeemail='" & txtEmailAddress.Text & "',officerid='" & userid.Text & "', sb=" & ckSB.CheckState & " where officeid='" & id.Text & "'" : com.ExecuteNonQuery()
         End If
 
         clearfields()
@@ -117,7 +117,7 @@ Public Class frmDepartmentInfo
         loadOfficer()
         userid.Text = ""
         mode.Text = ""
-
+        ckSB.Checked = False
     End Sub
 
     Private Sub mode_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mode.EditValueChanged
@@ -133,6 +133,7 @@ Public Class frmDepartmentInfo
             txtEmailAddress.Text = rst("officeemail").ToString
             txtOfficerIncharge.Text = rst("officer").ToString
             userid.Text = rst("officerid").ToString
+            ckSB.Checked = CBool(rst("sb").ToString)
         End While
         rst.Close()
     End Sub

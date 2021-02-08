@@ -27,11 +27,7 @@ Partial Class frmProductInfo
         Me.txtCategory = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridcategory = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.categorycode = New DevExpress.XtraEditors.TextEdit()
-        Me.classcode = New DevExpress.XtraEditors.TextEdit()
-        Me.txtClassification = New DevExpress.XtraEditors.SearchLookUpEdit()
-        Me.gridClass = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.ckpooption = New DevExpress.XtraEditors.RadioGroup()
-        Me.cmdClassification = New DevExpress.XtraEditors.HyperlinkLabelControl()
         Me.cmdCategory = New DevExpress.XtraEditors.HyperlinkLabelControl()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.HyperlinkLabelControl1 = New DevExpress.XtraEditors.HyperlinkLabelControl()
@@ -46,9 +42,6 @@ Partial Class frmProductInfo
         CType(Me.txtCategory.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridcategory, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.categorycode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.classcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtClassification.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gridClass, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckpooption.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtUnit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.productid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,7 +51,7 @@ Partial Class frmProductInfo
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(82, 57)
+        Me.LabelControl2.Location = New System.Drawing.Point(84, 57)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(64, 17)
         Me.LabelControl2.TabIndex = 507
@@ -85,7 +78,7 @@ Partial Class frmProductInfo
         Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSaveButton.Appearance.Options.UseBackColor = True
         Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(155, 268)
+        Me.cmdSaveButton.Location = New System.Drawing.Point(155, 241)
         Me.cmdSaveButton.Name = "cmdSaveButton"
         Me.cmdSaveButton.Size = New System.Drawing.Size(178, 34)
         Me.cmdSaveButton.TabIndex = 4
@@ -151,45 +144,9 @@ Partial Class frmProductInfo
         Me.categorycode.TabIndex = 647
         Me.categorycode.Visible = False
         '
-        'classcode
-        '
-        Me.classcode.EditValue = ""
-        Me.classcode.Enabled = False
-        Me.classcode.Location = New System.Drawing.Point(669, 83)
-        Me.classcode.Name = "classcode"
-        Me.classcode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.classcode.Properties.Appearance.Options.UseFont = True
-        Me.classcode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.classcode.Properties.ReadOnly = True
-        Me.classcode.Size = New System.Drawing.Size(77, 24)
-        Me.classcode.TabIndex = 648
-        Me.classcode.Visible = False
-        '
-        'txtClassification
-        '
-        Me.txtClassification.EditValue = ""
-        Me.txtClassification.Location = New System.Drawing.Point(155, 159)
-        Me.txtClassification.Name = "txtClassification"
-        Me.txtClassification.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtClassification.Properties.Appearance.Options.UseFont = True
-        Me.txtClassification.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.txtClassification.Properties.DisplayMember = "Select"
-        Me.txtClassification.Properties.NullText = ""
-        Me.txtClassification.Properties.PopupView = Me.gridClass
-        Me.txtClassification.Properties.ValueMember = "code"
-        Me.txtClassification.Size = New System.Drawing.Size(284, 24)
-        Me.txtClassification.TabIndex = 3
-        '
-        'gridClass
-        '
-        Me.gridClass.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.gridClass.Name = "gridClass"
-        Me.gridClass.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.gridClass.OptionsView.ShowGroupPanel = False
-        '
         'ckpooption
         '
-        Me.ckpooption.Location = New System.Drawing.Point(155, 187)
+        Me.ckpooption.Location = New System.Drawing.Point(155, 160)
         Me.ckpooption.Name = "ckpooption"
         Me.ckpooption.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.0!)
         Me.ckpooption.Properties.Appearance.Options.UseFont = True
@@ -201,21 +158,11 @@ Partial Class frmProductInfo
         Me.ckpooption.Size = New System.Drawing.Size(378, 75)
         Me.ckpooption.TabIndex = 651
         '
-        'cmdClassification
-        '
-        Me.cmdClassification.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.cmdClassification.Appearance.Options.UseFont = True
-        Me.cmdClassification.Location = New System.Drawing.Point(33, 162)
-        Me.cmdClassification.Name = "cmdClassification"
-        Me.cmdClassification.Size = New System.Drawing.Size(113, 17)
-        Me.cmdClassification.TabIndex = 652
-        Me.cmdClassification.Text = "Select Classification"
-        '
         'cmdCategory
         '
         Me.cmdCategory.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.cmdCategory.Appearance.Options.UseFont = True
-        Me.cmdCategory.Location = New System.Drawing.Point(55, 135)
+        Me.cmdCategory.Location = New System.Drawing.Point(57, 135)
         Me.cmdCategory.Name = "cmdCategory"
         Me.cmdCategory.Size = New System.Drawing.Size(91, 17)
         Me.cmdCategory.TabIndex = 653
@@ -237,7 +184,7 @@ Partial Class frmProductInfo
         '
         Me.HyperlinkLabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.HyperlinkLabelControl1.Appearance.Options.UseFont = True
-        Me.HyperlinkLabelControl1.Location = New System.Drawing.Point(39, 108)
+        Me.HyperlinkLabelControl1.Location = New System.Drawing.Point(41, 108)
         Me.HyperlinkLabelControl1.Name = "HyperlinkLabelControl1"
         Me.HyperlinkLabelControl1.Size = New System.Drawing.Size(107, 17)
         Me.HyperlinkLabelControl1.TabIndex = 655
@@ -271,7 +218,7 @@ Partial Class frmProductInfo
         'productid
         '
         Me.productid.EditValue = "SYSTEM GENERATED"
-        Me.productid.Location = New System.Drawing.Point(155, 24)
+        Me.productid.Location = New System.Drawing.Point(155, 26)
         Me.productid.Name = "productid"
         Me.productid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.productid.Properties.Appearance.Options.UseFont = True
@@ -285,7 +232,7 @@ Partial Class frmProductInfo
         '
         Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl4.Appearance.Options.UseFont = True
-        Me.LabelControl4.Location = New System.Drawing.Point(86, 27)
+        Me.LabelControl4.Location = New System.Drawing.Point(88, 29)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(60, 17)
         Me.LabelControl4.TabIndex = 659
@@ -299,7 +246,7 @@ Partial Class frmProductInfo
         Me.SimpleButton1.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.SimpleButton1.Appearance.Options.UseBackColor = True
         Me.SimpleButton1.Appearance.Options.UseFont = True
-        Me.SimpleButton1.Location = New System.Drawing.Point(339, 268)
+        Me.SimpleButton1.Location = New System.Drawing.Point(339, 241)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(119, 34)
         Me.SimpleButton1.TabIndex = 5
@@ -310,7 +257,7 @@ Partial Class frmProductInfo
         Me.AcceptButton = Me.cmdSaveButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(598, 323)
+        Me.ClientSize = New System.Drawing.Size(591, 291)
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.LabelControl4)
         Me.Controls.Add(Me.productid)
@@ -319,10 +266,7 @@ Partial Class frmProductInfo
         Me.Controls.Add(Me.HyperlinkLabelControl1)
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.cmdCategory)
-        Me.Controls.Add(Me.cmdClassification)
         Me.Controls.Add(Me.ckpooption)
-        Me.Controls.Add(Me.txtClassification)
-        Me.Controls.Add(Me.classcode)
         Me.Controls.Add(Me.categorycode)
         Me.Controls.Add(Me.txtCategory)
         Me.Controls.Add(Me.code)
@@ -339,9 +283,6 @@ Partial Class frmProductInfo
         CType(Me.txtCategory.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridcategory, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.categorycode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.classcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtClassification.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gridClass, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckpooption.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtUnit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.productid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -357,11 +298,7 @@ Partial Class frmProductInfo
     Friend WithEvents txtCategory As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gridcategory As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents categorycode As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents classcode As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents txtClassification As DevExpress.XtraEditors.SearchLookUpEdit
-    Friend WithEvents gridClass As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents ckpooption As DevExpress.XtraEditors.RadioGroup
-    Friend WithEvents cmdClassification As DevExpress.XtraEditors.HyperlinkLabelControl
     Friend WithEvents cmdCategory As DevExpress.XtraEditors.HyperlinkLabelControl
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents HyperlinkLabelControl1 As DevExpress.XtraEditors.HyperlinkLabelControl

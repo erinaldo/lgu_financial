@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="bootstrap.min.css">
+<STYLE type='text/css'> 
+@import "compass/css3";
+body{font-family: "Segoe UI"; font-size: 14px; } 
+#chatbox {
+  margin: 0px auto;
+  div {
+    max-width: 255px;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+    line-height: 24px;
+  }
+}
+
+#chatbox .clear {
+  clear: both
+}
+
+#chatbox .from-me {
+  position: relative;
+  padding: 5px 10px;
+  margin: 5px;
+  color: white;
+  background: #0B93F6;
+  float: right;
+}
+#chatbox .from-me p {
+	margin: 0;
+}
+#chatbox .from-me span{
+	font-size: 9.5px;
+	color: #FFF;
+}
+#chatbox .from-me span a{
+	cursor: pointer;
+}
+
+#chatbox .from-them {
+  position: relative;
+  padding: 5px 10px;
+  margin: 5px;
+  background: #E5E5EA;
+  color: black;
+  float: left;
+}
+#chatbox .from-them p {
+	margin: 0;
+}
+#chatbox .from-them span{
+	font-size: 9.5px;
+	color: #838383;
+}
+#chatbox .from-them span a{
+	cursor: pointer;
+}
+
+#chatbox .default{
+	font-size: 12px;
+	font-style: italic;
+	color: #8e8e8e;
+}
+
+</STYLE>
+<script type="text/javascript">
+		function LoadLastChat(e) {
+			document.getElementById('chatbox').innerHTML=' '+e+' ';
+			window.scroll(0,document.body.scrollHeight);
+		 }
+		function ReplyChat(e) {
+		    document.getElementById('chatbox').innerHTML+='<div class="from-me"><p>'+e+'</p></div><div class="clear"></div>';
+		    window.scroll(0,document.body.scrollHeight);
+		}
+		function ReceivedChat(e) {
+		    document.getElementById('chatbox').innerHTML+='<div class="from-them"><p>'+e+'</p></div><div class="clear"></div>';
+		    window.scroll(0,document.body.scrollHeight);
+		}
+		function AddDefaultText(elementId,e) {
+			var myEle = document.getElementById(elementId);
+			if(myEle  == null){
+			   document.getElementById('chatbox').innerHTML+=' '+e+' ';
+			   window.scroll(0,document.body.scrollHeight);
+			}
+		 }
+		function RemoveMessage(val) {
+			window.external.RemoveMessage(val);
+		}
+		
+		function RemoveElement(elementId) {
+			var myEle = document.getElementById(elementId);
+			if(myEle  != null){
+			    var element = document.getElementById(elementId);
+				 element.parentNode.removeChild(element);
+			}
+		}
+</script>
+</head>
+<body>
+
+<div id="chatbox">
+
+</div>
+</body>
+</html>

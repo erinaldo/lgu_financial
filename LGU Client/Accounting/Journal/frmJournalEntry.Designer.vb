@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmJournalEntry
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmJournalEntry
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.yeartrn = New DevExpress.XtraEditors.ButtonEdit()
@@ -33,12 +33,13 @@ Partial Class frmJournalEntry
         Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.ContexEntries = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdAdd = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExpenditureItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ManualJournalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdRemove = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdRefresh = New System.Windows.Forms.ToolStripMenuItem()
-        Me.txtFund = New DevExpress.XtraEditors.SearchLookUpEdit()
-        Me.gridFund = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
         Me.fundcode = New DevExpress.XtraEditors.TextEdit()
         Me.periodcode = New DevExpress.XtraEditors.TextEdit()
@@ -59,14 +60,16 @@ Partial Class frmJournalEntry
         Me.txtLRNo = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl10 = New DevExpress.XtraEditors.LabelControl()
         Me.txtAENo = New DevExpress.XtraEditors.TextEdit()
+        Me.officeid = New DevExpress.XtraEditors.TextEdit()
+        Me.txtOffice = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl11 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtFund = New DevExpress.XtraEditors.TextEdit()
         CType(Me.yeartrn.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtJournalDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtJournalDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.jevno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContexEntries.SuspendLayout()
-        CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gridFund, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.periodcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Gridview1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,6 +81,9 @@ Partial Class frmJournalEntry
         CType(Me.txtRCDNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtLRNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAENo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtOffice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'yeartrn
@@ -104,7 +110,7 @@ Partial Class frmJournalEntry
         Me.LabelControl8.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl8.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.LabelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal
-        Me.LabelControl8.Location = New System.Drawing.Point(36, 112)
+        Me.LabelControl8.Location = New System.Drawing.Point(32, 141)
         Me.LabelControl8.Name = "LabelControl8"
         Me.LabelControl8.Size = New System.Drawing.Size(51, 17)
         Me.LabelControl8.TabIndex = 927
@@ -114,7 +120,7 @@ Partial Class frmJournalEntry
         '
         Me.txtJournalDate.EditValue = Nothing
         Me.txtJournalDate.EnterMoveNextControl = True
-        Me.txtJournalDate.Location = New System.Drawing.Point(96, 111)
+        Me.txtJournalDate.Location = New System.Drawing.Point(92, 138)
         Me.txtJournalDate.Name = "txtJournalDate"
         Me.txtJournalDate.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtJournalDate.Properties.Appearance.Options.UseFont = True
@@ -126,7 +132,7 @@ Partial Class frmJournalEntry
         Me.txtJournalDate.Properties.Mask.EditMask = "MMMM dd, yyyy"
         Me.txtJournalDate.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.txtJournalDate.Size = New System.Drawing.Size(232, 26)
-        Me.txtJournalDate.TabIndex = 1
+        Me.txtJournalDate.TabIndex = 0
         '
         'LabelControl3
         '
@@ -164,7 +170,7 @@ Partial Class frmJournalEntry
         Me.LabelControl15.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl15.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.LabelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal
-        Me.LabelControl15.Location = New System.Drawing.Point(42, 57)
+        Me.LabelControl15.Location = New System.Drawing.Point(38, 87)
         Me.LabelControl15.Name = "LabelControl15"
         Me.LabelControl15.Size = New System.Drawing.Size(45, 17)
         Me.LabelControl15.TabIndex = 909
@@ -184,7 +190,6 @@ Partial Class frmJournalEntry
         Me.jevno.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.jevno.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.jevno.Properties.NullValuePrompt = "AUTO GENERATE"
-        Me.jevno.Properties.NullValuePromptShowForEmptyValue = True
         Me.jevno.Properties.ReadOnly = True
         Me.jevno.Size = New System.Drawing.Size(49, 24)
         Me.jevno.TabIndex = 908
@@ -199,7 +204,7 @@ Partial Class frmJournalEntry
         Me.cmdSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSave.Appearance.Options.UseBackColor = True
         Me.cmdSave.Appearance.Options.UseFont = True
-        Me.cmdSave.Location = New System.Drawing.Point(926, 478)
+        Me.cmdSave.Location = New System.Drawing.Point(926, 503)
         Me.cmdSave.Name = "cmdSave"
         Me.cmdSave.Size = New System.Drawing.Size(196, 35)
         Me.cmdSave.TabIndex = 907
@@ -207,16 +212,36 @@ Partial Class frmJournalEntry
         '
         'ContexEntries
         '
-        Me.ContexEntries.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdAdd, Me.cmdEdit, Me.cmdRemove, Me.ToolStripSeparator1, Me.cmdRefresh})
+        Me.ContexEntries.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdAdd, Me.ToolStripMenuItem1, Me.cmdEdit, Me.cmdRemove, Me.ToolStripSeparator1, Me.cmdRefresh})
         Me.ContexEntries.Name = "gridmenustrip"
-        Me.ContexEntries.Size = New System.Drawing.Size(192, 98)
+        Me.ContexEntries.Size = New System.Drawing.Size(192, 120)
         '
         'cmdAdd
         '
+        Me.cmdAdd.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExpenditureItemToolStripMenuItem, Me.ManualJournalToolStripMenuItem})
         Me.cmdAdd.Image = Global.LGUClient.My.Resources.Resources.notebook__plus
         Me.cmdAdd.Name = "cmdAdd"
         Me.cmdAdd.Size = New System.Drawing.Size(191, 22)
-        Me.cmdAdd.Text = "Addnew Item Entry"
+        Me.cmdAdd.Text = "Addnew Debit Entry"
+        '
+        'ExpenditureItemToolStripMenuItem
+        '
+        Me.ExpenditureItemToolStripMenuItem.Name = "ExpenditureItemToolStripMenuItem"
+        Me.ExpenditureItemToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.ExpenditureItemToolStripMenuItem.Text = "Expenditure Item"
+        '
+        'ManualJournalToolStripMenuItem
+        '
+        Me.ManualJournalToolStripMenuItem.Name = "ManualJournalToolStripMenuItem"
+        Me.ManualJournalToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.ManualJournalToolStripMenuItem.Text = "Manual Journal"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Image = Global.LGUClient.My.Resources.Resources.notebook__plus
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(191, 22)
+        Me.ToolStripMenuItem1.Text = "Addnew Credit Entry"
         '
         'cmdEdit
         '
@@ -244,36 +269,11 @@ Partial Class frmJournalEntry
         Me.cmdRefresh.Size = New System.Drawing.Size(191, 22)
         Me.cmdRefresh.Text = "Refresh Item List"
         '
-        'txtFund
-        '
-        Me.txtFund.EditValue = "sss"
-        Me.txtFund.Location = New System.Drawing.Point(96, 81)
-        Me.txtFund.Name = "txtFund"
-        Me.txtFund.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtFund.Properties.Appearance.Options.UseFont = True
-        Me.txtFund.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtFund.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.txtFund.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtFund.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.txtFund.Properties.DisplayMember = "Select"
-        Me.txtFund.Properties.NullText = ""
-        Me.txtFund.Properties.PopupView = Me.gridFund
-        Me.txtFund.Properties.ValueMember = "code"
-        Me.txtFund.Size = New System.Drawing.Size(232, 26)
-        Me.txtFund.TabIndex = 0
-        '
-        'gridFund
-        '
-        Me.gridFund.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.gridFund.Name = "gridFund"
-        Me.gridFund.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.gridFund.OptionsView.ShowGroupPanel = False
-        '
         'LabelControl6
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Location = New System.Drawing.Point(17, 85)
+        Me.LabelControl6.Location = New System.Drawing.Point(13, 114)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(70, 17)
         Me.LabelControl6.TabIndex = 972
@@ -320,6 +320,7 @@ Partial Class frmJournalEntry
         Me.Gridview1.GridControl = Me.Em
         Me.Gridview1.Name = "Gridview1"
         Me.Gridview1.OptionsBehavior.Editable = False
+        Me.Gridview1.OptionsSelection.MultiSelect = True
         Me.Gridview1.OptionsView.ColumnAutoWidth = False
         Me.Gridview1.OptionsView.RowAutoHeight = True
         Me.Gridview1.OptionsView.ShowFooter = True
@@ -334,8 +335,8 @@ Partial Class frmJournalEntry
         Me.Em.Location = New System.Drawing.Point(341, 55)
         Me.Em.MainView = Me.Gridview1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(781, 417)
-        Me.Em.TabIndex = 913
+        Me.Em.Size = New System.Drawing.Size(781, 442)
+        Me.Em.TabIndex = 3
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.Gridview1})
         '
         'LabelControl1
@@ -356,7 +357,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl7.Appearance.Options.UseFont = True
-        Me.LabelControl7.Location = New System.Drawing.Point(17, 143)
+        Me.LabelControl7.Location = New System.Drawing.Point(13, 168)
         Me.LabelControl7.Name = "LabelControl7"
         Me.LabelControl7.Size = New System.Drawing.Size(70, 17)
         Me.LabelControl7.TabIndex = 977
@@ -365,7 +366,7 @@ Partial Class frmJournalEntry
         'txtRemarks
         '
         Me.txtRemarks.EditValue = ""
-        Me.txtRemarks.Location = New System.Drawing.Point(96, 141)
+        Me.txtRemarks.Location = New System.Drawing.Point(92, 166)
         Me.txtRemarks.Name = "txtRemarks"
         Me.txtRemarks.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtRemarks.Properties.Appearance.Options.UseFont = True
@@ -373,7 +374,7 @@ Partial Class frmJournalEntry
         Me.txtRemarks.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtRemarks.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtRemarks.Size = New System.Drawing.Size(232, 183)
-        Me.txtRemarks.TabIndex = 2
+        Me.txtRemarks.TabIndex = 1
         '
         'cmdPrint
         '
@@ -384,17 +385,18 @@ Partial Class frmJournalEntry
         Me.cmdPrint.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdPrint.Appearance.Options.UseBackColor = True
         Me.cmdPrint.Appearance.Options.UseFont = True
-        Me.cmdPrint.Location = New System.Drawing.Point(724, 478)
+        Me.cmdPrint.Location = New System.Drawing.Point(724, 503)
         Me.cmdPrint.Name = "cmdPrint"
         Me.cmdPrint.Size = New System.Drawing.Size(196, 35)
         Me.cmdPrint.TabIndex = 978
         Me.cmdPrint.Text = "Print Journal"
+        Me.cmdPrint.Visible = False
         '
         'txtJevNo
         '
         Me.txtJevNo.EditValue = ""
         Me.txtJevNo.EnterMoveNextControl = True
-        Me.txtJevNo.Location = New System.Drawing.Point(96, 52)
+        Me.txtJevNo.Location = New System.Drawing.Point(92, 82)
         Me.txtJevNo.Name = "txtJevNo"
         Me.txtJevNo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtJevNo.Properties.Appearance.ForeColor = System.Drawing.Color.Black
@@ -404,7 +406,6 @@ Partial Class frmJournalEntry
         Me.txtJevNo.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.txtJevNo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtJevNo.Properties.NullValuePrompt = "AUTO GENERATE"
-        Me.txtJevNo.Properties.NullValuePromptShowForEmptyValue = True
         Me.txtJevNo.Properties.ReadOnly = True
         Me.txtJevNo.Size = New System.Drawing.Size(232, 26)
         Me.txtJevNo.TabIndex = 979
@@ -413,7 +414,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(58, 334)
+        Me.LabelControl2.Location = New System.Drawing.Point(54, 356)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(29, 17)
         Me.LabelControl2.TabIndex = 981
@@ -422,7 +423,7 @@ Partial Class frmJournalEntry
         'txtDVNo
         '
         Me.txtDVNo.EditValue = ""
-        Me.txtDVNo.Location = New System.Drawing.Point(96, 330)
+        Me.txtDVNo.Location = New System.Drawing.Point(92, 352)
         Me.txtDVNo.Name = "txtDVNo"
         Me.txtDVNo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtDVNo.Properties.Appearance.Options.UseFont = True
@@ -430,13 +431,13 @@ Partial Class frmJournalEntry
         Me.txtDVNo.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtDVNo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtDVNo.Size = New System.Drawing.Size(232, 26)
-        Me.txtDVNo.TabIndex = 3
+        Me.txtDVNo.TabIndex = 4
         '
         'LabelControl4
         '
         Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl4.Appearance.Options.UseFont = True
-        Me.LabelControl4.Location = New System.Drawing.Point(36, 363)
+        Me.LabelControl4.Location = New System.Drawing.Point(32, 385)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(51, 17)
         Me.LabelControl4.TabIndex = 983
@@ -445,7 +446,7 @@ Partial Class frmJournalEntry
         'txtPayrollNo
         '
         Me.txtPayrollNo.EditValue = ""
-        Me.txtPayrollNo.Location = New System.Drawing.Point(96, 359)
+        Me.txtPayrollNo.Location = New System.Drawing.Point(92, 381)
         Me.txtPayrollNo.Name = "txtPayrollNo"
         Me.txtPayrollNo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtPayrollNo.Properties.Appearance.Options.UseFont = True
@@ -459,7 +460,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl5.Appearance.Options.UseFont = True
-        Me.LabelControl5.Location = New System.Drawing.Point(50, 392)
+        Me.LabelControl5.Location = New System.Drawing.Point(46, 414)
         Me.LabelControl5.Name = "LabelControl5"
         Me.LabelControl5.Size = New System.Drawing.Size(37, 17)
         Me.LabelControl5.TabIndex = 985
@@ -468,7 +469,7 @@ Partial Class frmJournalEntry
         'txtRCDNo
         '
         Me.txtRCDNo.EditValue = ""
-        Me.txtRCDNo.Location = New System.Drawing.Point(96, 388)
+        Me.txtRCDNo.Location = New System.Drawing.Point(92, 410)
         Me.txtRCDNo.Name = "txtRCDNo"
         Me.txtRCDNo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtRCDNo.Properties.Appearance.Options.UseFont = True
@@ -482,7 +483,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl9.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl9.Appearance.Options.UseFont = True
-        Me.LabelControl9.Location = New System.Drawing.Point(61, 421)
+        Me.LabelControl9.Location = New System.Drawing.Point(57, 443)
         Me.LabelControl9.Name = "LabelControl9"
         Me.LabelControl9.Size = New System.Drawing.Size(26, 17)
         Me.LabelControl9.TabIndex = 987
@@ -491,7 +492,7 @@ Partial Class frmJournalEntry
         'txtLRNo
         '
         Me.txtLRNo.EditValue = ""
-        Me.txtLRNo.Location = New System.Drawing.Point(96, 417)
+        Me.txtLRNo.Location = New System.Drawing.Point(92, 439)
         Me.txtLRNo.Name = "txtLRNo"
         Me.txtLRNo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtLRNo.Properties.Appearance.Options.UseFont = True
@@ -505,7 +506,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl10.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl10.Appearance.Options.UseFont = True
-        Me.LabelControl10.Location = New System.Drawing.Point(60, 450)
+        Me.LabelControl10.Location = New System.Drawing.Point(56, 472)
         Me.LabelControl10.Name = "LabelControl10"
         Me.LabelControl10.Size = New System.Drawing.Size(27, 17)
         Me.LabelControl10.TabIndex = 989
@@ -514,7 +515,7 @@ Partial Class frmJournalEntry
         'txtAENo
         '
         Me.txtAENo.EditValue = ""
-        Me.txtAENo.Location = New System.Drawing.Point(96, 446)
+        Me.txtAENo.Location = New System.Drawing.Point(92, 468)
         Me.txtAENo.Name = "txtAENo"
         Me.txtAENo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtAENo.Properties.Appearance.Options.UseFont = True
@@ -524,13 +525,75 @@ Partial Class frmJournalEntry
         Me.txtAENo.Size = New System.Drawing.Size(232, 26)
         Me.txtAENo.TabIndex = 7
         '
+        'officeid
+        '
+        Me.officeid.EditValue = ""
+        Me.officeid.EnterMoveNextControl = True
+        Me.officeid.Location = New System.Drawing.Point(764, 86)
+        Me.officeid.Name = "officeid"
+        Me.officeid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
+        Me.officeid.Properties.Appearance.Options.UseFont = True
+        Me.officeid.Properties.MaxLength = 50
+        Me.officeid.Properties.ReadOnly = True
+        Me.officeid.Size = New System.Drawing.Size(49, 22)
+        Me.officeid.TabIndex = 990
+        Me.officeid.Visible = False
+        '
+        'txtOffice
+        '
+        Me.txtOffice.EditValue = ""
+        Me.txtOffice.EnterMoveNextControl = True
+        Me.txtOffice.Location = New System.Drawing.Point(92, 53)
+        Me.txtOffice.Name = "txtOffice"
+        Me.txtOffice.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtOffice.Properties.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.txtOffice.Properties.Appearance.Options.UseFont = True
+        Me.txtOffice.Properties.Appearance.Options.UseForeColor = True
+        Me.txtOffice.Properties.Appearance.Options.UseTextOptions = True
+        Me.txtOffice.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.txtOffice.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtOffice.Properties.ReadOnly = True
+        Me.txtOffice.Size = New System.Drawing.Size(232, 26)
+        Me.txtOffice.TabIndex = 992
+        '
+        'LabelControl11
+        '
+        Me.LabelControl11.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.LabelControl11.Appearance.Options.UseFont = True
+        Me.LabelControl11.Appearance.Options.UseTextOptions = True
+        Me.LabelControl11.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.LabelControl11.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.LabelControl11.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal
+        Me.LabelControl11.Location = New System.Drawing.Point(49, 57)
+        Me.LabelControl11.Name = "LabelControl11"
+        Me.LabelControl11.Size = New System.Drawing.Size(34, 17)
+        Me.LabelControl11.TabIndex = 991
+        Me.LabelControl11.Text = "Office"
+        '
+        'txtFund
+        '
+        Me.txtFund.EditValue = ""
+        Me.txtFund.Location = New System.Drawing.Point(92, 110)
+        Me.txtFund.Name = "txtFund"
+        Me.txtFund.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtFund.Properties.Appearance.Options.UseFont = True
+        Me.txtFund.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtFund.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.txtFund.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtFund.Properties.ReadOnly = True
+        Me.txtFund.Size = New System.Drawing.Size(232, 26)
+        Me.txtFund.TabIndex = 1000
+        '
         'frmJournalEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1134, 521)
+        Me.ClientSize = New System.Drawing.Size(1134, 546)
+        Me.Controls.Add(Me.txtOffice)
+        Me.Controls.Add(Me.LabelControl11)
+        Me.Controls.Add(Me.officeid)
         Me.Controls.Add(Me.LabelControl10)
         Me.Controls.Add(Me.txtAENo)
         Me.Controls.Add(Me.LabelControl9)
@@ -546,7 +609,6 @@ Partial Class frmJournalEntry
         Me.Controls.Add(Me.txtRemarks)
         Me.Controls.Add(Me.periodcode)
         Me.Controls.Add(Me.fundcode)
-        Me.Controls.Add(Me.txtFund)
         Me.Controls.Add(Me.LabelControl6)
         Me.Controls.Add(Me.yeartrn)
         Me.Controls.Add(Me.LabelControl8)
@@ -559,6 +621,7 @@ Partial Class frmJournalEntry
         Me.Controls.Add(Me.cmdSave)
         Me.Controls.Add(Me.Em)
         Me.Controls.Add(Me.txtDVNo)
+        Me.Controls.Add(Me.txtFund)
         Me.HelpButton = True
         Me.MinimumSize = New System.Drawing.Size(1150, 560)
         Me.Name = "frmJournalEntry"
@@ -570,8 +633,6 @@ Partial Class frmJournalEntry
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.jevno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContexEntries.ResumeLayout(False)
-        CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gridFund, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.periodcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Gridview1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -583,6 +644,9 @@ Partial Class frmJournalEntry
         CType(Me.txtRCDNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtLRNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtAENo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtOffice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -601,8 +665,6 @@ Partial Class frmJournalEntry
     Friend WithEvents cmdRemove As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents cmdRefresh As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents txtFund As DevExpress.XtraEditors.SearchLookUpEdit
-    Friend WithEvents gridFund As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents fundcode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents periodcode As DevExpress.XtraEditors.TextEdit
@@ -623,4 +685,11 @@ Partial Class frmJournalEntry
     Friend WithEvents txtLRNo As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl10 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents txtAENo As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ExpenditureItemToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ManualJournalToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents officeid As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtOffice As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl11 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtFund As DevExpress.XtraEditors.TextEdit
 End Class

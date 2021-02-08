@@ -23,7 +23,7 @@ Public Class frmBudgetReports
         LoadFund()
         officeid.Text = compOfficeid
         txtOffice.EditValue = compOfficeid
-        If compAccountingOffice = True Or globalRootUser = True Then
+        If globalSpecialApprover = True Or globalRootUser = True Then
             ckViewAllOffice.ReadOnly = False
             ckViewAllOffice.Checked = True
         Else
@@ -62,10 +62,17 @@ Public Class frmBudgetReports
         Dim strMonth As String = "" : Dim columnname As String = ""
         For i = 0 To 11
             columnname += CDate("1/1/" & yeartrn.Text).AddMonths(i).ToString("MMMM") & "-" & yeartrn.Text & ","
-            strMonth += ", ifnull((select sum(totalcost) from tblrequisitionitem as b where date_format(b.postingdate,'%Y-%m')='" & yeartrn.Text & "-" & CDate("1/1/" & yeartrn.Text).AddMonths(i).ToString("MM") & "' and b.periodcode=a.periodcode and b.sourcefund=a.itemcode and b.officeid=a.officeid and b.cancelled=0),0) as '" & CDate("1/1/" & yeartrn.Text).AddMonths(i).ToString("MMMM") & "-" & yeartrn.Text & "' "
+            strMonth += ", ifnull((select sum(amount) from tblrequisitionfund as b inner join tblrequisition as c on b.pid=c.pid where date_format(c.postingdate,'%Y-%m')='" & yeartrn.Text & "-" & CDate("1/1/" & yeartrn.Text).AddMonths(i).ToString("MM") & "' and b.periodcode=a.periodcode and b.itemcode=a.itemcode and b.officeid=a.officeid and b.cancelled=0),0) as '" & CDate("1/1/" & yeartrn.Text).AddMonths(i).ToString("MMMM") & "-" & yeartrn.Text & "' "
         Next
- 
-        LoadXgrid("select (select officename from tblcompoffice where officeid=a.officeid) as 'Department', (select description from tblexpenditureclass where code=a.classcode) as 'Expenditure Class', (select itemname from tblglitem where itemcode=a.itemcode) as 'Account Title', amount as 'Appropriation', amount - ifnull((select sum(totalcost) from tblrequisitionitem as b where b.periodcode=a.periodcode and b.sourcefund=a.itemcode and b.officeid=a.officeid and b.cancelled=0),0) as 'Surplus' " & strMonth & " ,ifnull((select sum(totalcost) from tblrequisitionitem as b where b.periodcode=a.periodcode and b.sourcefund=a.itemcode and b.officeid=a.officeid and b.cancelled=0),0) as 'Total Posted' from tblbudgetcomposition as a where amount > 0 and periodcode='" & txtFund.EditValue & "' " & If(ckViewAllOffice.Checked, "", " and a.officeid='" & txtOffice.EditValue & "'"), "tblbudgetcomposition", Em, GridView1, Me)
+
+        LoadXgrid("select (select officename from tblcompoffice where officeid=a.officeid) as 'Department', " _
+                  + " (select description from tblexpenditureclass where code=a.classcode) as 'Expenditure Class', " _
+                  + " (select itemname from tblglitem where itemcode=a.itemcode) as 'Account Title', " _
+                  + " totalbudget as 'Appropriation', " _
+                  + " totalbudget - ifnull((select sum(amount) from tblrequisitionfund as b where b.periodcode=a.periodcode And b.itemcode=a.itemcode And b.officeid=a.officeid and b.cancelled=0),0) as 'Surplus' " _
+                  + strMonth _
+                  + " , ifnull((select sum(amount) from tblrequisitionfund as b where b.periodcode=a.periodcode And b.itemcode=a.itemcode And b.officeid=a.officeid and b.cancelled=0),0) as 'Total Posted' " _
+                  + " from tblbudgetcomposition as a where totalbudget > 0 And periodcode='" & txtFund.EditValue & "' " & If(ckViewAllOffice.Checked, "", " and a.officeid='" & txtOffice.EditValue & "'"), "tblbudgetcomposition", Em, GridView1, Me)
         XgridColCurrency({"Appropriation", "Surplus", "Total Posted"}, GridView1)
         XgridGeneralSummaryCurrency({"Appropriation", "Surplus", "Total Posted"}, GridView1)
         For Each word In columnname.Split(New Char() {","c})

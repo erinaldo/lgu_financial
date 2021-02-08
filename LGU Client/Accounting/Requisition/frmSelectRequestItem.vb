@@ -19,10 +19,10 @@ Public Class frmSelectRequestItem
 
     Public Sub filterItem()
         LoadXgrid("Select productid as 'Item Code',categoryid, " _
-                           + " productname as 'Particular Name', " _
-                           + " categoryname  as 'Category', classificationname as 'Class Name', Unit " _
+                           + " categoryname  as 'Category',  " _
+                           + " productname as 'Particular Name', Unit " _
                            + " from tblproducts  " _
-                           + " where deleted=0 and (productname like '%" & rchar(txtfilter.Text) & "%' or productid like '%" & rchar(txtfilter.Text) & "%') " _
+                           + " where deleted=0 and (productname like '%" & rchar(txtfilter.Text) & "%' or categoryname like '%" & rchar(txtfilter.Text) & "%' or productid like '%" & rchar(txtfilter.Text) & "%') " _
                            + " order by productname asc", "tblproducts", Em, GridView1, Me)
         XgridHideColumn({"categoryid"}, GridView1)
         GridView1.Columns("Item Code").Width = 70
@@ -35,6 +35,8 @@ Public Class frmSelectRequestItem
         frmQuantitySelect.txtproduct.Text = GridView1.GetFocusedRowCellValue("Particular Name").ToString()
         frmQuantitySelect.txtUnit.Text = GridView1.GetFocusedRowCellValue("Unit").ToString()
         frmQuantitySelect.catid.Text = GridView1.GetFocusedRowCellValue("categoryid").ToString()
+        frmQuantitySelect.txtRemarks.Text = frmRequisitionInfo.txtPurpose.Text
+        frmQuantitySelect.txtUnitPrice.Text = frmRequisitionInfo.txtSourceAmount.Text
         frmQuantitySelect.Show(Me)
     End Sub
 
@@ -60,5 +62,9 @@ Public Class frmSelectRequestItem
 
     Private Sub cmdAddnew_Click(sender As Object, e As EventArgs) Handles cmdAddnew.Click
         frmProductItem.ShowDialog(Me)
+    End Sub
+
+    Private Sub Em_DoubleClick(sender As Object, e As EventArgs) Handles Em.DoubleClick
+        SelectItemToolStripMenuItem.PerformClick()
     End Sub
 End Class

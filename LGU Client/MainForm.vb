@@ -94,7 +94,7 @@ Public Class MainForm
     Public Sub Notification()
         LoadSystemDefaultColor(globalFontColor)
         If globalAuthForApproval = True Or globalRootUser = True Then
-            Dim requisition As Integer = countqry("tblrequisition", "currentapprover = '" & compOfficeid & "' and forapproval=1 and draft=0 and cancelled=0")
+            Dim requisition As Integer = countqry("tblrequisition", "(currentapprover = '" & compOfficeid & "' or (headofficeapproval=1 and officeid='" & compOfficeid & "') ) and forapproval=1 and draft=0 and cancelled=0")
             If requisition > 0 Then
                 cmdforapproval.Text = "For Approval Request (" & requisition & ")"
                 If globalFontColor = "LIGHT" Then
@@ -108,8 +108,23 @@ Public Class MainForm
             End If
         End If
 
+        If globalAuthCheckIssuanceRequest = True Or globalRootUser = True Then
+            Dim checkissuance As Integer = countqry("tblrequisition", "approved=1 and checkapproved=0 and cancelled=0 and officeid in (select officeid from tblcheckapprovalfilter where permissioncode='" & globalAuthcode & "')")
+            If checkissuance > 0 Then
+                cmdCheckIssuanceRequest.Text = "Check Issuance Request (" & checkissuance & ")"
+                If globalFontColor = "LIGHT" Then
+                    cmdCheckIssuanceRequest.ForeColor = Color.Gold
+                Else
+                    cmdCheckIssuanceRequest.ForeColor = Color.Red
+                End If
+
+            Else
+                cmdCheckIssuanceRequest.Text = "Check Issuance Request"
+            End If
+        End If
+
         If globalAuthRequisitionList = True Or globalRootUser = True Then
-            Dim requisitionList As Integer = countqry("tblrequisition", "officeid='" & compOfficeid & "' and (forapproval=1 or draft=1) and cancelled=0")
+            Dim requisitionList As Integer = countqry("tblrequisition", "officeid='" & compOfficeid & "' and (forapproval=1 or draft=1 or hold=1) and cancelled=0")
             If requisitionList > 0 Then
                 cmdRequisitionList.Text = "Pending Requisition (" & requisitionList & ")"
                 If globalFontColor = "LIGHT" Then
@@ -371,6 +386,14 @@ Public Class MainForm
         Else
             cmdforapproval.Visible = False
             lineForApproval.Visible = False
+        End If
+
+        If globalAuthCheckIssuanceRequest = True Then
+            cmdCheckIssuanceRequest.Visible = True
+            lineCheckIssuanceRequest.Visible = True
+        Else
+            cmdCheckIssuanceRequest.Visible = False
+            lineCheckIssuanceRequest.Visible = False
         End If
 
         If globalAuthNewRequisition = True Then
@@ -835,7 +858,7 @@ Public Class MainForm
         If frmForApprovalRequisition.Visible = True Then
             frmForApprovalRequisition.Focus()
         Else
-            frmForApprovalRequisition.Show(Me)
+            frmForApprovalRequisition.ShowDialog(Me)
         End If
     End Sub
 
@@ -868,6 +891,14 @@ Public Class MainForm
             frmBudgetReports.Focus()
         Else
             frmBudgetReports.Show(Me)
+        End If
+    End Sub
+
+    Private Sub cmdCheckIssuanceRequest_Click(sender As Object, e As EventArgs) Handles cmdCheckIssuanceRequest.Click
+        If frmForApprovalCheckReleasing.Visible = True Then
+            frmForApprovalCheckReleasing.Focus()
+        Else
+            frmForApprovalCheckReleasing.ShowDialog(Me)
         End If
     End Sub
 End Class

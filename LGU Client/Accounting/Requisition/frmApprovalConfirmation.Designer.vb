@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmApprovalConfirmation
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmApprovalConfirmation
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmApprovalConfirmation))
         Me.lbltitle = New DevExpress.XtraEditors.LabelControl()
@@ -37,7 +37,7 @@ Partial Class frmApprovalConfirmation
         Me.lbltitle.Appearance.Options.UseFont = True
         Me.lbltitle.Location = New System.Drawing.Point(22, 12)
         Me.lbltitle.Name = "lbltitle"
-        Me.lbltitle.Size = New System.Drawing.Size(393, 15)
+        Me.lbltitle.Size = New System.Drawing.Size(394, 15)
         Me.lbltitle.TabIndex = 574
         Me.lbltitle.Text = "Please enter your confirmation remarks so next approver will depends on it"
         '
@@ -46,11 +46,11 @@ Partial Class frmApprovalConfirmation
         Me.cmdConfirm.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
         Me.cmdConfirm.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdConfirm.Appearance.Options.UseFont = True
-        Me.cmdConfirm.Location = New System.Drawing.Point(256, 116)
+        Me.cmdConfirm.Location = New System.Drawing.Point(256, 114)
         Me.cmdConfirm.Name = "cmdConfirm"
         Me.cmdConfirm.Size = New System.Drawing.Size(182, 36)
         Me.cmdConfirm.TabIndex = 3
-        Me.cmdConfirm.Text = "Confirm Request"
+        Me.cmdConfirm.Text = "Confirm"
         '
         'txtRemarks
         '
@@ -63,7 +63,6 @@ Partial Class frmApprovalConfirmation
         Me.txtRemarks.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtRemarks.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtRemarks.Properties.NullValuePrompt = "Specify transaction remarks. i.e name of person, details, etc"
-        Me.txtRemarks.Properties.NullValuePromptShowForEmptyValue = True
         Me.txtRemarks.Size = New System.Drawing.Size(416, 75)
         Me.txtRemarks.TabIndex = 0
         '

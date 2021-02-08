@@ -30,7 +30,7 @@ Public Class frmChangePassword
             txtNewPassword.Focus()
             Exit Sub
         End If
-        com.CommandText = "update tblaccounts set password='" & EncryptTripleDES(UCase(txtFullname.Text) + txtVerifyPassword.Text) & "',webpassword=DES_ENCRYPT('" & txtFullname.Text + txtVerifyPassword.Text & "','kira') where accountid='" & userid.Text & "'" : com.ExecuteNonQuery()
+        com.CommandText = "update tblaccounts set password='" & EncryptTripleDES(UCase(txtFullname.Text) + txtVerifyPassword.Text) & "' where accountid='" & userid.Text & "'" : com.ExecuteNonQuery()
         XtraMessageBox.Show("Password successfully changed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Me.Close()
     End Sub

@@ -19,8 +19,9 @@ Partial Class frmTransactionCodeFilter
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager()
-        Me.BarManager1 = New DevExpress.XtraBars.BarManager()
+        Me.components = New System.ComponentModel.Container()
+        Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
+        Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.BarLargeButtonItem2 = New DevExpress.XtraBars.BarLargeButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
@@ -28,7 +29,7 @@ Partial Class frmTransactionCodeFilter
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.BarDockControl1 = New DevExpress.XtraBars.BarDockControl()
         Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -102,21 +103,21 @@ Partial Class frmTransactionCodeFilter
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(618, 22)
+        Me.barDockControlTop.Size = New System.Drawing.Size(624, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 396)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 394)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(618, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(624, 0)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 22)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
         Me.barDockControlLeft.Size = New System.Drawing.Size(0, 374)
         '
@@ -124,7 +125,7 @@ Partial Class frmTransactionCodeFilter
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(618, 22)
+        Me.BarDockControl1.Location = New System.Drawing.Point(624, 20)
         Me.BarDockControl1.Manager = Me.BarManager1
         Me.BarDockControl1.Size = New System.Drawing.Size(0, 374)
         '
@@ -175,16 +176,16 @@ Partial Class frmTransactionCodeFilter
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(618, 22)
+        Me.barDockControlRight.Location = New System.Drawing.Point(624, 20)
         Me.barDockControlRight.Manager = Nothing
         Me.barDockControlRight.Size = New System.Drawing.Size(0, 374)
         '
         'Em_unfiltered
         '
-        Me.Em_unfiltered.Location = New System.Drawing.Point(11, 53)
+        Me.Em_unfiltered.Location = New System.Drawing.Point(11, 57)
         Me.Em_unfiltered.MainView = Me.GridView1
         Me.Em_unfiltered.Name = "Em_unfiltered"
-        Me.Em_unfiltered.Size = New System.Drawing.Size(272, 331)
+        Me.Em_unfiltered.Size = New System.Drawing.Size(272, 327)
         Me.Em_unfiltered.TabIndex = 699
         Me.Em_unfiltered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -260,12 +261,14 @@ Partial Class frmTransactionCodeFilter
         Me.txtPermission.EditValue = ""
         Me.txtPermission.Location = New System.Drawing.Point(11, 30)
         Me.txtPermission.Name = "txtPermission"
+        Me.txtPermission.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 10.25!)
+        Me.txtPermission.Properties.Appearance.Options.UseFont = True
         Me.txtPermission.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtPermission.Properties.DisplayMember = "Select Permission"
         Me.txtPermission.Properties.NullText = ""
         Me.txtPermission.Properties.PopupView = Me.gvpermission
         Me.txtPermission.Properties.ValueMember = "authCode"
-        Me.txtPermission.Size = New System.Drawing.Size(272, 20)
+        Me.txtPermission.Size = New System.Drawing.Size(272, 24)
         Me.txtPermission.TabIndex = 697
         '
         'gvpermission
@@ -279,7 +282,7 @@ Partial Class frmTransactionCodeFilter
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(618, 396)
+        Me.ClientSize = New System.Drawing.Size(624, 394)
         Me.Controls.Add(Me.permissioncode)
         Me.Controls.Add(Me.cmdMoveLeft)
         Me.Controls.Add(Me.cmdMoveRight)
@@ -294,7 +297,7 @@ Partial Class frmTransactionCodeFilter
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(368, 374)
+        Me.MinimumSize = New System.Drawing.Size(362, 376)
         Me.Name = "frmTransactionCodeFilter"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Account Title Filter (Note: Move item to the right to give access of a user)"

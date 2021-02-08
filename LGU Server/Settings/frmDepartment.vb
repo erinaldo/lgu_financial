@@ -18,7 +18,7 @@ Public Class frmDepartment
     End Function
 
     Public Sub filter()
-        LoadXgrid("Select officeid as 'Code', officename as 'Department',shortname as 'Short Name', centercode as 'Responsibility Center', Address, contactnumber as 'Contact Number',ifnull((select fullname from tblaccounts where accountid = b.officerid ),'NOT ASSIGNED') as 'Officer Incharge',case when officeemail='' then 'No Email' else officeemail end as 'Email Address'  from tblcompoffice as b where deleted=0 order by officename asc", "tblcompoffice", Em, GridView1, Me)
+        LoadXgrid("Select officeid as 'Code', officename as 'Department',shortname as 'Short Name', centercode as 'Responsibility Center', Address, contactnumber as 'Contact Number',ifnull((select fullname from tblaccounts where accountid = b.officerid ),'NOT ASSIGNED') as 'Officer Incharge',case when officeemail='' then 'No Email' else officeemail end as 'Email Address', SB  from tblcompoffice as b where deleted=0 order by officename asc", "tblcompoffice", Em, GridView1, Me)
         XgridColAlign({"Code", "Initial Code", "Responsibility Center"}, GridView1, HorzAlignment.Center)
         GridView1.BestFitColumns()
     End Sub

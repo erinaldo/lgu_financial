@@ -162,7 +162,7 @@ Partial Class frmBudgetReports
         Me.cmdPrint.Image = Global.LGUClient.My.Resources.Resources.document_excel_table
         Me.cmdPrint.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.Size = New System.Drawing.Size(103, 24)
+        Me.cmdPrint.Size = New System.Drawing.Size(105, 24)
         Me.cmdPrint.Text = "Export to Excel"
         '
         'updates
@@ -211,7 +211,7 @@ Partial Class frmBudgetReports
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit1})
-        Me.Em.Size = New System.Drawing.Size(990, 499)
+        Me.Em.Size = New System.Drawing.Size(990, 494)
         Me.Em.TabIndex = 820
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '

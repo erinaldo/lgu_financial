@@ -40,8 +40,7 @@ Public Class frmForApprovalRequisition
                         + " concat((select codename from tblfund where code=a.fundcode),'-',yeartrn) as 'Fund Period',  " _
                         + " date_format(postingdate,'%Y-%m-%d') as 'Posting Date', " _
                         + " (select fullname from tblaccounts where accountid=a.requestedby) as 'Requested By', " _
-                        + " (select itemname from tblglitem where itemcode=a.sourcefund) as 'Source Fund', " _
-                        + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) as 'Total Amount', " _
+                        + " (select sum(amount) from tblrequisitionfund where pid=a.pid) as 'Total Amount', " _
                         + " Purpose, " _
                         + " Priority, " _
                         + " (select fullname from tblaccounts where accountid=a.trnby) as 'Posted By', " _
@@ -52,14 +51,14 @@ Public Class frmForApprovalRequisition
                         + " Cancelled, " _
                         + " date_format(datecancelled,'%Y-%m-%d') as 'Date Cancelled' " _
                         + " FROM tblrequisition as a " _
-                        + " where currentapprover = '" & compOfficeid & "' and forapproval=1 and draft=0 and cancelled=0 and (requestno like '%" & rchar(txtSearchBar.Text) & "%' or " _
+                        + " where (currentapprover = '" & compOfficeid & "' or (headofficeapproval=1 and officeid='" & compOfficeid & "') ) and forapproval=1 and draft=0 and cancelled=0 and (requestno like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " postingdate like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " (select description from tblrequisitiontype where code=a.requesttype) like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " Purpose like '%" & rchar(txtSearchBar.Text) & "%')  " _
                         + " order by requestno asc", "tblrequisition", Em, GridView1, Me)
 
         XgridColCurrency({"Total Amount"}, GridView1)
-        XgridColAlign({"Entry Code", "Fund Period", "Request Type", "Posting Date", "Date Posted", "Draft", "ForApproval", "Approved", "Date Approved", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+        XgridColAlign({"Status", "Entry Code", "Fund Period", "Request Type", "Posting Date", "Date Posted", "Draft", "ForApproval", "Approved", "Date Approved", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         XgridGeneralSummaryCurrency({"Total Amount"}, GridView1)
 
 
@@ -127,6 +126,7 @@ Public Class frmForApprovalRequisition
     Private Sub cmdView_Click(sender As Object, e As EventArgs) Handles cmdView.Click
         frmRequisitionForApprovalInfo.pid.Text = GridView1.GetFocusedRowCellValue("Entry Code").ToString
         If frmRequisitionForApprovalInfo.Visible = False Then
+            frmRequisitionForApprovalInfo.approval.Text = "request"
             frmRequisitionForApprovalInfo.Show(Me)
         Else
             frmRequisitionForApprovalInfo.WindowState = FormWindowState.Normal
@@ -144,12 +144,7 @@ Public Class frmForApprovalRequisition
     End Sub
 
     Private Sub Em_DoubleClick(sender As Object, e As EventArgs) Handles Em.DoubleClick
-        frmRequisitionForApprovalInfo.pid.Text = GridView1.GetFocusedRowCellValue("Entry Code").ToString
-        If frmRequisitionForApprovalInfo.Visible = False Then
-            frmRequisitionForApprovalInfo.Show(Me)
-        Else
-            frmRequisitionForApprovalInfo.WindowState = FormWindowState.Normal
-        End If
+        cmdView.PerformClick()
     End Sub
 
 End Class

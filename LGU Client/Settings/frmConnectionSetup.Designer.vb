@@ -23,7 +23,6 @@ Partial Class frmConnectionSetup
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmConnectionSetup))
         Me.cmdset = New System.Windows.Forms.Button()
         Me.txtPort = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -43,7 +42,7 @@ Partial Class frmConnectionSetup
         '
         Me.cmdset.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.cmdset.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.cmdset.Location = New System.Drawing.Point(167, 139)
+        Me.cmdset.Location = New System.Drawing.Point(157, 137)
         Me.cmdset.Name = "cmdset"
         Me.cmdset.Size = New System.Drawing.Size(198, 30)
         Me.cmdset.TabIndex = 5
@@ -55,7 +54,7 @@ Partial Class frmConnectionSetup
         Me.txtPort.BackColor = System.Drawing.SystemColors.Window
         Me.txtPort.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.txtPort.ForeColor = System.Drawing.Color.Gray
-        Me.txtPort.Location = New System.Drawing.Point(302, 14)
+        Me.txtPort.Location = New System.Drawing.Point(292, 14)
         Me.txtPort.Margin = New System.Windows.Forms.Padding(4)
         Me.txtPort.Name = "txtPort"
         Me.txtPort.Size = New System.Drawing.Size(63, 22)
@@ -69,7 +68,7 @@ Partial Class frmConnectionSetup
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Label4.ForeColor = System.Drawing.Color.Black
         Me.Label4.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label4.Location = New System.Drawing.Point(42, 67)
+        Me.Label4.Location = New System.Drawing.Point(32, 67)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(57, 15)
         Me.Label4.TabIndex = 366
@@ -80,7 +79,7 @@ Partial Class frmConnectionSetup
         Me.txtusername.BackColor = System.Drawing.SystemColors.Window
         Me.txtusername.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.txtusername.ForeColor = System.Drawing.Color.Gray
-        Me.txtusername.Location = New System.Drawing.Point(106, 39)
+        Me.txtusername.Location = New System.Drawing.Point(96, 39)
         Me.txtusername.Margin = New System.Windows.Forms.Padding(4)
         Me.txtusername.Name = "txtusername"
         Me.txtusername.Size = New System.Drawing.Size(259, 22)
@@ -93,7 +92,7 @@ Partial Class frmConnectionSetup
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Label5.ForeColor = System.Drawing.Color.Black
         Me.Label5.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label5.Location = New System.Drawing.Point(39, 42)
+        Me.Label5.Location = New System.Drawing.Point(29, 42)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(60, 15)
         Me.Label5.TabIndex = 364
@@ -104,7 +103,7 @@ Partial Class frmConnectionSetup
         Me.txtDatabase.BackColor = System.Drawing.SystemColors.Window
         Me.txtDatabase.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.txtDatabase.ForeColor = System.Drawing.Color.Gray
-        Me.txtDatabase.Location = New System.Drawing.Point(106, 87)
+        Me.txtDatabase.Location = New System.Drawing.Point(96, 87)
         Me.txtDatabase.Margin = New System.Windows.Forms.Padding(4)
         Me.txtDatabase.Name = "txtDatabase"
         Me.txtDatabase.Size = New System.Drawing.Size(259, 22)
@@ -117,7 +116,7 @@ Partial Class frmConnectionSetup
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Label6.ForeColor = System.Drawing.Color.Black
         Me.Label6.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label6.Location = New System.Drawing.Point(44, 91)
+        Me.Label6.Location = New System.Drawing.Point(34, 91)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(55, 15)
         Me.Label6.TabIndex = 362
@@ -128,7 +127,7 @@ Partial Class frmConnectionSetup
         Me.txtServerhost.BackColor = System.Drawing.SystemColors.Window
         Me.txtServerhost.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.txtServerhost.ForeColor = System.Drawing.Color.Gray
-        Me.txtServerhost.Location = New System.Drawing.Point(106, 14)
+        Me.txtServerhost.Location = New System.Drawing.Point(96, 14)
         Me.txtServerhost.Margin = New System.Windows.Forms.Padding(4)
         Me.txtServerhost.Name = "txtServerhost"
         Me.txtServerhost.Size = New System.Drawing.Size(192, 22)
@@ -141,7 +140,7 @@ Partial Class frmConnectionSetup
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Label7.ForeColor = System.Drawing.Color.Black
         Me.Label7.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label7.Location = New System.Drawing.Point(32, 17)
+        Me.Label7.Location = New System.Drawing.Point(22, 17)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(67, 15)
         Me.Label7.TabIndex = 368
@@ -152,7 +151,7 @@ Partial Class frmConnectionSetup
         Me.txtpassword.BackColor = System.Drawing.SystemColors.Window
         Me.txtpassword.Font = New System.Drawing.Font("Wingdings", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(2, Byte))
         Me.txtpassword.ForeColor = System.Drawing.Color.Gray
-        Me.txtpassword.Location = New System.Drawing.Point(106, 64)
+        Me.txtpassword.Location = New System.Drawing.Point(96, 64)
         Me.txtpassword.Margin = New System.Windows.Forms.Padding(4)
         Me.txtpassword.Name = "txtpassword"
         Me.txtpassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(108)
@@ -165,11 +164,11 @@ Partial Class frmConnectionSetup
         Me.txtFiledir.BackColor = System.Drawing.SystemColors.Window
         Me.txtFiledir.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.txtFiledir.ForeColor = System.Drawing.Color.Gray
-        Me.txtFiledir.Location = New System.Drawing.Point(106, 112)
+        Me.txtFiledir.Location = New System.Drawing.Point(96, 112)
         Me.txtFiledir.Margin = New System.Windows.Forms.Padding(4)
         Me.txtFiledir.Name = "txtFiledir"
         Me.txtFiledir.Size = New System.Drawing.Size(259, 22)
-        Me.txtFiledir.TabIndex = 369
+        Me.txtFiledir.TabIndex = 5
         Me.txtFiledir.Text = "filedir"
         '
         'Label1
@@ -178,7 +177,7 @@ Partial Class frmConnectionSetup
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Label1.ForeColor = System.Drawing.Color.Black
         Me.Label1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label1.Location = New System.Drawing.Point(60, 115)
+        Me.Label1.Location = New System.Drawing.Point(50, 115)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(39, 15)
         Me.Label1.TabIndex = 370
@@ -206,11 +205,10 @@ Partial Class frmConnectionSetup
         Me.Controls.Add(Me.cmdset)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.HelpButton = True
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "frmConnectionSetup"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "General Settings"
+        Me.Text = "Connection Settings"
         Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()

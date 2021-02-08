@@ -31,10 +31,7 @@ Partial Class frmProductItem
         Me.HyperlinkLabelControl1 = New DevExpress.XtraEditors.HyperlinkLabelControl()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.cmdCategory = New DevExpress.XtraEditors.HyperlinkLabelControl()
-        Me.cmdClassification = New DevExpress.XtraEditors.HyperlinkLabelControl()
         Me.ckpooption = New DevExpress.XtraEditors.RadioGroup()
-        Me.txtClassification = New DevExpress.XtraEditors.SearchLookUpEdit()
-        Me.gridClass = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.txtCategory = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridcategory = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.code = New DevExpress.XtraEditors.TextEdit()
@@ -45,8 +42,6 @@ Partial Class frmProductItem
         CType(Me.productid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtUnit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckpooption.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtClassification.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gridClass, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCategory.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridcategory, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,7 +57,7 @@ Partial Class frmProductItem
         Me.SimpleButton1.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.SimpleButton1.Appearance.Options.UseBackColor = True
         Me.SimpleButton1.Appearance.Options.UseFont = True
-        Me.SimpleButton1.Location = New System.Drawing.Point(341, 267)
+        Me.SimpleButton1.Location = New System.Drawing.Point(341, 239)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(119, 34)
         Me.SimpleButton1.TabIndex = 665
@@ -148,19 +143,9 @@ Partial Class frmProductItem
         Me.cmdCategory.TabIndex = 673
         Me.cmdCategory.Text = "Select Category"
         '
-        'cmdClassification
-        '
-        Me.cmdClassification.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.cmdClassification.Appearance.Options.UseFont = True
-        Me.cmdClassification.Location = New System.Drawing.Point(35, 161)
-        Me.cmdClassification.Name = "cmdClassification"
-        Me.cmdClassification.Size = New System.Drawing.Size(113, 17)
-        Me.cmdClassification.TabIndex = 672
-        Me.cmdClassification.Text = "Select Classification"
-        '
         'ckpooption
         '
-        Me.ckpooption.Location = New System.Drawing.Point(157, 186)
+        Me.ckpooption.Location = New System.Drawing.Point(157, 158)
         Me.ckpooption.Name = "ckpooption"
         Me.ckpooption.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.0!)
         Me.ckpooption.Properties.Appearance.Options.UseFont = True
@@ -171,28 +156,6 @@ Partial Class frmProductItem
         Me.ckpooption.Properties.ReadOnly = True
         Me.ckpooption.Size = New System.Drawing.Size(378, 75)
         Me.ckpooption.TabIndex = 671
-        '
-        'txtClassification
-        '
-        Me.txtClassification.EditValue = ""
-        Me.txtClassification.Location = New System.Drawing.Point(157, 158)
-        Me.txtClassification.Name = "txtClassification"
-        Me.txtClassification.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtClassification.Properties.Appearance.Options.UseFont = True
-        Me.txtClassification.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.txtClassification.Properties.DisplayMember = "Select"
-        Me.txtClassification.Properties.NullText = ""
-        Me.txtClassification.Properties.PopupView = Me.gridClass
-        Me.txtClassification.Properties.ValueMember = "code"
-        Me.txtClassification.Size = New System.Drawing.Size(284, 24)
-        Me.txtClassification.TabIndex = 663
-        '
-        'gridClass
-        '
-        Me.gridClass.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.gridClass.Name = "gridClass"
-        Me.gridClass.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.gridClass.OptionsView.ShowGroupPanel = False
         '
         'txtCategory
         '
@@ -248,7 +211,7 @@ Partial Class frmProductItem
         Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSaveButton.Appearance.Options.UseBackColor = True
         Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(157, 267)
+        Me.cmdSaveButton.Location = New System.Drawing.Point(157, 239)
         Me.cmdSaveButton.Name = "cmdSaveButton"
         Me.cmdSaveButton.Size = New System.Drawing.Size(178, 34)
         Me.cmdSaveButton.TabIndex = 664
@@ -283,7 +246,7 @@ Partial Class frmProductItem
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(596, 326)
+        Me.ClientSize = New System.Drawing.Size(598, 290)
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.LabelControl4)
         Me.Controls.Add(Me.productid)
@@ -292,9 +255,7 @@ Partial Class frmProductItem
         Me.Controls.Add(Me.HyperlinkLabelControl1)
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.cmdCategory)
-        Me.Controls.Add(Me.cmdClassification)
         Me.Controls.Add(Me.ckpooption)
-        Me.Controls.Add(Me.txtClassification)
         Me.Controls.Add(Me.txtCategory)
         Me.Controls.Add(Me.code)
         Me.Controls.Add(Me.txtDescription)
@@ -304,15 +265,12 @@ Partial Class frmProductItem
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.HelpButton = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MinimumSize = New System.Drawing.Size(612, 365)
         Me.Name = "frmProductItem"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Transaction Item Information"
         CType(Me.productid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtUnit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckpooption.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtClassification.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gridClass, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCategory.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridcategory, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -330,10 +288,7 @@ Partial Class frmProductItem
     Friend WithEvents HyperlinkLabelControl1 As DevExpress.XtraEditors.HyperlinkLabelControl
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents cmdCategory As DevExpress.XtraEditors.HyperlinkLabelControl
-    Friend WithEvents cmdClassification As DevExpress.XtraEditors.HyperlinkLabelControl
     Friend WithEvents ckpooption As DevExpress.XtraEditors.RadioGroup
-    Friend WithEvents txtClassification As DevExpress.XtraEditors.SearchLookUpEdit
-    Friend WithEvents gridClass As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents txtCategory As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gridcategory As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents code As DevExpress.XtraEditors.TextEdit

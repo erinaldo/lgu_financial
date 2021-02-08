@@ -112,6 +112,11 @@ LGU Client
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:LGUClient.My.Resources.Resources.Action_Inline_Edit">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:LGUClient.My.Resources.Resources.Action_Inline_Edit_32x32">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -213,6 +218,11 @@ LGU Client
 </summary>
 </member>
 <member name="P:LGUClient.My.Resources.Resources.arrow_242_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:LGUClient.My.Resources.Resources.arrow_circle">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -1478,6 +1488,11 @@ LGU Client
 </summary>
 </member>
 <member name="P:LGUClient.My.Resources.Resources.PictureShapeOutlineColor_32x32__2_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:LGUClient.My.Resources.Resources.plus_circle_frame">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

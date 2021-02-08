@@ -19,15 +19,16 @@ Partial Class frmGLCaptureChartofAccount
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.components = New System.ComponentModel.Container()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.companyid = New DevExpress.XtraEditors.ButtonEdit()
         Me.txtChartofAccounts = New DevExpress.XtraEditors.ButtonEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
+        Me.ProgressBarControl1 = New DevExpress.XtraEditors.ProgressBarControl()
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProgressBarControl1 = New DevExpress.XtraEditors.ProgressBarControl()
         Me.gridmenustrip.SuspendLayout()
         CType(Me.companyid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtChartofAccounts.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,9 +93,19 @@ Partial Class frmGLCaptureChartofAccount
         Me.LabelControl2.Appearance.Options.UseFont = True
         Me.LabelControl2.Location = New System.Drawing.Point(124, 21)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(251, 15)
+        Me.LabelControl2.Size = New System.Drawing.Size(252, 15)
         Me.LabelControl2.TabIndex = 751
         Me.LabelControl2.Text = "Please use Standard Chart of Account Excel File "
+        '
+        'ProgressBarControl1
+        '
+        Me.ProgressBarControl1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ProgressBarControl1.Location = New System.Drawing.Point(1, 115)
+        Me.ProgressBarControl1.Name = "ProgressBarControl1"
+        Me.ProgressBarControl1.Properties.ShowTitle = True
+        Me.ProgressBarControl1.Size = New System.Drawing.Size(516, 19)
+        Me.ProgressBarControl1.TabIndex = 752
         '
         'cmdEdit
         '
@@ -110,23 +121,13 @@ Partial Class frmGLCaptureChartofAccount
         Me.cmdDelete.Size = New System.Drawing.Size(138, 22)
         Me.cmdDelete.Text = "Delete Code"
         '
-        'ProgressBarControl1
-        '
-        Me.ProgressBarControl1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBarControl1.Location = New System.Drawing.Point(1, 117)
-        Me.ProgressBarControl1.Name = "ProgressBarControl1"
-        Me.ProgressBarControl1.Properties.ShowTitle = True
-        Me.ProgressBarControl1.Size = New System.Drawing.Size(518, 19)
-        Me.ProgressBarControl1.TabIndex = 752
-        '
         'frmGLCaptureChartofAccount
         '
         Me.AcceptButton = Me.cmdSave
         Me.Appearance.Options.UseFont = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(520, 136)
+        Me.ClientSize = New System.Drawing.Size(518, 134)
         Me.Controls.Add(Me.ProgressBarControl1)
         Me.Controls.Add(Me.LabelControl2)
         Me.Controls.Add(Me.LabelControl1)

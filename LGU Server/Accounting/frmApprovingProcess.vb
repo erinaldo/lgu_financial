@@ -22,6 +22,7 @@ Public Class frmApprovingProcess
     Private Sub frmBiilSettings_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
         LoadOffice()
+        LoadFund()
         LoadApproverList()
 
         If globalAllowEdit = True Or LCase(globaluser) = "root" Then
@@ -47,12 +48,21 @@ Public Class frmApprovingProcess
 
     Private Sub txtRequestType_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtRequestType.EditValueChanged
         On Error Resume Next
-        Dim iCurrentRow As Integer = CInt(txtRequestType.Properties.View.FocusedRowHandle.ToString)
-        requestid.Text = txtRequestType.Properties.View.GetFocusedRowCellValue("code").ToString()
-        LoadApproverList()
         ShowUnfilteredProducts()
         ShowfilteredProducts()
+        LoadApproverList()
     End Sub
+
+    Public Sub LoadFund()
+        LoadXgridLookupSearch("select code, description 'Select' from tblfund order by description asc", "tblfund", txtFund, gridFund, Me)
+        gridFund.Columns("code").Visible = False
+    End Sub
+
+    Private Sub txtFund_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtFund.EditValueChanged
+        On Error Resume Next
+        LoadApproverList()
+    End Sub
+
 
     Public Sub LoadOffice()
         LoadXgridLookupSearch("select officeid as code, officename as 'Select' from tblcompoffice order by officename asc", "tblcompoffice", txtOffice, gridOffice, Me)
@@ -70,8 +80,8 @@ Public Class frmApprovingProcess
     End Sub
 
     Public Sub LoadApproverList()
-        LoadXgrid("select id, applevel as 'Level', (select officename from tblcompoffice where officeid=tblapprovingprocess.officeid) as 'Approver', finalapp as 'Final', attachment as 'Attachment' from tblapprovingprocess where apptype='" & LCase(txtProcessType.Text.Replace(" ", "-")) & "' and trncode='" & requestid.Text & "'  order by applevel asc", "tblapprovingprocess", Em, GridView1, Me)
-        XgridHideColumn({"id"}, GridView1)
+        LoadXgrid("select id,trncode, applevel as 'Level', (select officename from tblcompoffice where officeid=tblapprovingprocess.officeid) as 'Approver', finalapp as 'Final', attachment as 'Attachment' from tblapprovingprocess where apptype='" & LCase(txtProcessType.Text.Replace(" ", "-")) & "' and trncode='" & txtRequestType.EditValue & "' and fundcode='" & txtFund.EditValue & "'  order by applevel asc", "tblapprovingprocess", Em, GridView1, Me)
+        XgridHideColumn({"id", "trncode"}, GridView1)
         XgridColAlign({"Level", "Final", "Attachment"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         GridView1.BestFitColumns()
     End Sub
@@ -96,14 +106,17 @@ Public Class frmApprovingProcess
             XtraMessageBox.Show("Please select office approving!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtOffice.Focus()
             Exit Sub
-
+        ElseIf countqry("tblapprovingprocess", "apptype='" & LCase(txtProcessType.Text.Replace(" ", "-")) & "' and trncode='" & txtRequestType.EditValue & "' and fundcode='" & txtFund.EditValue & "' and finalapp=1 and id<>'" & id.Text & "'") > 0 And chfinal.Checked = True Then
+            XtraMessageBox.Show("Final approver is allready added!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtOffice.Focus()
+            Exit Sub
         End If
         If mode.Text = "edit" Then
-            com.CommandText = "update tblapprovingprocess set apptype='" & LCase(txtProcessType.Text.Replace(" ", "-")) & "', trncode='" & requestid.Text & "', applevel='" & txtapplevel.Text & "', officeid='" & officeid.Text & "', finalapp='" & chfinal.CheckState & "', attachment=" & ckRequiredAttachment.CheckState & "  where id='" & id.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "update tblapprovingprocess set apptype='" & LCase(txtProcessType.Text.Replace(" ", "-")) & "', trncode='" & txtRequestType.EditValue & "',fundcode='" & txtFund.EditValue & "', applevel='" & txtapplevel.Text & "', officeid='" & officeid.Text & "', finalapp='" & chfinal.CheckState & "', attachment=" & ckRequiredAttachment.CheckState & "  where id='" & id.Text & "'" : com.ExecuteNonQuery()
             LoadApproverList() : ClearForm()
             XtraMessageBox.Show("Account for approver successfully saved!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
-            com.CommandText = "insert into tblapprovingprocess set apptype='" & LCase(txtProcessType.Text.Replace(" ", "-")) & "', trncode='" & requestid.Text & "', applevel='" & txtapplevel.Text & "', officeid='" & officeid.Text & "', finalapp='" & chfinal.CheckState & "',attachment=" & ckRequiredAttachment.CheckState & "" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblapprovingprocess set apptype='" & LCase(txtProcessType.Text.Replace(" ", "-")) & "', trncode='" & txtRequestType.EditValue & "',fundcode='" & txtFund.EditValue & "', applevel='" & txtapplevel.Text & "', officeid='" & officeid.Text & "', finalapp='" & chfinal.CheckState & "',attachment=" & ckRequiredAttachment.CheckState & "" : com.ExecuteNonQuery()
             LoadApproverList() : ClearForm() : txtOffice.ShowPopup()
             XtraMessageBox.Show("Account for approver successfully saved!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -114,6 +127,7 @@ Public Class frmApprovingProcess
         If XtraMessageBox.Show("Are you sure you want to remove selected approver? " & todelete, compname, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             For I = 0 To GridView1.SelectedRowsCount - 1
                 com.CommandText = "delete from tblapprovingprocess where id='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "id").ToString & "'" : com.ExecuteNonQuery()
+                com.CommandText = "delete from tblapprovingattachment where trncode='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "trncode").ToString & "' and appid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "id").ToString & "'" : com.ExecuteNonQuery()
             Next
             LoadApproverList()
         End If
@@ -134,8 +148,8 @@ Public Class frmApprovingProcess
         msda.Fill(dst, 0)
         For cnt = 0 To dst.Tables(0).Rows.Count - 1
             With (dst.Tables(0))
-                requestid.Text = .Rows(cnt)("trncode").ToString
                 txtRequestType.EditValue = .Rows(cnt)("trncode").ToString
+                txtFund.EditValue = .Rows(cnt)("fundcode").ToString
                 txtapplevel.Text = .Rows(cnt)("applevel").ToString
                 officeid.Text = .Rows(cnt)("officeid").ToString
                 txtOffice.EditValue = .Rows(cnt)("officeid").ToString
@@ -159,7 +173,7 @@ Public Class frmApprovingProcess
 #End Region
 
     Public Sub LoadApprover()
-        LoadXgridLookupSearch("select id,concat(applevel, ' - ', (select officename from tblcompoffice where officeid=tblapprovingprocess.officeid)) as 'Select' from tblapprovingprocess where apptype='" & LCase(txtProcessType.Text.Replace(" ", "-")) & "' and trncode='" & requestid.Text & "' order by applevel asc", "tblapprovingprocess", txtPermission, gvpermission, Me)
+        LoadXgridLookupSearch("select id,concat(applevel, ' - ', (select officename from tblcompoffice where officeid=tblapprovingprocess.officeid)) as 'Select' from tblapprovingprocess where apptype='" & LCase(txtProcessType.Text.Replace(" ", "-")) & "' and trncode='" & txtRequestType.EditValue & "' order by applevel asc", "tblapprovingprocess", txtPermission, gvpermission, Me)
         gvpermission.Columns("id").Visible = False
     End Sub
 
@@ -172,8 +186,8 @@ Public Class frmApprovingProcess
     End Sub
 
     Public Sub ShowUnfilteredProducts()
-        Dim code As String = ""  
-        com.CommandText = "select doccode from tblapprovingattachment where appid='" & approverid.Text & "' and trncode='" & requestid.Text & "' and apptype='" & LCase(txtProcessType.Text.Replace(" ", "-")) & "'" : rst = com.ExecuteReader
+        Dim code As String = ""
+        com.CommandText = "select doccode from tblapprovingattachment where appid='" & approverid.Text & "' and trncode='" & txtRequestType.EditValue & "' and apptype='" & LCase(txtProcessType.Text.Replace(" ", "-")) & "'" : rst = com.ExecuteReader
         While rst.Read
             code = code + "'" & rst("doccode").ToString & "',"
         End While
@@ -192,7 +206,7 @@ Public Class frmApprovingProcess
 
     Public Sub ShowfilteredProducts()
         If approverid.Text <> "" Then
-            LoadXgrid("select id, (select description from tbldocumenttype where code= tblapprovingattachment.doccode) as 'Document Name' from tblapprovingattachment where appid='" & approverid.Text & "' and trncode='" & requestid.Text & "' and apptype='" & LCase(txtProcessType.Text.Replace(" ", "-")) & "' order by appid asc", "tblapprovingattachment", Em_filtered, GridView3, Me)
+            LoadXgrid("select id, (select description from tbldocumenttype where code= tblapprovingattachment.doccode) as 'Document Name' from tblapprovingattachment where appid='" & approverid.Text & "' and trncode='" & txtRequestType.EditValue & "' and apptype='" & LCase(txtProcessType.Text.Replace(" ", "-")) & "' order by appid asc", "tblapprovingattachment", Em_filtered, GridView3, Me)
             GridView3.Columns("id").Visible = False
             XgridColMemo({"Document Name"}, Gridview3)
             XgridColWidth({"Document Name"}, Gridview3, Em_filtered.Width)
@@ -201,7 +215,7 @@ Public Class frmApprovingProcess
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles cmdMoveRight.Click
         For I = 0 To Gridview2.SelectedRowsCount - 1
-            com.CommandText = "insert into tblapprovingattachment set apptype='" & LCase(txtProcessType.Text.Replace(" ", "-")) & "', trncode='" & requestid.Text & "', appid='" & approverid.Text & "', doccode='" & GridView2.GetRowCellValue(GridView2.GetSelectedRows(I), "code").ToString & "'" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblapprovingattachment set apptype='" & LCase(txtProcessType.Text.Replace(" ", "-")) & "', trncode='" & txtRequestType.EditValue & "', appid='" & approverid.Text & "', doccode='" & GridView2.GetRowCellValue(GridView2.GetSelectedRows(I), "code").ToString & "'" : com.ExecuteNonQuery()
         Next
         ShowUnfilteredProducts()
         ShowfilteredProducts()

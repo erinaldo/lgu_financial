@@ -100,7 +100,7 @@ Partial Class frmForDisbursement
         Me.Em.Location = New System.Drawing.Point(0, 0)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(904, 403)
+        Me.Em.Size = New System.Drawing.Size(904, 398)
         Me.Em.TabIndex = 3
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '

@@ -8,6 +8,7 @@ Imports DevExpress.XtraGrid.Views.Grid.ViewInfo
 
 Public Class frmRequisitionForApprovalInfo
     Private BandgridView As GridView
+    Private HeadOfficeApproval As Boolean = False
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
         If keyData = (Keys.Escape) Then
             Me.Close()
@@ -15,37 +16,64 @@ Public Class frmRequisitionForApprovalInfo
         Return ProcessCmdKey
     End Function
 
-    Private Sub frmRequisitionInfo_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
-        Me.Dispose()
-    End Sub
+    'Private Sub frmRequisitionInfo_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+    '    Me.Dispose()
+    'End Sub
 
     Private Sub ffrmRequisitionInfo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Icon = ico
         ApplySystemTheme(ToolStrip1)
+        ShowApprovalInfo()
+    End Sub
+
+    Public Sub ShowApprovalInfo()
         ShowRequisitionInfo()
         LoadItem()
+        LoadSource()
         LoadFiles()
         ApprovingHistory()
         LoadApproverDeatils()
+        If approval.Text = "check" Then
+            lineHold.Visible = False
+            cmdHoldRequest.Visible = False
+            cmdApprove.Text = "Approve for Check Issuance"
+        Else
+            cmdApprove.Text = "Approve Request"
+        End If
+    End Sub
+    Public Sub LoadSource()
+        LoadXgrid("select id,itemcode as 'Item Code', (select itemname from tblglitem where itemcode=a.itemcode) as 'Item Name', Amount, prevbalance as 'Prev Balance',newbalance as 'New Balance' from tblrequisitionfund as a where pid='" & pid.Text & "'", "tblrequisitionfund", Em_SourceFund, gridSourceFund, Me)
+        XgridHideColumn({"id"}, gridSourceFund)
+        XgridColAlign({"Item Code"}, gridSourceFund, DevExpress.Utils.HorzAlignment.Center)
+        XgridColCurrency({"Amount", "Prev Balance", "New Balance"}, gridSourceFund)
+        XgridGeneralSummaryCurrency({"Amount"}, gridSourceFund)
+        gridSourceFund.BestFitColumns()
     End Sub
 
     Public Sub LoadApproverDeatils()
-        com.CommandText = "select * from tblapprovingprocess where apptype='requisition-approving-process' and trncode='" & requesttype.Text & "' and applevel=ifnull((select applevel+1 from tblapprovalhistory where apptype='requisition' and trncode='" & requesttype.Text & "' and mainreference='" & pid.Text & "' and applevel > 0 order by applevel desc limit 1),1)" : rst = com.ExecuteReader
+        com.CommandText = "select * from tblapprovingprocess where apptype='requisition-approving-process' and trncode='" & requesttype.Text & "' and fundcode='" & fundcode.Text & "' and applevel=ifnull((select applevel+1 from tblapprovalhistory where apptype='requisition' and trncode='" & requesttype.Text & "' and fundcode='" & fundcode.Text & "' and mainreference='" & pid.Text & "' and applevel > 0 order by applevel desc limit 1),1)" : rst = com.ExecuteReader
         While rst.Read
             appid.Text = rst("id").ToString
+            If HeadOfficeApproval = True Then
+                ckFinalApprover.Checked = False
+            Else
+                ckFinalApprover.Checked = CBool(rst("finalapp"))
+            End If
             CurrentLevel.Text = rst("applevel").ToString
-            CurrentApprover.Text = rst("officeid").ToString
-            ckFinalApprover.Checked = CBool(rst("finalapp"))
+            If ckFinalApprover.Checked = True Then
+                CurrentApprover.Text = ""
+            Else
+                CurrentApprover.Text = rst("officeid").ToString
+            End If
         End While
         rst.Close()
-
-        com.CommandText = "select * from tblapprovingprocess where apptype='requisition-approving-process' and trncode='" & requesttype.Text & "' and applevel=" & Val(CurrentLevel.Text) + 1 & "" : rst = com.ExecuteReader
+        com.CommandText = "select * from tblapprovingprocess where apptype='requisition-approving-process' and trncode='" & requesttype.Text & "' and fundcode='" & fundcode.Text & "'  and applevel=" & Val(CurrentLevel.Text) + 1 & "" : rst = com.ExecuteReader
         While rst.Read
             NextApprover.Text = rst("officeid").ToString
         End While
         rst.Close()
     End Sub
- 
+
     Public Sub LoadItem()
         LoadXgrid("Select id, itemname as 'Particular Name',Quantity, Unit, unitcost as 'Unit Cost',totalcost as 'Total Cost', Remarks " _
                            + " from tblrequisitionitem  " _
@@ -64,10 +92,12 @@ Public Class frmRequisitionForApprovalInfo
                                   + " (select officename from tblcompoffice where officeid=a.officeid) as office, " _
                                   + " (select fullname from tblaccounts where accountid=a.requestedby) as 'requestby', " _
                                   + " (select description from tblrequisitiontype where code=a.requesttype) as 'typerequest', " _
-                                  + " (select itemname from tblbudgetcomposition where periodcode=a.periodcode and officeid=a.officeid and itemcode=a.sourcefund) as source from tblrequisition as a where pid='" & pid.Text & "'", conn)
+                                  + " (select sum(amount) from tblrequisitionfund where pid=a.pid) as sourceamount " _
+                                  + " from tblrequisition as a where pid='" & pid.Text & "'", conn)
         da.Fill(st, 0)
         For cnt = 0 To st.Tables(0).Rows.Count - 1
             With (st.Tables(0))
+                fundcode.Text = .Rows(cnt)("fundcode").ToString()
                 requestno.Text = .Rows(cnt)("requestno").ToString()
                 txtRequestNumber.Text = .Rows(cnt)("requestno").ToString()
                 requesttype.Text = .Rows(cnt)("requesttype").ToString()
@@ -81,7 +111,9 @@ Public Class frmRequisitionForApprovalInfo
                 txtPostingDate.EditValue = .Rows(cnt)("postingdate").ToString()
                 txtPurpose.Text = .Rows(cnt)("purpose").ToString()
                 txtPriority.EditValue = .Rows(cnt)("priority").ToString()
-                txtSource.EditValue = .Rows(cnt)("source").ToString()
+                txtSourceAmount.EditValue = .Rows(cnt)("sourceamount").ToString()
+                HeadOfficeApproval = CBool(.Rows(cnt)("headofficeapproval").ToString())
+
                 If CBool(.Rows(cnt)("approved").ToString()) = True Then
                     txtStatus.Text = "APPROVED"
                 Else
@@ -210,56 +242,60 @@ Public Class frmRequisitionForApprovalInfo
 
         frmApprovalConfirmation.mode.Text = "approved"
         frmApprovalConfirmation.ShowDialog(Me)
-    End Sub
+        If frmApprovalConfirmation.TransactionDone = True Then
+            If approval.Text = "check" Then
+                com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "',fundcode='" & fundcode.Text & "' , mainreference='" & pid.Text & "', subreference='" & pid.Text & "', status='approved', remarks='" & rchar(frmApprovalConfirmation.txtRemarks.Text) & "', applevel=0, officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
+                com.CommandText = "update tblrequisition set checkapproved=1 where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
 
-    Public Sub RequestConfirmation(ByVal remarks As String, ByVal status As String)
-        com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "', mainreference='" & pid.Text & "', subreference='" & pid.Text & "', status='" & status & "', remarks='" & rchar(remarks) & "', applevel='" & CurrentLevel.Text & "', officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=" & ckFinalApprover.CheckState & "" : com.ExecuteNonQuery()
+                If frmForApprovalCheckReleasing.Visible = True Then
+                    frmForApprovalCheckReleasing.ViewList()
+                End If
+                frmApprovalConfirmation.TransactionDone = False
+                frmApprovalConfirmation.Dispose()
+                MainForm.Notification()
+                XtraMessageBox.Show("Check issuance request successfully approved!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.Close()
+            Else
+                com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "', fundcode='" & fundcode.Text & "',  mainreference='" & pid.Text & "', subreference='" & pid.Text & "', status='Approved', remarks='" & rchar(frmApprovalConfirmation.txtRemarks.Text) & "', applevel='" & If(HeadOfficeApproval, "0", CurrentLevel.Text) & "', officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=" & ckFinalApprover.CheckState & "" : com.ExecuteNonQuery()
 
-        If ckFinalApprover.Checked = True Then
-            com.CommandText = "update tblrequisition set forapproval=0, approved=1, dateapproved=current_timestamp where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
-        Else
-            Dim newlevel As Integer : Dim newapprover As String = ""
-            com.CommandText = "select * from tblapprovingprocess where apptype='requisition-approving-process' and trncode='" & requesttype.Text & "' and applevel=" & Val(CurrentLevel.Text) + 1 & " " : rst = com.ExecuteReader
-            While rst.Read
-                newlevel = rst("applevel").ToString
-                newapprover = rst("officeid").ToString
-            End While
-            rst.Close()
+                If ckFinalApprover.Checked = True Then
+                    com.CommandText = "update tblrequisition set headofficeapproval=0, forapproval=0, approved=1, currentapprover='', nextapprover='', dateapproved=current_timestamp where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
+                Else
+                    Dim newlevel As Integer : Dim newapprover As String = ""
+                    If HeadOfficeApproval Then
+                        com.CommandText = "select * from tblapprovingprocess where apptype='requisition-approving-process' and trncode='" & requesttype.Text & "' and fundcode='" & fundcode.Text & "' and applevel=" & Val(CurrentLevel.Text) & " " : rst = com.ExecuteReader
+                    Else
+                        com.CommandText = "select * from tblapprovingprocess where apptype='requisition-approving-process' and trncode='" & requesttype.Text & "' and fundcode='" & fundcode.Text & "' and applevel=" & Val(CurrentLevel.Text) + 1 & " " : rst = com.ExecuteReader
+                    End If
 
-            Dim nextApproval As String = ""
-            com.CommandText = "select * from tblapprovingprocess where apptype='requisition-approving-process' and trncode='" & requesttype.Text & "' and applevel=" & Val(newlevel) + 1 & "" : rst = com.ExecuteReader
-            While rst.Read
-                nextApproval = rst("officeid").ToString
-            End While
-            rst.Close()
+                    While rst.Read
+                        newlevel = rst("applevel").ToString
+                        newapprover = rst("officeid").ToString
+                    End While
+                    rst.Close()
 
-            com.CommandText = "update tblrequisition set currentlevel='" & newlevel & "', currentapprover='" & newapprover & "', nextapprover='" & nextApproval & "' where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
+                    Dim nextApproval As String = ""
+                    com.CommandText = "select * from tblapprovingprocess where apptype='requisition-approving-process' and trncode='" & requesttype.Text & "' and fundcode='" & fundcode.Text & "'  and applevel=" & Val(newlevel) + 1 & "" : rst = com.ExecuteReader
+                    While rst.Read
+                        nextApproval = rst("officeid").ToString
+                    End While
+                    rst.Close()
+
+                    com.CommandText = "update tblrequisition set headofficeapproval=0, currentlevel='" & newlevel & "', currentapprover='" & newapprover & "', nextapprover='" & nextApproval & "' where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
+                End If
+
+                If frmForApprovalRequisition.Visible = True Then
+                    frmForApprovalRequisition.ViewList()
+                End If
+
+                frmApprovalConfirmation.TransactionDone = False
+                frmApprovalConfirmation.Dispose()
+                MainForm.Notification()
+                XtraMessageBox.Show("Requisition successfully approved!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.Close()
+            End If
         End If
 
-        If frmForApprovalRequisition.Visible = True Then
-            frmForApprovalRequisition.ViewList()
-        End If
-        XtraMessageBox.Show("Requisition successfully approved!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
-        frmApprovalConfirmation.Close()
-        Me.Close()
-    End Sub
-
-    Public Sub requestLogHistory(ByVal remarks As String, ByVal status As String)
-        com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "', mainreference='" & pid.Text & "', subreference='" & pid.Text & "', status='" & status & "', remarks='" & rchar(remarks) & "', applevel=0, officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
-        If status = "Hold" Then
-            com.CommandText = "update tblrequisition set forapproval=0, hold=1 where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
-        End If
-
-        If frmForApprovalRequisition.Visible = True Then
-            frmForApprovalRequisition.ViewList()
-        End If
-
-        If frmRequisitionList.Visible = True Then
-            frmRequisitionList.ViewList()
-        End If
-        XtraMessageBox.Show("Requisition successfully " & status & "!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
-        frmApprovalConfirmation.Close()
-        Me.Close()
     End Sub
 
     Private Sub txtStatus_EditValueChanged(sender As Object, e As EventArgs) Handles txtStatus.EditValueChanged
@@ -279,8 +315,24 @@ Public Class frmRequisitionForApprovalInfo
 
 
     Private Sub cmdHoldRequest_Click(sender As Object, e As EventArgs) Handles cmdHoldRequest.Click
-        frmApprovalConfirmation.mode.Text = "hold"
         frmApprovalConfirmation.ShowDialog(Me)
+        If frmApprovalConfirmation.TransactionDone = True Then
+            com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "',fundcode='" & fundcode.Text & "' , mainreference='" & pid.Text & "', subreference='" & pid.Text & "', status='Hold', remarks='" & rchar(frmApprovalConfirmation.txtRemarks.Text) & "', applevel=0, officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
+            com.CommandText = "update tblrequisition set forapproval=0, hold=1 where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
+
+            If frmForApprovalRequisition.Visible = True Then
+                frmForApprovalRequisition.ViewList()
+            End If
+
+            frmApprovalConfirmation.TransactionDone = False
+            frmApprovalConfirmation.Dispose()
+            MainForm.Notification()
+            XtraMessageBox.Show("Requisition successfully hold!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Me.Close()
+        End If
     End Sub
 
+    Private Sub pid_EditValueChanged(sender As Object, e As EventArgs) Handles pid.EditValueChanged
+        ShowApprovalInfo()
+    End Sub
 End Class

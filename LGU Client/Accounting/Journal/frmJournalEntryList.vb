@@ -44,6 +44,7 @@ Public Class frmJournalEntryList
         LoadXgrid("SELECT id as 'Entry Code', if(cancelled,'CANCELLED',if(cleared,'CLEARED', 'PENDING')) as Status, " _
                         + " jevno as 'JEV No.', " _
                         + " concat((select codename from tblfund where code=a.fundcode),'-',yeartrn) as 'Fund Period',  " _
+                        + " (select officename from tblcompoffice where officeid = a.officeid) as 'Office', " _
                         + " date_format(postingdate,'%Y-%m-%d') as 'Posting Date', " _
                         + " (select sum(debit) from tbljournalentryitem where jevno=a.jevno) as Amount, Remarks, " _
                         + " dvno as 'DV #', payrollno as 'Payroll #',rcdno as 'RCD #',lrno as 'LR #',aeno as 'AE #', " _
@@ -111,7 +112,7 @@ Public Class frmJournalEntryList
         DXExportGridToExcel(Me.Text, GridView1)
     End Sub
 
-    Private Sub cmdNew_Click(sender As Object, e As EventArgs) Handles cmdNewProperty.Click
+    Private Sub cmdNew_Click(sender As Object, e As EventArgs)
         If globalAllowAdd = False Then
             MessageBox.Show("Your access not allowed to add!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub

@@ -24,7 +24,7 @@ Public Class frmRequisitionList
         LoadOffice()
         officeid.Text = compOfficeid
         txtOffice.EditValue = compOfficeid
-        If compAccountingOffice = True Then
+        If globalSpecialApprover = True Then
             lbloffice.Visible = True
             txtOffice.Visible = True
             ckViewAllOffice.Visible = True
@@ -74,7 +74,7 @@ Public Class frmRequisitionList
     Public Sub ViewList()
         Dim KeyWordSearch As String = ""
         If txtSearchBar.Text = "" Then
-            KeyWordSearch = If(ckPendingRequisition.Checked = True, " approved=0 and cancelled=0 and paid=0 ", " requesttype='" & requesttype.Text & "' and date_format(postingdate,'%Y-%m-%d') between '" & ConvertDate(txtDateFrom.EditValue) & "' and '" & ConvertDate(txtDateTo.EditValue) & "' ")
+            KeyWordSearch = If(ckPendingRequisition.Checked = True, " approved=0 and cancelled=0 and paid=0 ", If(ckAllType.Checked = True, " date_format(postingdate,'%Y-%m-%d') between '" & ConvertDate(txtDateFrom.EditValue) & "' and '" & ConvertDate(txtDateTo.EditValue) & "' ", " requesttype='" & requesttype.Text & "' and date_format(postingdate,'%Y-%m-%d') between '" & ConvertDate(txtDateFrom.EditValue) & "' and '" & ConvertDate(txtDateTo.EditValue) & "' "))
         Else
             KeyWordSearch = " (pid like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " requestno like '%" & rchar(txtSearchBar.Text) & "%' or " _
@@ -82,14 +82,13 @@ Public Class frmRequisitionList
                         + " (select description from tblrequisitiontype where code=a.requesttype) like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " Purpose like '%" & rchar(txtSearchBar.Text) & "%')"
         End If
-        LoadXgrid("SELECT pid as 'Entry Code', if(cancelled,'CANCELLED',if(paid,'PAID',if(approved,'APPROVED',if(draft,'DRAFT',if(hold,'HOLD',if(forapproval,'FOR APPROVAL','-')))))) as Status, " _
+        LoadXgrid("SELECT pid as 'Entry Code', if(cancelled,'CANCELLED',if(paid,'DISBURSED',if(approved,'APPROVED',if(draft,'DRAFT',if(hold,'HOLD',if(forapproval,'FOR APPROVAL','-')))))) as Status, " _
                         + " requestno as 'Request No.', " _
                         + " (select description from tblrequisitiontype where code=a.requesttype) as 'Request Type' ," _
                         + " concat((select codename from tblfund where code=a.fundcode),'-',yeartrn) as 'Fund Period',  " _
                         + " date_format(postingdate,'%Y-%m-%d') as 'Posting Date', " _
                         + " (select officename from tblcompoffice where officeid = a.officeid) as 'Office', " _
                         + " (select fullname from tblaccounts where accountid=a.requestedby) as 'Requested By', " _
-                        + " (select itemname from tblglitem where itemcode=a.sourcefund) as 'Source Fund', " _
                         + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) as 'Total Amount', " _
                         + " ifnull((select sum(amount) from tbldisbursementdetails where pid=a.pid and cancelled=0),0) as 'Payment', " _
                         + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) - ifnull((select sum(amount) from tbldisbursementdetails where pid=a.pid and cancelled=0),0) as 'Balance', " _
@@ -100,9 +99,10 @@ Public Class frmRequisitionList
                         + " Draft, " _
                         + " ForApproval, " _
                         + " Hold, " _
-                        + " (select officename from tblcompoffice where officeid=a.currentapprover) as 'Current Approver', " _
+                        + " if(headofficeapproval=1,'OFFICE HEAD', (select officename from tblcompoffice where officeid=a.currentapprover) ) as 'Current Approver', " _
                         + " (select officename from tblcompoffice where officeid=a.nextapprover) as 'Next Approver', " _
                         + " Approved, date_format(dateapproved,'%Y-%m-%d') as 'Date Approved', " _
+                        + " if(Approved=1,if(checkapproved=1,'APPROVED','PENDING'),'') as 'Check Issuance', " _
                         + " Cancelled, " _
                         + " date_format(datecancelled,'%Y-%m-%d') as 'Date Cancelled' " _
                         + " FROM tblrequisition as a " _
@@ -112,7 +112,7 @@ Public Class frmRequisitionList
                         + " order by requestno asc", "tblrequisition", Em, GridView1, Me)
 
         XgridColCurrency({"Total Amount", "Payment", "Balance"}, GridView1)
-        XgridColAlign({"Entry Code", "Status", "Fund Period", "Request Type", "Posting Date", "Date Posted", "Draft", "ForApproval", "Hold", "Approved", "Date Approved", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+        XgridColAlign({"Entry Code", "Current Approver", "Next Approver", "Status", "Fund Period", "Request Type", "Posting Date", "Date Posted", "Draft", "ForApproval", "Hold", "Approved", "Date Approved", "Check Issuance", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         XgridGeneralSummaryCurrency({"Total Amount", "Payment", "Balance"}, GridView1)
 
         DXgridColumnIndexing(Me.Name, GridView1)
@@ -145,7 +145,7 @@ Public Class frmRequisitionList
                     e.Appearance.BackColor2 = Color.Red
                     e.Appearance.ForeColor = Color.White
 
-                ElseIf status = "PAID" Then
+                ElseIf status = "DISBURSED" Then
                     e.Appearance.BackColor = Color.Gold
                     e.Appearance.BackColor2 = Color.Gold
                     e.Appearance.ForeColor = Color.Black
@@ -165,6 +165,15 @@ Public Class frmRequisitionList
                 e.Appearance.BackColor = Color.Red
                 e.Appearance.BackColor2 = Color.Red
                 e.Appearance.ForeColor = Color.White
+            End If
+        End If
+
+        If e.Column.Name = "colCheckIssuance" Then
+            Dim check As String = View.GetRowCellDisplayText(e.RowHandle, View.Columns("Check Issuance"))
+            If check = "APPROVED" Then
+                e.Appearance.ForeColor = Color.Green
+            ElseIf check = "PENDING" Then
+                e.Appearance.ForeColor = Color.Orange
             End If
         End If
     End Sub
@@ -210,20 +219,30 @@ Public Class frmRequisitionList
             XtraMessageBox.Show("Selected request is already cancelled!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
+
+        If CBool(GridView1.GetFocusedRowCellValue("Approved").ToString) Then
+            frmApprovalConfirmation.RequiredAdminOveride = True
+        Else
+            frmApprovalConfirmation.RequiredAdminOveride = False
+        End If
+
         frmApprovalConfirmation.mode.Text = "cancel"
         frmApprovalConfirmation.ShowDialog(Me)
-    End Sub
+        If frmApprovalConfirmation.TransactionDone = True Then
+            For I = 0 To GridView1.SelectedRowsCount - 1
+                com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "', mainreference='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "', subreference='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "', status='Cancelled', remarks='" & rchar(frmApprovalConfirmation.txtRemarks.Text) & "', applevel=0, officeid='" & officeid.Text & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
+                com.CommandText = "update tblrequisition set approved=0, cancelled=1, cancelledby='" & globaluserid & "',datecancelled=current_timestamp where pid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "' " : com.ExecuteNonQuery()
+                com.CommandText = "update tblrequisitionitem set cancelled=1 where pid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "' " : com.ExecuteNonQuery()
+                com.CommandText = "DELETE from tblrequisitionfund where pid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "'" : com.ExecuteNonQuery()
+            Next
+            ViewList()
+            frmApprovalConfirmation.Close()
+            XtraMessageBox.Show("Requisition successfully cancelled!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-    Public Sub CancelRequest(ByVal remarks As String)
-        Dim I As Integer = 0
-        For I = 0 To GridView1.SelectedRowsCount - 1
-            com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "', mainreference='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "', subreference='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "', status='Cancelled', remarks='" & rchar(remarks) & "', applevel=0, officeid='" & officeid.Text & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
-            com.CommandText = "update tblrequisition set cancelled=1,cancelledby='" & globaluserid & "',datecancelled=current_timestamp where pid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "' " : com.ExecuteNonQuery()
-            com.CommandText = "update tblrequisitionitem set cancelled=1 where pid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "' " : com.ExecuteNonQuery()
-        Next
-        ViewList()
-        frmApprovalConfirmation.Close()
-        XtraMessageBox.Show("Requisition successfully cancelled!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            frmApprovalConfirmation.TransactionDone = False
+            frmApprovalConfirmation.Dispose()
+        End If
+
     End Sub
 
     Private Sub cmdView_Click(sender As Object, e As EventArgs) Handles cmdView.Click
@@ -257,7 +276,11 @@ Public Class frmRequisitionList
             txtDateFrom.Enabled = False
             txtDateTo.Enabled = False
         Else
-            txtRequestType.Enabled = True
+            If ckAllType.Checked = True Then
+                txtRequestType.Enabled = False
+            Else
+                txtRequestType.Enabled = True
+            End If
             txtDateFrom.Enabled = True
             txtDateTo.Enabled = True
         End If
@@ -281,6 +304,14 @@ Public Class frmRequisitionList
             txtOffice.EditValue = Nothing
         Else
             txtOffice.Enabled = True
+        End If
+    End Sub
+
+    Private Sub ckAllType_CheckedChanged(sender As Object, e As EventArgs) Handles ckAllType.CheckedChanged
+        If ckAllType.Checked = True Then
+            txtRequestType.Enabled = False
+        Else
+            txtRequestType.Enabled = True
         End If
     End Sub
 End Class

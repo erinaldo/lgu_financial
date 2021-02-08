@@ -27,18 +27,20 @@ Public Class frmRequisitionBrowseFile
                 End If
             Next
         End If
-        If MessageBox.Show("Are you sure you want to continue?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
-            If MyDataGridView.RowCount > 0 Then
-                For i = 0 To MyDataGridView.RowCount - 1
-                    AddAttachmentRequisition(trncode.Text, trntype.Text, {MyDataGridView.Rows(i).Cells("Location").Value()}, docname.Text, filecode.Text)
-                Next
-            End If
-            If frmRequisitionDocManager.Visible = True Then
-                frmRequisitionDocManager.filterItem()
-            End If
-            MsgBox("Atachment successfully uploaded!", MsgBoxStyle.Information)
-            Me.Close()
+        If MyDataGridView.RowCount > 0 Then
+            For i = 0 To MyDataGridView.RowCount - 1
+                AddAttachmentRequisition(trncode.Text, trntype.Text, {MyDataGridView.Rows(i).Cells("Location").Value()}, docname.Text, filecode.Text)
+            Next
         End If
+        If frmRequisitionDocManager.Visible = True Then
+            frmRequisitionDocManager.filterItem()
+        End If
+        Me.Close()
+        'If MessageBox.Show("Are you sure you want to continue?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+
+        '    MsgBox("Atachment successfully uploaded!", MsgBoxStyle.Information)
+
+        'End If
     End Sub
 
     Private Sub frmLoanAdjustment_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -61,17 +63,19 @@ Public Class frmRequisitionBrowseFile
     End Sub
 
     Public Sub LoadRequestType()
-        LoadXgridLookupSearch("select code,description as 'Select' from tbldocumenttype order by description asc", "tbldocumenttype", txtFileName, gridfilename)
-        gridfilename.Columns("code").Visible = False
+        'select (select description from tbldocumenttype where code=tblapprovingattachment.doccode) as document from tblapprovingattachment where trncode='" & requesttype.Text & "' and appid='-' and doccode not in (SELECT b.docname FROM `tblrequisitionfiles` as a inner join lgufiledir.tblattachmentlogs as b on a.filecode=b.filecode and a.pid=b.refnumber where pid='" & pid.Text & "' and a.applevel='0' and a.requesttype='" & requesttype.Text & "' )
+        LoadXgridLookupSearch("select doccode,(select description from tbldocumenttype where code=tblapprovingattachment.doccode) as 'Select' from tblapprovingattachment where trncode='" & requesttype.Text & "' order by (select description from tbldocumenttype where code=tblapprovingattachment.doccode) asc", "tbldocumenttype", txtFileName, gridfilename)
+        gridfilename.Columns("doccode").Visible = False
     End Sub
 
     Private Sub txtFileName_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtFileName.EditValueChanged
         On Error Resume Next
-        docname.Text = txtFileName.Properties.View.GetFocusedRowCellValue("code").ToString()
-        If txtFileName.Text = "" Then
-            Em.ContextMenuStrip = Nothing
+        docname.Text = txtFileName.Properties.View.GetFocusedRowCellValue("doccode").ToString()
+        If docname.Text = "" Then
+            Button2.Enabled = False
         Else
-            Em.ContextMenuStrip = cms_em
+            Button2.Enabled = True
+            Button2.PerformClick()
         End If
     End Sub
     '
@@ -86,8 +90,7 @@ Public Class frmRequisitionBrowseFile
         Me.OpenFileDialog1.Title = "My Image Browser"
     End Sub
 
-
-    Private Sub cmdBrowseFile_Click(sender As Object, e As EventArgs) Handles cmdBrowseFile.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim FileSize As UInt32 : Dim rawData() As Byte : Dim fs As FileStream
 
         Dim dr As DialogResult = Me.OpenFileDialog1.ShowDialog()
@@ -95,7 +98,7 @@ Public Class frmRequisitionBrowseFile
             ' Read the files 
             Dim file As String
             For Each file In OpenFileDialog1.FileNames
-                : rawData = Nothing : FileSize = Nothing
+                rawData = Nothing : FileSize = Nothing
                 fs = New FileStream(file, FileMode.Open, FileAccess.Read)
                 FileSize = fs.Length
 
@@ -103,12 +106,12 @@ Public Class frmRequisitionBrowseFile
                     MyDataGridView.Rows.Add(System.IO.Path.GetFileNameWithoutExtension(file), FormatNumber((FileSize / 1024), 2) & " KB", file, If(checkAttachment(file) = False, 1, 0), "")
                 Catch SecEx As SecurityException
                     ' The user lacks appropriate permissions to read files, discover paths, etc.
-                    MessageBox.Show("Security error. Please contact your administrator for details.\n\n" & _
-                        "Error message: " & SecEx.Message & "\n\n" & _
+                    MessageBox.Show("Security error. Please contact your administrator for details.\n\n" &
+                        "Error message: " & SecEx.Message & "\n\n" &
                         "Details (send to Support):\n\n" & SecEx.StackTrace)
                 Catch ex As Exception
                     ' Could not load the image - probably permissions-related.
-                    MessageBox.Show(("Cannot display the image: " & file.Substring(file.LastIndexOf("\"c)) & _
+                    MessageBox.Show(("Cannot display the image: " & file.Substring(file.LastIndexOf("\"c)) &
                     ". You may not have permission to read the file, or " + "it may be corrupt." _
                     & ControlChars.Lf & ControlChars.Lf & "Reported error: " & ex.Message))
                 End Try
@@ -129,4 +132,10 @@ Public Class frmRequisitionBrowseFile
         End If
     End Sub
 
+    Private Sub cmdBrowseFile_Click(sender As Object, e As EventArgs) Handles cmdDeleteFile.Click
+        Dim dr As DataGridViewRow
+        For Each dr In MyDataGridView.SelectedRows
+            MyDataGridView.Rows.Remove(dr)
+        Next
+    End Sub
 End Class

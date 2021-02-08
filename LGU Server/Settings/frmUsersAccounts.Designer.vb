@@ -19,6 +19,7 @@ Partial Class frmUsersAccounts
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.SplitContainerControl1 = New DevExpress.XtraEditors.SplitContainerControl()
         Me.XtraScrollableControl1 = New DevExpress.XtraEditors.XtraScrollableControl()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
@@ -26,7 +27,7 @@ Partial Class frmUsersAccounts
         Me.accesscode = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
         Me.ckClientUser = New DevExpress.XtraEditors.CheckEdit()
-        Me.BarManager1 = New DevExpress.XtraBars.BarManager()
+        Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar2 = New DevExpress.XtraBars.Bar()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
         Me.cmdSaveMenu = New DevExpress.XtraBars.BarButtonItem()
@@ -65,10 +66,9 @@ Partial Class frmUsersAccounts
         Me.gv_clientUserPosition = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.kbid = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UserAccountAccessToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdRemovePermission = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteAccountsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AccountTagingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -121,7 +121,7 @@ Partial Class frmUsersAccounts
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.kbid)
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
-        Me.SplitContainerControl1.Size = New System.Drawing.Size(983, 555)
+        Me.SplitContainerControl1.Size = New System.Drawing.Size(991, 555)
         Me.SplitContainerControl1.SplitterPosition = 337
         Me.SplitContainerControl1.TabIndex = 1
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
@@ -214,8 +214,8 @@ Partial Class frmUsersAccounts
         Me.ckClientUser.Name = "ckClientUser"
         Me.ckClientUser.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ckClientUser.Properties.Appearance.Options.UseFont = True
-        Me.ckClientUser.Properties.Caption = "Client User"
-        Me.ckClientUser.Size = New System.Drawing.Size(162, 19)
+        Me.ckClientUser.Properties.Caption = "Client User Access"
+        Me.ckClientUser.Size = New System.Drawing.Size(162, 20)
         Me.ckClientUser.TabIndex = 645
         '
         'BarManager1
@@ -266,7 +266,7 @@ Partial Class frmUsersAccounts
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(983, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(991, 20)
         '
         'barDockControlBottom
         '
@@ -274,7 +274,7 @@ Partial Class frmUsersAccounts
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.barDockControlBottom.Location = New System.Drawing.Point(0, 575)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(983, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(991, 0)
         '
         'barDockControlLeft
         '
@@ -288,7 +288,7 @@ Partial Class frmUsersAccounts
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(983, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(991, 20)
         Me.barDockControlRight.Manager = Me.BarManager1
         Me.barDockControlRight.Size = New System.Drawing.Size(0, 555)
         '
@@ -536,9 +536,9 @@ Partial Class frmUsersAccounts
         'signature
         '
         Me.signature.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.signature.Location = New System.Drawing.Point(2, 20)
+        Me.signature.Location = New System.Drawing.Point(2, 23)
         Me.signature.Name = "signature"
-        Me.signature.Size = New System.Drawing.Size(257, 89)
+        Me.signature.Size = New System.Drawing.Size(257, 86)
         Me.signature.TabIndex = 375
         '
         'LabelControl29
@@ -580,6 +580,7 @@ Partial Class frmUsersAccounts
         'txtClientPermission
         '
         Me.txtClientPermission.EditValue = "Select Group"
+        Me.txtClientPermission.Enabled = False
         Me.txtClientPermission.Location = New System.Drawing.Point(120, 247)
         Me.txtClientPermission.Name = "txtClientPermission"
         Me.txtClientPermission.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -609,7 +610,7 @@ Partial Class frmUsersAccounts
         Me.kbid.Properties.Appearance.Options.UseTextOptions = True
         Me.kbid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.kbid.Properties.ReadOnly = True
-        Me.kbid.Size = New System.Drawing.Size(237, 20)
+        Me.kbid.Size = New System.Drawing.Size(240, 20)
         Me.kbid.TabIndex = 388
         Me.kbid.Visible = False
         '
@@ -620,15 +621,15 @@ Partial Class frmUsersAccounts
         Me.Em.Location = New System.Drawing.Point(0, 0)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(641, 555)
+        Me.Em.Size = New System.Drawing.Size(644, 555)
         Me.Em.TabIndex = 1
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
         'gridmenustrip
         '
-        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.UserAccountAccessToolStripMenuItem, Me.cmdRemovePermission, Me.DeleteAccountsToolStripMenuItem, Me.AccountTagingToolStripMenuItem, Me.ToolStripSeparator3, Me.RefreshToolStripMenuItem1})
+        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.cmdRemovePermission, Me.DeleteAccountsToolStripMenuItem, Me.AccountTagingToolStripMenuItem, Me.ToolStripSeparator3, Me.RefreshToolStripMenuItem1})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(205, 164)
+        Me.gridmenustrip.Size = New System.Drawing.Size(205, 142)
         '
         'cmdEdit
         '
@@ -643,13 +644,6 @@ Partial Class frmUsersAccounts
         Me.cmdDelete.Name = "cmdDelete"
         Me.cmdDelete.Size = New System.Drawing.Size(204, 22)
         Me.cmdDelete.Text = "Change Password"
-        '
-        'UserAccountAccessToolStripMenuItem
-        '
-        Me.UserAccountAccessToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.User_Program_Group1
-        Me.UserAccountAccessToolStripMenuItem.Name = "UserAccountAccessToolStripMenuItem"
-        Me.UserAccountAccessToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
-        Me.UserAccountAccessToolStripMenuItem.Text = "Coffeecup Client Access"
         '
         'cmdRemovePermission
         '
@@ -677,28 +671,28 @@ Partial Class frmUsersAccounts
         '
         Me.TagAsMayorToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.Administration
         Me.TagAsMayorToolStripMenuItem.Name = "TagAsMayorToolStripMenuItem"
-        Me.TagAsMayorToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.TagAsMayorToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
         Me.TagAsMayorToolStripMenuItem.Text = "Tag as Mayor"
         '
         'TagAsAccountantToolStripMenuItem
         '
         Me.TagAsAccountantToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.User__2_
         Me.TagAsAccountantToolStripMenuItem.Name = "TagAsAccountantToolStripMenuItem"
-        Me.TagAsAccountantToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.TagAsAccountantToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
         Me.TagAsAccountantToolStripMenuItem.Text = "Tag as Accountant"
         '
         'TagAsFinanceOfficerToolStripMenuItem
         '
         Me.TagAsFinanceOfficerToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.Quality
         Me.TagAsFinanceOfficerToolStripMenuItem.Name = "TagAsFinanceOfficerToolStripMenuItem"
-        Me.TagAsFinanceOfficerToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.TagAsFinanceOfficerToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
         Me.TagAsFinanceOfficerToolStripMenuItem.Text = "Tag as Finance Officer"
         '
         'TagAsSangToolStripMenuItem
         '
         Me.TagAsSangToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.Person
         Me.TagAsSangToolStripMenuItem.Name = "TagAsSangToolStripMenuItem"
-        Me.TagAsSangToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
+        Me.TagAsSangToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
         Me.TagAsSangToolStripMenuItem.Text = "Tag as Sanggunian Secretary"
         '
         'ToolStripSeparator3
@@ -725,7 +719,7 @@ Partial Class frmUsersAccounts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(983, 575)
+        Me.ClientSize = New System.Drawing.Size(991, 575)
         Me.Controls.Add(Me.SplitContainerControl1)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)
@@ -818,7 +812,6 @@ Partial Class frmUsersAccounts
     Friend WithEvents ckClientUser As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents accesscode As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents UserAccountAccessToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents txtEmail As DevExpress.XtraEditors.TextEdit
     Friend WithEvents DeleteAccountsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

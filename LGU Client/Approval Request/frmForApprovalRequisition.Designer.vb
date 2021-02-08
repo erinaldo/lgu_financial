@@ -123,7 +123,7 @@ Partial Class frmForApprovalRequisition
         '
         Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdView, Me.ToolStripSeparator4, Me.cmdLocalData})
         Me.cms_em.Name = "ContextMenuStrip1"
-        Me.cms_em.Size = New System.Drawing.Size(211, 76)
+        Me.cms_em.Size = New System.Drawing.Size(211, 54)
         '
         'cmdView
         '
@@ -243,7 +243,7 @@ Partial Class frmForApprovalRequisition
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit1})
-        Me.Em.Size = New System.Drawing.Size(1020, 572)
+        Me.Em.Size = New System.Drawing.Size(1020, 567)
         Me.Em.TabIndex = 820
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -272,8 +272,7 @@ Partial Class frmForApprovalRequisition
         Me.txtSearchBar.Properties.Appearance.Options.UseFont = True
         Me.txtSearchBar.Properties.AutoHeight = False
         Me.txtSearchBar.Properties.MaxLength = 50
-        Me.txtSearchBar.Properties.NullValuePrompt = "Enter taxpayer name to search and press enter"
-        Me.txtSearchBar.Properties.NullValuePromptShowForEmptyValue = True
+        Me.txtSearchBar.Properties.NullValuePrompt = "Enter any keywords to search and press enter"
         Me.txtSearchBar.Size = New System.Drawing.Size(1020, 32)
         Me.txtSearchBar.TabIndex = 0
         '
@@ -290,7 +289,7 @@ Partial Class frmForApprovalRequisition
         Me.MinimumSize = New System.Drawing.Size(897, 679)
         Me.Name = "frmForApprovalRequisition"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Requisition Report"
+        Me.Text = "Requisition for approval list"
         Me.cms_em.ResumeLayout(False)
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
@@ -326,7 +325,7 @@ Partial Class frmForApprovalRequisition
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents Em As DevExpress.XtraGrid.GridControl
     Friend WithEvents SplitContainerControl1 As DevExpress.XtraEditors.SplitContainerControl
-    Friend WithEvents txtSearchBar As DevExpress.XtraEditors.TextEdit
     Friend WithEvents cmdColumnSettings As ToolStripButton
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Private WithEvents txtSearchBar As DevExpress.XtraEditors.TextEdit
 End Class

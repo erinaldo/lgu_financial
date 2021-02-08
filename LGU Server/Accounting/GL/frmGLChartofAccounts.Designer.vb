@@ -50,14 +50,14 @@ Partial Class frmGLChartofAccounts
         '
         Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TreeviewToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(162, 26)
+        Me.gridmenustrip.Size = New System.Drawing.Size(161, 26)
         '
         'TreeviewToolStripMenuItem
         '
         Me.TreeviewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExpandGroupsToolStripMenuItem, Me.CollapseGroupsToolStripMenuItem})
         Me.TreeviewToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.folder_stand
         Me.TreeviewToolStripMenuItem.Name = "TreeviewToolStripMenuItem"
-        Me.TreeviewToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.TreeviewToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.TreeviewToolStripMenuItem.Text = "Treeview Display"
         '
         'ExpandGroupsToolStripMenuItem
@@ -79,9 +79,9 @@ Partial Class frmGLChartofAccounts
         Me.TreeView1.ContextMenuStrip = Me.gridmenustrip
         Me.TreeView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TreeView1.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.TreeView1.Location = New System.Drawing.Point(0, 26)
+        Me.TreeView1.Location = New System.Drawing.Point(0, 20)
         Me.TreeView1.Name = "TreeView1"
-        Me.TreeView1.Size = New System.Drawing.Size(641, 571)
+        Me.TreeView1.Size = New System.Drawing.Size(639, 575)
         Me.TreeView1.TabIndex = 648
         '
         'Bar2
@@ -149,31 +149,31 @@ Partial Class frmGLChartofAccounts
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(641, 26)
+        Me.barDockControlTop.Size = New System.Drawing.Size(639, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 597)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 595)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(641, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(639, 0)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 26)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 571)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 575)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(641, 26)
+        Me.barDockControlRight.Location = New System.Drawing.Point(639, 20)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 571)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 575)
         '
         'BarButtonItem2
         '
@@ -213,7 +213,7 @@ Partial Class frmGLChartofAccounts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(641, 597)
+        Me.ClientSize = New System.Drawing.Size(639, 595)
         Me.Controls.Add(Me.Em)
         Me.Controls.Add(Me.TreeView1)
         Me.Controls.Add(Me.barDockControlLeft)

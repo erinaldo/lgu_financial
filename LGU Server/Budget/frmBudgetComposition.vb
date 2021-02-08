@@ -54,7 +54,7 @@ Public Class frmBudgetComposition
 
     Public Sub LoadExpenditureItem()
         If txtExpenseClass.Text = "" Or txtFund.Text = "" Or txtOffice.Text = "" Then Exit Sub
-        LoadXgrid("SELECT a.itemcode, a.itemname as 'Account Title', ifnull(b.amount,0) as Amount  FROM `tblglitem` as a left join tblbudgetcomposition as b on a.itemcode=b.itemcode and b.periodcode='" & periodcode.Text & "' and b.officeid='" & officeid.Text & "'  where a.itemcode in (select glitemcode from tblexpendituretagging where expenditurecode='" & expensecode.Text & "') order by a.itemname asc;", "tblglitem", Em, GridView1, Me)
+        LoadXgrid("SELECT a.itemcode, a.itemname as 'Account Title', ifnull(b.totalbudget,0) as Amount  FROM `tblglitem` as a left join tblbudgetcomposition as b on a.itemcode=b.itemcode and b.periodcode='" & periodcode.Text & "' and b.officeid='" & officeid.Text & "'  where a.itemcode in (select glitemcode from tblexpendituretagging where expenditurecode='" & expensecode.Text & "') order by a.itemname asc;", "tblglitem", Em, GridView1, Me)
         XgridHideColumn({"itemcode"}, GridView1)
         XgridColCurrency({"Amount"}, GridView1)
         XgridColWidth({"Amount"}, GridView1, 130)
@@ -90,6 +90,9 @@ Public Class frmBudgetComposition
             XtraMessageBox.Show("Budget select expenditure class!", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtExpenseClass.Focus()
             Exit Sub
+            'ElseIf countqry("tblbudgetquarter", "fundperiod='" & periodcode.Text & "'") > 0 Then
+            '    XtraMessageBox.Show("Budget composition is already locked due to already generate quarterly budget", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            '    Exit Sub
         End If
         If XtraMessageBox.Show("Are you sure you want to continue? " & todelete, "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             SaveBudgetSetup()
@@ -100,7 +103,7 @@ Public Class frmBudgetComposition
     Public Sub SaveBudgetSetup()
         com.CommandText = "delete from tblbudgetcomposition where periodcode='" & periodcode.Text & "' and officeid='" & officeid.Text & "' and classcode='" & expensecode.Text & "'" : com.ExecuteNonQuery()
         For I = 0 To GridView1.RowCount - 1
-            com.CommandText = "insert into tblbudgetcomposition set periodcode='" & periodcode.Text & "', fundcode='" & fundcode.Text & "',yearcode='" & yearcode.Text & "', officeid='" & officeid.Text & "',classcode='" & expensecode.Text & "', itemcode='" & GridView1.GetRowCellValue(I, "itemcode").ToString & "',itemname='" & rchar(GridView1.GetRowCellValue(I, "Account Title").ToString) & "', amount='" & Val(CC(GridView1.GetRowCellValue(I, "Amount").ToString)) & "'" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblbudgetcomposition set periodcode='" & periodcode.Text & "', fundcode='" & fundcode.Text & "',yearcode='" & yearcode.Text & "', officeid='" & officeid.Text & "',classcode='" & expensecode.Text & "', itemcode='" & GridView1.GetRowCellValue(I, "itemcode").ToString & "',itemname='" & rchar(GridView1.GetRowCellValue(I, "Account Title").ToString) & "', totalbudget='" & Val(CC(GridView1.GetRowCellValue(I, "Amount").ToString)) & "'" : com.ExecuteNonQuery()
         Next
     End Sub
 
@@ -118,7 +121,7 @@ Public Class frmBudgetComposition
             txtExpenseClass.Focus()
             Exit Sub
         End If
-        LoadXgrid("SELECT a.itemcode, a.itemname, ifnull(b.amount,0) as amount  FROM `tblglitem` as a left join tblbudgetcomposition as b on a.itemcode=b.itemcode and b.periodcode='" & periodcode.Text & "' and b.officeid='" & officeid.Text & "'  where a.itemcode in (select glitemcode from tblexpendituretagging where expenditurecode='" & expensecode.Text & "') order by a.itemname asc;", "tblglitem", Bm, GridView2, Me)
+        LoadXgrid("SELECT a.itemcode, a.itemname, ifnull(b.totalbudget,0) as amount  FROM `tblglitem` as a left join tblbudgetcomposition as b on a.itemcode=b.itemcode and b.periodcode='" & periodcode.Text & "' and b.officeid='" & officeid.Text & "'  where a.itemcode in (select glitemcode from tblexpendituretagging where expenditurecode='" & expensecode.Text & "') order by a.itemname asc;", "tblglitem", Bm, GridView2, Me)
         ExportGridToExcel(txtFund.Text & " " & expensecode.Text & " " & Me.Text, GridView2)
 
     End Sub

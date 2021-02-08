@@ -40,6 +40,8 @@ Partial Class MainForm
         Me.lineNewDisbursement = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdDisbursementMgt = New System.Windows.Forms.ToolStripButton()
         Me.lineDisbursementMgt = New System.Windows.Forms.ToolStripSeparator()
+        Me.cmdJournalEntryVoucher = New System.Windows.Forms.ToolStripButton()
+        Me.lineJournalEntryVoucher = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdBudgetReport = New System.Windows.Forms.ToolStripButton()
         Me.lineBudgetReport = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdCollection = New System.Windows.Forms.ToolStripButton()
@@ -58,26 +60,35 @@ Partial Class MainForm
         Me.lineBusinessManagement = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdRealPropertyManagement = New System.Windows.Forms.ToolStripButton()
         Me.lineRealProperty = New System.Windows.Forms.ToolStripSeparator()
-        Me.cmdJournalEntryVoucher = New System.Windows.Forms.ToolStripButton()
-        Me.lineJournalEntryVoucher = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.txtfullname = New System.Windows.Forms.Label()
         Me.txtPosition = New System.Windows.Forms.Label()
         Me.contextLogo = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.BrowsePictureToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.txtOffice = New System.Windows.Forms.Label()
         Me.maindescription = New System.Windows.Forms.Label()
         Me.lblSystemName = New System.Windows.Forms.Label()
         Me.txtDateLogin = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChangeAccountPasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdChangeUserAccess = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdUserSettings = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdChangeUserAccounts = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ConnectionSetupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProcessFlowAndFeaturesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutCoffeecupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdContexChatBox = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.txtConnectedHost = New System.Windows.Forms.LinkLabel()
@@ -88,17 +99,8 @@ Partial Class MainForm
         Me.XtraScrollableControl1 = New DevExpress.XtraEditors.XtraScrollableControl()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.loadimage = New System.Windows.Forms.PictureBox()
-        Me.ChangeAccountPasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmdChangeUserAccess = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmdUserSettings = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmdChangeUserAccounts = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConnectionSetupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProcessFlowAndFeaturesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutCoffeecupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BrowsePictureToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmdContexChatBox = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdCheckIssuanceRequest = New System.Windows.Forms.ToolStripButton()
+        Me.lineCheckIssuanceRequest = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStrip.SuspendLayout()
         Me.contextLogo.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -134,7 +136,7 @@ Partial Class MainForm
         Me.ToolStrip.GripMargin = New System.Windows.Forms.Padding(0)
         Me.ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip.ImageScalingSize = New System.Drawing.Size(48, 48)
-        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdChatbox, Me.ToolStripSeparator2, Me.cmdforapproval, Me.lineForApproval, Me.cmdNewRequisition, Me.lineNewRequisition, Me.cmdRequisitionList, Me.lineRequisitionList, Me.cmdNewDisbursement, Me.lineNewDisbursement, Me.cmdDisbursementMgt, Me.lineDisbursementMgt, Me.cmdJournalEntryVoucher, Me.lineJournalEntryVoucher, Me.cmdBudgetReport, Me.lineBudgetReport, Me.cmdCollection, Me.lineCollection, Me.cmdCedulaIndividual, Me.lineCedulaIndividual, Me.cmdCedulaCorporation, Me.lineCedulaCorporation, Me.cmdRealPropertyTax, Me.lineRealPropertyTax, Me.cmdCollectionReport, Me.lineCollectionReport, Me.cmdAccountableForms, Me.lineAccountableForms, Me.cmdBusinessManagement, Me.lineBusinessManagement, Me.cmdRealPropertyManagement, Me.lineRealProperty})
+        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdChatbox, Me.ToolStripSeparator2, Me.cmdforapproval, Me.lineForApproval, Me.cmdCheckIssuanceRequest, Me.lineCheckIssuanceRequest, Me.cmdNewRequisition, Me.lineNewRequisition, Me.cmdRequisitionList, Me.lineRequisitionList, Me.cmdNewDisbursement, Me.lineNewDisbursement, Me.cmdDisbursementMgt, Me.lineDisbursementMgt, Me.cmdJournalEntryVoucher, Me.lineJournalEntryVoucher, Me.cmdBudgetReport, Me.lineBudgetReport, Me.cmdCollection, Me.lineCollection, Me.cmdCedulaIndividual, Me.lineCedulaIndividual, Me.cmdCedulaCorporation, Me.lineCedulaCorporation, Me.cmdRealPropertyTax, Me.lineRealPropertyTax, Me.cmdCollectionReport, Me.lineCollectionReport, Me.cmdAccountableForms, Me.lineAccountableForms, Me.cmdBusinessManagement, Me.lineBusinessManagement, Me.cmdRealPropertyManagement, Me.lineRealProperty})
         Me.ToolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow
         Me.ToolStrip.Location = New System.Drawing.Point(0, 4)
         Me.ToolStrip.Name = "ToolStrip"
@@ -239,6 +241,22 @@ Partial Class MainForm
         '
         Me.lineDisbursementMgt.Name = "lineDisbursementMgt"
         Me.lineDisbursementMgt.Size = New System.Drawing.Size(199, 6)
+        '
+        'cmdJournalEntryVoucher
+        '
+        Me.cmdJournalEntryVoucher.ForeColor = System.Drawing.Color.DarkGray
+        Me.cmdJournalEntryVoucher.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmdJournalEntryVoucher.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.cmdJournalEntryVoucher.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdJournalEntryVoucher.Name = "cmdJournalEntryVoucher"
+        Me.cmdJournalEntryVoucher.Size = New System.Drawing.Size(199, 19)
+        Me.cmdJournalEntryVoucher.Text = "Journal Entry Voucher"
+        Me.cmdJournalEntryVoucher.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lineJournalEntryVoucher
+        '
+        Me.lineJournalEntryVoucher.Name = "lineJournalEntryVoucher"
+        Me.lineJournalEntryVoucher.Size = New System.Drawing.Size(199, 6)
         '
         'cmdBudgetReport
         '
@@ -384,22 +402,6 @@ Partial Class MainForm
         Me.lineRealProperty.Name = "lineRealProperty"
         Me.lineRealProperty.Size = New System.Drawing.Size(199, 6)
         '
-        'cmdJournalEntryVoucher
-        '
-        Me.cmdJournalEntryVoucher.ForeColor = System.Drawing.Color.DarkGray
-        Me.cmdJournalEntryVoucher.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdJournalEntryVoucher.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.cmdJournalEntryVoucher.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.cmdJournalEntryVoucher.Name = "cmdJournalEntryVoucher"
-        Me.cmdJournalEntryVoucher.Size = New System.Drawing.Size(199, 19)
-        Me.cmdJournalEntryVoucher.Text = "Journal Entry Voucher"
-        Me.cmdJournalEntryVoucher.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lineJournalEntryVoucher
-        '
-        Me.lineJournalEntryVoucher.Name = "lineJournalEntryVoucher"
-        Me.lineJournalEntryVoucher.Size = New System.Drawing.Size(199, 6)
-        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
@@ -438,6 +440,13 @@ Partial Class MainForm
         Me.contextLogo.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BrowsePictureToolStripMenuItem})
         Me.contextLogo.Name = "ContextMenuStrip1"
         Me.contextLogo.Size = New System.Drawing.Size(146, 26)
+        '
+        'BrowsePictureToolStripMenuItem
+        '
+        Me.BrowsePictureToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.images_flickr
+        Me.BrowsePictureToolStripMenuItem.Name = "BrowsePictureToolStripMenuItem"
+        Me.BrowsePictureToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
+        Me.BrowsePictureToolStripMenuItem.Text = "Change Logo"
         '
         'txtOffice
         '
@@ -513,6 +522,20 @@ Partial Class MainForm
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "&File"
         '
+        'ChangeAccountPasswordToolStripMenuItem
+        '
+        Me.ChangeAccountPasswordToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.user__pencil
+        Me.ChangeAccountPasswordToolStripMenuItem.Name = "ChangeAccountPasswordToolStripMenuItem"
+        Me.ChangeAccountPasswordToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
+        Me.ChangeAccountPasswordToolStripMenuItem.Text = "Update Account Info"
+        '
+        'cmdChangeUserAccess
+        '
+        Me.cmdChangeUserAccess.Image = Global.LGUClient.My.Resources.Resources.lock__arrow
+        Me.cmdChangeUserAccess.Name = "cmdChangeUserAccess"
+        Me.cmdChangeUserAccess.Size = New System.Drawing.Size(184, 22)
+        Me.cmdChangeUserAccess.Text = "Change User Access"
+        '
         'toolStripSeparator
         '
         Me.toolStripSeparator.Name = "toolStripSeparator"
@@ -528,13 +551,35 @@ Partial Class MainForm
         '
         Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdUserSettings, Me.cmdChangeUserAccounts, Me.ToolStripSeparator7, Me.ConnectionSetupToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
-        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
         Me.ToolsToolStripMenuItem.Text = "&Tools"
+        '
+        'cmdUserSettings
+        '
+        Me.cmdUserSettings.Image = Global.LGUClient.My.Resources.Resources.printer_pos
+        Me.cmdUserSettings.Name = "cmdUserSettings"
+        Me.cmdUserSettings.Size = New System.Drawing.Size(194, 22)
+        Me.cmdUserSettings.Text = "LX Printer Settings"
+        '
+        'cmdChangeUserAccounts
+        '
+        Me.cmdChangeUserAccounts.Image = Global.LGUClient.My.Resources.Resources.users
+        Me.cmdChangeUserAccounts.Name = "cmdChangeUserAccounts"
+        Me.cmdChangeUserAccounts.Size = New System.Drawing.Size(194, 22)
+        Me.cmdChangeUserAccounts.Text = "Change User Accounts"
+        Me.cmdChangeUserAccounts.Visible = False
         '
         'ToolStripSeparator7
         '
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
         Me.ToolStripSeparator7.Size = New System.Drawing.Size(191, 6)
+        '
+        'ConnectionSetupToolStripMenuItem
+        '
+        Me.ConnectionSetupToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.network_receive_21
+        Me.ConnectionSetupToolStripMenuItem.Name = "ConnectionSetupToolStripMenuItem"
+        Me.ConnectionSetupToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.ConnectionSetupToolStripMenuItem.Text = "Connection Setup"
         '
         'AboutToolStripMenuItem
         '
@@ -542,6 +587,20 @@ Partial Class MainForm
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
         Me.AboutToolStripMenuItem.Text = "About"
+        '
+        'ProcessFlowAndFeaturesToolStripMenuItem
+        '
+        Me.ProcessFlowAndFeaturesToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.book_open_text_image
+        Me.ProcessFlowAndFeaturesToolStripMenuItem.Name = "ProcessFlowAndFeaturesToolStripMenuItem"
+        Me.ProcessFlowAndFeaturesToolStripMenuItem.Size = New System.Drawing.Size(210, 22)
+        Me.ProcessFlowAndFeaturesToolStripMenuItem.Text = "Process flow and Features"
+        '
+        'AboutCoffeecupToolStripMenuItem
+        '
+        Me.AboutCoffeecupToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.information
+        Me.AboutCoffeecupToolStripMenuItem.Name = "AboutCoffeecupToolStripMenuItem"
+        Me.AboutCoffeecupToolStripMenuItem.Size = New System.Drawing.Size(210, 22)
+        Me.AboutCoffeecupToolStripMenuItem.Text = "About Coffeecup Client"
         '
         'NotifyIcon1
         '
@@ -553,7 +612,28 @@ Partial Class MainForm
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.cmdContexChatBox, Me.ToolStripMenuItem2})
         Me.ContextMenuStrip1.Name = "contextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(150, 70)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(151, 70)
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Image = Global.LGUClient.My.Resources.Resources.information
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(150, 22)
+        Me.ToolStripMenuItem1.Text = "About..."
+        '
+        'cmdContexChatBox
+        '
+        Me.cmdContexChatBox.Image = Global.LGUClient.My.Resources.Resources.mail
+        Me.cmdContexChatBox.Name = "cmdContexChatBox"
+        Me.cmdContexChatBox.Size = New System.Drawing.Size(150, 22)
+        Me.cmdContexChatBox.Text = "View Chat Box"
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Image = Global.LGUClient.My.Resources.Resources.cross
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(150, 22)
+        Me.ToolStripMenuItem2.Text = "Exit"
         '
         'BackgroundWorker1
         '
@@ -668,83 +748,21 @@ Partial Class MainForm
         Me.loadimage.TabIndex = 349
         Me.loadimage.TabStop = False
         '
-        'ChangeAccountPasswordToolStripMenuItem
+        'cmdCheckIssuanceRequest
         '
-        Me.ChangeAccountPasswordToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.user__pencil
-        Me.ChangeAccountPasswordToolStripMenuItem.Name = "ChangeAccountPasswordToolStripMenuItem"
-        Me.ChangeAccountPasswordToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.ChangeAccountPasswordToolStripMenuItem.Text = "Update Account Info"
+        Me.cmdCheckIssuanceRequest.ForeColor = System.Drawing.Color.DarkGray
+        Me.cmdCheckIssuanceRequest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmdCheckIssuanceRequest.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.cmdCheckIssuanceRequest.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdCheckIssuanceRequest.Name = "cmdCheckIssuanceRequest"
+        Me.cmdCheckIssuanceRequest.Size = New System.Drawing.Size(199, 19)
+        Me.cmdCheckIssuanceRequest.Text = "Check Issuance Request"
+        Me.cmdCheckIssuanceRequest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'cmdChangeUserAccess
+        'lineCheckIssuanceRequest
         '
-        Me.cmdChangeUserAccess.Image = Global.LGUClient.My.Resources.Resources.lock__arrow
-        Me.cmdChangeUserAccess.Name = "cmdChangeUserAccess"
-        Me.cmdChangeUserAccess.Size = New System.Drawing.Size(184, 22)
-        Me.cmdChangeUserAccess.Text = "Change User Access"
-        '
-        'cmdUserSettings
-        '
-        Me.cmdUserSettings.Image = Global.LGUClient.My.Resources.Resources.printer_pos
-        Me.cmdUserSettings.Name = "cmdUserSettings"
-        Me.cmdUserSettings.Size = New System.Drawing.Size(194, 22)
-        Me.cmdUserSettings.Text = "LX Printer Settings"
-        '
-        'cmdChangeUserAccounts
-        '
-        Me.cmdChangeUserAccounts.Image = Global.LGUClient.My.Resources.Resources.users
-        Me.cmdChangeUserAccounts.Name = "cmdChangeUserAccounts"
-        Me.cmdChangeUserAccounts.Size = New System.Drawing.Size(194, 22)
-        Me.cmdChangeUserAccounts.Text = "Change User Accounts"
-        Me.cmdChangeUserAccounts.Visible = False
-        '
-        'ConnectionSetupToolStripMenuItem
-        '
-        Me.ConnectionSetupToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.network_receive_21
-        Me.ConnectionSetupToolStripMenuItem.Name = "ConnectionSetupToolStripMenuItem"
-        Me.ConnectionSetupToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.ConnectionSetupToolStripMenuItem.Text = "Connection Setup"
-        '
-        'ProcessFlowAndFeaturesToolStripMenuItem
-        '
-        Me.ProcessFlowAndFeaturesToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.book_open_text_image
-        Me.ProcessFlowAndFeaturesToolStripMenuItem.Name = "ProcessFlowAndFeaturesToolStripMenuItem"
-        Me.ProcessFlowAndFeaturesToolStripMenuItem.Size = New System.Drawing.Size(210, 22)
-        Me.ProcessFlowAndFeaturesToolStripMenuItem.Text = "Process flow and Features"
-        '
-        'AboutCoffeecupToolStripMenuItem
-        '
-        Me.AboutCoffeecupToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.information
-        Me.AboutCoffeecupToolStripMenuItem.Name = "AboutCoffeecupToolStripMenuItem"
-        Me.AboutCoffeecupToolStripMenuItem.Size = New System.Drawing.Size(210, 22)
-        Me.AboutCoffeecupToolStripMenuItem.Text = "About Coffeecup Client"
-        '
-        'BrowsePictureToolStripMenuItem
-        '
-        Me.BrowsePictureToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.images_flickr
-        Me.BrowsePictureToolStripMenuItem.Name = "BrowsePictureToolStripMenuItem"
-        Me.BrowsePictureToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
-        Me.BrowsePictureToolStripMenuItem.Text = "Change Logo"
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Image = Global.LGUClient.My.Resources.Resources.information
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 22)
-        Me.ToolStripMenuItem1.Text = "About..."
-        '
-        'cmdContexChatBox
-        '
-        Me.cmdContexChatBox.Image = Global.LGUClient.My.Resources.Resources.mail
-        Me.cmdContexChatBox.Name = "cmdContexChatBox"
-        Me.cmdContexChatBox.Size = New System.Drawing.Size(149, 22)
-        Me.cmdContexChatBox.Text = "View Chat Box"
-        '
-        'ToolStripMenuItem2
-        '
-        Me.ToolStripMenuItem2.Image = Global.LGUClient.My.Resources.Resources.cross
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(149, 22)
-        Me.ToolStripMenuItem2.Text = "Exit"
+        Me.lineCheckIssuanceRequest.Name = "lineCheckIssuanceRequest"
+        Me.lineCheckIssuanceRequest.Size = New System.Drawing.Size(199, 6)
         '
         'MainForm
         '
@@ -862,4 +880,6 @@ Partial Class MainForm
     Friend WithEvents lineDisbursementMgt As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents cmdBudgetReport As System.Windows.Forms.ToolStripButton
     Friend WithEvents lineBudgetReport As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents cmdCheckIssuanceRequest As ToolStripButton
+    Friend WithEvents lineCheckIssuanceRequest As ToolStripSeparator
 End Class

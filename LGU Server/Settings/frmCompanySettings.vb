@@ -33,7 +33,25 @@ Public Class frmCompanySettings
         Else
             cmdSave.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         End If
+        LoadAccountInfor()
         ShowCompanyInfo()
+    End Sub
+
+    Public Sub LoadAccountInfor()
+        LoadXgridLookupSearch("select accountid, fullname as 'Select'  from tblaccounts order by fullname asc", "tblaccounts", txtMayorName, gridMayorName, Me)
+        XgridHideColumn({"accountid"}, gridMayorName)
+
+        LoadXgridLookupSearch("select accountid, fullname as 'Select'  from tblaccounts order by fullname asc", "tblaccounts", txtViceMayorName, gridViceMayor, Me)
+        XgridHideColumn({"accountid"}, gridViceMayor)
+
+        LoadXgridLookupSearch("select accountid, fullname as 'Select'  from tblaccounts order by fullname asc", "tblaccounts", txtAccountantName, gridAccountantName, Me)
+        XgridHideColumn({"accountid"}, gridAccountantName)
+
+        LoadXgridLookupSearch("select accountid, fullname as 'Select'  from tblaccounts order by fullname asc", "tblaccounts", txtTreasurerName, gridTreasurerName, Me)
+        XgridHideColumn({"accountid"}, gridTreasurerName)
+
+        LoadXgridLookupSearch("select accountid, fullname as 'Select'  from tblaccounts order by fullname asc", "tblaccounts", txtBudgetName, gridBudgetName, Me)
+        XgridHideColumn({"accountid"}, gridBudgetName)
     End Sub
 
     Public Sub ShowCompanyInfo()
@@ -59,7 +77,7 @@ Public Class frmCompanySettings
                     txttell.Text = .Rows(cnt)("telephone").ToString()
                     txtemail.Text = .Rows(cnt)("email").ToString()
                     txtweb.Text = .Rows(cnt)("website").ToString()
-                    
+
                     txtLogoWidth.Text = .Rows(cnt)("logowidth")
                     If .Rows(cnt)("logo").ToString() <> "" Then
                         imgBytes = CType(.Rows(cnt)("logo"), Byte())
@@ -69,31 +87,37 @@ Public Class frmCompanySettings
                     End If
                     txtLogoUrl.Text = .Rows(cnt)("logourl").ToString
 
-                    txtMayorName.Text = .Rows(cnt)("mayorname").ToString
+                    txtMayorName.EditValue = .Rows(cnt)("mayorname").ToString
                     txtMayorPosition.Text = .Rows(cnt)("mayorposition").ToString
 
-                    txtAccountantName.Text = .Rows(cnt)("accountantname").ToString
+                    txtViceMayorName.EditValue = .Rows(cnt)("vicemayorname").ToString
+                    txtViceMayorPosition.Text = .Rows(cnt)("vicemayorposition").ToString
+
+                    txtAccountantName.EditValue = .Rows(cnt)("accountantname").ToString
                     txtAccountantPosition.Text = .Rows(cnt)("accountantposition").ToString
 
-                    txtTreasurerName.Text = .Rows(cnt)("treasurermame").ToString
+                    txtTreasurerName.EditValue = .Rows(cnt)("treasurermame").ToString
                     txtTreasurerPosition.Text = .Rows(cnt)("treasurerposition").ToString
+
+                    txtBudgetName.EditValue = .Rows(cnt)("budgetname").ToString
+                    txtBudgetPosition.Text = .Rows(cnt)("budgetposition").ToString
                 End With
             Next
         Catch errMYSQL As MySqlException
             XtraMessageBox.Show("Form:" & Me.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
-                             & "Message:" & errMYSQL.Message & vbCrLf, _
+                             & "Message:" & errMYSQL.Message & vbCrLf,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         Catch errMS As Exception
             XtraMessageBox.Show("Form:" & Me.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
-                             & "Message:" & errMS.Message & vbCrLf, _
+                             & "Message:" & errMS.Message & vbCrLf,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
-     
+
     Private Sub piclogo_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles piclogo.Validating
         ResizeImage(piclogo, Val(txtLogoWidth.Text), Me)
     End Sub
@@ -153,7 +177,7 @@ Public Class frmCompanySettings
     End Sub
 
     Private Sub SimpleButton1_Click_1(sender As Object, e As EventArgs) Handles cmdSaveSignatories.Click
-        com.CommandText = "update tblcompanysettings set mayorname='" & rchar(txtMayorName.Text) & "', mayorposition='" & rchar(txtMayorPosition.Text) & "', accountantname='" & rchar(txtAccountantName.Text) & "', accountantposition='" & rchar(txtAccountantPosition.Text) & "', treasurermame='" & rchar(txtTreasurerName.Text) & "', treasurerposition='" & rchar(txtTreasurerPosition.Text) & "'" : com.ExecuteNonQuery()
+        com.CommandText = "update tblcompanysettings set mayorname='" & rchar(txtMayorName.EditValue) & "', mayorposition='" & rchar(txtMayorPosition.Text) & "', vicemayorname='" & rchar(txtViceMayorName.EditValue) & "', vicemayorposition='" & rchar(txtViceMayorPosition.Text) & "', accountantname='" & rchar(txtAccountantName.EditValue) & "', accountantposition='" & rchar(txtAccountantPosition.Text) & "', treasurermame='" & rchar(txtTreasurerName.EditValue) & "', treasurerposition='" & rchar(txtTreasurerPosition.Text) & "', budgetname='" & rchar(txtBudgetName.EditValue) & "', budgetposition='" & rchar(txtBudgetPosition.Text) & "'" : com.ExecuteNonQuery()
         loadcompsettings()
         XtraMessageBox.Show("Setting Successfully Updated", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub

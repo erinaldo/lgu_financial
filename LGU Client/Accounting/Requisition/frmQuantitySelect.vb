@@ -47,7 +47,7 @@ Public Class frmQuantitySelect
             XtraMessageBox.Show("Quantity missing entry!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtQuantity.Focus()
             Exit Sub
-       
+
         ElseIf txtUnitPrice.Text = "" Then
             XtraMessageBox.Show("Unit Cost missing entry!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtUnitPrice.Focus()
@@ -63,7 +63,6 @@ Public Class frmQuantitySelect
                                     + " yeartrn='" & frmRequisitionInfo.yearcode.Text & "', " _
                                     + " officeid='" & frmRequisitionInfo.officeid.Text & "', " _
                                     + " postingdate='" & ConvertDate(frmRequisitionInfo.txtPostingDate.EditValue) & "', " _
-                                    + " sourcefund='" & frmRequisitionInfo.sourceid.Text & "', " _
                                     + " itemcode='" & productid.Text & "', " _
                                     + " itemname='" & txtproduct.Text & "', " _
                                     + " catid='" & catid.Text & "', " _
@@ -86,14 +85,13 @@ Public Class frmQuantitySelect
                                     + " yeartrn='" & frmRequisitionInfo.yearcode.Text & "', " _
                                     + " officeid='" & frmRequisitionInfo.officeid.Text & "', " _
                                     + " postingdate='" & ConvertDate(frmRequisitionInfo.txtPostingDate.EditValue) & "', " _
-                                    + " sourcefund='" & frmRequisitionInfo.sourceid.Text & "', " _
                                     + " itemcode='" & productid.Text & "', " _
                                     + " itemname='" & txtproduct.Text & "', " _
                                     + " catid='" & catid.Text & "', " _
                                     + " quantity='" & txtQuantity.EditValue & "', " _
                                     + " unit='" & txtUnit.Text & "', " _
-                                    + " unitcost='" & txtUnitPrice.EditValue & "', " _
-                                    + " totalcost='" & txtTotalCost.EditValue & "', " _
+                                    + " unitcost='" & Val(CC(txtUnitPrice.EditValue)) & "', " _
+                                    + " totalcost='" & Val(CC(txtTotalCost.EditValue)) & "', " _
                                     + " remarks='" & rchar(txtRemarks.Text) & "',trnby='" & globaluserid & "', datetrn=current_timestamp" : com.ExecuteNonQuery()
             txtQuantity.Focus()
             frmSelectRequestItem.txtfilter.SelectAll()

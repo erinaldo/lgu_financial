@@ -50,6 +50,8 @@ Partial Class frmRequisitionList
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.SplitContainerControl1 = New DevExpress.XtraEditors.SplitContainerControl()
+        Me.ckAllType = New DevExpress.XtraEditors.CheckEdit()
+        Me.ckViewAllOffice = New DevExpress.XtraEditors.CheckEdit()
         Me.txtOffice = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridOffice = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.lbloffice = New DevExpress.XtraEditors.LabelControl()
@@ -66,7 +68,6 @@ Partial Class frmRequisitionList
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.ckPendingRequisition = New DevExpress.XtraEditors.CheckEdit()
         Me.txtSearchBar = New DevExpress.XtraEditors.TextEdit()
-        Me.ckViewAllOffice = New DevExpress.XtraEditors.CheckEdit()
         Me.cms_em.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,6 +75,8 @@ Partial Class frmRequisitionList
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerControl1.SuspendLayout()
+        CType(Me.ckAllType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ckViewAllOffice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtOffice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridOffice, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,7 +89,6 @@ Partial Class frmRequisitionList
         CType(Me.txtDateTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckPendingRequisition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtSearchBar.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ckViewAllOffice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'HiToolStripMenuItem
@@ -217,7 +219,7 @@ Partial Class frmRequisitionList
         Me.cmdPrint.Image = Global.LGUClient.My.Resources.Resources.document_excel_table
         Me.cmdPrint.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.Size = New System.Drawing.Size(103, 24)
+        Me.cmdPrint.Size = New System.Drawing.Size(105, 24)
         Me.cmdPrint.Text = "Export to Excel"
         '
         'ToolStripSeparator3
@@ -295,7 +297,7 @@ Partial Class frmRequisitionList
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit1})
-        Me.Em.Size = New System.Drawing.Size(990, 480)
+        Me.Em.Size = New System.Drawing.Size(990, 475)
         Me.Em.TabIndex = 820
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -305,6 +307,7 @@ Partial Class frmRequisitionList
         Me.SplitContainerControl1.Horizontal = False
         Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 31)
         Me.SplitContainerControl1.Name = "SplitContainerControl1"
+        Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckAllType)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckViewAllOffice)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.txtOffice)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.lbloffice)
@@ -327,6 +330,28 @@ Partial Class frmRequisitionList
         Me.SplitContainerControl1.SplitterPosition = 124
         Me.SplitContainerControl1.TabIndex = 823
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
+        '
+        'ckAllType
+        '
+        Me.ckAllType.EditValue = True
+        Me.ckAllType.Location = New System.Drawing.Point(454, 33)
+        Me.ckAllType.Name = "ckAllType"
+        Me.ckAllType.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.ckAllType.Properties.Appearance.Options.UseFont = True
+        Me.ckAllType.Properties.Caption = "All"
+        Me.ckAllType.Size = New System.Drawing.Size(49, 21)
+        Me.ckAllType.TabIndex = 966
+        '
+        'ckViewAllOffice
+        '
+        Me.ckViewAllOffice.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ckViewAllOffice.Location = New System.Drawing.Point(694, 33)
+        Me.ckViewAllOffice.Name = "ckViewAllOffice"
+        Me.ckViewAllOffice.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.ckViewAllOffice.Properties.Appearance.Options.UseFont = True
+        Me.ckViewAllOffice.Properties.Caption = "View All Requesting Offices"
+        Me.ckViewAllOffice.Size = New System.Drawing.Size(196, 21)
+        Me.ckViewAllOffice.TabIndex = 965
         '
         'txtOffice
         '
@@ -532,20 +557,8 @@ Partial Class frmRequisitionList
         Me.txtSearchBar.Properties.AutoHeight = False
         Me.txtSearchBar.Properties.MaxLength = 50
         Me.txtSearchBar.Properties.NullValuePrompt = "Enter any keyword to search"
-        Me.txtSearchBar.Properties.NullValuePromptShowForEmptyValue = True
         Me.txtSearchBar.Size = New System.Drawing.Size(284, 25)
         Me.txtSearchBar.TabIndex = 0
-        '
-        'ckViewAllOffice
-        '
-        Me.ckViewAllOffice.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ckViewAllOffice.Location = New System.Drawing.Point(694, 33)
-        Me.ckViewAllOffice.Name = "ckViewAllOffice"
-        Me.ckViewAllOffice.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.ckViewAllOffice.Properties.Appearance.Options.UseFont = True
-        Me.ckViewAllOffice.Properties.Caption = "View All Requesting Offices"
-        Me.ckViewAllOffice.Size = New System.Drawing.Size(196, 21)
-        Me.ckViewAllOffice.TabIndex = 965
         '
         'frmRequisitionList
         '
@@ -570,6 +583,8 @@ Partial Class frmRequisitionList
         CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainerControl1.ResumeLayout(False)
+        CType(Me.ckAllType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ckViewAllOffice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtOffice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridOffice, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -582,7 +597,6 @@ Partial Class frmRequisitionList
         CType(Me.txtDateTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckPendingRequisition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtSearchBar.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ckViewAllOffice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -631,4 +645,5 @@ Partial Class frmRequisitionList
     Friend WithEvents gridOffice As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents lbloffice As DevExpress.XtraEditors.LabelControl
     Friend WithEvents ckViewAllOffice As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents ckAllType As DevExpress.XtraEditors.CheckEdit
 End Class

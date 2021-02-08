@@ -36,16 +36,9 @@ Public Class frmProductItem
     Private Sub txtCategory_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtCategory.EditValueChanged
         On Error Resume Next
         ckpooption.SelectedIndex = CInt(txtCategory.Properties.View.GetFocusedRowCellValue("InventoryType").ToString())
-        LoadClassification()
-        txtClassification.Focus()
+
     End Sub
 
-    Public Sub LoadClassification()
-        If txtCategory.Text = "" Then Exit Sub
-        LoadXgridLookupSearch("SELECT code, Description as 'Select' from tblproductclass where categorycode='" & txtCategory.EditValue & "'", "tblproductcategory", txtClassification, gridClass)
-        gridClass.Columns("code").Visible = False
-    End Sub
-   
 
     Private Sub cmdSaveButton_Click(sender As Object, e As EventArgs) Handles cmdSaveButton.Click
         If countqry("tblproductclass", "code='" & code.Text & "'") > 0 And mode.Text <> "edit" Then
@@ -63,11 +56,6 @@ Public Class frmProductItem
             txtCategory.Focus()
             Exit Sub
 
-        ElseIf txtClassification.Text = "" Then
-            XtraMessageBox.Show("Please select product classification!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtClassification.Focus()
-            Exit Sub
-
         ElseIf txtDescription.Text = "" Then
             XtraMessageBox.Show("Please enter product name!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtDescription.Focus()
@@ -75,11 +63,11 @@ Public Class frmProductItem
         End If
         If XtraMessageBox.Show("Are you sure you want to continue? ", GlobalOrganizationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             If mode.Text = "edit" Then
-                com.CommandText = "update tblproducts set productname='" & rchar(txtDescription.Text) & "',categoryid='" & txtCategory.EditValue & "',categoryname='" & rchar(txtCategory.Text) & "', classcode='" & txtClassification.EditValue & "', classificationname='" & rchar(txtClassification.Text) & "',unit='" & txtUnit.Text & "' " & If(ckpooption.SelectedIndex = 0, ",noninventory=1", ",noninventory=0") & If(ckpooption.SelectedIndex = 1, ",consumable=1", ",consumable=0") & If(ckpooption.SelectedIndex = 2, ",ppe=1", ",ppe=0") & " where productid='" & code.Text & "'" : com.ExecuteNonQuery()
+                com.CommandText = "update tblproducts set productname='" & rchar(txtDescription.Text) & "',categoryid='" & txtCategory.EditValue & "',categoryname='" & rchar(txtCategory.Text) & "', unit='" & txtUnit.Text & "' " & If(ckpooption.SelectedIndex = 0, ",noninventory=1", ",noninventory=0") & If(ckpooption.SelectedIndex = 1, ",consumable=1", ",consumable=0") & If(ckpooption.SelectedIndex = 2, ",ppe=1", ",ppe=0") & " where productid='" & code.Text & "'" : com.ExecuteNonQuery()
                 XtraMessageBox.Show("Item successfully saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Me.Close()
             Else
-                com.CommandText = "insert into tblproducts set productname='" & rchar(txtDescription.Text) & "',categoryid='" & txtCategory.EditValue & "',categoryname='" & rchar(txtCategory.Text) & "', classcode='" & txtClassification.EditValue & "', classificationname='" & rchar(txtClassification.Text) & "',unit='" & txtUnit.Text & "' " & If(ckpooption.SelectedIndex = 0, ",noninventory=1", ",noninventory=0") & If(ckpooption.SelectedIndex = 1, ",consumable=1", ",consumable=0") & If(ckpooption.SelectedIndex = 2, ",ppe=1", ",ppe=0") & "" : com.ExecuteNonQuery()
+                com.CommandText = "insert into tblproducts set productname='" & rchar(txtDescription.Text) & "',categoryid='" & txtCategory.EditValue & "',categoryname='" & rchar(txtCategory.Text) & "', unit='" & txtUnit.Text & "' " & If(ckpooption.SelectedIndex = 0, ",noninventory=1", ",noninventory=0") & If(ckpooption.SelectedIndex = 1, ",consumable=1", ",consumable=0") & If(ckpooption.SelectedIndex = 2, ",ppe=1", ",ppe=0") & "" : com.ExecuteNonQuery()
                 code.Text = "" : mode.Text = "" : txtDescription.Text = "" : txtDescription.Focus() : productid.Text = "SYSTEM GENERATED"
                 Me.Close()
                 XtraMessageBox.Show("Item successfully saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -100,7 +88,6 @@ Public Class frmProductItem
                 txtDescription.Text = .Rows(cnt)("productname").ToString
                 txtUnit.Text = .Rows(cnt)("unit").ToString
                 txtCategory.EditValue = .Rows(cnt)("categoryid").ToString
-                txtClassification.EditValue = .Rows(cnt)("classcode").ToString
                 ckpooption.SelectedIndex = CInt(.Rows(cnt)("InventoryType").ToString)
             End With
         Next
@@ -120,8 +107,8 @@ Public Class frmProductItem
           XtraMessageBox.Show("Please select contact accounting department!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
     End Sub
 
-    Private Sub cmdClassification_Click(sender As Object, e As EventArgs) Handles cmdClassification.Click
-          XtraMessageBox.Show("Please select contact accounting department!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+    Private Sub cmdClassification_Click(sender As Object, e As EventArgs)
+        XtraMessageBox.Show("Please select contact accounting department!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
     End Sub
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click

@@ -19,13 +19,16 @@ Partial Class frmApprovingProcess
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.tabsettings = New DevExpress.XtraTab.XtraTabControl()
         Me.tabCoffeecupMain = New DevExpress.XtraTab.XtraTabPage()
         Me.SplitContainerControl2 = New DevExpress.XtraEditors.SplitContainerControl()
+        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtFund = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.gridFund = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.ckRequiredAttachment = New DevExpress.XtraEditors.CheckEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.officeid = New DevExpress.XtraEditors.TextEdit()
-        Me.requestid = New DevExpress.XtraEditors.TextEdit()
         Me.txtRequestType = New DevExpress.XtraEditors.GridLookUpEdit()
         Me.gridRequestType = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
@@ -41,13 +44,14 @@ Partial Class frmApprovingProcess
         Me.txtOffice = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridOffice = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.appStrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.appStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditApproverToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdInactive = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdRefresh = New System.Windows.Forms.ToolStripMenuItem()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.tabRequiredAttachment = New DevExpress.XtraTab.XtraTabPage()
+        Me.ckRequester = New DevExpress.XtraEditors.CheckEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.approverid = New DevExpress.XtraEditors.ButtonEdit()
         Me.cmdMoveLeft = New DevExpress.XtraEditors.SimpleButton()
@@ -58,21 +62,21 @@ Partial Class frmApprovingProcess
         Me.GridView3 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.txtPermission = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gvpermission = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
-        Me.ckRequester = New DevExpress.XtraEditors.CheckEdit()
         CType(Me.tabsettings, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabsettings.SuspendLayout()
         Me.tabCoffeecupMain.SuspendLayout()
         CType(Me.SplitContainerControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerControl2.SuspendLayout()
+        CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gridFund, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckRequiredAttachment.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.requestid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtRequestType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridRequestType, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.id.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,6 +90,7 @@ Partial Class frmApprovingProcess
         Me.appStrip.SuspendLayout()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabRequiredAttachment.SuspendLayout()
+        CType(Me.ckRequester.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.approverid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em_unfiltered, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,7 +99,6 @@ Partial Class frmApprovingProcess
         CType(Me.txtPermission.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gvpermission, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
-        CType(Me.ckRequester.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tabsettings
@@ -118,7 +122,7 @@ Partial Class frmApprovingProcess
         Me.tabCoffeecupMain.AutoScroll = True
         Me.tabCoffeecupMain.Controls.Add(Me.SplitContainerControl2)
         Me.tabCoffeecupMain.Name = "tabCoffeecupMain"
-        Me.tabCoffeecupMain.Size = New System.Drawing.Size(1000, 447)
+        Me.tabCoffeecupMain.Size = New System.Drawing.Size(1004, 450)
         Me.tabCoffeecupMain.Text = "Corporate Level Approving Process"
         '
         'SplitContainerControl2
@@ -127,10 +131,11 @@ Partial Class frmApprovingProcess
         Me.SplitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainerControl2.Location = New System.Drawing.Point(0, 0)
         Me.SplitContainerControl2.Name = "SplitContainerControl2"
+        Me.SplitContainerControl2.Panel1.Controls.Add(Me.LabelControl3)
+        Me.SplitContainerControl2.Panel1.Controls.Add(Me.txtFund)
         Me.SplitContainerControl2.Panel1.Controls.Add(Me.ckRequiredAttachment)
         Me.SplitContainerControl2.Panel1.Controls.Add(Me.LabelControl2)
         Me.SplitContainerControl2.Panel1.Controls.Add(Me.officeid)
-        Me.SplitContainerControl2.Panel1.Controls.Add(Me.requestid)
         Me.SplitContainerControl2.Panel1.Controls.Add(Me.txtRequestType)
         Me.SplitContainerControl2.Panel1.Controls.Add(Me.LabelControl5)
         Me.SplitContainerControl2.Panel1.Controls.Add(Me.id)
@@ -146,26 +151,58 @@ Partial Class frmApprovingProcess
         Me.SplitContainerControl2.Panel1.Text = "Panel1"
         Me.SplitContainerControl2.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl2.Panel2.Text = "Panel2"
-        Me.SplitContainerControl2.Size = New System.Drawing.Size(1000, 447)
+        Me.SplitContainerControl2.Size = New System.Drawing.Size(1004, 450)
         Me.SplitContainerControl2.SplitterPosition = 373
         Me.SplitContainerControl2.TabIndex = 531
         Me.SplitContainerControl2.Text = "SplitContainerControl2"
         '
+        'LabelControl3
+        '
+        Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
+        Me.LabelControl3.Appearance.Options.UseFont = True
+        Me.LabelControl3.Location = New System.Drawing.Point(57, 85)
+        Me.LabelControl3.Name = "LabelControl3"
+        Me.LabelControl3.Size = New System.Drawing.Size(61, 15)
+        Me.LabelControl3.TabIndex = 706
+        Me.LabelControl3.Text = "Select Fund"
+        '
+        'txtFund
+        '
+        Me.txtFund.EditValue = ""
+        Me.txtFund.Location = New System.Drawing.Point(128, 80)
+        Me.txtFund.Name = "txtFund"
+        Me.txtFund.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.txtFund.Properties.Appearance.Options.UseFont = True
+        Me.txtFund.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtFund.Properties.DisplayMember = "Select"
+        Me.txtFund.Properties.NullText = ""
+        Me.txtFund.Properties.PopupView = Me.gridFund
+        Me.txtFund.Properties.ValueMember = "code"
+        Me.txtFund.Size = New System.Drawing.Size(220, 24)
+        Me.txtFund.TabIndex = 705
+        '
+        'gridFund
+        '
+        Me.gridFund.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.gridFund.Name = "gridFund"
+        Me.gridFund.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.gridFund.OptionsView.ShowGroupPanel = False
+        '
         'ckRequiredAttachment
         '
-        Me.ckRequiredAttachment.Location = New System.Drawing.Point(128, 156)
+        Me.ckRequiredAttachment.Location = New System.Drawing.Point(128, 180)
         Me.ckRequiredAttachment.Name = "ckRequiredAttachment"
         Me.ckRequiredAttachment.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
         Me.ckRequiredAttachment.Properties.Appearance.Options.UseFont = True
         Me.ckRequiredAttachment.Properties.Caption = "Require Attachment"
-        Me.ckRequiredAttachment.Size = New System.Drawing.Size(220, 19)
+        Me.ckRequiredAttachment.Size = New System.Drawing.Size(220, 20)
         Me.ckRequiredAttachment.TabIndex = 6
         '
         'LabelControl2
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(28, 111)
+        Me.LabelControl2.Location = New System.Drawing.Point(27, 135)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(91, 15)
         Me.LabelControl2.TabIndex = 702
@@ -173,7 +210,7 @@ Partial Class frmApprovingProcess
         '
         'officeid
         '
-        Me.officeid.Location = New System.Drawing.Point(180, 226)
+        Me.officeid.Location = New System.Drawing.Point(180, 250)
         Me.officeid.Name = "officeid"
         Me.officeid.Properties.Appearance.Options.UseTextOptions = True
         Me.officeid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
@@ -181,17 +218,6 @@ Partial Class frmApprovingProcess
         Me.officeid.Size = New System.Drawing.Size(38, 20)
         Me.officeid.TabIndex = 701
         Me.officeid.Visible = False
-        '
-        'requestid
-        '
-        Me.requestid.Location = New System.Drawing.Point(310, 226)
-        Me.requestid.Name = "requestid"
-        Me.requestid.Properties.Appearance.Options.UseTextOptions = True
-        Me.requestid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.requestid.Properties.ReadOnly = True
-        Me.requestid.Size = New System.Drawing.Size(38, 20)
-        Me.requestid.TabIndex = 698
-        Me.requestid.Visible = False
         '
         'txtRequestType
         '
@@ -223,13 +249,13 @@ Partial Class frmApprovingProcess
         Me.LabelControl5.Appearance.Options.UseFont = True
         Me.LabelControl5.Location = New System.Drawing.Point(48, 59)
         Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(71, 15)
+        Me.LabelControl5.Size = New System.Drawing.Size(70, 15)
         Me.LabelControl5.TabIndex = 695
         Me.LabelControl5.Text = "Request Type"
         '
         'id
         '
-        Me.id.Location = New System.Drawing.Point(266, 226)
+        Me.id.Location = New System.Drawing.Point(266, 250)
         Me.id.Name = "id"
         Me.id.Properties.Appearance.Options.UseTextOptions = True
         Me.id.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
@@ -266,7 +292,7 @@ Partial Class frmApprovingProcess
         '
         'mode
         '
-        Me.mode.Location = New System.Drawing.Point(222, 226)
+        Me.mode.Location = New System.Drawing.Point(222, 250)
         Me.mode.Name = "mode"
         Me.mode.Properties.Appearance.Options.UseTextOptions = True
         Me.mode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
@@ -283,7 +309,7 @@ Partial Class frmApprovingProcess
         Me.cmdUpdate.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdUpdate.Appearance.Options.UseBackColor = True
         Me.cmdUpdate.Appearance.Options.UseFont = True
-        Me.cmdUpdate.Location = New System.Drawing.Point(128, 181)
+        Me.cmdUpdate.Location = New System.Drawing.Point(128, 205)
         Me.cmdUpdate.Name = "cmdUpdate"
         Me.cmdUpdate.Size = New System.Drawing.Size(122, 30)
         Me.cmdUpdate.TabIndex = 7
@@ -291,19 +317,19 @@ Partial Class frmApprovingProcess
         '
         'chfinal
         '
-        Me.chfinal.Location = New System.Drawing.Point(128, 136)
+        Me.chfinal.Location = New System.Drawing.Point(128, 160)
         Me.chfinal.Name = "chfinal"
         Me.chfinal.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
         Me.chfinal.Properties.Appearance.Options.UseFont = True
         Me.chfinal.Properties.Caption = "Final Approver?"
-        Me.chfinal.Size = New System.Drawing.Size(220, 19)
+        Me.chfinal.Size = New System.Drawing.Size(220, 20)
         Me.chfinal.TabIndex = 5
         '
         'cmdCancel
         '
         Me.cmdCancel.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
         Me.cmdCancel.Appearance.Options.UseFont = True
-        Me.cmdCancel.Location = New System.Drawing.Point(254, 181)
+        Me.cmdCancel.Location = New System.Drawing.Point(254, 205)
         Me.cmdCancel.Name = "cmdCancel"
         Me.cmdCancel.Size = New System.Drawing.Size(94, 30)
         Me.cmdCancel.TabIndex = 6
@@ -313,7 +339,7 @@ Partial Class frmApprovingProcess
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
         Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Location = New System.Drawing.Point(38, 85)
+        Me.LabelControl6.Location = New System.Drawing.Point(37, 109)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(81, 15)
         Me.LabelControl6.TabIndex = 388
@@ -322,7 +348,7 @@ Partial Class frmApprovingProcess
         'txtapplevel
         '
         Me.txtapplevel.EditValue = ""
-        Me.txtapplevel.Location = New System.Drawing.Point(128, 82)
+        Me.txtapplevel.Location = New System.Drawing.Point(128, 106)
         Me.txtapplevel.Name = "txtapplevel"
         Me.txtapplevel.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
         Me.txtapplevel.Properties.Appearance.Options.UseFont = True
@@ -338,7 +364,7 @@ Partial Class frmApprovingProcess
         'txtOffice
         '
         Me.txtOffice.EditValue = "Select Group"
-        Me.txtOffice.Location = New System.Drawing.Point(128, 108)
+        Me.txtOffice.Location = New System.Drawing.Point(128, 132)
         Me.txtOffice.Name = "txtOffice"
         Me.txtOffice.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
         Me.txtOffice.Properties.Appearance.Options.UseFont = True
@@ -364,7 +390,7 @@ Partial Class frmApprovingProcess
         Me.Em.Location = New System.Drawing.Point(0, 0)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(622, 447)
+        Me.Em.Size = New System.Drawing.Size(621, 450)
         Me.Em.TabIndex = 4
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -419,8 +445,18 @@ Partial Class frmApprovingProcess
         Me.tabRequiredAttachment.Controls.Add(Me.Em_filtered)
         Me.tabRequiredAttachment.Controls.Add(Me.txtPermission)
         Me.tabRequiredAttachment.Name = "tabRequiredAttachment"
-        Me.tabRequiredAttachment.Size = New System.Drawing.Size(1000, 447)
+        Me.tabRequiredAttachment.Size = New System.Drawing.Size(1004, 450)
         Me.tabRequiredAttachment.Text = "Required Attachment Filter"
+        '
+        'ckRequester
+        '
+        Me.ckRequester.Location = New System.Drawing.Point(292, 32)
+        Me.ckRequester.Name = "ckRequester"
+        Me.ckRequester.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ckRequester.Properties.Appearance.Options.UseFont = True
+        Me.ckRequester.Properties.Caption = "Requester Requirements"
+        Me.ckRequester.Size = New System.Drawing.Size(164, 20)
+        Me.ckRequester.TabIndex = 711
         '
         'LabelControl1
         '
@@ -569,16 +605,6 @@ Partial Class frmApprovingProcess
         Me.barDockControlTop.Manager = Nothing
         Me.barDockControlTop.Size = New System.Drawing.Size(0, 0)
         '
-        'ckRequester
-        '
-        Me.ckRequester.Location = New System.Drawing.Point(292, 32)
-        Me.ckRequester.Name = "ckRequester"
-        Me.ckRequester.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ckRequester.Properties.Appearance.Options.UseFont = True
-        Me.ckRequester.Properties.Caption = "Requester Requirements"
-        Me.ckRequester.Size = New System.Drawing.Size(164, 19)
-        Me.ckRequester.TabIndex = 711
-        '
         'frmApprovingProcess
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -593,9 +619,10 @@ Partial Class frmApprovingProcess
         Me.tabCoffeecupMain.ResumeLayout(False)
         CType(Me.SplitContainerControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainerControl2.ResumeLayout(False)
+        CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gridFund, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckRequiredAttachment.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.requestid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtRequestType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridRequestType, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.id.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -610,6 +637,7 @@ Partial Class frmApprovingProcess
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabRequiredAttachment.ResumeLayout(False)
         Me.tabRequiredAttachment.PerformLayout()
+        CType(Me.ckRequester.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.approverid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Em_unfiltered, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -618,7 +646,6 @@ Partial Class frmApprovingProcess
         CType(Me.txtPermission.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gvpermission, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
-        CType(Me.ckRequester.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -649,7 +676,6 @@ Partial Class frmApprovingProcess
     Friend WithEvents txtRequestType As DevExpress.XtraEditors.GridLookUpEdit
     Friend WithEvents gridRequestType As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents requestid As DevExpress.XtraEditors.TextEdit
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents officeid As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
@@ -668,4 +694,7 @@ Partial Class frmApprovingProcess
     Friend WithEvents gvpermission As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents ckRequester As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtFund As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents gridFund As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

@@ -1,0 +1,169 @@
+<!DOCTYPE html> 
+ <html> 
+ <head> 
+ <STYLE type='text/css'>
+ body{ margin:0 auto;  font-family: Arial; font-size: 14px; } 
+ table {border-collapse: collapse ;  }
+ td, th {border: 1px solid black;padding: 5px 10px;}
+ p{font-size: 14px; }
+ strong{font-size: 20px; }
+ h1, h2, h3, h4{margin:0;}
+ #container {
+	width: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.content {
+	float: left;
+	width: 700px;
+}
+
+
+.tableitems{
+	border-collapse: collapse ; border: 1px solid #a5a4a4; padding: 4px 4px;
+}
+
+.tableitems th{
+	border-collapse: collapse; border: 1px solid #a5a4a4;
+}
+
+.tableitems td{
+	border-collapse: collapse; border:  1px solid #a5a4a4; margin-bottom: 20px; padding: 5px 5px 5px 5px;
+}
+
+ 
+</style>
+
+ </head> 
+ <body> 
+ <div id='container'>
+	<div class='content'>
+		<div>
+			<p align='right'>Appendix 31</p>
+			<p><h3 align='center'>Local Government Unit</h3></p>
+			<p><h2 align='center'>CERTIFICATION ON APPROPRIATIONS, FUNDS AND OBLIGATION<br/>OF ALLOTMENT</h2></p>
+		</div>
+<table border='1' style='width:100%; margin:3px 0' cellpadding='4' cellspacing='0' style='border-collapse:collapse;'>  
+ 
+<tr> 
+	<td width='55%' rowspan='5' style='vertical-align: top; '>
+		<p><b>Request: </b>[remarks]</p>
+		<p>Payee: <u><b>[payee]</b></u></p>
+		<table class='tableitems' border='0' style='width: 100%; border: none;' cellpadding='0' cellpadding='0' >
+			<tr>
+				<th width='20%'>Function</th>
+				<th width='40%'>Allotment<br/>Class</th>
+				<th width='20%'>Expense<br/>Code</th>
+				<th width='20%'>Amount</th>
+			</tr>
+			[accounting_row]
+		</table>
+		<p>Total Requested: <u><b>[total_amount]</b></u></p>
+		<p>Amount in Words: <u><b>[total_in_words]</b></u></p><br/>
+		<p style="margin: 0; padding: 0;">Requesting Official: </p><br/> 
+		<p style="margin: 0; padding: 0;">
+			<span style='float: left; text-align: center;' >
+				<div style="width: auto; height: 70px">
+					<img src="[sig_requestor]" width="150" style="position: absolute;" [hide_requestor]>
+				</div>
+				<b><u>[name_requestor]</u></b>
+				<span style='float: right; text-align: center;' >
+					<b><u>[date_requestor]</u></b><br/>Date
+				</span><br/>
+				Name and Signature
+			</span>
+			
+		</p>
+	</td>
+	<td width='45%'>Obligation No.: [obligation_no]</td>
+</tr>
+<tr> 
+	<td align='left'>Approved Amount: [approved_amount]</td>
+</tr>
+<tr> 
+	<td align='left'>
+		<p style="margin: 0; padding: 0;"><b>Certification</b></p>
+		<p style="margin: 0; padding: 0;">I hereby certify as to the existence of appropriations for the expenditures in the amount specified herein:</p>
+		<p style="margin: 0; padding: 0;">
+			<span style='float: left; text-align: center;' >
+				<div style="width: auto; height: 70px">
+					<img src="[sig_budget]" width="150" style="position: absolute;" [hide_budget]>
+				</div>
+				<b><u>[name_budget]</u></b>
+				<span style='float: right; text-align: center;' >
+					<u>[date_budget]</u><br/>Date
+				</span><br/>
+				Budget Officer
+			</span>
+			
+		</p>
+	</td>
+</tr>
+ <tr> 
+	<td align='left'>
+		<p style="margin: 0; padding: 0;"><b>Certification</b></p>
+		<p style="margin: 0; padding: 0;">I hereby certify as to the availability of funds for the expenditures in the amount specified herein:</p>
+		<p style="margin: 0; padding: 0;">
+			<span style='float: left; text-align: center;' >
+				<div style="width: auto; height: 70px">
+					<img src="[sig_treasurer]" width="150" style="position: absolute;" [hide_treasurer]>
+				</div>
+				<b><u>[name_treasurer]</u></b>
+				<span style='float: right; text-align: center;' >
+					<u>[date_treasurer]</u><br/>Date
+				</span><br/>
+				Treasurer
+			</span>
+			
+		</p>
+	</td>
+</tr>
+ <tr> 
+	<td align='left'>
+		<p style="margin: 0; padding: 0;"><b>Certification</b></p>
+		<p style="margin: 0; padding: 0;">I hereby certify that the allotments are available for obligation in the amount specified herein:</p>
+		<p style="margin: 0; padding: 0;">
+			<span style='float: left; text-align: center;' >
+				<div style="width: auto; height: 70px">
+					<img src="[sig_accountant]" width="150" style="position: absolute;" [hide_accountant]>
+				</div>
+				<b><u>[name_accountant]</u></b>
+				<span style='float: right; text-align: center;' >
+					<u>[date_accountant]</u><br/>Date
+				</span><br/>
+				Accountant
+
+			</span>
+			
+		</p>
+	</td>
+</tr>
+<tr style='border-top: 2px double black'> 
+	<td style='padding:3px;' height='30' align='center' colspan='2'><b>Subsidiary Ledger</b></td>
+</tr> 
+<tr > 
+	<td style='vertical-align: top; padding: 0' align='left' colspan='2' >
+		 <table class='tableitems' border='0' style='width: 100%; border: none;' cellpadding='0' cellpadding='0' >
+			<tr>
+				<th width='15%'>Date</th>
+				<th width='34%'>Particulars /Reference</th>
+				<th width='17%'>Liquidations</th>
+				<th width='17%'>Obligation Increase<br/>(Decrease)</th>
+				<th width='17%'>Balance</th>
+			</tr>
+			[item_transaction]
+		</table>
+	</td>
+</tr>
+</table>
+<p style='font-size: 9px; color: grey' align='center'>[watermark]</p>
+
+ 
+</div>
+<div>
+</body> 
+ </html>
+
+ 
+

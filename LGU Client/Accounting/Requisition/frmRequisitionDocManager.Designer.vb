@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmRequisitionDocManager
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmRequisitionDocManager
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -36,6 +36,7 @@ Partial Class frmRequisitionDocManager
         Me.pid = New DevExpress.XtraEditors.TextEdit()
         Me.applevel = New DevExpress.XtraEditors.TextEdit()
         Me.requesttype = New DevExpress.XtraEditors.TextEdit()
+        Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -43,13 +44,14 @@ Partial Class frmRequisitionDocManager
         CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.applevel.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.requesttype.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SelectItemToolStripMenuItem, Me.RemoveAttachementToolStripMenuItem, Me.ToolStripSeparator4, Me.ToolStripMenuItem5})
         Me.ContextMenuStrip1.Name = "gridmenustrip"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(201, 98)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(201, 76)
         '
         'SelectItemToolStripMenuItem
         '
@@ -182,6 +184,19 @@ Partial Class frmRequisitionDocManager
         Me.requesttype.TabIndex = 946
         Me.requesttype.Visible = False
         '
+        'mode
+        '
+        Me.mode.Location = New System.Drawing.Point(68, 393)
+        Me.mode.Name = "mode"
+        Me.mode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.mode.Properties.Appearance.Options.UseFont = True
+        Me.mode.Properties.Appearance.Options.UseTextOptions = True
+        Me.mode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.mode.Properties.ReadOnly = True
+        Me.mode.Size = New System.Drawing.Size(50, 24)
+        Me.mode.TabIndex = 947
+        Me.mode.Visible = False
+        '
         'frmRequisitionDocManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -189,6 +204,7 @@ Partial Class frmRequisitionDocManager
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(720, 415)
+        Me.Controls.Add(Me.mode)
         Me.Controls.Add(Me.requesttype)
         Me.Controls.Add(Me.applevel)
         Me.Controls.Add(Me.pid)
@@ -207,6 +223,7 @@ Partial Class frmRequisitionDocManager
         CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.applevel.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.requesttype.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -223,4 +240,5 @@ Partial Class frmRequisitionDocManager
     Friend WithEvents RemoveAttachementToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents applevel As DevExpress.XtraEditors.TextEdit
     Friend WithEvents requesttype As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents mode As DevExpress.XtraEditors.TextEdit
 End Class
