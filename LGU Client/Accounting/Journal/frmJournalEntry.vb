@@ -73,6 +73,7 @@ Public Class frmJournalEntry
             txtRCDNo.Text = rst("rcdno").ToString
             txtLRNo.Text = rst("lrno").ToString
             txtAENo.Text = rst("aeno").ToString
+            pid.Text = rst("pid").ToString
             If CBool(rst("cancelled")) Then
                 cmdPrint.Visible = False
             Else
@@ -90,10 +91,8 @@ Public Class frmJournalEntry
     End Sub
 
     Public Function InfoControl(ByVal readonlyform As Boolean)
-        txtFund.ReadOnly = readonlyform
         txtJournalDate.ReadOnly = readonlyform
         txtRemarks.ReadOnly = readonlyform
-        txtDVNo.ReadOnly = readonlyform
         txtPayrollNo.ReadOnly = readonlyform
         txtRCDNo.ReadOnly = readonlyform
         txtLRNo.ReadOnly = readonlyform
@@ -156,7 +155,12 @@ Public Class frmJournalEntry
                     If frmDisbursementList.Visible = True Then
                         frmDisbursementList.ViewList()
                     End If
+
+                    If frmNewDirectJournal.Visible = True Then
+                        frmNewDirectJournal.ViewList()
+                    End If
                     XtraMessageBox.Show("Journal entry voucher successfully saved", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Me.Close()
                 End If
             End If
         End If
@@ -196,7 +200,8 @@ Public Class frmJournalEntry
                    + " payrollno='" & txtPayrollNo.Text & "', " _
                    + " rcdno='" & txtRCDNo.Text & "', " _
                    + " lrno='" & txtLRNo.Text & "', " _
-                   + " aeno='" & txtAENo.Text & "' " _
+                   + " aeno='" & txtAENo.Text & "', " _
+                   + " pid='" & pid.Text & "' " _
                    + " where jevno='" & jevno.Text & "'" : com.ExecuteNonQuery()
         Else
             Dim newjevno As String = fundcode.Text & "-" & yeartrn.Text & "-" & CDate(txtJournalDate.EditValue).ToString("MM") & "-" & GetSequenceNo(periodcode.Text, "jevseries")
@@ -213,9 +218,15 @@ Public Class frmJournalEntry
                    + " rcdno='" & txtRCDNo.Text & "', " _
                    + " lrno='" & txtLRNo.Text & "', " _
                    + " aeno='" & txtAENo.Text & "', " _
+                   + " pid='" & pid.Text & "', " _
                    + " trnby='" & globaluserid & "', " _
                    + " datetrn=current_timestamp " : com.ExecuteNonQuery()
             com.CommandText = "update tbljournalentryitem set jevno='" & newjevno & "' where jevno='" & globaluserid & "-temp'" : com.ExecuteNonQuery()
+            If pid.Text = "" Then
+                com.CommandText = "update `tblrequisition` set jev=1 where pid in (select a.pid from tbldisbursementdetails where voucherno='" & txtDVNo.Text & "')" : com.ExecuteNonQuery()
+            Else
+                com.CommandText = "update `tblrequisition` set jev=1 where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
+            End If
             txtJevNo.Text = newjevno
             jevno.Text = newjevno
             mode.Text = "edit"
@@ -319,6 +330,7 @@ Public Class frmJournalEntry
         frmJournalEntryExpenditure.voucherno.Text = txtDVNo.Text
         frmJournalEntryExpenditure.jevno.Text = jevno.Text
         frmJournalEntryExpenditure.officeid.Text = jevno.Text
+        frmJournalEntryExpenditure.pid.Text = pid.Text
         frmJournalEntryExpenditure.ShowDialog(Me)
     End Sub
 
@@ -334,6 +346,7 @@ Public Class frmJournalEntry
         End If
         frmJournalEntryDebit.voucherno.Text = txtDVNo.Text
         frmJournalEntryDebit.jevno.Text = jevno.Text
+        frmJournalEntryDebit.pid.Text = pid.Text
         If frmJournalEntryDebit.Visible = True Then
             frmJournalEntryDebit.Focus()
         Else

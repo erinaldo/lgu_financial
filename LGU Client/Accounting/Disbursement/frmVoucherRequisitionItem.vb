@@ -31,15 +31,14 @@ Public Class frmVoucherRequisitionItem
         PopulateGridViewControls("Entry Code", 50, "", dgv, True, True)
         PopulateGridViewControls("Request No", 50, "", dgv, True, True)
         PopulateGridViewControls("Request Type", 50, "", dgv, True, True)
-        PopulateGridViewControls("Current Balance", 40, "", dgv, True, True)
-        PopulateGridViewControls("Total", 30, "", dgv, True, True)
-        PopulateGridViewControls("Payment", 10, "", dgv, True, False)
-        PopulateGridViewControls("New Balance", 10, "", dgv, True, True)
+        PopulateGridViewControls("Amount", 30, "", dgv, True, True)
+        PopulateGridViewControls("Payee", 50, "", dgv, True, True)
         PopulateGridViewControls("Posting Date", 10, "", dgv, True, True)
         PopulateGridViewControls("Date Approved", 10, "", dgv, True, True)
-        PopulateGridViewControls("Purpose", 50, "", dgv, True, False)
+        PopulateGridViewControls("Purpose", 50, "", dgv, True, True)
         PopulateGridViewControls("requesttype", 50, "", dgv, False, True)
         PopulateGridViewControls("officeid", 50, "", dgv, False, True)
+        PopulateGridViewControls("payeeid", 50, "", dgv, False, True)
         LoadRequisition()
     End Sub
 
@@ -50,9 +49,13 @@ Public Class frmVoucherRequisitionItem
                                     + " (select description from tblrequisitiontype where code=a.requesttype) as request_type, " _
                                     + " date_format(postingdate,'%Y-%m-%d') as 'PostingDate', " _
                                     + " date_format(dateapproved,'%Y-%m-%d') as 'DateApproved', " _
-                                    + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) as TotalAmount " _
-                                    + " from tblrequisition as a where periodcode='" & periodcode.Text & "' and officeid='" & officeid.Text & "' and approved=1 and paid=0 and cancelled=0  " _
-                                    + " and (pid like '%" & txtSearch.Text & "%' or " _
+                                    + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) as TotalAmount, " _
+                                    + " (select suppliername from tblsupplier where supplierid=a.payee) as supplier " _
+                                    + " from tblrequisition as a where periodcode='" & periodcode.Text & "' " _
+                                    + " and officeid='" & officeid.Text & "' " _
+                                    + " and requesttype in (select code from tblrequisitiontype where enablevoucher=1) " _
+                                    + " and approved=1 And paid=0 And cancelled=0  " _
+                                    + " And (pid Like '%" & txtSearch.Text & "%' or " _
                                     + " requestno like '%" & txtSearch.Text & "%' or " _
                                     + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) like '%" & txtSearch.Text & "%' or " _
                                     + " date_format(postingdate,'%Y-%m-%d')  like '%" & txtSearch.Text & "%' or " _
@@ -64,22 +67,21 @@ Public Class frmVoucherRequisitionItem
                 dgv.Rows.Add(False, .Rows(cnt)("pid").ToString(),
                                                  .Rows(cnt)("requestno").ToString(),
                                                  .Rows(cnt)("request_type").ToString(),
-                                                 Val(.Rows(cnt)("TotalAmount").ToString()) - Val(.Rows(cnt)("payment").ToString()),
-                                                 Val(.Rows(cnt)("TotalAmount").ToString()) - Val(.Rows(cnt)("payment").ToString()),
-                                                 Val(.Rows(cnt)("TotalAmount").ToString()) - Val(.Rows(cnt)("payment").ToString()),
-                                                 0,
+                                                 .Rows(cnt)("TotalAmount").ToString(),
+                                                 .Rows(cnt)("supplier").ToString(),
                                                  .Rows(cnt)("PostingDate").ToString(),
                                                  .Rows(cnt)("DateApproved").ToString(),
                                                  .Rows(cnt)("purpose").ToString(),
                                                  .Rows(cnt)("requesttype").ToString(),
-                                                 .Rows(cnt)("officeid").ToString())
+                                                 .Rows(cnt)("officeid").ToString(),
+                                                 .Rows(cnt)("payee").ToString())
             End With
         Next
 
-        GridCurrencyColumn(dgv, {"Current Balance", "Total", "Payment", "New Balance"})
-        GridColumnWidth(dgv, {"Current Balance", "Total", "Payment", "New Balance"}, 100)
+        GridCurrencyColumn(dgv, {"Amount"})
+        GridColumnWidth(dgv, {"Amount"}, 100)
         GridColumnAlignment(dgv, {"Entry Code", "Request No", "Date Approved"}, DataGridViewContentAlignment.MiddleCenter)
-        GridColumAutoWidth(dgv, {"Select", "Entry Code", "Request No", "Request Type", "Office", "Posting Date", "Date Approved", "Purpose"})
+        GridColumAutoWidth(dgv, {"Select", "Entry Code", "Request No", "Request Type", "Office", "Payee", "Posting Date", "Date Approved", "Purpose"})
     End Sub
 
 
@@ -97,12 +99,8 @@ Public Class frmVoucherRequisitionItem
         If XtraMessageBox.Show("Are you sure you want to continue?", GlobalOrganizationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             For I = 0 To dgv.RowCount - 1
                 If DirectCast(dgv.Rows(I).Cells("Select"), DataGridViewCheckBoxCell).Value = 1 Then
-                    If Val(CC(dgv.Item("New Balance", I).Value)) > 0 Then
-                        com.CommandText = "UPDATE tblrequisition set paid=0 where pid='" & dgv.Item("Entry Code", I).Value & "'" : com.ExecuteNonQuery()
-                    Else
-                        com.CommandText = "UPDATE tblrequisition set paid=1 where pid='" & dgv.Item("Entry Code", I).Value & "'" : com.ExecuteNonQuery()
-                    End If
-                    com.CommandText = "insert into tbldisbursementdetails set voucherno='" & voucherno.Text & "', pid='" & dgv.Item("Entry Code", I).Value & "', officeid='" & dgv.Item("officeid", I).Value & "', requestno='" & dgv.Item("Request No", I).Value & "',requesttype='" & dgv.Item("requesttype", I).Value & "',postingdate='" & ConvertDate(dgv.Item("Posting Date", I).Value) & "',  purpose='" & rchar(dgv.Item("Purpose", I).Value) & "', amount='" & Val(CC(dgv.Item("Payment", I).Value)) & "', trnreference='" & trnreference.Text & "'" : com.ExecuteNonQuery()
+                    com.CommandText = "UPDATE tblrequisition set voucher=1 where pid='" & dgv.Item("Entry Code", I).Value & "'" : com.ExecuteNonQuery()
+                    com.CommandText = "insert into tbldisbursementdetails set voucherno='" & voucherno.Text & "', pid='" & dgv.Item("Entry Code", I).Value & "', officeid='" & dgv.Item("officeid", I).Value & "', requestno='" & dgv.Item("Request No", I).Value & "',requesttype='" & dgv.Item("requesttype", I).Value & "',postingdate='" & ConvertDate(dgv.Item("Posting Date", I).Value) & "',  purpose='" & rchar(dgv.Item("Purpose", I).Value) & "', amount='" & Val(CC(dgv.Item("Amount", I).Value)) & "', payee='" & dgv.Item("payeeid", I).Value & "', trnreference='" & trnreference.Text & "'" : com.ExecuteNonQuery()
                 End If
             Next
             LoadRequisition()
@@ -110,29 +108,29 @@ Public Class frmVoucherRequisitionItem
         End If
     End Sub
 
-    Private Sub CellValueChanged(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles dgv.CellValueChanged
-        Dim gv As DataGridView = DirectCast(sender, DataGridView)
-        Dim originalamount As Double = If(gv("Current Balance", e.RowIndex).Value.ToString = "", 0, Val(CC(gv("Current Balance", e.RowIndex).Value)))
+    'Private Sub CellValueChanged(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles dgv.CellValueChanged
+    '    Dim gv As DataGridView = DirectCast(sender, DataGridView)
+    '    Dim originalamount As Double = If(gv("Current Balance", e.RowIndex).Value.ToString = "", 0, Val(CC(gv("Current Balance", e.RowIndex).Value)))
 
-        If e.ColumnIndex = 7 Then ' enter payment amount
-            Dim Total As Double = If(gv("Total", e.RowIndex).Value.ToString = "", 0, Val(CC(gv("Total", e.RowIndex).Value)))
-            Dim Tenderamount As Double = If(gv("Payment", e.RowIndex).Value.ToString = "", 0, Val(CC(gv("Payment", e.RowIndex).Value)))
-            Dim totalBalance As Double = Total - Tenderamount
-            gv("New Balance", e.RowIndex).Value = totalBalance
-            If totalBalance < 0 Then
-                gv("New Balance", e.RowIndex).Style.BackColor = Color.Red
-                gv("New Balance", e.RowIndex).Style.SelectionBackColor = Color.Red
-                gv("New Balance", e.RowIndex).Style.ForeColor = Color.White
-                gv("New Balance", e.RowIndex).Style.SelectionForeColor = Color.White
-            Else
-                gv("New Balance", e.RowIndex).Style.BackColor = Color.LemonChiffon
-                gv("New Balance", e.RowIndex).Style.SelectionBackColor = Color.LemonChiffon
-                gv("New Balance", e.RowIndex).Style.ForeColor = Color.Black
-                gv("New Balance", e.RowIndex).Style.SelectionForeColor = Color.Black
-            End If
-        End If
+    '    If e.ColumnIndex = 7 Then ' enter payment amount
+    '        Dim Total As Double = If(gv("Total", e.RowIndex).Value.ToString = "", 0, Val(CC(gv("Total", e.RowIndex).Value)))
+    '        Dim Tenderamount As Double = If(gv("Payment", e.RowIndex).Value.ToString = "", 0, Val(CC(gv("Payment", e.RowIndex).Value)))
+    '        Dim totalBalance As Double = Total - Tenderamount
+    '        gv("New Balance", e.RowIndex).Value = totalBalance
+    '        If totalBalance < 0 Then
+    '            gv("New Balance", e.RowIndex).Style.BackColor = Color.Red
+    '            gv("New Balance", e.RowIndex).Style.SelectionBackColor = Color.Red
+    '            gv("New Balance", e.RowIndex).Style.ForeColor = Color.White
+    '            gv("New Balance", e.RowIndex).Style.SelectionForeColor = Color.White
+    '        Else
+    '            gv("New Balance", e.RowIndex).Style.BackColor = Color.LemonChiffon
+    '            gv("New Balance", e.RowIndex).Style.SelectionBackColor = Color.LemonChiffon
+    '            gv("New Balance", e.RowIndex).Style.ForeColor = Color.Black
+    '            gv("New Balance", e.RowIndex).Style.SelectionForeColor = Color.Black
+    '        End If
+    '    End If
 
-    End Sub
+    'End Sub
 
     Private Sub dgv_DataError(ByVal sender As Object, ByVal e As DataGridViewDataErrorEventArgs) Handles dgv.DataError
 

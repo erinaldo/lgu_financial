@@ -15,39 +15,45 @@ Public Class frmBankAccounts
     End Sub
 
     Public Sub LoadData()
-        LoadXgrid("select id,Code, description as 'Account Name' from tblbankaccounts order by description asc ", "tblbankaccounts", Em, GridView1, Me)
+        LoadXgrid("select id,code as 'Account No.', description as 'Bank Name' from tblbankaccounts order by description asc ", "tblbankaccounts", Em, GridView1, Me)
         XgridHideColumn({"id"}, GridView1)
-        XgridColAlign({"Code"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+        XgridColAlign({"Account No."}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+        XgridColWidth({"Account No."}, GridView1, 140)
     End Sub
 
     Private Sub cmdOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdOk.Click
         If txtBankCode.Text = "" Then
-            XtraMessageBox.Show("Please cnter code!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            XtraMessageBox.Show("Please enter bank account number!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtDescription.Focus()
             Exit Sub
         ElseIf txtDescription.Text = "" Then
-            XtraMessageBox.Show("Please Enter account name!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            XtraMessageBox.Show("Please enter bank name!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtDescription.Focus()
             Exit Sub
-        
+
+        ElseIf countqry("tblbankaccounts", "code='" & txtBankCode.Text & "'") > 0 And mode.Text <> "edit" Then
+            XtraMessageBox.Show("Bank account number already exist!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtDescription.Focus()
+            Exit Sub
+
         ElseIf countqry("tblbankaccounts", "description='" & rchar(txtDescription.Text) & "'") > 0 And mode.Text <> "edit" Then
-            XtraMessageBox.Show("account name already exist!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            XtraMessageBox.Show("Bank name already exist!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtDescription.Focus()
             Exit Sub
 
         End If
         If mode.Text = "edit" Then
-            com.CommandText = "update tblbankaccounts set code='" & txtBankCode.Text & "', description='" & rchar(txtDescription.Text) & "' where id='" & code.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "update tblbankaccounts set code='" & txtBankCode.Text & "', description='" & rchar(txtDescription.Text) & "' where id='" & id.Text & "'" : com.ExecuteNonQuery()
         Else
             com.CommandText = "insert into tblbankaccounts set code='" & txtBankCode.Text & "', description='" & rchar(txtDescription.Text) & "'" : com.ExecuteNonQuery()
         End If
 
         LoadData()
         mode.Text = ""
-        code.Text = ""
+        id.Text = ""
         txtBankCode.Text = ""
         txtDescription.Text = "" : txtBankCode.Focus()
-        XtraMessageBox.Show("Account successfully saved!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
+        XtraMessageBox.Show("Bank account successfully saved!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub cmdCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -60,8 +66,8 @@ Public Class frmBankAccounts
             Exit Sub
         End If
         mode.Text = ""
-        code.Text = GridView1.GetFocusedRowCellValue("id").ToString
-        com.CommandText = "select * from tblbankaccounts where id='" & code.Text & "'" : rst = com.ExecuteReader
+        id.Text = GridView1.GetFocusedRowCellValue("id").ToString
+        com.CommandText = "select * from tblbankaccounts where id='" & id.Text & "'" : rst = com.ExecuteReader
         While rst.Read
             txtBankCode.Text = rst("code").ToString
             txtDescription.Text = rst("description").ToString
@@ -76,7 +82,7 @@ Public Class frmBankAccounts
                 com.CommandText = "delete from tblbankaccounts where id='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "id").ToString & "'" : com.ExecuteNonQuery()
             Next
             LoadData()
-            XtraMessageBox.Show("Account successfully deleted", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            XtraMessageBox.Show("Bank account successfully deleted", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 

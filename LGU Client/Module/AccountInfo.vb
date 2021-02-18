@@ -72,6 +72,7 @@ Module AccountInfo
     Public globalAuthAccountableForm As Boolean
     Public globalAuthBusinessManagement As Boolean
     Public globalAuthRealPropertyMgt As Boolean
+    Public globalAuthNewDirectJournal As Boolean
     Public globalAuthJournalEntryVoucher As Boolean
     Public globalAuthForApproval As Boolean
     Public globalAuthCheckIssuanceRequest As Boolean
@@ -202,6 +203,7 @@ Module AccountInfo
             globalAuthAccountableForm = rst("accountableform")
             globalAuthBusinessManagement = rst("businessmgt")
             globalAuthRealPropertyMgt = rst("realpropertymgt")
+            globalAuthNewDirectJournal = rst("newdirectjournal")
             globalAuthJournalEntryVoucher = rst("journalentryvoucher")
             globalAuthForApproval = rst("forapproval")
             globalAuthCheckIssuanceRequest = rst("checkapproval")
@@ -231,7 +233,6 @@ Module AccountInfo
             compOfficerIncharge = rst("incharge").ToString
             compOfficerPosition = rst("position").ToString
             compOfficerEmail = rst("officeremail").ToString
-
         End While
         rst.Close()
 
@@ -469,6 +470,7 @@ Module AccountInfo
         globalAuthAccountableForm = False
         globalAuthBusinessManagement = False
         globalAuthRealPropertyMgt = False
+        globalAuthNewDirectJournal = False
         globalAuthJournalEntryVoucher = False
         globalAuthForApproval = False
         globalAuthCheckIssuanceRequest = False

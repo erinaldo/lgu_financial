@@ -87,6 +87,8 @@ Partial Class frmRequisitionForApprovalInfo
         Me.txtSourceAmount = New DevExpress.XtraEditors.TextEdit()
         Me.fundcode = New DevExpress.XtraEditors.TextEdit()
         Me.approval = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl11 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtPayee = New DevExpress.XtraEditors.TextEdit()
         CType(Me.txtRequestNumber.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPurpose.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -129,13 +131,14 @@ Partial Class frmRequisitionForApprovalInfo
         CType(Me.txtSourceAmount.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.approval.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtPayee.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl5
         '
         Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl5.Appearance.Options.UseFont = True
-        Me.LabelControl5.Location = New System.Drawing.Point(29, 90)
+        Me.LabelControl5.Location = New System.Drawing.Point(29, 88)
         Me.LabelControl5.Name = "LabelControl5"
         Me.LabelControl5.Size = New System.Drawing.Size(99, 17)
         Me.LabelControl5.TabIndex = 656
@@ -144,7 +147,7 @@ Partial Class frmRequisitionForApprovalInfo
         'txtRequestNumber
         '
         Me.txtRequestNumber.EditValue = "AUTO GENERATE"
-        Me.txtRequestNumber.Location = New System.Drawing.Point(134, 86)
+        Me.txtRequestNumber.Location = New System.Drawing.Point(134, 84)
         Me.txtRequestNumber.Name = "txtRequestNumber"
         Me.txtRequestNumber.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtRequestNumber.Properties.Appearance.Options.UseFont = True
@@ -159,7 +162,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl4.Appearance.Options.UseFont = True
-        Me.LabelControl4.Location = New System.Drawing.Point(58, 210)
+        Me.LabelControl4.Location = New System.Drawing.Point(58, 228)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(70, 17)
         Me.LabelControl4.TabIndex = 922
@@ -169,7 +172,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Location = New System.Drawing.Point(54, 241)
+        Me.LabelControl6.Location = New System.Drawing.Point(54, 257)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(74, 17)
         Me.LabelControl6.TabIndex = 925
@@ -180,7 +183,7 @@ Partial Class frmRequisitionForApprovalInfo
         Me.txtPurpose.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtPurpose.EditValue = ""
-        Me.txtPurpose.Location = New System.Drawing.Point(134, 265)
+        Me.txtPurpose.Location = New System.Drawing.Point(134, 279)
         Me.txtPurpose.Name = "txtPurpose"
         Me.txtPurpose.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtPurpose.Properties.Appearance.Options.UseFont = True
@@ -195,7 +198,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl7.Appearance.Options.UseFont = True
-        Me.LabelControl7.Location = New System.Drawing.Point(80, 270)
+        Me.LabelControl7.Location = New System.Drawing.Point(80, 284)
         Me.LabelControl7.Name = "LabelControl7"
         Me.LabelControl7.Size = New System.Drawing.Size(48, 17)
         Me.LabelControl7.TabIndex = 927
@@ -208,7 +211,7 @@ Partial Class frmRequisitionForApprovalInfo
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(697, 402)
+        Me.Em.Size = New System.Drawing.Size(693, 399)
         Me.Em.TabIndex = 934
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -231,7 +234,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl8.Appearance.Options.UseFont = True
-        Me.LabelControl8.Location = New System.Drawing.Point(49, 120)
+        Me.LabelControl8.Location = New System.Drawing.Point(49, 116)
         Me.LabelControl8.Name = "LabelControl8"
         Me.LabelControl8.Size = New System.Drawing.Size(79, 17)
         Me.LabelControl8.TabIndex = 935
@@ -256,7 +259,7 @@ Partial Class frmRequisitionForApprovalInfo
         Me.tabParticular.Controls.Add(Me.TextEdit4)
         Me.tabParticular.Controls.Add(Me.Em)
         Me.tabParticular.Name = "tabParticular"
-        Me.tabParticular.Size = New System.Drawing.Size(697, 402)
+        Me.tabParticular.Size = New System.Drawing.Size(693, 399)
         Me.tabParticular.Text = "Particular Item List"
         '
         'TextEdit4
@@ -276,7 +279,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         Me.tabSourceFund.Controls.Add(Me.Em_SourceFund)
         Me.tabSourceFund.Name = "tabSourceFund"
-        Me.tabSourceFund.Size = New System.Drawing.Size(697, 402)
+        Me.tabSourceFund.Size = New System.Drawing.Size(693, 399)
         Me.tabSourceFund.Text = "Source of Fund"
         '
         'Em_SourceFund
@@ -286,7 +289,7 @@ Partial Class frmRequisitionForApprovalInfo
         Me.Em_SourceFund.MainView = Me.gridSourceFund
         Me.Em_SourceFund.Name = "Em_SourceFund"
         Me.Em_SourceFund.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit4})
-        Me.Em_SourceFund.Size = New System.Drawing.Size(697, 402)
+        Me.Em_SourceFund.Size = New System.Drawing.Size(693, 399)
         Me.Em_SourceFund.TabIndex = 935
         Me.Em_SourceFund.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridSourceFund})
         '
@@ -311,24 +314,24 @@ Partial Class frmRequisitionForApprovalInfo
         Me.tabAttachment.Controls.Add(Me.BarDockControl1)
         Me.tabAttachment.Controls.Add(Me.Em_files)
         Me.tabAttachment.Name = "tabAttachment"
-        Me.tabAttachment.Size = New System.Drawing.Size(697, 402)
+        Me.tabAttachment.Size = New System.Drawing.Size(693, 399)
         Me.tabAttachment.Text = "Attached Document Files"
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(697, 0)
+        Me.barDockControlRight.Location = New System.Drawing.Point(693, 0)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 402)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 399)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(697, 0)
+        Me.BarDockControl1.Location = New System.Drawing.Point(693, 0)
         Me.BarDockControl1.Manager = Nothing
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 402)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 399)
         '
         'Em_files
         '
@@ -338,7 +341,7 @@ Partial Class frmRequisitionForApprovalInfo
         Me.Em_files.MainView = Me.gridview_files
         Me.Em_files.Name = "Em_files"
         Me.Em_files.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2})
-        Me.Em_files.Size = New System.Drawing.Size(697, 402)
+        Me.Em_files.Size = New System.Drawing.Size(693, 399)
         Me.Em_files.TabIndex = 935
         Me.Em_files.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridview_files})
         '
@@ -394,7 +397,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         Me.tabApprovalHistory.Controls.Add(Me.Em_approval)
         Me.tabApprovalHistory.Name = "tabApprovalHistory"
-        Me.tabApprovalHistory.Size = New System.Drawing.Size(697, 402)
+        Me.tabApprovalHistory.Size = New System.Drawing.Size(693, 399)
         Me.tabApprovalHistory.Text = "Approval History"
         '
         'Em_approval
@@ -404,7 +407,7 @@ Partial Class frmRequisitionForApprovalInfo
         Me.Em_approval.MainView = Me.gridview_approval
         Me.Em_approval.Name = "Em_approval"
         Me.Em_approval.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit3})
-        Me.Em_approval.Size = New System.Drawing.Size(697, 402)
+        Me.Em_approval.Size = New System.Drawing.Size(693, 399)
         Me.Em_approval.TabIndex = 936
         Me.Em_approval.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridview_approval})
         '
@@ -425,7 +428,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         'appid
         '
-        Me.appid.Location = New System.Drawing.Point(120, 430)
+        Me.appid.Location = New System.Drawing.Point(120, 492)
         Me.appid.Name = "appid"
         Me.appid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.appid.Properties.Appearance.Options.UseFont = True
@@ -438,7 +441,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         'NextApprover
         '
-        Me.NextApprover.Location = New System.Drawing.Point(252, 430)
+        Me.NextApprover.Location = New System.Drawing.Point(252, 492)
         Me.NextApprover.Name = "NextApprover"
         Me.NextApprover.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NextApprover.Properties.Appearance.Options.UseFont = True
@@ -451,7 +454,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         'CurrentLevel
         '
-        Me.CurrentLevel.Location = New System.Drawing.Point(163, 430)
+        Me.CurrentLevel.Location = New System.Drawing.Point(163, 492)
         Me.CurrentLevel.Name = "CurrentLevel"
         Me.CurrentLevel.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CurrentLevel.Properties.Appearance.Options.UseFont = True
@@ -464,18 +467,18 @@ Partial Class frmRequisitionForApprovalInfo
         '
         'ckFinalApprover
         '
-        Me.ckFinalApprover.Location = New System.Drawing.Point(295, 433)
+        Me.ckFinalApprover.Location = New System.Drawing.Point(295, 495)
         Me.ckFinalApprover.Name = "ckFinalApprover"
         Me.ckFinalApprover.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ckFinalApprover.Properties.Appearance.Options.UseFont = True
         Me.ckFinalApprover.Properties.Caption = "FinalApprover"
-        Me.ckFinalApprover.Size = New System.Drawing.Size(99, 20)
+        Me.ckFinalApprover.Size = New System.Drawing.Size(99, 19)
         Me.ckFinalApprover.TabIndex = 955
         Me.ckFinalApprover.Visible = False
         '
         'CurrentApprover
         '
-        Me.CurrentApprover.Location = New System.Drawing.Point(209, 430)
+        Me.CurrentApprover.Location = New System.Drawing.Point(209, 492)
         Me.CurrentApprover.Name = "CurrentApprover"
         Me.CurrentApprover.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CurrentApprover.Properties.Appearance.Options.UseFont = True
@@ -488,7 +491,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         'pid
         '
-        Me.pid.Location = New System.Drawing.Point(209, 460)
+        Me.pid.Location = New System.Drawing.Point(209, 522)
         Me.pid.Name = "pid"
         Me.pid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pid.Properties.Appearance.Options.UseFont = True
@@ -501,7 +504,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         'requestno
         '
-        Me.requestno.Location = New System.Drawing.Point(123, 460)
+        Me.requestno.Location = New System.Drawing.Point(123, 522)
         Me.requestno.Name = "requestno"
         Me.requestno.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.requestno.Properties.Appearance.Options.UseFont = True
@@ -516,7 +519,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         Me.LabelControl9.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl9.Appearance.Options.UseFont = True
-        Me.LabelControl9.Location = New System.Drawing.Point(64, 180)
+        Me.LabelControl9.Location = New System.Drawing.Point(64, 172)
         Me.LabelControl9.Name = "LabelControl9"
         Me.LabelControl9.Size = New System.Drawing.Size(64, 17)
         Me.LabelControl9.TabIndex = 949
@@ -599,7 +602,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl3.Appearance.Options.UseFont = True
-        Me.LabelControl3.Location = New System.Drawing.Point(25, 150)
+        Me.LabelControl3.Location = New System.Drawing.Point(25, 144)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(103, 17)
         Me.LabelControl3.TabIndex = 957
@@ -607,7 +610,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         'officeid
         '
-        Me.officeid.Location = New System.Drawing.Point(252, 460)
+        Me.officeid.Location = New System.Drawing.Point(252, 522)
         Me.officeid.Name = "officeid"
         Me.officeid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.officeid.Properties.Appearance.Options.UseFont = True
@@ -637,7 +640,7 @@ Partial Class frmRequisitionForApprovalInfo
         'txtRequestType
         '
         Me.txtRequestType.EditValue = ""
-        Me.txtRequestType.Location = New System.Drawing.Point(134, 116)
+        Me.txtRequestType.Location = New System.Drawing.Point(134, 112)
         Me.txtRequestType.Name = "txtRequestType"
         Me.txtRequestType.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtRequestType.Properties.Appearance.Options.UseFont = True
@@ -651,7 +654,7 @@ Partial Class frmRequisitionForApprovalInfo
         'txtOffice
         '
         Me.txtOffice.EditValue = ""
-        Me.txtOffice.Location = New System.Drawing.Point(134, 146)
+        Me.txtOffice.Location = New System.Drawing.Point(134, 140)
         Me.txtOffice.Name = "txtOffice"
         Me.txtOffice.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtOffice.Properties.Appearance.Options.UseFont = True
@@ -665,7 +668,7 @@ Partial Class frmRequisitionForApprovalInfo
         'txtRequestby
         '
         Me.txtRequestby.EditValue = ""
-        Me.txtRequestby.Location = New System.Drawing.Point(134, 176)
+        Me.txtRequestby.Location = New System.Drawing.Point(134, 168)
         Me.txtRequestby.Name = "txtRequestby"
         Me.txtRequestby.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtRequestby.Properties.Appearance.Options.UseFont = True
@@ -679,7 +682,7 @@ Partial Class frmRequisitionForApprovalInfo
         'txtFund
         '
         Me.txtFund.EditValue = ""
-        Me.txtFund.Location = New System.Drawing.Point(134, 206)
+        Me.txtFund.Location = New System.Drawing.Point(134, 224)
         Me.txtFund.Name = "txtFund"
         Me.txtFund.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtFund.Properties.Appearance.Options.UseFont = True
@@ -692,7 +695,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         'requesttype
         '
-        Me.requesttype.Location = New System.Drawing.Point(166, 460)
+        Me.requesttype.Location = New System.Drawing.Point(166, 522)
         Me.requesttype.Name = "requesttype"
         Me.requesttype.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.requesttype.Properties.Appearance.Options.UseFont = True
@@ -706,7 +709,7 @@ Partial Class frmRequisitionForApprovalInfo
         'txtPostingDate
         '
         Me.txtPostingDate.EditValue = ""
-        Me.txtPostingDate.Location = New System.Drawing.Point(134, 236)
+        Me.txtPostingDate.Location = New System.Drawing.Point(134, 252)
         Me.txtPostingDate.Name = "txtPostingDate"
         Me.txtPostingDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.txtPostingDate.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
@@ -731,7 +734,7 @@ Partial Class frmRequisitionForApprovalInfo
         Me.LabelControl2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(87, 373)
+        Me.LabelControl2.Location = New System.Drawing.Point(87, 385)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(41, 17)
         Me.LabelControl2.TabIndex = 962
@@ -741,7 +744,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         Me.txtPriority.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtPriority.EditValue = ""
-        Me.txtPriority.Location = New System.Drawing.Point(134, 369)
+        Me.txtPriority.Location = New System.Drawing.Point(134, 381)
         Me.txtPriority.Name = "txtPriority"
         Me.txtPriority.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtPriority.Properties.Appearance.Options.UseFont = True
@@ -767,7 +770,7 @@ Partial Class frmRequisitionForApprovalInfo
         Me.LabelControl1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl1.Appearance.Options.UseFont = True
-        Me.LabelControl1.Location = New System.Drawing.Point(39, 402)
+        Me.LabelControl1.Location = New System.Drawing.Point(39, 413)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(89, 17)
         Me.LabelControl1.TabIndex = 965
@@ -777,7 +780,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         Me.txtSourceAmount.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtSourceAmount.EditValue = ""
-        Me.txtSourceAmount.Location = New System.Drawing.Point(134, 398)
+        Me.txtSourceAmount.Location = New System.Drawing.Point(134, 409)
         Me.txtSourceAmount.Name = "txtSourceAmount"
         Me.txtSourceAmount.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtSourceAmount.Properties.Appearance.Options.UseFont = True
@@ -794,7 +797,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         'fundcode
         '
-        Me.fundcode.Location = New System.Drawing.Point(80, 460)
+        Me.fundcode.Location = New System.Drawing.Point(80, 522)
         Me.fundcode.Name = "fundcode"
         Me.fundcode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.fundcode.Properties.Appearance.Options.UseFont = True
@@ -807,7 +810,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         'approval
         '
-        Me.approval.Location = New System.Drawing.Point(80, 307)
+        Me.approval.Location = New System.Drawing.Point(91, 450)
         Me.approval.Name = "approval"
         Me.approval.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.approval.Properties.Appearance.Options.UseFont = True
@@ -818,6 +821,30 @@ Partial Class frmRequisitionForApprovalInfo
         Me.approval.TabIndex = 967
         Me.approval.Visible = False
         '
+        'LabelControl11
+        '
+        Me.LabelControl11.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.LabelControl11.Appearance.Options.UseFont = True
+        Me.LabelControl11.Location = New System.Drawing.Point(94, 200)
+        Me.LabelControl11.Name = "LabelControl11"
+        Me.LabelControl11.Size = New System.Drawing.Size(34, 17)
+        Me.LabelControl11.TabIndex = 969
+        Me.LabelControl11.Text = "Payee"
+        '
+        'txtPayee
+        '
+        Me.txtPayee.EditValue = ""
+        Me.txtPayee.Location = New System.Drawing.Point(134, 196)
+        Me.txtPayee.Name = "txtPayee"
+        Me.txtPayee.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtPayee.Properties.Appearance.Options.UseFont = True
+        Me.txtPayee.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtPayee.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.txtPayee.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtPayee.Properties.ReadOnly = True
+        Me.txtPayee.Size = New System.Drawing.Size(275, 26)
+        Me.txtPayee.TabIndex = 968
+        '
         'frmRequisitionForApprovalInfo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -825,6 +852,8 @@ Partial Class frmRequisitionForApprovalInfo
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(1131, 486)
+        Me.Controls.Add(Me.LabelControl11)
+        Me.Controls.Add(Me.txtPayee)
         Me.Controls.Add(Me.approval)
         Me.Controls.Add(Me.fundcode)
         Me.Controls.Add(Me.appid)
@@ -907,6 +936,7 @@ Partial Class frmRequisitionForApprovalInfo
         CType(Me.txtSourceAmount.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.approval.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtPayee.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -975,4 +1005,6 @@ Partial Class frmRequisitionForApprovalInfo
     Friend WithEvents txtSourceAmount As DevExpress.XtraEditors.TextEdit
     Friend WithEvents fundcode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents approval As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl11 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtPayee As DevExpress.XtraEditors.TextEdit
 End Class

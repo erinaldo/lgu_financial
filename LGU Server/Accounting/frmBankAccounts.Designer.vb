@@ -19,12 +19,13 @@ Partial Class frmBankAccounts
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
         Me.cmdOk = New DevExpress.XtraEditors.SimpleButton()
-        Me.code = New DevExpress.XtraEditors.TextEdit()
+        Me.id = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -34,7 +35,7 @@ Partial Class frmBankAccounts
         Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.txtBankCode = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.id.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gridmenustrip.SuspendLayout()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,33 +48,33 @@ Partial Class frmBankAccounts
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.25!)
         Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Location = New System.Drawing.Point(34, 44)
+        Me.LabelControl6.Location = New System.Drawing.Point(37, 43)
         Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(90, 19)
+        Me.LabelControl6.Size = New System.Drawing.Size(70, 19)
         Me.LabelControl6.TabIndex = 571
-        Me.LabelControl6.Text = "Account Name"
+        Me.LabelControl6.Text = "Bank Name"
         '
         'cmdOk
         '
         Me.cmdOk.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
         Me.cmdOk.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdOk.Appearance.Options.UseFont = True
-        Me.cmdOk.Location = New System.Drawing.Point(242, 73)
+        Me.cmdOk.Location = New System.Drawing.Point(242, 68)
         Me.cmdOk.Name = "cmdOk"
         Me.cmdOk.Size = New System.Drawing.Size(110, 30)
         Me.cmdOk.TabIndex = 4
         Me.cmdOk.Text = "Confirm Save"
         '
-        'code
+        'id
         '
-        Me.code.Location = New System.Drawing.Point(441, 17)
-        Me.code.Name = "code"
-        Me.code.Properties.Appearance.Options.UseTextOptions = True
-        Me.code.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.code.Properties.ReadOnly = True
-        Me.code.Size = New System.Drawing.Size(53, 20)
-        Me.code.TabIndex = 580
-        Me.code.Visible = False
+        Me.id.Location = New System.Drawing.Point(441, 17)
+        Me.id.Name = "id"
+        Me.id.Properties.Appearance.Options.UseTextOptions = True
+        Me.id.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.id.Properties.ReadOnly = True
+        Me.id.Size = New System.Drawing.Size(53, 20)
+        Me.id.TabIndex = 580
+        Me.id.Visible = False
         '
         'Em
         '
@@ -133,11 +134,11 @@ Partial Class frmBankAccounts
         'txtDescription
         '
         Me.txtDescription.EditValue = ""
-        Me.txtDescription.Location = New System.Drawing.Point(130, 41)
+        Me.txtDescription.Location = New System.Drawing.Point(113, 39)
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.25!)
         Me.txtDescription.Properties.Appearance.Options.UseFont = True
-        Me.txtDescription.Size = New System.Drawing.Size(222, 26)
+        Me.txtDescription.Size = New System.Drawing.Size(239, 26)
         Me.txtDescription.TabIndex = 1
         '
         'mode
@@ -154,22 +155,22 @@ Partial Class frmBankAccounts
         'txtBankCode
         '
         Me.txtBankCode.EditValue = ""
-        Me.txtBankCode.Location = New System.Drawing.Point(130, 11)
+        Me.txtBankCode.Location = New System.Drawing.Point(113, 11)
         Me.txtBankCode.Name = "txtBankCode"
         Me.txtBankCode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.25!)
         Me.txtBankCode.Properties.Appearance.Options.UseFont = True
-        Me.txtBankCode.Size = New System.Drawing.Size(115, 26)
+        Me.txtBankCode.Size = New System.Drawing.Size(239, 26)
         Me.txtBankCode.TabIndex = 0
         '
         'LabelControl1
         '
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.25!)
         Me.LabelControl1.Appearance.Options.UseFont = True
-        Me.LabelControl1.Location = New System.Drawing.Point(92, 14)
+        Me.LabelControl1.Location = New System.Drawing.Point(32, 15)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(32, 19)
+        Me.LabelControl1.Size = New System.Drawing.Size(75, 19)
         Me.LabelControl1.TabIndex = 639
-        Me.LabelControl1.Text = "Code"
+        Me.LabelControl1.Text = "Account No."
         '
         'frmBankAccounts
         '
@@ -181,17 +182,17 @@ Partial Class frmBankAccounts
         Me.Controls.Add(Me.txtBankCode)
         Me.Controls.Add(Me.mode)
         Me.Controls.Add(Me.cmdOk)
-        Me.Controls.Add(Me.code)
+        Me.Controls.Add(Me.id)
         Me.Controls.Add(Me.LabelControl6)
         Me.Controls.Add(Me.txtDescription)
         Me.Controls.Add(Me.Em)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(407, 524)
+        Me.MinimumSize = New System.Drawing.Size(407, 517)
         Me.Name = "frmBankAccounts"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Bank Accounts"
-        CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.id.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gridmenustrip.ResumeLayout(False)
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -204,7 +205,7 @@ Partial Class frmBankAccounts
     End Sub
     Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents cmdOk As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents code As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents id As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Em As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents txtDescription As DevExpress.XtraEditors.TextEdit

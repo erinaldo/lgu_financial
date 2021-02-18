@@ -38,6 +38,7 @@ Partial Class frmJournalEntryExpenditure
         Me.txtItem = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridItem = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.officeid = New DevExpress.XtraEditors.TextEdit()
+        Me.pid = New DevExpress.XtraEditors.TextEdit()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,6 +48,7 @@ Partial Class frmJournalEntryExpenditure
         CType(Me.txtItem.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridItem, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ContextMenuStrip1
@@ -83,7 +85,7 @@ Partial Class frmJournalEntryExpenditure
         Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit1.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit1.Properties.Caption = "Check All"
-        Me.CheckEdit1.Size = New System.Drawing.Size(82, 20)
+        Me.CheckEdit1.Size = New System.Drawing.Size(82, 19)
         Me.CheckEdit1.TabIndex = 769
         '
         'cmdOk
@@ -209,6 +211,17 @@ Partial Class frmJournalEntryExpenditure
         Me.officeid.TabIndex = 844
         Me.officeid.Visible = False
         '
+        'pid
+        '
+        Me.pid.EnterMoveNextControl = True
+        Me.pid.Location = New System.Drawing.Point(400, 333)
+        Me.pid.Name = "pid"
+        Me.pid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pid.Properties.Appearance.Options.UseFont = True
+        Me.pid.Size = New System.Drawing.Size(96, 20)
+        Me.pid.TabIndex = 845
+        Me.pid.Visible = False
+        '
         'frmJournalEntryExpenditure
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -216,6 +229,7 @@ Partial Class frmJournalEntryExpenditure
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(652, 530)
+        Me.Controls.Add(Me.pid)
         Me.Controls.Add(Me.officeid)
         Me.Controls.Add(Me.LabelControl2)
         Me.Controls.Add(Me.txtItem)
@@ -240,6 +254,7 @@ Partial Class frmJournalEntryExpenditure
         CType(Me.txtItem.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridItem, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -258,4 +273,5 @@ Partial Class frmJournalEntryExpenditure
     Friend WithEvents txtItem As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gridItem As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents officeid As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents pid As DevExpress.XtraEditors.TextEdit
 End Class

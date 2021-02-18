@@ -139,7 +139,7 @@ Public Class MainForm
         End If
 
         If globalAuthNewDisbursement = True Or globalRootUser = True Then
-            Dim newdisbursementlist As Integer = countqry("tblrequisition", " approved=1 and cancelled=0 and paid=0")
+            Dim newdisbursementlist As Integer = countqry("tblrequisition", " approved=1 and cancelled=0 and paid=0 and requesttype in (select code from tblrequisitiontype where enablevoucher=1)")
             If newdisbursementlist > 0 Then
                 cmdNewDisbursement.Text = "New Disbursement (" & newdisbursementlist & ")"
                 If globalFontColor = "LIGHT" Then
@@ -165,6 +165,21 @@ Public Class MainForm
 
             Else
                 cmdDisbursementMgt.Text = "Disbursement Voucher"
+            End If
+        End If
+
+        If globalAuthNewDirectJournal = True Or globalRootUser = True Then
+            Dim newDirectJournal As Integer = countqry("tblrequisition", "approved=1 and cancelled=0 and jev=0 and requesttype in (select code from tblrequisitiontype where enablevoucher=0)")
+            If newDirectJournal > 0 Then
+                cmdDirectJournal.Text = "New Direct Journal (" & newDirectJournal & ")"
+                If globalFontColor = "LIGHT" Then
+                    cmdDirectJournal.ForeColor = Color.Gold
+                Else
+                    cmdDirectJournal.ForeColor = Color.Red
+                End If
+
+            Else
+                cmdDirectJournal.Text = "New Direct Journal"
             End If
         End If
 
@@ -370,6 +385,14 @@ Public Class MainForm
         Else
             cmdRealPropertyManagement.Visible = False
             lineRealProperty.Visible = False
+        End If
+
+        If globalAuthNewDirectJournal = True Then
+            cmdDirectJournal.Visible = True
+            lineDirectJournal.Visible = True
+        Else
+            cmdDirectJournal.Visible = False
+            lineDirectJournal.Visible = False
         End If
 
         If globalAuthJournalEntryVoucher = True Then
@@ -899,6 +922,14 @@ Public Class MainForm
             frmForApprovalCheckReleasing.Focus()
         Else
             frmForApprovalCheckReleasing.ShowDialog(Me)
+        End If
+    End Sub
+
+    Private Sub cmdDirectJournal_Click(sender As Object, e As EventArgs) Handles cmdDirectJournal.Click
+        If frmNewDirectJournal.Visible = True Then
+            frmNewDirectJournal.Focus()
+        Else
+            frmNewDirectJournal.ShowDialog(Me)
         End If
     End Sub
 End Class

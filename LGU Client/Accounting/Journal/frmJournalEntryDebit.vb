@@ -22,7 +22,7 @@ Public Class frmJournalEntryDebit
     End Sub
 
     Public Sub LoadExpenditureItem()
-        LoadXgridLookupSearch("select itemcode as code, officeid, (select itemname from tblglitem where itemcode=a.itemcode) as 'Select',  (select officename from tblcompoffice where officeid=a.officeid) as Center, Amount from tblrequisitionfund as a where pid in (select pid from tbldisbursementdetails where voucherno='" & voucherno.Text & "') ", "tblrequisitionfund", txtExpiditureClass, gridExpenditure)
+        LoadXgridLookupSearch("select itemcode as code, officeid, (select itemname from tblglitem where itemcode=a.itemcode) as 'Select',  (select officename from tblcompoffice where officeid=a.officeid) as Center, Amount from tblrequisitionfund as a where (pid in (select pid from tbldisbursementdetails where voucherno='" & voucherno.Text & "') or pid='" & pid.Text & "') ", "tblrequisitionfund", txtExpiditureClass, gridExpenditure)
         gridExpenditure.Columns("code").Visible = False
         gridExpenditure.Columns("officeid").Visible = False
         XgridColCurrency({"Amount"}, gridExpenditure)

@@ -2095,14 +2095,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LGU Client.exe" size="7489536">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LGU Client.exe" size="7511040">
       <assemblyIdentity name="LGU Client" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IbKzV+zbScq0VNsWr11hmVEfvtoe7RbK1Gg5EPCAC5U=</dsig:DigestValue>
+        <dsig:DigestValue>3ODpheH0A85kFN+ZjA4KWGfR+UDu6I/hPSMjk8b044I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

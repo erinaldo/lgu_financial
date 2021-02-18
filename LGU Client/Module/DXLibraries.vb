@@ -977,9 +977,14 @@ Module Libraries
                 sr.Close()
 
             Catch errMS As Exception
-                XtraMessageBox.Show("Message: Invalid column filter format! Please update your columns" & vbCrLf, _
-                                  "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 sr.Close()
+                If System.IO.File.Exists(file_conn) = True Then
+                    File.Delete(file_conn)
+                End If
+
+                'XtraMessageBox.Show("Message: Invalid column filter format! Please update your columns" & vbCrLf, _
+                '                  "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                'sr.Close()
             End Try
         End If
     End Sub

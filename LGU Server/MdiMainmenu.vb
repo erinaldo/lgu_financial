@@ -17,20 +17,7 @@ Public Class MdiMainmenu
     Public Property AllowCustomLookAndFeel As Boolean = True
     Dim validateRemote As Boolean = False
     Sub New()
-        InitSkins()
         InitializeComponent()
-        Me.InitSkinGallery()
-    End Sub
-
-    Sub InitSkins()
-        DevExpress.Skins.SkinManager.EnableFormSkins()
-        DevExpress.UserSkins.OfficeSkins.Register()
-        DevExpress.UserSkins.BonusSkins.Register()
-        UserLookAndFeel.Default.SetSkinStyle(globaltheme)
-
-    End Sub
-    Private Sub InitSkinGallery()
-        SkinHelper.InitSkinGallery(rgbiSkins, True)
     End Sub
 
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
@@ -377,14 +364,6 @@ Public Class MdiMainmenu
         End If
     End Sub
 
-    Private Sub cmdBankAccount_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdBankAccount.ItemClick
-        If frmBankAccounts.Visible = True Then
-            frmBankAccounts.Focus()
-        Else
-            frmBankAccounts.Show(Me)
-        End If
-    End Sub
-
     Private Sub cmdExpenditureItem_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdExpenditureItem.ItemClick
         If frmExpenditureItem.Visible = True Then
             frmExpenditureItem.Focus()
@@ -460,6 +439,14 @@ Public Class MdiMainmenu
             frmCheckApprovalFilter.Focus()
         Else
             frmCheckApprovalFilter.Show(Me)
+        End If
+    End Sub
+
+    Private Sub cmdBankAccounts_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdBankAccounts.ItemClick
+        If frmBankAccounts.Visible = True Then
+            frmBankAccounts.Focus()
+        Else
+            frmBankAccounts.Show(Me)
         End If
     End Sub
 End Class

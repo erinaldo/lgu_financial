@@ -127,7 +127,7 @@ Public Class frmUserProfile
                 loadglobaluser()
                 globaltheme = txttheme.Text
                 MdiMainmenu.CustomizeSystemIcon(txtSystemIcon.Text)
-                MdiMainmenu.InitSkins()
+
                 XtraMessageBox.Show("User successfully updated!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
                 cpass = False
             End If

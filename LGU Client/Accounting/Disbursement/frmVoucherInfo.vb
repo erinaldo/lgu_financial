@@ -38,11 +38,14 @@ Public Class frmVoucherInfo
         LoadSupplier()
         txtVoucherDate.EditValue = Now
         'txtCheckDate.EditValue = Now
-        If mode.Text <> "edit" Then
+        If mode.Text = "edit" Then
+            ShowVoucherInfo()
+        ElseIf mode.Text = "view" Then
+            ShowVoucherInfo()
+            InfoControl(True)
+        Else
             CreateTrnReference()
             cmdSave.Text = "Save Voucher"
-        Else
-            ShowVoucherInfo()
         End If
         SplashScreenManager.CloseForm()
     End Sub
@@ -62,17 +65,23 @@ Public Class frmVoucherInfo
         yearcode.Text = txtFund.Properties.View.GetFocusedRowCellValue("yeartrn").ToString()
         txtVoucherDate.Properties.MinValue = CDate("01/01/" & yearcode.Text)
         txtVoucherDate.Properties.MaxValue = CDate("12/31/" & yearcode.Text)
+        officeid.Text = ""
         LoadOffice()
     End Sub
 
     Public Sub LoadOffice()
         If periodcode.Text = "" Then Exit Sub
-        LoadXgridLookupSearch("select officeid, officename as 'Select' from tblcompoffice where officeid in (select officeid from tblrequisition where approved=1 and periodcode='" & periodcode.Text & "')  order by officename asc", "tblcompoffice", txtOffice, gridOffice)
+        LoadXgridLookupSearch("select officeid, officename as 'Select' from tblcompoffice where (officeid in (select officeid from tblrequisition where approved=1 and periodcode='" & periodcode.Text & "' and paid=0 and requesttype in (select code from tblrequisitiontype where enablevoucher=1)) or officeid='" & officeid.Text & "')  order by officename asc", "tblcompoffice", txtOffice, gridOffice)
         gridOffice.Columns("officeid").Visible = False
     End Sub
 
+    Private Sub txtOffice_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtOffice.EditValueChanged
+        On Error Resume Next
+        officeid.Text = txtOffice.Properties.View.GetFocusedRowCellValue("officeid").ToString()
+    End Sub
+
     Public Sub ShowVoucherInfo()
-        Dim budgettitle As String = "" : Dim officeid As String = ""
+        Dim budgettitle As String = ""
         com.CommandText = "select * from tbldisbursementvoucher as a where id='" & id.Text & "'" : rst = com.ExecuteReader
         While rst.Read
             txtFund.EditValue = rst("periodcode").ToString
@@ -80,7 +89,7 @@ Public Class frmVoucherInfo
             seriesno.Text = rst("seriesno").ToString
             yearcode.Text = rst("yearcode").ToString
             yeartrn.Text = rst("yeartrn").ToString
-            officeid = rst("officeid").ToString
+            officeid.Text = rst("officeid").ToString
             checkno.Text = rst("checkno").ToString
             txtVoucherDate.EditValue = CDate(rst("voucherdate").ToString)
             voucherno.Text = rst("voucherno").ToString
@@ -98,7 +107,7 @@ Public Class frmVoucherInfo
         rst.Close()
         LoadVoucherExpenses()
         LoadOffice()
-        txtOffice.EditValue = officeid
+        txtOffice.EditValue = officeid.Text
 
     End Sub
 
@@ -121,9 +130,9 @@ Public Class frmVoucherInfo
     End Function
 
     Public Sub LoadVoucherExpenses()
-        LoadXgrid("select id, pid as 'Entry Code', date_format(postingdate,'%Y-%m-%d') as 'Date', requestno as 'Request No',(select officename from tblcompoffice where officeid=a.officeid) as 'Office', (select description from tblrequisitiontype where code=a.requesttype) as 'Request Type', Amount,Purpose from tbldisbursementdetails as a where voucherno='" & voucherno.Text & "' order by postingdate asc", "tbldisbursementdetails", Em_requisition, gridRequisition, Me)
+        LoadXgrid("select id, payee as payeeid, pid as 'Entry Code', date_format(postingdate,'%Y-%m-%d') as 'Date',  requestno as 'Request No', (select officename from tblcompoffice where officeid=a.officeid) as 'Office', (select description from tblrequisitiontype where code=a.requesttype) as 'Request Type', Amount,  (select suppliername from tblsupplier where supplierid=a.payee) as Payee, Purpose from tbldisbursementdetails as a where voucherno='" & voucherno.Text & "' order by postingdate asc", "tbldisbursementdetails", Em_requisition, gridRequisition, Me)
 
-        XgridHideColumn({"id"}, gridRequisition)
+        XgridHideColumn({"id", "payeeid"}, gridRequisition)
         XgridColAlign({"Entry Code", "Request No", "Request Type", "Date"}, gridRequisition, DevExpress.Utils.HorzAlignment.Center)
         XgridColCurrency({"Amount"}, gridRequisition)
         XgridGeneralSummaryCurrency({"Amount"}, gridRequisition)
@@ -133,6 +142,7 @@ Public Class frmVoucherInfo
         If gridRequisition.RowCount > 0 Then
             txtFund.ReadOnly = True
             txtOffice.ReadOnly = True
+
         Else
             txtFund.ReadOnly = False
             txtOffice.ReadOnly = False
@@ -214,7 +224,7 @@ Public Class frmVoucherInfo
             txtVoucherDate.Focus()
             Return False
         ElseIf txtSupplier.Text = "" Then
-            XtraMessageBox.Show("Please select supplier ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            XtraMessageBox.Show("Please select payee ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtSupplier.Focus()
             Return False
         ElseIf gridRequisition.RowCount = 0 Then
@@ -236,7 +246,7 @@ Public Class frmVoucherInfo
                    + " yeartrn='" & yeartrn.Text & "', " _
                    + " voucherdate='" & ConvertDate(txtVoucherDate.EditValue) & "', " _
                    + " supplierid='" & txtSupplier.EditValue & "', " _
-                   + " officeid='" & txtOffice.EditValue & "', " _
+                   + " officeid='" & officeid.Text & "', " _
                    + " amount='" & Val(CC(txtVoucherAmount.EditValue)) & "' " _
                    + " where id='" & id.Text & "'" : com.ExecuteNonQuery()
         Else
@@ -255,7 +265,7 @@ Public Class frmVoucherInfo
                    + " yeartrn='" & yeartrn.Text & "', " _
                    + " voucherdate='" & ConvertDate(txtVoucherDate.EditValue) & "', " _
                    + " supplierid='" & txtSupplier.EditValue & "', " _
-                   + " officeid='" & txtOffice.EditValue & "', " _
+                   + " officeid='" & officeid.Text & "', " _
                    + " checkno='', " _
                    + " checkbank='', " _
                    + " checkdate=null, " _
@@ -312,5 +322,14 @@ Public Class frmVoucherInfo
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
         cmdAddApprovedRequisition.PerformClick()
+    End Sub
+
+    Private Sub gridRequisition_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles gridRequisition.FocusedRowChanged
+        If gridRequisition.RowCount > 0 Then
+            If txtSupplier.EditValue Is Nothing Then
+                txtSupplier.EditValue = gridRequisition.GetFocusedRowCellValue("payeeid").ToString
+
+            End If
+        End If
     End Sub
 End Class

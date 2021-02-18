@@ -187,6 +187,49 @@ Module UpdateEngine
             engineupdated = True
         End If
 
+        updateVersion = "2021-02-11"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "ALTER TABLE `tblrequisition` ADD INDEX `currentapprover`(`currentapprover`), ADD INDEX `nextapprover`(`nextapprover`), ADD INDEX `cancelledby`(`cancelledby`), ADD INDEX `periodcode`(`periodcode`), ADD INDEX `fundcode`(`fundcode`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblrequisitionfund` ADD INDEX `pid`(`pid`), ADD INDEX `officeid`(`officeid`), ADD INDEX `periodcode`(`periodcode`), ADD INDEX `requestno`(`requestno`), ADD INDEX `itemcode`(`itemcode`), ADD INDEX `classcode`(`classcode`), ADD INDEX `quarter`(`quarter`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbldisbursementdetails` ADD INDEX `pid`(`pid`), ADD INDEX `requestno`(`requestno`), ADD INDEX `requesttype`(`requesttype`), ADD INDEX `officeid`(`officeid`), ADD INDEX `voucherno`(`voucherno`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbldisbursementvoucher` ADD INDEX `fundcode`(`fundcode`), ADD INDEX `officeid`(`officeid`), ADD INDEX `supplierid`(`supplierid`), ADD INDEX `clearedby`(`clearedby`), ADD INDEX `cancelledby`(`cancelledby`), ADD INDEX `trnby`(`trnby`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblrequisitionfiles` ADD INDEX `trnby`(`trnby`), ADD INDEX `requesttype`(`requesttype`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblrequisitionfilter` ADD INDEX `requestcode`(`requestcode`), ADD INDEX `officeid`(`officeid`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbljournalentryitem` ADD INDEX `jevno`(`jevno`), ADD INDEX `fundcode`(`fundcode`), ADD INDEX `periodcode`(`periodcode`), ADD INDEX `centercode`(`centercode`), ADD INDEX `classcode`(`classcode`), ADD INDEX `cashflowitem`(`cashflowitem`), ADD INDEX `itemcode`(`itemcode`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbljournalentryvoucher` ADD INDEX `jevno`(`jevno`), ADD INDEX `fundcode`(`fundcode`), ADD INDEX `periodcode`(`periodcode`), ADD INDEX `officeid`(`officeid`), ADD INDEX `trnby`(`trnby`), ADD INDEX `dvno`(`dvno`), ADD INDEX `clearedby`(`clearedby`), ADD INDEX `cancelledby`(`cancelledby`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+        updateVersion = "2021-02-15"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "ALTER TABLE `tblrequisition` ADD COLUMN `payee` VARCHAR(45) NOT NULL DEFAULT '' AFTER `requestedby`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblrequisitiontype` ADD COLUMN `enablevoucher` TINYINT(1) NOT NULL DEFAULT 1 AFTER `description`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbljournalentryvoucher` ADD COLUMN `pid` VARCHAR(45) NOT NULL DEFAULT '' AFTER `aeno`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblclientaccess` ADD COLUMN `newdirectjournal` TINYINT(1) NOT NULL DEFAULT 0 AFTER `realpropertymgt`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblrequisition` ADD COLUMN `jev` BOOLEAN NOT NULL DEFAULT 0 AFTER `paid`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update `tblrequisition` set jev=1 where pid in (select a.pid from tbldisbursementdetails as a inner join tbljournalentryvoucher as b on a.voucherno=b.dvno);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbldisbursementdetails` ADD COLUMN `payee` VARCHAR(45) NOT NULL DEFAULT '' AFTER `requesttype`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+        updateVersion = "2021-02-18"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "ALTER TABLE `tblrequisition` ADD COLUMN `voucher` BOOLEAN NOT NULL DEFAULT 0 AFTER `checkapproved`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update tblrequisition set voucher=paid;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update tblrequisition set paid=0;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update tblrequisition set paid=1 where pid in (select pid from tbldisbursementdetails as a inner join tbldisbursementvoucher as b on a.voucherno=b.voucherno where b.checkno<>'');" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblrequisition` ADD COLUMN `cleared` BOOLEAN NOT NULL DEFAULT 0 AFTER `jev`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+        updateVersion = "2021-02-19"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "ALTER TABLE `tblrequisitiontype` ADD COLUMN `template` VARCHAR(10) NOT NULL DEFAULT '' AFTER `description`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblfund` DROP COLUMN `template`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+
         If engineupdated = True Then
             Dim dversion As Date = updateVersion
             XtraMessageBox.Show("Your database engine was updated to Build Version " & dversion.ToString & Environment.NewLine & "Please view update list at ""Main System Menu"" > About > What's New!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)

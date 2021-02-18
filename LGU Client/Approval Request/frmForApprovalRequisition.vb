@@ -58,7 +58,7 @@ Public Class frmForApprovalRequisition
                         + " order by requestno asc", "tblrequisition", Em, GridView1, Me)
 
         XgridColCurrency({"Total Amount"}, GridView1)
-        XgridColAlign({"Status", "Entry Code", "Fund Period", "Request Type", "Posting Date", "Date Posted", "Draft", "ForApproval", "Approved", "Date Approved", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+        XgridColAlign({"Status", "Entry Code", "Fund Period", "Posting Date", "Date Posted", "Draft", "ForApproval", "Approved", "Date Approved", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         XgridGeneralSummaryCurrency({"Total Amount"}, GridView1)
 
 

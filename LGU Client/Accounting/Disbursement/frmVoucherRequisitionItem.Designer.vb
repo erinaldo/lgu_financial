@@ -161,7 +161,7 @@ Partial Class frmVoucherRequisitionItem
         Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit1.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit1.Properties.Caption = "Check All"
-        Me.CheckEdit1.Size = New System.Drawing.Size(82, 20)
+        Me.CheckEdit1.Size = New System.Drawing.Size(82, 19)
         Me.CheckEdit1.TabIndex = 769
         '
         'cmdOk

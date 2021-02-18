@@ -13,6 +13,7 @@ Public Class frmRequisitionInfo
     Private DirectApproved As Boolean = False
     Private EnablePR As Boolean = False
     Private EnablePO As Boolean = False
+    Private EnableVoucher As Boolean = True
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
         If keyData = (Keys.Escape) Then
             Me.Close()
@@ -49,6 +50,7 @@ Public Class frmRequisitionInfo
 
         LoadOffice()
         LoadRequestBy()
+        LoadSupplier()
 
         officeid.Text = compOfficeid
         txtOffice.EditValue = compOfficeid
@@ -80,6 +82,7 @@ Public Class frmRequisitionInfo
         txtFund.ReadOnly = readonlyForm
         txtPurpose.ReadOnly = readonlyForm
         txtPriority.ReadOnly = readonlyForm
+        txtSupplier.ReadOnly = readonlyForm
 
         If globalSpecialApprover = True Then
             txtOffice.ReadOnly = readonlyForm
@@ -180,9 +183,9 @@ Public Class frmRequisitionInfo
     End Sub
 
     Public Sub ShowReportTemplate()
-        If countqry("tblfund", "code='" & fundcode.Text & "' and template='FURS'") > 0 Then
+        If countqry("tblrequisitiontype", "code='" & requesttype.Text & "' and template='FURS'") > 0 Then
             cmdPrintObligation.Text = "Print FURS"
-        ElseIf countqry("tblfund", "code='" & fundcode.Text & "' and template='CAFOA'") > 0 Then
+        ElseIf countqry("tblrequisitiontype", "code='" & requesttype.Text & "' and template='CAFOA'") > 0 Then
             cmdPrintObligation.Text = "Print CAFOA"
         Else
             cmdPrintObligation.Visible = False
@@ -212,7 +215,7 @@ Public Class frmRequisitionInfo
     End Sub
 
     Public Sub LoadRequestType()
-        LoadXgridLookupSearch("select code,description as 'Select',enablepr,enablepo from tblrequisitiontype " & If(LCase(globalusername) = "root", "", " where code in (select requestcode from tblrequisitionfilter where officeid='" & officeid.Text & "')") & " order by description asc", "tblrequisitiontype", txtRequestType, gridRequestType)
+        LoadXgridLookupSearch("select code,description as 'Select',enablepr,enablepo from tblrequisitiontype " & If(LCase(globalusername) = "root", "", " where (code in (select requestcode from tblrequisitionfilter where officeid='" & officeid.Text & "') or code='" & requesttype.Text & "')") & " order by description asc", "tblrequisitiontype", txtRequestType, gridRequestType)
         XgridHideColumn({"code", "enablepr", "enablepo"}, gridRequestType)
     End Sub
 
@@ -228,6 +231,7 @@ Public Class frmRequisitionInfo
             DirectApproved = CBool(rst("directapproved").ToString())
             EnablePR = CBool(rst("enablepr").ToString())
             EnablePO = CBool(rst("enablepo").ToString())
+            EnableVoucher = CBool(rst("enablevoucher").ToString())
         End While
         rst.Close()
         If DirectApproved Then
@@ -235,6 +239,15 @@ Public Class frmRequisitionInfo
             cmdForApproval.Text = "Proceed for DV Preparation"
         Else
             cmdForApproval.Text = "Submit for Approval"
+        End If
+        If EnableVoucher Then
+            txtSupplier.Enabled = True
+            HyperlinkLabelControl1.Enabled = True
+            LoadSupplier()
+        Else
+            txtSupplier.Enabled = False
+            HyperlinkLabelControl1.Enabled = False
+            txtSupplier.Properties.DataSource = Nothing
         End If
     End Sub
 
@@ -251,7 +264,7 @@ Public Class frmRequisitionInfo
 
     Public Sub LoadRequestBy()
         If txtOffice.Text = "" Then Exit Sub
-        LoadXgridLookupSearch("select accountid as code, fullname as 'Select' from tblaccounts where officeid='" & officeid.Text & "'  order by fullname asc", "tblaccounts", txtRequestby, gridrequestby)
+        LoadXgridLookupSearch("select accountid as code, fullname as 'Select' from tblaccounts where (officeid='" & officeid.Text & "' or accountid='" & requestby.Text & "')  order by fullname asc", "tblaccounts", txtRequestby, gridrequestby)
         gridrequestby.Columns("code").Visible = False
     End Sub
 
@@ -260,8 +273,18 @@ Public Class frmRequisitionInfo
         requestby.Text = txtRequestby.Properties.View.GetFocusedRowCellValue("code").ToString()
     End Sub
 
+    Public Sub LoadSupplier()
+        LoadXgridLookupSearch("select supplierid as code,suppliername as 'Select', completeaddress, tin from tblsupplier where deleted=0 order by suppliername asc", "tblsupplier", txtSupplier, gridSupplier)
+        gridSupplier.Columns("code").Visible = False
+        XgridHideColumn({"code", "completeaddress", "tin"}, gridSupplier)
+    End Sub
+    Private Sub HyperlinkLabelControl1_Click(sender As Object, e As EventArgs) Handles HyperlinkLabelControl1.Click
+        frmSupplierInfo.ShowDialog(Me)
+        LoadSupplier()
+    End Sub
+
     Public Sub LoadFund()
-        LoadXgridLookupSearch("SELECT periodcode as code,fundcode,yeartrn, concat(yeartrn,'-',(select Description from tblfund where code=tblfundperiod.fundcode)) as 'Select'  from tblfundperiod where closed=0 " & If(LCase(globalusername) = "root", "", " and fundcode in (select fundcode from tblfundfilter where officeid='" & officeid.Text & "')") & "  order by yeartrn asc", "tblfundperiod", txtFund, gridFund)
+        LoadXgridLookupSearch("Select periodcode As code,fundcode,yeartrn, concat(yeartrn,'-',(select Description from tblfund where code=tblfundperiod.fundcode)) as 'Select'  from tblfundperiod where closed=0 " & If(LCase(globalusername) = "root", "", " and fundcode in (select fundcode from tblfundfilter where officeid='" & officeid.Text & "')") & "  order by yeartrn asc", "tblfundperiod", txtFund, gridFund)
         XgridHideColumn({"code", "fundcode", "yeartrn"}, gridFund)
     End Sub
     Private Sub txtFund_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtFund.EditValueChanged
@@ -308,6 +331,10 @@ Public Class frmRequisitionInfo
         ElseIf txtRequestby.Text = "" Then
             XtraMessageBox.Show("Please select request by!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtRequestby.Focus()
+            Return False
+        ElseIf EnableVoucher = True And txtSupplier.Text = "" Then
+            XtraMessageBox.Show("Please select payee!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txtSupplier.Focus()
             Return False
         ElseIf txtFund.Text = "" Then
             XtraMessageBox.Show("Please select fund period!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -368,7 +395,7 @@ Public Class frmRequisitionInfo
                 requesttype.Text = .Rows(cnt)("requesttype").ToString()
                 requestno.Text = .Rows(cnt)("requestno").ToString()
                 requestby.Text = .Rows(cnt)("requestedby").ToString()
-
+                txtSupplier.EditValue = .Rows(cnt)("payee").ToString()
                 txtRequestNumber.Text = .Rows(cnt)("requestno").ToString()
                 txtFund.EditValue = .Rows(cnt)("periodcode").ToString()
                 txtOffice.EditValue = .Rows(cnt)("officeid").ToString()
@@ -378,38 +405,85 @@ Public Class frmRequisitionInfo
                 txtPurpose.Text = .Rows(cnt)("purpose").ToString()
                 txtPriority.EditValue = .Rows(cnt)("priority").ToString()
                 HeadOfficeApprover = CBool(.Rows(cnt)("headofficeapproval").ToString())
-                If CBool(.Rows(cnt)("approved").ToString()) = True Then
-                    ReadOnlyForm(True, "view")
-                    If CBool(.Rows(cnt)("paid").ToString()) = True Then
-                        txtStatus.Text = "DISBURSED"
+                If CBool(.Rows(cnt)("cancelled").ToString()) = True Then
+                    ReadOnlyForm(True, "cancelled")
+                    txtStatus.Text = "CANCELLED"
+
+                Else
+                    If CBool(.Rows(cnt)("cleared").ToString()) = True Then
+                        ReadOnlyForm(True, "view")
+                        txtStatus.Text = "CHECK CLAIMED"
                         tabDisbursement.PageVisible = True
                         LoadDisbursement()
                     Else
-                        txtStatus.Text = "APPROVED"
-                        tabDisbursement.PageVisible = False
+                        If CBool(.Rows(cnt)("approved").ToString()) = True Then
+                            ReadOnlyForm(True, "view")
+                            If CBool(.Rows(cnt)("voucher").ToString()) = True Then
+                                If CBool(.Rows(cnt)("paid").ToString()) = True Then
+                                    txtStatus.Text = "CHECK ISSUED"
+                                Else
+                                    txtStatus.Text = "FOR CHECK ISSUANCE"
+                                End If
+                                tabDisbursement.PageVisible = True
+                                LoadDisbursement()
+                            Else
+                                txtStatus.Text = "APPROVED"
+                                tabDisbursement.PageVisible = False
+                            End If
+                        Else
+                            tabDisbursement.PageVisible = False
+                            If CBool(.Rows(cnt)("forapproval").ToString()) = True Then
+                                ReadOnlyForm(True, "approval")
+                                txtStatus.Text = "FOR APPROVAL"
+
+                            ElseIf CBool(.Rows(cnt)("draft").ToString()) = True Then
+                                ReadOnlyForm(False, "edit")
+                                txtStatus.Text = "DRAFT"
+
+                            ElseIf CBool(.Rows(cnt)("hold").ToString()) = True Then
+                                ReadOnlyForm(False, "edit")
+                                txtStatus.Text = "ON HOLD"
+                            End If
+                        End If
                     End If
-                Else
-                    tabDisbursement.PageVisible = False
-                    If CBool(.Rows(cnt)("cancelled").ToString()) = True Then
-                        ReadOnlyForm(True, "cancelled")
-                        txtStatus.Text = "CANCELLED"
 
-                    ElseIf CBool(.Rows(cnt)("forapproval").ToString()) = True Then
-                        ReadOnlyForm(True, "approval")
-                        txtStatus.Text = "FOR APPROVAL"
-
-                    ElseIf CBool(.Rows(cnt)("draft").ToString()) = True Then
-                        ReadOnlyForm(False, "edit")
-                        txtStatus.Text = "DRAFT"
-
-                    ElseIf CBool(.Rows(cnt)("hold").ToString()) = True Then
-                        ReadOnlyForm(False, "edit")
-                        txtStatus.Text = "ON HOLD"
-                    End If
                 End If
+
             End With
         Next
+        LoadRequestBy()
         CheckOptionalSettings()
+    End Sub
+
+    Private Sub txtStatus_EditValueChanged(sender As Object, e As EventArgs) Handles txtStatus.EditValueChanged
+        If txtStatus.Text = "PENDING" Or txtStatus.Text = "FOR APPROVAL" Or txtStatus.Text = "ON HOLD" Or txtStatus.Text = "NEW REQUEST" Then
+            txtStatus.BackColor = Color.Orange
+            txtStatus.ForeColor = Color.Black
+
+        ElseIf txtStatus.Text = "FOR CHECK ISSUANCE" Then
+            txtStatus.BackColor = Color.Khaki
+            txtStatus.ForeColor = Color.Black
+
+        ElseIf txtStatus.Text = "DRAFT" Then
+            txtStatus.BackColor = Color.LightGray
+            txtStatus.ForeColor = Color.Black
+
+        ElseIf txtStatus.Text = "APPROVED" Then
+            txtStatus.BackColor = Color.Green
+            txtStatus.ForeColor = Color.Black
+
+        ElseIf txtStatus.Text = "CHECK ISSUED" Then
+            txtStatus.BackColor = Color.LightSkyBlue
+            txtStatus.ForeColor = Color.Black
+
+        ElseIf txtStatus.Text = "CHECK CLAIMED" Then
+            txtStatus.BackColor = Color.Gold
+            txtStatus.ForeColor = Color.Black
+
+        ElseIf txtStatus.Text = "CANCELLED" Then
+            txtStatus.BackColor = Color.Red
+            txtStatus.ForeColor = Color.White
+        End If
     End Sub
 
     Public Function SaveRequisitionInfo(ByVal draft As Boolean, ByVal forapproval As Boolean) As Boolean
@@ -419,6 +493,7 @@ Public Class frmRequisitionInfo
                                        + " pid='" & pid.Text & "', " _
                                        + " requestno='" & requestno.Text & "', " _
                                        + " requestedby='" & requestby.Text & "', " _
+                                       + " payee='" & txtSupplier.EditValue & "', " _
                                        + " officeid='" & txtOffice.EditValue & "', " _
                                        + " periodcode='" & periodcode.Text & "', " _
                                        + " fundcode='" & fundcode.Text & "', " _
@@ -439,6 +514,7 @@ Public Class frmRequisitionInfo
                                        + " pid='" & pid.Text & "', " _
                                        + " requestno='" & RequestNumber & "', " _
                                        + " requestedby='" & requestby.Text & "', " _
+                                       + " payee='" & txtSupplier.EditValue & "', " _
                                        + " officeid='" & txtOffice.EditValue & "', " _
                                        + " periodcode='" & periodcode.Text & "', " _
                                        + " fundcode='" & fundcode.Text & "', " _
@@ -464,6 +540,7 @@ Public Class frmRequisitionInfo
                                        + " pid='" & pid.Text & "', " _
                                        + " requestno='" & RequestNumber & "', " _
                                        + " requestedby='" & requestby.Text & "', " _
+                                       + " payee='" & txtSupplier.EditValue & "', " _
                                        + " officeid='" & txtOffice.EditValue & "', " _
                                        + " periodcode='" & periodcode.Text & "', " _
                                        + " fundcode='" & fundcode.Text & "', " _
@@ -556,6 +633,8 @@ Public Class frmRequisitionInfo
                       + " date_format(voucherdate,'%Y-%m-%d') as 'Voucher Date', " _
                       + " (select suppliername from tblsupplier where supplierid = a.supplierid) as 'Supplier', " _
                       + " a.Amount, " _
+                      + " a.checkno as 'Check No.', " _
+                      + " a.checkdate as 'Check Date', " _
                       + " (select fullname from tblaccounts where accountid=a.trnby) as 'Posted By', " _
                       + " date_format(datetrn,'%Y-%m-%d') as 'Date Posted' " _
                       + " FROM tbldisbursementvoucher as a inner join tbldisbursementdetails as b on a.voucherno = b.voucherno " _
@@ -571,7 +650,7 @@ Public Class frmRequisitionInfo
     Private Sub Em_disbursement_DoubleClick(sender As Object, e As EventArgs) Handles Em_disbursement.DoubleClick
         frmVoucherInfo.mode.Text = ""
         frmVoucherInfo.id.Text = gridDisbursement.GetFocusedRowCellValue("id").ToString
-        frmVoucherInfo.mode.Text = "edit"
+        frmVoucherInfo.mode.Text = "view"
         If frmVoucherInfo.Visible = False Then
             frmVoucherInfo.Show(Me)
         Else
@@ -592,7 +671,7 @@ Public Class frmRequisitionInfo
                     e.Appearance.BackColor2 = Color.Orange
                     e.Appearance.ForeColor = Color.Black
 
-                ElseIf status = "APPROVED" Then
+                ElseIf status = "CLEARED" Then
                     e.Appearance.BackColor = Color.Green
                     e.Appearance.BackColor2 = Color.Green
                     e.Appearance.ForeColor = Color.White
@@ -742,29 +821,8 @@ Public Class frmRequisitionInfo
         Me.Close()
     End Sub
 
-    Private Sub txtStatus_EditValueChanged(sender As Object, e As EventArgs) Handles txtStatus.EditValueChanged
-        If txtStatus.Text = "PENDING" Or txtStatus.Text = "FOR APPROVAL" Or txtStatus.Text = "ON HOLD" Or txtStatus.Text = "NEW REQUEST" Then
-            txtStatus.BackColor = Color.Orange
-            txtStatus.ForeColor = Color.Black
 
-        ElseIf txtStatus.Text = "DRAFT" Then
-            txtStatus.BackColor = Color.LightGray
-            txtStatus.ForeColor = Color.Black
 
-        ElseIf txtStatus.Text = "APPROVED" Then
-            txtStatus.BackColor = Color.Green
-            txtStatus.ForeColor = Color.Black
-
-        ElseIf txtStatus.Text = "DISBURSED" Then
-            txtStatus.BackColor = Color.Gold
-            txtStatus.ForeColor = Color.Black
-
-        ElseIf txtStatus.Text = "CANCELLED" Then
-            txtStatus.BackColor = Color.Red
-            txtStatus.ForeColor = Color.White
-        End If
-    End Sub
-     
     Private Sub AddItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles cmdAddItem.Click
         If SecurityCheck() = True Then
             If Val(CC(txtSourceAmount.Text)) = 0 Then
@@ -812,10 +870,10 @@ Public Class frmRequisitionInfo
     End Sub
 
     Private Sub cmdPrintObligation_Click(sender As Object, e As EventArgs) Handles cmdPrintObligation.Click
-        If countqry("tblfund", "code='" & fundcode.Text & "' and template='FURS'") > 0 Then
+        If countqry("tblrequisitiontype", "code='" & requesttype.Text & "' and template='FURS'") > 0 Then
             cmdPrintObligation.Text = "Print FURS"
             PrintFundUtilization(pid.Text, Me)
-        ElseIf countqry("tblfund", "code='" & fundcode.Text & "' and template='CAFOA'") > 0 Then
+        ElseIf countqry("tblrequisitiontype", "code='" & requesttype.Text & "' and template='CAFOA'") > 0 Then
             PrintObligation(pid.Text, Me)
         End If
     End Sub
@@ -860,4 +918,6 @@ Public Class frmRequisitionInfo
             frmRequisitionDocManager.Show(Me)
         End If
     End Sub
+
+
 End Class

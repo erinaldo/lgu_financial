@@ -19,12 +19,13 @@ Partial Class frmRequisitionType
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.cmdSaveButton = New DevExpress.XtraEditors.SimpleButton()
         Me.txtDescription = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -35,6 +36,8 @@ Partial Class frmRequisitionType
         Me.ckDirectApproved = New DevExpress.XtraEditors.CheckEdit()
         Me.ckEnablePr = New DevExpress.XtraEditors.CheckEdit()
         Me.ckEnablePo = New DevExpress.XtraEditors.CheckEdit()
+        Me.ckEnableVoucher = New DevExpress.XtraEditors.CheckEdit()
+        Me.txtTemplate = New DevExpress.XtraEditors.ComboBoxEdit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,6 +48,8 @@ Partial Class frmRequisitionType
         CType(Me.ckDirectApproved.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckEnablePr.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckEnablePo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ckEnableVoucher.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtTemplate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl2
@@ -78,7 +83,7 @@ Partial Class frmRequisitionType
         Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSaveButton.Appearance.Options.UseBackColor = True
         Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(127, 64)
+        Me.cmdSaveButton.Location = New System.Drawing.Point(127, 61)
         Me.cmdSaveButton.Name = "cmdSaveButton"
         Me.cmdSaveButton.Size = New System.Drawing.Size(146, 34)
         Me.cmdSaveButton.TabIndex = 3
@@ -91,7 +96,7 @@ Partial Class frmRequisitionType
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescription.Properties.Appearance.Options.UseFont = True
-        Me.txtDescription.Size = New System.Drawing.Size(355, 24)
+        Me.txtDescription.Size = New System.Drawing.Size(273, 24)
         Me.txtDescription.TabIndex = 631
         '
         'Em
@@ -100,11 +105,11 @@ Partial Class frmRequisitionType
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Em.ContextMenuStrip = Me.gridmenustrip
-        Me.Em.Location = New System.Drawing.Point(5, 112)
+        Me.Em.Location = New System.Drawing.Point(5, 101)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(733, 540)
+        Me.Em.Size = New System.Drawing.Size(733, 551)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -147,6 +152,7 @@ Partial Class frmRequisitionType
         Me.GridView1.OptionsBehavior.Editable = False
         Me.GridView1.OptionsSelection.MultiSelect = True
         Me.GridView1.OptionsSelection.UseIndicatorForSelection = False
+        Me.GridView1.OptionsView.ColumnAutoWidth = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
         '
         'RepositoryItemCheckEdit1
@@ -170,7 +176,7 @@ Partial Class frmRequisitionType
         '
         'ckDirectApproved
         '
-        Me.ckDirectApproved.Location = New System.Drawing.Point(127, 38)
+        Me.ckDirectApproved.Location = New System.Drawing.Point(236, 38)
         Me.ckDirectApproved.Name = "ckDirectApproved"
         Me.ckDirectApproved.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ckDirectApproved.Properties.Appearance.Options.UseFont = True
@@ -180,7 +186,7 @@ Partial Class frmRequisitionType
         '
         'ckEnablePr
         '
-        Me.ckEnablePr.Location = New System.Drawing.Point(288, 38)
+        Me.ckEnablePr.Location = New System.Drawing.Point(397, 38)
         Me.ckEnablePr.Name = "ckEnablePr"
         Me.ckEnablePr.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ckEnablePr.Properties.Appearance.Options.UseFont = True
@@ -190,7 +196,7 @@ Partial Class frmRequisitionType
         '
         'ckEnablePo
         '
-        Me.ckEnablePo.Location = New System.Drawing.Point(371, 38)
+        Me.ckEnablePo.Location = New System.Drawing.Point(480, 38)
         Me.ckEnablePo.Name = "ckEnablePo"
         Me.ckEnablePo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ckEnablePo.Properties.Appearance.Options.UseFont = True
@@ -198,12 +204,43 @@ Partial Class frmRequisitionType
         Me.ckEnablePo.Size = New System.Drawing.Size(77, 20)
         Me.ckEnablePo.TabIndex = 958
         '
+        'ckEnableVoucher
+        '
+        Me.ckEnableVoucher.EditValue = True
+        Me.ckEnableVoucher.Location = New System.Drawing.Point(127, 38)
+        Me.ckEnableVoucher.Name = "ckEnableVoucher"
+        Me.ckEnableVoucher.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ckEnableVoucher.Properties.Appearance.Options.UseFont = True
+        Me.ckEnableVoucher.Properties.Caption = "Enable Voucher"
+        Me.ckEnableVoucher.Size = New System.Drawing.Size(108, 20)
+        Me.ckEnableVoucher.TabIndex = 959
+        '
+        'txtTemplate
+        '
+        Me.txtTemplate.Location = New System.Drawing.Point(402, 11)
+        Me.txtTemplate.Name = "txtTemplate"
+        Me.txtTemplate.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtTemplate.Properties.Appearance.Options.UseFont = True
+        Me.txtTemplate.Properties.AppearanceDropDown.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtTemplate.Properties.AppearanceDropDown.Options.UseFont = True
+        Me.txtTemplate.Properties.AppearanceFocused.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtTemplate.Properties.AppearanceFocused.Options.UseFont = True
+        Me.txtTemplate.Properties.AppearanceItemSelected.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtTemplate.Properties.AppearanceItemSelected.Options.UseFont = True
+        Me.txtTemplate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtTemplate.Properties.Items.AddRange(New Object() {"FURS", "CAFOA", "NONE"})
+        Me.txtTemplate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.txtTemplate.Size = New System.Drawing.Size(155, 24)
+        Me.txtTemplate.TabIndex = 960
+        '
         'frmRequisitionType
         '
         Me.AcceptButton = Me.cmdSaveButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(746, 657)
+        Me.Controls.Add(Me.txtTemplate)
+        Me.Controls.Add(Me.ckEnableVoucher)
         Me.Controls.Add(Me.ckEnablePo)
         Me.Controls.Add(Me.ckEnablePr)
         Me.Controls.Add(Me.ckDirectApproved)
@@ -226,6 +263,8 @@ Partial Class frmRequisitionType
         CType(Me.ckDirectApproved.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckEnablePr.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckEnablePo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ckEnableVoucher.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtTemplate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -246,4 +285,6 @@ Partial Class frmRequisitionType
     Friend WithEvents ckDirectApproved As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents ckEnablePr As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents ckEnablePo As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents ckEnableVoucher As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents txtTemplate As DevExpress.XtraEditors.ComboBoxEdit
 End Class

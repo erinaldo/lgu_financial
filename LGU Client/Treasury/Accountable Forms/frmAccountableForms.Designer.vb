@@ -52,11 +52,11 @@ Partial Class frmAccountableForms
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.SplitContainerControl1 = New DevExpress.XtraEditors.SplitContainerControl()
+        Me.ckCurrentlyInUsed = New DevExpress.XtraEditors.CheckEdit()
+        Me.ckViewAllForms = New DevExpress.XtraEditors.CheckEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.txtForm = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridForm = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.ckViewAllForms = New DevExpress.XtraEditors.CheckEdit()
-        Me.ckCurrentlyInUsed = New DevExpress.XtraEditors.CheckEdit()
         Me.cms_em.SuspendLayout()
         Me.ToolStrip3.SuspendLayout()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -64,10 +64,10 @@ Partial Class frmAccountableForms
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerControl1.SuspendLayout()
+        CType(Me.ckCurrentlyInUsed.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ckViewAllForms.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtForm.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridForm, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ckViewAllForms.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ckCurrentlyInUsed.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Timer1
@@ -139,46 +139,46 @@ Partial Class frmAccountableForms
         '
         Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdView, Me.AssignAccountableToolStripMenuItem, Me.ViewDetailTransactionToolStripMenuItem, Me.cmdCancel, Me.ToolStripSeparator4, Me.cmdLocalData})
         Me.cms_em.Name = "ContextMenuStrip1"
-        Me.cms_em.Size = New System.Drawing.Size(197, 120)
+        Me.cms_em.Size = New System.Drawing.Size(196, 120)
         '
         'cmdView
         '
         Me.cmdView.Image = Global.LGUClient.My.Resources.Resources.notebook__pencil
         Me.cmdView.Name = "cmdView"
-        Me.cmdView.Size = New System.Drawing.Size(196, 22)
+        Me.cmdView.Size = New System.Drawing.Size(195, 22)
         Me.cmdView.Text = "Edit Item"
         '
         'AssignAccountableToolStripMenuItem
         '
         Me.AssignAccountableToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.notebook__arrow
         Me.AssignAccountableToolStripMenuItem.Name = "AssignAccountableToolStripMenuItem"
-        Me.AssignAccountableToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
+        Me.AssignAccountableToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
         Me.AssignAccountableToolStripMenuItem.Text = "Assign Accountable"
         '
         'ViewDetailTransactionToolStripMenuItem
         '
         Me.ViewDetailTransactionToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources._165
         Me.ViewDetailTransactionToolStripMenuItem.Name = "ViewDetailTransactionToolStripMenuItem"
-        Me.ViewDetailTransactionToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
+        Me.ViewDetailTransactionToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
         Me.ViewDetailTransactionToolStripMenuItem.Text = "View Detail Transaction"
         '
         'cmdCancel
         '
         Me.cmdCancel.Image = Global.LGUClient.My.Resources.Resources.notebook__minus
         Me.cmdCancel.Name = "cmdCancel"
-        Me.cmdCancel.Size = New System.Drawing.Size(196, 22)
+        Me.cmdCancel.Size = New System.Drawing.Size(195, 22)
         Me.cmdCancel.Text = "Delete Selected Item"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(193, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(192, 6)
         '
         'cmdLocalData
         '
         Me.cmdLocalData.Image = Global.LGUClient.My.Resources.Resources.arrow_continue_090
         Me.cmdLocalData.Name = "cmdLocalData"
-        Me.cmdLocalData.Size = New System.Drawing.Size(196, 22)
+        Me.cmdLocalData.Size = New System.Drawing.Size(195, 22)
         Me.cmdLocalData.Tag = "1"
         Me.cmdLocalData.Text = "Refresh Data"
         '
@@ -280,7 +280,7 @@ Partial Class frmAccountableForms
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit1})
-        Me.Em.Size = New System.Drawing.Size(923, 593)
+        Me.Em.Size = New System.Drawing.Size(923, 588)
         Me.Em.TabIndex = 820
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -301,6 +301,28 @@ Partial Class frmAccountableForms
         Me.SplitContainerControl1.SplitterPosition = 73
         Me.SplitContainerControl1.TabIndex = 821
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
+        '
+        'ckCurrentlyInUsed
+        '
+        Me.ckCurrentlyInUsed.EditValue = True
+        Me.ckCurrentlyInUsed.Location = New System.Drawing.Point(90, 39)
+        Me.ckCurrentlyInUsed.Name = "ckCurrentlyInUsed"
+        Me.ckCurrentlyInUsed.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ckCurrentlyInUsed.Properties.Appearance.Options.UseFont = True
+        Me.ckCurrentlyInUsed.Properties.Caption = "View currently in-used only"
+        Me.ckCurrentlyInUsed.Size = New System.Drawing.Size(189, 20)
+        Me.ckCurrentlyInUsed.TabIndex = 657
+        '
+        'ckViewAllForms
+        '
+        Me.ckViewAllForms.EditValue = True
+        Me.ckViewAllForms.Location = New System.Drawing.Point(347, 15)
+        Me.ckViewAllForms.Name = "ckViewAllForms"
+        Me.ckViewAllForms.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ckViewAllForms.Properties.Appearance.Options.UseFont = True
+        Me.ckViewAllForms.Properties.Caption = "View All Forms"
+        Me.ckViewAllForms.Size = New System.Drawing.Size(126, 20)
+        Me.ckViewAllForms.TabIndex = 656
         '
         'LabelControl2
         '
@@ -335,27 +357,6 @@ Partial Class frmAccountableForms
         Me.gridForm.OptionsSelection.EnableAppearanceFocusedCell = False
         Me.gridForm.OptionsView.ShowGroupPanel = False
         '
-        'ckViewAllForms
-        '
-        Me.ckViewAllForms.EditValue = True
-        Me.ckViewAllForms.Location = New System.Drawing.Point(347, 15)
-        Me.ckViewAllForms.Name = "ckViewAllForms"
-        Me.ckViewAllForms.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ckViewAllForms.Properties.Appearance.Options.UseFont = True
-        Me.ckViewAllForms.Properties.Caption = "View All Forms"
-        Me.ckViewAllForms.Size = New System.Drawing.Size(126, 19)
-        Me.ckViewAllForms.TabIndex = 656
-        '
-        'ckCurrentlyInUsed
-        '
-        Me.ckCurrentlyInUsed.Location = New System.Drawing.Point(90, 39)
-        Me.ckCurrentlyInUsed.Name = "ckCurrentlyInUsed"
-        Me.ckCurrentlyInUsed.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ckCurrentlyInUsed.Properties.Appearance.Options.UseFont = True
-        Me.ckCurrentlyInUsed.Properties.Caption = "View currently in-used only"
-        Me.ckCurrentlyInUsed.Size = New System.Drawing.Size(189, 19)
-        Me.ckCurrentlyInUsed.TabIndex = 657
-        '
         'frmAccountableForms
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -378,10 +379,10 @@ Partial Class frmAccountableForms
         CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainerControl1.ResumeLayout(False)
+        CType(Me.ckCurrentlyInUsed.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ckViewAllForms.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtForm.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridForm, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ckViewAllForms.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ckCurrentlyInUsed.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -69,6 +69,7 @@ Public Class frmClientUserPermission
         checklistbox.Items.Add("Accountable Form")
         checklistbox.Items.Add("Business Management")
         checklistbox.Items.Add("Real Property Management")
+        checklistbox.Items.Add("New Direct Journal")
         checklistbox.Items.Add("Journal Entry Voucher")
         checklistbox.Items.Add("For Approval Request")
         checklistbox.Items.Add("Check Issuance Request")
@@ -88,6 +89,7 @@ Public Class frmClientUserPermission
                   + ", accountableform as 'Accountable Form' " _
                   + ", businessmgt as 'Business Management' " _
                   + ", realpropertymgt as 'Real Property Management' " _
+                  + ", newdirectjournal as 'New Direct Journal' " _
                   + ", journalentryvoucher as 'Journal Entry Voucher' " _
                   + ", forapproval as 'For Approval Request' " _
                   + ", checkapproval as 'Check Issuance Request' " _
@@ -137,6 +139,9 @@ Public Class frmClientUserPermission
                 End If
                 If checklistbox.Items(I).ToString = "Real Property Management" Then
                     checkeditem += "realpropertymgt=1,"
+                End If
+                If checklistbox.Items(I).ToString = "New Direct Journal" Then
+                    checkeditem += "newdirectjournal=1,"
                 End If
                 If checklistbox.Items(I).ToString = "Journal Entry Voucher" Then
                     checkeditem += "journalentryvoucher=1,"
@@ -268,6 +273,15 @@ Public Class frmClientUserPermission
                 Dim I As Integer = 0
                 For I = 0 To checklistbox.Items.Count - 1
                     If checklistbox.Items(I).ToString = "Real Property Management" Then
+                        checklistbox.SetItemCheckState(I, CheckState.Checked)
+                    End If
+                Next
+            End If
+
+            If rst("newdirectjournal") = True Then
+                Dim I As Integer = 0
+                For I = 0 To checklistbox.Items.Count - 1
+                    If checklistbox.Items(I).ToString = "New Direct Journal" Then
                         checklistbox.SetItemCheckState(I, CheckState.Checked)
                     End If
                 Next
@@ -422,8 +436,8 @@ Public Class frmClientUserPermission
     End Sub
 
     Private Sub DuplicateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DuplicateToolStripMenuItem.Click
-        com.CommandText = "INSERT INTO  `tblclientaccess` (description,departmenthead,generalapprover,specialapprover,allowadd,allowedit,allowdelete,collectionposting,cedulaindividual,cedulacorporate,realpropertytax,collectionreport,accountableform,businessmgt,realpropertymgt,journalentryvoucher,forapproval,checkapproval,newrequisition,requisitionlist,newdisbursement,disbursementlist,budgetreport) " _
-                               + " SELECT concat(description,' - copy'),departmenthead,generalapprover,specialapprover,allowadd,allowedit,allowdelete,collectionposting,cedulaindividual,cedulacorporate,realpropertytax,collectionreport,accountableform,businessmgt,realpropertymgt,journalentryvoucher,forapproval,checkapproval,newrequisition,requisitionlist,newdisbursement,disbursementlist,budgetreport FROM `tblclientaccess` where accesscode='" & GridView1.GetFocusedRowCellValue("Access Code").ToString & "'" : com.ExecuteNonQuery()
+        com.CommandText = "INSERT INTO  `tblclientaccess` (description,departmenthead,generalapprover,specialapprover,allowadd,allowedit,allowdelete,collectionposting,cedulaindividual,cedulacorporate,realpropertytax,collectionreport,accountableform,businessmgt,realpropertymgt,newdirectjournal,journalentryvoucher,forapproval,checkapproval,newrequisition,requisitionlist,newdisbursement,disbursementlist,budgetreport) " _
+                               + " SELECT concat(description,' - copy'),departmenthead,generalapprover,specialapprover,allowadd,allowedit,allowdelete,collectionposting,cedulaindividual,cedulacorporate,realpropertytax,collectionreport,accountableform,businessmgt,realpropertymgt,newdirectjournal,journalentryvoucher,forapproval,checkapproval,newrequisition,requisitionlist,newdisbursement,disbursementlist,budgetreport FROM `tblclientaccess` where accesscode='" & GridView1.GetFocusedRowCellValue("Access Code").ToString & "'" : com.ExecuteNonQuery()
         filter()
         XtraMessageBox.Show("Permission successfully duplicated", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub

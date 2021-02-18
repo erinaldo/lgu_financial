@@ -38,8 +38,6 @@ Partial Class frmFund
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
         Me.tabInfo = New DevExpress.XtraTab.XtraTabPage()
-        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
-        Me.txtTemplate = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.tabFilter = New DevExpress.XtraTab.XtraTabPage()
         Me.fundcode = New DevExpress.XtraEditors.ButtonEdit()
         Me.cmdMoveLeft = New DevExpress.XtraEditors.SimpleButton()
@@ -61,7 +59,6 @@ Partial Class frmFund
         CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.XtraTabControl1.SuspendLayout()
         Me.tabInfo.SuspendLayout()
-        CType(Me.txtTemplate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabFilter.SuspendLayout()
         CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em_unfiltered, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -113,7 +110,7 @@ Partial Class frmFund
         Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSaveButton.Appearance.Options.UseBackColor = True
         Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(87, 121)
+        Me.cmdSaveButton.Location = New System.Drawing.Point(87, 94)
         Me.cmdSaveButton.Name = "cmdSaveButton"
         Me.cmdSaveButton.Size = New System.Drawing.Size(168, 38)
         Me.cmdSaveButton.TabIndex = 3
@@ -164,11 +161,11 @@ Partial Class frmFund
         'Em
         '
         Me.Em.ContextMenuStrip = Me.gridmenustrip
-        Me.Em.Location = New System.Drawing.Point(3, 167)
+        Me.Em.Location = New System.Drawing.Point(3, 138)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(726, 386)
+        Me.Em.Size = New System.Drawing.Size(615, 274)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -239,8 +236,6 @@ Partial Class frmFund
         '
         'tabInfo
         '
-        Me.tabInfo.Controls.Add(Me.LabelControl3)
-        Me.tabInfo.Controls.Add(Me.txtTemplate)
         Me.tabInfo.Controls.Add(Me.code)
         Me.tabInfo.Controls.Add(Me.LabelControl2)
         Me.tabInfo.Controls.Add(Me.Em)
@@ -251,36 +246,8 @@ Partial Class frmFund
         Me.tabInfo.Controls.Add(Me.cmdSaveButton)
         Me.tabInfo.Controls.Add(Me.LabelControl4)
         Me.tabInfo.Name = "tabInfo"
-        Me.tabInfo.Size = New System.Drawing.Size(618, 416)
+        Me.tabInfo.Size = New System.Drawing.Size(618, 412)
         Me.tabInfo.Text = "Fund Information"
-        '
-        'LabelControl3
-        '
-        Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl3.Appearance.Options.UseFont = True
-        Me.LabelControl3.Location = New System.Drawing.Point(28, 96)
-        Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(54, 17)
-        Me.LabelControl3.TabIndex = 634
-        Me.LabelControl3.Text = "Template"
-        '
-        'txtTemplate
-        '
-        Me.txtTemplate.Location = New System.Drawing.Point(87, 93)
-        Me.txtTemplate.Name = "txtTemplate"
-        Me.txtTemplate.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtTemplate.Properties.Appearance.Options.UseFont = True
-        Me.txtTemplate.Properties.AppearanceDropDown.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtTemplate.Properties.AppearanceDropDown.Options.UseFont = True
-        Me.txtTemplate.Properties.AppearanceFocused.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtTemplate.Properties.AppearanceFocused.Options.UseFont = True
-        Me.txtTemplate.Properties.AppearanceItemSelected.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtTemplate.Properties.AppearanceItemSelected.Options.UseFont = True
-        Me.txtTemplate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.txtTemplate.Properties.Items.AddRange(New Object() {"FURS", "CAFOA"})
-        Me.txtTemplate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.txtTemplate.Size = New System.Drawing.Size(168, 24)
-        Me.txtTemplate.TabIndex = 633
         '
         'tabFilter
         '
@@ -291,7 +258,7 @@ Partial Class frmFund
         Me.tabFilter.Controls.Add(Me.Em_filtered)
         Me.tabFilter.Controls.Add(Me.txtFund)
         Me.tabFilter.Name = "tabFilter"
-        Me.tabFilter.Size = New System.Drawing.Size(618, 416)
+        Me.tabFilter.Size = New System.Drawing.Size(618, 412)
         Me.tabFilter.Text = "Fund Access Filter"
         '
         'fundcode
@@ -416,7 +383,6 @@ Partial Class frmFund
         Me.XtraTabControl1.ResumeLayout(False)
         Me.tabInfo.ResumeLayout(False)
         Me.tabInfo.PerformLayout()
-        CType(Me.txtTemplate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabFilter.ResumeLayout(False)
         CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Em_unfiltered, System.ComponentModel.ISupportInitialize).EndInit()
@@ -456,6 +422,4 @@ Partial Class frmFund
     Friend WithEvents gridFiltered As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents txtFund As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gridFund As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents txtTemplate As DevExpress.XtraEditors.ComboBoxEdit
-    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
 End Class

@@ -43,19 +43,19 @@ Partial Class frmForApprovalCheckReleasing
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdClose = New System.Windows.Forms.ToolStripButton()
         Me.updates = New System.Windows.Forms.ToolStripLabel()
-        Me.RepositoryItemPictureEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit()
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.SplitContainerControl1 = New DevExpress.XtraEditors.SplitContainerControl()
         Me.txtSearchBar = New DevExpress.XtraEditors.TextEdit()
+        Me.Em = New DevExpress.XtraGrid.GridControl()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.cms_em.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
-        CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerControl1.SuspendLayout()
         CType(Me.txtSearchBar.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'HiToolStripMenuItem
@@ -203,50 +203,6 @@ Partial Class frmForApprovalCheckReleasing
         Me.updates.Name = "updates"
         Me.updates.Size = New System.Drawing.Size(0, 24)
         '
-        'RepositoryItemPictureEdit1
-        '
-        Me.RepositoryItemPictureEdit1.Name = "RepositoryItemPictureEdit1"
-        '
-        'GridView1
-        '
-        Me.GridView1.Appearance.GroupFooter.Font = New System.Drawing.Font("Segoe UI", 8.5!)
-        Me.GridView1.Appearance.GroupFooter.Options.UseFont = True
-        Me.GridView1.Appearance.GroupPanel.Font = New System.Drawing.Font("Segoe UI", 8.5!)
-        Me.GridView1.Appearance.GroupPanel.Options.UseFont = True
-        Me.GridView1.Appearance.GroupRow.Font = New System.Drawing.Font("Segoe UI", 8.5!)
-        Me.GridView1.Appearance.GroupRow.Options.UseFont = True
-        Me.GridView1.Appearance.HeaderPanel.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GridView1.Appearance.HeaderPanel.Options.UseFont = True
-        Me.GridView1.Appearance.Row.Font = New System.Drawing.Font("Segoe UI", 8.5!)
-        Me.GridView1.Appearance.Row.Options.UseFont = True
-        Me.GridView1.Appearance.Row.Options.UseTextOptions = True
-        Me.GridView1.Appearance.Row.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.GridView1.Appearance.ViewCaption.Options.UseTextOptions = True
-        Me.GridView1.Appearance.ViewCaption.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.GridView1.GridControl = Me.Em
-        Me.GridView1.Name = "GridView1"
-        Me.GridView1.OptionsBehavior.AllowGroupExpandAnimation = DevExpress.Utils.DefaultBoolean.[True]
-        Me.GridView1.OptionsBehavior.AllowSortAnimation = DevExpress.Utils.DefaultBoolean.[True]
-        Me.GridView1.OptionsBehavior.Editable = False
-        Me.GridView1.OptionsImageLoad.AnimationType = DevExpress.Utils.ImageContentAnimationType.Expand
-        Me.GridView1.OptionsView.AnimationType = DevExpress.XtraGrid.Views.Base.GridAnimationType.AnimateAllContent
-        Me.GridView1.OptionsView.ColumnAutoWidth = False
-        Me.GridView1.OptionsView.RowAutoHeight = True
-        Me.GridView1.OptionsView.WaitAnimationOptions = DevExpress.XtraEditors.WaitAnimationOptions.Indicator
-        '
-        'Em
-        '
-        Me.Em.ContextMenuStrip = Me.cms_em
-        Me.Em.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Em.Font = New System.Drawing.Font("Tahoma", 6.75!)
-        Me.Em.Location = New System.Drawing.Point(0, 0)
-        Me.Em.MainView = Me.GridView1
-        Me.Em.Name = "Em"
-        Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit1})
-        Me.Em.Size = New System.Drawing.Size(1020, 567)
-        Me.Em.TabIndex = 820
-        Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
-        '
         'SplitContainerControl1
         '
         Me.SplitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -276,6 +232,34 @@ Partial Class frmForApprovalCheckReleasing
         Me.txtSearchBar.Size = New System.Drawing.Size(1020, 32)
         Me.txtSearchBar.TabIndex = 0
         '
+        'Em
+        '
+        Me.Em.ContextMenuStrip = Me.cms_em
+        Me.Em.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Em.Location = New System.Drawing.Point(0, 0)
+        Me.Em.MainView = Me.GridView1
+        Me.Em.MinimumSize = New System.Drawing.Size(574, 454)
+        Me.Em.Name = "Em"
+        Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
+        Me.Em.Size = New System.Drawing.Size(1020, 567)
+        Me.Em.TabIndex = 637
+        Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        '
+        'GridView1
+        '
+        Me.GridView1.GridControl = Me.Em
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsBehavior.Editable = False
+        Me.GridView1.OptionsSelection.MultiSelect = True
+        Me.GridView1.OptionsSelection.UseIndicatorForSelection = False
+        Me.GridView1.OptionsView.ColumnAutoWidth = False
+        Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'RepositoryItemCheckEdit1
+        '
+        Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
+        Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
+        '
         'frmForApprovalCheckReleasing
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -289,16 +273,16 @@ Partial Class frmForApprovalCheckReleasing
         Me.MinimumSize = New System.Drawing.Size(897, 679)
         Me.Name = "frmForApprovalCheckReleasing"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Check releasing for approval"
+        Me.Text = "Check issuance for approval"
         Me.cms_em.ResumeLayout(False)
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
-        CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainerControl1.ResumeLayout(False)
         CType(Me.txtSearchBar.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -321,11 +305,11 @@ Partial Class frmForApprovalCheckReleasing
     Friend WithEvents cmdView As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents cmdPrint As System.Windows.Forms.ToolStripButton
-    Friend WithEvents RepositoryItemPictureEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
-    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents Em As DevExpress.XtraGrid.GridControl
     Friend WithEvents SplitContainerControl1 As DevExpress.XtraEditors.SplitContainerControl
     Friend WithEvents cmdColumnSettings As ToolStripButton
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Private WithEvents txtSearchBar As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents Em As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
 End Class

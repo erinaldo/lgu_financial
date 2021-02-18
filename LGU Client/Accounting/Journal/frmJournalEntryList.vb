@@ -41,7 +41,7 @@ Public Class frmJournalEntryList
             KeyWordSearch = " (jevno like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " date_format(postingdate,'%Y-%m-%d') like '%" & rchar(txtSearchBar.Text) & "%')"
         End If
-        LoadXgrid("SELECT id as 'Entry Code', if(cancelled,'CANCELLED',if(cleared,'CLEARED', 'PENDING')) as Status, " _
+        LoadXgrid("SELECT id as 'Entry Code', pid, if(cancelled,'CANCELLED',if(cleared,'CLEARED', 'PENDING')) as Status, " _
                         + " jevno as 'JEV No.', " _
                         + " concat((select codename from tblfund where code=a.fundcode),'-',yeartrn) as 'Fund Period',  " _
                         + " (select officename from tblcompoffice where officeid = a.officeid) as 'Office', " _
@@ -56,7 +56,7 @@ Public Class frmJournalEntryList
                         + " where  " _
                         + KeyWordSearch _
                         + " order by jevno asc", "tbljournalentryvoucher", Em, GridView1, Me)
-
+        XgridHideColumn({"pid"}, GridView1)
         XgridColCurrency({"Amount"}, GridView1)
         XgridColAlign({"Entry Code", "JEV No.", "Status", "Fund Period", "Posting Date", "Date Posted", "Cleared", "Date Cleared", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         XgridColAlign({"DV #", "Payroll #", "RCD #", "LR #", "AE #"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
@@ -66,8 +66,8 @@ Public Class frmJournalEntryList
         GridView1.Columns("Remarks").OptionsColumn.AllowEdit = False
         GridView1.Columns("Remarks").OptionsColumn.AllowFocus = False
 
-        GridView1.Columns("Remarks").AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        GridView1.Columns("Remarks").ColumnEdit = MemoEdit
+        'GridView1.Columns("Remarks").AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        'GridView1.Columns("Remarks").ColumnEdit = MemoEdit
         DXgridColumnIndexing(Me.Name, GridView1)
         SaveFilterColumn(GridView1, Me.Text)
     End Sub
@@ -141,14 +141,17 @@ Public Class frmJournalEntryList
             For I = 0 To GridView1.SelectedRowsCount - 1
                 com.CommandText = "update tbljournalentryvoucher set cancelled=1,cancelledby='" & globaluserid & "',datecancelled=current_timestamp where jevno='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "JEV No.") & "' " : com.ExecuteNonQuery()
                 com.CommandText = "update tbljournalentryitem set cancelled=1  where jevno='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "JEV No.") & "'" : com.ExecuteNonQuery()
+                If GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "pid") = "" Then
+                    com.CommandText = "update `tblrequisition` set jev=0 where pid in (select pid from tbldisbursementdetails where voucherno='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "DV #") & "')" : com.ExecuteNonQuery()
+                Else
+                    com.CommandText = "update `tblrequisition` set jev=0 where pid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "pid") & "'" : com.ExecuteNonQuery()
+                End If
             Next
             ViewList()
             XtraMessageBox.Show("JEV successfully cancelled!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
 
     End Sub
-
-
 
     Private Sub cmdView_Click(sender As Object, e As EventArgs) Handles cmdView.Click
         frmJournalEntry.mode.Text = ""

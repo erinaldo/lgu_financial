@@ -22,6 +22,7 @@ Partial Class frmRequisitionInfo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.txtRequestNumber = New DevExpress.XtraEditors.TextEdit()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
@@ -36,7 +37,7 @@ Partial Class frmRequisitionInfo
         Me.txtSourceAmount = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdAddItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SelectItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -64,7 +65,7 @@ Partial Class frmRequisitionInfo
         Me.requestno = New DevExpress.XtraEditors.TextEdit()
         Me.tabAttachment = New DevExpress.XtraTab.XtraTabPage()
         Me.Em_files = New DevExpress.XtraGrid.GridControl()
-        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip()
+        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdViewAttachmentMain = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdModifyAttachment = New System.Windows.Forms.ToolStripMenuItem()
@@ -114,6 +115,9 @@ Partial Class frmRequisitionInfo
         Me.LabelControl10 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl11 = New DevExpress.XtraEditors.LabelControl()
         Me.cmdAddfiles = New DevExpress.XtraEditors.SimpleButton()
+        Me.HyperlinkLabelControl1 = New DevExpress.XtraEditors.HyperlinkLabelControl()
+        Me.txtSupplier = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.gridSupplier = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.txtRequestNumber.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.trnmode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -167,13 +171,15 @@ Partial Class frmRequisitionInfo
         CType(Me.gridOffice, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtStatus.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPriority.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtSupplier.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gridSupplier, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl5
         '
         Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl5.Appearance.Options.UseFont = True
-        Me.LabelControl5.Location = New System.Drawing.Point(24, 82)
+        Me.LabelControl5.Location = New System.Drawing.Point(24, 79)
         Me.LabelControl5.Name = "LabelControl5"
         Me.LabelControl5.Size = New System.Drawing.Size(99, 17)
         Me.LabelControl5.TabIndex = 656
@@ -182,7 +188,7 @@ Partial Class frmRequisitionInfo
         'txtRequestNumber
         '
         Me.txtRequestNumber.EditValue = "AUTO GENERATE"
-        Me.txtRequestNumber.Location = New System.Drawing.Point(132, 78)
+        Me.txtRequestNumber.Location = New System.Drawing.Point(132, 76)
         Me.txtRequestNumber.Name = "txtRequestNumber"
         Me.txtRequestNumber.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtRequestNumber.Properties.Appearance.Options.UseFont = True
@@ -223,7 +229,7 @@ Partial Class frmRequisitionInfo
         '
         Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl4.Appearance.Options.UseFont = True
-        Me.LabelControl4.Location = New System.Drawing.Point(53, 202)
+        Me.LabelControl4.Location = New System.Drawing.Point(53, 225)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(70, 17)
         Me.LabelControl4.TabIndex = 922
@@ -232,7 +238,7 @@ Partial Class frmRequisitionInfo
         'txtFund
         '
         Me.txtFund.EditValue = "sss"
-        Me.txtFund.Location = New System.Drawing.Point(132, 198)
+        Me.txtFund.Location = New System.Drawing.Point(132, 221)
         Me.txtFund.Name = "txtFund"
         Me.txtFund.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtFund.Properties.Appearance.Options.UseFont = True
@@ -258,7 +264,7 @@ Partial Class frmRequisitionInfo
         '
         Me.txtPostingDate.EditValue = New Date(2019, 6, 10, 16, 23, 25, 399)
         Me.txtPostingDate.EnterMoveNextControl = True
-        Me.txtPostingDate.Location = New System.Drawing.Point(132, 228)
+        Me.txtPostingDate.Location = New System.Drawing.Point(132, 250)
         Me.txtPostingDate.Name = "txtPostingDate"
         Me.txtPostingDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.txtPostingDate.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
@@ -279,7 +285,7 @@ Partial Class frmRequisitionInfo
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Location = New System.Drawing.Point(49, 233)
+        Me.LabelControl6.Location = New System.Drawing.Point(49, 254)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(74, 17)
         Me.LabelControl6.TabIndex = 925
@@ -287,10 +293,8 @@ Partial Class frmRequisitionInfo
         '
         'txtPurpose
         '
-        Me.txtPurpose.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtPurpose.EditValue = ""
-        Me.txtPurpose.Location = New System.Drawing.Point(132, 257)
+        Me.txtPurpose.Location = New System.Drawing.Point(132, 278)
         Me.txtPurpose.Name = "txtPurpose"
         Me.txtPurpose.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtPurpose.Properties.Appearance.Options.UseFont = True
@@ -304,7 +308,7 @@ Partial Class frmRequisitionInfo
         '
         Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl7.Appearance.Options.UseFont = True
-        Me.LabelControl7.Location = New System.Drawing.Point(75, 259)
+        Me.LabelControl7.Location = New System.Drawing.Point(75, 282)
         Me.LabelControl7.Name = "LabelControl7"
         Me.LabelControl7.Size = New System.Drawing.Size(48, 17)
         Me.LabelControl7.TabIndex = 927
@@ -314,7 +318,7 @@ Partial Class frmRequisitionInfo
         '
         Me.txtSourceAmount.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtSourceAmount.EditValue = ""
-        Me.txtSourceAmount.Location = New System.Drawing.Point(132, 389)
+        Me.txtSourceAmount.Location = New System.Drawing.Point(132, 410)
         Me.txtSourceAmount.Name = "txtSourceAmount"
         Me.txtSourceAmount.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtSourceAmount.Properties.Appearance.Options.UseFont = True
@@ -334,7 +338,7 @@ Partial Class frmRequisitionInfo
         Me.LabelControl2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(32, 393)
+        Me.LabelControl2.Location = New System.Drawing.Point(32, 414)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(89, 17)
         Me.LabelControl2.TabIndex = 931
@@ -348,7 +352,7 @@ Partial Class frmRequisitionInfo
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(697, 367)
+        Me.Em.Size = New System.Drawing.Size(693, 364)
         Me.Em.TabIndex = 934
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -411,7 +415,7 @@ Partial Class frmRequisitionInfo
         'txtRequestType
         '
         Me.txtRequestType.EditValue = "sss"
-        Me.txtRequestType.Location = New System.Drawing.Point(132, 108)
+        Me.txtRequestType.Location = New System.Drawing.Point(132, 105)
         Me.txtRequestType.Name = "txtRequestType"
         Me.txtRequestType.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtRequestType.Properties.Appearance.Options.UseFont = True
@@ -437,7 +441,7 @@ Partial Class frmRequisitionInfo
         '
         Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl8.Appearance.Options.UseFont = True
-        Me.LabelControl8.Location = New System.Drawing.Point(44, 112)
+        Me.LabelControl8.Location = New System.Drawing.Point(44, 109)
         Me.LabelControl8.Name = "LabelControl8"
         Me.LabelControl8.Size = New System.Drawing.Size(79, 17)
         Me.LabelControl8.TabIndex = 935
@@ -473,7 +477,7 @@ Partial Class frmRequisitionInfo
         Me.tabParticular.Controls.Add(Me.mode)
         Me.tabParticular.Controls.Add(Me.trnmode)
         Me.tabParticular.Name = "tabParticular"
-        Me.tabParticular.Size = New System.Drawing.Size(697, 402)
+        Me.tabParticular.Size = New System.Drawing.Size(693, 399)
         Me.tabParticular.Text = "Particular Item List"
         '
         'ToolStrip2
@@ -486,7 +490,7 @@ Partial Class frmRequisitionInfo
         Me.ToolStrip2.Name = "ToolStrip2"
         Me.ToolStrip2.Padding = New System.Windows.Forms.Padding(10, 2, 1, 2)
         Me.ToolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.ToolStrip2.Size = New System.Drawing.Size(697, 35)
+        Me.ToolStrip2.Size = New System.Drawing.Size(693, 35)
         Me.ToolStrip2.TabIndex = 959
         Me.ToolStrip2.Text = "ToolStrip3"
         '
@@ -812,7 +816,7 @@ Partial Class frmRequisitionInfo
         Me.ckFinalApprover.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ckFinalApprover.Properties.Appearance.Options.UseFont = True
         Me.ckFinalApprover.Properties.Caption = "FinalApprover"
-        Me.ckFinalApprover.Size = New System.Drawing.Size(99, 20)
+        Me.ckFinalApprover.Size = New System.Drawing.Size(99, 19)
         Me.ckFinalApprover.TabIndex = 955
         Me.ckFinalApprover.Visible = False
         '
@@ -899,7 +903,7 @@ Partial Class frmRequisitionInfo
         'txtRequestby
         '
         Me.txtRequestby.EditValue = "sss"
-        Me.txtRequestby.Location = New System.Drawing.Point(132, 168)
+        Me.txtRequestby.Location = New System.Drawing.Point(132, 163)
         Me.txtRequestby.Name = "txtRequestby"
         Me.txtRequestby.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtRequestby.Properties.Appearance.Options.UseFont = True
@@ -925,7 +929,7 @@ Partial Class frmRequisitionInfo
         '
         Me.LabelControl9.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl9.Appearance.Options.UseFont = True
-        Me.LabelControl9.Location = New System.Drawing.Point(59, 172)
+        Me.LabelControl9.Location = New System.Drawing.Point(59, 166)
         Me.LabelControl9.Name = "LabelControl9"
         Me.LabelControl9.Size = New System.Drawing.Size(64, 17)
         Me.LabelControl9.TabIndex = 949
@@ -1044,7 +1048,7 @@ Partial Class frmRequisitionInfo
         'txtOffice
         '
         Me.txtOffice.EditValue = "sss"
-        Me.txtOffice.Location = New System.Drawing.Point(132, 138)
+        Me.txtOffice.Location = New System.Drawing.Point(132, 134)
         Me.txtOffice.Name = "txtOffice"
         Me.txtOffice.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtOffice.Properties.Appearance.Options.UseFont = True
@@ -1070,7 +1074,7 @@ Partial Class frmRequisitionInfo
         '
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl3.Appearance.Options.UseFont = True
-        Me.LabelControl3.Location = New System.Drawing.Point(20, 142)
+        Me.LabelControl3.Location = New System.Drawing.Point(20, 138)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(103, 17)
         Me.LabelControl3.TabIndex = 957
@@ -1081,7 +1085,7 @@ Partial Class frmRequisitionInfo
         Me.txtStatus.EditValue = "APPROVED"
         Me.txtStatus.Location = New System.Drawing.Point(132, 45)
         Me.txtStatus.Name = "txtStatus"
-        Me.txtStatus.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtStatus.Properties.Appearance.BackColor = System.Drawing.Color.LightSkyBlue
         Me.txtStatus.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 12.75!)
         Me.txtStatus.Properties.Appearance.Options.UseBackColor = True
         Me.txtStatus.Properties.Appearance.Options.UseFont = True
@@ -1096,7 +1100,7 @@ Partial Class frmRequisitionInfo
         '
         Me.txtPriority.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtPriority.EditValue = ""
-        Me.txtPriority.Location = New System.Drawing.Point(132, 361)
+        Me.txtPriority.Location = New System.Drawing.Point(132, 381)
         Me.txtPriority.Name = "txtPriority"
         Me.txtPriority.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtPriority.Properties.Appearance.Options.UseFont = True
@@ -1116,7 +1120,7 @@ Partial Class frmRequisitionInfo
         '
         Me.LabelControl10.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl10.Appearance.Options.UseFont = True
-        Me.LabelControl10.Location = New System.Drawing.Point(82, 367)
+        Me.LabelControl10.Location = New System.Drawing.Point(82, 385)
         Me.LabelControl10.Name = "LabelControl10"
         Me.LabelControl10.Size = New System.Drawing.Size(41, 17)
         Me.LabelControl10.TabIndex = 961
@@ -1126,7 +1130,7 @@ Partial Class frmRequisitionInfo
         '
         Me.LabelControl11.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl11.Appearance.Options.UseFont = True
-        Me.LabelControl11.Location = New System.Drawing.Point(88, 51)
+        Me.LabelControl11.Location = New System.Drawing.Point(88, 50)
         Me.LabelControl11.Name = "LabelControl11"
         Me.LabelControl11.Size = New System.Drawing.Size(35, 17)
         Me.LabelControl11.TabIndex = 962
@@ -1141,11 +1145,46 @@ Partial Class frmRequisitionInfo
         Me.cmdAddfiles.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdAddfiles.Appearance.Options.UseBackColor = True
         Me.cmdAddfiles.Appearance.Options.UseFont = True
-        Me.cmdAddfiles.Location = New System.Drawing.Point(132, 418)
+        Me.cmdAddfiles.Location = New System.Drawing.Point(132, 439)
         Me.cmdAddfiles.Name = "cmdAddfiles"
         Me.cmdAddfiles.Size = New System.Drawing.Size(168, 33)
         Me.cmdAddfiles.TabIndex = 963
         Me.cmdAddfiles.Text = "Budget Source"
+        '
+        'HyperlinkLabelControl1
+        '
+        Me.HyperlinkLabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.HyperlinkLabelControl1.Appearance.Options.UseFont = True
+        Me.HyperlinkLabelControl1.Location = New System.Drawing.Point(61, 196)
+        Me.HyperlinkLabelControl1.Name = "HyperlinkLabelControl1"
+        Me.HyperlinkLabelControl1.Size = New System.Drawing.Size(62, 17)
+        Me.HyperlinkLabelControl1.TabIndex = 967
+        Me.HyperlinkLabelControl1.Text = "Add Payee"
+        '
+        'txtSupplier
+        '
+        Me.txtSupplier.EditValue = "sss"
+        Me.txtSupplier.Location = New System.Drawing.Point(132, 192)
+        Me.txtSupplier.Name = "txtSupplier"
+        Me.txtSupplier.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtSupplier.Properties.Appearance.Options.UseFont = True
+        Me.txtSupplier.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtSupplier.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.txtSupplier.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtSupplier.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtSupplier.Properties.DisplayMember = "Select"
+        Me.txtSupplier.Properties.NullText = ""
+        Me.txtSupplier.Properties.PopupView = Me.gridSupplier
+        Me.txtSupplier.Properties.ValueMember = "code"
+        Me.txtSupplier.Size = New System.Drawing.Size(275, 26)
+        Me.txtSupplier.TabIndex = 966
+        '
+        'gridSupplier
+        '
+        Me.gridSupplier.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.gridSupplier.Name = "gridSupplier"
+        Me.gridSupplier.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.gridSupplier.OptionsView.ShowGroupPanel = False
         '
         'frmRequisitionInfo
         '
@@ -1154,29 +1193,31 @@ Partial Class frmRequisitionInfo
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(1131, 486)
+        Me.Controls.Add(Me.txtSupplier)
         Me.Controls.Add(Me.cmdAddfiles)
-        Me.Controls.Add(Me.LabelControl11)
-        Me.Controls.Add(Me.LabelControl10)
         Me.Controls.Add(Me.txtStatus)
         Me.Controls.Add(Me.txtOffice)
-        Me.Controls.Add(Me.LabelControl3)
         Me.Controls.Add(Me.txtRequestby)
-        Me.Controls.Add(Me.LabelControl9)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.Controls.Add(Me.txtRequestType)
-        Me.Controls.Add(Me.LabelControl8)
-        Me.Controls.Add(Me.LabelControl2)
         Me.Controls.Add(Me.txtSourceAmount)
-        Me.Controls.Add(Me.LabelControl7)
-        Me.Controls.Add(Me.LabelControl6)
         Me.Controls.Add(Me.txtPostingDate)
         Me.Controls.Add(Me.txtFund)
-        Me.Controls.Add(Me.LabelControl4)
-        Me.Controls.Add(Me.LabelControl5)
         Me.Controls.Add(Me.txtRequestNumber)
         Me.Controls.Add(Me.txtPurpose)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.txtPriority)
+        Me.Controls.Add(Me.HyperlinkLabelControl1)
+        Me.Controls.Add(Me.LabelControl11)
+        Me.Controls.Add(Me.LabelControl10)
+        Me.Controls.Add(Me.LabelControl3)
+        Me.Controls.Add(Me.LabelControl9)
+        Me.Controls.Add(Me.LabelControl8)
+        Me.Controls.Add(Me.LabelControl2)
+        Me.Controls.Add(Me.LabelControl7)
+        Me.Controls.Add(Me.LabelControl6)
+        Me.Controls.Add(Me.LabelControl4)
+        Me.Controls.Add(Me.LabelControl5)
         Me.HelpButton = True
         Me.MinimumSize = New System.Drawing.Size(1147, 525)
         Me.Name = "frmRequisitionInfo"
@@ -1239,6 +1280,8 @@ Partial Class frmRequisitionInfo
         CType(Me.gridOffice, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtStatus.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPriority.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtSupplier.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gridSupplier, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1335,4 +1378,7 @@ Partial Class frmRequisitionInfo
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents ToolStripButton3 As ToolStripButton
     Friend WithEvents cmdModifyAttachment As ToolStripMenuItem
+    Friend WithEvents HyperlinkLabelControl1 As DevExpress.XtraEditors.HyperlinkLabelControl
+    Friend WithEvents txtSupplier As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents gridSupplier As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

@@ -98,7 +98,15 @@ Public Class frmSourceOfFundInfo
     End Sub
 
     Private Sub cmdaction_Click(sender As Object, e As EventArgs) Handles cmdaction.Click
-        If Val(CC(txtAmount.EditValue)) > Val(CC(txtAvailableBalance.EditValue)) Then
+        If txtSource.Text = "" Then
+            XtraMessageBox.Show("Please select source of fund!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtSource.Focus()
+            Exit Sub
+        ElseIf Val(CC(txtAmount.Text)) <= 0 Then
+            XtraMessageBox.Show("Please enter valid amount!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtAmount.Focus()
+            Exit Sub
+        ElseIf Val(CC(txtAmount.EditValue)) > Val(CC(txtAvailableBalance.EditValue)) Then
             XtraMessageBox.Show("Insufficient allocated budget balance! Please reduce amount", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         ElseIf countqry("tblrequisitionfund", " pid='" & pid.Text & "' and itemcode='" & sourceid.Text & "' and officeid ='" & officeid.Text & "' and periodcode='" & periodcode.Text & "' and id<>'" & id & "'") > 0 Then

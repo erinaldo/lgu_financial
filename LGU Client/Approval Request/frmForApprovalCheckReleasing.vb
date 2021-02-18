@@ -47,14 +47,17 @@ Public Class frmForApprovalCheckReleasing
                         + " date_format(datetrn,'%Y-%m-%d') as 'Date Posted', " _
                         + " date_format(dateapproved,'%Y-%m-%d') as 'Date Approved' " _
                         + " FROM tblrequisition as a " _
-                        + " where approved=1 and checkapproved=0 and cancelled=0 and officeid in (select officeid from tblcheckapprovalfilter where permissioncode='" & globalAuthcode & "') and (requestno like '%" & rchar(txtSearchBar.Text) & "%' or " _
+                        + " where approved=1 and checkapproved=0 and cancelled=0 and " _
+                        + " officeid in (select officeid from tblcheckapprovalfilter where permissioncode='" & globalAuthcode & "') and " _
+                        + " requesttype in (select code from tblrequisitiontype where enablevoucher=1) and " _
+                        + " (requestno Like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " postingdate like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " (select description from tblrequisitiontype where code=a.requesttype) like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " Purpose like '%" & rchar(txtSearchBar.Text) & "%')  " _
                         + " order by requestno asc", "tblrequisition", Em, GridView1, Me)
 
         XgridColCurrency({"Total Amount"}, GridView1)
-        XgridColAlign({"Status", "Entry Code", "Fund Period", "Request Type", "Posting Date", "Date Posted", "Draft", "ForApproval", "Approved", "Date Approved", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+        XgridColAlign({"Status", "Entry Code", "Fund Period", "Posting Date", "Date Posted", "Draft", "ForApproval", "Approved", "Date Approved", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         XgridGeneralSummaryCurrency({"Total Amount"}, GridView1)
 
 

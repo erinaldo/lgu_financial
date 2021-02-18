@@ -91,6 +91,7 @@ Public Class frmRequisitionForApprovalInfo
         da = New MySqlDataAdapter("select *, concat(yeartrn,'-',(select Description from tblfund where code=a.fundcode)) as fundperiod , " _
                                   + " (select officename from tblcompoffice where officeid=a.officeid) as office, " _
                                   + " (select fullname from tblaccounts where accountid=a.requestedby) as 'requestby', " _
+                                  + " (select suppliername from tblsupplier where supplierid=a.payee) as supplier, " _
                                   + " (select description from tblrequisitiontype where code=a.requesttype) as 'typerequest', " _
                                   + " (select sum(amount) from tblrequisitionfund where pid=a.pid) as sourceamount " _
                                   + " from tblrequisition as a where pid='" & pid.Text & "'", conn)
@@ -106,6 +107,7 @@ Public Class frmRequisitionForApprovalInfo
 
                 txtOffice.EditValue = .Rows(cnt)("office").ToString()
                 txtRequestby.EditValue = .Rows(cnt)("requestby").ToString()
+                txtPayee.Text = .Rows(cnt)("supplier").ToString()
 
                 txtRequestType.EditValue = .Rows(cnt)("typerequest").ToString()
                 txtPostingDate.EditValue = .Rows(cnt)("postingdate").ToString()

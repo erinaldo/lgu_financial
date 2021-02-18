@@ -294,8 +294,8 @@ Module Templates
             DigitalReportSigniture(SaveLocation, GlobalMayorID, "mayor")
         End If
 
-        My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[preparedby]", UCase(globalfullname)), False)
-        DigitalReportSigniture(SaveLocation, globaluserid, "prepared")
+        My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[preparedby]", UCase(GlobalAccountantName)), False)
+        DigitalReportSigniture(SaveLocation, GlobalAccountantID, "prepared")
 
         My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[watermark]", "© " & My.Application.Info.AssemblyName & " " & CDate(Now).ToString("yyyy") & " - Budget Management System v" & fversion & " (Printed On " & CDate(Now).ToString("MMMM dd, yyyy") & ") "), False)
         PrintViaInternetExplorer(SaveLocation.Replace("\", "/"), form)
@@ -424,10 +424,8 @@ Module Templates
 
 
         Dim AcctRow = "" : Dim acct As Integer = 0
-        com.CommandText = "SELECT b.postingdate,b.remarks,(select itemname from tblglitem where itemcode = a.itemcode) as itemname, b.requestno,a.prevbalance,a.amount,a.newbalance, " _
-                                    + " (select paid from tblrequisition where pid=a.pid) as cleared FROM `tblrequisitionfund` as a " _
-                                    + " inner join tblrequisitionitem as b on a.pid=b.pid " _
-                                    + " where a.pid='" & pid & "' order by a.itemcode, b.postingdate asc; " : rst = com.ExecuteReader
+        com.CommandText = "SELECT b.postingdate, (select itemname from tblglitem where itemcode = a.itemcode) as itemname, a.requestno,a.prevbalance,a.amount,a.newbalance, " _
+                                    + " b.paid as cleared FROM `tblrequisitionfund` as a inner join tblrequisition as b on a.pid = b.pid where a.pid='" & pid & "' order by a.itemcode, b.postingdate asc; " : rst = com.ExecuteReader
         While rst.Read
             Dim cleared As Boolean = CBool(rst("cleared"))
             AcctRow += " <tr> " _

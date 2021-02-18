@@ -35,7 +35,7 @@ Public Class frmBudgetReports
 
 
     Public Sub LoadOffice()
-        LoadXgridLookupSearch("select officeid as code,officename as 'Select' from tblcompoffice  order by officename asc", "tblcompoffice", txtOffice, gridOffice)
+        LoadXgridLookupSearch("select officeid as code,officename as 'Select' from tblcompoffice where deleted=0 order by officename asc", "tblcompoffice", txtOffice, gridOffice)
         gridOffice.Columns("code").Visible = False
     End Sub
 
@@ -83,7 +83,7 @@ Public Class frmBudgetReports
         GridView1.BestFitColumns()
  
     End Sub
-     
+
     Private Sub GridView1_DragObjectDrop(sender As Object, e As DevExpress.XtraGrid.Views.Base.DragObjectDropEventArgs) Handles GridView1.DragObjectDrop
         XgridColumnDropChanged(GridView1, Me.Name)
     End Sub

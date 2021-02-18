@@ -41,7 +41,7 @@ Public Class frmRequisitionList
 
 
     Public Sub LoadOffice()
-        LoadXgridLookupSearch("select officeid as code,officename as 'Select' from tblcompoffice  order by officename asc", "tblcompoffice", txtOffice, gridOffice)
+        LoadXgridLookupSearch("select officeid as code,officename as 'Select' from tblcompoffice where deleted=0 order by officename asc", "tblcompoffice", txtOffice, gridOffice)
         gridOffice.Columns("code").Visible = False
     End Sub
 
@@ -82,16 +82,14 @@ Public Class frmRequisitionList
                         + " (select description from tblrequisitiontype where code=a.requesttype) like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " Purpose like '%" & rchar(txtSearchBar.Text) & "%')"
         End If
-        LoadXgrid("SELECT pid as 'Entry Code', if(cancelled,'CANCELLED',if(paid,'DISBURSED',if(approved,'APPROVED',if(draft,'DRAFT',if(hold,'HOLD',if(forapproval,'FOR APPROVAL','-')))))) as Status, " _
+        LoadXgrid("SELECT pid as 'Entry Code', if(cancelled,'CANCELLED',if(cleared,'CHECK CLAIMED', if(voucher,if(paid,'CHECK ISSUED','FOR CHECK ISSUANCE'),if(approved,'APPROVED',if(draft,'DRAFT',if(hold,'HOLD',if(forapproval,'FOR APPROVAL','-'))))))) as Status, " _
                         + " requestno as 'Request No.', " _
                         + " (select description from tblrequisitiontype where code=a.requesttype) as 'Request Type' ," _
                         + " concat((select codename from tblfund where code=a.fundcode),'-',yeartrn) as 'Fund Period',  " _
                         + " date_format(postingdate,'%Y-%m-%d') as 'Posting Date', " _
                         + " (select officename from tblcompoffice where officeid = a.officeid) as 'Office', " _
                         + " (select fullname from tblaccounts where accountid=a.requestedby) as 'Requested By', " _
-                        + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) as 'Total Amount', " _
-                        + " ifnull((select sum(amount) from tbldisbursementdetails where pid=a.pid and cancelled=0),0) as 'Payment', " _
-                        + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) - ifnull((select sum(amount) from tbldisbursementdetails where pid=a.pid and cancelled=0),0) as 'Balance', " _
+                        + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) as 'Amount', " _
                         + " Purpose, " _
                         + " Priority, " _
                         + " (select fullname from tblaccounts where accountid=a.trnby) as 'Posted By', " _
@@ -99,6 +97,8 @@ Public Class frmRequisitionList
                         + " Draft, " _
                         + " ForApproval, " _
                         + " Hold, " _
+                        + " Paid as Voucher, " _
+                        + " JEV, " _
                         + " if(headofficeapproval=1,'OFFICE HEAD', (select officename from tblcompoffice where officeid=a.currentapprover) ) as 'Current Approver', " _
                         + " (select officename from tblcompoffice where officeid=a.nextapprover) as 'Next Approver', " _
                         + " Approved, date_format(dateapproved,'%Y-%m-%d') as 'Date Approved', " _
@@ -109,16 +109,17 @@ Public Class frmRequisitionList
                         + " where  " _
                         + KeyWordSearch _
                         + If(ckViewAllOffice.Checked, "", " and officeid='" & officeid.Text & "' ") _
+                        + If(ckDisplayCancelled.Checked, "", " and cancelled=0 ") _
                         + " order by requestno asc", "tblrequisition", Em, GridView1, Me)
 
-        XgridColCurrency({"Total Amount", "Payment", "Balance"}, GridView1)
-        XgridColAlign({"Entry Code", "Current Approver", "Next Approver", "Status", "Fund Period", "Request Type", "Posting Date", "Date Posted", "Draft", "ForApproval", "Hold", "Approved", "Date Approved", "Check Issuance", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
-        XgridGeneralSummaryCurrency({"Total Amount", "Payment", "Balance"}, GridView1)
+        XgridColCurrency({"Amount"}, GridView1)
+        XgridColAlign({"Entry Code", "Current Approver", "Next Approver", "Status", "Fund Period", "Posting Date", "Date Posted", "Draft", "ForApproval", "Hold", "Approved", "Date Approved", "Check Issuance", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+        XgridGeneralSummaryCurrency({"Amount"}, GridView1)
 
-        DXgridColumnIndexing(Me.Name, GridView1)
+        'DXgridColumnIndexing(Me.Name, GridView1)
         GridView1.BestFitColumns()
         XgridColWidth({"Purpose"}, GridView1, 300)
-        XgridColMemo({"Purpose"}, GridView1)
+        'XgridColMemo({"Purpose"}, GridView1)
         SaveFilterColumn(GridView1, Me.Text)
     End Sub
 
@@ -135,6 +136,11 @@ Public Class frmRequisitionList
                     e.Appearance.BackColor2 = Color.Orange
                     e.Appearance.ForeColor = Color.Black
 
+                ElseIf status = "FOR CHECK ISSUANCE" Then
+                    e.Appearance.BackColor = Color.Khaki
+                    e.Appearance.BackColor2 = Color.Khaki
+                    e.Appearance.ForeColor = Color.Black
+
                 ElseIf status = "DRAFT" Then
                     e.Appearance.BackColor = Color.LightGray
                     e.Appearance.BackColor2 = Color.LightGray
@@ -145,7 +151,12 @@ Public Class frmRequisitionList
                     e.Appearance.BackColor2 = Color.Red
                     e.Appearance.ForeColor = Color.White
 
-                ElseIf status = "DISBURSED" Then
+                ElseIf status = "CHECK ISSUED" Then
+                    e.Appearance.BackColor = Color.LightSkyBlue
+                    e.Appearance.BackColor2 = Color.LightSkyBlue
+                    e.Appearance.ForeColor = Color.Black
+
+                ElseIf status = "CHECK CLAIMED" Then
                     e.Appearance.BackColor = Color.Gold
                     e.Appearance.BackColor2 = Color.Gold
                     e.Appearance.ForeColor = Color.Black
@@ -313,5 +324,9 @@ Public Class frmRequisitionList
         Else
             txtRequestType.Enabled = True
         End If
+    End Sub
+
+    Private Sub ckDisplayCancelled_CheckedChanged(sender As Object, e As EventArgs) Handles ckDisplayCancelled.CheckedChanged
+        ViewList()
     End Sub
 End Class

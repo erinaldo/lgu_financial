@@ -46,9 +46,6 @@ Partial Class frmRequisitionList
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdClose = New System.Windows.Forms.ToolStripButton()
         Me.updates = New System.Windows.Forms.ToolStripLabel()
-        Me.RepositoryItemPictureEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit()
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.SplitContainerControl1 = New DevExpress.XtraEditors.SplitContainerControl()
         Me.ckAllType = New DevExpress.XtraEditors.CheckEdit()
         Me.ckViewAllOffice = New DevExpress.XtraEditors.CheckEdit()
@@ -68,11 +65,12 @@ Partial Class frmRequisitionList
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.ckPendingRequisition = New DevExpress.XtraEditors.CheckEdit()
         Me.txtSearchBar = New DevExpress.XtraEditors.TextEdit()
+        Me.Em = New DevExpress.XtraGrid.GridControl()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
+        Me.ckDisplayCancelled = New DevExpress.XtraEditors.CheckEdit()
         Me.cms_em.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
-        CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerControl1.SuspendLayout()
         CType(Me.ckAllType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -89,6 +87,10 @@ Partial Class frmRequisitionList
         CType(Me.txtDateTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckPendingRequisition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtSearchBar.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ckDisplayCancelled.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'HiToolStripMenuItem
@@ -257,56 +259,13 @@ Partial Class frmRequisitionList
         Me.updates.Name = "updates"
         Me.updates.Size = New System.Drawing.Size(0, 24)
         '
-        'RepositoryItemPictureEdit1
-        '
-        Me.RepositoryItemPictureEdit1.Name = "RepositoryItemPictureEdit1"
-        '
-        'GridView1
-        '
-        Me.GridView1.Appearance.GroupFooter.Font = New System.Drawing.Font("Segoe UI", 8.5!)
-        Me.GridView1.Appearance.GroupFooter.Options.UseFont = True
-        Me.GridView1.Appearance.GroupPanel.Font = New System.Drawing.Font("Segoe UI", 8.5!)
-        Me.GridView1.Appearance.GroupPanel.Options.UseFont = True
-        Me.GridView1.Appearance.GroupRow.Font = New System.Drawing.Font("Segoe UI", 8.5!)
-        Me.GridView1.Appearance.GroupRow.Options.UseFont = True
-        Me.GridView1.Appearance.HeaderPanel.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GridView1.Appearance.HeaderPanel.Options.UseFont = True
-        Me.GridView1.Appearance.Row.Font = New System.Drawing.Font("Segoe UI", 8.5!)
-        Me.GridView1.Appearance.Row.Options.UseFont = True
-        Me.GridView1.Appearance.Row.Options.UseTextOptions = True
-        Me.GridView1.Appearance.Row.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.GridView1.Appearance.ViewCaption.Options.UseTextOptions = True
-        Me.GridView1.Appearance.ViewCaption.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.GridView1.GridControl = Me.Em
-        Me.GridView1.Name = "GridView1"
-        Me.GridView1.OptionsBehavior.AllowGroupExpandAnimation = DevExpress.Utils.DefaultBoolean.[True]
-        Me.GridView1.OptionsBehavior.AllowSortAnimation = DevExpress.Utils.DefaultBoolean.[True]
-        Me.GridView1.OptionsBehavior.Editable = False
-        Me.GridView1.OptionsImageLoad.AnimationType = DevExpress.Utils.ImageContentAnimationType.Expand
-        Me.GridView1.OptionsView.AnimationType = DevExpress.XtraGrid.Views.Base.GridAnimationType.AnimateAllContent
-        Me.GridView1.OptionsView.ColumnAutoWidth = False
-        Me.GridView1.OptionsView.RowAutoHeight = True
-        Me.GridView1.OptionsView.WaitAnimationOptions = DevExpress.XtraEditors.WaitAnimationOptions.Indicator
-        '
-        'Em
-        '
-        Me.Em.ContextMenuStrip = Me.cms_em
-        Me.Em.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Em.Font = New System.Drawing.Font("Tahoma", 6.75!)
-        Me.Em.Location = New System.Drawing.Point(0, 0)
-        Me.Em.MainView = Me.GridView1
-        Me.Em.Name = "Em"
-        Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit1})
-        Me.Em.Size = New System.Drawing.Size(990, 475)
-        Me.Em.TabIndex = 820
-        Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
-        '
         'SplitContainerControl1
         '
         Me.SplitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainerControl1.Horizontal = False
         Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 31)
         Me.SplitContainerControl1.Name = "SplitContainerControl1"
+        Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckDisplayCancelled)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckAllType)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckViewAllOffice)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.txtOffice)
@@ -327,7 +286,7 @@ Partial Class frmRequisitionList
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
         Me.SplitContainerControl1.Size = New System.Drawing.Size(990, 609)
-        Me.SplitContainerControl1.SplitterPosition = 124
+        Me.SplitContainerControl1.SplitterPosition = 122
         Me.SplitContainerControl1.TabIndex = 823
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
         '
@@ -457,7 +416,7 @@ Partial Class frmRequisitionList
         Me.txtDateFrom.EditValue = New Date(2019, 6, 10, 16, 23, 25, 399)
         Me.txtDateFrom.Enabled = False
         Me.txtDateFrom.EnterMoveNextControl = True
-        Me.txtDateFrom.Location = New System.Drawing.Point(142, 59)
+        Me.txtDateFrom.Location = New System.Drawing.Point(142, 60)
         Me.txtDateFrom.Name = "txtDateFrom"
         Me.txtDateFrom.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.txtDateFrom.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
@@ -477,7 +436,7 @@ Partial Class frmRequisitionList
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Location = New System.Drawing.Point(26, 63)
+        Me.LabelControl6.Location = New System.Drawing.Point(26, 64)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(108, 17)
         Me.LabelControl6.TabIndex = 927
@@ -560,6 +519,44 @@ Partial Class frmRequisitionList
         Me.txtSearchBar.Size = New System.Drawing.Size(284, 25)
         Me.txtSearchBar.TabIndex = 0
         '
+        'Em
+        '
+        Me.Em.ContextMenuStrip = Me.cms_em
+        Me.Em.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Em.Location = New System.Drawing.Point(0, 0)
+        Me.Em.MainView = Me.GridView1
+        Me.Em.MinimumSize = New System.Drawing.Size(574, 454)
+        Me.Em.Name = "Em"
+        Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
+        Me.Em.Size = New System.Drawing.Size(990, 482)
+        Me.Em.TabIndex = 635
+        Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        '
+        'GridView1
+        '
+        Me.GridView1.GridControl = Me.Em
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsBehavior.Editable = False
+        Me.GridView1.OptionsSelection.MultiSelect = True
+        Me.GridView1.OptionsSelection.UseIndicatorForSelection = False
+        Me.GridView1.OptionsView.ColumnAutoWidth = False
+        Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'RepositoryItemCheckEdit1
+        '
+        Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
+        Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
+        '
+        'ckDisplayCancelled
+        '
+        Me.ckDisplayCancelled.Location = New System.Drawing.Point(332, 7)
+        Me.ckDisplayCancelled.Name = "ckDisplayCancelled"
+        Me.ckDisplayCancelled.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.ckDisplayCancelled.Properties.Appearance.Options.UseFont = True
+        Me.ckDisplayCancelled.Properties.Caption = "Display Cancelled Request"
+        Me.ckDisplayCancelled.Size = New System.Drawing.Size(196, 21)
+        Me.ckDisplayCancelled.TabIndex = 967
+        '
         'frmRequisitionList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -578,9 +575,6 @@ Partial Class frmRequisitionList
         Me.cms_em.ResumeLayout(False)
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
-        CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainerControl1.ResumeLayout(False)
         CType(Me.ckAllType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -597,6 +591,10 @@ Partial Class frmRequisitionList
         CType(Me.txtDateTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckPendingRequisition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtSearchBar.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ckDisplayCancelled.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -622,9 +620,6 @@ Partial Class frmRequisitionList
     Friend WithEvents cmdCancel As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents cmdNewProperty As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents RepositoryItemPictureEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
-    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents Em As DevExpress.XtraGrid.GridControl
     Friend WithEvents SplitContainerControl1 As DevExpress.XtraEditors.SplitContainerControl
     Friend WithEvents txtSearchBar As DevExpress.XtraEditors.TextEdit
     Friend WithEvents cmdColumnSettings As ToolStripButton
@@ -646,4 +641,8 @@ Partial Class frmRequisitionList
     Friend WithEvents lbloffice As DevExpress.XtraEditors.LabelControl
     Friend WithEvents ckViewAllOffice As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents ckAllType As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents Em As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents ckDisplayCancelled As DevExpress.XtraEditors.CheckEdit
 End Class

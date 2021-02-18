@@ -59,6 +59,7 @@ Partial Class frmVoucherInfo
         Me.gridOffice = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.LabelControl7 = New DevExpress.XtraEditors.LabelControl()
         Me.checkno = New DevExpress.XtraEditors.ButtonEdit()
+        Me.officeid = New DevExpress.XtraEditors.ButtonEdit()
         CType(Me.yeartrn.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.seriesno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.id.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,6 +82,7 @@ Partial Class frmVoucherInfo
         CType(Me.txtOffice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridOffice, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.checkno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'yeartrn
@@ -553,6 +555,22 @@ Partial Class frmVoucherInfo
         Me.checkno.TabIndex = 1001
         Me.checkno.Visible = False
         '
+        'officeid
+        '
+        Me.officeid.EditValue = ""
+        Me.officeid.Location = New System.Drawing.Point(391, 231)
+        Me.officeid.Name = "officeid"
+        Me.officeid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
+        Me.officeid.Properties.Appearance.Options.UseFont = True
+        Me.officeid.Properties.Appearance.Options.UseTextOptions = True
+        Me.officeid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.officeid.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.officeid.Properties.Mask.BeepOnError = True
+        Me.officeid.Properties.ReadOnly = True
+        Me.officeid.Size = New System.Drawing.Size(49, 22)
+        Me.officeid.TabIndex = 1002
+        Me.officeid.Visible = False
+        '
         'frmVoucherInfo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -560,6 +578,7 @@ Partial Class frmVoucherInfo
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(1108, 538)
+        Me.Controls.Add(Me.officeid)
         Me.Controls.Add(Me.checkno)
         Me.Controls.Add(Me.txtOffice)
         Me.Controls.Add(Me.LabelControl7)
@@ -614,6 +633,7 @@ Partial Class frmVoucherInfo
         CType(Me.txtOffice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridOffice, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.checkno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -654,4 +674,5 @@ Partial Class frmVoucherInfo
     Friend WithEvents gridOffice As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents checkno As DevExpress.XtraEditors.ButtonEdit
+    Friend WithEvents officeid As DevExpress.XtraEditors.ButtonEdit
 End Class

@@ -15,7 +15,7 @@ Public Class frmRequisitionType
     End Sub
  
     Public Sub filter()
-        LoadXgrid("Select  Code, Description, directapproved as 'Direct Approved', enablepr as 'Enable PR', enablepo as 'Enable PO'  from tblrequisitiontype order by code asc", "tblrequisitiontype", Em, GridView1, Me)
+        LoadXgrid("Select  Code, Description, Template, enablevoucher as 'Enable Voucher', directapproved as 'Direct Approved', enablepr as 'Enable PR', enablepo as 'Enable PO'  from tblrequisitiontype order by code asc", "tblrequisitiontype", Em, GridView1, Me)
         XgridColWidth({"Code"}, GridView1, 80)
         XgridColAlign({"Code"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
     End Sub
@@ -25,28 +25,38 @@ Public Class frmRequisitionType
             XtraMessageBox.Show("Code already exists!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             code.Focus()
             Exit Sub
- 
+
         ElseIf txtDescription.Text = "" Then
             XtraMessageBox.Show("Please enter description!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtDescription.Focus()
             Exit Sub
- 
+
+        ElseIf txtTemplate.Text = "" Then
+            XtraMessageBox.Show("Please select template!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txtTemplate.Focus()
+            Exit Sub
+
         End If
         If mode.Text = "edit" Then
-            com.CommandText = "update tblrequisitiontype set description='" & rchar(txtDescription.Text) & "', directapproved=" & ckDirectApproved.CheckState & ", enablepr=" & ckEnablePr.CheckState & ", enablepo=" & ckEnablePo.CheckState & "  where code='" & code.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "update tblrequisitiontype set description='" & rchar(txtDescription.Text) & "', template='" & txtTemplate.Text & "', enablevoucher=" & ckEnableVoucher.CheckState & ", directapproved=" & ckDirectApproved.CheckState & ", enablepr=" & ckEnablePr.CheckState & ", enablepo=" & ckEnablePo.CheckState & "  where code='" & code.Text & "'" : com.ExecuteNonQuery()
+            ClearInfo()
             XtraMessageBox.Show("Item successfully saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
-            com.CommandText = "insert into tblrequisitiontype set description='" & rchar(txtDescription.Text) & "', directapproved=" & ckDirectApproved.CheckState & ", enablepr=" & ckEnablePr.CheckState & ", enablepo=" & ckEnablePo.CheckState & " " : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblrequisitiontype set description='" & rchar(txtDescription.Text) & "', template='" & txtTemplate.Text & "', enablevoucher=" & ckEnableVoucher.CheckState & ", directapproved=" & ckDirectApproved.CheckState & ", enablepr=" & ckEnablePr.CheckState & ", enablepo=" & ckEnablePo.CheckState & " " : com.ExecuteNonQuery()
+            ClearInfo()
         End If
-        code.Text = "" : mode.Text = "" : txtDescription.Text = "" : txtDescription.Focus() : ckDirectApproved.Checked = False : ckEnablePr.Checked = False : ckEnablePo.Checked = False : filter()
-
     End Sub
 
+    Public Sub ClearInfo()
+        code.Text = "" : mode.Text = "" : txtDescription.Text = "" : txtDescription.Focus() : txtTemplate.SelectedIndex = -1 : ckEnableVoucher.Checked = True : ckDirectApproved.Checked = False : ckEnablePr.Checked = False : ckEnablePo.Checked = False : filter()
+    End Sub
     Public Sub showInfo()
         If code.Text = "" Then Exit Sub
         com.CommandText = "select * from tblrequisitiontype where code='" & code.Text & "'" : rst = com.ExecuteReader
         While rst.Read
             txtDescription.Text = rst("description").ToString
+            txtTemplate.Text = rst("template").ToString
+            ckEnableVoucher.Checked = CBool(rst("enablevoucher").ToString)
             ckDirectApproved.Checked = CBool(rst("directapproved").ToString)
             ckEnablePr.Checked = CBool(rst("enablepr").ToString)
             ckEnablePo.Checked = CBool(rst("enablepo").ToString)
