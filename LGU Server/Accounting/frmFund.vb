@@ -15,8 +15,8 @@ Public Class frmFund
 #Region "Information"
 
     Public Sub filter()
-        LoadXgrid("Select  Code, CodeName, Description from tblfund order by code asc", "tblfund", Em, GridView1, Me)
-        XgridColAlign({"Code", "CodeName"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+        LoadXgrid("Select  Code, CodeName, Description, Template from tblfund order by code asc", "tblfund", Em, GridView1, Me)
+        XgridColAlign({"Code", "CodeName", "Template"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         GridView1.BestFitColumns()
     End Sub
 
@@ -33,14 +33,17 @@ Public Class frmFund
             XtraMessageBox.Show("Please enter description!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtDescription.Focus()
             Exit Sub
-
+        ElseIf txtTemplate.Text = "" Then
+            XtraMessageBox.Show("Please select template!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txtTemplate.Focus()
+            Exit Sub
         End If
         If mode.Text = "edit" Then
-            com.CommandText = "update tblfund set  codename='" & txtcodename.Text & "',description='" & rchar(txtDescription.Text) & "' where code='" & code.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "update tblfund set  codename='" & txtcodename.Text & "',description='" & rchar(txtDescription.Text) & "', template='" & txtTemplate.EditValue & "' where code='" & code.Text & "'" : com.ExecuteNonQuery()
         Else
-            com.CommandText = "insert into tblfund set code='" & code.Text & "',codename='" & txtcodename.Text & "',description='" & rchar(txtDescription.Text) & "'" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblfund set code='" & code.Text & "',codename='" & txtcodename.Text & "',description='" & rchar(txtDescription.Text) & "', template='" & txtTemplate.EditValue & "'" : com.ExecuteNonQuery()
         End If
-        code.Text = "" : mode.Text = "" : code.Enabled = True : txtcodename.Text = "" : txtDescription.Text = "" : code.Focus() : filter()
+        code.Text = "" : mode.Text = "" : code.Enabled = True : txtcodename.Text = "" : txtDescription.Text = "" : txtTemplate.SelectedIndex = -1 : code.Focus() : filter()
         XtraMessageBox.Show("fund successfully saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
     Public Sub showInfo()
@@ -49,6 +52,7 @@ Public Class frmFund
         While rst.Read
             txtcodename.Text = rst("codename").ToString
             txtDescription.Text = rst("description").ToString
+            txtTemplate.EditValue = rst("template").ToString
         End While
         rst.Close()
     End Sub

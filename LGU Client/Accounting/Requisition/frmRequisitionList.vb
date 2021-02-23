@@ -74,7 +74,7 @@ Public Class frmRequisitionList
     Public Sub ViewList()
         Dim KeyWordSearch As String = ""
         If txtSearchBar.Text = "" Then
-            KeyWordSearch = If(ckPendingRequisition.Checked = True, " approved=0 and cancelled=0 and paid=0 ", If(ckAllType.Checked = True, " date_format(postingdate,'%Y-%m-%d') between '" & ConvertDate(txtDateFrom.EditValue) & "' and '" & ConvertDate(txtDateTo.EditValue) & "' ", " requesttype='" & requesttype.Text & "' and date_format(postingdate,'%Y-%m-%d') between '" & ConvertDate(txtDateFrom.EditValue) & "' and '" & ConvertDate(txtDateTo.EditValue) & "' "))
+            KeyWordSearch = If(ckPendingRequisition.Checked = True, " cleared=0 and cancelled=0 ", If(ckAllType.Checked = True, " date_format(postingdate,'%Y-%m-%d') between '" & ConvertDate(txtDateFrom.EditValue) & "' and '" & ConvertDate(txtDateTo.EditValue) & "' ", " requesttype='" & requesttype.Text & "' and date_format(postingdate,'%Y-%m-%d') between '" & ConvertDate(txtDateFrom.EditValue) & "' and '" & ConvertDate(txtDateTo.EditValue) & "' "))
         Else
             KeyWordSearch = " (pid like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " requestno like '%" & rchar(txtSearchBar.Text) & "%' or " _

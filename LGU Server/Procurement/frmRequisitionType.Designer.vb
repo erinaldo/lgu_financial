@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmRequisitionType
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,7 +17,7 @@ Partial Class frmRequisitionType
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
@@ -37,7 +37,6 @@ Partial Class frmRequisitionType
         Me.ckEnablePr = New DevExpress.XtraEditors.CheckEdit()
         Me.ckEnablePo = New DevExpress.XtraEditors.CheckEdit()
         Me.ckEnableVoucher = New DevExpress.XtraEditors.CheckEdit()
-        Me.txtTemplate = New DevExpress.XtraEditors.ComboBoxEdit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,7 +48,6 @@ Partial Class frmRequisitionType
         CType(Me.ckEnablePr.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckEnablePo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckEnableVoucher.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtTemplate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl2
@@ -96,7 +94,7 @@ Partial Class frmRequisitionType
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescription.Properties.Appearance.Options.UseFont = True
-        Me.txtDescription.Size = New System.Drawing.Size(273, 24)
+        Me.txtDescription.Size = New System.Drawing.Size(430, 24)
         Me.txtDescription.TabIndex = 631
         '
         'Em
@@ -215,31 +213,12 @@ Partial Class frmRequisitionType
         Me.ckEnableVoucher.Size = New System.Drawing.Size(108, 20)
         Me.ckEnableVoucher.TabIndex = 959
         '
-        'txtTemplate
-        '
-        Me.txtTemplate.Location = New System.Drawing.Point(402, 11)
-        Me.txtTemplate.Name = "txtTemplate"
-        Me.txtTemplate.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtTemplate.Properties.Appearance.Options.UseFont = True
-        Me.txtTemplate.Properties.AppearanceDropDown.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtTemplate.Properties.AppearanceDropDown.Options.UseFont = True
-        Me.txtTemplate.Properties.AppearanceFocused.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtTemplate.Properties.AppearanceFocused.Options.UseFont = True
-        Me.txtTemplate.Properties.AppearanceItemSelected.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtTemplate.Properties.AppearanceItemSelected.Options.UseFont = True
-        Me.txtTemplate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.txtTemplate.Properties.Items.AddRange(New Object() {"FURS", "CAFOA", "NONE"})
-        Me.txtTemplate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.txtTemplate.Size = New System.Drawing.Size(155, 24)
-        Me.txtTemplate.TabIndex = 960
-        '
         'frmRequisitionType
         '
         Me.AcceptButton = Me.cmdSaveButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(746, 657)
-        Me.Controls.Add(Me.txtTemplate)
         Me.Controls.Add(Me.ckEnableVoucher)
         Me.Controls.Add(Me.ckEnablePo)
         Me.Controls.Add(Me.ckEnablePr)
@@ -264,7 +243,6 @@ Partial Class frmRequisitionType
         CType(Me.ckEnablePr.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckEnablePo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckEnableVoucher.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtTemplate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -286,5 +264,4 @@ Partial Class frmRequisitionType
     Friend WithEvents ckEnablePr As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents ckEnablePo As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents ckEnableVoucher As DevExpress.XtraEditors.CheckEdit
-    Friend WithEvents txtTemplate As DevExpress.XtraEditors.ComboBoxEdit
 End Class

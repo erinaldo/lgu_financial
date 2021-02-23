@@ -71,7 +71,7 @@ Public Class frmVoucherInfo
 
     Public Sub LoadOffice()
         If periodcode.Text = "" Then Exit Sub
-        LoadXgridLookupSearch("select officeid, officename as 'Select' from tblcompoffice where (officeid in (select officeid from tblrequisition where approved=1 and periodcode='" & periodcode.Text & "' and paid=0 and requesttype in (select code from tblrequisitiontype where enablevoucher=1)) or officeid='" & officeid.Text & "')  order by officename asc", "tblcompoffice", txtOffice, gridOffice)
+        LoadXgridLookupSearch("select officeid, officename as 'Select' from tblcompoffice where (officeid in (select officeid from tblrequisition where approved=1 and periodcode='" & periodcode.Text & "' and voucher=0 and requesttype in (select code from tblrequisitiontype where enablevoucher=1)) or officeid='" & officeid.Text & "')  order by officename asc", "tblcompoffice", txtOffice, gridOffice)
         gridOffice.Columns("officeid").Visible = False
     End Sub
 
@@ -142,10 +142,13 @@ Public Class frmVoucherInfo
         If gridRequisition.RowCount > 0 Then
             txtFund.ReadOnly = True
             txtOffice.ReadOnly = True
-
+            If txtSupplier.Text = "" Then
+                txtSupplier.EditValue = gridRequisition.GetFocusedRowCellValue("payeeid").ToString
+            End If
         Else
             txtFund.ReadOnly = False
             txtOffice.ReadOnly = False
+            txtSupplier.EditValue = Nothing
         End If
     End Sub
 
@@ -188,7 +191,7 @@ Public Class frmVoucherInfo
         End If
         If XtraMessageBox.Show("Are you sure you want to continue?", GlobalOrganizationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             For I = 0 To gridRequisition.SelectedRowsCount - 1
-                com.CommandText = "UPDATE tblrequisition set paid=0 where pid='" & gridRequisition.GetRowCellValue(gridRequisition.GetSelectedRows(I), "Entry Code").ToString & "'" : com.ExecuteNonQuery()
+                com.CommandText = "UPDATE tblrequisition set voucher=0 where pid='" & gridRequisition.GetRowCellValue(gridRequisition.GetSelectedRows(I), "Entry Code").ToString & "'" : com.ExecuteNonQuery()
                 com.CommandText = "DELETE FROM tbldisbursementdetails where id='" & gridRequisition.GetRowCellValue(gridRequisition.GetSelectedRows(I), "id").ToString & "'" : com.ExecuteNonQuery()
             Next
             LoadVoucherExpenses()
@@ -326,7 +329,7 @@ Public Class frmVoucherInfo
 
     Private Sub gridRequisition_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles gridRequisition.FocusedRowChanged
         If gridRequisition.RowCount > 0 Then
-            If txtSupplier.EditValue Is Nothing Then
+            If txtSupplier.Text = "" Then
                 txtSupplier.EditValue = gridRequisition.GetFocusedRowCellValue("payeeid").ToString
 
             End If

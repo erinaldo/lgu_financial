@@ -48,6 +48,8 @@ Partial Class frmFund
         Me.gridFiltered = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.txtFund = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridFund = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.txtTemplate = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtcodename.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,13 +69,14 @@ Partial Class frmFund
         CType(Me.gridFiltered, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridFund, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtTemplate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl2
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(16, 70)
+        Me.LabelControl2.Location = New System.Drawing.Point(31, 68)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(66, 17)
         Me.LabelControl2.TabIndex = 507
@@ -96,7 +99,7 @@ Partial Class frmFund
         '
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl1.Appearance.Options.UseFont = True
-        Me.LabelControl1.Location = New System.Drawing.Point(12, 44)
+        Me.LabelControl1.Location = New System.Drawing.Point(27, 42)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(70, 17)
         Me.LabelControl1.TabIndex = 510
@@ -110,7 +113,7 @@ Partial Class frmFund
         Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSaveButton.Appearance.Options.UseBackColor = True
         Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(87, 94)
+        Me.cmdSaveButton.Location = New System.Drawing.Point(102, 119)
         Me.cmdSaveButton.Name = "cmdSaveButton"
         Me.cmdSaveButton.Size = New System.Drawing.Size(168, 38)
         Me.cmdSaveButton.TabIndex = 3
@@ -120,7 +123,7 @@ Partial Class frmFund
         '
         Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl4.Appearance.Options.UseFont = True
-        Me.LabelControl4.Location = New System.Drawing.Point(51, 18)
+        Me.LabelControl4.Location = New System.Drawing.Point(66, 16)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(31, 17)
         Me.LabelControl4.TabIndex = 628
@@ -129,7 +132,7 @@ Partial Class frmFund
         'code
         '
         Me.code.EditValue = ""
-        Me.code.Location = New System.Drawing.Point(87, 15)
+        Me.code.Location = New System.Drawing.Point(102, 13)
         Me.code.Name = "code"
         Me.code.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.code.Properties.Appearance.Options.UseFont = True
@@ -140,7 +143,7 @@ Partial Class frmFund
         'txtcodename
         '
         Me.txtcodename.EditValue = ""
-        Me.txtcodename.Location = New System.Drawing.Point(87, 41)
+        Me.txtcodename.Location = New System.Drawing.Point(102, 39)
         Me.txtcodename.Name = "txtcodename"
         Me.txtcodename.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcodename.Properties.Appearance.Options.UseFont = True
@@ -151,7 +154,7 @@ Partial Class frmFund
         'txtDescription
         '
         Me.txtDescription.EditValue = ""
-        Me.txtDescription.Location = New System.Drawing.Point(87, 67)
+        Me.txtDescription.Location = New System.Drawing.Point(102, 65)
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescription.Properties.Appearance.Options.UseFont = True
@@ -161,11 +164,11 @@ Partial Class frmFund
         'Em
         '
         Me.Em.ContextMenuStrip = Me.gridmenustrip
-        Me.Em.Location = New System.Drawing.Point(3, 138)
+        Me.Em.Location = New System.Drawing.Point(3, 165)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(615, 274)
+        Me.Em.Size = New System.Drawing.Size(621, 314)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -230,12 +233,14 @@ Partial Class frmFund
         Me.XtraTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.tabInfo
-        Me.XtraTabControl1.Size = New System.Drawing.Size(620, 445)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(629, 515)
         Me.XtraTabControl1.TabIndex = 633
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabInfo, Me.tabFilter})
         '
         'tabInfo
         '
+        Me.tabInfo.Controls.Add(Me.LabelControl3)
+        Me.tabInfo.Controls.Add(Me.txtTemplate)
         Me.tabInfo.Controls.Add(Me.code)
         Me.tabInfo.Controls.Add(Me.LabelControl2)
         Me.tabInfo.Controls.Add(Me.Em)
@@ -246,7 +251,7 @@ Partial Class frmFund
         Me.tabInfo.Controls.Add(Me.cmdSaveButton)
         Me.tabInfo.Controls.Add(Me.LabelControl4)
         Me.tabInfo.Name = "tabInfo"
-        Me.tabInfo.Size = New System.Drawing.Size(618, 412)
+        Me.tabInfo.Size = New System.Drawing.Size(627, 482)
         Me.tabInfo.Text = "Fund Information"
         '
         'tabFilter
@@ -258,7 +263,7 @@ Partial Class frmFund
         Me.tabFilter.Controls.Add(Me.Em_filtered)
         Me.tabFilter.Controls.Add(Me.txtFund)
         Me.tabFilter.Name = "tabFilter"
-        Me.tabFilter.Size = New System.Drawing.Size(618, 412)
+        Me.tabFilter.Size = New System.Drawing.Size(627, 482)
         Me.tabFilter.Text = "Fund Access Filter"
         '
         'fundcode
@@ -302,7 +307,7 @@ Partial Class frmFund
         Me.Em_unfiltered.Location = New System.Drawing.Point(11, 38)
         Me.Em_unfiltered.MainView = Me.gridUnfiltered
         Me.Em_unfiltered.Name = "Em_unfiltered"
-        Me.Em_unfiltered.Size = New System.Drawing.Size(272, 372)
+        Me.Em_unfiltered.Size = New System.Drawing.Size(272, 433)
         Me.Em_unfiltered.TabIndex = 705
         Me.Em_unfiltered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridUnfiltered})
         '
@@ -322,7 +327,7 @@ Partial Class frmFund
         Me.Em_filtered.Location = New System.Drawing.Point(337, 18)
         Me.Em_filtered.MainView = Me.gridFiltered
         Me.Em_filtered.Name = "Em_filtered"
-        Me.Em_filtered.Size = New System.Drawing.Size(272, 392)
+        Me.Em_filtered.Size = New System.Drawing.Size(272, 453)
         Me.Em_filtered.TabIndex = 706
         Me.Em_filtered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridFiltered})
         '
@@ -359,12 +364,40 @@ Partial Class frmFund
         Me.gridFund.OptionsSelection.EnableAppearanceFocusedCell = False
         Me.gridFund.OptionsView.ShowGroupPanel = False
         '
+        'txtTemplate
+        '
+        Me.txtTemplate.Location = New System.Drawing.Point(102, 91)
+        Me.txtTemplate.Name = "txtTemplate"
+        Me.txtTemplate.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtTemplate.Properties.Appearance.Options.UseFont = True
+        Me.txtTemplate.Properties.AppearanceDropDown.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtTemplate.Properties.AppearanceDropDown.Options.UseFont = True
+        Me.txtTemplate.Properties.AppearanceFocused.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtTemplate.Properties.AppearanceFocused.Options.UseFont = True
+        Me.txtTemplate.Properties.AppearanceItemSelected.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtTemplate.Properties.AppearanceItemSelected.Options.UseFont = True
+        Me.txtTemplate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtTemplate.Properties.Items.AddRange(New Object() {"FURS", "CAFOA"})
+        Me.txtTemplate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.txtTemplate.Size = New System.Drawing.Size(168, 24)
+        Me.txtTemplate.TabIndex = 961
+        '
+        'LabelControl3
+        '
+        Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl3.Appearance.Options.UseFont = True
+        Me.LabelControl3.Location = New System.Drawing.Point(43, 94)
+        Me.LabelControl3.Name = "LabelControl3"
+        Me.LabelControl3.Size = New System.Drawing.Size(54, 17)
+        Me.LabelControl3.TabIndex = 962
+        Me.LabelControl3.Text = "Template"
+        '
         'frmFund
         '
         Me.AcceptButton = Me.cmdSaveButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(620, 445)
+        Me.ClientSize = New System.Drawing.Size(629, 515)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -391,6 +424,7 @@ Partial Class frmFund
         CType(Me.gridFiltered, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridFund, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtTemplate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -422,4 +456,6 @@ Partial Class frmFund
     Friend WithEvents gridFiltered As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents txtFund As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gridFund As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtTemplate As DevExpress.XtraEditors.ComboBoxEdit
 End Class

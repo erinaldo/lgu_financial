@@ -222,10 +222,12 @@ Module UpdateEngine
             engineupdated = True
         End If
 
-        updateVersion = "2021-02-19"
+        updateVersion = "2021-02-22"
         If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
-            com.CommandText = "ALTER TABLE `tblrequisitiontype` ADD COLUMN `template` VARCHAR(10) NOT NULL DEFAULT '' AFTER `description`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
-            com.CommandText = "ALTER TABLE `tblfund` DROP COLUMN `template`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbljournalentryvoucher` ADD COLUMN `pid` VARCHAR(45) NOT NULL DEFAULT '' AFTER `aeno`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update `tblrequisition` set voucher=1 where pid in (select pid from tbldisbursementdetails);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update tblrequisition set paid=0;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update tblrequisition set paid=1 where pid in (select pid from tbldisbursementdetails as a inner join tbldisbursementvoucher as b on a.voucherno=b.voucherno where b.checkno<>'');" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
             engineupdated = True
         End If
 

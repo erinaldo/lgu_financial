@@ -115,7 +115,7 @@ Partial Class frmRequisitionInfo
         Me.LabelControl10 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl11 = New DevExpress.XtraEditors.LabelControl()
         Me.cmdAddfiles = New DevExpress.XtraEditors.SimpleButton()
-        Me.HyperlinkLabelControl1 = New DevExpress.XtraEditors.HyperlinkLabelControl()
+        Me.txtAddSupplier = New DevExpress.XtraEditors.HyperlinkLabelControl()
         Me.txtSupplier = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridSupplier = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.txtRequestNumber.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -316,7 +316,6 @@ Partial Class frmRequisitionInfo
         '
         'txtSourceAmount
         '
-        Me.txtSourceAmount.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtSourceAmount.EditValue = ""
         Me.txtSourceAmount.Location = New System.Drawing.Point(132, 410)
         Me.txtSourceAmount.Name = "txtSourceAmount"
@@ -335,7 +334,6 @@ Partial Class frmRequisitionInfo
         '
         'LabelControl2
         '
-        Me.LabelControl2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl2.Appearance.Options.UseFont = True
         Me.LabelControl2.Location = New System.Drawing.Point(32, 414)
@@ -352,7 +350,7 @@ Partial Class frmRequisitionInfo
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(693, 364)
+        Me.Em.Size = New System.Drawing.Size(624, 418)
         Me.Em.TabIndex = 934
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -457,7 +455,7 @@ Partial Class frmRequisitionInfo
         Me.XtraTabControl1.Location = New System.Drawing.Point(427, 43)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.tabParticular
-        Me.XtraTabControl1.Size = New System.Drawing.Size(699, 433)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(630, 487)
         Me.XtraTabControl1.TabIndex = 940
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabParticular, Me.tabAttachment, Me.tabApprovalHistory, Me.tabDisbursement})
         '
@@ -477,7 +475,7 @@ Partial Class frmRequisitionInfo
         Me.tabParticular.Controls.Add(Me.mode)
         Me.tabParticular.Controls.Add(Me.trnmode)
         Me.tabParticular.Name = "tabParticular"
-        Me.tabParticular.Size = New System.Drawing.Size(693, 399)
+        Me.tabParticular.Size = New System.Drawing.Size(624, 453)
         Me.tabParticular.Text = "Particular Item List"
         '
         'ToolStrip2
@@ -490,7 +488,7 @@ Partial Class frmRequisitionInfo
         Me.ToolStrip2.Name = "ToolStrip2"
         Me.ToolStrip2.Padding = New System.Windows.Forms.Padding(10, 2, 1, 2)
         Me.ToolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.ToolStrip2.Size = New System.Drawing.Size(693, 35)
+        Me.ToolStrip2.Size = New System.Drawing.Size(624, 35)
         Me.ToolStrip2.TabIndex = 959
         Me.ToolStrip2.Text = "ToolStrip3"
         '
@@ -649,7 +647,7 @@ Partial Class frmRequisitionInfo
         Me.tabAttachment.Controls.Add(Me.ckFinalApprover)
         Me.tabAttachment.Controls.Add(Me.CurrentApprover)
         Me.tabAttachment.Name = "tabAttachment"
-        Me.tabAttachment.Size = New System.Drawing.Size(693, 399)
+        Me.tabAttachment.Size = New System.Drawing.Size(693, 439)
         Me.tabAttachment.Text = "Attached Document Files"
         '
         'Em_files
@@ -660,7 +658,7 @@ Partial Class frmRequisitionInfo
         Me.Em_files.MainView = Me.gridview_files
         Me.Em_files.Name = "Em_files"
         Me.Em_files.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2})
-        Me.Em_files.Size = New System.Drawing.Size(693, 364)
+        Me.Em_files.Size = New System.Drawing.Size(693, 404)
         Me.Em_files.TabIndex = 935
         Me.Em_files.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridview_files})
         '
@@ -773,7 +771,7 @@ Partial Class frmRequisitionInfo
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
         Me.barDockControlRight.Location = New System.Drawing.Point(693, 0)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 399)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 439)
         '
         'BarDockControl1
         '
@@ -781,7 +779,7 @@ Partial Class frmRequisitionInfo
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
         Me.BarDockControl1.Location = New System.Drawing.Point(693, 0)
         Me.BarDockControl1.Manager = Nothing
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 399)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 439)
         '
         'NextApprover
         '
@@ -837,7 +835,7 @@ Partial Class frmRequisitionInfo
         '
         Me.tabApprovalHistory.Controls.Add(Me.Em_approval)
         Me.tabApprovalHistory.Name = "tabApprovalHistory"
-        Me.tabApprovalHistory.Size = New System.Drawing.Size(693, 399)
+        Me.tabApprovalHistory.Size = New System.Drawing.Size(693, 439)
         Me.tabApprovalHistory.Text = "Approval History"
         '
         'Em_approval
@@ -847,7 +845,7 @@ Partial Class frmRequisitionInfo
         Me.Em_approval.MainView = Me.gridview_approval
         Me.Em_approval.Name = "Em_approval"
         Me.Em_approval.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit3})
-        Me.Em_approval.Size = New System.Drawing.Size(693, 399)
+        Me.Em_approval.Size = New System.Drawing.Size(693, 439)
         Me.Em_approval.TabIndex = 936
         Me.Em_approval.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridview_approval})
         '
@@ -870,7 +868,7 @@ Partial Class frmRequisitionInfo
         '
         Me.tabDisbursement.Controls.Add(Me.Em_disbursement)
         Me.tabDisbursement.Name = "tabDisbursement"
-        Me.tabDisbursement.Size = New System.Drawing.Size(693, 399)
+        Me.tabDisbursement.Size = New System.Drawing.Size(693, 439)
         Me.tabDisbursement.Text = "Disbursement Voucher"
         '
         'Em_disbursement
@@ -880,7 +878,7 @@ Partial Class frmRequisitionInfo
         Me.Em_disbursement.MainView = Me.gridDisbursement
         Me.Em_disbursement.Name = "Em_disbursement"
         Me.Em_disbursement.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit4})
-        Me.Em_disbursement.Size = New System.Drawing.Size(693, 399)
+        Me.Em_disbursement.Size = New System.Drawing.Size(693, 439)
         Me.Em_disbursement.TabIndex = 935
         Me.Em_disbursement.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridDisbursement})
         '
@@ -945,7 +943,7 @@ Partial Class frmRequisitionInfo
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Padding = New System.Windows.Forms.Padding(10, 2, 1, 2)
         Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.ToolStrip1.Size = New System.Drawing.Size(1131, 35)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1062, 35)
         Me.ToolStrip1.TabIndex = 951
         Me.ToolStrip1.Text = "ToolStrip3"
         '
@@ -1098,7 +1096,6 @@ Partial Class frmRequisitionInfo
         '
         'txtPriority
         '
-        Me.txtPriority.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtPriority.EditValue = ""
         Me.txtPriority.Location = New System.Drawing.Point(132, 381)
         Me.txtPriority.Name = "txtPriority"
@@ -1138,7 +1135,6 @@ Partial Class frmRequisitionInfo
         '
         'cmdAddfiles
         '
-        Me.cmdAddfiles.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cmdAddfiles.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cmdAddfiles.Appearance.BackColor2 = System.Drawing.Color.Khaki
         Me.cmdAddfiles.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1151,15 +1147,15 @@ Partial Class frmRequisitionInfo
         Me.cmdAddfiles.TabIndex = 963
         Me.cmdAddfiles.Text = "Budget Source"
         '
-        'HyperlinkLabelControl1
+        'txtAddSupplier
         '
-        Me.HyperlinkLabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.HyperlinkLabelControl1.Appearance.Options.UseFont = True
-        Me.HyperlinkLabelControl1.Location = New System.Drawing.Point(61, 196)
-        Me.HyperlinkLabelControl1.Name = "HyperlinkLabelControl1"
-        Me.HyperlinkLabelControl1.Size = New System.Drawing.Size(62, 17)
-        Me.HyperlinkLabelControl1.TabIndex = 967
-        Me.HyperlinkLabelControl1.Text = "Add Payee"
+        Me.txtAddSupplier.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.txtAddSupplier.Appearance.Options.UseFont = True
+        Me.txtAddSupplier.Location = New System.Drawing.Point(61, 196)
+        Me.txtAddSupplier.Name = "txtAddSupplier"
+        Me.txtAddSupplier.Size = New System.Drawing.Size(62, 17)
+        Me.txtAddSupplier.TabIndex = 967
+        Me.txtAddSupplier.Text = "Add Payee"
         '
         'txtSupplier
         '
@@ -1192,7 +1188,7 @@ Partial Class frmRequisitionInfo
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1131, 486)
+        Me.ClientSize = New System.Drawing.Size(1062, 540)
         Me.Controls.Add(Me.txtSupplier)
         Me.Controls.Add(Me.cmdAddfiles)
         Me.Controls.Add(Me.txtStatus)
@@ -1207,7 +1203,7 @@ Partial Class frmRequisitionInfo
         Me.Controls.Add(Me.txtPurpose)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.txtPriority)
-        Me.Controls.Add(Me.HyperlinkLabelControl1)
+        Me.Controls.Add(Me.txtAddSupplier)
         Me.Controls.Add(Me.LabelControl11)
         Me.Controls.Add(Me.LabelControl10)
         Me.Controls.Add(Me.LabelControl3)
@@ -1219,7 +1215,7 @@ Partial Class frmRequisitionInfo
         Me.Controls.Add(Me.LabelControl4)
         Me.Controls.Add(Me.LabelControl5)
         Me.HelpButton = True
-        Me.MinimumSize = New System.Drawing.Size(1147, 525)
+        Me.MinimumSize = New System.Drawing.Size(1078, 579)
         Me.Name = "frmRequisitionInfo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Requistion Information"
@@ -1378,7 +1374,7 @@ Partial Class frmRequisitionInfo
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents ToolStripButton3 As ToolStripButton
     Friend WithEvents cmdModifyAttachment As ToolStripMenuItem
-    Friend WithEvents HyperlinkLabelControl1 As DevExpress.XtraEditors.HyperlinkLabelControl
+    Friend WithEvents txtAddSupplier As DevExpress.XtraEditors.HyperlinkLabelControl
     Friend WithEvents txtSupplier As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gridSupplier As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

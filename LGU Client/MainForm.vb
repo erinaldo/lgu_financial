@@ -139,7 +139,7 @@ Public Class MainForm
         End If
 
         If globalAuthNewDisbursement = True Or globalRootUser = True Then
-            Dim newdisbursementlist As Integer = countqry("tblrequisition", " approved=1 and cancelled=0 and paid=0 and requesttype in (select code from tblrequisitiontype where enablevoucher=1)")
+            Dim newdisbursementlist As Integer = countqry("tblrequisition", " approved=1 and cancelled=0 and voucher=0 and requesttype in (select code from tblrequisitiontype where enablevoucher=1)")
             If newdisbursementlist > 0 Then
                 cmdNewDisbursement.Text = "New Disbursement (" & newdisbursementlist & ")"
                 If globalFontColor = "LIGHT" Then

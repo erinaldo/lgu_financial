@@ -223,7 +223,7 @@ Public Class frmJournalEntry
                    + " datetrn=current_timestamp " : com.ExecuteNonQuery()
             com.CommandText = "update tbljournalentryitem set jevno='" & newjevno & "' where jevno='" & globaluserid & "-temp'" : com.ExecuteNonQuery()
             If pid.Text = "" Then
-                com.CommandText = "update `tblrequisition` set jev=1 where pid in (select a.pid from tbldisbursementdetails where voucherno='" & txtDVNo.Text & "')" : com.ExecuteNonQuery()
+                com.CommandText = "update `tblrequisition` set jev=1 where pid in (select pid from tbldisbursementdetails where voucherno='" & txtDVNo.Text & "')" : com.ExecuteNonQuery()
             Else
                 com.CommandText = "update `tblrequisition` set jev=1 where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
             End If

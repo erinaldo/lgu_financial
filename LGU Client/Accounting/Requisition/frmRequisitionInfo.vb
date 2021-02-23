@@ -26,11 +26,11 @@ Public Class frmRequisitionInfo
     End Sub
 
     Private Sub frmRequisitionInfo_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        If countqry("tblrequisitionitem", "pid='" & pid.Text & "'") > 0 Or countqry("tblrequisitionfund", "pid='" & pid.Text & "'") > 0 Then
+        If countqry("tblrequisitionitem", "pid='" & pid.Text & "'") > 0 Or countqry("tmprequisitionfund", "pid='" & pid.Text & "'") > 0 Then
             If countqry("tblrequisition", "pid='" & pid.Text & "'") = 0 Then
                 If XtraMessageBox.Show("Are you sure you want to close current request? Closing unsaved request will cancelling all current transaction." & Environment.NewLine & "You may save it as draft for you able to edit this transaction later.", GlobalOrganizationName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = vbYes Then
                     com.CommandText = "DELETE FROM tblrequisitionitem where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
-                    com.CommandText = "DELETE FROM tblrequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
+                    com.CommandText = "DELETE FROM tmprequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
                     com.CommandText = "DELETE FROM tblrequisitionfiles where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
                 Else
                     e.Cancel = True
@@ -40,7 +40,7 @@ Public Class frmRequisitionInfo
     End Sub
 
     Private Sub frmRequisitionInfo_Activated(sender As Object, e As EventArgs) Handles Me.Activated
-        txtSourceAmount.EditValue = qrysingledata("total", "sum(amount) as total", "tblrequisitionfund where pid='" & pid.Text & "'")
+        txtSourceAmount.EditValue = qrysingledata("total", "sum(amount) as total", "tmprequisitionfund where pid='" & pid.Text & "'")
     End Sub
 
     Private Sub ffrmRequisitionInfo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -58,20 +58,25 @@ Public Class frmRequisitionInfo
         If mode.Text = "edit" Then
             ShowRequisitionInfo()
             LoadRequestType()
-            LoadFund()
+            CreateFundTable()
+            LoadRequisitionFund()
         Else
-            LoadRequestType()
-            LoadFund()
             pid.Text = GetRequisitionSeries()
+            LoadRequestType()
+            CreateFundTable()
+            LoadRequisitionFund()
             ReadOnlyForm(False, mode.Text)
             txtStatus.Text = "NEW REQUEST"
         End If
         LoadItem()
         LoadFiles()
         ApprovingHistory()
-
         LoadApproverDeatils()
-
+    End Sub
+    Public Sub CreateFundTable()
+        com.CommandText = "CREATE TEMPORARY TABLE IF NOT EXISTS `tmprequisitionfund` (  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,  `pid` varchar(45) NOT NULL DEFAULT '',  `officeid` varchar(45) NOT NULL DEFAULT '',  `periodcode` varchar(45) NOT NULL DEFAULT '',  `requestno` varchar(45) NOT NULL DEFAULT '',  `quarter` varchar(2) NOT NULL DEFAULT '',  `classcode` varchar(45) NOT NULL DEFAULT '',  `itemcode` varchar(45) NOT NULL DEFAULT '',  `prevbalance` double NOT NULL DEFAULT '0',  `amount` double NOT NULL DEFAULT '0',  `newbalance` double NOT NULL DEFAULT '0',  `cancelled` tinyint(1) NOT NULL DEFAULT '0',  PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;" : com.ExecuteNonQuery()
+        com.CommandText = "DELETE FROM tmprequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
+        com.CommandText = "INSERT INTO tmprequisitionfund select * from tblrequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
     End Sub
 
     Public Sub ReadOnlyForm(ByVal readonlyForm As Boolean, ByVal mode As String)
@@ -83,6 +88,7 @@ Public Class frmRequisitionInfo
         txtPurpose.ReadOnly = readonlyForm
         txtPriority.ReadOnly = readonlyForm
         txtSupplier.ReadOnly = readonlyForm
+        txtAddSupplier.Enabled = If(readonlyForm, False, True)
 
         If globalSpecialApprover = True Then
             txtOffice.ReadOnly = readonlyForm
@@ -109,7 +115,6 @@ Public Class frmRequisitionInfo
             lineapproval.Visible = True
             linePrintPr.Visible = True
 
-
             linePrintPr.Visible = False
             cmdPrintPR.Visible = False
 
@@ -135,8 +140,15 @@ Public Class frmRequisitionInfo
             cmdForApproval.Visible = False
             lineapproval.Visible = False
             linePrintPr.Visible = False
-            cmdPrintObligation.Visible = True
-            linePrintObligation.Visible = True
+
+            If DirectApproved Then
+                cmdPrintObligation.Visible = False
+                linePrintObligation.Visible = False
+            Else
+                cmdPrintObligation.Visible = True
+                linePrintObligation.Visible = True
+            End If
+
 
             If EnablePR Then
                 linePrintPr.Visible = True
@@ -183,9 +195,9 @@ Public Class frmRequisitionInfo
     End Sub
 
     Public Sub ShowReportTemplate()
-        If countqry("tblrequisitiontype", "code='" & requesttype.Text & "' and template='FURS'") > 0 Then
+        If countqry("tblfund", "code='" & fundcode.Text & "' and template='FURS'") > 0 Then
             cmdPrintObligation.Text = "Print FURS"
-        ElseIf countqry("tblrequisitiontype", "code='" & requesttype.Text & "' and template='CAFOA'") > 0 Then
+        ElseIf countqry("tblfund", "code='" & fundcode.Text & "' and template='CAFOA'") > 0 Then
             cmdPrintObligation.Text = "Print CAFOA"
         Else
             cmdPrintObligation.Visible = False
@@ -242,11 +254,15 @@ Public Class frmRequisitionInfo
         End If
         If EnableVoucher Then
             txtSupplier.Enabled = True
-            HyperlinkLabelControl1.Enabled = True
+            If txtSupplier.ReadOnly Then
+                txtAddSupplier.Enabled = False
+            Else
+                txtAddSupplier.Enabled = True
+            End If
             LoadSupplier()
         Else
             txtSupplier.Enabled = False
-            HyperlinkLabelControl1.Enabled = False
+            txtAddSupplier.Enabled = False
             txtSupplier.Properties.DataSource = Nothing
         End If
     End Sub
@@ -278,12 +294,12 @@ Public Class frmRequisitionInfo
         gridSupplier.Columns("code").Visible = False
         XgridHideColumn({"code", "completeaddress", "tin"}, gridSupplier)
     End Sub
-    Private Sub HyperlinkLabelControl1_Click(sender As Object, e As EventArgs) Handles HyperlinkLabelControl1.Click
+    Private Sub HyperlinkLabelControl1_Click(sender As Object, e As EventArgs) Handles txtAddSupplier.Click
         frmSupplierInfo.ShowDialog(Me)
         LoadSupplier()
     End Sub
 
-    Public Sub LoadFund()
+    Public Sub LoadRequisitionFund()
         LoadXgridLookupSearch("Select periodcode As code,fundcode,yeartrn, concat(yeartrn,'-',(select Description from tblfund where code=tblfundperiod.fundcode)) as 'Select'  from tblfundperiod where closed=0 " & If(LCase(globalusername) = "root", "", " and fundcode in (select fundcode from tblfundfilter where officeid='" & officeid.Text & "')") & "  order by yeartrn asc", "tblfundperiod", txtFund, gridFund)
         XgridHideColumn({"code", "fundcode", "yeartrn"}, gridFund)
     End Sub
@@ -332,7 +348,7 @@ Public Class frmRequisitionInfo
             XtraMessageBox.Show("Please select request by!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtRequestby.Focus()
             Return False
-        ElseIf EnableVoucher = True And txtSupplier.Text = "" Then
+        ElseIf EnableVoucher = True And txtSupplier.Text = "" And txtSupplier.ReadOnly = False Then
             XtraMessageBox.Show("Please select payee!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtSupplier.Focus()
             Return False
@@ -533,7 +549,7 @@ Public Class frmRequisitionInfo
                                        + " trnby='" & globaluserid & "', " _
                                        + " datetrn=current_timestamp " : com.ExecuteNonQuery()
                 com.CommandText = "update tblrequisitionitem set requestno='" & RequestNumber & "' where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
-                com.CommandText = "update tblrequisitionfund set requestno='" & RequestNumber & "' where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
+                com.CommandText = "update tmprequisitionfund set requestno='" & RequestNumber & "' where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
             Else
                 Dim RequestNumber As String = periodcode.Text & "-" & CDate(txtPostingDate.EditValue).ToString("MM") & "-" & GetRequestNumber(periodcode.Text)
                 com.CommandText = "INSERT INTO tblrequisition set  " _
@@ -558,7 +574,11 @@ Public Class frmRequisitionInfo
                                        + " trnby='" & globaluserid & "', " _
                                        + " datetrn=current_timestamp " : com.ExecuteNonQuery()
                 com.CommandText = "update tblrequisitionitem set requestno='" & RequestNumber & "' where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
-                com.CommandText = "update tblrequisitionfund set requestno='" & RequestNumber & "' where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
+                com.CommandText = "update tmprequisitionfund set requestno='" & RequestNumber & "' where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
+            End If
+            If Val(qrysingledata("total", "sum(amount) as total", "tblrequisitionfund where pid='" & pid.Text & "'")) <> Val(qrysingledata("total", "sum(amount) as total", "tmprequisitionfund where pid='" & pid.Text & "'")) Then
+                com.CommandText = "DELETE FROM tblrequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
+                com.CommandText = "INSERT INTO tblrequisitionfund (pid,officeid,periodcode,requestno,quarter,classcode,itemcode,prevbalance,amount,newbalance,cancelled) select pid,officeid,periodcode,requestno,quarter,classcode,itemcode,prevbalance,amount,newbalance,cancelled from tmprequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
             End If
         Catch ex As Exception
             Return False
@@ -870,10 +890,10 @@ Public Class frmRequisitionInfo
     End Sub
 
     Private Sub cmdPrintObligation_Click(sender As Object, e As EventArgs) Handles cmdPrintObligation.Click
-        If countqry("tblrequisitiontype", "code='" & requesttype.Text & "' and template='FURS'") > 0 Then
+        If countqry("tblfund", "code='" & fundcode.Text & "' and template='FURS'") > 0 Then
             cmdPrintObligation.Text = "Print FURS"
             PrintFundUtilization(pid.Text, Me)
-        ElseIf countqry("tblrequisitiontype", "code='" & requesttype.Text & "' and template='CAFOA'") > 0 Then
+        ElseIf countqry("tblfund", "code='" & fundcode.Text & "' and template='CAFOA'") > 0 Then
             PrintObligation(pid.Text, Me)
         End If
     End Sub

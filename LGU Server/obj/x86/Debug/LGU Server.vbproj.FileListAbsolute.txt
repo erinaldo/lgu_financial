@@ -1003,4 +1003,3 @@ D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.application
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.CopyComplete
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.exe
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.xml
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbprojAssemblyReference.cache

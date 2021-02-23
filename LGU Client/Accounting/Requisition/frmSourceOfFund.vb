@@ -12,7 +12,7 @@ Public Class frmSourceOfFund
         Return ProcessCmdKey
     End Function
 
-    Private Sub frmRequisitionDocManager_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmSourceOfFund_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Icon = ico
         LoadSource()
         If ReadOnlyTrn = False Then
@@ -24,8 +24,9 @@ Public Class frmSourceOfFund
         End If
     End Sub
 
+
     Public Sub LoadSource()
-        LoadXgrid("select id,classcode as 'Class', Quarter, itemcode as 'Item Code', (select itemname from tblglitem where itemcode=a.itemcode) as 'Item Name', Amount from tblrequisitionfund as a where pid='" & pid.Text & "'", "tblrequisitionfund", Em, GridView1, Me)
+        LoadXgrid("select id,classcode as 'Class', Quarter, itemcode as 'Item Code', (select itemname from tblglitem where itemcode=a.itemcode) as 'Item Name', Amount from tmprequisitionfund as a where pid='" & pid.Text & "'", "tmprequisitionfund", Em, GridView1, Me)
         XgridHideColumn({"id"}, GridView1)
         XgridColAlign({"Item Code", "Class", "Quarter"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         XgridColCurrency({"Amount"}, GridView1)
@@ -63,7 +64,7 @@ Public Class frmSourceOfFund
         If XtraMessageBox.Show("Are you sure you want to permanently remove selected item? ", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             Dim I As Integer = 0
             For I = 0 To GridView1.SelectedRowsCount - 1
-                com.CommandText = "delete from tblrequisitionfund where id='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "id") & "' " : com.ExecuteNonQuery()
+                com.CommandText = "delete from tmprequisitionfund where id='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "id") & "' " : com.ExecuteNonQuery()
             Next
             LoadSource()
         End If

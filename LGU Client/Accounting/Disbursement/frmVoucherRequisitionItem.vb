@@ -54,7 +54,7 @@ Public Class frmVoucherRequisitionItem
                                     + " from tblrequisition as a where periodcode='" & periodcode.Text & "' " _
                                     + " and officeid='" & officeid.Text & "' " _
                                     + " and requesttype in (select code from tblrequisitiontype where enablevoucher=1) " _
-                                    + " and approved=1 And paid=0 And cancelled=0  " _
+                                    + " and approved=1 And voucher=0 And cancelled=0  " _
                                     + " And (pid Like '%" & txtSearch.Text & "%' or " _
                                     + " requestno like '%" & txtSearch.Text & "%' or " _
                                     + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) like '%" & txtSearch.Text & "%' or " _

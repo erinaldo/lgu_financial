@@ -476,10 +476,10 @@ C:\Files\VB.NET\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.xml
 C:\Files\VB.NET\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.pdb
 C:\Files\VB.NET\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmJournalEntryExpenditure.resources
 C:\Files\VB.NET\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.vbprojAssemblyReference.cache
+D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\LGU Client.exe
 D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\LGU Client.exe.config
 D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\LGU Client.exe.manifest
 D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\LGU Client.application
-D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\LGU Client.exe
 D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\LGU Client.pdb
 D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\LGU Client.xml
 D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\DevExpress.Charts.v19.2.Core.dll
@@ -703,6 +703,7 @@ D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmVoucherItem
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmVoucherInfo.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmForDisbursement.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmBudgetReports.resources
+D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmNewDirectJournal.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmJournalEntryCredit.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmJournalEntryList.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmJournalEntry.resources
@@ -778,4 +779,3 @@ D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.vbproj.CopyCo
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.exe
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.xml
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.pdb
-D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmNewDirectJournal.resources

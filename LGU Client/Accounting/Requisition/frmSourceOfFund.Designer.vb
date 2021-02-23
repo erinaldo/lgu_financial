@@ -104,10 +104,9 @@ Partial Class frmSourceOfFund
         'cmdForApproval
         '
         Me.cmdForApproval.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdForApproval.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmdForApproval.Appearance.BackColor = System.Drawing.Color.Khaki
         Me.cmdForApproval.Appearance.BackColor2 = System.Drawing.Color.Khaki
         Me.cmdForApproval.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdForApproval.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdForApproval.Appearance.Options.UseBackColor = True
         Me.cmdForApproval.Appearance.Options.UseFont = True
         Me.cmdForApproval.Location = New System.Drawing.Point(457, 279)
@@ -119,7 +118,7 @@ Partial Class frmSourceOfFund
         'cmdAddfiles
         '
         Me.cmdAddfiles.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdAddfiles.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmdAddfiles.Appearance.BackColor = System.Drawing.Color.Khaki
         Me.cmdAddfiles.Appearance.BackColor2 = System.Drawing.Color.Khaki
         Me.cmdAddfiles.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdAddfiles.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical

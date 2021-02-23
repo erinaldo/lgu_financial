@@ -21,6 +21,7 @@ Public Class frmSourceOfFundInfo
     Private Sub frmQuantitySelect_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Icon = ico
         LoadSourceFund()
+
         If mode = "edit" Then
             ShowItemInfo()
         End If
@@ -29,7 +30,7 @@ Public Class frmSourceOfFundInfo
     Public Sub LoadSourceFund()
         If periodcode.Text = "" Then Exit Sub
         LoadXgridLookupSearch("select itemcode, quarter, classcode as Class, itemname as 'Select', balance as 'Current Balance' from (select itemcode, quarter, classcode, itemname, " _
-                              + " amount-(select ifnull(sum(amount),0) from tblrequisitionfund as a where x.periodcode=a.periodcode And x.itemcode=a.itemcode and x.quarter=a.quarter And x.officeid=a.officeid And a.pid<>'" & pid.Text & "' and a.cancelled=0) as balance " _
+                              + " amount-(select ifnull(sum(amount),0) from tmprequisitionfund as a where x.periodcode=a.periodcode And x.itemcode=a.itemcode and x.quarter=a.quarter And x.officeid=a.officeid And a.pid<>'" & pid.Text & "' and a.cancelled=0) as balance " _
                               + " from tblbudgetcomposition as x where periodcode='" & periodcode.Text & "' and officeid='" & officeid.Text & "') as i where i.balance > 0 order by i.classcode, i.itemname asc", "tblbudgetcomposition", txtSource, gridSource)
         XgridHideColumn({"itemcode", "quarter"}, gridSource)
         XgridColCurrency({"Current Balance"}, gridSource)
@@ -59,7 +60,7 @@ Public Class frmSourceOfFundInfo
 
 
     Public Sub ShowItemInfo()
-        com.CommandText = "select * from tblrequisitionfund where id='" & id & "'" : rst = com.ExecuteReader
+        com.CommandText = "select * from tmprequisitionfund where id='" & id & "'" : rst = com.ExecuteReader
         While rst.Read
             txtSource.EditValue = rst("itemcode").ToString
             sourceid.Text = rst("itemcode").ToString
@@ -73,7 +74,7 @@ Public Class frmSourceOfFundInfo
 
     Public Function GetSourceFundBalance(ByVal periodcode As String, ByVal itemcode As String, ByVal officeid As String) As Double
         Dim currentbudget As Double = qrysingledata("amount", "amount", "tblbudgetcomposition where periodcode='" & periodcode & "' and itemcode='" & itemcode & "' and officeid='" & officeid & "'")
-        Dim totaltransaction As Double = qrysingledata("totalpending", "ifnull(sum(amount),0) as totalpending", "tblrequisitionfund as a where a.periodcode='" & periodcode & "' and a.itemcode='" & itemcode & "' and a.officeid='" & officeid & "' and a.pid<>'" & pid.Text & "'")
+        Dim totaltransaction As Double = qrysingledata("totalpending", "ifnull(sum(amount),0) as totalpending", "tmprequisitionfund as a where a.periodcode='" & periodcode & "' and a.itemcode='" & itemcode & "' and a.officeid='" & officeid & "' and a.pid<>'" & pid.Text & "'")
         Return currentbudget - totaltransaction
     End Function
 
@@ -109,13 +110,13 @@ Public Class frmSourceOfFundInfo
         ElseIf Val(CC(txtAmount.EditValue)) > Val(CC(txtAvailableBalance.EditValue)) Then
             XtraMessageBox.Show("Insufficient allocated budget balance! Please reduce amount", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
-        ElseIf countqry("tblrequisitionfund", " pid='" & pid.Text & "' and itemcode='" & sourceid.Text & "' and officeid ='" & officeid.Text & "' and periodcode='" & periodcode.Text & "' and id<>'" & id & "'") > 0 Then
+        ElseIf countqry("tmprequisitionfund", " pid='" & pid.Text & "' and itemcode='" & sourceid.Text & "' and officeid ='" & officeid.Text & "' and periodcode='" & periodcode.Text & "' and id<>'" & id & "'") > 0 Then
             XtraMessageBox.Show("Source item is already added. Please modify exiting item", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
 
         If mode = "edit" Then
-            com.CommandText = "update tblrequisitionfund set " _
+            com.CommandText = "update tmprequisitionfund set " _
                                 + " pid='" & pid.Text & "', " _
                                 + " officeid ='" & officeid.Text & "', " _
                                 + " periodcode='" & periodcode.Text & "', " _
@@ -131,7 +132,7 @@ Public Class frmSourceOfFundInfo
             'XtraMessageBox.Show("Fund successfully updated!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Close()
         Else
-            com.CommandText = "insert into tblrequisitionfund set " _
+            com.CommandText = "insert into tmprequisitionfund set " _
                                 + " pid='" & pid.Text & "', " _
                                 + " officeid ='" & officeid.Text & "', " _
                                 + " periodcode='" & periodcode.Text & "', " _
@@ -144,7 +145,7 @@ Public Class frmSourceOfFundInfo
                                 + " newbalance='" & CC(txtAvailableBalance.EditValue) - CC(txtAmount.EditValue) & "'" : com.ExecuteNonQuery()
             clearInfo()
             frmSourceOfFund.LoadSource()
-            XtraMessageBox.Show("Fund successfully added!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'XtraMessageBox.Show("Fund successfully added!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 

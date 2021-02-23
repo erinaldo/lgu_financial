@@ -47,7 +47,7 @@ Public Class frmDisbursementList
         LoadXgrid("SELECT id as 'Entry Code',periodcode,officeid, if(cancelled,'CANCELLED',if(cleared,'CLEARED', 'PENDING')) as Status, " _
                         + " voucherno as 'Voucher No.', " _
                         + " (select officename from tblcompoffice where officeid = a.officeid) as 'Office', " _
-                        + " (select jevno from tbljournalentryvoucher where dvno=a.voucherno limit 1) as 'JEV No.', " _
+                        + " (select jevno from tbljournalentryvoucher where dvno=a.voucherno and cancelled=0 limit 1) as 'JEV No.', " _
                         + " concat((select codename from tblfund where code=a.fundcode),'-',yearcode) as 'Fund Period',  " _
                         + " date_format(voucherdate,'%Y-%m-%d') as 'Voucher Date', " _
                         + " (select suppliername from tblsupplier where supplierid = a.supplierid) as 'Payee', " _
