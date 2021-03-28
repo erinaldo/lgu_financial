@@ -19,16 +19,15 @@ Partial Class frmGLCaptureChartofAccount
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.companyid = New DevExpress.XtraEditors.ButtonEdit()
         Me.txtChartofAccounts = New DevExpress.XtraEditors.ButtonEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.ProgressBarControl1 = New DevExpress.XtraEditors.ProgressBarControl()
-        Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.gridmenustrip.SuspendLayout()
         CType(Me.companyid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtChartofAccounts.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -40,6 +39,20 @@ Partial Class frmGLCaptureChartofAccount
         Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete})
         Me.gridmenustrip.Name = "gridmenustrip"
         Me.gridmenustrip.Size = New System.Drawing.Size(139, 48)
+        '
+        'cmdEdit
+        '
+        Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
+        Me.cmdEdit.Name = "cmdEdit"
+        Me.cmdEdit.Size = New System.Drawing.Size(138, 22)
+        Me.cmdEdit.Text = "Edit Code"
+        '
+        'cmdDelete
+        '
+        Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.notebook__minus1
+        Me.cmdDelete.Name = "cmdDelete"
+        Me.cmdDelete.Size = New System.Drawing.Size(138, 22)
+        Me.cmdDelete.Text = "Delete Code"
         '
         'cmdSave
         '
@@ -101,25 +114,11 @@ Partial Class frmGLCaptureChartofAccount
         '
         Me.ProgressBarControl1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBarControl1.Location = New System.Drawing.Point(1, 115)
+        Me.ProgressBarControl1.Location = New System.Drawing.Point(1, 113)
         Me.ProgressBarControl1.Name = "ProgressBarControl1"
         Me.ProgressBarControl1.Properties.ShowTitle = True
-        Me.ProgressBarControl1.Size = New System.Drawing.Size(516, 19)
+        Me.ProgressBarControl1.Size = New System.Drawing.Size(522, 19)
         Me.ProgressBarControl1.TabIndex = 752
-        '
-        'cmdEdit
-        '
-        Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
-        Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(138, 22)
-        Me.cmdEdit.Text = "Edit Code"
-        '
-        'cmdDelete
-        '
-        Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.notebook__minus1
-        Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(138, 22)
-        Me.cmdDelete.Text = "Delete Code"
         '
         'frmGLCaptureChartofAccount
         '
@@ -127,7 +126,7 @@ Partial Class frmGLCaptureChartofAccount
         Me.Appearance.Options.UseFont = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(518, 134)
+        Me.ClientSize = New System.Drawing.Size(524, 132)
         Me.Controls.Add(Me.ProgressBarControl1)
         Me.Controls.Add(Me.LabelControl2)
         Me.Controls.Add(Me.LabelControl1)

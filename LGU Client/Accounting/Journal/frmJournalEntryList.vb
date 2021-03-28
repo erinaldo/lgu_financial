@@ -47,7 +47,7 @@ Public Class frmJournalEntryList
                         + " (select officename from tblcompoffice where officeid = a.officeid) as 'Office', " _
                         + " date_format(postingdate,'%Y-%m-%d') as 'Posting Date', " _
                         + " (select sum(debit) from tbljournalentryitem where jevno=a.jevno) as Amount, Remarks, " _
-                        + " dvno as 'DV #', payrollno as 'Payroll #',rcdno as 'RCD #',lrno as 'LR #',aeno as 'AE #', " _
+                        + " (select voucherno from tbldisbursementvoucher where voucherid=a.dvid) as 'DV #', payrollno as 'Payroll #',rcdno as 'RCD #',lrno as 'LR #',aeno as 'AE #', " _
                         + " (select fullname from tblaccounts where accountid=a.trnby) as 'Posted By', " _
                         + " date_format(datetrn,'%Y-%m-%d') as 'Date Posted', " _
                         + " Cleared, date_format(datecleared,'%Y-%m-%d') as 'Date Cleared', " _
@@ -141,11 +141,7 @@ Public Class frmJournalEntryList
             For I = 0 To GridView1.SelectedRowsCount - 1
                 com.CommandText = "update tbljournalentryvoucher set cancelled=1,cancelledby='" & globaluserid & "',datecancelled=current_timestamp where jevno='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "JEV No.") & "' " : com.ExecuteNonQuery()
                 com.CommandText = "update tbljournalentryitem set cancelled=1  where jevno='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "JEV No.") & "'" : com.ExecuteNonQuery()
-                If GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "pid") = "" Then
-                    com.CommandText = "update `tblrequisition` set jev=0 where pid in (select pid from tbldisbursementdetails where voucherno='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "DV #") & "')" : com.ExecuteNonQuery()
-                Else
-                    com.CommandText = "update `tblrequisition` set jev=0 where pid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "pid") & "'" : com.ExecuteNonQuery()
-                End If
+                com.CommandText = "update `tblrequisition` set jev=0 where pid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "pid") & "'" : com.ExecuteNonQuery()
             Next
             ViewList()
             XtraMessageBox.Show("JEV successfully cancelled!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)

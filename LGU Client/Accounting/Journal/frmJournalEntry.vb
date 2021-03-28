@@ -68,7 +68,7 @@ Public Class frmJournalEntry
             txtOffice.Text = rst("office").ToString
             periodcode.Text = rst("periodcode").ToString
             txtRemarks.Text = rst("remarks").ToString
-            txtDVNo.Text = rst("dvno").ToString
+            dvid.Text = rst("dvid").ToString
             txtPayrollNo.Text = rst("payrollno").ToString
             txtRCDNo.Text = rst("rcdno").ToString
             txtLRNo.Text = rst("lrno").ToString
@@ -116,10 +116,13 @@ Public Class frmJournalEntry
                   + " from tbljournalentryitem where jevno='" & If(jevno.Text = "", globaluserid & "-temp", jevno.Text) & "' ", "tbljournalentryitem", Em, Gridview1, Me)
         XgridHideColumn({"id"}, Gridview1)
         XgridColWidth({"Debit", "Credit"}, Gridview1, 140)
-        XgridColWidth({"Account and Explaination"}, Gridview1, 250)
+        XgridColWidth({"Expenditure Item", "Account and Explaination"}, Gridview1, 250)
         XgridColAlign({"Account Code", "Check No."}, Gridview1, DevExpress.Utils.HorzAlignment.Center)
         Gridview1.Columns("Account and Explaination").OptionsColumn.AllowEdit = False
         Gridview1.Columns("Account and Explaination").OptionsColumn.AllowFocus = False
+
+        Gridview1.Columns("Expenditure Item").AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Gridview1.Columns("Expenditure Item").ColumnEdit = MemoEdit
 
         Gridview1.Columns("Account and Explaination").AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Gridview1.Columns("Account and Explaination").ColumnEdit = MemoEdit
@@ -137,7 +140,6 @@ Public Class frmJournalEntry
             txtJournalDate.Focus()
             Exit Sub
         End If
-        frmJournalEntryExpenditure.voucherno.Text = jevno.Text
         frmJournalEntryExpenditure.ShowDialog(Me)
     End Sub
 
@@ -196,7 +198,7 @@ Public Class frmJournalEntry
                    + " officeid='" & officeid.Text & "', " _
                    + " postingdate='" & ConvertDate(txtJournalDate.EditValue) & "', " _
                    + " remarks='" & rchar(txtRemarks.Text) & "', " _
-                   + " dvno='" & txtDVNo.Text & "', " _
+                   + " dvid='" & dvid.Text & "', " _
                    + " payrollno='" & txtPayrollNo.Text & "', " _
                    + " rcdno='" & txtRCDNo.Text & "', " _
                    + " lrno='" & txtLRNo.Text & "', " _
@@ -213,7 +215,7 @@ Public Class frmJournalEntry
                    + " officeid='" & officeid.Text & "', " _
                    + " postingdate='" & ConvertDate(txtJournalDate.EditValue) & "', " _
                    + " remarks='" & rchar(txtRemarks.Text) & "', " _
-                   + " dvno='" & txtDVNo.Text & "', " _
+                   + " dvid='" & dvid.Text & "', " _
                    + " payrollno='" & txtPayrollNo.Text & "', " _
                    + " rcdno='" & txtRCDNo.Text & "', " _
                    + " lrno='" & txtLRNo.Text & "', " _
@@ -222,11 +224,7 @@ Public Class frmJournalEntry
                    + " trnby='" & globaluserid & "', " _
                    + " datetrn=current_timestamp " : com.ExecuteNonQuery()
             com.CommandText = "update tbljournalentryitem set jevno='" & newjevno & "' where jevno='" & globaluserid & "-temp'" : com.ExecuteNonQuery()
-            If pid.Text = "" Then
-                com.CommandText = "update `tblrequisition` set jev=1 where pid in (select pid from tbldisbursementdetails where voucherno='" & txtDVNo.Text & "')" : com.ExecuteNonQuery()
-            Else
-                com.CommandText = "update `tblrequisition` set jev=1 where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
-            End If
+            com.CommandText = "update `tblrequisition` set jev=1 where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
             txtJevNo.Text = newjevno
             jevno.Text = newjevno
             mode.Text = "edit"
@@ -251,7 +249,6 @@ Public Class frmJournalEntry
         If Val(CC(Gridview1.GetFocusedRowCellValue("Credit").ToString)) > 0 Then
             frmJournalEntryCredit.mode.Text = "edit"
             frmJournalEntryCredit.jevno.Text = jevno.Text
-            frmJournalEntryCredit.voucherno.Text = txtDVNo.Text
             frmJournalEntryCredit.id.Text = Gridview1.GetFocusedRowCellValue("id").ToString
             If frmJournalEntryCredit.Visible = True Then
                 frmJournalEntryCredit.Focus()
@@ -261,7 +258,6 @@ Public Class frmJournalEntry
         Else
             frmJournalEntryDebit.mode.Text = "edit"
             frmJournalEntryDebit.jevno.Text = jevno.Text
-            frmJournalEntryDebit.voucherno.Text = txtDVNo.Text
             frmJournalEntryDebit.id.Text = Gridview1.GetFocusedRowCellValue("id").ToString
             If frmJournalEntryDebit.Visible = True Then
                 frmJournalEntryDebit.Focus()
@@ -317,7 +313,6 @@ Public Class frmJournalEntry
             txtJournalDate.Focus()
             Exit Sub
         End If
-        frmJournalEntryCredit.voucherno.Text = txtDVNo.Text
         frmJournalEntryCredit.jevno.Text = jevno.Text
         If frmJournalEntryCredit.Visible = True Then
             frmJournalEntryCredit.Focus()
@@ -327,7 +322,6 @@ Public Class frmJournalEntry
     End Sub
 
     Private Sub ExpenditureItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExpenditureItemToolStripMenuItem.Click
-        frmJournalEntryExpenditure.voucherno.Text = txtDVNo.Text
         frmJournalEntryExpenditure.jevno.Text = jevno.Text
         frmJournalEntryExpenditure.officeid.Text = jevno.Text
         frmJournalEntryExpenditure.pid.Text = pid.Text
@@ -344,7 +338,6 @@ Public Class frmJournalEntry
             txtJournalDate.Focus()
             Exit Sub
         End If
-        frmJournalEntryDebit.voucherno.Text = txtDVNo.Text
         frmJournalEntryDebit.jevno.Text = jevno.Text
         frmJournalEntryDebit.pid.Text = pid.Text
         If frmJournalEntryDebit.Visible = True Then

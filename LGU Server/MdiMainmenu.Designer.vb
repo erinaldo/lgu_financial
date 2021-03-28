@@ -59,11 +59,14 @@ Partial Class MdiMainmenu
         Me.cmdQuarterlyBudget = New DevExpress.XtraBars.BarButtonItem()
         Me.cmdAROexcemption = New DevExpress.XtraBars.BarButtonItem()
         Me.cmdCheckApprovalFilter = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdBankAccounts = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdRegistry = New DevExpress.XtraBars.BarButtonItem()
         Me.rbnAccounting = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup5 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RibbonPageGroup6 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.rbnProduct = New DevExpress.XtraBars.Ribbon.RibbonPage()
-        Me.RibbonPageGroup3 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup4 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.rbnSettings = New DevExpress.XtraBars.Ribbon.RibbonPage()
@@ -110,7 +113,6 @@ Partial Class MdiMainmenu
         Me.RibbonPage5 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPage6 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
-        Me.cmdBankAccounts = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MainMenu, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -134,11 +136,11 @@ Partial Class MdiMainmenu
         Me.MainMenu.ExpandCollapseItem.Id = 0
         Me.MainMenu.GalleryAnimationLength = 3
         Me.MainMenu.GroupAnimationLength = 3
-        Me.MainMenu.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.MainMenu.ExpandCollapseItem, Me.cmdUserAccountManagement, Me.cmdCorporateProfileSettings, Me.cmdCorporateDivision, Me.cmdLoginAppearance, Me.cmdBackupDatabase, Me.cmdGeneralSettings, Me.cmdMyUserProfile, Me.cmdDatabaseRepair, Me.SkinDropDownButtonItem1, Me.cmdFund, Me.cmdFundPeriod, Me.cmdCashflowItem, Me.cmdAccountableForm, Me.cmdClientAccess, Me.cmdAccountTitleFilter, Me.cmdReportEntries, Me.cmdCollectionItem, Me.cmdTaxPayer, Me.cmdExpenditureClass, Me.cmdBudgetComposition, Me.cmdProductCategory, Me.cmdProductManagement, Me.cmdNewProduct, Me.cmdRequisitionType, Me.cmdDocumentType, Me.cmdApprovingProcess, Me.cmdExpenditureItem, Me.cmdJevEntries, Me.cmdUpdateChartofAccounts, Me.cmdGLItem, Me.cmdAdvanceSearch, Me.cmdRequisitionFilter, Me.cmdCashItem, Me.cmdQuarterlyBudget, Me.cmdAROexcemption, Me.cmdCheckApprovalFilter, Me.MainMenu.SearchEditItem, Me.cmdBankAccounts})
+        Me.MainMenu.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.MainMenu.ExpandCollapseItem, Me.MainMenu.SearchEditItem, Me.cmdUserAccountManagement, Me.cmdCorporateProfileSettings, Me.cmdCorporateDivision, Me.cmdLoginAppearance, Me.cmdBackupDatabase, Me.cmdGeneralSettings, Me.cmdMyUserProfile, Me.cmdDatabaseRepair, Me.SkinDropDownButtonItem1, Me.cmdFund, Me.cmdFundPeriod, Me.cmdCashflowItem, Me.cmdAccountableForm, Me.cmdClientAccess, Me.cmdAccountTitleFilter, Me.cmdReportEntries, Me.cmdCollectionItem, Me.cmdTaxPayer, Me.cmdExpenditureClass, Me.cmdBudgetComposition, Me.cmdProductCategory, Me.cmdProductManagement, Me.cmdNewProduct, Me.cmdRequisitionType, Me.cmdDocumentType, Me.cmdApprovingProcess, Me.cmdExpenditureItem, Me.cmdJevEntries, Me.cmdUpdateChartofAccounts, Me.cmdGLItem, Me.cmdAdvanceSearch, Me.cmdRequisitionFilter, Me.cmdCashItem, Me.cmdQuarterlyBudget, Me.cmdAROexcemption, Me.cmdCheckApprovalFilter, Me.cmdBankAccounts, Me.cmdRegistry})
         Me.MainMenu.Location = New System.Drawing.Point(0, 21)
-        Me.MainMenu.MaxItemId = 384
+        Me.MainMenu.MaxItemId = 385
         Me.MainMenu.Name = "MainMenu"
-        Me.MainMenu.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.rbnAccounting, Me.rbnProduct, Me.rbnSettings})
+        Me.MainMenu.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.rbnAccounting, Me.RibbonPage2, Me.rbnProduct, Me.rbnSettings})
         Me.MainMenu.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
         Me.MainMenu.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show
         Me.MainMenu.Size = New System.Drawing.Size(1397, 126)
@@ -371,13 +373,13 @@ Partial Class MdiMainmenu
         '
         'cmdQuarterlyBudget
         '
-        Me.cmdQuarterlyBudget.Caption = "Quarterly Budget"
+        Me.cmdQuarterlyBudget.Caption = "Monthly Budget"
         Me.cmdQuarterlyBudget.Id = 377
         Me.cmdQuarterlyBudget.Name = "cmdQuarterlyBudget"
         '
         'cmdAROexcemption
         '
-        Me.cmdAROexcemption.Caption = "Quarterly ARO Exemption"
+        Me.cmdAROexcemption.Caption = "Monthly ARO Exemption"
         Me.cmdAROexcemption.Id = 378
         Me.cmdAROexcemption.Name = "cmdAROexcemption"
         '
@@ -386,6 +388,18 @@ Partial Class MdiMainmenu
         Me.cmdCheckApprovalFilter.Caption = "Check Approval Filter"
         Me.cmdCheckApprovalFilter.Id = 379
         Me.cmdCheckApprovalFilter.Name = "cmdCheckApprovalFilter"
+        '
+        'cmdBankAccounts
+        '
+        Me.cmdBankAccounts.Caption = "Bank Accounts"
+        Me.cmdBankAccounts.Id = 383
+        Me.cmdBankAccounts.Name = "cmdBankAccounts"
+        '
+        'cmdRegistry
+        '
+        Me.cmdRegistry.Caption = "Registry"
+        Me.cmdRegistry.Id = 384
+        Me.cmdRegistry.Name = "cmdRegistry"
         '
         'rbnAccounting
         '
@@ -396,14 +410,11 @@ Partial Class MdiMainmenu
         'RibbonPageGroup1
         '
         Me.RibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.[False]
-        Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdReportEntries)
-        Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdJevEntries, True)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdTaxPayer, True)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdAccountableForm, True)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdCollectionItem, True)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdCashflowItem, True)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdBudgetComposition, True)
-        Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdQuarterlyBudget)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdAROexcemption)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdFund, True)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdFundPeriod, True)
@@ -422,21 +433,26 @@ Partial Class MdiMainmenu
         Me.RibbonPageGroup5.Name = "RibbonPageGroup5"
         Me.RibbonPageGroup5.Text = "Chart of Accounts"
         '
+        'RibbonPage2
+        '
+        Me.RibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup6})
+        Me.RibbonPage2.Name = "RibbonPage2"
+        Me.RibbonPage2.Text = "Reports"
+        '
+        'RibbonPageGroup6
+        '
+        Me.RibbonPageGroup6.ItemLinks.Add(Me.cmdReportEntries)
+        Me.RibbonPageGroup6.ItemLinks.Add(Me.cmdJevEntries, True)
+        Me.RibbonPageGroup6.ItemLinks.Add(Me.cmdQuarterlyBudget, True)
+        Me.RibbonPageGroup6.ItemLinks.Add(Me.cmdRegistry, True)
+        Me.RibbonPageGroup6.Name = "RibbonPageGroup6"
+        Me.RibbonPageGroup6.Text = "Accounting Reports"
+        '
         'rbnProduct
         '
-        Me.rbnProduct.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup3, Me.RibbonPageGroup2, Me.RibbonPageGroup4})
+        Me.rbnProduct.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup2, Me.RibbonPageGroup4})
         Me.rbnProduct.Name = "rbnProduct"
         Me.rbnProduct.Text = "Transaction Item"
-        '
-        'RibbonPageGroup3
-        '
-        Me.RibbonPageGroup3.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.[False]
-        Me.RibbonPageGroup3.ItemLinks.Add(Me.cmdNewProduct)
-        Me.RibbonPageGroup3.ItemLinks.Add(Me.cmdProductManagement, True)
-        Me.RibbonPageGroup3.ItemLinks.Add(Me.cmdProductCategory, True)
-        Me.RibbonPageGroup3.ItemsLayout = DevExpress.XtraBars.Ribbon.RibbonPageGroupItemsLayout.TwoRows
-        Me.RibbonPageGroup3.Name = "RibbonPageGroup3"
-        Me.RibbonPageGroup3.Text = "Item Configuration"
         '
         'RibbonPageGroup2
         '
@@ -801,12 +817,6 @@ Partial Class MdiMainmenu
         Me.BarButtonItem1.Id = 381
         Me.BarButtonItem1.Name = "BarButtonItem1"
         '
-        'cmdBankAccounts
-        '
-        Me.cmdBankAccounts.Caption = "Bank Accounts"
-        Me.cmdBankAccounts.Id = 383
-        Me.cmdBankAccounts.Name = "cmdBankAccounts"
-        '
         'MdiMainmenu
         '
         Me.Appearance.Options.UseFont = True
@@ -898,7 +908,6 @@ Partial Class MdiMainmenu
     Friend WithEvents cmdProductCategory As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents cmdProductClassification As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents rbnProduct As DevExpress.XtraBars.Ribbon.RibbonPage
-    Friend WithEvents RibbonPageGroup3 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents RibbonPage4 As DevExpress.XtraBars.Ribbon.RibbonPage
     Friend WithEvents cmdProductManagement As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents cmdNewProduct As DevExpress.XtraBars.BarButtonItem
@@ -923,4 +932,7 @@ Partial Class MdiMainmenu
     Friend WithEvents cmdCheckApprovalFilter As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents cmdBankAccounts As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdRegistry As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPage2 As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents RibbonPageGroup6 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
 End Class

@@ -155,7 +155,7 @@ Partial Class frmExpenditureClass
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(698, 389)
+        Me.Em.Size = New System.Drawing.Size(698, 393)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -228,7 +228,7 @@ Partial Class frmExpenditureClass
         Me.tabExpenditureInfo.Controls.Add(Me.LabelControl4)
         Me.tabExpenditureInfo.Controls.Add(Me.cmdSaveButton)
         Me.tabExpenditureInfo.Name = "tabExpenditureInfo"
-        Me.tabExpenditureInfo.Size = New System.Drawing.Size(712, 504)
+        Me.tabExpenditureInfo.Size = New System.Drawing.Size(716, 507)
         Me.tabExpenditureInfo.Text = "Expenditure Info"
         '
         'TextEdit2
@@ -253,7 +253,7 @@ Partial Class frmExpenditureClass
         Me.tabExpenditureTagging.Controls.Add(Me.barDockControlRight)
         Me.tabExpenditureTagging.Controls.Add(Me.BarDockControl1)
         Me.tabExpenditureTagging.Name = "tabExpenditureTagging"
-        Me.tabExpenditureTagging.Size = New System.Drawing.Size(712, 504)
+        Me.tabExpenditureTagging.Size = New System.Drawing.Size(716, 503)
         Me.tabExpenditureTagging.Text = "Expenditure Tagging"
         '
         'SplitContainerControl2
@@ -306,7 +306,7 @@ Partial Class frmExpenditureClass
         Me.SplitContainerControl1.Panel1.Text = "Panel1"
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em_filtered)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
-        Me.SplitContainerControl1.Size = New System.Drawing.Size(690, 372)
+        Me.SplitContainerControl1.Size = New System.Drawing.Size(690, 367)
         Me.SplitContainerControl1.SplitterPosition = 346
         Me.SplitContainerControl1.TabIndex = 716
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
@@ -317,7 +317,7 @@ Partial Class frmExpenditureClass
         Me.Em_unfiltered.Location = New System.Drawing.Point(0, 0)
         Me.Em_unfiltered.MainView = Me.gridUnFiltered
         Me.Em_unfiltered.Name = "Em_unfiltered"
-        Me.Em_unfiltered.Size = New System.Drawing.Size(346, 372)
+        Me.Em_unfiltered.Size = New System.Drawing.Size(346, 367)
         Me.Em_unfiltered.TabIndex = 707
         Me.Em_unfiltered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridUnFiltered})
         '
@@ -338,7 +338,7 @@ Partial Class frmExpenditureClass
         Me.Em_filtered.Location = New System.Drawing.Point(0, 0)
         Me.Em_filtered.MainView = Me.gridFiltered
         Me.Em_filtered.Name = "Em_filtered"
-        Me.Em_filtered.Size = New System.Drawing.Size(339, 372)
+        Me.Em_filtered.Size = New System.Drawing.Size(334, 367)
         Me.Em_filtered.TabIndex = 708
         Me.Em_filtered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridFiltered})
         '
@@ -401,17 +401,17 @@ Partial Class frmExpenditureClass
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(712, 0)
+        Me.barDockControlRight.Location = New System.Drawing.Point(716, 0)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 504)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 503)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(712, 0)
+        Me.BarDockControl1.Location = New System.Drawing.Point(716, 0)
         Me.BarDockControl1.Manager = Nothing
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 504)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 503)
         '
         'frmExpenditureClass
         '
@@ -420,7 +420,7 @@ Partial Class frmExpenditureClass
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(718, 536)
         Me.Controls.Add(Me.XtraTabControl1)
-        Me.MinimumSize = New System.Drawing.Size(728, 568)
+        Me.MinimumSize = New System.Drawing.Size(720, 568)
         Me.Name = "frmExpenditureClass"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Expenditure Class"

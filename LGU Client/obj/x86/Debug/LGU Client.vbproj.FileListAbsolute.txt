@@ -700,7 +700,6 @@ D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmDisbursemen
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmVoucherCheckInfo.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmVoucherRequisitionItem.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmVoucherItem.resources
-D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmVoucherInfo.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmForDisbursement.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmBudgetReports.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmNewDirectJournal.resources
@@ -725,8 +724,6 @@ D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.RatingBar.reso
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmFileUploader.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmFileViewer.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmChatBoxMain.resources
-D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmPurchaseOrder.resources
-D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmPurchaseRequest.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmRequisitionForApprovalInfo.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmApprovalConfirmation.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmRequisitionBrowseFile.resources
@@ -779,3 +776,5 @@ D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.vbproj.CopyCo
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.exe
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.xml
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.pdb
+D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmNewVoucher.resources
+D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.vbprojAssemblyReference.cache

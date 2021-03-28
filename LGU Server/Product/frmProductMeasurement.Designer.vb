@@ -19,12 +19,13 @@ Partial Class frmProductMeasurement
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
         Me.cmdOk = New DevExpress.XtraEditors.SimpleButton()
         Me.code = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -162,7 +163,7 @@ Partial Class frmProductMeasurement
         Me.Controls.Add(Me.Em)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(407, 524)
+        Me.MinimumSize = New System.Drawing.Size(393, 517)
         Me.Name = "frmProductMeasurement"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Item Baseline Unit Measurement "

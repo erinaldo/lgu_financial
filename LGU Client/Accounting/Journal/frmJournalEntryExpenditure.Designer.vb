@@ -31,7 +31,6 @@ Partial Class frmJournalEntryExpenditure
         Me.CheckEdit1 = New DevExpress.XtraEditors.CheckEdit()
         Me.cmdOk = New DevExpress.XtraEditors.SimpleButton()
         Me.dgv = New System.Windows.Forms.DataGridView()
-        Me.voucherno = New DevExpress.XtraEditors.TextEdit()
         Me.jevno = New DevExpress.XtraEditors.TextEdit()
         Me.periodcode = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
@@ -42,7 +41,6 @@ Partial Class frmJournalEntryExpenditure
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.voucherno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.jevno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.periodcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtItem.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,7 +83,7 @@ Partial Class frmJournalEntryExpenditure
         Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit1.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit1.Properties.Caption = "Check All"
-        Me.CheckEdit1.Size = New System.Drawing.Size(82, 19)
+        Me.CheckEdit1.Size = New System.Drawing.Size(82, 20)
         Me.CheckEdit1.TabIndex = 769
         '
         'cmdOk
@@ -129,17 +127,6 @@ Partial Class frmJournalEntryExpenditure
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
         Me.dgv.Size = New System.Drawing.Size(630, 421)
         Me.dgv.TabIndex = 770
-        '
-        'voucherno
-        '
-        Me.voucherno.EnterMoveNextControl = True
-        Me.voucherno.Location = New System.Drawing.Point(400, 255)
-        Me.voucherno.Name = "voucherno"
-        Me.voucherno.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.voucherno.Properties.Appearance.Options.UseFont = True
-        Me.voucherno.Size = New System.Drawing.Size(96, 20)
-        Me.voucherno.TabIndex = 776
-        Me.voucherno.Visible = False
         '
         'jevno
         '
@@ -235,7 +222,6 @@ Partial Class frmJournalEntryExpenditure
         Me.Controls.Add(Me.txtItem)
         Me.Controls.Add(Me.periodcode)
         Me.Controls.Add(Me.jevno)
-        Me.Controls.Add(Me.voucherno)
         Me.Controls.Add(Me.CheckEdit1)
         Me.Controls.Add(Me.cmdOk)
         Me.Controls.Add(Me.dgv)
@@ -248,7 +234,6 @@ Partial Class frmJournalEntryExpenditure
         Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.voucherno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.jevno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.periodcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtItem.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -266,7 +251,6 @@ Partial Class frmJournalEntryExpenditure
     Friend WithEvents CheckEdit1 As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents cmdOk As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents dgv As System.Windows.Forms.DataGridView
-    Friend WithEvents voucherno As DevExpress.XtraEditors.TextEdit
     Friend WithEvents jevno As DevExpress.XtraEditors.TextEdit
     Friend WithEvents periodcode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl

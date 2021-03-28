@@ -29,7 +29,7 @@ Public Class frmRequisitionBrowseFile
         End If
         If MyDataGridView.RowCount > 0 Then
             For i = 0 To MyDataGridView.RowCount - 1
-                AddAttachmentRequisition(trncode.Text, trntype.Text, {MyDataGridView.Rows(i).Cells("Location").Value()}, docname.Text, filecode.Text)
+                AddAttachmentRequisition(pid.Text, trntype.Text, {MyDataGridView.Rows(i).Cells("Location").Value()}, docname.Text, filecode.Text)
             Next
         End If
         If frmRequisitionDocManager.Visible = True Then
@@ -64,7 +64,7 @@ Public Class frmRequisitionBrowseFile
 
     Public Sub LoadRequestType()
         'select (select description from tbldocumenttype where code=tblapprovingattachment.doccode) as document from tblapprovingattachment where trncode='" & requesttype.Text & "' and appid='-' and doccode not in (SELECT b.docname FROM `tblrequisitionfiles` as a inner join lgufiledir.tblattachmentlogs as b on a.filecode=b.filecode and a.pid=b.refnumber where pid='" & pid.Text & "' and a.applevel='0' and a.requesttype='" & requesttype.Text & "' )
-        LoadXgridLookupSearch("select doccode,(select description from tbldocumenttype where code=tblapprovingattachment.doccode) as 'Select' from tblapprovingattachment where trncode='" & requesttype.Text & "' order by (select description from tbldocumenttype where code=tblapprovingattachment.doccode) asc", "tbldocumenttype", txtFileName, gridfilename)
+        LoadXgridLookupSearch("select doccode,(select description from tbldocumenttype where code=tblapprovingattachment.doccode) as 'Select' from tblapprovingattachment where trncode='" & requesttype.Text & "'  and doccode not in (select docname from " & sqlfiledir & ".tblattachmentlogs as b where refnumber='" & pid.Text & "'  and trntype='requisition') order by (select description from tbldocumenttype where code=tblapprovingattachment.doccode) asc", "tbldocumenttype", txtFileName, gridfilename)
         gridfilename.Columns("doccode").Visible = False
     End Sub
 

@@ -34,9 +34,10 @@ Public Class frmJevEntries
                   + " (select shortname from tblcompoffice where officeid=b.centercode) as 'Office', " _
                   + " concat((select shortname from tblcompoffice where officeid=b.centercode), '_',(select expenditurecode from tblexpendituretagging where glitemcode=b.classcode)) as 'Expenditure Classification', " _
                   + " (select itemname from tblglitem where itemcode=b.classcode) as 'Expenditure Item', " _
-                  + " if(credit>0,(select checkno from tbldisbursementvoucher where voucherno=a.dvno),'') as 'Check No.', " _
-                  + " (select group_concat(requestno) from tblrequisition where pid in (select pid from tbldisbursementdetails where voucherno=a.dvno)) as 'CAFOA/FURS', " _
-                  + " dvno as 'ChkDJ #', payrollno as 'Payroll #',rcdno as 'RCD #',lrno as 'LR #',aeno as 'AE #', " _
+                  + " if(credit>0,(select checkno from tbldisbursementvoucher where voucherid=a.dvid),'') as 'Check No.', " _
+                  + " if(credit>0,(select suppliername from tblsupplier inner join tbldisbursementvoucher on tblsupplier.supplierid = tbldisbursementvoucher.supplierid where voucherid = a.dvid),'') as 'Payee', " _
+                  + " (select group_concat(requestno) from tblrequisition where pid=a.pid) as 'CAFOA/FURS', " _
+                  + " (select voucherno from tbldisbursementvoucher where voucherid=a.dvid) as 'ChkDJ #', payrollno as 'Payroll #',rcdno as 'RCD #',lrno as 'LR #',aeno as 'AE #', " _
                   + " (select cashflowname from tblcashflowitem where code=b.cashflowitem) as 'Cash Flow Item'," _
                   + " date_format(datetrn,'%Y-%m-%d %r') as 'Date Posted',(select fullname from tblaccounts where accountid=a.trnby) as 'Posted By', b.Cancelled, if(b.Cancelled,'CANCELLED','VERIFIED') as Status from tbljournalentryvoucher as a inner join tbljournalentryitem as b on a.jevno=b.jevno where b.yeartrn='" & txtYear.Text & "' and b.fundcode='" & txtFund.EditValue & "' " & If(ckCancelled.Checked = True, "", " and b.cancelled=0") & " " & If(txtMonth.Text = "", "", " and ucase(date_format(b.postingdate,'%M')) ='" & txtMonth.Text & "'") & " order by b.jevno", "tbljournalentryvoucher", Em, GridView1, Me)
         XgridHideColumn({"Cancelled"}, GridView1)

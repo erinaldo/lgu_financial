@@ -28,7 +28,6 @@ Public Class frmRequisitionForApprovalInfo
 
     Public Sub ShowApprovalInfo()
         ShowRequisitionInfo()
-        LoadItem()
         LoadSource()
         LoadFiles()
         ApprovingHistory()
@@ -42,9 +41,9 @@ Public Class frmRequisitionForApprovalInfo
         End If
     End Sub
     Public Sub LoadSource()
-        LoadXgrid("select id,itemcode as 'Item Code', (select itemname from tblglitem where itemcode=a.itemcode) as 'Item Name', Amount, prevbalance as 'Prev Balance',newbalance as 'New Balance' from tblrequisitionfund as a where pid='" & pid.Text & "'", "tblrequisitionfund", Em_SourceFund, gridSourceFund, Me)
+        LoadXgrid("select id, classcode as Class, itemcode as 'Item Code', (select itemname from tblglitem where itemcode=a.itemcode) as 'Item Name', Amount, prevbalance as 'Prev Balance',newbalance as 'New Balance' from tblrequisitionfund as a where pid='" & pid.Text & "'", "tblrequisitionfund", Em_SourceFund, gridSourceFund, Me)
         XgridHideColumn({"id"}, gridSourceFund)
-        XgridColAlign({"Item Code"}, gridSourceFund, DevExpress.Utils.HorzAlignment.Center)
+        XgridColAlign({"Class", "Item Code"}, gridSourceFund, DevExpress.Utils.HorzAlignment.Center)
         XgridColCurrency({"Amount", "Prev Balance", "New Balance"}, gridSourceFund)
         XgridGeneralSummaryCurrency({"Amount"}, gridSourceFund)
         gridSourceFund.BestFitColumns()
@@ -72,19 +71,6 @@ Public Class frmRequisitionForApprovalInfo
             NextApprover.Text = rst("officeid").ToString
         End While
         rst.Close()
-    End Sub
-
-    Public Sub LoadItem()
-        LoadXgrid("Select id, itemname as 'Particular Name',Quantity, Unit, unitcost as 'Unit Cost',totalcost as 'Total Cost', Remarks " _
-                           + " from tblrequisitionitem  " _
-                           + " where pid = '" & pid.Text & "' order by itemname asc", "tblrequisitionitem", Em, GridView1, Me)
-        XgridHideColumn({"id"}, GridView1)
-        XgridColCurrency({"Unit Cost", "Total Cost"}, GridView1)
-        XgridColAlign({"Unit", "Quantity"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
-        GridView1.Columns("Remarks").ColumnEdit = MemoEdit
-        XgridGeneralSummaryCurrency({"Total Cost"}, GridView1)
-        GridView1.BestFitColumns()
-
     End Sub
 
     Public Sub ShowRequisitionInfo()

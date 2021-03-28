@@ -44,14 +44,15 @@ Public Class frmDisbursementList
                         + " (select fullname from tblaccounts where accountid=a.trnby) like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " (select suppliername from tblsupplier where supplierid = a.supplierid) like '%" & rchar(txtSearchBar.Text) & "%')"
         End If
-        LoadXgrid("SELECT id as 'Entry Code',periodcode,officeid, if(cancelled,'CANCELLED',if(cleared,'CLEARED', 'PENDING')) as Status, " _
+        LoadXgrid("SELECT pid, voucherid as 'Entry Code',periodcode,officeid, if(cancelled,'CANCELLED',if(cleared,'CLEARED', 'PENDING')) as Status, " _
                         + " voucherno as 'Voucher No.', " _
                         + " (select officename from tblcompoffice where officeid = a.officeid) as 'Office', " _
-                        + " (select jevno from tbljournalentryvoucher where dvno=a.voucherno and cancelled=0 limit 1) as 'JEV No.', " _
+                        + " (select jevno from tbljournalentryvoucher where dvid=a.voucherid and cancelled=0 limit 1) as 'JEV No.', " _
                         + " concat((select codename from tblfund where code=a.fundcode),'-',yearcode) as 'Fund Period',  " _
                         + " date_format(voucherdate,'%Y-%m-%d') as 'Voucher Date', " _
                         + " (select suppliername from tblsupplier where supplierid = a.supplierid) as 'Payee', " _
                         + " Amount, " _
+                        + " checkissued as 'Check Issued', " _
                         + " checkno as 'Check No.', " _
                         + " (select description from tblbankaccounts where code=a.checkbank) as 'Bank Name', " _
                         + " checkdate as 'Check Date', " _
@@ -59,14 +60,14 @@ Public Class frmDisbursementList
                         + " date_format(datetrn,'%Y-%m-%d') as 'Date Posted', " _
                         + " Cleared, date_format(datecleared,'%Y-%m-%d') as 'Date Cleared', " _
                         + " Cancelled, date_format(datecancelled,'%Y-%m-%d') as 'Date Cancelled', " _
-                        + " (select group_concat(purpose) from tbldisbursementdetails where voucherno=a.voucherno) as Remarks " _
+                        + " (select purpose from tblrequisition where pid=a.pid) as Remarks " _
                         + " FROM tbldisbursementvoucher as a " _
                         + " where  " _
                         + KeyWordSearch _
                         + " order by voucherno asc", "tbldisbursementvoucher", Em, GridView1, Me)
 
         XgridColCurrency({"Amount"}, GridView1)
-        XgridHideColumn({"periodcode", "officeid"}, GridView1)
+        XgridHideColumn({"periodcode", "officeid", "pid"}, GridView1)
         XgridColAlign({"Entry Code", "Voucher No.", "JEV No.", "Status", "Fund Period", "Type of Payment", "Voucher Date", "Check No.", "Check Date", "Date Posted", "Cleared", "Date Cleared", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         XgridGeneralSummaryCurrency({"Amount"}, GridView1)
         GridView1.BestFitColumns()
@@ -79,7 +80,9 @@ Public Class frmDisbursementList
         Dim status As String = View.GetRowCellDisplayText(e.RowHandle, View.Columns("Status"))
         If status = "CANCELLED" Then
             e.Appearance.ForeColor = Color.Red
-            e.Appearance.Font = New Font(gen_fontfamily, gen_FontSize, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, (CByte(204)))
+            If Not gen_fontfamily Is Nothing Then
+                e.Appearance.Font = New Font(gen_fontfamily, gen_FontSize, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, (CByte(204)))
+            End If
         Else
             If e.Column.Name = "colStatus" Then
                 If status = "PENDING" Then
@@ -119,7 +122,7 @@ Public Class frmDisbursementList
             MessageBox.Show("Your access not allowed to add!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         End If
-        frmVoucherInfo.ShowDialog(Me)
+
     End Sub
 
     Private Sub cmdLocalData_Click(sender As Object, e As EventArgs) Handles cmdLocalData.Click
@@ -138,59 +141,25 @@ Public Class frmDisbursementList
             XtraMessageBox.Show("Selected request is already cancelled!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-        If XtraMessageBox.Show("Are you sure you want to continue?", GlobalOrganizationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
-            Dim I As Integer = 0
+
+        frmApprovalConfirmation.RequiredAdminOveride = True
+        frmApprovalConfirmation.mode.Text = "cancel"
+        frmApprovalConfirmation.ShowDialog(Me)
+        If frmApprovalConfirmation.TransactionDone = True Then
             For I = 0 To GridView1.SelectedRowsCount - 1
-                com.CommandText = "update tbldisbursementvoucher set cancelled=1,cancelledby='" & globaluserid & "',datecancelled=current_timestamp where id='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "' " : com.ExecuteNonQuery()
-                com.CommandText = "update tbldisbursementdetails set cancelled=1  where voucherno='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Voucher No.") & "'" : com.ExecuteNonQuery()
-                com.CommandText = "update tblrequisition set voucher=0 where pid in (select pid from tbldisbursementdetails where voucherno='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Voucher No.") & "')" : com.ExecuteNonQuery()
-                com.CommandText = "update tbldisbursementdetails set cancelled=1 where voucherno='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Voucher No.") & "'" : com.ExecuteNonQuery()
-
-                com.CommandText = "update tbljournalentryvoucher set cancelled=1,cancelledby='" & globaluserid & "',datecancelled=current_timestamp where dvno='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Voucher No.") & "' " : com.ExecuteNonQuery()
-                com.CommandText = "update tbljournalentryitem set cancelled=1 where jevno in (select jevno from tbljournalentryvoucher where dvno='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Voucher No.") & "')" : com.ExecuteNonQuery()
-
-                com.CommandText = "update tblrequisitionfund set cancelled=1 where pid in (select pid from tbldisbursementdetails where voucherno='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Voucher No.") & "')" : com.ExecuteNonQuery()
-
-
-                da = Nothing : st = New DataSet
-                da = New MySqlDataAdapter("select *, " _
-                                          + " case when quarter='Q1' then 'quarter1' " _
-                                          + " when quarter='Q2' then 'quarter2' " _
-                                          + " when quarter='Q3' then 'quarter3' " _
-                                          + " when quarter='Q4' then 'quarter4' end as 'quaters' " _
-                                          + " from tblrequisitionfund where pid in (select pid from tbldisbursementdetails where voucherno='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Voucher No.") & "')", conn)
-                da.Fill(st, 0)
-                For cnt = 0 To st.Tables(0).Rows.Count - 1
-                    With (st.Tables(0))
-                        com.CommandText = "update tblbudgetcomposition set " _
-                                + " amount=amount+" & .Rows(cnt)("amount").ToString() & ", " _
-                                + " quarter1=if(quarter='Q1',quarter1+" & .Rows(cnt)("amount").ToString() & ",quarter1), " _
-                                + " quarter2=if(quarter='Q2',quarter2+" & .Rows(cnt)("amount").ToString() & ",quarter2), " _
-                                + " quarter3=if(quarter='Q3',quarter3+" & .Rows(cnt)("amount").ToString() & ",quarter3), " _
-                                + " quarter4=if(quarter='Q4',quarter4+" & .Rows(cnt)("amount").ToString() & ",quarter4) " _
-                                + " where periodcode='" & .Rows(cnt)("periodcode").ToString() & "' and itemcode='" & .Rows(cnt)("itemcode").ToString() & "' and officeid='" & .Rows(cnt)("officeid").ToString() & "'" : com.ExecuteNonQuery()
-                    End With
-                Next
+                CancelVoucher(GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code"), GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "pid"), frmApprovalConfirmation.txtRemarks.Text)
 
             Next
             ViewList()
-            XtraMessageBox.Show("Disbursement voucher successfully cancelled!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            frmApprovalConfirmation.Close()
+            XtraMessageBox.Show("Voucher successfully cancelled!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            frmApprovalConfirmation.TransactionDone = False
+            frmApprovalConfirmation.Dispose()
         End If
 
     End Sub
 
-
-
-    Private Sub cmdView_Click(sender As Object, e As EventArgs) Handles cmdView.Click
-        frmVoucherInfo.mode.Text = ""
-        frmVoucherInfo.id.Text = GridView1.GetFocusedRowCellValue("Entry Code").ToString
-        frmVoucherInfo.mode.Text = "edit"
-        If frmVoucherInfo.Visible = False Then
-            frmVoucherInfo.Show(Me)
-        Else
-            frmVoucherInfo.WindowState = FormWindowState.Normal
-        End If
-    End Sub
 
     Private Sub CmdColumnSettings_Click(sender As Object, e As EventArgs) Handles cmdColumnSettings.Click
         Dim colname As String = ""
@@ -207,14 +176,7 @@ Public Class frmDisbursementList
     End Sub
 
     Private Sub Em_DoubleClick(sender As Object, e As EventArgs) Handles Em.DoubleClick
-        frmVoucherInfo.mode.Text = ""
-        frmVoucherInfo.id.Text = GridView1.GetFocusedRowCellValue("Entry Code").ToString
-        frmVoucherInfo.mode.Text = "edit"
-        If frmVoucherInfo.Visible = False Then
-            frmVoucherInfo.Show(Me)
-        Else
-            frmVoucherInfo.WindowState = FormWindowState.Normal
-        End If
+        cmdView.PerformClick()
     End Sub
 
 
@@ -239,7 +201,7 @@ Public Class frmDisbursementList
         ElseIf CBool(GridView1.GetFocusedRowCellValue("Cancelled").ToString) Then
             XtraMessageBox.Show("Selected request is already cancelled!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
-        ElseIf countqry("tbljournalentryvoucher", "dvno='" & GridView1.GetFocusedRowCellValue("Voucher No.").ToString & "' and cancelled=0") = 0 Then
+        ElseIf countqry("tbljournalentryvoucher", "dvid='" & GridView1.GetFocusedRowCellValue("Entry Code").ToString & "' and cancelled=0") = 0 Then
             XtraMessageBox.Show("No JEV found on this disbursement voucher! unable to clear", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         ElseIf GridView1.GetFocusedRowCellValue("Check No.").ToString = "" Then
@@ -253,8 +215,8 @@ Public Class frmDisbursementList
             Dim I As Integer = 0
             For I = 0 To GridView1.SelectedRowsCount - 1
                 If GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Check No.") <> "" Then
-                    com.CommandText = "update tbldisbursementvoucher set cleared=1,clearedby='" & globaluserid & "',datecleared=current_timestamp where id='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "' " : com.ExecuteNonQuery()
-                    com.CommandText = "update tblrequisition set cleared=1 where pid in (select pid from tbldisbursementdetails where voucherno='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Voucher No.") & "')" : com.ExecuteNonQuery()
+                    com.CommandText = "update tbldisbursementvoucher set cleared=1,clearedby='" & globaluserid & "',datecleared=current_timestamp where voucherid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "' " : com.ExecuteNonQuery()
+                    com.CommandText = "update tblrequisition set cleared=1 where pid ='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "pid") & "'" : com.ExecuteNonQuery()
                 End If
             Next
             ViewList()
@@ -263,19 +225,19 @@ Public Class frmDisbursementList
     End Sub
 
     Private Sub CreateJEVTransactionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CreateJEVTransactionToolStripMenuItem.Click
-        If countqry("tbljournalentryvoucher", "dvno='" & GridView1.GetFocusedRowCellValue("Voucher No.").ToString & "' and cancelled=0") > 0 Then
+        If countqry("tbljournalentryvoucher", "dvid='" & GridView1.GetFocusedRowCellValue("Entry Code").ToString & "' and cancelled=0") > 0 Then
             XtraMessageBox.Show("JEV is already created for this disbursement voucher!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         ElseIf globalAuthJournalEntryVoucher = False Then
             XtraMessageBox.Show("Your access is not allowed to create JEV!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
+        frmJournalEntry.pid.Text = GridView1.GetFocusedRowCellValue("pid").ToString
+        frmJournalEntry.dvid.Text = GridView1.GetFocusedRowCellValue("Entry Code").ToString
         frmJournalEntry.periodcode.Text = GridView1.GetFocusedRowCellValue("periodcode").ToString
-        frmJournalEntry.txtDVNo.Text = GridView1.GetFocusedRowCellValue("Voucher No.").ToString
         frmJournalEntry.txtRemarks.Text = GridView1.GetFocusedRowCellValue("Remarks").ToString
         frmJournalEntry.officeid.Text = GridView1.GetFocusedRowCellValue("officeid").ToString
         frmJournalEntry.txtOffice.Text = GridView1.GetFocusedRowCellValue("Office").ToString
-        frmJournalEntry.txtDVNo.ReadOnly = True
         frmJournalEntry.ShowDialog(Me)
     End Sub
 
@@ -283,11 +245,11 @@ Public Class frmDisbursementList
         If globalSpecialApprover = False And globalRootUser = False Then
             XtraMessageBox.Show("Your access not allowed to clear transaction!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
-        ElseIf countqry("tbljournalentryvoucher", "dvno='" & GridView1.GetFocusedRowCellValue("Voucher No.").ToString & "'") = 0 Then
+        ElseIf countqry("tbljournalentryvoucher", "dvid='" & GridView1.GetFocusedRowCellValue("Entry Code").ToString & "'") = 0 Then
             XtraMessageBox.Show("No journal entry for this voucher please create before issuing check", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
-        ElseIf countqry("tbldisbursementdetails", "voucherno='" & GridView1.GetFocusedRowCellValue("Voucher No.").ToString & "' and cancelled=0 and pid in (select pid from tblrequisition where approved=1 and checkapproved=0 and cancelled=0)") > 0 Then
-            XtraMessageBox.Show("Issuing check for this voucher is not allowed!" & Environment.NewLine & "Some request are currently check issuance for approval", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf countqry("tblrequisition", "pid='" & GridView1.GetFocusedRowCellValue("pid").ToString & "' and approved=1 and checkapproved=0 and cancelled=0") > 0 Then
+            XtraMessageBox.Show("Issuing check for this voucher is not allowed!" & Environment.NewLine & "Request is currently for approval for check issuance ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         ElseIf CBool(GridView1.GetFocusedRowCellValue("Cleared").ToString) Then
             XtraMessageBox.Show("Selected request is already Cleared!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -298,5 +260,27 @@ Public Class frmDisbursementList
         End If
         frmVoucherCheckInfo.id.Text = GridView1.GetFocusedRowCellValue("Entry Code").ToString
         frmVoucherCheckInfo.ShowDialog(Me)
+    End Sub
+
+    Private Sub PrintVoucherToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintVoucherToolStripMenuItem.Click
+        If CBool(GridView1.GetFocusedRowCellValue("Cancelled").ToString) Then
+            XtraMessageBox.Show("Printing not allowed! Selected voucher is already cancelled!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        ElseIf CBool(GridView1.GetFocusedRowCellValue("Check Issued").ToString) = False Then
+            XtraMessageBox.Show("Voucher check is currently not issued! ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        PrintDisbursementVoucher(GridView1.GetFocusedRowCellValue("Entry Code").ToString, Me)
+    End Sub
+
+    Private Sub cmdView_Click(sender As Object, e As EventArgs) Handles cmdView.Click
+        frmRequisitionInfo.mode.Text = ""
+        frmRequisitionInfo.pid.Text = GridView1.GetFocusedRowCellValue("pid").ToString
+        frmRequisitionInfo.mode.Text = "edit"
+        If frmRequisitionInfo.Visible = False Then
+            frmRequisitionInfo.Show(Me)
+        Else
+            frmRequisitionInfo.WindowState = FormWindowState.Normal
+        End If
     End Sub
 End Class

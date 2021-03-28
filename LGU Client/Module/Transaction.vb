@@ -82,13 +82,13 @@
         End If
     End Sub
 
-    Public Function GetRequisitionSeries()
+    Public Function GetTransactionSeries(ByVal category As String)
         Dim strng As Integer = 0 : Dim newNumber As String = "" : Dim NumberLen As Integer = 0 : Dim seriesto As Integer = 0
-        If countrecord("tblrequisitionseries") = 0 Then
-            com.CommandText = "insert into tblrequisitionseries set seriesno='000000'" : com.ExecuteNonQuery()
+        If countqry("tbltransactionseries", "category='" & category & "'") = 0 Then
+            com.CommandText = "insert into tbltransactionseries set category='" & category & "', seriesno='000000'" : com.ExecuteNonQuery()
         End If
 
-        com.CommandText = "select seriesno from tblrequisitionseries" : rst = com.ExecuteReader()
+        com.CommandText = "select seriesno from tbltransactionseries where category='" & category & "'" : rst = com.ExecuteReader()
         While rst.Read
             NumberLen = rst("seriesno").ToString.Length
             strng = Val(rst("seriesno").ToString) + 1
@@ -114,7 +114,7 @@
         Else
             newNumber = strng
         End If
-        com.CommandText = "update tblrequisitionseries set seriesno='" & newNumber & "'" : com.ExecuteNonQuery()
+        com.CommandText = "update tbltransactionseries set seriesno='" & newNumber & "' where category='" & category & "'" : com.ExecuteNonQuery()
         Return newNumber
 
     End Function
@@ -155,9 +155,9 @@
         Return newNumber
     End Function
 
-    Public Function getVoucherNumber(ByVal year As String, ByVal table As String)
-        Dim strng As Integer = 1 : Dim newNumber As String = "" : Dim NumberLen As Integer = 3
-        com.CommandText = "select seriesno from " & table & " where yeartrn='" & year & "' order by seriesno desc limit 1" : rst = com.ExecuteReader()
+    Public Function getVoucherNumber(ByVal year As String, ByVal fundcode As String, ByVal table As String)
+        Dim strng As Integer = 1 : Dim newNumber As String = "" : Dim NumberLen As Integer = 4
+        com.CommandText = "select seriesno from " & table & " where yeartrn='" & year & "' and fundcode='" & fundcode & "' order by seriesno desc limit 1" : rst = com.ExecuteReader()
         While rst.Read
             NumberLen = rst("seriesno").ToString.Length
             strng = Val(rst("seriesno").ToString) + 1

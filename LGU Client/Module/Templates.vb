@@ -2,175 +2,12 @@
 
 Module Templates
 
-    Public Sub PrintPurchaseRequest(ByVal pid As String, ByVal printline As Integer, ByVal form As Form)
-        Dim itemrow As String = "" : Dim AccountingRow As String = "" : Dim picbox As New PictureBox
-        Dim Template As String = Application.StartupPath.ToString & "\Templates\A-30_PR.html"
-        Dim SaveLocation As String = Application.StartupPath.ToString & "\Printing\A-30_PR_" & pid & ".html"
-        If Not System.IO.Directory.Exists(Application.StartupPath.ToString & "\Printing") Then
-            System.IO.Directory.CreateDirectory(Application.StartupPath.ToString & "\Printing")
-        End If
 
-        If System.IO.File.Exists(SaveLocation) = True Then
-            System.IO.File.Delete(SaveLocation)
-        End If
-        My.Computer.FileSystem.CopyFile(Template, SaveLocation)
-        My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[municipality]", GlobalOrganizationName), False)
-        com.CommandText = "select a.*,(select officename from tblcompoffice where officeid=a.officeid) as office,(select fullname from tblaccounts where accountid=b.requestedby) as requestedname,(select designation from tblaccounts where accountid=b.requestedby) as position from tblpurchaserequest as a inner join tblrequisition as b on a.pid=b.pid where a.pid='" & pid & "' " : rst = com.ExecuteReader
-        While rst.Read
-
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[officename]", rst("office").ToString), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[section]", rst("section").ToString), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[purpose]", rst("purpose").ToString), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[pr_no]", rst("prnumber").ToString), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[pr_date]", If(rst("pr_date").ToString = "", "", CDate(rst("pr_date").ToString).ToString("MMMM dd, yyyy"))), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[sai_no]", rst("sai_no").ToString), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[sai_date]", If(rst("sai_date").ToString = "", "", CDate(rst("sai_date").ToString).ToString("MMMM dd, yyyy"))), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[alobs_no]", rst("alobs_no").ToString), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[alobs_date]", If(rst("alobs_date").ToString = "", "", CDate(rst("alobs_date").ToString).ToString("MMMM dd, yyyy"))), False)
-
-            'requested Signatories
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[requestby]", UCase(rst("requestedname").ToString)), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[requestbyposition]", rst("position").ToString), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[daterequest]", CDate(rst("pr_date").ToString).ToString("MMMM dd, yyyy")), False)
-
-        End While
-        rst.Close()
-
-        'Voucher Item
-        itemrow = "" : Dim cnt As Integer = 0
-        com.CommandText = "select * from tblrequisitionitem where pid='" & pid & "' order by id asc" : rst = com.ExecuteReader
-        While rst.Read
-            cnt += 1
-            Dim remarks As String = rst("remarks").ToString
-            itemrow += "<tr><td align='center'>" & cnt & "</td>" _
-                        + " <td align='center'>" & rst("quantity").ToString & "</td>" _
-                        + " <td align='center'>" & rst("unit").ToString & "</td>" _
-                        + " <td width='300'><b>" & rst("itemname").ToString & "</b>" & If(remarks.Length = 0, "", "<br/>" & remarks.Replace(vbCrLf, "<br/>")) & "</td>" _
-                        + " <td align='right'>" & FormatNumber(Val(rst("unitcost").ToString), 2) & "</td>" _
-                        + " <td align='right'>" & FormatNumber(Val(rst("totalcost").ToString), 2) & "</td></tr>" & Chr(13)
-
-        End While
-        rst.Close()
-
-        For I = 0 To printline - cnt
-            itemrow += "<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>" & Chr(13)
-        Next
-        My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[itemrow]", itemrow), False)
-
-        com.CommandText = "select * from tblaccounts where executiveofficer=1" : rst = com.ExecuteReader
-        While rst.Read
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[mayorname]", UCase(rst("fullname").ToString)), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[mayorposition]", rst("designation").ToString), False)
-        End While
-        rst.Close()
-        PrintViaInternetExplorer(SaveLocation.Replace("\", "/"), form)
-    End Sub
-
-    Public Sub PrintPurchaseOrder(ByVal pid As String, ByVal printline As Integer, ByVal form As Form)
-        Dim itemrow As String = "" : Dim AccountingRow As String = "" : Dim picbox As New PictureBox
-        Dim Template As String = Application.StartupPath.ToString & "\Templates\A-29_PO.html"
-        Dim SaveLocation As String = Application.StartupPath.ToString & "\Printing\A-29_PO_" & pid & ".html"
-
-        If Not System.IO.Directory.Exists(Application.StartupPath.ToString & "\Printing") Then
-            System.IO.Directory.CreateDirectory(Application.StartupPath.ToString & "\Printing")
-        End If
-
-        If System.IO.File.Exists(SaveLocation) = True Then
-            System.IO.File.Delete(SaveLocation)
-        End If
-        My.Computer.FileSystem.CopyFile(Template, SaveLocation)
-        My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[municipality]", GlobalOrganizationName), False)
-
-        Dim supplierid As String = ""
-        com.CommandText = "select *,(select description from tbldatapicked where id=a.procuremode) as 'procurementmode', " _
-                            + " (select description from tbldatapicked where id=a.placedelivery) as 'deliveryplace', " _
-                            + " (select description from tbldatapicked where id=a.datedelivery) as 'deliverydate', " _
-                            + " (select description from tbldatapicked where id=a.deliveryterm) as 'termdelivery', " _
-                            + " (select description from tbldatapicked where id=a.paymentmode) as 'modepayment' from tblpurchaseorder as a where a.pid='" & pid & "' " : rst = com.ExecuteReader
-        While rst.Read
-            supplierid = rst("supplierid").ToString
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[ponumber]", rst("ponumber").ToString), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[po_date]", If(rst("po_date").ToString = "", "", CDate(rst("po_date").ToString).ToString("MMMM dd, yyyy"))), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[pr_no]", rst("pr_number").ToString), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[pr_date]", If(rst("pr_date").ToString = "", "", CDate(rst("pr_date").ToString).ToString("MMMM dd, yyyy"))), False)
-
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[procurementmode]", rst("procurementmode").ToString), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[placedelivery]", rst("deliveryplace").ToString), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[deliverydate]", rst("deliverydate").ToString), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[deliveryterm]", rst("termdelivery").ToString), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[paymentmode]", rst("modepayment").ToString), False)
-
-            If CBool(rst("negotiated")) Then
-                My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[visibility]", "visible"), False)
-                My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[resolution_no]", UCase(rst("resolutionno").ToString)), False)
-                'My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[secretaryname]", rst("secretaryname").ToString), False)
-                My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[dateapproved]", CDate(rst("dateapproved").ToString).ToString("MMMM dd, yyyy")), False)
-            Else
-                My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[visibility]", "hidden"), False)
-            End If
-
-        End While
-        rst.Close()
-
-        com.CommandText = "select * from tblsupplier where supplierid='" & supplierid & "'" : rst = com.ExecuteReader
-        While rst.Read
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[suppliername]", UCase(rst("suppliername").ToString)), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[supplieraddress]", rst("completeaddress").ToString), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[suppliertin]", rst("tin").ToString), False)
-        End While
-        rst.Close()
-
-        'Voucher Item
-        itemrow = "" : Dim cnt As Integer = 0 : Dim total As Double = 0
-        com.CommandText = "select * from tblpurchaseorderitem where pid='" & pid & "' order by id asc" : rst = com.ExecuteReader
-        While rst.Read
-            cnt += 1
-            Dim remarks As String = rst("remarks").ToString
-            itemrow += "<tr><td align='center' width='30'>" & cnt & "</td>" _
-                        + " <td align='center'>" & rst("stockno").ToString & "</td>" _
-                        + " <td align='center'>" & rst("unit").ToString & "</td>" _
-                        + " <td width='300'><b>" & rst("itemname").ToString & "</b>" & If(remarks.Length = 0, "", "<br/>" & remarks.Replace(vbCrLf, "<br/>")) & "</td>" _
-                        + " <td align='center'>" & rst("quantity").ToString & "</td>" _
-                        + " <td align='right'>" & FormatNumber(Val(rst("unitcost").ToString), 2) & "</td>" _
-                        + " <td align='right'>" & FormatNumber(Val(rst("totalcost").ToString), 2) & "</td></tr>" & Chr(13)
-            total += Val(rst("totalcost").ToString)
-        End While
-        rst.Close()
-
-        For I = 0 To printline - cnt
-            itemrow += "<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>" & Chr(13)
-        Next
-        My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[itemrow]", itemrow), False)
-        My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[amountinwords]", ConvertCurrencyToEnglish(Val(total))), False)
-        My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[totalamount]", FormatNumber(total, 2)), False)
-
-        com.CommandText = "select * from tblaccounts where executiveofficer=1" : rst = com.ExecuteReader
-        While rst.Read
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[mayorname]", UCase(rst("fullname").ToString)), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[mayorposition]", rst("designation").ToString), False)
-        End While
-        rst.Close()
-
-        com.CommandText = "select * from tblaccounts where financeofficer=1" : rst = com.ExecuteReader
-        While rst.Read
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[financename]", UCase(rst("fullname").ToString)), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[financeposition]", rst("designation").ToString), False)
-        End While
-        rst.Close()
-
-        com.CommandText = "select * from tblaccounts where sangguniansecretary=1" : rst = com.ExecuteReader
-        While rst.Read
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[secretaryname]", UCase(rst("fullname").ToString)), False)
-        End While
-        rst.Close()
-        PrintViaInternetExplorer(SaveLocation.Replace("\", "/"), form)
-    End Sub
-
-    Public Sub PrintDisbursementVoucher(ByVal vouchercode As String, ByVal form As Form)
+    Public Sub PrintDisbursementVoucher(ByVal voucherid As String, ByVal form As Form)
         'CreateHTMLReportTemplate("ResidentProfile.html")
         Dim TableRow As String = ""
         Dim Template As String = Application.StartupPath.ToString & "\Templates\A-24_DV.html"
-        Dim SaveLocation As String = Application.StartupPath.ToString & "\Printing\A-24_DV_" & vouchercode & ".html"
+        Dim SaveLocation As String = Application.StartupPath.ToString & "\Printing\A-24_DV_" & voucherid & ".html"
 
         If Not System.IO.Directory.Exists(Application.StartupPath.ToString & "\Printing") Then
             System.IO.Directory.CreateDirectory(Application.StartupPath.ToString & "\Printing")
@@ -184,13 +21,14 @@ Module Templates
 
         My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[municipality]", GlobalOrganizationName), False)
 
-        Dim supplierid As String = "" : Dim officeid As String = "" : Dim sb As Boolean = False
+        Dim pid As String = "" : Dim supplierid As String = "" : Dim officeid As String = "" : Dim sb As Boolean = False : Dim requesttype As String = ""
         com.CommandText = "select *,date_format(datetrn,'%M %d, %Y') as trndate, " _
             + " (select sb from tblcompoffice where officeid=a.officeid) as sb,  " _
+            + " (select requesttype from tblrequisition where pid=a.pid) as requesttype, " _
             + " (select centercode from tblcompoffice where officeid=a.officeid) as centercode  " _
-            + " from tbldisbursementvoucher as a where voucherno='" & vouchercode & "'" : rst = com.ExecuteReader
+            + " from tbldisbursementvoucher as a where voucherid='" & voucherid & "'" : rst = com.ExecuteReader
         While rst.Read
-            supplierid = rst("supplierid").ToString : officeid = rst("officeid").ToString : sb = CBool(rst("sb").ToString)
+            pid = rst("pid").ToString : supplierid = rst("supplierid").ToString : officeid = rst("officeid").ToString : sb = CBool(rst("sb").ToString) : requesttype = rst("requesttype").ToString
             My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[voucherno]", rst("voucherno").ToString), False)
             My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[voucherdate]", rst("voucherdate").ToString), False)
             My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[checkno]", rst("checkno").ToString), False)
@@ -222,7 +60,7 @@ Module Templates
 
         'Voucher Item
         TableRow = "" : Dim itemRow As String = "" : Dim cnt As Integer = 0
-        com.CommandText = "select purpose, amount from tbldisbursementdetails where voucherno='" & vouchercode & "'" : rst = com.ExecuteReader
+        com.CommandText = "select purpose from tblrequisition where pid='" & pid & "'" : rst = com.ExecuteReader
         While rst.Read
             If cnt = 0 Then
                 TableRow += "<tr> " _
@@ -252,7 +90,7 @@ Module Templates
         '           + " </tr> " & Chr(13)
         'Next
         Dim total As Double = 0
-        com.CommandText = "select ifnull(sum(credit),0) as total from tbljournalentryvoucher as a inner join tbljournalentryitem as b on a.jevno=b.jevno where a.dvno='" & vouchercode & "' and itemcode in (select itemcode from tblglcashitem)" : rst = com.ExecuteReader
+        com.CommandText = "select ifnull(sum(credit),0) as total from tbljournalentryvoucher as a inner join tbljournalentryitem as b on a.jevno=b.jevno where a.dvid='" & voucherid & "' and itemcode in (select itemcode from tblglcashitem)" : rst = com.ExecuteReader
         While rst.Read
             total = rst("total").ToString
         End While
@@ -262,7 +100,7 @@ Module Templates
         My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[total_row_span]", cnt), False)
 
         Dim AcctRow = ""
-        com.CommandText = "select b.*, (select itemname from tblglitem where itemcode=b.itemcode) as itemname from tbljournalentryvoucher as a inner join tbljournalentryitem as b on a.jevno=b.jevno where a.dvno='" & vouchercode & "'" : rst = com.ExecuteReader
+        com.CommandText = "select b.*, (select itemname from tblglitem where itemcode=b.itemcode) as itemname from tbljournalentryvoucher as a inner join tbljournalentryitem as b on a.jevno=b.jevno where a.dvid='" & voucherid & "'" : rst = com.ExecuteReader
         While rst.Read
             AcctRow += " <tr> " _
                            + " <td>" & rst("itemname").ToString & "</td> " _
@@ -277,6 +115,23 @@ Module Templates
             My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[accounting_row]", AcctRow), False)
         Else
             My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[accounting_row]", ""), False)
+        End If
+
+        Dim documents As String = ""
+        com.CommandText = "select * from (select description,if(required,'YES','OPTIONAL') as required, " _
+                        + " (select if(count(*)>0,concat(cast(count(*) as CHAR), ' File(s)'),'None') from lgufiledir.tblattachmentlogs where refnumber='" & pid & "' and trntype='requisition' and docname=a.doccode) as files " _
+                        + " from tblapprovingattachment As a inner join tbldocumenttype As b On a.doccode=b.code where trncode='" & requesttype & "') as x order by description asc" : rst = com.ExecuteReader
+        While rst.Read
+            documents += "<tr><td>" & rst("description").ToString & "</td> " _
+                      + "<td align='center'>" & rst("required").ToString & "</td> " _
+                      + "<td align='center'>" & rst("files").ToString & "</td></tr> "
+        End While
+        rst.Close()
+
+        If documents.Length > 0 Then
+            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[supporting_documents]", documents), False)
+        Else
+            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[supporting_documents]", ""), False)
         End If
 
         My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[accounting]", UCase(GlobalAccountantName)), False)
@@ -301,7 +156,7 @@ Module Templates
         PrintViaInternetExplorer(SaveLocation.Replace("\", "/"), form)
     End Sub
 
-    Public Sub PrintObligation(ByVal pid As String, ByVal form As Form)
+    Public Sub PrintCAFOA(ByVal pid As String, ByVal form As Form)
         'CreateHTMLReportTemplate("ResidentProfile.html")
         Dim TableRow As String = ""
         Dim Template As String = Application.StartupPath.ToString & "\Templates\A-28_CAFOA.html"
@@ -485,7 +340,7 @@ Module Templates
             My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[hide_" & code_command & "]", "hidden"), False)
         End If
     End Sub
-    Public Sub PrintFundUtilization(ByVal pid As String, ByVal form As Form)
+    Public Sub PrintFURS(ByVal pid As String, ByVal form As Form)
         'CreateHTMLReportTemplate("ResidentProfile.html")
         Dim TableRow As String = ""
         Dim Template As String = Application.StartupPath.ToString & "\Templates\A-29_FURS.html"

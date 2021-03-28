@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmJournalEntryCredit
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmJournalEntryCredit
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmJournalEntryCredit))
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
@@ -36,7 +36,6 @@ Partial Class frmJournalEntryCredit
         Me.txtExpiditureClass = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridExpenditure = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.officeid = New DevExpress.XtraEditors.ButtonEdit()
-        Me.voucherno = New DevExpress.XtraEditors.ButtonEdit()
         CType(Me.txtCredit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.id.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,7 +46,6 @@ Partial Class frmJournalEntryCredit
         CType(Me.txtExpiditureClass.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridExpenditure, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.voucherno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl3
@@ -227,20 +225,6 @@ Partial Class frmJournalEntryCredit
         Me.officeid.TabIndex = 980
         Me.officeid.Visible = False
         '
-        'voucherno
-        '
-        Me.voucherno.EditValue = ""
-        Me.voucherno.Location = New System.Drawing.Point(464, 187)
-        Me.voucherno.Name = "voucherno"
-        Me.voucherno.Properties.Appearance.Options.UseTextOptions = True
-        Me.voucherno.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.voucherno.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.voucherno.Properties.Mask.BeepOnError = True
-        Me.voucherno.Properties.ReadOnly = True
-        Me.voucherno.Size = New System.Drawing.Size(39, 20)
-        Me.voucherno.TabIndex = 981
-        Me.voucherno.Visible = False
-        '
         'frmJournalEntryCredit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -248,7 +232,6 @@ Partial Class frmJournalEntryCredit
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(515, 210)
-        Me.Controls.Add(Me.voucherno)
         Me.Controls.Add(Me.officeid)
         Me.Controls.Add(Me.txtExpiditureClass)
         Me.Controls.Add(Me.jevno)
@@ -278,7 +261,6 @@ Partial Class frmJournalEntryCredit
         CType(Me.txtExpiditureClass.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridExpenditure, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.voucherno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -296,5 +278,4 @@ Partial Class frmJournalEntryCredit
     Friend WithEvents txtExpiditureClass As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gridExpenditure As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents officeid As DevExpress.XtraEditors.ButtonEdit
-    Friend WithEvents voucherno As DevExpress.XtraEditors.ButtonEdit
 End Class

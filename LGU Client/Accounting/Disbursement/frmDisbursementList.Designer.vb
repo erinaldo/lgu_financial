@@ -33,6 +33,7 @@ Partial Class frmDisbursementList
         Me.LeftToolStripPanel = New System.Windows.Forms.ToolStripPanel()
         Me.ContentPanel = New System.Windows.Forms.ToolStripContentPanel()
         Me.cms_em = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.PrintVoucherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdClearedDisbursement = New System.Windows.Forms.ToolStripMenuItem()
         Me.CreateJEVTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CheckIssuanceInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -139,9 +140,16 @@ Partial Class frmDisbursementList
         '
         'cms_em
         '
-        Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdClearedDisbursement, Me.CreateJEVTransactionToolStripMenuItem, Me.CheckIssuanceInfoToolStripMenuItem, Me.cmdView, Me.cmdCancel, Me.ToolStripSeparator4, Me.cmdLocalData})
+        Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdView, Me.PrintVoucherToolStripMenuItem, Me.cmdClearedDisbursement, Me.CreateJEVTransactionToolStripMenuItem, Me.CheckIssuanceInfoToolStripMenuItem, Me.cmdCancel, Me.ToolStripSeparator4, Me.cmdLocalData})
         Me.cms_em.Name = "ContextMenuStrip1"
-        Me.cms_em.Size = New System.Drawing.Size(234, 142)
+        Me.cms_em.Size = New System.Drawing.Size(222, 186)
+        '
+        'PrintVoucherToolStripMenuItem
+        '
+        Me.PrintVoucherToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.Print_16x16__2_
+        Me.PrintVoucherToolStripMenuItem.Name = "PrintVoucherToolStripMenuItem"
+        Me.PrintVoucherToolStripMenuItem.Size = New System.Drawing.Size(233, 22)
+        Me.PrintVoucherToolStripMenuItem.Text = "Print Disbursement Voucher"
         '
         'cmdClearedDisbursement
         '
@@ -169,14 +177,14 @@ Partial Class frmDisbursementList
         Me.cmdView.Image = Global.LGUClient.My.Resources.Resources.notebook__arrow
         Me.cmdView.Name = "cmdView"
         Me.cmdView.Size = New System.Drawing.Size(233, 22)
-        Me.cmdView.Text = "View Disbursement Info"
+        Me.cmdView.Text = "View Requisition Info"
         '
         'cmdCancel
         '
         Me.cmdCancel.Image = Global.LGUClient.My.Resources.Resources.notebook__minus
         Me.cmdCancel.Name = "cmdCancel"
-        Me.cmdCancel.Size = New System.Drawing.Size(233, 22)
-        Me.cmdCancel.Text = "Cancel Selected Disbursement"
+        Me.cmdCancel.Size = New System.Drawing.Size(221, 22)
+        Me.cmdCancel.Text = "Cancel Selected Voucher"
         '
         'ToolStripSeparator4
         '
@@ -401,7 +409,7 @@ Partial Class frmDisbursementList
         Me.Em.MinimumSize = New System.Drawing.Size(574, 454)
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(990, 504)
+        Me.Em.Size = New System.Drawing.Size(990, 499)
         Me.Em.TabIndex = 634
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -490,4 +498,5 @@ Partial Class frmDisbursementList
     Friend WithEvents Em As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents PrintVoucherToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -77,7 +77,7 @@ Partial Class frmBudgetComposition
         Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSaveButton.Appearance.Options.UseBackColor = True
         Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(388, 562)
+        Me.cmdSaveButton.Location = New System.Drawing.Point(386, 562)
         Me.cmdSaveButton.Name = "cmdSaveButton"
         Me.cmdSaveButton.Size = New System.Drawing.Size(168, 38)
         Me.cmdSaveButton.TabIndex = 6
@@ -94,7 +94,7 @@ Partial Class frmBudgetComposition
         Me.Em.MinimumSize = New System.Drawing.Size(574, 454)
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(582, 454)
+        Me.Em.Size = New System.Drawing.Size(578, 454)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -314,7 +314,7 @@ Partial Class frmBudgetComposition
         Me.SimpleButton1.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.SimpleButton1.Appearance.Options.UseBackColor = True
         Me.SimpleButton1.Appearance.Options.UseFont = True
-        Me.SimpleButton1.Location = New System.Drawing.Point(40, 562)
+        Me.SimpleButton1.Location = New System.Drawing.Point(38, 562)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(168, 38)
         Me.SimpleButton1.TabIndex = 651
@@ -329,7 +329,7 @@ Partial Class frmBudgetComposition
         Me.SimpleButton2.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.SimpleButton2.Appearance.Options.UseBackColor = True
         Me.SimpleButton2.Appearance.Options.UseFont = True
-        Me.SimpleButton2.Location = New System.Drawing.Point(214, 562)
+        Me.SimpleButton2.Location = New System.Drawing.Point(212, 562)
         Me.SimpleButton2.Name = "SimpleButton2"
         Me.SimpleButton2.Size = New System.Drawing.Size(168, 38)
         Me.SimpleButton2.TabIndex = 652
@@ -366,7 +366,7 @@ Partial Class frmBudgetComposition
         Me.AcceptButton = Me.cmdSaveButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(602, 607)
+        Me.ClientSize = New System.Drawing.Size(598, 607)
         Me.Controls.Add(Me.Bm)
         Me.Controls.Add(Me.SimpleButton2)
         Me.Controls.Add(Me.SimpleButton1)
@@ -383,7 +383,7 @@ Partial Class frmBudgetComposition
         Me.Controls.Add(Me.txtFund)
         Me.Controls.Add(Me.cmdSaveButton)
         Me.Controls.Add(Me.Em)
-        Me.MinimumSize = New System.Drawing.Size(596, 639)
+        Me.MinimumSize = New System.Drawing.Size(600, 639)
         Me.Name = "frmBudgetComposition"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Budget Composition"

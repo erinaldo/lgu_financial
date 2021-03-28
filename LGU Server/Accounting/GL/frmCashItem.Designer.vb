@@ -97,15 +97,15 @@ Partial Class frmCashItem
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(616, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(614, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 394)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 392)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(616, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(614, 0)
         '
         'barDockControlLeft
         '
@@ -113,15 +113,15 @@ Partial Class frmCashItem
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 374)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 372)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(616, 20)
+        Me.BarDockControl1.Location = New System.Drawing.Point(614, 20)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 374)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 372)
         '
         'RepositoryItemTextEdit1
         '
@@ -170,9 +170,9 @@ Partial Class frmCashItem
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(616, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(614, 20)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 374)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 372)
         '
         'Em_unfiltered
         '
@@ -238,7 +238,7 @@ Partial Class frmCashItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(616, 394)
+        Me.ClientSize = New System.Drawing.Size(614, 392)
         Me.Controls.Add(Me.cmdMoveLeft)
         Me.Controls.Add(Me.cmdMoveRight)
         Me.Controls.Add(Me.Em_unfiltered)
@@ -251,7 +251,7 @@ Partial Class frmCashItem
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(370, 376)
+        Me.MinimumSize = New System.Drawing.Size(372, 378)
         Me.Name = "frmCashItem"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Account Title Cash Item (Note: Move item to the right to apply settings)"

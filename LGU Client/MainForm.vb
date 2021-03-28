@@ -109,7 +109,7 @@ Public Class MainForm
         End If
 
         If globalAuthCheckIssuanceRequest = True Or globalRootUser = True Then
-            Dim checkissuance As Integer = countqry("tblrequisition", "approved=1 and checkapproved=0 and cancelled=0 and officeid in (select officeid from tblcheckapprovalfilter where permissioncode='" & globalAuthcode & "')")
+            Dim checkissuance As Integer = countqry("tblrequisition", "approved=1 and checkapproved=0 and cancelled=0 and officeid in (select officeid from tblcheckapprovalfilter where permissioncode='" & globalAuthcode & "') and requesttype in (select code from tblrequisitiontype where enablevoucher=1)")
             If checkissuance > 0 Then
                 cmdCheckIssuanceRequest.Text = "Check Issuance Request (" & checkissuance & ")"
                 If globalFontColor = "LIGHT" Then
@@ -890,7 +890,11 @@ Public Class MainForm
             MessageBox.Show("Your access not allowed to add!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
         End If
-        frmVoucherInfo.ShowDialog(Me)
+        If frmNewVoucher.Visible = True Then
+            frmNewVoucher.Focus()
+        Else
+            frmNewVoucher.Show(Me)
+        End If
     End Sub
 
     Private Sub cmdDisbursementMgt_Click(sender As Object, e As EventArgs) Handles cmdDisbursementMgt.Click

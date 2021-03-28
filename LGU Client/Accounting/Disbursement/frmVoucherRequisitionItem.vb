@@ -43,45 +43,45 @@ Public Class frmVoucherRequisitionItem
     End Sub
 
     Public Sub LoadRequisition()
-        dgv.Rows.Clear()
-        dst = Nothing : dst = New DataSet
-        msda = New MySqlDataAdapter("select *,ifnull((select sum(amount) from tbldisbursementdetails where pid=a.pid and cancelled=0),0) as payment, " _
-                                    + " (select description from tblrequisitiontype where code=a.requesttype) as request_type, " _
-                                    + " date_format(postingdate,'%Y-%m-%d') as 'PostingDate', " _
-                                    + " date_format(dateapproved,'%Y-%m-%d') as 'DateApproved', " _
-                                    + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) as TotalAmount, " _
-                                    + " (select suppliername from tblsupplier where supplierid=a.payee) as supplier " _
-                                    + " from tblrequisition as a where periodcode='" & periodcode.Text & "' " _
-                                    + " and officeid='" & officeid.Text & "' " _
-                                    + " and requesttype in (select code from tblrequisitiontype where enablevoucher=1) " _
-                                    + " and approved=1 And voucher=0 And cancelled=0  " _
-                                    + " And (pid Like '%" & txtSearch.Text & "%' or " _
-                                    + " requestno like '%" & txtSearch.Text & "%' or " _
-                                    + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) like '%" & txtSearch.Text & "%' or " _
-                                    + " date_format(postingdate,'%Y-%m-%d')  like '%" & txtSearch.Text & "%' or " _
-                                    + " (select description from tblrequisitiontype where code=a.requesttype)  like '%" & txtSearch.Text & "%') order by postingdate desc", conn)
+        'dgv.Rows.Clear()
+        'dst = Nothing : dst = New DataSet
+        'msda = New MySqlDataAdapter("select *,ifnull((select sum(amount) from tbldisbursementdetails where pid=a.pid and cancelled=0),0) as payment, " _
+        '                            + " (select description from tblrequisitiontype where code=a.requesttype) as request_type, " _
+        '                            + " date_format(postingdate,'%Y-%m-%d') as 'PostingDate', " _
+        '                            + " date_format(dateapproved,'%Y-%m-%d') as 'DateApproved', " _
+        '                            + " (select sum(amount) from tblrequisitionfund where pid=a.pid) as TotalAmount, " _
+        '                            + " (select suppliername from tblsupplier where supplierid=a.payee) as supplier " _
+        '                            + " from tblrequisition as a where periodcode='" & periodcode.Text & "' " _
+        '                            + " and officeid='" & officeid.Text & "' " _
+        '                            + " and requesttype in (select code from tblrequisitiontype where enablevoucher=1) " _
+        '                            + " and approved=1 And voucher=0 And cancelled=0  " _
+        '                            + " And (pid Like '%" & txtSearch.Text & "%' or " _
+        '                            + " requestno like '%" & txtSearch.Text & "%' or " _
+        '                            + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) like '%" & txtSearch.Text & "%' or " _
+        '                            + " date_format(postingdate,'%Y-%m-%d')  like '%" & txtSearch.Text & "%' or " _
+        '                            + " (select description from tblrequisitiontype where code=a.requesttype)  like '%" & txtSearch.Text & "%') order by postingdate desc", conn)
 
-        msda.Fill(dst, 0)
-        For cnt = 0 To dst.Tables(0).Rows.Count - 1
-            With (dst.Tables(0))
-                dgv.Rows.Add(False, .Rows(cnt)("pid").ToString(),
-                                                 .Rows(cnt)("requestno").ToString(),
-                                                 .Rows(cnt)("request_type").ToString(),
-                                                 .Rows(cnt)("TotalAmount").ToString(),
-                                                 .Rows(cnt)("supplier").ToString(),
-                                                 .Rows(cnt)("PostingDate").ToString(),
-                                                 .Rows(cnt)("DateApproved").ToString(),
-                                                 .Rows(cnt)("purpose").ToString(),
-                                                 .Rows(cnt)("requesttype").ToString(),
-                                                 .Rows(cnt)("officeid").ToString(),
-                                                 .Rows(cnt)("payee").ToString())
-            End With
-        Next
+        'msda.Fill(dst, 0)
+        'For cnt = 0 To dst.Tables(0).Rows.Count - 1
+        '    With (dst.Tables(0))
+        '        dgv.Rows.Add(False, .Rows(cnt)("pid").ToString(),
+        '                                         .Rows(cnt)("requestno").ToString(),
+        '                                         .Rows(cnt)("request_type").ToString(),
+        '                                         .Rows(cnt)("TotalAmount").ToString(),
+        '                                         .Rows(cnt)("supplier").ToString(),
+        '                                         .Rows(cnt)("PostingDate").ToString(),
+        '                                         .Rows(cnt)("DateApproved").ToString(),
+        '                                         .Rows(cnt)("purpose").ToString(),
+        '                                         .Rows(cnt)("requesttype").ToString(),
+        '                                         .Rows(cnt)("officeid").ToString(),
+        '                                         .Rows(cnt)("payee").ToString())
+        '    End With
+        'Next
 
-        GridCurrencyColumn(dgv, {"Amount"})
-        GridColumnWidth(dgv, {"Amount"}, 100)
-        GridColumnAlignment(dgv, {"Entry Code", "Request No", "Date Approved"}, DataGridViewContentAlignment.MiddleCenter)
-        GridColumAutoWidth(dgv, {"Select", "Entry Code", "Request No", "Request Type", "Office", "Payee", "Posting Date", "Date Approved", "Purpose"})
+        'GridCurrencyColumn(dgv, {"Amount"})
+        'GridColumnWidth(dgv, {"Amount"}, 100)
+        'GridColumnAlignment(dgv, {"Entry Code", "Request No", "Date Approved"}, DataGridViewContentAlignment.MiddleCenter)
+        'GridColumAutoWidth(dgv, {"Select", "Entry Code", "Request No", "Request Type", "Office", "Payee", "Posting Date", "Date Approved", "Purpose"})
     End Sub
 
 
@@ -100,11 +100,11 @@ Public Class frmVoucherRequisitionItem
             For I = 0 To dgv.RowCount - 1
                 If DirectCast(dgv.Rows(I).Cells("Select"), DataGridViewCheckBoxCell).Value = 1 Then
                     com.CommandText = "UPDATE tblrequisition set voucher=1 where pid='" & dgv.Item("Entry Code", I).Value & "'" : com.ExecuteNonQuery()
-                    com.CommandText = "insert into tbldisbursementdetails set voucherno='" & voucherno.Text & "', pid='" & dgv.Item("Entry Code", I).Value & "', officeid='" & dgv.Item("officeid", I).Value & "', requestno='" & dgv.Item("Request No", I).Value & "',requesttype='" & dgv.Item("requesttype", I).Value & "',postingdate='" & ConvertDate(dgv.Item("Posting Date", I).Value) & "',  purpose='" & rchar(dgv.Item("Purpose", I).Value) & "', amount='" & Val(CC(dgv.Item("Amount", I).Value)) & "', payee='" & dgv.Item("payeeid", I).Value & "', trnreference='" & trnreference.Text & "'" : com.ExecuteNonQuery()
+                    ' com.CommandText = "insert into tbldisbursementdetails set voucherid='" & voucherid.Text & "', pid='" & dgv.Item("Entry Code", I).Value & "', officeid='" & dgv.Item("officeid", I).Value & "', requestno='" & dgv.Item("Request No", I).Value & "',requesttype='" & dgv.Item("requesttype", I).Value & "',postingdate='" & ConvertDate(dgv.Item("Posting Date", I).Value) & "',  purpose='" & rchar(dgv.Item("Purpose", I).Value) & "', amount='" & Val(CC(dgv.Item("Amount", I).Value)) & "', payee='" & dgv.Item("payeeid", I).Value & "'" : com.ExecuteNonQuery()
                 End If
             Next
             LoadRequisition()
-            frmVoucherInfo.LoadVoucherExpenses()
+            'frmVoucherInfo.LoadVoucherExpenses()
         End If
     End Sub
 

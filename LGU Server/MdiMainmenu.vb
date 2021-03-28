@@ -419,10 +419,10 @@ Public Class MdiMainmenu
     End Sub
 
     Private Sub cmdQuarterlyBudget_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdQuarterlyBudget.ItemClick
-        If frmBudgetQuarterly.Visible = True Then
-            frmBudgetQuarterly.Focus()
+        If frmBudgetMonthly.Visible = True Then
+            frmBudgetMonthly.Focus()
         Else
-            frmBudgetQuarterly.Show(Me)
+            frmBudgetMonthly.Show(Me)
         End If
     End Sub
 
@@ -448,5 +448,13 @@ Public Class MdiMainmenu
         Else
             frmBankAccounts.Show(Me)
         End If
+    End Sub
+
+    Private Sub cmdRegistry_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdRegistry.ItemClick
+        SplashScreenManager.ShowForm(GetType(WaitForm1), True, True)
+        frmRegistry.MdiParent = Me
+        frmRegistry.Show()
+        frmRegistry.Focus()
+        SplashScreenManager.CloseForm()
     End Sub
 End Class

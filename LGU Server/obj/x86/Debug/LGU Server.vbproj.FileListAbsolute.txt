@@ -713,11 +713,6 @@ C:\Files\VB.NET\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetQua
 C:\Files\VB.NET\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetQuarterActivate.resources
 C:\Files\VB.NET\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGLAroFilter.resources
 C:\Files\VB.NET\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbprojAssemblyReference.cache
-D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraGrid.v19.2.dll
-D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraGrid.v19.2.xml
-D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\de\DevExpress.Utils.v19.2.UI.resources.dll
-D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\de\DevExpress.XtraScheduler.v19.2.Extensions.resources.dll
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.pdb
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\LGU Server.exe.config
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\LGU Server.exe.manifest
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\LGU Server.application
@@ -743,6 +738,7 @@ D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraCharts.v19.2.
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraCharts.v19.2.Wizard.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraEditors.v19.2.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraGauges.v19.2.Core.dll
+D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraGrid.v19.2.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraNavBar.v19.2.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraPivotGrid.v19.2.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraPrinting.v19.2.dll
@@ -787,6 +783,7 @@ D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraCharts.v19.2.
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraEditors.v19.2.xml
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraGauges.v19.2.Core.xml
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraPrinting.v19.2.xml
+D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraGrid.v19.2.xml
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraNavBar.v19.2.xml
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraPivotGrid.v19.2.xml
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraReports.v19.2.Extensions.xml
@@ -879,6 +876,7 @@ D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\de\DevExpress.Sparkline.v19.
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\es\DevExpress.Sparkline.v19.2.Core.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\ja\DevExpress.Sparkline.v19.2.Core.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\ru\DevExpress.Sparkline.v19.2.Core.resources.dll
+D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\de\DevExpress.Utils.v19.2.UI.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\es\DevExpress.Utils.v19.2.UI.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\ja\DevExpress.Utils.v19.2.UI.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\ru\DevExpress.Utils.v19.2.UI.resources.dll
@@ -894,6 +892,7 @@ D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\de\DevExpress.XtraScheduler.
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\es\DevExpress.XtraScheduler.v19.2.Core.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\ja\DevExpress.XtraScheduler.v19.2.Core.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\ru\DevExpress.XtraScheduler.v19.2.Core.resources.dll
+D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\de\DevExpress.XtraScheduler.v19.2.Extensions.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\es\DevExpress.XtraScheduler.v19.2.Extensions.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\ja\DevExpress.XtraScheduler.v19.2.Extensions.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\ru\DevExpress.XtraScheduler.v19.2.Extensions.resources.dll
@@ -933,6 +932,7 @@ D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\de\DevExpress.Diagram.v19.2.
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\es\DevExpress.Diagram.v19.2.Core.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\ja\DevExpress.Diagram.v19.2.Core.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\ru\DevExpress.Diagram.v19.2.Core.resources.dll
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbprojAssemblyReference.cache
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.ResolveComReference.cache
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmErrorCorrect.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmJevEntries.resources
@@ -943,8 +943,9 @@ D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCheckApp
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGLCaptureChartofAccount.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGLChartofAccounts.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCashItem.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetQuarterly.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetQuarterActivate.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetMonthly.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetMonthlyClosing.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetEditLine.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmExpenditureItem.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetComposition.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmExpenditureClass.resources
@@ -1003,3 +1004,5 @@ D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.application
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.CopyComplete
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.exe
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.xml
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.pdb
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmRegistry.resources

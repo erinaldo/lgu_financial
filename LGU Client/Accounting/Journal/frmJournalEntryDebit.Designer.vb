@@ -36,7 +36,6 @@ Partial Class frmJournalEntryDebit
         Me.txtExpiditureClass = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridExpenditure = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.officeid = New DevExpress.XtraEditors.ButtonEdit()
-        Me.voucherno = New DevExpress.XtraEditors.ButtonEdit()
         Me.pid = New DevExpress.XtraEditors.ButtonEdit()
         CType(Me.txtDebit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,7 +47,6 @@ Partial Class frmJournalEntryDebit
         CType(Me.txtExpiditureClass.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridExpenditure, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.voucherno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -186,7 +184,7 @@ Partial Class frmJournalEntryDebit
         Me.ckEnableTagClass.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ckEnableTagClass.Properties.Appearance.Options.UseFont = True
         Me.ckEnableTagClass.Properties.Caption = "Enable tagging of expenditure item"
-        Me.ckEnableTagClass.Size = New System.Drawing.Size(347, 19)
+        Me.ckEnableTagClass.Size = New System.Drawing.Size(347, 20)
         Me.ckEnableTagClass.TabIndex = 962
         '
         'txtExpiditureClass
@@ -229,20 +227,6 @@ Partial Class frmJournalEntryDebit
         Me.officeid.TabIndex = 980
         Me.officeid.Visible = False
         '
-        'voucherno
-        '
-        Me.voucherno.EditValue = ""
-        Me.voucherno.Location = New System.Drawing.Point(464, 187)
-        Me.voucherno.Name = "voucherno"
-        Me.voucherno.Properties.Appearance.Options.UseTextOptions = True
-        Me.voucherno.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.voucherno.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.voucherno.Properties.Mask.BeepOnError = True
-        Me.voucherno.Properties.ReadOnly = True
-        Me.voucherno.Size = New System.Drawing.Size(39, 20)
-        Me.voucherno.TabIndex = 981
-        Me.voucherno.Visible = False
-        '
         'pid
         '
         Me.pid.EditValue = ""
@@ -265,7 +249,6 @@ Partial Class frmJournalEntryDebit
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(515, 210)
         Me.Controls.Add(Me.pid)
-        Me.Controls.Add(Me.voucherno)
         Me.Controls.Add(Me.officeid)
         Me.Controls.Add(Me.txtExpiditureClass)
         Me.Controls.Add(Me.jevno)
@@ -295,7 +278,6 @@ Partial Class frmJournalEntryDebit
         CType(Me.txtExpiditureClass.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridExpenditure, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.voucherno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -314,6 +296,5 @@ Partial Class frmJournalEntryDebit
     Friend WithEvents txtExpiditureClass As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gridExpenditure As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents officeid As DevExpress.XtraEditors.ButtonEdit
-    Friend WithEvents voucherno As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents pid As DevExpress.XtraEditors.ButtonEdit
 End Class

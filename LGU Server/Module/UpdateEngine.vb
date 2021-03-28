@@ -231,6 +231,90 @@ Module UpdateEngine
             engineupdated = True
         End If
 
+        updateVersion = "2021-03-12"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "ALTER TABLE `tblbudgetcomposition` ADD COLUMN `January` DOUBLE NOT NULL DEFAULT 0 AFTER `totalbudget`, ADD COLUMN `february` DOUBLE NOT NULL DEFAULT 0 AFTER `January`, ADD COLUMN `march` DOUBLE NOT NULL DEFAULT 0 AFTER `february`, ADD COLUMN `april` DOUBLE NOT NULL DEFAULT 0 AFTER `march`, ADD COLUMN `may` DOUBLE NOT NULL DEFAULT 0 AFTER `april`, ADD COLUMN `june` DOUBLE NOT NULL DEFAULT 0 AFTER `may`, ADD COLUMN `july` DOUBLE NOT NULL DEFAULT 0 AFTER `june`, ADD COLUMN `august` DOUBLE NOT NULL DEFAULT 0 AFTER `july`, ADD COLUMN `september` DOUBLE NOT NULL DEFAULT 0 AFTER `august`, ADD COLUMN `october` DOUBLE NOT NULL DEFAULT 0 AFTER `september`, ADD COLUMN `november` DOUBLE NOT NULL DEFAULT 0 AFTER `october`, ADD COLUMN `december` DOUBLE NOT NULL DEFAULT 0 AFTER `november`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblbudgetcomposition` DROP COLUMN `quarter1`, DROP COLUMN `quarter2`, DROP COLUMN `quarter3`, DROP COLUMN `quarter4`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "delete from `tblrequisitionfund` where quarter='';" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblbudgetquarter` CHANGE COLUMN `quartercode` `monthcode` VARCHAR(2) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL, CHANGE COLUMN `quartername` `monthname` VARCHAR(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL, CHANGE COLUMN `quarterbegin` `monthseries` VARCHAR(2) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL, DROP COLUMN `quarterend`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblbudgetquarter` RENAME TO `tblbudgetmonthly`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblbudgetmonthly` DROP COLUMN `monthseries`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblbudgetcomposition` CHANGE COLUMN `quarter` `monthcode` VARCHAR(2) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '';" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblrequisitionfund` CHANGE COLUMN `quarter` `monthcode` VARCHAR(2) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, DROP INDEX `quarter`, ADD INDEX `quarter` USING BTREE(`monthcode`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update `tblrequisitionfund` set monthcode=SUBSTRING_INDEX(SUBSTRING_INDEX(requestno, '-', -2), '-', 1);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+        updateVersion = "2021-03-16"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "ALTER TABLE `tbljournalentryvoucher` ADD COLUMN `dvid` VARCHAR(45) NOT NULL DEFAULT '' AFTER `remarks`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbldisbursementvoucher` CHANGE COLUMN `id` `voucherid` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT, DROP PRIMARY KEY, ADD PRIMARY KEY  USING BTREE(`voucherid`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbldisbursementvoucher` ADD COLUMN `pid` VARCHAR(45) NOT NULL DEFAULT '' AFTER `voucherno`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbldisbursementdetails` ADD COLUMN `voucherid` VARCHAR(45) NOT NULL DEFAULT '' AFTER `id`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbldisbursementdetails` ADD INDEX `voucherid`(`voucherid`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update `tbldisbursementdetails` set voucherid=(select voucherid from tbldisbursementvoucher as a where a.voucherno=tbldisbursementdetails.voucherno);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update `tbljournalentryvoucher` set dvid=ifnull((select voucherid from tbldisbursementvoucher as a where a.voucherno=tbljournalentryvoucher.dvno),'');" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update `tbldisbursementvoucher` set pid=ifnull((select pid from tbldisbursementdetails as a where a.voucherid=tbldisbursementvoucher.voucherid),'');" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update tbldisbursementvoucher set seriesno=concat('0',seriesno);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update tbldisbursementvoucher set voucherno=concat(SUBSTRING_INDEX(voucherno, '-', 3),'-0',SUBSTRING_INDEX(voucherno, '-', -1));" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update tbldisbursementdetails set voucherno=concat(SUBSTRING_INDEX(voucherno, '-', 3),'-0',SUBSTRING_INDEX(voucherno, '-', -1));" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+
+            Dim fundcode() As String = {"100", "200", "300"}
+
+            For Each fund In fundcode
+                com.CommandText = "DROP TABLE IF EXISTS tmpvoucher" & fund & ";" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+                com.CommandText = "CREATE TEMPORARY TABLE `tmpvoucher" & fund & "` (  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,  `voucherid` VARCHAR(45) NOT NULL DEFAULT '',  PRIMARY KEY (`id`))ENGINE = InnoDB;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+                com.CommandText = "insert into tmpvoucher" & fund & " (voucherid) SELECT voucherid FROM `tbldisbursementvoucher` where fundcode='" & fund & "';" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+                com.CommandText = "update tbldisbursementvoucher set seriesno=(select id from tmpvoucher" & fund & " as a where a.voucherid=tbldisbursementvoucher.voucherid) where fundcode='" & fund & "';" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+                com.CommandText = "update tbldisbursementvoucher set seriesno=if(LENGTH(seriesno)=1,concat('000',seriesno),if(LENGTH(seriesno)=2,concat('00',seriesno),concat('0',seriesno))) where fundcode='" & fund & "';" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+                com.CommandText = "update tbldisbursementvoucher set voucherno=concat(SUBSTRING_INDEX(voucherno, '-', 3),'-',seriesno) where fundcode='" & fund & "';" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+                com.CommandText = "update tbldisbursementdetails set voucherno=ifnull((select voucherno from tbldisbursementvoucher as a where a.voucherid=tbldisbursementdetails.voucherid),'');" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+                com.CommandText = "update tbljournalentryvoucher set dvno=ifnull((select voucherno from tbldisbursementvoucher as a where a.voucherid=tbljournalentryvoucher.dvid),'');" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+                com.CommandText = "DROP TABLE IF EXISTS tmpvoucher" & fund & ";" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            Next
+
+            engineupdated = True
+        End If
+
+        updateVersion = "2021-03-17"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "ALTER TABLE `tblrequisitionseries` RENAME TO `tbltransactionseries`, ADD COLUMN `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT first, ADD COLUMN `category` VARCHAR(45) NOT NULL DEFAULT '' AFTER `id`, DROP PRIMARY KEY, ADD PRIMARY KEY (`id`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update `tbltransactionseries` set category='requisition';" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbldisbursementvoucher` MODIFY COLUMN `voucherid` VARCHAR(45) NOT NULL;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbldisbursementdetails` DROP COLUMN `trnreference`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbldisbursementvoucher` ADD COLUMN `checkissued` BOOLEAN NOT NULL DEFAULT 0 AFTER `amount`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "UPDATE tbldisbursementvoucher set checkissued=1 where checkno<>'';" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "UPDATE `tblrequisition` set payee=ifnull((select supplierid from tbldisbursementvoucher as a where a.pid=tblrequisition.pid limit 1),'') where payee='';" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+        updateVersion = "2021-03-18"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "update tbldisbursementvoucher set clearedby='' where clearedby is null;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update tbldisbursementvoucher set cancelledby='' where cancelledby is null;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbldisbursementvoucher` MODIFY COLUMN `voucherid` VARCHAR(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '', MODIFY COLUMN `voucherno` VARCHAR(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '', MODIFY COLUMN `fundcode` VARCHAR(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '', MODIFY COLUMN `periodcode` VARCHAR(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '', MODIFY COLUMN `yearcode` VARCHAR(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '', MODIFY COLUMN `seriesno` VARCHAR(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '', MODIFY COLUMN `yeartrn` VARCHAR(4) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '', MODIFY COLUMN `supplierid` VARCHAR(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '', MODIFY COLUMN `trnby` VARCHAR(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '', MODIFY COLUMN `clearedby` VARCHAR(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '', MODIFY COLUMN `cancelledby` VARCHAR(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '';" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbljournalentryvoucher` DROP COLUMN `dvno`, DROP INDEX `dvno`, ADD INDEX `dvid`(`dvid`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+        updateVersion = "2021-03-19"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "ALTER TABLE `tbldocumenttype` ADD COLUMN `required` BOOLEAN NOT NULL DEFAULT 1 AFTER `description`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+        updateVersion = "2021-03-20"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "ALTER TABLE `tblbankaccounts` ADD COLUMN `fundcode` VARCHAR(45) NOT NULL DEFAULT '' AFTER `id`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+
+        updateVersion = "2021-03-25"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "CREATE TABLE `tblbudgethistory` (  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,  `periodcode` varchar(45) NOT NULL DEFAULT '',  `fundcode` varchar(45) NOT NULL DEFAULT '',  `yearcode` varchar(45) NOT NULL DEFAULT '',  `officeid` varchar(45) NOT NULL DEFAULT '',  `classcode` varchar(45) NOT NULL DEFAULT '',  `itemcode` varchar(45) NOT NULL DEFAULT '',  `itemname` varchar(500) NOT NULL,  `monthcode` varchar(2) NOT NULL DEFAULT '',  `amount` double NOT NULL DEFAULT '0',  `balance` double NOT NULL DEFAULT '0',  PRIMARY KEY (`id`),  KEY `periodcode` (`periodcode`),  KEY `officeid` (`officeid`),  KEY `itemcode` (`itemcode`),  KEY `fundcode` (`fundcode`)) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
 
         If engineupdated = True Then
             Dim dversion As Date = updateVersion

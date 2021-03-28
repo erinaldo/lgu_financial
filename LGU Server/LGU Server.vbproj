@@ -235,6 +235,12 @@
     <Compile Include="Accounting\frmErrorCorrect.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Accounting\frmRegistry.Designer.vb">
+      <DependentUpon>frmRegistry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\frmRegistry.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Accounting\frmJevEntries.Designer.vb">
       <DependentUpon>frmJevEntries.vb</DependentUpon>
     </Compile>
@@ -283,16 +289,22 @@
     <Compile Include="Accounting\GL\frmCashItem.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Budget\frmBudgetQuarterly.Designer.vb">
-      <DependentUpon>frmBudgetQuarterly.vb</DependentUpon>
+    <Compile Include="Budget\frmBudgetMonthly.Designer.vb">
+      <DependentUpon>frmBudgetMonthly.vb</DependentUpon>
     </Compile>
-    <Compile Include="Budget\frmBudgetQuarterly.vb">
+    <Compile Include="Budget\frmBudgetMonthly.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Budget\frmBudgetQuarterActivate.Designer.vb">
-      <DependentUpon>frmBudgetQuarterActivate.vb</DependentUpon>
+    <Compile Include="Budget\frmBudgetMonthlyClosing.Designer.vb">
+      <DependentUpon>frmBudgetMonthlyClosing.vb</DependentUpon>
     </Compile>
-    <Compile Include="Budget\frmBudgetQuarterActivate.vb">
+    <Compile Include="Budget\frmBudgetMonthlyClosing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Budget\frmBudgetEditLine.Designer.vb">
+      <DependentUpon>frmBudgetEditLine.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\frmBudgetEditLine.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Budget\frmExpenditureItem.Designer.vb">
@@ -625,6 +637,9 @@
     <EmbeddedResource Include="Accounting\frmErrorCorrect.resx">
       <DependentUpon>frmErrorCorrect.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\frmRegistry.resx">
+      <DependentUpon>frmRegistry.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accounting\frmJevEntries.resx">
       <DependentUpon>frmJevEntries.vb</DependentUpon>
     </EmbeddedResource>
@@ -649,11 +664,14 @@
     <EmbeddedResource Include="Accounting\GL\frmCashItem.resx">
       <DependentUpon>frmCashItem.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Budget\frmBudgetQuarterly.resx">
-      <DependentUpon>frmBudgetQuarterly.vb</DependentUpon>
+    <EmbeddedResource Include="Budget\frmBudgetMonthly.resx">
+      <DependentUpon>frmBudgetMonthly.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Budget\frmBudgetQuarterActivate.resx">
-      <DependentUpon>frmBudgetQuarterActivate.vb</DependentUpon>
+    <EmbeddedResource Include="Budget\frmBudgetMonthlyClosing.resx">
+      <DependentUpon>frmBudgetMonthlyClosing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\frmBudgetEditLine.resx">
+      <DependentUpon>frmBudgetEditLine.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Budget\frmExpenditureItem.resx">
       <DependentUpon>frmExpenditureItem.vb</DependentUpon>

@@ -26,10 +26,9 @@ Public Class frmRequisitionInfo
     End Sub
 
     Private Sub frmRequisitionInfo_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        If countqry("tblrequisitionitem", "pid='" & pid.Text & "'") > 0 Or countqry("tmprequisitionfund", "pid='" & pid.Text & "'") > 0 Then
+        If countqry("tmprequisitionfund", "pid='" & pid.Text & "'") > 0 Then
             If countqry("tblrequisition", "pid='" & pid.Text & "'") = 0 Then
                 If XtraMessageBox.Show("Are you sure you want to close current request? Closing unsaved request will cancelling all current transaction." & Environment.NewLine & "You may save it as draft for you able to edit this transaction later.", GlobalOrganizationName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = vbYes Then
-                    com.CommandText = "DELETE FROM tblrequisitionitem where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
                     com.CommandText = "DELETE FROM tmprequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
                     com.CommandText = "DELETE FROM tblrequisitionfiles where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
                 Else
@@ -46,7 +45,6 @@ Public Class frmRequisitionInfo
     Private Sub ffrmRequisitionInfo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Icon = ico
         ApplySystemTheme(ToolStrip1)
-        txtPostingDate.EditValue = CDate(Now)
 
         LoadOffice()
         LoadRequestBy()
@@ -61,20 +59,20 @@ Public Class frmRequisitionInfo
             CreateFundTable()
             LoadRequisitionFund()
         Else
-            pid.Text = GetRequisitionSeries()
+            pid.Text = GetTransactionSeries("requisition")
             LoadRequestType()
             CreateFundTable()
             LoadRequisitionFund()
             ReadOnlyForm(False, mode.Text)
             txtStatus.Text = "NEW REQUEST"
         End If
-        LoadItem()
+        LoadSource()
         LoadFiles()
         ApprovingHistory()
         LoadApproverDeatils()
     End Sub
     Public Sub CreateFundTable()
-        com.CommandText = "CREATE TEMPORARY TABLE IF NOT EXISTS `tmprequisitionfund` (  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,  `pid` varchar(45) NOT NULL DEFAULT '',  `officeid` varchar(45) NOT NULL DEFAULT '',  `periodcode` varchar(45) NOT NULL DEFAULT '',  `requestno` varchar(45) NOT NULL DEFAULT '',  `quarter` varchar(2) NOT NULL DEFAULT '',  `classcode` varchar(45) NOT NULL DEFAULT '',  `itemcode` varchar(45) NOT NULL DEFAULT '',  `prevbalance` double NOT NULL DEFAULT '0',  `amount` double NOT NULL DEFAULT '0',  `newbalance` double NOT NULL DEFAULT '0',  `cancelled` tinyint(1) NOT NULL DEFAULT '0',  PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;" : com.ExecuteNonQuery()
+        com.CommandText = "CREATE TEMPORARY TABLE IF NOT EXISTS `tmprequisitionfund` (  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,  `pid` varchar(45) NOT NULL DEFAULT '',  `officeid` varchar(45) NOT NULL DEFAULT '',  `periodcode` varchar(45) NOT NULL DEFAULT '',  `requestno` varchar(45) NOT NULL DEFAULT '',  `monthcode` varchar(2) NOT NULL DEFAULT '',  `classcode` varchar(45) NOT NULL DEFAULT '',  `itemcode` varchar(45) NOT NULL DEFAULT '',  `prevbalance` double NOT NULL DEFAULT '0',  `amount` double NOT NULL DEFAULT '0',  `newbalance` double NOT NULL DEFAULT '0',  `cancelled` tinyint(1) NOT NULL DEFAULT '0',  PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;" : com.ExecuteNonQuery()
         com.CommandText = "DELETE FROM tmprequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
         com.CommandText = "INSERT INTO tmprequisitionfund select * from tblrequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
     End Sub
@@ -113,33 +111,18 @@ Public Class frmRequisitionInfo
             linedraft.Visible = True
             cmdForApproval.Visible = True
             lineapproval.Visible = True
-            linePrintPr.Visible = True
-
-            linePrintPr.Visible = False
-            cmdPrintPR.Visible = False
-
-            lineCreatePO.Visible = False
-            cmdCreatePO.Visible = False
 
         ElseIf mode = "approval" Or mode = "cancelled" Then
             cmdSaveAsDraft.Visible = False
             linedraft.Visible = False
             cmdForApproval.Visible = False
             lineapproval.Visible = False
-            linePrintPr.Visible = False
-
-            linePrintPr.Visible = False
-            cmdPrintPR.Visible = False
-
-            lineCreatePO.Visible = False
-            cmdCreatePO.Visible = False
 
         ElseIf mode = "view" Or mode = "approved" Then
             cmdSaveAsDraft.Visible = False
             linedraft.Visible = False
             cmdForApproval.Visible = False
             lineapproval.Visible = False
-            linePrintPr.Visible = False
 
             If DirectApproved Then
                 cmdPrintObligation.Visible = False
@@ -149,48 +132,14 @@ Public Class frmRequisitionInfo
                 linePrintObligation.Visible = True
             End If
 
-
-            If EnablePR Then
-                linePrintPr.Visible = True
-                cmdPrintPR.Visible = True
-            Else
-                cmdPrintPR.Visible = False
-                linePrintPr.Visible = False
-            End If
-
-            If EnablePO Then
-                cmdCreatePO.Visible = True
-                lineCreatePO.Visible = True
-            Else
-                lineCreatePO.Visible = False
-                cmdCreatePO.Visible = False
-            End If
-
             ShowReportTemplate()
         Else
             cmdSaveAsDraft.Visible = True
             linedraft.Visible = True
             cmdForApproval.Visible = True
             lineapproval.Visible = True
-            linePrintPr.Visible = True
             cmdPrintObligation.Visible = False
             linePrintObligation.Visible = False
-
-            If EnablePR Then
-                linePrintPr.Visible = True
-                cmdPrintPR.Visible = True
-            Else
-                cmdPrintPR.Visible = False
-                linePrintPr.Visible = False
-            End If
-
-            If EnablePO Then
-                cmdCreatePO.Visible = True
-                lineCreatePO.Visible = True
-            Else
-                lineCreatePO.Visible = False
-                cmdCreatePO.Visible = False
-            End If
         End If
     End Sub
 
@@ -308,32 +257,17 @@ Public Class frmRequisitionInfo
         periodcode.Text = txtFund.Properties.View.GetFocusedRowCellValue("code").ToString()
         fundcode.Text = txtFund.Properties.View.GetFocusedRowCellValue("fundcode").ToString()
         yearcode.Text = txtFund.Properties.View.GetFocusedRowCellValue("yeartrn").ToString()
-        txtPostingDate.Properties.MinValue = CDate("01/01/" & yearcode.Text)
-        txtPostingDate.Properties.MaxValue = CDate("12/31/" & yearcode.Text)
     End Sub
 
-    Public Sub LoadItem()
-        LoadXgrid("Select id, itemname as 'Particular Name',Quantity, Unit, unitcost as 'Unit Cost',totalcost as 'Total Cost', Remarks " _
-                           + " from tblrequisitionitem  " _
-                           + " where pid = '" & pid.Text & "' order by itemname asc", "tblrequisitionitem", Em, GridView1, Me)
+    Public Sub LoadSource()
+        LoadXgrid("select id,classcode as 'Class', date_format(concat(date_format(current_date,'%Y'),'-',monthcode,'-1'),'%M') as 'Month', itemcode as 'Item Code', (select itemname from tblglitem where itemcode=a.itemcode) as 'Item Name', Amount from tmprequisitionfund as a where pid='" & pid.Text & "'", "tmprequisitionfund", Em, GridView1, Me)
         XgridHideColumn({"id"}, GridView1)
-        XgridColCurrency({"Unit Cost", "Total Cost"}, GridView1)
-        XgridColAlign({"Unit", "Quantity"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
-        GridView1.Columns("Remarks").ColumnEdit = MemoEdit
-        XgridGeneralSummaryCurrency({"Total Cost"}, GridView1)
+        XgridColAlign({"Item Code", "Class", "Month"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+        XgridColCurrency({"Amount"}, GridView1)
+        XgridGeneralSummaryCurrency({"Amount"}, GridView1)
         GridView1.BestFitColumns()
-
-        If GridView1.RowCount > 0 Then
-            txtRequestType.Properties.ReadOnly = True
-            txtFund.Properties.ReadOnly = True
-        Else
-            If mode.Text = "edit" Then
-                txtRequestType.Properties.ReadOnly = False
-                txtFund.Properties.ReadOnly = False
-            End If
-        End If
-
     End Sub
+
 
     Public Function SecurityCheck() As Boolean
         If txtRequestType.Text = "" Then
@@ -356,10 +290,6 @@ Public Class frmRequisitionInfo
             XtraMessageBox.Show("Please select fund period!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtFund.Focus()
             Return False
-        ElseIf txtPostingDate.Text = "" Then
-            XtraMessageBox.Show("Please select posting date!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtPostingDate.Focus()
-            Return False
         ElseIf txtPurpose.Text = "" Then
             XtraMessageBox.Show("Please enter request purpose!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtPurpose.Focus()
@@ -370,31 +300,34 @@ Public Class frmRequisitionInfo
     End Function
 
     Private Sub ToolStripMenuItem5_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem5.Click
-        LoadItem()
+        LoadSource()
     End Sub
 
     Private Sub SelectItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SelectItemToolStripMenuItem.Click
         If GridView1.RowCount = 0 Then
-            XtraMessageBox.Show("Nothing is selected!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            XtraMessageBox.Show("No selected item", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-        frmQuantitySelect.mode.Text = ""
-        frmQuantitySelect.id.Text = GridView1.GetFocusedRowCellValue("id").ToString
-        frmQuantitySelect.mode.Text = "edit"
-        frmQuantitySelect.ShowDialog(Me)
+        frmSourceOfFundInfo.mode = "edit"
+        frmSourceOfFundInfo.id = GridView1.GetFocusedRowCellValue("id").ToString
+        frmSourceOfFundInfo.pid.Text = pid.Text
+        frmSourceOfFundInfo.officeid.Text = officeid.Text
+        frmSourceOfFundInfo.periodcode.Text = periodcode.Text
+        frmSourceOfFundInfo.requestno.Text = requestno.Text
+        frmSourceOfFundInfo.ShowDialog(Me)
     End Sub
 
     Private Sub DeleteItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteItemToolStripMenuItem.Click
-        If GridView1.SelectedRowsCount = 0 Then
-            XtraMessageBox.Show("Nothing is selected!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        If GridView1.RowCount = 0 Then
+            XtraMessageBox.Show("No selected item", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
         If XtraMessageBox.Show("Are you sure you want to permanently remove selected item? ", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             Dim I As Integer = 0
             For I = 0 To GridView1.SelectedRowsCount - 1
-                com.CommandText = "delete from tblrequisitionitem where id='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "id") & "' " : com.ExecuteNonQuery()
+                com.CommandText = "delete from tmprequisitionfund where id='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "id") & "' " : com.ExecuteNonQuery()
             Next
-            LoadItem()
+            LoadSource()
         End If
     End Sub
 
@@ -417,7 +350,6 @@ Public Class frmRequisitionInfo
                 txtOffice.EditValue = .Rows(cnt)("officeid").ToString()
                 txtRequestby.EditValue = .Rows(cnt)("requestedby").ToString()
                 txtRequestType.EditValue = .Rows(cnt)("requesttype").ToString()
-                txtPostingDate.EditValue = CDate(.Rows(cnt)("postingdate").ToString())
                 txtPurpose.Text = .Rows(cnt)("purpose").ToString()
                 txtPriority.EditValue = .Rows(cnt)("priority").ToString()
                 HeadOfficeApprover = CBool(.Rows(cnt)("headofficeapproval").ToString())
@@ -515,7 +447,6 @@ Public Class frmRequisitionInfo
                                        + " fundcode='" & fundcode.Text & "', " _
                                        + " yeartrn='" & yearcode.Text & "', " _
                                        + " requesttype='" & requesttype.Text & "', " _
-                                       + " postingdate='" & ConvertDate(txtPostingDate.Text) & "', " _
                                        + " purpose='" & rchar(txtPurpose.Text) & "', " _
                                        + " priority='" & txtPriority.Text & "'," _
                                        + " currentlevel='" & CurrentLevel.Text & "'," _
@@ -525,7 +456,8 @@ Public Class frmRequisitionInfo
                                        + " hold=0, " _
                                        + " forapproval=" & forapproval & " where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
             ElseIf mode.Text = "direct" Then
-                Dim RequestNumber As String = periodcode.Text & "-" & CDate(txtPostingDate.EditValue).ToString("MM") & "-" & GetRequestNumber(periodcode.Text)
+                Dim CurrentMonth As String = qrysingledata("mo", "date_format(current_date,'%m') as mo", "tblcompanysettings limit 1")
+                Dim RequestNumber As String = periodcode.Text & "-" & CurrentMonth & "-" & GetRequestNumber(periodcode.Text)
                 com.CommandText = "INSERT INTO tblrequisition set  " _
                                        + " pid='" & pid.Text & "', " _
                                        + " requestno='" & RequestNumber & "', " _
@@ -536,7 +468,7 @@ Public Class frmRequisitionInfo
                                        + " fundcode='" & fundcode.Text & "', " _
                                        + " yeartrn='" & yearcode.Text & "', " _
                                        + " requesttype='" & requesttype.Text & "', " _
-                                       + " postingdate='" & ConvertDate(txtPostingDate.Text) & "', " _
+                                       + " postingdate=current_date, " _
                                        + " purpose='" & rchar(txtPurpose.Text) & "', " _
                                        + " priority='" & txtPriority.Text & "'," _
                                        + " headofficeapproval=0," _
@@ -551,7 +483,8 @@ Public Class frmRequisitionInfo
                 com.CommandText = "update tblrequisitionitem set requestno='" & RequestNumber & "' where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
                 com.CommandText = "update tmprequisitionfund set requestno='" & RequestNumber & "' where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
             Else
-                Dim RequestNumber As String = periodcode.Text & "-" & CDate(txtPostingDate.EditValue).ToString("MM") & "-" & GetRequestNumber(periodcode.Text)
+                Dim CurrentMonth As String = qrysingledata("mo", "date_format(current_date,'%m') as mo", "tblcompanysettings limit 1")
+                Dim RequestNumber As String = periodcode.Text & "-" & CurrentMonth & "-" & GetRequestNumber(periodcode.Text)
                 com.CommandText = "INSERT INTO tblrequisition set  " _
                                        + " pid='" & pid.Text & "', " _
                                        + " requestno='" & RequestNumber & "', " _
@@ -562,7 +495,7 @@ Public Class frmRequisitionInfo
                                        + " fundcode='" & fundcode.Text & "', " _
                                        + " yeartrn='" & yearcode.Text & "', " _
                                        + " requesttype='" & requesttype.Text & "', " _
-                                       + " postingdate='" & ConvertDate(txtPostingDate.Text) & "', " _
+                                       + " postingdate=current_date, " _
                                        + " purpose='" & rchar(txtPurpose.Text) & "', " _
                                        + " priority='" & txtPriority.Text & "'," _
                                        + " headofficeapproval=1," _
@@ -576,10 +509,8 @@ Public Class frmRequisitionInfo
                 com.CommandText = "update tblrequisitionitem set requestno='" & RequestNumber & "' where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
                 com.CommandText = "update tmprequisitionfund set requestno='" & RequestNumber & "' where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
             End If
-            If Val(qrysingledata("total", "sum(amount) as total", "tblrequisitionfund where pid='" & pid.Text & "'")) <> Val(qrysingledata("total", "sum(amount) as total", "tmprequisitionfund where pid='" & pid.Text & "'")) Then
-                com.CommandText = "DELETE FROM tblrequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
-                com.CommandText = "INSERT INTO tblrequisitionfund (pid,officeid,periodcode,requestno,quarter,classcode,itemcode,prevbalance,amount,newbalance,cancelled) select pid,officeid,periodcode,requestno,quarter,classcode,itemcode,prevbalance,amount,newbalance,cancelled from tmprequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
-            End If
+            com.CommandText = "DELETE FROM tblrequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "INSERT INTO tblrequisitionfund (pid,officeid,periodcode,requestno,monthcode,classcode,itemcode,prevbalance,amount,newbalance,cancelled) select pid,officeid,periodcode,requestno,monthcode,classcode,itemcode,prevbalance,amount,newbalance,cancelled from tmprequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
         Catch ex As Exception
             Return False
         End Try
@@ -591,6 +522,9 @@ Public Class frmRequisitionInfo
         LoadXgrid("select (select officename from tblcompoffice where officeid=a.officeid) as 'Confirmed Office',ucase(status) as 'Status', Remarks, confirmby as 'Confirmed By', Position, date_format(dateconfirm,'%Y-%m-%d %r') as 'Date Confirmed' from tblapprovalhistory as a where mainreference='" & pid.Text & "'", "tblapprovalhistory", Em_approval, gridview_approval, Me)
         XgridColAlign({"Status", "Date Confirmed"}, gridview_approval, DevExpress.Utils.HorzAlignment.Center)
         gridview_approval.BestFitColumns()
+        XgridColMemo({"Remarks"}, gridview_approval)
+        XgridColWidth({"Remarks"}, gridview_approval, 300)
+
     End Sub
 
     Public Sub LoadFiles()
@@ -648,34 +582,22 @@ Public Class frmRequisitionInfo
     End Sub
 
     Public Sub LoadDisbursement()
-        LoadXgrid("SELECT a.id,  if(a.cancelled,'CANCELLED',if(cleared,'CLEARED', 'PENDING')) as Status, " _
-                      + " a.voucherno as 'Voucher No.', " _
+        LoadXgrid("SELECT if(cancelled,'CANCELLED',if(cleared,'CLEARED', 'PENDING')) as Status, " _
+                      + " voucherno as 'Voucher No.', " _
                       + " date_format(voucherdate,'%Y-%m-%d') as 'Voucher Date', " _
-                      + " (select suppliername from tblsupplier where supplierid = a.supplierid) as 'Supplier', " _
-                      + " a.Amount, " _
-                      + " a.checkno as 'Check No.', " _
-                      + " a.checkdate as 'Check Date', " _
+                      + " (select suppliername from tblsupplier where supplierid = a.supplierid) as 'Payee', " _
+                      + " Amount, " _
+                      + " checkno as 'Check No.', " _
+                      + " checkdate as 'Check Date', " _
                       + " (select fullname from tblaccounts where accountid=a.trnby) as 'Posted By', " _
                       + " date_format(datetrn,'%Y-%m-%d') as 'Date Posted' " _
-                      + " FROM tbldisbursementvoucher as a inner join tbldisbursementdetails as b on a.voucherno = b.voucherno " _
-                      + " where b.pid = '" & pid.Text & "' " _
-                      + " order by a.voucherno asc", "tbldisbursementvoucher", Em_disbursement, gridDisbursement, Me)
-        XgridHideColumn({"id"}, gridDisbursement)
+                      + " FROM tbldisbursementvoucher as a " _
+                      + " where pid = '" & pid.Text & "' " _
+                      + " order by voucherno asc", "tbldisbursementvoucher", Em_disbursement, gridDisbursement, Me)
         XgridColCurrency({"Amount"}, gridDisbursement)
         XgridColAlign({"Entry Code", "Status", "Fund Period", "Type of Payment", "Voucher Date", "Date Posted", "Cleared", "Date Cleared", "Cancelled", "Date Cancelled"}, gridDisbursement, DevExpress.Utils.HorzAlignment.Center)
         XgridGeneralSummaryCurrency({"Amount"}, gridDisbursement)
         gridDisbursement.BestFitColumns()
-    End Sub
-
-    Private Sub Em_disbursement_DoubleClick(sender As Object, e As EventArgs) Handles Em_disbursement.DoubleClick
-        frmVoucherInfo.mode.Text = ""
-        frmVoucherInfo.id.Text = gridDisbursement.GetFocusedRowCellValue("id").ToString
-        frmVoucherInfo.mode.Text = "view"
-        If frmVoucherInfo.Visible = False Then
-            frmVoucherInfo.Show(Me)
-        Else
-            frmVoucherInfo.WindowState = FormWindowState.Normal
-        End If
     End Sub
 
     Private Sub gridDisbursement_RowCellStyle(ByVal sender As Object, ByVal e As RowCellStyleEventArgs) Handles gridDisbursement.RowCellStyle
@@ -749,13 +671,6 @@ Public Class frmRequisitionInfo
 
     Private Sub cmdSaveFolio_Click(sender As Object, e As EventArgs) Handles cmdSaveAsDraft.Click
         If SecurityCheck() = True Then
-            If Val(CC(txtSourceAmount.EditValue)) > 0 And Val(CC(txtSourceAmount.EditValue)) > Val(CC(GridView1.Columns("Total Cost").SummaryText)) Then
-                XtraMessageBox.Show("Source of fund and request item doesn't match!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Exit Sub
-            ElseIf Val(CC(GridView1.Columns("Total Cost").SummaryText)) > txtSourceAmount.EditValue Then
-                XtraMessageBox.Show("Insufficient allocated budget source! Please reduce amount", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
-            End If
             If XtraMessageBox.Show("Are you sure you want to continue? ", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
                 If SaveRequisitionInfo(True, False) = True Then
                     If frmRequisitionList.Visible = True Then
@@ -772,25 +687,18 @@ Public Class frmRequisitionInfo
     Private Sub cmdConfirmReservation_Click(sender As Object, e As EventArgs) Handles cmdForApproval.Click
         If SecurityCheck() = True Then
             If Val(CC(txtSourceAmount.Text)) = 0 Then
-                XtraMessageBox.Show("Please select from budget source!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                XtraMessageBox.Show("Please select from item from budget source!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Exit Sub
             ElseIf GridView1.RowCount = 0 Then
-                XtraMessageBox.Show("Please select request particular item!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                XtraMessageBox.Show("Please select from item from budget source!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 Exit Sub
-            ElseIf Val(CC(txtSourceAmount.EditValue)) > 0 And Val(CC(txtSourceAmount.EditValue)) > Val(CC(GridView1.Columns("Total Cost").SummaryText)) Then
-                XtraMessageBox.Show("Source of fund and request item doesn't match!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Exit Sub
-            ElseIf Val(CC(GridView1.Columns("Total Cost").SummaryText)) > txtSourceAmount.EditValue Then
-                XtraMessageBox.Show("Insufficient allocated budget source! Please reduce amount", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
-
             End If
 
             Dim cnt As Integer = 0 : Dim requiredAttachment As String = "This request requires an attachment to proceed! Please provide attachment below:" & Environment.NewLine & Environment.NewLine
-            com.CommandText = "select (select description from tbldocumenttype where code=tblapprovingattachment.doccode) as document from tblapprovingattachment where trncode='" & requesttype.Text & "' and appid='-' and doccode not in (SELECT b.docname FROM `tblrequisitionfiles` as a inner join lgufiledir.tblattachmentlogs as b on a.filecode=b.filecode and a.pid=b.refnumber where pid='" & pid.Text & "' and a.applevel='0' and a.requesttype='" & requesttype.Text & "' )" : rst = com.ExecuteReader
+            com.CommandText = "select description from tblapprovingattachment as x inner join tbldocumenttype as  y on x.doccode=y.code where  y.required=1 and trncode='" & requesttype.Text & "' and appid='-' and doccode not in (SELECT b.docname FROM `tblrequisitionfiles` as a inner join lgufiledir.tblattachmentlogs as b on a.filecode=b.filecode and a.pid=b.refnumber where pid='" & pid.Text & "' and a.applevel='0' and a.requesttype='" & requesttype.Text & "' )" : rst = com.ExecuteReader
             While rst.Read
                 cnt += 1
-                requiredAttachment += cnt & ". " & rst("document").ToString & Environment.NewLine
+                requiredAttachment += cnt & ". " & rst("description").ToString & Environment.NewLine
 
             End While
             rst.Close()
@@ -802,7 +710,7 @@ Public Class frmRequisitionInfo
             End If
 
             If DirectApproved Then
-                If XtraMessageBox.Show("Make sure you want to proceed for DV preparation?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+                If XtraMessageBox.Show("Are sure you want to proceed for DV preparation?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
                     If SaveRequisitionInfo(False, False) = True Then
                         com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "',fundcode='" & fundcode.Text & "', mainreference='" & pid.Text & "', subreference='" & pid.Text & "', status='DONE', remarks='Proceed for DV preparation', applevel=0, officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
                         If frmRequisitionList.Visible = True Then
@@ -841,60 +749,22 @@ Public Class frmRequisitionInfo
         Me.Close()
     End Sub
 
-
-
     Private Sub AddItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles cmdAddItem.Click
         If SecurityCheck() = True Then
-            If Val(CC(txtSourceAmount.Text)) = 0 Then
-                XtraMessageBox.Show("Please select from budget source!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Exit Sub
-            End If
-            frmSelectRequestItem.ShowDialog(Me)
-        End If
-    End Sub
-
-    Private Sub cmdPrintPR_Click(sender As Object, e As EventArgs) Handles cmdPrintPR.Click
-        If requestno.Text = "" Then
-            XtraMessageBox.Show("Current request current not saved! Please save before continue printing", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Exit Sub
-        End If
-        frmPurchaseRequest.pid.Text = pid.Text
-        frmPurchaseRequest.txtPRNumber.Text = requestno.Text
-        frmPurchaseRequest.officeid.Text = officeid.Text
-        frmPurchaseRequest.txtOffice.Text = txtOffice.Text
-        frmPurchaseRequest.txtPurpose.Text = txtPurpose.Text
-        frmPurchaseRequest.ShowDialog(Me)
-    End Sub
-
-    Private Sub cmdCreatePO_Click(sender As Object, e As EventArgs) Handles cmdCreatePO.Click
-        If requestno.Text = "" Then
-            XtraMessageBox.Show("Current request current not saved! Please save before continue printing", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            Exit Sub
-        End If
-        frmPurchaseOrder.pid.Text = pid.Text
-        frmPurchaseOrder.periodcode.Text = periodcode.Text
-        frmPurchaseOrder.txtPRNumber.Text = requestno.Text
-        frmPurchaseOrder.txtPostingDate.Text = txtPostingDate.Text
-        frmPurchaseOrder.ShowDialog(Me)
-    End Sub
-
-    Private Sub cmdAddfiles_Click(sender As Object, e As EventArgs) Handles cmdAddfiles.Click
-        If SecurityCheck() = True Then
-            frmSourceOfFund.pid.Text = pid.Text
-            frmSourceOfFund.periodcode.Text = periodcode.Text
-            frmSourceOfFund.officeid.Text = officeid.Text
-            frmSourceOfFund.requestno.Text = requestno.Text
-            frmSourceOfFund.ReadOnlyTrn = ReadOnlyTrn
-            frmSourceOfFund.ShowDialog(Me)
+            frmSourceOfFundInfo.pid.Text = pid.Text
+            frmSourceOfFundInfo.officeid.Text = officeid.Text
+            frmSourceOfFundInfo.periodcode.Text = periodcode.Text
+            frmSourceOfFundInfo.requestno.Text = requestno.Text
+            frmSourceOfFundInfo.ShowDialog(Me)
         End If
     End Sub
 
     Private Sub cmdPrintObligation_Click(sender As Object, e As EventArgs) Handles cmdPrintObligation.Click
         If countqry("tblfund", "code='" & fundcode.Text & "' and template='FURS'") > 0 Then
             cmdPrintObligation.Text = "Print FURS"
-            PrintFundUtilization(pid.Text, Me)
+            PrintFURS(pid.Text, Me)
         ElseIf countqry("tblfund", "code='" & fundcode.Text & "' and template='CAFOA'") > 0 Then
-            PrintObligation(pid.Text, Me)
+            PrintCAFOA(pid.Text, Me)
         End If
     End Sub
 

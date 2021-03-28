@@ -33,6 +33,7 @@ Partial Class frmDocumentType
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.code = New DevExpress.XtraEditors.TextEdit()
+        Me.CheckEdit1 = New DevExpress.XtraEditors.CheckEdit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -40,6 +41,7 @@ Partial Class frmDocumentType
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl2
@@ -73,7 +75,7 @@ Partial Class frmDocumentType
         Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSaveButton.Appearance.Options.UseBackColor = True
         Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(127, 42)
+        Me.cmdSaveButton.Location = New System.Drawing.Point(127, 65)
         Me.cmdSaveButton.Name = "cmdSaveButton"
         Me.cmdSaveButton.Size = New System.Drawing.Size(146, 34)
         Me.cmdSaveButton.TabIndex = 3
@@ -95,11 +97,11 @@ Partial Class frmDocumentType
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Em.ContextMenuStrip = Me.gridmenustrip
-        Me.Em.Location = New System.Drawing.Point(5, 91)
+        Me.Em.Location = New System.Drawing.Point(5, 108)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(511, 431)
+        Me.Em.Size = New System.Drawing.Size(511, 414)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -164,12 +166,23 @@ Partial Class frmDocumentType
         Me.code.TabIndex = 629
         Me.code.Visible = False
         '
+        'CheckEdit1
+        '
+        Me.CheckEdit1.Location = New System.Drawing.Point(127, 39)
+        Me.CheckEdit1.Name = "CheckEdit1"
+        Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.CheckEdit1.Properties.Appearance.Options.UseFont = True
+        Me.CheckEdit1.Properties.Caption = "Required Attachment"
+        Me.CheckEdit1.Size = New System.Drawing.Size(225, 21)
+        Me.CheckEdit1.TabIndex = 633
+        '
         'frmDocumentType
         '
         Me.AcceptButton = Me.cmdSaveButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(524, 526)
+        Me.Controls.Add(Me.CheckEdit1)
         Me.Controls.Add(Me.code)
         Me.Controls.Add(Me.txtDescription)
         Me.Controls.Add(Me.cmdSaveButton)
@@ -186,6 +199,7 @@ Partial Class frmDocumentType
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -203,4 +217,5 @@ Partial Class frmDocumentType
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents RefreshToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents code As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents CheckEdit1 As DevExpress.XtraEditors.CheckEdit
 End Class

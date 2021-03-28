@@ -15,8 +15,8 @@ Public Class frmDocumentType
     End Sub
 
     Public Sub filter()
-        LoadXgrid("Select  Code, Description  from tbldocumenttype order by code asc", "tbldocumenttype", Em, GridView1, Me)
-        XgridColWidth({"Code"}, GridView1, 80)
+        LoadXgrid("Select  Code, Description, Required  from tbldocumenttype order by code asc", "tbldocumenttype", Em, GridView1, Me)
+        XgridColWidth({"Code", "Required"}, GridView1, 80)
         XgridColMemo({"Description"}, GridView1)
         XgridColAlign({"Code"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
     End Sub
@@ -35,12 +35,12 @@ Public Class frmDocumentType
 
         End If
         If mode.Text = "edit" Then
-            com.CommandText = "update tbldocumenttype set  description='" & rchar(txtDescription.Text) & "' where code='" & code.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "update tbldocumenttype set  description='" & rchar(txtDescription.Text) & "', required=" & CheckEdit1.CheckState & " where code='" & code.Text & "'" : com.ExecuteNonQuery()
             XtraMessageBox.Show("Item successfully saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
-            com.CommandText = "insert into tbldocumenttype set description='" & rchar(txtDescription.Text) & "'" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tbldocumenttype set description='" & rchar(txtDescription.Text) & "', required=" & CheckEdit1.CheckState & "" : com.ExecuteNonQuery()
         End If
-        code.Text = "" : mode.Text = "" : txtDescription.Text = "" : txtDescription.Focus() : filter()
+        code.Text = "" : mode.Text = "" : txtDescription.Text = "" : txtDescription.Focus() : CheckEdit1.Checked = True : filter()
 
     End Sub
 
@@ -49,6 +49,7 @@ Public Class frmDocumentType
         com.CommandText = "select * from tbldocumenttype where code='" & code.Text & "'" : rst = com.ExecuteReader
         While rst.Read
             txtDescription.Text = rst("description").ToString
+            CheckEdit1.Checked = CBool(rst("required").ToString)
         End While
         rst.Close()
     End Sub

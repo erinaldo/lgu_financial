@@ -52,7 +52,7 @@ Public Class frmJournalEntryExpenditure
     Public Sub LoadRequisition()
         dgv.Rows.Clear()
         dst = Nothing : dst = New DataSet
-        msda = New MySqlDataAdapter("select itemcode, officeid, (select itemname from tblglitem where itemcode=a.itemcode) as 'itemname', Amount from tblrequisitionfund as a where (pid in (select pid from tbldisbursementdetails where voucherno='" & voucherno.Text & "') or pid='" & pid.Text & "') order by  a.itemcode asc ", conn)
+        msda = New MySqlDataAdapter("select itemcode, officeid, (select itemname from tblglitem where itemcode=a.itemcode) as 'itemname', Amount from tblrequisitionfund as a where pid='" & pid.Text & "' order by  a.itemcode asc ", conn)
 
         msda.Fill(dst, 0)
         For cnt = 0 To dst.Tables(0).Rows.Count - 1

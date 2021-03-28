@@ -29,10 +29,10 @@ Public Class frmSourceOfFundInfo
 
     Public Sub LoadSourceFund()
         If periodcode.Text = "" Then Exit Sub
-        LoadXgridLookupSearch("select itemcode, quarter, classcode as Class, itemname as 'Select', balance as 'Current Balance' from (select itemcode, quarter, classcode, itemname, " _
-                              + " amount-(select ifnull(sum(amount),0) from tmprequisitionfund as a where x.periodcode=a.periodcode And x.itemcode=a.itemcode and x.quarter=a.quarter And x.officeid=a.officeid And a.pid<>'" & pid.Text & "' and a.cancelled=0) as balance " _
+        LoadXgridLookupSearch("select itemcode, monthcode, classcode as Class, itemname as 'Select', balance as 'Current Balance' from (select itemcode, monthcode, classcode, itemname, " _
+                              + " amount-(select ifnull(sum(amount),0) from tblrequisitionfund as a where x.periodcode=a.periodcode And x.itemcode=a.itemcode and x.monthcode=a.monthcode And x.officeid=a.officeid And a.pid<>'" & pid.Text & "' and a.cancelled=0) as balance " _
                               + " from tblbudgetcomposition as x where periodcode='" & periodcode.Text & "' and officeid='" & officeid.Text & "') as i where i.balance > 0 order by i.classcode, i.itemname asc", "tblbudgetcomposition", txtSource, gridSource)
-        XgridHideColumn({"itemcode", "quarter"}, gridSource)
+        XgridHideColumn({"itemcode", "monthcode"}, gridSource)
         XgridColCurrency({"Current Balance"}, gridSource)
         XgridColAlign({"Class"}, gridSource, DevExpress.Utils.HorzAlignment.Center)
         XgridColWidth({"Class"}, gridSource, 40)
@@ -52,7 +52,7 @@ Public Class frmSourceOfFundInfo
     Private Sub txtSource_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtSource.EditValueChanged
         On Error Resume Next
         sourceid.Text = txtSource.Properties.View.GetFocusedRowCellValue("itemcode").ToString()
-        quarter.Text = txtSource.Properties.View.GetFocusedRowCellValue("quarter").ToString()
+        monthcode.Text = txtSource.Properties.View.GetFocusedRowCellValue("monthcode").ToString()
         classcode.Text = txtSource.Properties.View.GetFocusedRowCellValue("Class").ToString()
         txtAvailableBalance.Text = txtSource.Properties.View.GetFocusedRowCellValue("Current Balance").ToString()
         txtAmount.Focus()
@@ -64,7 +64,7 @@ Public Class frmSourceOfFundInfo
         While rst.Read
             txtSource.EditValue = rst("itemcode").ToString
             sourceid.Text = rst("itemcode").ToString
-            quarter.Text = rst("quarter").ToString
+            monthcode.Text = rst("monthcode").ToString
             classcode.Text = rst("classcode").ToString
             txtAmount.EditValue = rst("amount").ToString
         End While
@@ -74,7 +74,7 @@ Public Class frmSourceOfFundInfo
 
     Public Function GetSourceFundBalance(ByVal periodcode As String, ByVal itemcode As String, ByVal officeid As String) As Double
         Dim currentbudget As Double = qrysingledata("amount", "amount", "tblbudgetcomposition where periodcode='" & periodcode & "' and itemcode='" & itemcode & "' and officeid='" & officeid & "'")
-        Dim totaltransaction As Double = qrysingledata("totalpending", "ifnull(sum(amount),0) as totalpending", "tmprequisitionfund as a where a.periodcode='" & periodcode & "' and a.itemcode='" & itemcode & "' and a.officeid='" & officeid & "' and a.pid<>'" & pid.Text & "'")
+        Dim totaltransaction As Double = qrysingledata("totalpending", "ifnull(sum(amount),0) as totalpending", "tblrequisitionfund as a where a.periodcode='" & periodcode & "' and a.itemcode='" & itemcode & "' and monthcode='" & monthcode.Text & "' and a.officeid='" & officeid & "' and a.pid<>'" & pid.Text & "'")
         Return currentbudget - totaltransaction
     End Function
 
@@ -83,7 +83,7 @@ Public Class frmSourceOfFundInfo
         id = ""
         txtSource.EditValue = Nothing
         sourceid.Text = ""
-        quarter.Text = ""
+        monthcode.Text = ""
         classcode.Text = ""
         txtAmount.Text = "0"
         txtAvailableBalance.Text = "0"
@@ -121,14 +121,14 @@ Public Class frmSourceOfFundInfo
                                 + " officeid ='" & officeid.Text & "', " _
                                 + " periodcode='" & periodcode.Text & "', " _
                                 + " requestno='" & requestno.Text & "', " _
-                                + " quarter='" & quarter.Text & "', " _
+                                + " monthcode='" & monthcode.Text & "', " _
                                 + " classcode='" & classcode.Text & "', " _
                                 + " itemcode='" & sourceid.Text & "', " _
                                 + " prevbalance='" & CC(txtAvailableBalance.EditValue) & "', " _
                                 + " amount='" & CC(txtAmount.EditValue) & "', " _
                                 + " newbalance='" & CC(txtAvailableBalance.EditValue) - CC(txtAmount.EditValue) & "' " _
                                 + " where id='" & id & "'" : com.ExecuteNonQuery()
-            frmSourceOfFund.LoadSource()
+            frmRequisitionInfo.LoadSource()
             'XtraMessageBox.Show("Fund successfully updated!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Close()
         Else
@@ -137,14 +137,14 @@ Public Class frmSourceOfFundInfo
                                 + " officeid ='" & officeid.Text & "', " _
                                 + " periodcode='" & periodcode.Text & "', " _
                                 + " requestno='" & requestno.Text & "', " _
-                                + " quarter='" & quarter.Text & "', " _
+                                + " monthcode='" & monthcode.Text & "', " _
                                 + " classcode='" & classcode.Text & "', " _
                                 + " itemcode='" & sourceid.Text & "', " _
                                 + " prevbalance='" & CC(txtAvailableBalance.EditValue) & "', " _
                                 + " amount='" & CC(txtAmount.EditValue) & "', " _
                                 + " newbalance='" & CC(txtAvailableBalance.EditValue) - CC(txtAmount.EditValue) & "'" : com.ExecuteNonQuery()
             clearInfo()
-            frmSourceOfFund.LoadSource()
+            frmRequisitionInfo.LoadSource()
             'XtraMessageBox.Show("Fund successfully added!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub

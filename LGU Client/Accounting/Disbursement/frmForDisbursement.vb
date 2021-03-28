@@ -33,7 +33,7 @@ Public Class frmForDisbursement
                         + " (select officename from tblcompoffice where officeid = a.officeid) as 'Office', " _
                         + " (select fullname from tblaccounts where accountid=a.requestedby) as 'Requested By', " _
                         + " (select itemname from tblglitem where itemcode=a.sourcefund) as 'Source Fund', " _
-                        + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) as 'Total Amount', " _
+                        + " (select sum(amount) from tblrequisitionfund where pid=a.pid) as 'Total Amount', " _
                         + " Purpose, " _
                         + " Priority, " _
                         + " (select fullname from tblaccounts where accountid=a.trnby) as 'Posted By', " _

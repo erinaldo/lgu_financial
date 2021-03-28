@@ -31,9 +31,8 @@ Partial Class frmVoucherRequisitionItem
         Me.SplitContainerControl1 = New DevExpress.XtraEditors.SplitContainerControl()
         Me.txtSearch = New DevExpress.XtraEditors.TextEdit()
         Me.officeid = New DevExpress.XtraEditors.TextEdit()
-        Me.trnreference = New DevExpress.XtraEditors.TextEdit()
         Me.periodcode = New DevExpress.XtraEditors.TextEdit()
-        Me.voucherno = New DevExpress.XtraEditors.TextEdit()
+        Me.voucherid = New DevExpress.XtraEditors.TextEdit()
         Me.CheckEdit1 = New DevExpress.XtraEditors.CheckEdit()
         Me.cmdOk = New DevExpress.XtraEditors.SimpleButton()
         Me.dgv = New System.Windows.Forms.DataGridView()
@@ -42,9 +41,8 @@ Partial Class frmVoucherRequisitionItem
         Me.SplitContainerControl1.SuspendLayout()
         CType(Me.txtSearch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.trnreference.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.periodcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.voucherno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.voucherid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -85,9 +83,8 @@ Partial Class frmVoucherRequisitionItem
         Me.SplitContainerControl1.Panel1.Padding = New System.Windows.Forms.Padding(6)
         Me.SplitContainerControl1.Panel1.Text = "Panel1"
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.officeid)
-        Me.SplitContainerControl1.Panel2.Controls.Add(Me.trnreference)
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.periodcode)
-        Me.SplitContainerControl1.Panel2.Controls.Add(Me.voucherno)
+        Me.SplitContainerControl1.Panel2.Controls.Add(Me.voucherid)
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.CheckEdit1)
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.cmdOk)
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.dgv)
@@ -120,17 +117,6 @@ Partial Class frmVoucherRequisitionItem
         Me.officeid.TabIndex = 776
         Me.officeid.Visible = False
         '
-        'trnreference
-        '
-        Me.trnreference.EnterMoveNextControl = True
-        Me.trnreference.Location = New System.Drawing.Point(411, 170)
-        Me.trnreference.Name = "trnreference"
-        Me.trnreference.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.trnreference.Properties.Appearance.Options.UseFont = True
-        Me.trnreference.Size = New System.Drawing.Size(96, 20)
-        Me.trnreference.TabIndex = 775
-        Me.trnreference.Visible = False
-        '
         'periodcode
         '
         Me.periodcode.EnterMoveNextControl = True
@@ -142,26 +128,26 @@ Partial Class frmVoucherRequisitionItem
         Me.periodcode.TabIndex = 774
         Me.periodcode.Visible = False
         '
-        'voucherno
+        'voucherid
         '
-        Me.voucherno.EnterMoveNextControl = True
-        Me.voucherno.Location = New System.Drawing.Point(411, 196)
-        Me.voucherno.Name = "voucherno"
-        Me.voucherno.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.voucherno.Properties.Appearance.Options.UseFont = True
-        Me.voucherno.Size = New System.Drawing.Size(96, 20)
-        Me.voucherno.TabIndex = 771
-        Me.voucherno.Visible = False
+        Me.voucherid.EnterMoveNextControl = True
+        Me.voucherid.Location = New System.Drawing.Point(411, 196)
+        Me.voucherid.Name = "voucherid"
+        Me.voucherid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.voucherid.Properties.Appearance.Options.UseFont = True
+        Me.voucherid.Size = New System.Drawing.Size(96, 20)
+        Me.voucherid.TabIndex = 771
+        Me.voucherid.Visible = False
         '
         'CheckEdit1
         '
         Me.CheckEdit1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.CheckEdit1.Location = New System.Drawing.Point(14, 439)
+        Me.CheckEdit1.Location = New System.Drawing.Point(14, 429)
         Me.CheckEdit1.Name = "CheckEdit1"
         Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit1.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit1.Properties.Caption = "Check All"
-        Me.CheckEdit1.Size = New System.Drawing.Size(82, 19)
+        Me.CheckEdit1.Size = New System.Drawing.Size(82, 20)
         Me.CheckEdit1.TabIndex = 769
         '
         'cmdOk
@@ -173,7 +159,7 @@ Partial Class frmVoucherRequisitionItem
         Me.cmdOk.Appearance.Options.UseBackColor = True
         Me.cmdOk.Appearance.Options.UseFont = True
         Me.cmdOk.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.cmdOk.Location = New System.Drawing.Point(330, 435)
+        Me.cmdOk.Location = New System.Drawing.Point(330, 425)
         Me.cmdOk.Name = "cmdOk"
         Me.cmdOk.Size = New System.Drawing.Size(280, 35)
         Me.cmdOk.TabIndex = 767
@@ -203,7 +189,7 @@ Partial Class frmVoucherRequisitionItem
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
         Me.dgv.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.dgv.Size = New System.Drawing.Size(919, 416)
+        Me.dgv.Size = New System.Drawing.Size(919, 406)
         Me.dgv.TabIndex = 770
         '
         'frmVoucherRequisitionItem
@@ -224,9 +210,8 @@ Partial Class frmVoucherRequisitionItem
         Me.SplitContainerControl1.ResumeLayout(False)
         CType(Me.txtSearch.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.trnreference.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.periodcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.voucherno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.voucherid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -238,11 +223,10 @@ Partial Class frmVoucherRequisitionItem
     Friend WithEvents ToolStripMenuItem5 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SplitContainerControl1 As DevExpress.XtraEditors.SplitContainerControl
     Friend WithEvents txtSearch As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents voucherno As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents voucherid As DevExpress.XtraEditors.TextEdit
     Friend WithEvents CheckEdit1 As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents cmdOk As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents dgv As System.Windows.Forms.DataGridView
     Friend WithEvents periodcode As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents trnreference As DevExpress.XtraEditors.TextEdit
     Friend WithEvents officeid As DevExpress.XtraEditors.TextEdit
 End Class

@@ -54,7 +54,7 @@ Public Class frmRequisitionDocManager
     End Sub
  
     Private Sub cmdAddfiles_Click(sender As Object, e As EventArgs) Handles cmdAddfiles.Click
-        frmRequisitionBrowseFile.trncode.Text = pid.Text
+        frmRequisitionBrowseFile.pid.Text = pid.Text
         frmRequisitionBrowseFile.filecode.Text = filecode.Text
         frmRequisitionBrowseFile.trntype.Text = "requisition"
         frmRequisitionBrowseFile.requesttype.Text = requesttype.Text

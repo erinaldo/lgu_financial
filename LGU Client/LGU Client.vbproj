@@ -225,6 +225,12 @@
     <Compile Include="Accounting\Disbursement\frmDisbursementList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Accounting\Disbursement\frmNewVoucher.Designer.vb">
+      <DependentUpon>frmNewVoucher.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\Disbursement\frmNewVoucher.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Accounting\Disbursement\frmVoucherCheckInfo.Designer.vb">
       <DependentUpon>frmVoucherCheckInfo.vb</DependentUpon>
     </Compile>
@@ -241,12 +247,6 @@
       <DependentUpon>frmVoucherItem.vb</DependentUpon>
     </Compile>
     <Compile Include="Accounting\Disbursement\frmVoucherItem.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\Disbursement\frmVoucherInfo.Designer.vb">
-      <DependentUpon>frmVoucherInfo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\Disbursement\frmVoucherInfo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accounting\Disbursement\frmForDisbursement.Designer.vb">
@@ -345,6 +345,7 @@
     <Compile Include="General Settings\frmSupplierInfo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Module\Accounting.vb" />
     <Compile Include="Module\Auto Updater\AutoUpdater.vb" />
     <Compile Include="Module\Camera.vb" />
     <Compile Include="Module\Chat Box\ColorSchemes.vb" />
@@ -410,18 +411,6 @@
       <DependentUpon>frmChatBoxMain.vb</DependentUpon>
     </Compile>
     <Compile Include="Module\Chat Box\frmChatBoxMain.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\Requisition\frmPurchaseOrder.Designer.vb">
-      <DependentUpon>frmPurchaseOrder.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\Requisition\frmPurchaseOrder.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Accounting\Requisition\frmPurchaseRequest.Designer.vb">
-      <DependentUpon>frmPurchaseRequest.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Accounting\Requisition\frmPurchaseRequest.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accounting\Requisition\frmRequisitionForApprovalInfo.Designer.vb">
@@ -696,6 +685,9 @@
     <EmbeddedResource Include="Accounting\Disbursement\frmDisbursementList.resx">
       <DependentUpon>frmDisbursementList.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\Disbursement\frmNewVoucher.resx">
+      <DependentUpon>frmNewVoucher.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accounting\Disbursement\frmVoucherCheckInfo.resx">
       <DependentUpon>frmVoucherCheckInfo.vb</DependentUpon>
     </EmbeddedResource>
@@ -704,9 +696,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\Disbursement\frmVoucherItem.resx">
       <DependentUpon>frmVoucherItem.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\Disbursement\frmVoucherInfo.resx">
-      <DependentUpon>frmVoucherInfo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\Disbursement\frmForDisbursement.resx">
       <DependentUpon>frmForDisbursement.vb</DependentUpon>
@@ -780,12 +769,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Module\Chat Box\frmChatBoxMain.resx">
       <DependentUpon>frmChatBoxMain.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\Requisition\frmPurchaseOrder.resx">
-      <DependentUpon>frmPurchaseOrder.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\Requisition\frmPurchaseRequest.resx">
-      <DependentUpon>frmPurchaseRequest.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\Requisition\frmRequisitionForApprovalInfo.resx">
       <DependentUpon>frmRequisitionForApprovalInfo.vb</DependentUpon>

@@ -42,11 +42,11 @@ Partial Class frmProductManagement
         Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetProductCategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
-        Me.SetProductCategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,15 +119,15 @@ Partial Class frmProductManagement
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(1158, 24)
+        Me.barDockControlTop.Size = New System.Drawing.Size(1156, 24)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 653)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 651)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1158, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1156, 0)
         '
         'barDockControlLeft
         '
@@ -135,15 +135,15 @@ Partial Class frmProductManagement
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 24)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 629)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 627)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(1158, 24)
+        Me.BarDockControl1.Location = New System.Drawing.Point(1156, 24)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 629)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 627)
         '
         'RepositoryItemTextEdit1
         '
@@ -160,9 +160,9 @@ Partial Class frmProductManagement
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(1158, 24)
+        Me.barDockControlRight.Location = New System.Drawing.Point(1156, 24)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 629)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 627)
         '
         'SplitContainerControl1
         '
@@ -177,7 +177,7 @@ Partial Class frmProductManagement
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.categorycode)
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
-        Me.SplitContainerControl1.Size = New System.Drawing.Size(1158, 629)
+        Me.SplitContainerControl1.Size = New System.Drawing.Size(1156, 627)
         Me.SplitContainerControl1.SplitterPosition = 64
         Me.SplitContainerControl1.TabIndex = 6
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
@@ -250,7 +250,7 @@ Partial Class frmProductManagement
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(1158, 555)
+        Me.Em.Size = New System.Drawing.Size(1156, 553)
         Me.Em.TabIndex = 633
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -258,32 +258,39 @@ Partial Class frmProductManagement
         '
         Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.SetProductCategoryToolStripMenuItem, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(181, 120)
+        Me.gridmenustrip.Size = New System.Drawing.Size(145, 98)
         '
         'cmdEdit
         '
         Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
         Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(186, 22)
+        Me.cmdEdit.Size = New System.Drawing.Size(144, 22)
         Me.cmdEdit.Text = "Edit Selected"
         '
         'cmdDelete
         '
         Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.notebook__minus
         Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(186, 22)
+        Me.cmdDelete.Size = New System.Drawing.Size(144, 22)
         Me.cmdDelete.Text = "Remove Item"
+        '
+        'SetProductCategoryToolStripMenuItem
+        '
+        Me.SetProductCategoryToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.applications_blue
+        Me.SetProductCategoryToolStripMenuItem.Name = "SetProductCategoryToolStripMenuItem"
+        Me.SetProductCategoryToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.SetProductCategoryToolStripMenuItem.Text = "Set Category"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(183, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(141, 6)
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.RefreshToolStripMenuItem.Text = "Refresh Data"
         '
         'GridView1
@@ -300,18 +307,11 @@ Partial Class frmProductManagement
         Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
         Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
         '
-        'SetProductCategoryToolStripMenuItem
-        '
-        Me.SetProductCategoryToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.applications_blue
-        Me.SetProductCategoryToolStripMenuItem.Name = "SetProductCategoryToolStripMenuItem"
-        Me.SetProductCategoryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.SetProductCategoryToolStripMenuItem.Text = "Set Category"
-        '
         'frmProductManagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1158, 653)
+        Me.ClientSize = New System.Drawing.Size(1156, 651)
         Me.Controls.Add(Me.SplitContainerControl1)
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlLeft)
@@ -321,7 +321,7 @@ Partial Class frmProductManagement
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(368, 374)
+        Me.MinimumSize = New System.Drawing.Size(370, 376)
         Me.Name = "frmProductManagement"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Transaction Item Management"

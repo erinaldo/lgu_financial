@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmRequisitionBrowseFile
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmRequisitionBrowseFile
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -29,8 +29,10 @@ Partial Class frmRequisitionBrowseFile
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.MyDataGridView = New System.Windows.Forms.DataGridView()
+        Me.cms_em = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.cmdDeleteFile = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.trncode = New System.Windows.Forms.TextBox()
+        Me.pid = New System.Windows.Forms.TextBox()
         Me.trntype = New System.Windows.Forms.TextBox()
         Me.txtFileName = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridfilename = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -39,12 +41,10 @@ Partial Class frmRequisitionBrowseFile
         Me.filecode = New System.Windows.Forms.TextBox()
         Me.requesttype = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.cmdDeleteFile = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cms_em = New System.Windows.Forms.ContextMenuStrip(Me.components)
         CType(Me.MyDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cms_em.SuspendLayout()
         CType(Me.txtFileName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridfilename, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.cms_em.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -110,23 +110,36 @@ Partial Class frmRequisitionBrowseFile
         Me.MyDataGridView.Size = New System.Drawing.Size(413, 302)
         Me.MyDataGridView.TabIndex = 374
         '
+        'cms_em
+        '
+        Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdDeleteFile})
+        Me.cms_em.Name = "ContextMenuStrip1"
+        Me.cms_em.Size = New System.Drawing.Size(176, 26)
+        '
+        'cmdDeleteFile
+        '
+        Me.cmdDeleteFile.Image = Global.LGUClient.My.Resources.Resources.inbox__minus1
+        Me.cmdDeleteFile.Name = "cmdDeleteFile"
+        Me.cmdDeleteFile.Size = New System.Drawing.Size(175, 22)
+        Me.cmdDeleteFile.Text = "Delete Selected File"
+        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'trncode
+        'pid
         '
-        Me.trncode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.trncode.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.trncode.ForeColor = System.Drawing.Color.Black
-        Me.trncode.Location = New System.Drawing.Point(13, 303)
-        Me.trncode.Margin = New System.Windows.Forms.Padding(4)
-        Me.trncode.Name = "trncode"
-        Me.trncode.ReadOnly = True
-        Me.trncode.Size = New System.Drawing.Size(35, 22)
-        Me.trncode.TabIndex = 416
-        Me.trncode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.trncode.Visible = False
+        Me.pid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.pid.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.pid.ForeColor = System.Drawing.Color.Black
+        Me.pid.Location = New System.Drawing.Point(13, 303)
+        Me.pid.Margin = New System.Windows.Forms.Padding(4)
+        Me.pid.Name = "pid"
+        Me.pid.ReadOnly = True
+        Me.pid.Size = New System.Drawing.Size(35, 22)
+        Me.pid.TabIndex = 416
+        Me.pid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.pid.Visible = False
         '
         'trntype
         '
@@ -230,19 +243,6 @@ Partial Class frmRequisitionBrowseFile
         Me.Button2.Text = "Browse File"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'cmdDeleteFile
-        '
-        Me.cmdDeleteFile.Image = Global.LGUClient.My.Resources.Resources.inbox__minus1
-        Me.cmdDeleteFile.Name = "cmdDeleteFile"
-        Me.cmdDeleteFile.Size = New System.Drawing.Size(180, 22)
-        Me.cmdDeleteFile.Text = "Delete Selected File"
-        '
-        'cms_em
-        '
-        Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdDeleteFile})
-        Me.cms_em.Name = "ContextMenuStrip1"
-        Me.cms_em.Size = New System.Drawing.Size(181, 48)
-        '
         'frmRequisitionBrowseFile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -255,7 +255,7 @@ Partial Class frmRequisitionBrowseFile
         Me.Controls.Add(Me.txtFileName)
         Me.Controls.Add(Me.LabelControl8)
         Me.Controls.Add(Me.trntype)
-        Me.Controls.Add(Me.trncode)
+        Me.Controls.Add(Me.pid)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.MyDataGridView)
         Me.MaximizeBox = False
@@ -264,9 +264,9 @@ Partial Class frmRequisitionBrowseFile
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "File Uploader"
         CType(Me.MyDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.cms_em.ResumeLayout(False)
         CType(Me.txtFileName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridfilename, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.cms_em.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -274,7 +274,7 @@ Partial Class frmRequisitionBrowseFile
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents MyDataGridView As System.Windows.Forms.DataGridView
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents trncode As System.Windows.Forms.TextBox
+    Friend WithEvents pid As System.Windows.Forms.TextBox
     Friend WithEvents trntype As System.Windows.Forms.TextBox
     Friend WithEvents txtFileName As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gridfilename As DevExpress.XtraGrid.Views.Grid.GridView

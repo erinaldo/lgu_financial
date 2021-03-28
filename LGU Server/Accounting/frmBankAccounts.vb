@@ -11,18 +11,33 @@ Public Class frmBankAccounts
     End Function
     Private Sub frmProductMesurement_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
+        LoadFund()
         LoadData()
     End Sub
 
     Public Sub LoadData()
-        LoadXgrid("select id,code as 'Account No.', description as 'Bank Name' from tblbankaccounts order by description asc ", "tblbankaccounts", Em, GridView1, Me)
+        If txtFund.Text = "" Then Exit Sub
+        LoadXgrid("select id, code as 'Account No.', description as 'Bank Name' from tblbankaccounts where (fundcode='" & txtFund.EditValue & "' or fundcode='') order by description asc ", "tblbankaccounts", Em, GridView1, Me)
         XgridHideColumn({"id"}, GridView1)
         XgridColAlign({"Account No."}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         XgridColWidth({"Account No."}, GridView1, 140)
     End Sub
 
+    Public Sub LoadFund()
+        LoadXgridLookupSearch("SELECT code,Description from tblfund", "tblfund", txtFund, gridFund, Me)
+        gridFund.Columns("code").Visible = False
+    End Sub
+    Private Sub txtFund_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtFund.EditValueChanged
+        'On Error Resume Next
+        LoadData()
+    End Sub
+
     Private Sub cmdOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdOk.Click
-        If txtBankCode.Text = "" Then
+        If txtFund.Text = "" Then
+            XtraMessageBox.Show("Please select fund type!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtFund.Focus()
+            Exit Sub
+        ElseIf txtBankCode.Text = "" Then
             XtraMessageBox.Show("Please enter bank account number!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtDescription.Focus()
             Exit Sub
@@ -43,9 +58,9 @@ Public Class frmBankAccounts
 
         End If
         If mode.Text = "edit" Then
-            com.CommandText = "update tblbankaccounts set code='" & txtBankCode.Text & "', description='" & rchar(txtDescription.Text) & "' where id='" & id.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "update tblbankaccounts set fundcode='" & txtFund.EditValue & "', code='" & txtBankCode.Text & "', description='" & rchar(txtDescription.Text) & "' where id='" & id.Text & "'" : com.ExecuteNonQuery()
         Else
-            com.CommandText = "insert into tblbankaccounts set code='" & txtBankCode.Text & "', description='" & rchar(txtDescription.Text) & "'" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblbankaccounts set fundcode='" & txtFund.EditValue & "', code='" & txtBankCode.Text & "', description='" & rchar(txtDescription.Text) & "'" : com.ExecuteNonQuery()
         End If
 
         LoadData()
@@ -69,6 +84,7 @@ Public Class frmBankAccounts
         id.Text = GridView1.GetFocusedRowCellValue("id").ToString
         com.CommandText = "select * from tblbankaccounts where id='" & id.Text & "'" : rst = com.ExecuteReader
         While rst.Read
+            txtFund.EditValue = rst("fundcode").ToString
             txtBankCode.Text = rst("code").ToString
             txtDescription.Text = rst("description").ToString
         End While

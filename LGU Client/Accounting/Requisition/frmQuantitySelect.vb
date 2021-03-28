@@ -62,7 +62,7 @@ Public Class frmQuantitySelect
                                     + " periodcode='" & frmRequisitionInfo.periodcode.Text & "', " _
                                     + " yeartrn='" & frmRequisitionInfo.yearcode.Text & "', " _
                                     + " officeid='" & frmRequisitionInfo.officeid.Text & "', " _
-                                    + " postingdate='" & ConvertDate(frmRequisitionInfo.txtPostingDate.EditValue) & "', " _
+                                    + " postingdate=current_date, " _
                                     + " itemcode='" & productid.Text & "', " _
                                     + " itemname='" & txtproduct.Text & "', " _
                                     + " catid='" & catid.Text & "', " _
@@ -72,7 +72,7 @@ Public Class frmQuantitySelect
                                     + " totalcost='" & txtTotalCost.EditValue & "', " _
                                     + " remarks='" & rchar(txtRemarks.Text) & "' where id='" & id.Text & "'" : com.ExecuteNonQuery()
             If frmRequisitionInfo.Visible = True Then
-                frmRequisitionInfo.LoadItem()
+                'frmRequisitionInfo.LoadItem()
             End If
             Me.Close()
             XtraMessageBox.Show("Item successfully updated!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -84,7 +84,7 @@ Public Class frmQuantitySelect
                                     + " periodcode='" & frmRequisitionInfo.periodcode.Text & "', " _
                                     + " yeartrn='" & frmRequisitionInfo.yearcode.Text & "', " _
                                     + " officeid='" & frmRequisitionInfo.officeid.Text & "', " _
-                                    + " postingdate='" & ConvertDate(frmRequisitionInfo.txtPostingDate.EditValue) & "', " _
+                                    + " postingdate=current_date, " _
                                     + " itemcode='" & productid.Text & "', " _
                                     + " itemname='" & txtproduct.Text & "', " _
                                     + " catid='" & catid.Text & "', " _
@@ -97,7 +97,7 @@ Public Class frmQuantitySelect
             frmSelectRequestItem.txtfilter.SelectAll()
             frmSelectRequestItem.txtfilter.Focus()
             If frmRequisitionInfo.Visible = True Then
-                frmRequisitionInfo.LoadItem()
+                'frmRequisitionInfo.LoadItem()
             End If
             Me.Close()
         End If

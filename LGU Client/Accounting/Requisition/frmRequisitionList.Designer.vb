@@ -47,6 +47,7 @@ Partial Class frmRequisitionList
         Me.cmdClose = New System.Windows.Forms.ToolStripButton()
         Me.updates = New System.Windows.Forms.ToolStripLabel()
         Me.SplitContainerControl1 = New DevExpress.XtraEditors.SplitContainerControl()
+        Me.ckDisplayCancelled = New DevExpress.XtraEditors.CheckEdit()
         Me.ckAllType = New DevExpress.XtraEditors.CheckEdit()
         Me.ckViewAllOffice = New DevExpress.XtraEditors.CheckEdit()
         Me.txtOffice = New DevExpress.XtraEditors.SearchLookUpEdit()
@@ -68,11 +69,11 @@ Partial Class frmRequisitionList
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
-        Me.ckDisplayCancelled = New DevExpress.XtraEditors.CheckEdit()
         Me.cms_em.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerControl1.SuspendLayout()
+        CType(Me.ckDisplayCancelled.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckAllType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckViewAllOffice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtOffice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -90,7 +91,6 @@ Partial Class frmRequisitionList
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ckDisplayCancelled.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'HiToolStripMenuItem
@@ -289,6 +289,16 @@ Partial Class frmRequisitionList
         Me.SplitContainerControl1.SplitterPosition = 122
         Me.SplitContainerControl1.TabIndex = 823
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
+        '
+        'ckDisplayCancelled
+        '
+        Me.ckDisplayCancelled.Location = New System.Drawing.Point(332, 7)
+        Me.ckDisplayCancelled.Name = "ckDisplayCancelled"
+        Me.ckDisplayCancelled.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.ckDisplayCancelled.Properties.Appearance.Options.UseFont = True
+        Me.ckDisplayCancelled.Properties.Caption = "Display Cancelled Request"
+        Me.ckDisplayCancelled.Size = New System.Drawing.Size(196, 21)
+        Me.ckDisplayCancelled.TabIndex = 967
         '
         'ckAllType
         '
@@ -528,7 +538,7 @@ Partial Class frmRequisitionList
         Me.Em.MinimumSize = New System.Drawing.Size(574, 454)
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(990, 482)
+        Me.Em.Size = New System.Drawing.Size(990, 477)
         Me.Em.TabIndex = 635
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -546,16 +556,6 @@ Partial Class frmRequisitionList
         '
         Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
         Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
-        '
-        'ckDisplayCancelled
-        '
-        Me.ckDisplayCancelled.Location = New System.Drawing.Point(332, 7)
-        Me.ckDisplayCancelled.Name = "ckDisplayCancelled"
-        Me.ckDisplayCancelled.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.ckDisplayCancelled.Properties.Appearance.Options.UseFont = True
-        Me.ckDisplayCancelled.Properties.Caption = "Display Cancelled Request"
-        Me.ckDisplayCancelled.Size = New System.Drawing.Size(196, 21)
-        Me.ckDisplayCancelled.TabIndex = 967
         '
         'frmRequisitionList
         '
@@ -577,6 +577,7 @@ Partial Class frmRequisitionList
         Me.ToolStrip1.PerformLayout()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainerControl1.ResumeLayout(False)
+        CType(Me.ckDisplayCancelled.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckAllType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckViewAllOffice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtOffice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -594,7 +595,6 @@ Partial Class frmRequisitionList
         CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ckDisplayCancelled.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

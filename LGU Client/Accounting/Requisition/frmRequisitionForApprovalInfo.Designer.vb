@@ -29,13 +29,8 @@ Partial Class frmRequisitionForApprovalInfo
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
         Me.txtPurpose = New DevExpress.XtraEditors.MemoEdit()
         Me.LabelControl7 = New DevExpress.XtraEditors.LabelControl()
-        Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
         Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
-        Me.tabParticular = New DevExpress.XtraTab.XtraTabPage()
-        Me.TextEdit4 = New DevExpress.XtraEditors.TextEdit()
         Me.tabSourceFund = New DevExpress.XtraTab.XtraTabPage()
         Me.Em_SourceFund = New DevExpress.XtraGrid.GridControl()
         Me.gridSourceFund = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -91,13 +86,8 @@ Partial Class frmRequisitionForApprovalInfo
         Me.txtPayee = New DevExpress.XtraEditors.TextEdit()
         CType(Me.txtRequestNumber.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPurpose.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.XtraTabControl1.SuspendLayout()
-        Me.tabParticular.SuspendLayout()
-        CType(Me.TextEdit4.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabSourceFund.SuspendLayout()
         CType(Me.Em_SourceFund, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridSourceFund, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -204,32 +194,6 @@ Partial Class frmRequisitionForApprovalInfo
         Me.LabelControl7.TabIndex = 927
         Me.LabelControl7.Text = "Purpose"
         '
-        'Em
-        '
-        Me.Em.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Em.Location = New System.Drawing.Point(0, 0)
-        Me.Em.MainView = Me.GridView1
-        Me.Em.Name = "Em"
-        Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(693, 399)
-        Me.Em.TabIndex = 934
-        Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
-        '
-        'GridView1
-        '
-        Me.GridView1.GridControl = Me.Em
-        Me.GridView1.Name = "GridView1"
-        Me.GridView1.OptionsBehavior.Editable = False
-        Me.GridView1.OptionsSelection.MultiSelect = True
-        Me.GridView1.OptionsSelection.UseIndicatorForSelection = False
-        Me.GridView1.OptionsView.ColumnAutoWidth = False
-        Me.GridView1.OptionsView.ShowGroupPanel = False
-        '
-        'RepositoryItemCheckEdit1
-        '
-        Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
-        Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
-        '
         'LabelControl8
         '
         Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
@@ -249,37 +213,16 @@ Partial Class frmRequisitionForApprovalInfo
         Me.XtraTabControl1.AppearancePage.Header.Options.UseFont = True
         Me.XtraTabControl1.Location = New System.Drawing.Point(429, 52)
         Me.XtraTabControl1.Name = "XtraTabControl1"
-        Me.XtraTabControl1.SelectedTabPage = Me.tabParticular
+        Me.XtraTabControl1.SelectedTabPage = Me.tabSourceFund
         Me.XtraTabControl1.Size = New System.Drawing.Size(699, 433)
         Me.XtraTabControl1.TabIndex = 0
-        Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabParticular, Me.tabSourceFund, Me.tabAttachment, Me.tabApprovalHistory})
-        '
-        'tabParticular
-        '
-        Me.tabParticular.Controls.Add(Me.TextEdit4)
-        Me.tabParticular.Controls.Add(Me.Em)
-        Me.tabParticular.Name = "tabParticular"
-        Me.tabParticular.Size = New System.Drawing.Size(693, 399)
-        Me.tabParticular.Text = "Particular Item List"
-        '
-        'TextEdit4
-        '
-        Me.TextEdit4.Location = New System.Drawing.Point(1055, 25)
-        Me.TextEdit4.Name = "TextEdit4"
-        Me.TextEdit4.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextEdit4.Properties.Appearance.Options.UseFont = True
-        Me.TextEdit4.Properties.Appearance.Options.UseTextOptions = True
-        Me.TextEdit4.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.TextEdit4.Properties.ReadOnly = True
-        Me.TextEdit4.Size = New System.Drawing.Size(77, 24)
-        Me.TextEdit4.TabIndex = 508
-        Me.TextEdit4.Visible = False
+        Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabSourceFund, Me.tabAttachment, Me.tabApprovalHistory})
         '
         'tabSourceFund
         '
         Me.tabSourceFund.Controls.Add(Me.Em_SourceFund)
         Me.tabSourceFund.Name = "tabSourceFund"
-        Me.tabSourceFund.Size = New System.Drawing.Size(693, 399)
+        Me.tabSourceFund.Size = New System.Drawing.Size(697, 402)
         Me.tabSourceFund.Text = "Source of Fund"
         '
         'Em_SourceFund
@@ -289,7 +232,7 @@ Partial Class frmRequisitionForApprovalInfo
         Me.Em_SourceFund.MainView = Me.gridSourceFund
         Me.Em_SourceFund.Name = "Em_SourceFund"
         Me.Em_SourceFund.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit4})
-        Me.Em_SourceFund.Size = New System.Drawing.Size(693, 399)
+        Me.Em_SourceFund.Size = New System.Drawing.Size(697, 402)
         Me.Em_SourceFund.TabIndex = 935
         Me.Em_SourceFund.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridSourceFund})
         '
@@ -472,7 +415,7 @@ Partial Class frmRequisitionForApprovalInfo
         Me.ckFinalApprover.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ckFinalApprover.Properties.Appearance.Options.UseFont = True
         Me.ckFinalApprover.Properties.Caption = "FinalApprover"
-        Me.ckFinalApprover.Size = New System.Drawing.Size(99, 19)
+        Me.ckFinalApprover.Size = New System.Drawing.Size(99, 20)
         Me.ckFinalApprover.TabIndex = 955
         Me.ckFinalApprover.Visible = False
         '
@@ -894,13 +837,8 @@ Partial Class frmRequisitionForApprovalInfo
         Me.Text = "Requistion Information"
         CType(Me.txtRequestNumber.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPurpose.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.XtraTabControl1.ResumeLayout(False)
-        Me.tabParticular.ResumeLayout(False)
-        CType(Me.TextEdit4.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabSourceFund.ResumeLayout(False)
         CType(Me.Em_SourceFund, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridSourceFund, System.ComponentModel.ISupportInitialize).EndInit()
@@ -947,13 +885,8 @@ Partial Class frmRequisitionForApprovalInfo
     Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents txtPurpose As DevExpress.XtraEditors.MemoEdit
     Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents Em As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents XtraTabControl1 As DevExpress.XtraTab.XtraTabControl
-    Friend WithEvents tabParticular As DevExpress.XtraTab.XtraTabPage
-    Friend WithEvents TextEdit4 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents tabAttachment As DevExpress.XtraTab.XtraTabPage
     Friend WithEvents Em_files As DevExpress.XtraGrid.GridControl
     Friend WithEvents gridview_files As DevExpress.XtraGrid.Views.Grid.GridView

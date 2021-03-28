@@ -40,9 +40,9 @@ Module AccountInfo
 
     'Declaration of grid appearance
     Public gen_enablle_features As Boolean
-    Public gen_fontfamily As String
+    Public gen_fontfamily As String = "Segoe UI"
     Public gen_forecolor As String
-    Public gen_FontSize As Single
+    Public gen_FontSize As Single = 9.25!
     Public gen_schemestyle As String
     Public gen_paintstyle As String
     Public gen_Padding As Double

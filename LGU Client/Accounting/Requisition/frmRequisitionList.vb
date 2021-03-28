@@ -89,7 +89,7 @@ Public Class frmRequisitionList
                         + " date_format(postingdate,'%Y-%m-%d') as 'Posting Date', " _
                         + " (select officename from tblcompoffice where officeid = a.officeid) as 'Office', " _
                         + " (select fullname from tblaccounts where accountid=a.requestedby) as 'Requested By', " _
-                        + " (select sum(totalcost) from tblrequisitionitem where pid=a.pid) as 'Amount', " _
+                        + " (select sum(amount) from tblrequisitionfund where pid=a.pid) as 'Amount', " _
                         + " Purpose, " _
                         + " Priority, " _
                         + " (select fullname from tblaccounts where accountid=a.trnby) as 'Posted By', " _
@@ -241,10 +241,7 @@ Public Class frmRequisitionList
         frmApprovalConfirmation.ShowDialog(Me)
         If frmApprovalConfirmation.TransactionDone = True Then
             For I = 0 To GridView1.SelectedRowsCount - 1
-                com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "', mainreference='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "', subreference='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "', status='Cancelled', remarks='" & rchar(frmApprovalConfirmation.txtRemarks.Text) & "', applevel=0, officeid='" & officeid.Text & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
-                com.CommandText = "update tblrequisition set approved=0, cancelled=1, cancelledby='" & globaluserid & "',datecancelled=current_timestamp where pid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "' " : com.ExecuteNonQuery()
-                com.CommandText = "update tblrequisitionitem set cancelled=1 where pid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "' " : com.ExecuteNonQuery()
-                com.CommandText = "DELETE from tblrequisitionfund where pid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code") & "'" : com.ExecuteNonQuery()
+                CancelRequisition(GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Entry Code"), frmApprovalConfirmation.txtRemarks.Text)
             Next
             ViewList()
             frmApprovalConfirmation.Close()

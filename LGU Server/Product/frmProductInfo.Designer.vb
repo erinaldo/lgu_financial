@@ -257,7 +257,7 @@ Partial Class frmProductInfo
         Me.AcceptButton = Me.cmdSaveButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(591, 291)
+        Me.ClientSize = New System.Drawing.Size(589, 289)
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.LabelControl4)
         Me.Controls.Add(Me.productid)

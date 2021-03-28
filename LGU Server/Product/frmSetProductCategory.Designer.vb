@@ -80,9 +80,9 @@ Partial Class frmSetProductCategory
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.BarDockControl1.Location = New System.Drawing.Point(0, 89)
+        Me.BarDockControl1.Location = New System.Drawing.Point(0, 87)
         Me.BarDockControl1.Manager = Nothing
-        Me.BarDockControl1.Size = New System.Drawing.Size(408, 0)
+        Me.BarDockControl1.Size = New System.Drawing.Size(406, 0)
         '
         'catid
         '
@@ -100,15 +100,15 @@ Partial Class frmSetProductCategory
         '
         Me.BarDockControl2.CausesValidation = False
         Me.BarDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.BarDockControl2.Location = New System.Drawing.Point(0, 89)
+        Me.BarDockControl2.Location = New System.Drawing.Point(0, 87)
         Me.BarDockControl2.Manager = Nothing
-        Me.BarDockControl2.Size = New System.Drawing.Size(408, 0)
+        Me.BarDockControl2.Size = New System.Drawing.Size(406, 0)
         '
         'frmSetProductCategory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(408, 89)
+        Me.ClientSize = New System.Drawing.Size(406, 87)
         Me.Controls.Add(Me.catid)
         Me.Controls.Add(Me.cmdConfirm)
         Me.Controls.Add(Me.txtprocat)

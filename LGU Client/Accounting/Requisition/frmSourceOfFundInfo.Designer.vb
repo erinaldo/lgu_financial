@@ -36,7 +36,7 @@ Partial Class frmSourceOfFundInfo
         Me.sourceid = New DevExpress.XtraEditors.TextEdit()
         Me.pid = New DevExpress.XtraEditors.TextEdit()
         Me.requestno = New DevExpress.XtraEditors.TextEdit()
-        Me.quarter = New DevExpress.XtraEditors.TextEdit()
+        Me.monthcode = New DevExpress.XtraEditors.TextEdit()
         Me.classcode = New DevExpress.XtraEditors.TextEdit()
         CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAvailableBalance.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,7 +47,7 @@ Partial Class frmSourceOfFundInfo
         CType(Me.sourceid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.requestno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.quarter.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.monthcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.classcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -219,18 +219,18 @@ Partial Class frmSourceOfFundInfo
         Me.requestno.TabIndex = 964
         Me.requestno.Visible = False
         '
-        'quarter
+        'monthcode
         '
-        Me.quarter.Location = New System.Drawing.Point(99, 90)
-        Me.quarter.Name = "quarter"
-        Me.quarter.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.quarter.Properties.Appearance.Options.UseFont = True
-        Me.quarter.Properties.Appearance.Options.UseTextOptions = True
-        Me.quarter.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.quarter.Properties.ReadOnly = True
-        Me.quarter.Size = New System.Drawing.Size(37, 24)
-        Me.quarter.TabIndex = 965
-        Me.quarter.Visible = False
+        Me.monthcode.Location = New System.Drawing.Point(99, 90)
+        Me.monthcode.Name = "monthcode"
+        Me.monthcode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.monthcode.Properties.Appearance.Options.UseFont = True
+        Me.monthcode.Properties.Appearance.Options.UseTextOptions = True
+        Me.monthcode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.monthcode.Properties.ReadOnly = True
+        Me.monthcode.Size = New System.Drawing.Size(37, 24)
+        Me.monthcode.TabIndex = 965
+        Me.monthcode.Visible = False
         '
         'classcode
         '
@@ -253,7 +253,7 @@ Partial Class frmSourceOfFundInfo
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(413, 155)
         Me.Controls.Add(Me.classcode)
-        Me.Controls.Add(Me.quarter)
+        Me.Controls.Add(Me.monthcode)
         Me.Controls.Add(Me.requestno)
         Me.Controls.Add(Me.pid)
         Me.Controls.Add(Me.sourceid)
@@ -282,7 +282,7 @@ Partial Class frmSourceOfFundInfo
         CType(Me.sourceid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.requestno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.quarter.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.monthcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.classcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -301,6 +301,6 @@ Partial Class frmSourceOfFundInfo
     Friend WithEvents sourceid As DevExpress.XtraEditors.TextEdit
     Friend WithEvents pid As DevExpress.XtraEditors.TextEdit
     Friend WithEvents requestno As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents quarter As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents monthcode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents classcode As DevExpress.XtraEditors.TextEdit
 End Class

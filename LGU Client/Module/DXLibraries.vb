@@ -163,7 +163,7 @@ Module Libraries
         com.CommandText = "delete from tblcolumnindex where form='" & frm & "' and gridview='" & xgrid.Name & "'" : com.ExecuteNonQuery()
         For I = 0 To xgrid.Columns.Count - 1
             If xgrid.Columns(I).VisibleIndex >= 0 Then
-                com.CommandText = "insert into tblcolumnindex set form='" & frm & "', gridview='" & xgrid.Name & "', columnname='" & xgrid.Columns(I).FieldName & "', columnwidth='" & xgrid.Columns(I).Width & "', colindex='" & xgrid.Columns(I).VisibleIndex & "'" : com.ExecuteNonQuery()
+                com.CommandText = "insert into tblcolumnindex set form='" & frm & "', gridview='" & xgrid.Name & "', columnname='" & rchar(xgrid.Columns(I).FieldName) & "', columnwidth='" & xgrid.Columns(I).Width & "', colindex='" & xgrid.Columns(I).VisibleIndex & "'" : com.ExecuteNonQuery()
             End If
         Next
         Return True
@@ -173,7 +173,7 @@ Module Libraries
         com.CommandText = "delete from tblcolumnindex where form='" & frm & "' and gridview='" & xgrid.Name & "'" : com.ExecuteNonQuery()
         For I = 0 To xgrid.Columns.Count - 1
             If xgrid.Columns(I).VisibleIndex >= 0 Then
-                com.CommandText = "insert into tblcolumnindex set form='" & frm & "', gridview='" & xgrid.Name & "', columnname='" & xgrid.Columns(I).FieldName & "', columnwidth='" & xgrid.Columns(I).Width & "', colindex='" & xgrid.Columns(I).VisibleIndex & "'" : com.ExecuteNonQuery()
+                com.CommandText = "insert into tblcolumnindex set form='" & frm & "', gridview='" & xgrid.Name & "', columnname='" & rchar(xgrid.Columns(I).FieldName) & "', columnwidth='" & xgrid.Columns(I).Width & "', colindex='" & xgrid.Columns(I).VisibleIndex & "'" : com.ExecuteNonQuery()
             End If
         Next
         Return True
