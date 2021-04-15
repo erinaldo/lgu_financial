@@ -860,7 +860,9 @@ Public Class MainForm
         If globalAllowAdd = False Then
             MessageBox.Show("Your access not allowed to add!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
+
         End If
+
         frmRequisitionInfo.mode.Text = "new"
         If frmRequisitionInfo.Visible = True Then
             frmRequisitionInfo.Focus()

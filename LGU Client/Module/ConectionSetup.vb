@@ -198,7 +198,7 @@ Module ConectionSetup
     End Class
 
     Public Function getGlobalTrnid()
-        Dim finalstr As String = Now.ToString("yyyyMMddhhmmss")
+        Dim finalstr As String = Now.ToString("yyMMddhhmmss")
         finalstr = finalstr
         Return finalstr
     End Function

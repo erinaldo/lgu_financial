@@ -2095,14 +2095,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LGU Client.exe" size="7137280">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LGU Client.exe" size="7150080">
       <assemblyIdentity name="LGU Client" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>KAaw5I6pJGCvZtk04CRKaePvgGmFn7cLvGXo1rQsnN0=</dsig:DigestValue>
+        <dsig:DigestValue>IVCdIo4IyRxIfWrcaS80PrQ2tiXMCROKmbEnDVakutQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2115,6 +2115,18 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>2MEMy7XoEWZXiTVxfV2gd62Ydn80Ao7/WsLIMdlbX0A=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NReco.PdfGenerator.dll" size="10899456">
+      <assemblyIdentity name="NReco.PdfGenerator" version="1.2.0.0" publicKeyToken="231663D50A41B451" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>XzZmalfsTAjzN+JCFqkcWEhgHxxDy4SNctOcaqKoBYc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

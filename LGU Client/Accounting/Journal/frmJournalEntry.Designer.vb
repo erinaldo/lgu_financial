@@ -24,8 +24,6 @@ Partial Class frmJournalEntry
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.yeartrn = New DevExpress.XtraEditors.ButtonEdit()
-        Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
-        Me.txtJournalDate = New DevExpress.XtraEditors.DateEdit()
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl15 = New DevExpress.XtraEditors.LabelControl()
@@ -65,8 +63,6 @@ Partial Class frmJournalEntry
         Me.pid = New DevExpress.XtraEditors.TextEdit()
         Me.dvid = New DevExpress.XtraEditors.TextEdit()
         CType(Me.yeartrn.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtJournalDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtJournalDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.jevno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContexEntries.SuspendLayout()
@@ -102,38 +98,6 @@ Partial Class frmJournalEntry
         Me.yeartrn.Size = New System.Drawing.Size(49, 22)
         Me.yeartrn.TabIndex = 933
         Me.yeartrn.Visible = False
-        '
-        'LabelControl8
-        '
-        Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.LabelControl8.Appearance.Options.UseFont = True
-        Me.LabelControl8.Appearance.Options.UseTextOptions = True
-        Me.LabelControl8.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.LabelControl8.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.LabelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal
-        Me.LabelControl8.Location = New System.Drawing.Point(41, 141)
-        Me.LabelControl8.Name = "LabelControl8"
-        Me.LabelControl8.Size = New System.Drawing.Size(51, 17)
-        Me.LabelControl8.TabIndex = 927
-        Me.LabelControl8.Text = "JEV Date"
-        '
-        'txtJournalDate
-        '
-        Me.txtJournalDate.EditValue = Nothing
-        Me.txtJournalDate.EnterMoveNextControl = True
-        Me.txtJournalDate.Location = New System.Drawing.Point(101, 138)
-        Me.txtJournalDate.Name = "txtJournalDate"
-        Me.txtJournalDate.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtJournalDate.Properties.Appearance.Options.UseFont = True
-        Me.txtJournalDate.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtJournalDate.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.txtJournalDate.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtJournalDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.txtJournalDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
-        Me.txtJournalDate.Properties.Mask.EditMask = "MMMM dd, yyyy"
-        Me.txtJournalDate.Properties.Mask.UseMaskAsDisplayFormat = True
-        Me.txtJournalDate.Size = New System.Drawing.Size(232, 26)
-        Me.txtJournalDate.TabIndex = 0
         '
         'LabelControl3
         '
@@ -358,7 +322,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl7.Appearance.Options.UseFont = True
-        Me.LabelControl7.Location = New System.Drawing.Point(22, 168)
+        Me.LabelControl7.Location = New System.Drawing.Point(22, 140)
         Me.LabelControl7.Name = "LabelControl7"
         Me.LabelControl7.Size = New System.Drawing.Size(70, 17)
         Me.LabelControl7.TabIndex = 977
@@ -367,7 +331,7 @@ Partial Class frmJournalEntry
         'txtRemarks
         '
         Me.txtRemarks.EditValue = ""
-        Me.txtRemarks.Location = New System.Drawing.Point(101, 166)
+        Me.txtRemarks.Location = New System.Drawing.Point(101, 138)
         Me.txtRemarks.Name = "txtRemarks"
         Me.txtRemarks.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtRemarks.Properties.Appearance.Options.UseFont = True
@@ -415,7 +379,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl4.Appearance.Options.UseFont = True
-        Me.LabelControl4.Location = New System.Drawing.Point(41, 356)
+        Me.LabelControl4.Location = New System.Drawing.Point(41, 328)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(51, 17)
         Me.LabelControl4.TabIndex = 983
@@ -424,7 +388,7 @@ Partial Class frmJournalEntry
         'txtPayrollNo
         '
         Me.txtPayrollNo.EditValue = ""
-        Me.txtPayrollNo.Location = New System.Drawing.Point(101, 352)
+        Me.txtPayrollNo.Location = New System.Drawing.Point(101, 324)
         Me.txtPayrollNo.Name = "txtPayrollNo"
         Me.txtPayrollNo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtPayrollNo.Properties.Appearance.Options.UseFont = True
@@ -438,7 +402,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl5.Appearance.Options.UseFont = True
-        Me.LabelControl5.Location = New System.Drawing.Point(55, 385)
+        Me.LabelControl5.Location = New System.Drawing.Point(55, 357)
         Me.LabelControl5.Name = "LabelControl5"
         Me.LabelControl5.Size = New System.Drawing.Size(37, 17)
         Me.LabelControl5.TabIndex = 985
@@ -447,7 +411,7 @@ Partial Class frmJournalEntry
         'txtRCDNo
         '
         Me.txtRCDNo.EditValue = ""
-        Me.txtRCDNo.Location = New System.Drawing.Point(101, 381)
+        Me.txtRCDNo.Location = New System.Drawing.Point(101, 353)
         Me.txtRCDNo.Name = "txtRCDNo"
         Me.txtRCDNo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtRCDNo.Properties.Appearance.Options.UseFont = True
@@ -461,7 +425,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl9.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl9.Appearance.Options.UseFont = True
-        Me.LabelControl9.Location = New System.Drawing.Point(66, 414)
+        Me.LabelControl9.Location = New System.Drawing.Point(66, 386)
         Me.LabelControl9.Name = "LabelControl9"
         Me.LabelControl9.Size = New System.Drawing.Size(26, 17)
         Me.LabelControl9.TabIndex = 987
@@ -470,7 +434,7 @@ Partial Class frmJournalEntry
         'txtLRNo
         '
         Me.txtLRNo.EditValue = ""
-        Me.txtLRNo.Location = New System.Drawing.Point(101, 410)
+        Me.txtLRNo.Location = New System.Drawing.Point(101, 382)
         Me.txtLRNo.Name = "txtLRNo"
         Me.txtLRNo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtLRNo.Properties.Appearance.Options.UseFont = True
@@ -484,7 +448,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl10.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl10.Appearance.Options.UseFont = True
-        Me.LabelControl10.Location = New System.Drawing.Point(65, 443)
+        Me.LabelControl10.Location = New System.Drawing.Point(65, 415)
         Me.LabelControl10.Name = "LabelControl10"
         Me.LabelControl10.Size = New System.Drawing.Size(27, 17)
         Me.LabelControl10.TabIndex = 989
@@ -493,7 +457,7 @@ Partial Class frmJournalEntry
         'txtAENo
         '
         Me.txtAENo.EditValue = ""
-        Me.txtAENo.Location = New System.Drawing.Point(101, 439)
+        Me.txtAENo.Location = New System.Drawing.Point(101, 411)
         Me.txtAENo.Name = "txtAENo"
         Me.txtAENo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtAENo.Properties.Appearance.Options.UseFont = True
@@ -623,8 +587,6 @@ Partial Class frmJournalEntry
         Me.Controls.Add(Me.fundcode)
         Me.Controls.Add(Me.LabelControl6)
         Me.Controls.Add(Me.yeartrn)
-        Me.Controls.Add(Me.LabelControl8)
-        Me.Controls.Add(Me.txtJournalDate)
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.LabelControl3)
         Me.Controls.Add(Me.mode)
@@ -639,8 +601,6 @@ Partial Class frmJournalEntry
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Journal Entry Voucher Information"
         CType(Me.yeartrn.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtJournalDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtJournalDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.jevno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContexEntries.ResumeLayout(False)
@@ -664,8 +624,6 @@ Partial Class frmJournalEntry
 
     End Sub
     Friend WithEvents yeartrn As DevExpress.XtraEditors.ButtonEdit
-    Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents txtJournalDate As DevExpress.XtraEditors.DateEdit
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents mode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl15 As DevExpress.XtraEditors.LabelControl

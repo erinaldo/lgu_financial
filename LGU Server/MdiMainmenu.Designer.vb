@@ -138,9 +138,9 @@ Partial Class MdiMainmenu
         Me.MainMenu.GroupAnimationLength = 3
         Me.MainMenu.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.MainMenu.ExpandCollapseItem, Me.MainMenu.SearchEditItem, Me.cmdUserAccountManagement, Me.cmdCorporateProfileSettings, Me.cmdCorporateDivision, Me.cmdLoginAppearance, Me.cmdBackupDatabase, Me.cmdGeneralSettings, Me.cmdMyUserProfile, Me.cmdDatabaseRepair, Me.SkinDropDownButtonItem1, Me.cmdFund, Me.cmdFundPeriod, Me.cmdCashflowItem, Me.cmdAccountableForm, Me.cmdClientAccess, Me.cmdAccountTitleFilter, Me.cmdReportEntries, Me.cmdCollectionItem, Me.cmdTaxPayer, Me.cmdExpenditureClass, Me.cmdBudgetComposition, Me.cmdProductCategory, Me.cmdProductManagement, Me.cmdNewProduct, Me.cmdRequisitionType, Me.cmdDocumentType, Me.cmdApprovingProcess, Me.cmdExpenditureItem, Me.cmdJevEntries, Me.cmdUpdateChartofAccounts, Me.cmdGLItem, Me.cmdAdvanceSearch, Me.cmdRequisitionFilter, Me.cmdCashItem, Me.cmdQuarterlyBudget, Me.cmdAROexcemption, Me.cmdCheckApprovalFilter, Me.cmdBankAccounts, Me.cmdRegistry})
         Me.MainMenu.Location = New System.Drawing.Point(0, 21)
-        Me.MainMenu.MaxItemId = 385
+        Me.MainMenu.MaxItemId = 386
         Me.MainMenu.Name = "MainMenu"
-        Me.MainMenu.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.rbnAccounting, Me.RibbonPage2, Me.rbnProduct, Me.rbnSettings})
+        Me.MainMenu.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.rbnAccounting, Me.rbnProduct, Me.RibbonPage2, Me.rbnSettings})
         Me.MainMenu.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
         Me.MainMenu.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show
         Me.MainMenu.Size = New System.Drawing.Size(1397, 126)

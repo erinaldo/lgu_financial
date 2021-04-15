@@ -182,7 +182,7 @@
     <Reference Include="MySqlBackup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>bin\Debug\MySqlBackup.dll</HintPath>
     </Reference>
-    <Reference Include="NReco.PdfGenerator, Version=1.1.14.0, Culture=neutral, PublicKeyToken=231663d50a41b451, processorArchitecture=MSIL">
+    <Reference Include="NReco.PdfGenerator, Version=1.2.0.0, Culture=neutral, PublicKeyToken=231663d50a41b451, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\NReco.PdfGenerator.dll</HintPath>
     </Reference>
@@ -235,16 +235,22 @@
     <Compile Include="Accounting\frmErrorCorrect.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Accounting\frmRegistry.Designer.vb">
-      <DependentUpon>frmRegistry.vb</DependentUpon>
+    <Compile Include="Reports\frmRegistryExport.Designer.vb">
+      <DependentUpon>frmRegistryExport.vb</DependentUpon>
     </Compile>
-    <Compile Include="Accounting\frmRegistry.vb">
+    <Compile Include="Reports\frmRegistryExport.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Accounting\frmJevEntries.Designer.vb">
+    <Compile Include="Reports\frmRegistry.Designer.vb">
+      <DependentUpon>frmRegistry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmRegistry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmJevEntries.Designer.vb">
       <DependentUpon>frmJevEntries.vb</DependentUpon>
     </Compile>
-    <Compile Include="Accounting\frmJevEntries.vb">
+    <Compile Include="Reports\frmJevEntries.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accounting\frmApprovingProcess.Designer.vb">
@@ -325,6 +331,7 @@
     <Compile Include="Budget\frmExpenditureClass.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Module\Template.vb" />
     <Compile Include="Procurement\frmDocumentType.Designer.vb">
       <DependentUpon>frmDocumentType.vb</DependentUpon>
     </Compile>
@@ -391,10 +398,10 @@
     <Compile Include="Accounting\frmCollectionItem.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Accounting\frmReportEntries.Designer.vb">
+    <Compile Include="Reports\frmReportEntries.Designer.vb">
       <DependentUpon>frmReportEntries.vb</DependentUpon>
     </Compile>
-    <Compile Include="Accounting\frmReportEntries.vb">
+    <Compile Include="Reports\frmReportEntries.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accounting\frmAccountableForm.Designer.vb">
@@ -637,10 +644,13 @@
     <EmbeddedResource Include="Accounting\frmErrorCorrect.resx">
       <DependentUpon>frmErrorCorrect.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\frmRegistry.resx">
+    <EmbeddedResource Include="Reports\frmRegistryExport.resx">
+      <DependentUpon>frmRegistryExport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmRegistry.resx">
       <DependentUpon>frmRegistry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\frmJevEntries.resx">
+    <EmbeddedResource Include="Reports\frmJevEntries.resx">
       <DependentUpon>frmJevEntries.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\frmApprovingProcess.resx">
@@ -715,7 +725,7 @@
     <EmbeddedResource Include="Accounting\frmCollectionItem.resx">
       <DependentUpon>frmCollectionItem.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Accounting\frmReportEntries.resx">
+    <EmbeddedResource Include="Reports\frmReportEntries.resx">
       <DependentUpon>frmReportEntries.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\frmAccountableForm.resx">

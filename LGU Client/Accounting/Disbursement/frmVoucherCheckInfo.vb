@@ -52,8 +52,8 @@ Public Class frmVoucherCheckInfo
             XtraMessageBox.Show("Please select check date", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtCheckDate.Focus()
             Exit Sub
-        ElseIf countqry("tbldisbursementvoucher", "checkno='" & txtCheckNo.Text & "' and voucherid<>'" & id.Text & "'") > 0 Then
-            XtraMessageBox.Show("Check number is already exits", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf countqry("tbldisbursementvoucher", "checkno='" & txtCheckNo.Text & "' and voucherid<>'" & id.Text & "' and cancelled=0") > 0 Then
+            XtraMessageBox.Show("Check number is already exists", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtCheckNo.Focus()
             Exit Sub
         End If

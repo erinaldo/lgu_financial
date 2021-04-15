@@ -268,5 +268,7 @@ Public Class frmRealPropertyTax
         txtTotalPaymentDue.Text = Val(txtTotalCash.EditValue) + Val(txtTotalCheck.EditValue) + Val(txtTotalPMO.EditValue)
     End Sub
 
+    Private Sub cmdEnterPayment_Click(sender As Object, e As EventArgs) Handles cmdEnterPayment.Click
 
+    End Sub
 End Class

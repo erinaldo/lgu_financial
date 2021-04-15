@@ -64,6 +64,7 @@ Module library
         str = str.Replace("\", "\\")
         Return str
     End Function
+
     Public Sub loadIcons()
         TargetFile = Application.StartupPath + "\ico.ico"
         If File.Exists(TargetFile) = True Then
@@ -967,6 +968,13 @@ Module library
             StrQuery = fieldname & " like '%" & strString & "%'"
         End If
         Return StrQuery
+    End Function
+
+    Public Function SavePDFCopy(ByVal htmlfile As String, ByVal PDFfile As String)
+        Dim htmlToPdf = New NReco.PdfGenerator.HtmlToPdfConverter()
+        htmlToPdf.Zoom = 1.5
+        htmlToPdf.GeneratePdfFromFile(htmlfile, Nothing, PDFfile)
+        Return True
     End Function
 
 End Module

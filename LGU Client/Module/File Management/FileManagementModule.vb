@@ -109,6 +109,51 @@ Module FileManagementModule
         Return True
     End Function
 
+    Public Function ExtractFiles(ByVal id_selected As Array, ByVal location As String)
+        Dim myData As MySqlDataReader
+        Dim rawData() As Byte
+        Dim FileSize As UInt32
+        Dim fs As FileStream
+        Try
+            If (Directory.Exists(location)) Then
+                My.Computer.FileSystem.DeleteDirectory(location, FileIO.DeleteDirectoryOption.DeleteAllContents)
+            End If
+            If (Not Directory.Exists(location)) Then
+                Directory.CreateDirectory(location)
+            End If
+
+            Dim id As String = ""
+            If id_selected.Length > 0 Then
+                For Each itm In id_selected
+                    id += "id='" & itm & "' or "
+                Next
+                dst = Nothing : dst = New DataSet
+                msda = New MySqlDataAdapter("select * from " & sqlfiledir & ".tblattachmentlogs where (" & id.Remove(id.Length - 3, 3) & ")", conn)
+                msda.Fill(dst, 0)
+                For cnt = 0 To dst.Tables(0).Rows.Count - 1
+                    With (dst.Tables(0))
+                        com.CommandText = "SELECT * FROM " & sqlfiledir & ".`" & .Rows(cnt)("databasename").ToString() & "` where archievedname = '" & .Rows(cnt)("archievedname").ToString() & "' and filesize = '" & .Rows(cnt)("filesize").ToString() & "' and trntype='" & .Rows(cnt)("trntype").ToString() & "'" : myData = com.ExecuteReader
+                        While myData.Read
+                            FileSize = myData.GetUInt32(myData.GetOrdinal("filesize"))
+                            rawData = New Byte(FileSize) {}
+
+                            myData.GetBytes(myData.GetOrdinal("attachment"), 0, rawData, 0, FileSize)
+
+                            fs = New FileStream(location & "\" & myData("filename").ToString, FileMode.OpenOrCreate, FileAccess.Write)
+                            fs.Write(rawData, 0, FileSize)
+                            fs.Close()
+                        End While
+                        myData.Close()
+                    End With
+                Next
+            End If
+        Catch ex As Exception
+            myData.Close()
+            MessageBox.Show("There was an error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+        Return True
+    End Function
+
     Public Function GetAttachmentDate() As String
         com.CommandText = "select date_format(current_timestamp,'%Y%m%d') as trackdate" : rst = com.ExecuteReader
         While rst.Read
@@ -164,6 +209,7 @@ Module FileManagementModule
         Dim fs As FileStream
 
         Try
+            Dim cnt As Integer = 1
             For Each flocation As String In fileLocation
                 If System.IO.File.Exists(flocation) = True Then
                     com = Nothing : rawData = Nothing : FileSize = Nothing
@@ -177,16 +223,19 @@ Module FileManagementModule
                     rawData = New Byte(FileSize) {}
                     fs.Read(rawData, 0, FileSize)
                     fs.Close()
-                    Dim ArchievedName As String = NewMd5FileName(flocation) & Path.GetExtension(flocation)
-                    com.CommandText = "delete from " & sqlfiledir & ".tblattachmentlogs where refnumber='" & refno & "' and trntype='" & trntype & "' and docname='" & docname & "' and filecode='" & filecode & "' and databasename='tbl" & GetAttachmentDate() & "' and filename='" & rchar(Path.GetFileName(flocation)) & "'" : com.ExecuteNonQuery()
-                    com.CommandText = "delete from " & sqlfiledir & ".`tbl" & GetAttachmentDate() & "` where refnumber='" & refno & "' and trntype='" & trntype & "' and docname='" & docname & "' and filecode='" & filecode & "' and filename='" & rchar(Path.GetFileName(flocation)) & "'" : com.ExecuteNonQuery()
+                    Dim ArchievedName As String = NewMd5FileName(flocation & "_" & getGlobalDBTrnid() & cnt) & Path.GetExtension(flocation)
+                    Dim FileName As String = getGlobalDBTrnid() & cnt & "_" & rchar(Path.GetFileName(flocation))
 
-                    com.CommandText = "insert into " & sqlfiledir & ".tblattachmentlogs set refnumber='" & refno & "', trntype='" & trntype & "',docname='" & docname & "',filecode='" & filecode & "', databasename='tbl" & GetAttachmentDate() & "',filename='" & rchar(Path.GetFileName(flocation)) & "',archievedname='" & ArchievedName & "', filesize='" & FileSize & "'" : com.ExecuteNonQuery()
+                    com.CommandText = "delete from " & sqlfiledir & ".tblattachmentlogs where refnumber='" & refno & "' and trntype='" & trntype & "' and docname='" & docname & "' and filecode='" & filecode & "' and databasename='tbl" & GetAttachmentDate() & "' and filename='" & FileName & "'" : com.ExecuteNonQuery()
+                    com.CommandText = "delete from " & sqlfiledir & ".`tbl" & GetAttachmentDate() & "` where refnumber='" & refno & "' and trntype='" & trntype & "' and docname='" & docname & "' and filecode='" & filecode & "' and filename='" & FileName & "'" : com.ExecuteNonQuery()
+
+                    com.CommandText = "insert into " & sqlfiledir & ".tblattachmentlogs set refnumber='" & refno & "', trntype='" & trntype & "',docname='" & docname & "',filecode='" & filecode & "', databasename='tbl" & GetAttachmentDate() & "',filename='" & FileName & "',archievedname='" & ArchievedName & "', filesize='" & FileSize & "'" : com.ExecuteNonQuery()
                     com.CommandText = "INSERT INTO " & sqlfiledir & ".`tbl" & GetAttachmentDate() & "` (refnumber,trntype,docname,filecode,filename,archievedname,extension,attachment,filesize,datesaved) " _
-                        + " VALUES('" & refno & "','" & trntype & "','" & docname & "','" & filecode & "','" & rchar(Path.GetFileName(flocation)) & "','" & ArchievedName & "','" & Path.GetExtension(flocation) & "',?File,?FileSize,current_timestamp)"
+                        + " VALUES('" & refno & "','" & trntype & "','" & docname & "','" & filecode & "','" & FileName & "','" & ArchievedName & "','" & Path.GetExtension(flocation) & "',?File,?FileSize,current_timestamp)"
                     com.Parameters.AddWithValue("?File", rawData)
                     com.Parameters.AddWithValue("?FileSize", FileSize)
                     com.ExecuteNonQuery()
+                    cnt += 1
                 End If
             Next
 

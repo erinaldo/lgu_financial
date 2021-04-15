@@ -2,8 +2,7 @@
 
 Module Templates
 
-
-    Public Sub PrintDisbursementVoucher(ByVal voucherid As String, ByVal form As Form)
+    Public Function PrintDisbursementVoucher(ByVal voucherid As String, ByVal print As Boolean, ByVal form As Form) As String
         'CreateHTMLReportTemplate("ResidentProfile.html")
         Dim TableRow As String = ""
         Dim Template As String = Application.StartupPath.ToString & "\Templates\A-24_DV.html"
@@ -152,11 +151,16 @@ Module Templates
         My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[preparedby]", UCase(GlobalAccountantName)), False)
         DigitalReportSigniture(SaveLocation, GlobalAccountantID, "prepared")
 
-        My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[watermark]", "© " & My.Application.Info.AssemblyName & " " & CDate(Now).ToString("yyyy") & " - Budget Management System v" & fversion & " (Printed On " & CDate(Now).ToString("MMMM dd, yyyy") & ") "), False)
-        PrintViaInternetExplorer(SaveLocation.Replace("\", "/"), form)
-    End Sub
+        My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[watermark]", "© LGU Financial " & CDate(Now).ToString("yyyy") & " - Disbursement System v" & fversion & " (Printed On " & CDate(Now).ToString("MMMM dd, yyyy") & ") "), False)
 
-    Public Sub PrintCAFOA(ByVal pid As String, ByVal form As Form)
+        If print Then
+            PrintViaInternetExplorer(SaveLocation.Replace("\", "/"), form)
+        End If
+
+        Return SaveLocation
+    End Function
+
+    Public Function PrintCAFOA(ByVal pid As String, ByVal print As Boolean, ByVal form As Form) As String
         'CreateHTMLReportTemplate("ResidentProfile.html")
         Dim TableRow As String = ""
         Dim Template As String = Application.StartupPath.ToString & "\Templates\A-28_CAFOA.html"
@@ -320,27 +324,14 @@ Module Templates
         End If
 
         My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[preparedby]", UCase(globalfullname)), False)
-        My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[watermark]", "© " & My.Application.Info.AssemblyName & " " & CDate(Now).ToString("yyyy") & " - Budget Management System v" & fversion & " (Printed on " & CDate(Now).ToString("MMMM dd, yyyy") & ") "), False)
-        PrintViaInternetExplorer(SaveLocation.Replace("\", "/"), form)
-    End Sub
-
-    Public Sub DigitalReportSigniture(ByVal SaveLocation As String, ByVal userid As String, ByVal code_command As String)
-        If Not System.IO.Directory.Exists(Application.StartupPath.ToString & "\Printing\Signature") Then
-            System.IO.Directory.CreateDirectory(Application.StartupPath.ToString & "\Printing\Signature")
+        My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[watermark]", "© LGU Financial " & CDate(Now).ToString("yyyy") & " - Disbursement System v" & fversion & " (Printed On " & CDate(Now).ToString("MMMM dd, yyyy") & ") "), False)
+        If print Then
+            PrintViaInternetExplorer(SaveLocation.Replace("\", "/"), form)
         End If
+        Return SaveLocation
+    End Function
 
-        Dim pic As New PictureEdit
-        Dim sig As Image = getAccountSignature(userid)
-        If Not sig Is Nothing Then
-            pic.Image = getAccountSignature(userid)
-            pic.Image.Save(Application.StartupPath.ToString & "\Printing\Signature\" & userid & ".png")
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[sig_" & code_command & "]", Application.StartupPath.ToString & "\Printing\Signature\" & userid & ".png"), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[hide_" & code_command & "]", ""), False)
-        Else
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[hide_" & code_command & "]", "hidden"), False)
-        End If
-    End Sub
-    Public Sub PrintFURS(ByVal pid As String, ByVal form As Form)
+    Public Function PrintFURS(ByVal pid As String, ByVal print As Boolean, ByVal form As Form) As String
         'CreateHTMLReportTemplate("ResidentProfile.html")
         Dim TableRow As String = ""
         Dim Template As String = Application.StartupPath.ToString & "\Templates\A-29_FURS.html"
@@ -483,9 +474,14 @@ Module Templates
         End If
 
         My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[preparedby]", UCase(globalfullname)), False)
-        My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[watermark]", "© " & My.Application.Info.AssemblyName & " " & CDate(Now).ToString("yyyy") & " - Budget Management System v" & fversion & " (Printed on " & CDate(Now).ToString("MMMM dd, yyyy") & ") "), False)
-        PrintViaInternetExplorer(SaveLocation.Replace("\", "/"), form)
-    End Sub
+        My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[watermark]", "© LGU Financial " & CDate(Now).ToString("yyyy") & " - Disbursement System v" & fversion & " (Printed On " & CDate(Now).ToString("MMMM dd, yyyy") & ") "), False)
+
+        If print Then
+            PrintViaInternetExplorer(SaveLocation.Replace("\", "/"), form)
+        End If
+
+        Return SaveLocation
+    End Function
 
     Public Sub PrintJournalVoucher(ByVal jevno As String, ByVal form As Form)
         'CreateHTMLReportTemplate("ResidentProfile.html")
@@ -567,5 +563,22 @@ Module Templates
         rst.Close()
 
         PrintViaInternetExplorer(SaveLocation.Replace("\", "/"), form)
+    End Sub
+
+    Public Sub DigitalReportSigniture(ByVal SaveLocation As String, ByVal userid As String, ByVal code_command As String)
+        If Not System.IO.Directory.Exists(Application.StartupPath.ToString & "\Printing\Signature") Then
+            System.IO.Directory.CreateDirectory(Application.StartupPath.ToString & "\Printing\Signature")
+        End If
+
+        Dim pic As New PictureEdit
+        Dim sig As Image = getAccountSignature(userid)
+        If Not sig Is Nothing Then
+            pic.Image = getAccountSignature(userid)
+            pic.Image.Save(Application.StartupPath.ToString & "\Printing\Signature\" & userid & ".png")
+            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[sig_" & code_command & "]", Application.StartupPath.ToString & "\Printing\Signature\" & userid & ".png"), False)
+            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[hide_" & code_command & "]", ""), False)
+        Else
+            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[hide_" & code_command & "]", "hidden"), False)
+        End If
     End Sub
 End Module

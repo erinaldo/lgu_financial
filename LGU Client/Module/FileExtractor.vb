@@ -1,125 +1,94 @@
 ﻿Imports System.IO
 Imports Shell32
 Imports MySql.Data.MySqlClient
+Imports DevExpress.XtraEditors
 
 Module FileExtractor
-    'Public Function SendAttachment(ByVal refno As String, ByVal trntype As String, ByVal fileList() As String) As Boolean
-    '    Dim FileSize As UInt32
-    '    Dim rawData() As Byte
-    '    Dim fs As FileStream
+    Public Sub VoucherExporter(ByVal batch As Boolean, ByVal query As String, ByVal Location As String, ByVal progressControl As ProgressBarControl, ByVal form As Form)
+        Dim totalVoucher As Integer = countqry("tbldisbursementvoucher", query)
 
-    '    'Try
-    '    For Each strfile As String In fileList
-    '        If Not strfile = "" Then
-    '            com = Nothing : rawData = Nothing : FileSize = Nothing
-    '            fs = New FileStream(strfile, FileMode.Open, FileAccess.Read)
-    '            FileSize = fs.Length
-
-    '            rawData = New Byte(FileSize) {}
-    '            fs.Read(rawData, 0, FileSize)
-    '            fs.Close()
-    '            com = New MySqlCommand : com.Connection = conn
-    '            com.CommandText = "DELETE FROM "  & sqlfiledir & ".tblattachmentlogs where refnumber='" & refno & "' and filename='" & rchar(Path.GetFileName(strfile)) & "';" : com.ExecuteNonQuery()
-    '            com.CommandText = "INSERT INTO "  & sqlfiledir & ".tblattachmentlogs (refnumber,trntype, filename,extension,attachment,filesize,datesaved) " _
-    '                + " VALUES('" & refno & "','" & trntype & "','" & rchar(Path.GetFileName(strfile)) & "','" & Path.GetExtension(strfile) & "',?File,?FileSize,current_timestamp)"
-    '            com.Parameters.Add("?File", rawData)
-    '            com.Parameters.Add("?FileSize", FileSize)
-    '            com.ExecuteNonQuery()
-    '        End If
-    '    Next
-    '    'Catch ex As Exception
-    '    '    MessageBox.Show("Connection error during uploading attachment. click ok to retry upload.", "Error Uploading", _
-    '    '        MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '    '    Return False
-    '    'End Try
-    '    Return True
-    'End Function
-    'Public Function ExtractBlobFiles(ByVal refno As String)
-    '    Dim extract_location As String = System.IO.Path.GetTempPath() & "CoffeecupFiles\"
-    '    Dim myData As MySqlDataReader
-    '    Dim rawData() As Byte
-    '    Dim FileSize As UInt32
-    '    Dim fs As FileStream
-    '    Try
-    '        While MainForm.BackgroundWorker1.IsBusy()
-    '            Windows.Forms.Application.DoEvents()
-    '        End While
-    '        If (System.IO.Directory.Exists(extract_location)) Then
-    '            My.Computer.FileSystem.DeleteDirectory(extract_location, FileIO.DeleteDirectoryOption.DeleteAllContents)
-    '        End If
-    '        If (Not System.IO.Directory.Exists(extract_location)) Then
-    '            System.IO.Directory.CreateDirectory(extract_location)
-    '        End If
-
-    '        For Each word In refno.Split(New Char() {","c})
-    '            If word <> "" Then
-    '                com.CommandText = "SELECT * FROM "  & sqlfiledir & ".tblattachmentlogs where refnumber = '" & word & "'"
-    '                myData = com.ExecuteReader
-    '                While myData.Read
-    '                    FileSize = myData.GetUInt32(myData.GetOrdinal("filesize"))
-    '                    rawData = New Byte(FileSize) {}
-    '                    myData.GetBytes(myData.GetOrdinal("attachment"), 0, rawData, 0, FileSize)
-    '                    fs = New FileStream(extract_location & myData("filename").ToString, FileMode.OpenOrCreate, FileAccess.Write)
-    '                    fs.Write(rawData, 0, FileSize)
-    '                    fs.Close()
-    '                End While
-    '                myData.Close()
-    '            End If
-    '        Next
-    '        Process.Start("explorer.exe", extract_location)
-
-    '    Catch ex As Exception
-    '        myData.Close()
-    '        MessageBox.Show("There was an error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '    End Try
-    '    Return True
-    'End Function
-
-    'Public Function ExtractSingleBlobFiles(ByVal refno As String, ByVal trntype As String) As Boolean
-    '    Dim saveFileDialog1 As New SaveFileDialog()
-
-    '    Dim myData As MySqlDataReader
-    '    Dim rawData() As Byte
-    '    Dim FileSize As UInt32
-    '    Dim fs As FileStream
-    '    Try
-    '        While MainForm.BackgroundWorker1.IsBusy()
-    '            Windows.Forms.Application.DoEvents()
-    '        End While
-    '        If qrysingledata("extension", "extension", ""  & sqlfiledir & ".tblattachmentlogs where refnumber = '" & refno & "' and trntype='" & trntype & "'") <> "" Then
-    '            saveFileDialog1.Filter = qrysingledata("extension", "extension", ""  & sqlfiledir & ".tblattachmentlogs where refnumber = '" & refno & "' and trntype='" & trntype & "'") & "|*" & qrysingledata("extension", "extension", ""  & sqlfiledir & ".tblattachmentlogs where refnumber = '" & refno & "' and trntype='" & trntype & "'")
-    '            saveFileDialog1.FileName = UCase(qrysingledata("filename", "filename", ""  & sqlfiledir & ".tblattachmentlogs where refnumber = '" & refno & "' and trntype='" & trntype & "'"))
-    '            saveFileDialog1.FilterIndex = 2
-    '            saveFileDialog1.RestoreDirectory = True
-
-    '            If saveFileDialog1.ShowDialog() = DialogResult.OK Then
-    '                If System.IO.File.Exists(saveFileDialog1.FileName) = True Then
-    '                    System.IO.File.Delete(saveFileDialog1.FileName)
-    '                End If
-    '                com.CommandText = "SELECT * FROM "  & sqlfiledir & ".tblattachmentlogs where refnumber = '" & refno & "' and trntype='" & trntype & "'"
-    '                myData = com.ExecuteReader
-    '                While myData.Read
-    '                    FileSize = myData.GetUInt32(myData.GetOrdinal("filesize"))
-    '                    rawData = New Byte(FileSize) {}
-    '                    myData.GetBytes(myData.GetOrdinal("attachment"), 0, rawData, 0, FileSize)
-    '                    fs = New FileStream(saveFileDialog1.FileName, FileMode.OpenOrCreate, FileAccess.Write)
-    '                    fs.Write(rawData, 0, FileSize)
-    '                    fs.Close()
-    '                End While
-    '                myData.Close()
-    '                MessageBox.Show("File successfully Saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    '                Return True
-    '            End If
-    '        Else
-    '            MessageBox.Show("File not available yet. please wait your approved request to be generated by procurement", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-    '            Return False
-    '        End If
-    '    Catch ex As Exception
-    '        myData.Close()
-    '        MessageBox.Show("There was an error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '    End Try
+        If Not progressControl Is Nothing Then
+            progressControl.Properties.Step = 1
+            progressControl.Properties.PercentView = True
+            progressControl.Properties.Maximum = totalVoucher - 1
+            progressControl.Properties.Minimum = 0
+            progressControl.Position = 0
+        End If
 
 
-    '    Return True
-    'End Function
+        da = Nothing : Dim dst = New DataSet : dst.Clear()
+        da = New MySqlDataAdapter("select voucherid, pid, voucherno,yearcode, fundcode, date_format(voucherdate, '%M') as voucherMonth, (select description from tblfund where code=tbldisbursementvoucher.fundcode) as fundname from tbldisbursementvoucher where " & query, conn)
+        da.Fill(dst, 0)
+        For cnt = 0 To dst.Tables(0).Rows.Count - 1
+            With (dst.Tables(0))
+                Dim pid As String = .Rows(cnt)("pid").ToString()
+                Dim voucherDIR As String = ""
+
+                If batch Then
+                    voucherDIR = Location & "\" & .Rows(cnt)("yearcode").ToString() & "\" & .Rows(cnt)("voucherMonth").ToString() & "\" & .Rows(cnt)("fundname").ToString() & "\" & .Rows(cnt)("voucherno").ToString()
+                Else
+                    voucherDIR = Location & "\" & .Rows(cnt)("voucherno").ToString()
+                End If
+
+                If Not IO.Directory.Exists(voucherDIR) Then
+                    IO.Directory.CreateDirectory(voucherDIR)
+                End If
+
+                Dim VoucherPDS As String = voucherDIR & "\DV " & .Rows(cnt)("voucherno").ToString() & ".pdf"
+                If File.Exists(VoucherPDS) = True Then
+                    File.Delete(VoucherPDS)
+                End If
+
+                Dim voucherLocation As String = PrintDisbursementVoucher(.Rows(cnt)("voucherid").ToString(), False, form)
+                SavePDFCopy(voucherLocation, VoucherPDS)
+
+                If countqry("tblfund", "code='" & .Rows(cnt)("fundcode").ToString() & "' and template='FURS'") > 0 Then
+                    Dim FursPDF As String = voucherDIR & "\FURS " & .Rows(cnt)("voucherno").ToString() & ".pdf"
+                    If File.Exists(FursPDF) = True Then
+                        File.Delete(FursPDF)
+                    End If
+
+                    Dim FursLocation As String = PrintFURS(pid, False, form)
+                    SavePDFCopy(FursLocation, FursPDF)
+
+                ElseIf countqry("tblfund", "code='" & .Rows(cnt)("fundcode").ToString() & "' and template='CAFOA'") > 0 Then
+                    Dim CafoaPDF As String = voucherDIR & "\CAFOA " & .Rows(cnt)("voucherno").ToString() & ".pdf"
+                    If File.Exists(CafoaPDF) = True Then
+                        File.Delete(CafoaPDF)
+                    End If
+
+                    Dim CafoaLocation As String = PrintCAFOA(pid, False, form)
+                    SavePDFCopy(CafoaLocation, CafoaPDF)
+
+                End If
+
+                If countqry("" & sqlfiledir & ".tblattachmentlogs", "refnumber='" & pid & "' and trntype='requisition'") > 0 Then
+                    Dim directoryFolder As String = voucherDIR & "\Attachment"
+                    If Not IO.Directory.Exists(directoryFolder) Then
+                        IO.Directory.CreateDirectory(directoryFolder)
+                    End If
+
+                    Dim list As New ArrayList
+                    com.CommandText = "select * from " & sqlfiledir & ".tblattachmentlogs where refnumber='" & pid & "' and trntype='requisition'" : rst = com.ExecuteReader
+                    While rst.Read
+                        list.Add(rst("id").ToString)
+                    End While
+                    rst.Close()
+                    ExtractFiles(list.ToArray, directoryFolder)
+                End If
+
+                If Not progressControl Is Nothing Then
+                    progressControl.PerformStep()
+                    progressControl.Update()
+                End If
+
+
+            End With
+        Next
+        If Not progressControl Is Nothing Then
+            progressControl.Position = 0
+        End If
+
+        MessageBox.Show("Voucher Successfully Exported!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 End Module

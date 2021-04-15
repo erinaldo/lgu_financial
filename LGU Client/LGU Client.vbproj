@@ -169,6 +169,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="NReco.PdfGenerator, Version=1.2.0.0, Culture=neutral, PublicKeyToken=231663d50a41b451, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NReco.PdfGenerator.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Private>True</Private>
     </Reference>
@@ -235,6 +239,12 @@
       <DependentUpon>frmVoucherCheckInfo.vb</DependentUpon>
     </Compile>
     <Compile Include="Accounting\Disbursement\frmVoucherCheckInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\Disbursement\frmVoucherExport.Designer.vb">
+      <DependentUpon>frmVoucherExport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\Disbursement\frmVoucherExport.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accounting\Disbursement\frmVoucherRequisitionItem.Designer.vb">
@@ -690,6 +700,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\Disbursement\frmVoucherCheckInfo.resx">
       <DependentUpon>frmVoucherCheckInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\Disbursement\frmVoucherExport.resx">
+      <DependentUpon>frmVoucherExport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\Disbursement\frmVoucherRequisitionItem.resx">
       <DependentUpon>frmVoucherRequisitionItem.vb</DependentUpon>

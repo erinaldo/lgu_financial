@@ -21,13 +21,16 @@ Public Class frmGLCaptureChartofAccount
 
     Private Sub frmGLCaptureChartofAccount_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
+        com.CommandText = "DROP TABLE IF EXISTS tmpglitem;" : com.ExecuteNonQuery()
+        com.CommandText = "CREATE TEMPORARY TABLE tmpglitem (  `groupcode` varchar(50) NOT NULL DEFAULT '',  `keycode` varchar(45) NOT NULL DEFAULT '',  `itemcode` varchar(50) NOT NULL DEFAULT '',  `itemname` varchar(500) NOT NULL DEFAULT '',  `parent` varchar(50) NOT NULL DEFAULT '',  `glgroup` tinyint(1) NOT NULL DEFAULT '0',  `gl` tinyint(1) NOT NULL DEFAULT '0',  `sl` tinyint(1) NOT NULL DEFAULT '0',  `bold` tinyint(1) NOT NULL DEFAULT '0',  `summary` tinyint(1) NOT NULL DEFAULT '0',  `unappropriate` tinyint(1) NOT NULL DEFAULT '0',  `treasury` tinyint(1) NOT NULL DEFAULT '0',  `cedula` tinyint(1) NOT NULL DEFAULT '0',  `expenditure` tinyint(1) NOT NULL DEFAULT '0',  `level` int(10) unsigned NOT NULL DEFAULT '0',  `remarks` text,  `latestamount` double NOT NULL DEFAULT '0',  `locked` tinyint(1) NOT NULL DEFAULT '0',  `debitentry` tinyint(1) NOT NULL DEFAULT '0',  PRIMARY KEY (`itemcode`)) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;" : com.ExecuteNonQuery()
     End Sub
 
  
 
     Private Sub cmdSave_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
-    
+
         If XtraMessageBox.Show("Are you sure you want to continue?", compname, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+            Dim errorLine As String = "" : Dim errorColumn As String = "" : Dim errorData As String = ""
             Try
                 Dim CompleteQuery As String = ""
                 Dim Cell As Excel.Range
@@ -44,15 +47,19 @@ Public Class frmGLCaptureChartofAccount
                 ProgressBarControl1.Position = 0
 
                 Dim arrayItem() As String = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S"}
-                com.CommandText = "delete from tblglitem;" : com.ExecuteNonQuery()
+
+                com.CommandText = "DELETE FROM tmpglitem" : com.ExecuteNonQuery()
                 For R = 2 To GetLastItemRow(txtChartofAccounts.Text)
                     Dim coulumnCount As Integer = 0
                     Dim groupcode As String = "" : Dim keycode As String = "" : Dim itemcode As String = "" : Dim itemname As String = "" : Dim parent As String = "" : Dim glgroup As Boolean : Dim gl As Boolean : Dim sl As Boolean : Dim bold As Boolean : Dim summary As Boolean : Dim unappropriate As Boolean : Dim treasury As Boolean : Dim cedula As Boolean : Dim expenditure As Boolean : Dim level As Integer = 0 : Dim remarks As String = "" : Dim latestamount As Double = 0 : Dim locked As Boolean : Dim debitentry As Boolean
                     'Dim g_group As String = "" : Dim g_code As String = "" : Dim g_desc As String = "" : Dim g_parent As String = "" : Dim g_glgroup As Boolean : Dim g_gl As Boolean : Dim g_sl As Boolean : Dim g_level As Integer : Dim g_debit As Boolean : Dim coulumnCount As Integer = 0
+                    errorLine = R
                     For Each valueArr As String In arrayItem
                         For Each Cell In DS_ChartOfAccount.Range(valueArr & R)
                             Dim value_x As String = ""
                             value_x = System.Convert.ToString(Cell.Cells.Value2)
+                            errorColumn = coulumnCount
+                            errorData = value_x
                             If coulumnCount = 0 Then
                                 groupcode = value_x
                             ElseIf coulumnCount = 1 Then
@@ -96,7 +103,7 @@ Public Class frmGLCaptureChartofAccount
                         Next
                     Next
                     'CompleteQuery += "insert into tblglitem set  groupcode='" & groupcode & "',keycode='" & keycode & "', itemcode='" & itemcode & "', itemname='" & rchar(itemname) & "', parent='" & parent & "',glgroup=" & glgroup & ",gl=" & gl & ",sl=" & sl & ",bold=" & bold & ",summary=" & summary & ",unappropriate=" & unappropriate & ", treasury=" & treasury & ",cedula = " & cedula & ", expenditure=" & expenditure & ", level=" & level & ",remarks='" & rchar(remarks) & "',latestamount='" & Val(CC(latestamount)) & "',locked=" & locked & ", debitentry=" & debitentry & ";" & Environment.NewLine
-                    com.CommandText = "insert into tblglitem set  groupcode='" & groupcode & "',keycode='" & keycode & "', itemcode='" & itemcode & "', itemname='" & rchar(itemname) & "', parent='" & parent & "',glgroup=" & glgroup & ",gl=" & gl & ",sl=" & sl & ",bold=" & bold & ",summary=" & summary & ",unappropriate=" & unappropriate & ", treasury=" & treasury & ",cedula = " & cedula & ", expenditure=" & expenditure & ", level=" & level & ",remarks='" & rchar(remarks) & "',latestamount='" & Val(CC(latestamount)) & "',locked=" & locked & ", debitentry=" & debitentry & ";" : com.ExecuteNonQuery()
+                    com.CommandText = "insert into tmpglitem set  groupcode='" & groupcode & "',keycode='" & keycode & "', itemcode='" & itemcode & "', itemname='" & rchar(itemname) & "', parent='" & parent & "',glgroup=" & glgroup & ",gl=" & gl & ",sl=" & sl & ",bold=" & bold & ",summary=" & summary & ",unappropriate=" & unappropriate & ", treasury=" & treasury & ",cedula = " & cedula & ", expenditure=" & expenditure & ", level=" & level & ",remarks='" & rchar(remarks) & "',latestamount='" & Val(CC(latestamount)) & "',locked=" & locked & ", debitentry=" & debitentry & ";" : com.ExecuteNonQuery()
 
                     ProgressBarControl1.PerformStep()
                     ProgressBarControl1.Update()
@@ -111,13 +118,14 @@ Public Class frmGLCaptureChartofAccount
 
                 DataBook.Close(False)
                 ExcelApp.Quit()
-
+                com.CommandText = "delete from tblglitem;" : com.ExecuteNonQuery()
+                com.CommandText = "insert into tblglitem select * from tmpglitem" : com.ExecuteNonQuery()
                 XtraMessageBox.Show("Chart of account successfully updated!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
                 ProgressBarControl1.Position = 0
                 ProgressBarControl1.Visible = False
                 Me.Close()
             Catch fileException As Exception
-                MsgBox(fileException.Message)
+                XtraMessageBox.Show(fileException.Message & " at line " & errorLine & " column " & errorColumn & " value " & errorData, compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End If
 

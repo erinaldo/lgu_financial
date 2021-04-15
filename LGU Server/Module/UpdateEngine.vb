@@ -312,7 +312,19 @@ Module UpdateEngine
 
         updateVersion = "2021-03-25"
         If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
-            com.CommandText = "CREATE TABLE `tblbudgethistory` (  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,  `periodcode` varchar(45) NOT NULL DEFAULT '',  `fundcode` varchar(45) NOT NULL DEFAULT '',  `yearcode` varchar(45) NOT NULL DEFAULT '',  `officeid` varchar(45) NOT NULL DEFAULT '',  `classcode` varchar(45) NOT NULL DEFAULT '',  `itemcode` varchar(45) NOT NULL DEFAULT '',  `itemname` varchar(500) NOT NULL,  `monthcode` varchar(2) NOT NULL DEFAULT '',  `amount` double NOT NULL DEFAULT '0',  `balance` double NOT NULL DEFAULT '0',  PRIMARY KEY (`id`),  KEY `periodcode` (`periodcode`),  KEY `officeid` (`officeid`),  KEY `itemcode` (`itemcode`),  KEY `fundcode` (`fundcode`)) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "CREATE TABLE  `lgufinancial`.`tblbudgethistory` (  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,  `periodcode` varchar(45) NOT NULL DEFAULT '',  `fundcode` varchar(45) NOT NULL DEFAULT '',  `yearcode` varchar(45) NOT NULL DEFAULT '',  `officeid` varchar(45) NOT NULL DEFAULT '',  `classcode` varchar(45) NOT NULL DEFAULT '',  `itemcode` varchar(45) NOT NULL DEFAULT '',  `itemname` varchar(500) NOT NULL,  `monthcode` varchar(2) NOT NULL DEFAULT '',  `totalbudget` double NOT NULL DEFAULT '0',  `amount` double NOT NULL DEFAULT '0',  `expended` double NOT NULL DEFAULT '0',  `balance` double NOT NULL DEFAULT '0',  PRIMARY KEY (`id`),  KEY `periodcode` (`periodcode`),  KEY `officeid` (`officeid`),  KEY `itemcode` (`itemcode`),  KEY `fundcode` (`fundcode`),  KEY `monthcode` (`monthcode`)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+        updateVersion = "2021-04-05"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "update tbljournalentryvoucher set pid=ifnull((select pid from tbldisbursementvoucher where voucherid=tbljournalentryvoucher.dvid),'') where pid='';" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+        updateVersion = "2021-04-14"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "update `tblrequisitionfund` set monthcode=SUBSTRING_INDEX(SUBSTRING_INDEX(requestno, '-', -2), '-', 1);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
             engineupdated = True
         End If
 

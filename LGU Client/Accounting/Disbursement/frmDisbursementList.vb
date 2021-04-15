@@ -55,7 +55,7 @@ Public Class frmDisbursementList
                         + " checkissued as 'Check Issued', " _
                         + " checkno as 'Check No.', " _
                         + " (select description from tblbankaccounts where code=a.checkbank) as 'Bank Name', " _
-                        + " checkdate as 'Check Date', " _
+                        + " date_format(checkdate,'%Y-%m-%d') as 'Check Date', " _
                         + " (select fullname from tblaccounts where accountid=a.trnby) as 'Posted By', " _
                         + " date_format(datetrn,'%Y-%m-%d') as 'Date Posted', " _
                         + " Cleared, date_format(datecleared,'%Y-%m-%d') as 'Date Cleared', " _
@@ -117,7 +117,7 @@ Public Class frmDisbursementList
         DXExportGridToExcel(Me.Text, GridView1)
     End Sub
 
-    Private Sub cmdNew_Click(sender As Object, e As EventArgs) Handles cmdNewProperty.Click
+    Private Sub cmdNew_Click(sender As Object, e As EventArgs)
         If globalAllowAdd = False Then
             MessageBox.Show("Your access not allowed to add!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
@@ -270,7 +270,7 @@ Public Class frmDisbursementList
             XtraMessageBox.Show("Voucher check is currently not issued! ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-        PrintDisbursementVoucher(GridView1.GetFocusedRowCellValue("Entry Code").ToString, Me)
+        PrintDisbursementVoucher(GridView1.GetFocusedRowCellValue("Entry Code").ToString, True, Me)
     End Sub
 
     Private Sub cmdView_Click(sender As Object, e As EventArgs) Handles cmdView.Click
@@ -282,5 +282,25 @@ Public Class frmDisbursementList
         Else
             frmRequisitionInfo.WindowState = FormWindowState.Normal
         End If
+    End Sub
+
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        frmVoucherExport.ShowDialog(Me)
+    End Sub
+
+    Private Sub ExportVoucherFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportVoucherFileToolStripMenuItem.Click
+        If CBool(GridView1.GetFocusedRowCellValue("Cancelled").ToString) Then
+            XtraMessageBox.Show("Printing not allowed! Selected voucher is already cancelled!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        ElseIf CBool(GridView1.GetFocusedRowCellValue("Check Issued").ToString) = False Then
+            XtraMessageBox.Show("Voucher check is currently not issued! ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        Using frm = FolderBrowserDialog1
+            If frm.ShowDialog(Me) = DialogResult.OK Then
+                Dim Location As String = frm.SelectedPath
+                VoucherExporter(False, "voucherid='" & GridView1.GetFocusedRowCellValue("Entry Code").ToString & "'", Location, Nothing, Me)
+            End If
+        End Using
     End Sub
 End Class

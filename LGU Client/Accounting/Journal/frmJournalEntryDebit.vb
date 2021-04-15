@@ -93,7 +93,7 @@ Public Class frmJournalEntryDebit
                          + " fundcode='" & frmJournalEntry.fundcode.Text & "', " _
                          + " periodcode='" & frmJournalEntry.periodcode.Text & "', " _
                          + " yeartrn='" & frmJournalEntry.yeartrn.Text & "', " _
-                         + " postingdate='" & ConvertDate(frmJournalEntry.txtJournalDate.EditValue) & "', " _
+                         + " postingdate=current_date, " _
                          + " centercode='" & officeid.Text & "', " _
                          + " tagclass=" & ckEnableTagClass.CheckState & ", " _
                          + " classcode='" & If(ckEnableTagClass.Checked, txtExpiditureClass.EditValue, "") & "', " _
@@ -111,7 +111,7 @@ Public Class frmJournalEntryDebit
                          + " fundcode='" & frmJournalEntry.fundcode.Text & "', " _
                          + " periodcode='" & frmJournalEntry.periodcode.Text & "', " _
                          + " yeartrn='" & frmJournalEntry.yeartrn.Text & "', " _
-                         + " postingdate='" & ConvertDate(frmJournalEntry.txtJournalDate.EditValue) & "', " _
+                         + " postingdate=current_date, " _
                          + " centercode='" & officeid.Text & "', " _
                          + " tagclass=" & ckEnableTagClass.CheckState & ", " _
                          + " classcode='" & If(ckEnableTagClass.Checked, txtExpiditureClass.EditValue, "") & "', " _

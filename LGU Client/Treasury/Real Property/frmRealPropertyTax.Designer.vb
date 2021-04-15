@@ -252,7 +252,7 @@ Partial Class frmRealPropertyTax
         Me.ckBasic.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
         Me.ckBasic.Properties.Appearance.Options.UseFont = True
         Me.ckBasic.Properties.Caption = "BASIC TAX"
-        Me.ckBasic.Size = New System.Drawing.Size(80, 19)
+        Me.ckBasic.Size = New System.Drawing.Size(80, 20)
         Me.ckBasic.TabIndex = 1037
         '
         'ckSef
@@ -263,7 +263,7 @@ Partial Class frmRealPropertyTax
         Me.ckSef.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
         Me.ckSef.Properties.Appearance.Options.UseFont = True
         Me.ckSef.Properties.Caption = "SPECIAL EDUCATION FUND"
-        Me.ckSef.Size = New System.Drawing.Size(197, 19)
+        Me.ckSef.Size = New System.Drawing.Size(197, 20)
         Me.ckSef.TabIndex = 1038
         '
         'GroupBox2
@@ -366,7 +366,6 @@ Partial Class frmRealPropertyTax
         '
         'TabPane1
         '
-        Me.TabPane1.AllowCollapse = DevExpress.Utils.DefaultBoolean.[Default]
         Me.TabPane1.AppearanceButton.Normal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabPane1.AppearanceButton.Normal.Options.UseFont = True
         Me.TabPane1.AppearanceButton.Pressed.Font = New System.Drawing.Font("Segoe UI", 9.0!)

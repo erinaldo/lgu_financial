@@ -457,4 +457,5 @@ Public Class MdiMainmenu
         frmRegistry.Focus()
         SplashScreenManager.CloseForm()
     End Sub
+
 End Class

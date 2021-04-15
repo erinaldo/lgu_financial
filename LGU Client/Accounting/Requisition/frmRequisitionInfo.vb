@@ -107,20 +107,20 @@ Public Class frmRequisitionInfo
         End If
 
         If mode = "edit" Then
-            cmdSaveAsDraft.Visible = True
-            linedraft.Visible = True
+            'cmdSaveAsDraft.Visible = True
+            'linedraft.Visible = True
             cmdForApproval.Visible = True
             lineapproval.Visible = True
 
         ElseIf mode = "approval" Or mode = "cancelled" Then
-            cmdSaveAsDraft.Visible = False
-            linedraft.Visible = False
+            'cmdSaveAsDraft.Visible = False
+            'linedraft.Visible = False
             cmdForApproval.Visible = False
             lineapproval.Visible = False
 
         ElseIf mode = "view" Or mode = "approved" Then
-            cmdSaveAsDraft.Visible = False
-            linedraft.Visible = False
+            'cmdSaveAsDraft.Visible = False
+            'linedraft.Visible = False
             cmdForApproval.Visible = False
             lineapproval.Visible = False
 
@@ -134,8 +134,8 @@ Public Class frmRequisitionInfo
 
             ShowReportTemplate()
         Else
-            cmdSaveAsDraft.Visible = True
-            linedraft.Visible = True
+            'cmdSaveAsDraft.Visible = True
+            'linedraft.Visible = True
             cmdForApproval.Visible = True
             lineapproval.Visible = True
             cmdPrintObligation.Visible = False
@@ -295,6 +295,12 @@ Public Class frmRequisitionInfo
             txtPurpose.Focus()
             Return False
 
+        ElseIf txtPurpose.Text.Contains("(") Or txtPurpose.Text.Contains(")") Then
+            XtraMessageBox.Show("Special character ""Open and Close parenthesis"" ( ) are Not allowed!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txtPurpose.Focus()
+            Return False
+
+
         End If
         Return True
     End Function
@@ -322,7 +328,7 @@ Public Class frmRequisitionInfo
             XtraMessageBox.Show("No selected item", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-        If XtraMessageBox.Show("Are you sure you want to permanently remove selected item? ", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+        If XtraMessageBox.Show("Are you sure you want To permanently remove selected item? ", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             Dim I As Integer = 0
             For I = 0 To GridView1.SelectedRowsCount - 1
                 com.CommandText = "delete from tmprequisitionfund where id='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "id") & "' " : com.ExecuteNonQuery()
@@ -669,7 +675,7 @@ Public Class frmRequisitionInfo
         End If
     End Sub
 
-    Private Sub cmdSaveFolio_Click(sender As Object, e As EventArgs) Handles cmdSaveAsDraft.Click
+    Private Sub cmdSaveFolio_Click(sender As Object, e As EventArgs)
         If SecurityCheck() = True Then
             If XtraMessageBox.Show("Are you sure you want to continue? ", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
                 If SaveRequisitionInfo(True, False) = True Then
@@ -683,7 +689,7 @@ Public Class frmRequisitionInfo
         End If
     End Sub
 
-  
+
     Private Sub cmdConfirmReservation_Click(sender As Object, e As EventArgs) Handles cmdForApproval.Click
         If SecurityCheck() = True Then
             If Val(CC(txtSourceAmount.Text)) = 0 Then
@@ -751,6 +757,11 @@ Public Class frmRequisitionInfo
 
     Private Sub AddItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles cmdAddItem.Click
         If SecurityCheck() = True Then
+            Dim ServerDate As Date = GetServerDate()
+            If getCurrentTransactionMonth(periodcode.Text) <> ServerDate.ToString("MM") Then
+                XtraMessageBox.Show("Transaction month is not updated! Please contact accounting department", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Exit Sub
+            End If
             frmSourceOfFundInfo.pid.Text = pid.Text
             frmSourceOfFundInfo.officeid.Text = officeid.Text
             frmSourceOfFundInfo.periodcode.Text = periodcode.Text
@@ -762,9 +773,9 @@ Public Class frmRequisitionInfo
     Private Sub cmdPrintObligation_Click(sender As Object, e As EventArgs) Handles cmdPrintObligation.Click
         If countqry("tblfund", "code='" & fundcode.Text & "' and template='FURS'") > 0 Then
             cmdPrintObligation.Text = "Print FURS"
-            PrintFURS(pid.Text, Me)
+            PrintFURS(pid.Text, True, Me)
         ElseIf countqry("tblfund", "code='" & fundcode.Text & "' and template='CAFOA'") > 0 Then
-            PrintCAFOA(pid.Text, Me)
+            PrintCAFOA(pid.Text, True, Me)
         End If
     End Sub
 

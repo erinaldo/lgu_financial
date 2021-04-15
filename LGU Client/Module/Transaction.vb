@@ -1,18 +1,27 @@
 ﻿Module Transaction
+    Public Function getCurrentTransactionMonth(ByVal fundperiod As String)
+        Dim monthcode As String = ""
+        com.CommandText = "SELECT monthcode FROM `tblbudgetmonthly` where fundperiod='" & fundperiod & "' and closed=0 order by monthcode asc limit 1;"
+        rst = com.ExecuteReader
+        While rst.Read
+            monthcode = rst("monthcode").ToString
+        End While
+        rst.Close()
+        Return monthcode
+    End Function
+    Public Function getGlobalDBTrnid() As String
+        Dim strs As Date
+        Dim finalstr As String = ""
 
-    'Public Function getGlobalTrnid() As String
-    '    Dim strs As Date
-    '    Dim finalstr As String = ""
-
-    '    com.CommandText = "select current_timestamp as trnid"
-    '    rst = com.ExecuteReader
-    '    While rst.Read
-    '        strs = rst("trnid").ToString
-    '        finalstr = strs.ToString("yyyyMMddhhmmss")
-    '    End While
-    '    rst.Close()
-    '    Return finalstr
-    'End Function
+        com.CommandText = "select current_timestamp as trnid"
+        rst = com.ExecuteReader
+        While rst.Read
+            strs = rst("trnid").ToString
+            finalstr = strs.ToString("yyMMddhhmmss")
+        End While
+        rst.Close()
+        Return finalstr
+    End Function
 
     Public Function GetSequenceNo(ByVal periodcode As String, ByVal fieldname As String)
         Dim strng As Integer = 0 : Dim newNumber As String = "" : Dim NumberLen As Integer = 0

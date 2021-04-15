@@ -1406,4 +1406,13 @@ Module Libraries
         gridControl.Columns("id").Visible = False
     End Sub
 
+    Public Function SavePDFCopy(ByVal htmlfile As String, ByVal PDFfile As String)
+        Dim htmlToPdf = New NReco.PdfGenerator.HtmlToPdfConverter()
+        htmlToPdf.Zoom = 1.5
+        htmlToPdf.Orientation = NReco.PdfGenerator.PageOrientation.Landscape
+        htmlToPdf.Size = NReco.PdfGenerator.PageSize.A3
+        htmlToPdf.GeneratePdfFromFile(htmlfile, Nothing, PDFfile)
+        Return True
+    End Function
+
 End Module

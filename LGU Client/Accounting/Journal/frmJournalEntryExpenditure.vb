@@ -94,7 +94,7 @@ Public Class frmJournalEntryExpenditure
                          + " fundcode='" & frmJournalEntry.fundcode.Text & "', " _
                          + " periodcode='" & frmJournalEntry.periodcode.Text & "', " _
                          + " yeartrn='" & frmJournalEntry.yeartrn.Text & "', " _
-                         + " postingdate='" & ConvertDate(frmJournalEntry.txtJournalDate.EditValue) & "', " _
+                         + " postingdate=current_date, " _
                          + " centercode='" & dgv.Item("officeid", I).Value & "', " _
                          + " tagclass=1, " _
                          + " classcode='" & dgv.Item("Item Code", I).Value & "', " _

@@ -89,7 +89,7 @@ Public Class frmJournalEntryCredit
                          + " fundcode='" & frmJournalEntry.fundcode.Text & "', " _
                          + " periodcode='" & frmJournalEntry.periodcode.Text & "', " _
                          + " yeartrn='" & frmJournalEntry.yeartrn.Text & "', " _
-                         + " postingdate='" & ConvertDate(frmJournalEntry.txtJournalDate.EditValue) & "', " _
+                         + " postingdate=current_date, " _
                          + " centercode='', " _
                          + " tagclass=" & ckEnableTagClass.CheckState & ", " _
                          + " classcode='', " _
@@ -108,7 +108,7 @@ Public Class frmJournalEntryCredit
                          + " fundcode='" & frmJournalEntry.fundcode.Text & "', " _
                          + " periodcode='" & frmJournalEntry.periodcode.Text & "', " _
                          + " yeartrn='" & frmJournalEntry.yeartrn.Text & "', " _
-                         + " postingdate='" & ConvertDate(frmJournalEntry.txtJournalDate.EditValue) & "', " _
+                         + " postingdate=current_date, " _
                          + " centercode='', " _
                          + " tagclass=" & ckEnableTagClass.CheckState & ", " _
                          + " classcode='', " _

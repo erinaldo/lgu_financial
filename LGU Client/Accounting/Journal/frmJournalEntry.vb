@@ -36,7 +36,6 @@ Public Class frmJournalEntry
         If mode.Text <> "edit" Then
             txtJevNo.Text = "AUTO GENERATED"
             cmdSave.Text = "Save Journal"
-            txtJournalDate.EditValue = Now
             loadFundSettings()
         Else
             ShowVoucherInfo()
@@ -62,7 +61,6 @@ Public Class frmJournalEntry
             txtJevNo.Text = rst("jevno").ToString
             txtFund.EditValue = rst("periodcode").ToString
             yeartrn.Text = rst("yeartrn").ToString
-            txtJournalDate.EditValue = rst("postingdate").ToString
             fundcode.Text = rst("fundcode").ToString
             officeid.Text = rst("officeid").ToString
             txtOffice.Text = rst("office").ToString
@@ -91,7 +89,6 @@ Public Class frmJournalEntry
     End Sub
 
     Public Function InfoControl(ByVal readonlyform As Boolean)
-        txtJournalDate.ReadOnly = readonlyform
         txtRemarks.ReadOnly = readonlyform
         txtPayrollNo.ReadOnly = readonlyform
         txtRCDNo.ReadOnly = readonlyform
@@ -135,10 +132,6 @@ Public Class frmJournalEntry
             XtraMessageBox.Show("Please select fund ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtFund.Focus()
             Exit Sub
-        ElseIf txtJournalDate.Text = "" Then
-            XtraMessageBox.Show("Please select voucher date ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtJournalDate.Focus()
-            Exit Sub
         End If
         frmJournalEntryExpenditure.ShowDialog(Me)
     End Sub
@@ -172,11 +165,7 @@ Public Class frmJournalEntry
     Public Function CheckSecurity() As Boolean
         If txtFund.Text = "" Then
             XtraMessageBox.Show("Please select fund ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtJournalDate.Focus()
-            Return False
-        ElseIf txtJournalDate.Text = "" Then
-            XtraMessageBox.Show("Please select voucher date ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtJournalDate.Focus()
+            txtFund.Focus()
             Return False
         ElseIf Val(CC(Gridview1.Columns("Debit").SummaryItem.SummaryValue)) <> Val(CC(Gridview1.Columns("Credit").SummaryItem.SummaryValue)) Then
             XtraMessageBox.Show("Total debit and total credit not match!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -196,7 +185,6 @@ Public Class frmJournalEntry
                    + " periodcode='" & periodcode.Text & "', " _
                    + " yeartrn='" & yeartrn.Text & "', " _
                    + " officeid='" & officeid.Text & "', " _
-                   + " postingdate='" & ConvertDate(txtJournalDate.EditValue) & "', " _
                    + " remarks='" & rchar(txtRemarks.Text) & "', " _
                    + " dvid='" & dvid.Text & "', " _
                    + " payrollno='" & txtPayrollNo.Text & "', " _
@@ -206,14 +194,15 @@ Public Class frmJournalEntry
                    + " pid='" & pid.Text & "' " _
                    + " where jevno='" & jevno.Text & "'" : com.ExecuteNonQuery()
         Else
-            Dim newjevno As String = fundcode.Text & "-" & yeartrn.Text & "-" & CDate(txtJournalDate.EditValue).ToString("MM") & "-" & GetSequenceNo(periodcode.Text, "jevseries")
+            Dim ServerDate As Date = CDate(GetServerDate())
+            Dim newjevno As String = fundcode.Text & "-" & yeartrn.Text & "-" & ServerDate.ToString("MM") & "-" & GetSequenceNo(periodcode.Text, "jevseries")
             com.CommandText = "insert into tbljournalentryvoucher set " _
                    + " jevno='" & newjevno & "', " _
                    + " fundcode='" & fundcode.Text & "', " _
                    + " periodcode='" & periodcode.Text & "', " _
                    + " yeartrn='" & yeartrn.Text & "', " _
                    + " officeid='" & officeid.Text & "', " _
-                   + " postingdate='" & ConvertDate(txtJournalDate.EditValue) & "', " _
+                   + " postingdate=current_date, " _
                    + " remarks='" & rchar(txtRemarks.Text) & "', " _
                    + " dvid='" & dvid.Text & "', " _
                    + " payrollno='" & txtPayrollNo.Text & "', " _
@@ -238,11 +227,7 @@ Public Class frmJournalEntry
     Private Sub cmdEdit_Click(sender As Object, e As EventArgs) Handles cmdEdit.Click
         If txtFund.Text = "" Then
             XtraMessageBox.Show("Please select fund ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtJournalDate.Focus()
-            Exit Sub
-        ElseIf txtJournalDate.Text = "" Then
-            XtraMessageBox.Show("Please select journal date ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtJournalDate.Focus()
+            txtFund.Focus()
             Exit Sub
         End If
 
@@ -283,13 +268,6 @@ Public Class frmJournalEntry
 
     End Sub
 
-    Private Sub budgetyear_EditValueChanged(sender As Object, e As EventArgs) Handles yeartrn.EditValueChanged
-        If yeartrn.Text = "" Then Exit Sub
-        txtJournalDate.Properties.MinValue = CDate("January 01, " & yeartrn.Text).ToString("MMMM dd, yyyy")
-        txtJournalDate.Properties.MaxValue = CDate("December 31, " & yeartrn.Text).ToString("MMMM dd, yyyy")
-        txtJournalDate.EditValue = CDate(Now.ToString("MMMM dd, ") & yeartrn.Text)
-    End Sub
-
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles cmdPrint.Click
         If mode.Text = "view" Then
             PrintJournalVoucher(jevno.Text, Me)
@@ -306,12 +284,9 @@ Public Class frmJournalEntry
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
         If txtFund.Text = "" Then
             XtraMessageBox.Show("Please select fund ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtJournalDate.Focus()
+            txtFund.Focus()
             Exit Sub
-        ElseIf txtJournalDate.Text = "" Then
-            XtraMessageBox.Show("Please select journal date ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtJournalDate.Focus()
-            Exit Sub
+
         End If
         frmJournalEntryCredit.jevno.Text = jevno.Text
         If frmJournalEntryCredit.Visible = True Then
@@ -331,12 +306,9 @@ Public Class frmJournalEntry
     Private Sub ManualJournalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ManualJournalToolStripMenuItem.Click
         If txtFund.Text = "" Then
             XtraMessageBox.Show("Please select fund ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtJournalDate.Focus()
+            txtFund.Focus()
             Exit Sub
-        ElseIf txtJournalDate.Text = "" Then
-            XtraMessageBox.Show("Please select journal date ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtJournalDate.Focus()
-            Exit Sub
+
         End If
         frmJournalEntryDebit.jevno.Text = jevno.Text
         frmJournalEntryDebit.pid.Text = pid.Text
