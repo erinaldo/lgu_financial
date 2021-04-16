@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmUsersAccounts
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,14 +17,13 @@ Partial Class frmUsersAccounts
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.SplitContainerControl1 = New DevExpress.XtraEditors.SplitContainerControl()
         Me.XtraScrollableControl1 = New DevExpress.XtraEditors.XtraScrollableControl()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.txtEmail = New DevExpress.XtraEditors.TextEdit()
-        Me.accesscode = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
         Me.ckClientUser = New DevExpress.XtraEditors.CheckEdit()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
@@ -37,13 +36,11 @@ Partial Class frmUsersAccounts
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
-        Me.percode = New DevExpress.XtraEditors.TextEdit()
         Me.txtServerPermission = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gv_permission = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.cmdSaveButton = New DevExpress.XtraEditors.SimpleButton()
         Me.txtfullname = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        Me.officeid = New DevExpress.XtraEditors.TextEdit()
         Me.txtuserid = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl()
         Me.txtoffice = New DevExpress.XtraEditors.SearchLookUpEdit()
@@ -71,11 +68,6 @@ Partial Class frmUsersAccounts
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdRemovePermission = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteAccountsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AccountTagingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TagAsMayorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TagAsAccountantToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TagAsFinanceOfficerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TagAsSangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -83,14 +75,11 @@ Partial Class frmUsersAccounts
         Me.SplitContainerControl1.SuspendLayout()
         Me.XtraScrollableControl1.SuspendLayout()
         CType(Me.txtEmail.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.accesscode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckClientUser.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.percode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtServerPermission.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gv_permission, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtfullname.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtuserid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtoffice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtofficeView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -114,14 +103,14 @@ Partial Class frmUsersAccounts
         '
         Me.SplitContainerControl1.CollapsePanel = DevExpress.XtraEditors.SplitCollapsePanel.Panel1
         Me.SplitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 20)
+        Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 24)
         Me.SplitContainerControl1.Name = "SplitContainerControl1"
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.XtraScrollableControl1)
         Me.SplitContainerControl1.Panel1.Text = "Panel1"
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.kbid)
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
-        Me.SplitContainerControl1.Size = New System.Drawing.Size(991, 555)
+        Me.SplitContainerControl1.Size = New System.Drawing.Size(991, 551)
         Me.SplitContainerControl1.SplitterPosition = 337
         Me.SplitContainerControl1.TabIndex = 1
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
@@ -130,15 +119,12 @@ Partial Class frmUsersAccounts
         '
         Me.XtraScrollableControl1.Controls.Add(Me.LabelControl2)
         Me.XtraScrollableControl1.Controls.Add(Me.txtEmail)
-        Me.XtraScrollableControl1.Controls.Add(Me.accesscode)
         Me.XtraScrollableControl1.Controls.Add(Me.LabelControl4)
         Me.XtraScrollableControl1.Controls.Add(Me.ckClientUser)
-        Me.XtraScrollableControl1.Controls.Add(Me.percode)
         Me.XtraScrollableControl1.Controls.Add(Me.txtServerPermission)
         Me.XtraScrollableControl1.Controls.Add(Me.cmdSaveButton)
         Me.XtraScrollableControl1.Controls.Add(Me.txtfullname)
         Me.XtraScrollableControl1.Controls.Add(Me.LabelControl1)
-        Me.XtraScrollableControl1.Controls.Add(Me.officeid)
         Me.XtraScrollableControl1.Controls.Add(Me.txtuserid)
         Me.XtraScrollableControl1.Controls.Add(Me.LabelControl16)
         Me.XtraScrollableControl1.Controls.Add(Me.txtoffice)
@@ -159,7 +145,7 @@ Partial Class frmUsersAccounts
         Me.XtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.XtraScrollableControl1.Location = New System.Drawing.Point(0, 0)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
-        Me.XtraScrollableControl1.Size = New System.Drawing.Size(337, 555)
+        Me.XtraScrollableControl1.Size = New System.Drawing.Size(337, 551)
         Me.XtraScrollableControl1.TabIndex = 2
         '
         'LabelControl2
@@ -184,18 +170,6 @@ Partial Class frmUsersAccounts
         Me.txtEmail.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
         Me.txtEmail.Size = New System.Drawing.Size(191, 20)
         Me.txtEmail.TabIndex = 7
-        '
-        'accesscode
-        '
-        Me.accesscode.EnterMoveNextControl = True
-        Me.accesscode.Location = New System.Drawing.Point(244, 521)
-        Me.accesscode.Name = "accesscode"
-        Me.accesscode.Properties.Appearance.Options.UseTextOptions = True
-        Me.accesscode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.accesscode.Properties.ReadOnly = True
-        Me.accesscode.Size = New System.Drawing.Size(54, 20)
-        Me.accesscode.TabIndex = 648
-        Me.accesscode.Visible = False
         '
         'LabelControl4
         '
@@ -266,7 +240,7 @@ Partial Class frmUsersAccounts
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(991, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(991, 24)
         '
         'barDockControlBottom
         '
@@ -280,35 +254,23 @@ Partial Class frmUsersAccounts
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 24)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 555)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 551)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(991, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(991, 24)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 555)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 551)
         '
         'BarButtonItem2
         '
         Me.BarButtonItem2.Caption = "Employee Synchronize"
         Me.BarButtonItem2.Id = 4
         Me.BarButtonItem2.Name = "BarButtonItem2"
-        '
-        'percode
-        '
-        Me.percode.EnterMoveNextControl = True
-        Me.percode.Location = New System.Drawing.Point(184, 520)
-        Me.percode.Name = "percode"
-        Me.percode.Properties.Appearance.Options.UseTextOptions = True
-        Me.percode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.percode.Properties.ReadOnly = True
-        Me.percode.Size = New System.Drawing.Size(54, 20)
-        Me.percode.TabIndex = 644
-        Me.percode.Visible = False
         '
         'txtServerPermission
         '
@@ -362,18 +324,6 @@ Partial Class frmUsersAccounts
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(0, 13)
         Me.LabelControl1.TabIndex = 609
-        '
-        'officeid
-        '
-        Me.officeid.EnterMoveNextControl = True
-        Me.officeid.Location = New System.Drawing.Point(64, 520)
-        Me.officeid.Name = "officeid"
-        Me.officeid.Properties.Appearance.Options.UseTextOptions = True
-        Me.officeid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.officeid.Properties.ReadOnly = True
-        Me.officeid.Size = New System.Drawing.Size(54, 20)
-        Me.officeid.TabIndex = 384
-        Me.officeid.Visible = False
         '
         'txtuserid
         '
@@ -536,9 +486,9 @@ Partial Class frmUsersAccounts
         'signature
         '
         Me.signature.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.signature.Location = New System.Drawing.Point(2, 23)
+        Me.signature.Location = New System.Drawing.Point(2, 27)
         Me.signature.Name = "signature"
-        Me.signature.Size = New System.Drawing.Size(257, 86)
+        Me.signature.Size = New System.Drawing.Size(257, 82)
         Me.signature.TabIndex = 375
         '
         'LabelControl29
@@ -621,15 +571,15 @@ Partial Class frmUsersAccounts
         Me.Em.Location = New System.Drawing.Point(0, 0)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(644, 555)
+        Me.Em.Size = New System.Drawing.Size(644, 551)
         Me.Em.TabIndex = 1
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
         'gridmenustrip
         '
-        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.cmdRemovePermission, Me.DeleteAccountsToolStripMenuItem, Me.AccountTagingToolStripMenuItem, Me.ToolStripSeparator3, Me.RefreshToolStripMenuItem1})
+        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.cmdRemovePermission, Me.DeleteAccountsToolStripMenuItem, Me.ToolStripSeparator3, Me.RefreshToolStripMenuItem1})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(205, 142)
+        Me.gridmenustrip.Size = New System.Drawing.Size(205, 120)
         '
         'cmdEdit
         '
@@ -658,42 +608,6 @@ Partial Class frmUsersAccounts
         Me.DeleteAccountsToolStripMenuItem.Name = "DeleteAccountsToolStripMenuItem"
         Me.DeleteAccountsToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
         Me.DeleteAccountsToolStripMenuItem.Text = "Block/Remove Accounts"
-        '
-        'AccountTagingToolStripMenuItem
-        '
-        Me.AccountTagingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TagAsMayorToolStripMenuItem, Me.TagAsAccountantToolStripMenuItem, Me.TagAsFinanceOfficerToolStripMenuItem, Me.TagAsSangToolStripMenuItem})
-        Me.AccountTagingToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.user__arrow1
-        Me.AccountTagingToolStripMenuItem.Name = "AccountTagingToolStripMenuItem"
-        Me.AccountTagingToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
-        Me.AccountTagingToolStripMenuItem.Text = "Account Tagging"
-        '
-        'TagAsMayorToolStripMenuItem
-        '
-        Me.TagAsMayorToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.Administration
-        Me.TagAsMayorToolStripMenuItem.Name = "TagAsMayorToolStripMenuItem"
-        Me.TagAsMayorToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
-        Me.TagAsMayorToolStripMenuItem.Text = "Tag as Mayor"
-        '
-        'TagAsAccountantToolStripMenuItem
-        '
-        Me.TagAsAccountantToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.User__2_
-        Me.TagAsAccountantToolStripMenuItem.Name = "TagAsAccountantToolStripMenuItem"
-        Me.TagAsAccountantToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
-        Me.TagAsAccountantToolStripMenuItem.Text = "Tag as Accountant"
-        '
-        'TagAsFinanceOfficerToolStripMenuItem
-        '
-        Me.TagAsFinanceOfficerToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.Quality
-        Me.TagAsFinanceOfficerToolStripMenuItem.Name = "TagAsFinanceOfficerToolStripMenuItem"
-        Me.TagAsFinanceOfficerToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
-        Me.TagAsFinanceOfficerToolStripMenuItem.Text = "Tag as Finance Officer"
-        '
-        'TagAsSangToolStripMenuItem
-        '
-        Me.TagAsSangToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.Person
-        Me.TagAsSangToolStripMenuItem.Name = "TagAsSangToolStripMenuItem"
-        Me.TagAsSangToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
-        Me.TagAsSangToolStripMenuItem.Text = "Tag as Sanggunian Secretary"
         '
         'ToolStripSeparator3
         '
@@ -734,14 +648,11 @@ Partial Class frmUsersAccounts
         Me.XtraScrollableControl1.ResumeLayout(False)
         Me.XtraScrollableControl1.PerformLayout()
         CType(Me.txtEmail.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.accesscode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckClientUser.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.percode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtServerPermission.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gv_permission, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtfullname.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtuserid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtoffice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtofficeView, System.ComponentModel.ISupportInitialize).EndInit()
@@ -764,7 +675,6 @@ Partial Class frmUsersAccounts
 
     End Sub
     Friend WithEvents SplitContainerControl1 As DevExpress.XtraEditors.SplitContainerControl
-    Friend WithEvents officeid As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtoffice As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents lblOffie As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl29 As DevExpress.XtraEditors.LabelControl
@@ -805,21 +715,14 @@ Partial Class frmUsersAccounts
     Friend WithEvents BarButtonItem2 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents txtofficeView As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents cmdSaveButton As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents percode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtServerPermission As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gv_permission As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents cmdRemovePermission As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ckClientUser As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents accesscode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents txtEmail As DevExpress.XtraEditors.TextEdit
     Friend WithEvents DeleteAccountsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents txtClientPermission As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gv_clientUserPosition As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents AccountTagingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TagAsMayorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TagAsFinanceOfficerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TagAsSangToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TagAsAccountantToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

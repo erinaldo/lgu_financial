@@ -42,11 +42,6 @@ Public Class frmUsersAccounts
         gv_clientUserPosition.Columns("accesscode").Visible = False
     End Sub
 
-    Private Sub txtUserPosition_EditValueChanged(sender As Object, e As EventArgs) Handles txtClientPermission.EditValueChanged
-        On Error Resume Next
-        Dim iCurrentRow As Integer = CInt(txtClientPermission.Properties.View.FocusedRowHandle.ToString)
-        accesscode.Text = txtClientPermission.Properties.View.GetFocusedRowCellValue("accesscode").ToString()
-    End Sub
     Public Sub VerifyPermission()
         If globalAllowAdd = True Or LCase(globaluser) = "root" Then
             cmdSaveMenu.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
@@ -77,10 +72,6 @@ Public Class frmUsersAccounts
         LoadXgridLookupSearch("SELECT percode,permission as 'Select Permission' from tblpermissions order by permission asc", "tblpermissions", txtServerPermission, gv_permission, Me)
         gv_permission.Columns("percode").Visible = False
     End Sub
-    Private Sub txtpermission_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtServerPermission.EditValueChanged
-        On Error Resume Next
-        percode.Text = txtServerPermission.Properties.View.GetFocusedRowCellValue("percode").ToString()
-    End Sub
 
     Private Sub BarButtonItem1_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
         Me.Close()
@@ -89,11 +80,6 @@ Public Class frmUsersAccounts
     Public Sub loadOffice()
         LoadXgridLookupSearch("select officeid, officename as 'Select Office' from tblcompoffice where deleted=0 order by officename asc", "tblcompoffice", txtoffice, txtofficeView, Me)
         txtofficeView.Columns("officeid").Visible = False
-    End Sub
-    Private Sub txtoffice_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtoffice.EditValueChanged
-        On Error Resume Next
-        Dim iCurrentRow As Integer = CInt(txtoffice.Properties.View.FocusedRowHandle.ToString)
-        officeid.Text = txtoffice.Properties.View.GetFocusedRowCellValue("officeid").ToString
     End Sub
 
     Private Sub RefreshToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RefreshToolStripMenuItem1.Click
@@ -176,11 +162,11 @@ Public Class frmUsersAccounts
             If XtraMessageBox.Show("Are you sure you want update user account of " & txtfullname.Text & "?", compname, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
                 com.CommandText = "update tblaccounts set fullname = '" & txtfullname.Text & "', " _
                                  + " designation='" & txtdesignation.Text & "', " _
-                                 + " officeid='" & officeid.Text & "', " _
+                                 + " officeid='" & txtoffice.EditValue & "', " _
                                  + " emailaddress = '" & txtEmail.Text & "', " _
                                  + " username='" & txtusername.Text & "', " _
                                  + passqry _
-                                 + " permission = '" & percode.Text & "',coffeecupuser=" & ckClientUser.CheckState & ",clientaccesscode='" & accesscode.Text & "' where accountid='" & txtuserid.Text & "' "
+                                 + " permission = '" & txtServerPermission.EditValue & "',coffeecupuser=" & ckClientUser.CheckState & ",clientaccesscode='" & txtClientPermission.EditValue & "' where accountid='" & txtuserid.Text & "' "
             Else
                 Exit Sub
             End If
@@ -203,12 +189,12 @@ Public Class frmUsersAccounts
             If XtraMessageBox.Show("Are you sure you want create user account of " & txtfullname.Text & " ? ", compname, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
                 com.CommandText = "insert into tblaccounts set accountid='" & txtuserid.Text & "', fullname = '" & txtfullname.Text & "', " _
                                                 + " designation='" & txtdesignation.Text & "', " _
-                                                + " officeid='" & officeid.Text & "', " _
+                                                + " officeid='" & txtoffice.EditValue & "', " _
                                                 + " username='" & txtusername.Text & "', " _
                                                 + " password='" & EncryptTripleDES(UCase(txtusername.Text) + txtverify.Text) & "', " _
                                                 + " webpassword=DES_ENCRYPT('" & txtusername.Text + txtverify.Text & "','kira'), " _
                                                 + " emailaddress = '" & txtEmail.Text & "', " _
-                                                + " permission = '" & percode.Text & "',coffeecupuser=" & ckClientUser.CheckState & ",clientaccesscode='" & accesscode.Text & "', datereg='" & GlobalDateTime() & "'"
+                                                + " permission = '" & txtServerPermission.EditValue & "',coffeecupuser=" & ckClientUser.CheckState & ",clientaccesscode='" & txtClientPermission.EditValue & "', datereg='" & GlobalDateTime() & "'"
             Else
                 Exit Sub
             End If
@@ -216,10 +202,10 @@ Public Class frmUsersAccounts
         com.ExecuteNonQuery()
         If ckClientUser.Checked = True Then
             com.CommandText = "update tblaccountaccess set defaultaccess=0 where userid='" & txtuserid.Text & "'" : com.ExecuteNonQuery()
-            If countqry("tblaccountaccess", "userid='" & txtuserid.Text & "' and permission='" & accesscode.Text & "'") > 0 Then
-                com.CommandText = "update tblaccountaccess set defaultaccess=1 where userid='" & txtuserid.Text & "' and permission='" & accesscode.Text & "'" : com.ExecuteNonQuery()
+            If countqry("tblaccountaccess", "userid='" & txtuserid.Text & "' and permission='" & txtServerPermission.EditValue & "'") > 0 Then
+                com.CommandText = "update tblaccountaccess set defaultaccess=1 where userid='" & txtuserid.Text & "' and permission='" & txtServerPermission.EditValue & "'" : com.ExecuteNonQuery()
             Else
-                com.CommandText = "insert into tblaccountaccess set userid='" & txtuserid.Text & "', permission='" & accesscode.Text & "',defaultaccess=1" : com.ExecuteNonQuery()
+                com.CommandText = "insert into tblaccountaccess set userid='" & txtuserid.Text & "', permission='" & txtServerPermission.EditValue & "',defaultaccess=1" : com.ExecuteNonQuery()
             End If
         End If
         UpdateImage("accountid='" & txtuserid.Text & "'", "digitalsign", "tblaccounts", signature, Me)
@@ -246,18 +232,15 @@ Public Class frmUsersAccounts
 
         txtoffice.Properties.DataSource = Nothing
         txtoffice.Text = ""
-        officeid.Text = ""
         loadOffice()
         txtuserid.Text = getuserid()
 
         txtServerPermission.Properties.DataSource = Nothing
         txtServerPermission.Text = ""
-        percode.Text = ""
 
         'CheckEdit1.Enabled = False
         txtClientPermission.Properties.DataSource = Nothing
         txtClientPermission.Text = ""
-        accesscode.Text = ""
         ckClientUser.Checked = False
         loadUserPosition()
 
@@ -301,11 +284,11 @@ Public Class frmUsersAccounts
             txtdesignation.Text = rst("designation").ToString
             txtusername.Text = rst("username").ToString
             txtEmail.Text = rst("emailaddress").ToString
-            percode.Text = rst("permission").ToString
-            officeid.Text = rst("officeid").ToString
+            txtServerPermission.EditValue = rst("permission").ToString
+            txtoffice.EditValue = rst("officeid").ToString
             tempoffice = rst("officeid").ToString
             tempEnableClientUser = rst("coffeecupuser")
-            accesscode.Text = rst("clientaccesscode").ToString
+            txtClientPermission.EditValue = rst("clientaccesscode").ToString
             txtServerPermission.Text = rst("permission").ToString
             txtClientPermission.EditValue = rst("clientaccesscode").ToString
             If rst("digitalsign").ToString <> "" Then
@@ -405,7 +388,6 @@ Public Class frmUsersAccounts
         Else
             txtClientPermission.Properties.DataSource = Nothing
             txtClientPermission.Text = ""
-            accesscode.Text = ""
             loadUserPosition()
             txtClientPermission.Enabled = False
         End If
@@ -418,49 +400,11 @@ Public Class frmUsersAccounts
     Public Function BlockedAccounts(ByVal reason As String)
         For I = 0 To GridView1.SelectedRowsCount - 1
             com.CommandText = "update tblaccounts set deleted=1, datedeleted=current_timestamp, deletedby='" & globalfullname & "',deletedreason='" & rchar(reason) & "' where accountid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Account ID") & "' " : com.ExecuteNonQuery()
-            If countqry("tblinventoryffe", "acctablepersonid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Account ID") & "' and disposed=0") > 0 Then
-                com.CommandText = "UPDATE tblinventoryffe set flaged=1, flagedreason='Accountability status changed! " & LCase(GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Fullname")) & " was " & reason & "' where acctablepersonid='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "Account ID") & "'" : com.ExecuteNonQuery()
-            End If
+
         Next
         filteruser()
         XtraMessageBox.Show("Selected Accounts successfully blocked or Removed", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
         Return True
     End Function
 
-
-    Private Sub TagAsMayorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TagAsMayorToolStripMenuItem.Click
-        If XtraMessageBox.Show("Are you sure you want continue? ", compname, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
-            com.CommandText = "update tblaccounts set executiveofficer=0" : com.ExecuteNonQuery()
-            com.CommandText = "update tblaccounts set executiveofficer=1 where accountid='" & GridView1.GetFocusedRowCellValue("Account ID").ToString() & "'" : com.ExecuteNonQuery()
-            filteruser()
-            XtraMessageBox.Show("Selected Accounts successfully tagged as mayor", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
-    End Sub
-
-    Private Sub TagAsFinanceOfficerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TagAsFinanceOfficerToolStripMenuItem.Click
-        If XtraMessageBox.Show("Are you sure you want continue? ", compname, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
-            com.CommandText = "update tblaccounts set financeofficer=0" : com.ExecuteNonQuery()
-            com.CommandText = "update tblaccounts set financeofficer=1 where accountid='" & GridView1.GetFocusedRowCellValue("Account ID").ToString() & "'" : com.ExecuteNonQuery()
-            filteruser()
-            XtraMessageBox.Show("Selected Accounts successfully tagged as FInance Officer", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
-    End Sub
-
-    Private Sub TagAsSangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TagAsSangToolStripMenuItem.Click
-        If XtraMessageBox.Show("Are you sure you want continue? ", compname, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
-            com.CommandText = "update tblaccounts set sangguniansecretary=0" : com.ExecuteNonQuery()
-            com.CommandText = "update tblaccounts set sangguniansecretary=1 where accountid='" & GridView1.GetFocusedRowCellValue("Account ID").ToString() & "'" : com.ExecuteNonQuery()
-            filteruser()
-            XtraMessageBox.Show("Selected Accounts successfully tagged as FInance Officer", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
-    End Sub
-
-    Private Sub TagAsAccountantToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TagAsAccountantToolStripMenuItem.Click
-        If XtraMessageBox.Show("Are you sure you want continue? ", compname, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
-            com.CommandText = "update tblaccounts set accountant=0" : com.ExecuteNonQuery()
-            com.CommandText = "update tblaccounts set accountant=1 where accountid='" & GridView1.GetFocusedRowCellValue("Account ID").ToString() & "'" : com.ExecuteNonQuery()
-            filteruser()
-            XtraMessageBox.Show("Selected Accounts successfully tagged as accountant", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
-    End Sub
 End Class
