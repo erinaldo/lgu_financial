@@ -214,7 +214,7 @@ Partial Class frmJournalEntryCredit
         'officeid
         '
         Me.officeid.EditValue = ""
-        Me.officeid.Location = New System.Drawing.Point(464, 212)
+        Me.officeid.Location = New System.Drawing.Point(464, 178)
         Me.officeid.Name = "officeid"
         Me.officeid.Properties.Appearance.Options.UseTextOptions = True
         Me.officeid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center

@@ -40,16 +40,16 @@ Public Class frmBudgetMonthly
 
     Public Sub LoadExpenditureItem()
         If txtFund.Text = "" Or (txtOffice.Text = "" And CheckEdit1.Checked = False) Then Exit Sub
-        LoadXgrid("SELECT b.id, a.itemcode, (select officename from tblcompoffice where officeid=b.officeid) as 'Office', b.classcode as 'Class', a.itemname as 'Account Title', ifnull(b.totalbudget,0) as 'Total Budget', " _
+        LoadXgrid("select *,(January+February+March+April+May+June+July+August+September+October+November+December+nydd+dd+cleared) as TOTAL from (SELECT b.id, a.itemcode, (select officename from tblcompoffice where officeid=b.officeid) as 'Office', b.classcode as 'Class', a.itemname as 'Account Title', ifnull(b.totalbudget,0) as 'Total Budget', " _
                   + " amount-(select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode And b.itemcode=a.itemcode And b.officeid=a.officeid And b.monthcode=a.monthcode And a.cancelled=0)  as 'Current Month Balance', " _
                   + " January, February, March, April, May, June, July, August, September, October, November, December, " _
-                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and a.pid not in (select pid from tbldisbursementvoucher as dv where dv.checkno<>'')) as 'NYDD', " _
-                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkno<>'' and dv.cleared=0)) as 'DD', " _
-                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkno<>'' and dv.cleared=1)) as 'CLEARED' " _
-                  + " FROM `tblglitem` as a left join tblbudgetcomposition as b on a.itemcode=b.itemcode and b.periodcode='" & periodcode.Text & "' " & If(CheckEdit1.Checked = True, "", " and b.officeid='" & officeid.Text & "' ") & "  where b.totalbudget > 0 order by (select officename from tblcompoffice where officeid=b.officeid),a.itemname asc;", "tblglitem", Em, GridView1, Me)
+                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and (a.pid not in (select pid from tbldisbursementvoucher as dv where dv.cancelled=0) or a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=0 and dv.cancelled=0))) as 'NYDD', " _
+                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=1 and dv.cleared=0 and dv.cancelled=0)) as 'DD', " _
+                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=1 and dv.cleared=1 and dv.cancelled=0)) as 'CLEARED' " _
+                  + " FROM `tblglitem` as a left join tblbudgetcomposition as b on a.itemcode=b.itemcode and b.periodcode='" & periodcode.Text & "' " & If(CheckEdit1.Checked = True, "", " and b.officeid='" & officeid.Text & "' ") & "  where b.totalbudget > 0) as x order by office,`Account Title` asc;", "tblglitem", Em, GridView1, Me)
         XgridHideColumn({"id", "itemcode"}, GridView1)
-        XgridColCurrency({"Total Budget", "Current Month Balance", "NYDD", "DD", "CLEARED", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}, GridView1)
-        XgridGeneralSummaryCurrency({"Total Budget", "Current Month Balance", "NYDD", "DD", "CLEARED", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}, GridView1)
+        XgridColCurrency({"Total Budget", "Current Month Balance", "NYDD", "DD", "CLEARED", "TOTAL", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}, GridView1)
+        XgridGeneralSummaryCurrency({"Total Budget", "Current Month Balance", "NYDD", "DD", "CLEARED", "TOTAL", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}, GridView1)
 
         'XgridColWidth({"Total Budget", "Current Quarter Balance", "1st Quarter", "2nd Quarter", "3rd Quarter", "4th Quarter"}, GridView1, 130)
         GridView1.BestFitColumns()
@@ -76,6 +76,16 @@ Public Class frmBudgetMonthly
             e.Appearance.ForeColor = Color.Black
             e.Appearance.BackColor = Color.LightYellow
             e.Appearance.BackColor2 = Color.LightYellow
+        ElseIf e.Column.Name = "colTOTAL" Then
+            Dim totalBudget As Double = Val(View.GetRowCellDisplayText(e.RowHandle, View.Columns("Total Budget")))
+            Dim totalTrans As Double = Val(View.GetRowCellDisplayText(e.RowHandle, View.Columns("TOTAL")))
+
+            If totalBudget <> totalTrans Then
+                e.Appearance.ForeColor = Color.White
+                e.Appearance.BackColor = Color.Red
+                e.Appearance.BackColor2 = Color.Red
+            End If
+
         End If
 
     End Sub
@@ -119,6 +129,15 @@ Public Class frmBudgetMonthly
             frmBudgetEditLine.Focus()
         Else
             frmBudgetEditLine.Show(Me)
+        End If
+    End Sub
+
+    Private Sub TranferSelectedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TranferSelectedToolStripMenuItem.Click
+        frmBudgetTransfer.from_id.Text = GridView1.GetFocusedRowCellValue("id").ToString()
+        If frmBudgetTransfer.Visible Then
+            frmBudgetTransfer.Focus()
+        Else
+            frmBudgetTransfer.Show(Me)
         End If
     End Sub
 End Class

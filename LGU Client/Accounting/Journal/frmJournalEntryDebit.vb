@@ -22,7 +22,11 @@ Public Class frmJournalEntryDebit
     End Sub
 
     Public Sub LoadExpenditureItem()
-        LoadXgridLookupSearch("select itemcode as code, officeid, (select itemname from tblglitem where itemcode=a.itemcode) as 'Select',  (select officename from tblcompoffice where officeid=a.officeid) as Center, Amount from tblrequisitionfund as a where pid='" & pid.Text & "' ", "tblrequisitionfund", txtExpiditureClass, gridExpenditure)
+        LoadXgridLookupSearch("select id, itemcode as code, officeid, " _
+                              + " (select itemname from tblglitem where itemcode=a.itemcode) as 'Select', " _
+                              + " (select officename from tblcompoffice where officeid=a.officeid) as Center, " _
+                              + " (amount-ifnull((select sum(debit) from tbljournalentryitem where fundreference=a.id),0)) as Amount from tblrequisitionfund as a where pid='" & pid.Text & "' ", "tblrequisitionfund", txtExpiditureClass, gridExpenditure)
+        gridExpenditure.Columns("id").Visible = False
         gridExpenditure.Columns("code").Visible = False
         gridExpenditure.Columns("officeid").Visible = False
         XgridColCurrency({"Amount"}, gridExpenditure)
@@ -31,6 +35,7 @@ Public Class frmJournalEntryDebit
     Private Sub txtExpiditureClass_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtExpiditureClass.EditValueChanged
         On Error Resume Next
         Dim iCurrentRow As Integer = CInt(txtExpiditureClass.Properties.View.FocusedRowHandle.ToString)
+        fundreference.Text = txtExpiditureClass.Properties.View.GetFocusedRowCellValue("id").ToString()
         txtDebit.Text = txtExpiditureClass.Properties.View.GetFocusedRowCellValue("Amount").ToString()
         officeid.Text = txtExpiditureClass.Properties.View.GetFocusedRowCellValue("officeid").ToString()
     End Sub
@@ -67,6 +72,7 @@ Public Class frmJournalEntryDebit
     Public Sub showItemTicketItemInfo()
         com.CommandText = "select * from tbljournalentryitem where id='" & id.Text & "'" : rst = com.ExecuteReader
         While rst.Read
+            fundreference.EditValue = rst("fundreference").ToString
             txtItem.EditValue = rst("itemcode").ToString
             officeid.Text = rst("centercode").ToString
             ckEnableTagClass.Checked = CBool(rst("tagclass").ToString)
@@ -101,7 +107,8 @@ Public Class frmJournalEntryDebit
                          + " itemname='" & rchar(txtItem.Text) & "', " _
                          + " checkno='', " _
                          + " debit='" & Val(CC(txtDebit.Text)) & "', " _
-                         + " credit='0' where id='" & id.Text & "'" : com.ExecuteNonQuery()
+                         + " credit='0', " _
+                         + " fundreference='" & fundreference.Text & "' where id='" & id.Text & "'" : com.ExecuteNonQuery()
             If frmJournalEntry.Visible = True Then
                 frmJournalEntry.LoadAccountTitle()
             End If
@@ -119,7 +126,8 @@ Public Class frmJournalEntryDebit
                          + " itemname='" & rchar(txtItem.Text) & "', " _
                          + " checkno='', " _
                          + " debit='" & Val(CC(txtDebit.Text)) & "', " _
-                         + " credit='0'  " : com.ExecuteNonQuery()
+                         + " credit='0', " _
+                         + " fundreference='" & fundreference.Text & "' " : com.ExecuteNonQuery()
             If Val(CC(txtDebit.Text)) > 0 Then
                 txtDebit.Text = "0.00"
                 txtItem.Focus()

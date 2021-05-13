@@ -235,6 +235,18 @@
     <Compile Include="Accounting\frmErrorCorrect.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Budget\frmBudgetTransferItem.Designer.vb">
+      <DependentUpon>frmBudgetTransferItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\frmBudgetTransferItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Budget\frmBudgetTransfer.Designer.vb">
+      <DependentUpon>frmBudgetTransfer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Budget\frmBudgetTransfer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reports\frmRegistryExport.Designer.vb">
       <DependentUpon>frmRegistryExport.vb</DependentUpon>
     </Compile>
@@ -643,6 +655,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Accounting\frmErrorCorrect.resx">
       <DependentUpon>frmErrorCorrect.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\frmBudgetTransferItem.resx">
+      <DependentUpon>frmBudgetTransferItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget\frmBudgetTransfer.resx">
+      <DependentUpon>frmBudgetTransfer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmRegistryExport.resx">
       <DependentUpon>frmRegistryExport.vb</DependentUpon>

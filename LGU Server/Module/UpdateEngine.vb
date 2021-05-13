@@ -328,6 +328,13 @@ Module UpdateEngine
             engineupdated = True
         End If
 
+        updateVersion = "2021-05-11"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "ALTER TABLE `tbljournalentryitem` ADD COLUMN `fundreference` VARCHAR(45) NOT NULL DEFAULT '' AFTER `cancelled`; " : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbljournalentryitem` ADD INDEX `fundreference`(`fundreference`); " : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
         If engineupdated = True Then
             Dim dversion As Date = updateVersion
             XtraMessageBox.Show("Your database engine was updated to Build Version " & dversion.ToString & Environment.NewLine & "Please view update list at ""Main System Menu"" > About > What's New!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)

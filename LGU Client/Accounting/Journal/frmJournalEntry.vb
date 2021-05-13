@@ -89,7 +89,6 @@ Public Class frmJournalEntry
     End Sub
 
     Public Function InfoControl(ByVal readonlyform As Boolean)
-        txtRemarks.ReadOnly = readonlyform
         txtPayrollNo.ReadOnly = readonlyform
         txtRCDNo.ReadOnly = readonlyform
         txtLRNo.ReadOnly = readonlyform

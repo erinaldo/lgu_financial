@@ -4,11 +4,10 @@ Module Accounting
     Public Function CancelVoucher(ByVal voucherid As String, ByVal pid As String, ByVal remarks As String)
         Try
             com.CommandText = "update tbldisbursementvoucher set cancelled=1,cancelledby='" & globaluserid & "',datecancelled=current_timestamp where voucherid='" & voucherid & "' " : com.ExecuteNonQuery()
-            com.CommandText = "update tblrequisition set voucher=0 where pid in (select pid from tbldisbursementvoucher where voucherid='" & voucherid & "')" : com.ExecuteNonQuery()
-
             com.CommandText = "update tbljournalentryvoucher set cancelled=1,cancelledby='" & globaluserid & "',datecancelled=current_timestamp where dvid='" & voucherid & "' " : com.ExecuteNonQuery()
             com.CommandText = "update tbljournalentryitem set cancelled=1 where jevno in (select jevno from tbljournalentryvoucher where dvid='" & voucherid & "')" : com.ExecuteNonQuery()
 
+            com.CommandText = "update tblrequisition set approved=0, cancelled=1, cancelledby='" & globaluserid & "',datecancelled=current_timestamp where pid ='" & pid & "'" : com.ExecuteNonQuery()
             com.CommandText = "update tblrequisitionfund set cancelled=1 where pid in (select pid from tbldisbursementvoucher where voucherid='" & voucherid & "')" : com.ExecuteNonQuery()
 
             com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='', mainreference='" & pid & "', subreference='" & pid & "', status='Cancelled', remarks='" & remarks & "', applevel=0, officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()

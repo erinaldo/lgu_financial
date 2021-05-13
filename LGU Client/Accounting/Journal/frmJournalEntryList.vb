@@ -46,6 +46,7 @@ Public Class frmJournalEntryList
                         + " concat((select codename from tblfund where code=a.fundcode),'-',yeartrn) as 'Fund Period',  " _
                         + " (select officename from tblcompoffice where officeid = a.officeid) as 'Office', " _
                         + " date_format(postingdate,'%Y-%m-%d') as 'Posting Date', " _
+                        + " (select date_format(checkdate,'%Y-%m-%d') from tbldisbursementvoucher where voucherid=a.dvid) as 'Check Date'," _
                         + " (select sum(debit) from tbljournalentryitem where jevno=a.jevno) as Amount, Remarks, " _
                         + " (select voucherno from tbldisbursementvoucher where voucherid=a.dvid) as 'DV #', payrollno as 'Payroll #',rcdno as 'RCD #',lrno as 'LR #',aeno as 'AE #', " _
                         + " (select fullname from tblaccounts where accountid=a.trnby) as 'Posted By', " _
@@ -58,7 +59,7 @@ Public Class frmJournalEntryList
                         + " order by jevno asc", "tbljournalentryvoucher", Em, GridView1, Me)
         XgridHideColumn({"pid"}, GridView1)
         XgridColCurrency({"Amount"}, GridView1)
-        XgridColAlign({"Entry Code", "JEV No.", "Status", "Fund Period", "Posting Date", "Date Posted", "Cleared", "Date Cleared", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+        XgridColAlign({"Entry Code", "JEV No.", "Status", "Fund Period", "Posting Date", "Check Date", "Date Posted", "Cleared", "Date Cleared", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         XgridColAlign({"DV #", "Payroll #", "RCD #", "LR #", "AE #"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         XgridGeneralSummaryCurrency({"Amount"}, GridView1)
         GridView1.BestFitColumns()

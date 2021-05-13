@@ -1,4 +1,5 @@
-﻿Imports DevExpress.XtraGrid.Views.Grid
+﻿Imports DevExpress.XtraEditors
+Imports DevExpress.XtraGrid.Views.Grid
 
 Module Template
 
@@ -66,11 +67,31 @@ Module Template
             My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[table_row]", ""), False)
         End If
 
+        My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[preparedby]", UCase(GlobalAccountantName)), False)
+        DigitalReportSigniture(SaveLocation, GlobalAccountantID, "prepared")
+
         If print Then
             PrintViaInternetExplorer(SaveLocation.Replace("\", "/"), form)
         End If
 
         Return SaveLocation
     End Function
+
+    Public Sub DigitalReportSigniture(ByVal SaveLocation As String, ByVal userid As String, ByVal code_command As String)
+        If Not System.IO.Directory.Exists(Application.StartupPath.ToString & "\Printing\Signature") Then
+            System.IO.Directory.CreateDirectory(Application.StartupPath.ToString & "\Printing\Signature")
+        End If
+
+        Dim pic As New PictureEdit
+        Dim sig As Image = getAccountSignature(userid)
+        If Not sig Is Nothing Then
+            pic.Image = getAccountSignature(userid)
+            pic.Image.Save(Application.StartupPath.ToString & "\Printing\Signature\" & userid & ".png")
+            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[sig_" & code_command & "]", Application.StartupPath.ToString & "\Printing\Signature\" & userid & ".png"), False)
+            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[hide_" & code_command & "]", ""), False)
+        Else
+            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[hide_" & code_command & "]", "hidden"), False)
+        End If
+    End Sub
 
 End Module

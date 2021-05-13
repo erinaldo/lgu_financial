@@ -79,14 +79,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DevExpress.Data.v19.2.dll" size="7329280">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DevExpress.Data.v19.2.dll" size="7262968">
       <assemblyIdentity name="DevExpress.Data.v19.2" version="19.2.3.0" publicKeyToken="B88D1754D700E49A" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>RjVsyL7GmZQfub38+xWFZsWJxNgKPwBOom80b33ZOMY=</dsig:DigestValue>
+        <dsig:DigestValue>DCfdgg9Ul3tzAJvqQv9elO0ALs3Km60UjM8ZvDVoY2I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2095,14 +2095,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LGU Client.exe" size="7150080">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LGU Client.exe" size="7152128">
       <assemblyIdentity name="LGU Client" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IVCdIo4IyRxIfWrcaS80PrQ2tiXMCROKmbEnDVakutQ=</dsig:DigestValue>
+        <dsig:DigestValue>m5socJMtJuTE/FYfciC77R5m8lJ7c97ULYJ/QOplDYw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

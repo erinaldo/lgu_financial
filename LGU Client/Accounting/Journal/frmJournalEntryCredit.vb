@@ -98,7 +98,7 @@ Public Class frmJournalEntryCredit
                          + " itemname='" & rchar(txtItem.Text) & "', " _
                          + " checkno='', " _
                          + " debit='0', " _
-                         + " credit='" & Val(CC(txtCredit.Text)) & "' where id='" & id.Text & "'" : com.ExecuteNonQuery()
+                         + " credit='" & Val(CC(txtCredit.Text)) & "'  where id='" & id.Text & "'" : com.ExecuteNonQuery()
             If frmJournalEntry.Visible = True Then
                 frmJournalEntry.LoadAccountTitle()
             End If
@@ -117,7 +117,7 @@ Public Class frmJournalEntryCredit
                          + " itemname='" & rchar(txtItem.Text) & "', " _
                          + " checkno='', " _
                          + " debit='0', " _
-                         + " credit='" & Val(CC(txtCredit.Text)) & "'  " : com.ExecuteNonQuery()
+                         + " credit='" & Val(CC(txtCredit.Text)) & "' " : com.ExecuteNonQuery()
             If Val(CC(txtCredit.Text)) > 0 Then
                 txtCredit.Text = "0.00"
                 txtItem.Focus()

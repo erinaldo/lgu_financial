@@ -1415,4 +1415,19 @@ Module Libraries
         Return True
     End Function
 
+    Public Function getAccountSignature(ByVal userid As String) As Image
+        Dim imageSign As Image = Nothing
+        com.CommandText = "select digitalsign from tblaccounts where accountid='" & userid & "'" : rst = com.ExecuteReader()
+        While rst.Read
+            If rst("digitalsign").ToString <> "" Then
+                imgBytes = CType(rst("digitalsign"), Byte())
+                stream = New MemoryStream(imgBytes, 0, imgBytes.Length)
+                img = Image.FromStream(stream)
+                imageSign = img
+            End If
+        End While
+        rst.Close()
+        Return imageSign
+    End Function
+
 End Module

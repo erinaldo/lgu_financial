@@ -23,8 +23,10 @@ Public Class frmJournalEntryExpenditure
         PopulateGridViewControls("Select", 20, "CHECKBOX", dgv, True, False)
         PopulateGridViewControls("Item Code", 50, "", dgv, True, True)
         PopulateGridViewControls("Item Name", 50, "", dgv, True, True)
-        PopulateGridViewControls("Amount", 30, "", dgv, True, True)
+        PopulateGridViewControls("Amount", 30, "", dgv, True, False)
+        PopulateGridViewControls("original", 50, "", dgv, False, True)
         PopulateGridViewControls("officeid", 50, "", dgv, False, True)
+        PopulateGridViewControls("fundreference", 50, "", dgv, False, True)
         LoadRequisition()
     End Sub
 
@@ -47,12 +49,15 @@ Public Class frmJournalEntryExpenditure
             e.Appearance.ForeColor = Color.Black
             e.Appearance.Font = New Font(e.Appearance.Font.FontFamily, e.Appearance.Font.Size, FontStyle.Bold)
         End If
+
     End Sub
 
     Public Sub LoadRequisition()
         dgv.Rows.Clear()
         dst = Nothing : dst = New DataSet
-        msda = New MySqlDataAdapter("select itemcode, officeid, (select itemname from tblglitem where itemcode=a.itemcode) as 'itemname', Amount from tblrequisitionfund as a where pid='" & pid.Text & "' order by  a.itemcode asc ", conn)
+        msda = New MySqlDataAdapter("select id, itemcode, officeid, " _
+                                        + " (select itemname from tblglitem where itemcode=a.itemcode) as 'itemname', " _
+                                        + " (amount-ifnull((select sum(debit) from tbljournalentryitem where fundreference=a.id),0)) as Amount from tblrequisitionfund as a where pid='" & pid.Text & "' order by  a.itemcode asc ", conn)
 
         msda.Fill(dst, 0)
         For cnt = 0 To dst.Tables(0).Rows.Count - 1
@@ -60,7 +65,9 @@ Public Class frmJournalEntryExpenditure
                 dgv.Rows.Add(False, .Rows(cnt)("itemcode").ToString(),
                                                  .Rows(cnt)("itemname").ToString(),
                                                   Val(.Rows(cnt)("Amount").ToString()),
-                                                 .Rows(cnt)("officeid").ToString())
+                                                  Val(.Rows(cnt)("Amount").ToString()),
+                                                 .Rows(cnt)("officeid").ToString(),
+                                                 .Rows(cnt)("id").ToString())
             End With
         Next
 
@@ -77,32 +84,41 @@ Public Class frmJournalEntryExpenditure
             txtItem.Focus()
             Exit Sub
         End If
-        Dim Selected As Boolean = False
+        Dim Selected As Boolean = False : Dim OverAmount As Boolean = False
         For I = 0 To dgv.RowCount - 1
             If DirectCast(dgv.Rows(I).Cells("Select"), DataGridViewCheckBoxCell).Value = 1 Then
                 Selected = True
+            End If
+            If Val(dgv.Rows(I).Cells("Amount").Value) > Val(dgv.Rows(I).Cells("original").Value) Then
+                OverAmount = True
             End If
         Next
         If Selected = False Then
             MessageBox.Show("No item selected", CompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
+        ElseIf OverAmount = True Then
+            MessageBox.Show("Amount entered is greater than total amount fund", CompanyName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
         End If
         If XtraMessageBox.Show("Are you sure you want to continue?", GlobalOrganizationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             For I = 0 To dgv.RowCount - 1
                 If DirectCast(dgv.Rows(I).Cells("Select"), DataGridViewCheckBoxCell).Value = 1 Then
-                    com.CommandText = "insert into tbljournalentryitem set jevno='" & If(jevno.Text = "", globaluserid & "-temp", jevno.Text) & "', " _
-                         + " fundcode='" & frmJournalEntry.fundcode.Text & "', " _
-                         + " periodcode='" & frmJournalEntry.periodcode.Text & "', " _
-                         + " yeartrn='" & frmJournalEntry.yeartrn.Text & "', " _
-                         + " postingdate=current_date, " _
-                         + " centercode='" & dgv.Item("officeid", I).Value & "', " _
-                         + " tagclass=1, " _
-                         + " classcode='" & dgv.Item("Item Code", I).Value & "', " _
-                         + " itemcode='" & txtItem.EditValue & "', " _
-                         + " itemname='" & rchar(txtItem.Text) & "', " _
-                         + " checkno='', " _
-                         + " debit='" & Val(CC(dgv.Item("Amount", I).Value)) & "', " _
-                         + " credit='0'  " : com.ExecuteNonQuery()
+                    If Val(CC(dgv.Item("Amount", I).Value)) > 0 Then
+                        com.CommandText = "insert into tbljournalentryitem set jevno='" & If(jevno.Text = "", globaluserid & "-temp", jevno.Text) & "', " _
+                               + " fundcode='" & frmJournalEntry.fundcode.Text & "', " _
+                               + " periodcode='" & frmJournalEntry.periodcode.Text & "', " _
+                               + " yeartrn='" & frmJournalEntry.yeartrn.Text & "', " _
+                               + " postingdate=current_date, " _
+                               + " centercode='" & dgv.Item("officeid", I).Value & "', " _
+                               + " tagclass=1, " _
+                               + " classcode='" & dgv.Item("Item Code", I).Value & "', " _
+                               + " itemcode='" & txtItem.EditValue & "', " _
+                               + " itemname='" & rchar(txtItem.Text) & "', " _
+                               + " checkno='', " _
+                               + " debit='" & Val(CC(dgv.Item("Amount", I).Value)) & "', " _
+                               + " credit='0', " _
+                               + " fundreference='" & dgv.Item("fundreference", I).Value & "'" : com.ExecuteNonQuery()
+                    End If
                 End If
             Next
             If frmJournalEntry.Visible = True Then
@@ -110,11 +126,6 @@ Public Class frmJournalEntryExpenditure
             End If
             Me.Close()
         End If
-    End Sub
-
-
-    Private Sub dgv_DataError(ByVal sender As Object, ByVal e As DataGridViewDataErrorEventArgs) Handles dgv.DataError
-
     End Sub
 
     Private Sub MyDataGridView_room_CellMouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles dgv.CellMouseDown
@@ -134,6 +145,19 @@ Public Class frmJournalEntryExpenditure
                 DirectCast(dgv.Rows(x).Cells("Select"), DataGridViewCheckBoxCell).Value = 0
             Next
         End If
+    End Sub
+
+    Private Sub dataGridView1_CellFormatting(ByVal sender As Object, ByVal e As DataGridViewCellFormattingEventArgs) Handles dgv.CellFormatting
+        For Each Myrow As DataGridViewRow In dgv.Rows
+            If Val(Myrow.Cells("Amount").Value) > Val(Myrow.Cells("original").Value) Then
+                Myrow.Cells("Amount").Style.BackColor = Color.Red
+                Myrow.Cells("Amount").Style.ForeColor = Color.White
+                Myrow.Cells("Amount").ToolTipText = "Amount entered is greater than total amount fund"
+            Else
+                Myrow.Cells("Amount").Style.BackColor = Color.White
+                Myrow.Cells("Amount").Style.ForeColor = Color.Black
+            End If
+        Next
     End Sub
 
 End Class

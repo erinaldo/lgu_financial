@@ -16,12 +16,25 @@ Module Company
     Public complogheight
     Public GlobalOrganizationLogoURL As String
 
+    Public GlobalMayorID As String
     Public GlobalMayorName As String
     Public GlobalMayorPosition As String
+
+    Public GlobalViceMayorID As String
+    Public GlobalViceMayorName As String
+    Public GlobalViceMayorPosition As String
+
+    Public GlobalAccountantID As String
     Public GlobalAccountantName As String
     Public GlobalAccountantPosition As String
+
+    Public GlobalTreasurerID As String
     Public GlobalTreasurerName As String
     Public GlobalTreasurerPosition As String
+
+    Public GlobalBudgetID As String
+    Public GlobalBudgetName As String
+    Public GlobalBudgetPosition As String
 
     Public Sub loadcompsettings()
         complogo = Nothing
@@ -34,7 +47,13 @@ Module Company
         Dim stream2 As MemoryStream = Nothing
         Dim img2 As Image = Nothing
 
-        com.CommandText = "select * from tblcompanysettings"
+        com.CommandText = "select *, " _
+            + " (select fullname from tblaccounts where accountid=a.mayorname) as mayor, " _
+            + " (select fullname from tblaccounts where accountid=a.vicemayorname) as vicemayor, " _
+            + " (select fullname from tblaccounts where accountid=a.accountantname) as accountant, " _
+            + " (select fullname from tblaccounts where accountid=a.treasurermame) as treasurer, " _
+            + " (select fullname from tblaccounts where accountid=a.budgetname) as budget " _
+            + " from tblcompanysettings as a"
         rst = com.ExecuteReader
         While rst.Read
             GlobalCompanyID = rst("companycode").ToString
@@ -53,14 +72,25 @@ Module Company
                 complogo = img
             End If
 
-            GlobalMayorName = rst("mayorname").ToString
+            GlobalMayorID = rst("mayorname").ToString
+            GlobalMayorName = rst("mayor").ToString
             GlobalMayorPosition = rst("mayorposition").ToString
 
-            GlobalAccountantName = rst("accountantname").ToString
+            GlobalViceMayorID = rst("vicemayorname").ToString
+            GlobalViceMayorName = rst("vicemayor").ToString
+            GlobalViceMayorPosition = rst("vicemayorposition").ToString
+
+            GlobalAccountantID = rst("accountantname").ToString
+            GlobalAccountantName = rst("accountant").ToString
             GlobalAccountantPosition = rst("accountantposition").ToString
 
-            GlobalTreasurerName = rst("treasurermame").ToString
+            GlobalTreasurerID = rst("treasurermame").ToString
+            GlobalTreasurerName = rst("treasurer").ToString
             GlobalTreasurerPosition = rst("treasurerposition").ToString
+
+            GlobalBudgetID = rst("budgetname").ToString
+            GlobalBudgetName = rst("budget").ToString
+            GlobalBudgetPosition = rst("budgetposition").ToString
         End While
         rst.Close()
         GlobalCopyrightName = GlobalSystemName & " © Winter Bugahod of " & StrConv(compname, VbStrConv.ProperCase)

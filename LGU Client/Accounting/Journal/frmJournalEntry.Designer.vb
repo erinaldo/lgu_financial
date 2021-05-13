@@ -338,6 +338,7 @@ Partial Class frmJournalEntry
         Me.txtRemarks.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtRemarks.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtRemarks.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtRemarks.Properties.ReadOnly = True
         Me.txtRemarks.Size = New System.Drawing.Size(232, 183)
         Me.txtRemarks.TabIndex = 1
         '
