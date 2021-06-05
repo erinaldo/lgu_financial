@@ -48,19 +48,18 @@ Partial Class frmRequisitionInfo
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
         Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
         Me.tabParticular = New DevExpress.XtraTab.XtraTabPage()
-        Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
-        Me.cmdItemRefresh = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.cmdAddParticularItem = New System.Windows.Forms.ToolStripButton()
         Me.TextEdit4 = New DevExpress.XtraEditors.TextEdit()
         Me.officeid = New DevExpress.XtraEditors.TextEdit()
         Me.periodcode = New DevExpress.XtraEditors.TextEdit()
         Me.fundcode = New DevExpress.XtraEditors.TextEdit()
         Me.yearcode = New DevExpress.XtraEditors.TextEdit()
         Me.requesttype = New DevExpress.XtraEditors.TextEdit()
-        Me.pid = New DevExpress.XtraEditors.TextEdit()
         Me.requestby = New DevExpress.XtraEditors.TextEdit()
         Me.requestno = New DevExpress.XtraEditors.TextEdit()
+        Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
+        Me.cmdItemRefresh = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.cmdAddParticularItem = New System.Windows.Forms.ToolStripButton()
         Me.tabAttachment = New DevExpress.XtraTab.XtraTabPage()
         Me.Em_files = New DevExpress.XtraGrid.GridControl()
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -90,6 +89,7 @@ Partial Class frmRequisitionInfo
         Me.Em_disbursement = New DevExpress.XtraGrid.GridControl()
         Me.gridDisbursement = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.RepositoryItemCheckEdit4 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
+        Me.pid = New DevExpress.XtraEditors.TextEdit()
         Me.txtRequestby = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridrequestby = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.LabelControl9 = New DevExpress.XtraEditors.LabelControl()
@@ -109,6 +109,7 @@ Partial Class frmRequisitionInfo
         Me.txtAddSupplier = New DevExpress.XtraEditors.HyperlinkLabelControl()
         Me.txtSupplier = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridSupplier = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.duplicateid = New DevExpress.XtraEditors.TextEdit()
         CType(Me.txtRequestNumber.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.trnmode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -125,16 +126,15 @@ Partial Class frmRequisitionInfo
         CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.XtraTabControl1.SuspendLayout()
         Me.tabParticular.SuspendLayout()
-        Me.ToolStrip2.SuspendLayout()
         CType(Me.TextEdit4.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.periodcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.yearcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.requesttype.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.requestby.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.requestno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolStrip2.SuspendLayout()
         Me.tabAttachment.SuspendLayout()
         CType(Me.Em_files, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip2.SuspendLayout()
@@ -153,6 +153,7 @@ Partial Class frmRequisitionInfo
         CType(Me.Em_disbursement, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridDisbursement, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtRequestby.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridrequestby, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip1.SuspendLayout()
@@ -162,6 +163,7 @@ Partial Class frmRequisitionInfo
         CType(Me.txtPriority.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtSupplier.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridSupplier, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.duplicateid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl5
@@ -420,62 +422,20 @@ Partial Class frmRequisitionInfo
         'tabParticular
         '
         Me.tabParticular.Controls.Add(Me.Em)
-        Me.tabParticular.Controls.Add(Me.ToolStrip2)
         Me.tabParticular.Controls.Add(Me.TextEdit4)
         Me.tabParticular.Controls.Add(Me.officeid)
         Me.tabParticular.Controls.Add(Me.periodcode)
         Me.tabParticular.Controls.Add(Me.fundcode)
         Me.tabParticular.Controls.Add(Me.yearcode)
         Me.tabParticular.Controls.Add(Me.requesttype)
-        Me.tabParticular.Controls.Add(Me.pid)
         Me.tabParticular.Controls.Add(Me.requestby)
         Me.tabParticular.Controls.Add(Me.requestno)
         Me.tabParticular.Controls.Add(Me.mode)
         Me.tabParticular.Controls.Add(Me.trnmode)
+        Me.tabParticular.Controls.Add(Me.ToolStrip2)
         Me.tabParticular.Name = "tabParticular"
         Me.tabParticular.Size = New System.Drawing.Size(628, 456)
         Me.tabParticular.Text = "Source of Fund"
-        '
-        'ToolStrip2
-        '
-        Me.ToolStrip2.AutoSize = False
-        Me.ToolStrip2.BackColor = System.Drawing.Color.Black
-        Me.ToolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdItemRefresh, Me.ToolStripSeparator2, Me.cmdAddParticularItem})
-        Me.ToolStrip2.Location = New System.Drawing.Point(0, 0)
-        Me.ToolStrip2.Name = "ToolStrip2"
-        Me.ToolStrip2.Padding = New System.Windows.Forms.Padding(10, 2, 1, 2)
-        Me.ToolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.ToolStrip2.Size = New System.Drawing.Size(628, 35)
-        Me.ToolStrip2.TabIndex = 959
-        Me.ToolStrip2.Text = "ToolStrip3"
-        '
-        'cmdItemRefresh
-        '
-        Me.cmdItemRefresh.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdItemRefresh.ForeColor = System.Drawing.Color.White
-        Me.cmdItemRefresh.Image = Global.LGUClient.My.Resources.Resources.arrow_circle
-        Me.cmdItemRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.cmdItemRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.cmdItemRefresh.Name = "cmdItemRefresh"
-        Me.cmdItemRefresh.Size = New System.Drawing.Size(66, 28)
-        Me.cmdItemRefresh.Text = "Refresh"
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 31)
-        '
-        'cmdAddParticularItem
-        '
-        Me.cmdAddParticularItem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdAddParticularItem.ForeColor = System.Drawing.Color.White
-        Me.cmdAddParticularItem.Image = Global.LGUClient.My.Resources.Resources.notebook__plus
-        Me.cmdAddParticularItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.cmdAddParticularItem.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.cmdAddParticularItem.Name = "cmdAddParticularItem"
-        Me.cmdAddParticularItem.Size = New System.Drawing.Size(130, 28)
-        Me.cmdAddParticularItem.Text = "Add Budget Source"
         '
         'TextEdit4
         '
@@ -531,7 +491,7 @@ Partial Class frmRequisitionInfo
         '
         'yearcode
         '
-        Me.yearcode.Location = New System.Drawing.Point(494, 89)
+        Me.yearcode.Location = New System.Drawing.Point(394, 103)
         Me.yearcode.Name = "yearcode"
         Me.yearcode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.yearcode.Properties.Appearance.Options.UseFont = True
@@ -554,19 +514,6 @@ Partial Class frmRequisitionInfo
         Me.requesttype.Size = New System.Drawing.Size(37, 24)
         Me.requesttype.TabIndex = 944
         Me.requesttype.Visible = False
-        '
-        'pid
-        '
-        Me.pid.Location = New System.Drawing.Point(572, 89)
-        Me.pid.Name = "pid"
-        Me.pid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.pid.Properties.Appearance.Options.UseFont = True
-        Me.pid.Properties.Appearance.Options.UseTextOptions = True
-        Me.pid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.pid.Properties.ReadOnly = True
-        Me.pid.Size = New System.Drawing.Size(37, 24)
-        Me.pid.TabIndex = 946
-        Me.pid.Visible = False
         '
         'requestby
         '
@@ -594,6 +541,47 @@ Partial Class frmRequisitionInfo
         Me.requestno.TabIndex = 947
         Me.requestno.Visible = False
         '
+        'ToolStrip2
+        '
+        Me.ToolStrip2.AutoSize = False
+        Me.ToolStrip2.BackColor = System.Drawing.Color.Black
+        Me.ToolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdItemRefresh, Me.ToolStripSeparator2, Me.cmdAddParticularItem})
+        Me.ToolStrip2.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip2.Name = "ToolStrip2"
+        Me.ToolStrip2.Padding = New System.Windows.Forms.Padding(10, 2, 1, 2)
+        Me.ToolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.ToolStrip2.Size = New System.Drawing.Size(628, 35)
+        Me.ToolStrip2.TabIndex = 959
+        Me.ToolStrip2.Text = "ToolStrip3"
+        '
+        'cmdItemRefresh
+        '
+        Me.cmdItemRefresh.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdItemRefresh.ForeColor = System.Drawing.Color.White
+        Me.cmdItemRefresh.Image = Global.LGUClient.My.Resources.Resources.arrow_circle
+        Me.cmdItemRefresh.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.cmdItemRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdItemRefresh.Name = "cmdItemRefresh"
+        Me.cmdItemRefresh.Size = New System.Drawing.Size(66, 28)
+        Me.cmdItemRefresh.Text = "Refresh"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 31)
+        '
+        'cmdAddParticularItem
+        '
+        Me.cmdAddParticularItem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdAddParticularItem.ForeColor = System.Drawing.Color.White
+        Me.cmdAddParticularItem.Image = Global.LGUClient.My.Resources.Resources.notebook__plus
+        Me.cmdAddParticularItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.cmdAddParticularItem.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.cmdAddParticularItem.Name = "cmdAddParticularItem"
+        Me.cmdAddParticularItem.Size = New System.Drawing.Size(130, 28)
+        Me.cmdAddParticularItem.Text = "Add Budget Source"
+        '
         'tabAttachment
         '
         Me.tabAttachment.Controls.Add(Me.Em_files)
@@ -605,7 +593,7 @@ Partial Class frmRequisitionInfo
         Me.tabAttachment.Controls.Add(Me.ckFinalApprover)
         Me.tabAttachment.Controls.Add(Me.CurrentApprover)
         Me.tabAttachment.Name = "tabAttachment"
-        Me.tabAttachment.Size = New System.Drawing.Size(628, 456)
+        Me.tabAttachment.Size = New System.Drawing.Size(624, 453)
         Me.tabAttachment.Text = "Attached Document Files"
         '
         'Em_files
@@ -616,7 +604,7 @@ Partial Class frmRequisitionInfo
         Me.Em_files.MainView = Me.gridview_files
         Me.Em_files.Name = "Em_files"
         Me.Em_files.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2})
-        Me.Em_files.Size = New System.Drawing.Size(628, 421)
+        Me.Em_files.Size = New System.Drawing.Size(624, 418)
         Me.Em_files.TabIndex = 935
         Me.Em_files.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridview_files})
         '
@@ -692,7 +680,7 @@ Partial Class frmRequisitionInfo
         Me.ToolStrip3.Name = "ToolStrip3"
         Me.ToolStrip3.Padding = New System.Windows.Forms.Padding(10, 2, 1, 2)
         Me.ToolStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.ToolStrip3.Size = New System.Drawing.Size(628, 35)
+        Me.ToolStrip3.Size = New System.Drawing.Size(624, 35)
         Me.ToolStrip3.TabIndex = 960
         Me.ToolStrip3.Text = "ToolStrip3"
         '
@@ -727,17 +715,17 @@ Partial Class frmRequisitionInfo
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(628, 0)
+        Me.barDockControlRight.Location = New System.Drawing.Point(624, 0)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 456)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 453)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(628, 0)
+        Me.BarDockControl1.Location = New System.Drawing.Point(624, 0)
         Me.BarDockControl1.Manager = Nothing
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 456)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 453)
         '
         'NextApprover
         '
@@ -793,7 +781,7 @@ Partial Class frmRequisitionInfo
         '
         Me.tabApprovalHistory.Controls.Add(Me.Em_approval)
         Me.tabApprovalHistory.Name = "tabApprovalHistory"
-        Me.tabApprovalHistory.Size = New System.Drawing.Size(628, 456)
+        Me.tabApprovalHistory.Size = New System.Drawing.Size(624, 453)
         Me.tabApprovalHistory.Text = "Approval History"
         '
         'Em_approval
@@ -803,7 +791,7 @@ Partial Class frmRequisitionInfo
         Me.Em_approval.MainView = Me.gridview_approval
         Me.Em_approval.Name = "Em_approval"
         Me.Em_approval.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit3})
-        Me.Em_approval.Size = New System.Drawing.Size(628, 456)
+        Me.Em_approval.Size = New System.Drawing.Size(624, 453)
         Me.Em_approval.TabIndex = 936
         Me.Em_approval.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridview_approval})
         '
@@ -827,7 +815,7 @@ Partial Class frmRequisitionInfo
         '
         Me.tabDisbursement.Controls.Add(Me.Em_disbursement)
         Me.tabDisbursement.Name = "tabDisbursement"
-        Me.tabDisbursement.Size = New System.Drawing.Size(628, 456)
+        Me.tabDisbursement.Size = New System.Drawing.Size(624, 453)
         Me.tabDisbursement.Text = "Disbursement Voucher"
         '
         'Em_disbursement
@@ -837,7 +825,7 @@ Partial Class frmRequisitionInfo
         Me.Em_disbursement.MainView = Me.gridDisbursement
         Me.Em_disbursement.Name = "Em_disbursement"
         Me.Em_disbursement.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit4})
-        Me.Em_disbursement.Size = New System.Drawing.Size(628, 456)
+        Me.Em_disbursement.Size = New System.Drawing.Size(624, 453)
         Me.Em_disbursement.TabIndex = 935
         Me.Em_disbursement.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridDisbursement})
         '
@@ -855,6 +843,19 @@ Partial Class frmRequisitionInfo
         '
         Me.RepositoryItemCheckEdit4.Name = "RepositoryItemCheckEdit4"
         Me.RepositoryItemCheckEdit4.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
+        '
+        'pid
+        '
+        Me.pid.Location = New System.Drawing.Point(370, 475)
+        Me.pid.Name = "pid"
+        Me.pid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pid.Properties.Appearance.Options.UseFont = True
+        Me.pid.Properties.Appearance.Options.UseTextOptions = True
+        Me.pid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.pid.Properties.ReadOnly = True
+        Me.pid.Size = New System.Drawing.Size(37, 24)
+        Me.pid.TabIndex = 946
+        Me.pid.Visible = False
         '
         'txtRequestby
         '
@@ -1075,6 +1076,19 @@ Partial Class frmRequisitionInfo
         Me.gridSupplier.OptionsSelection.EnableAppearanceFocusedCell = False
         Me.gridSupplier.OptionsView.ShowGroupPanel = False
         '
+        'duplicateid
+        '
+        Me.duplicateid.Location = New System.Drawing.Point(327, 475)
+        Me.duplicateid.Name = "duplicateid"
+        Me.duplicateid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.duplicateid.Properties.Appearance.Options.UseFont = True
+        Me.duplicateid.Properties.Appearance.Options.UseTextOptions = True
+        Me.duplicateid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.duplicateid.Properties.ReadOnly = True
+        Me.duplicateid.Size = New System.Drawing.Size(37, 24)
+        Me.duplicateid.TabIndex = 968
+        Me.duplicateid.Visible = False
+        '
         'frmRequisitionInfo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1082,11 +1096,13 @@ Partial Class frmRequisitionInfo
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(1062, 540)
+        Me.Controls.Add(Me.duplicateid)
         Me.Controls.Add(Me.txtSupplier)
         Me.Controls.Add(Me.txtStatus)
         Me.Controls.Add(Me.txtOffice)
         Me.Controls.Add(Me.txtRequestby)
         Me.Controls.Add(Me.XtraTabControl1)
+        Me.Controls.Add(Me.pid)
         Me.Controls.Add(Me.txtRequestType)
         Me.Controls.Add(Me.txtSourceAmount)
         Me.Controls.Add(Me.txtFund)
@@ -1125,17 +1141,16 @@ Partial Class frmRequisitionInfo
         CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.XtraTabControl1.ResumeLayout(False)
         Me.tabParticular.ResumeLayout(False)
-        Me.ToolStrip2.ResumeLayout(False)
-        Me.ToolStrip2.PerformLayout()
         CType(Me.TextEdit4.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.periodcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.yearcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.requesttype.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.requestby.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.requestno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ToolStrip2.ResumeLayout(False)
+        Me.ToolStrip2.PerformLayout()
         Me.tabAttachment.ResumeLayout(False)
         Me.tabAttachment.PerformLayout()
         CType(Me.Em_files, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1156,6 +1171,7 @@ Partial Class frmRequisitionInfo
         CType(Me.Em_disbursement, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridDisbursement, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtRequestby.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridrequestby, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip1.ResumeLayout(False)
@@ -1166,6 +1182,7 @@ Partial Class frmRequisitionInfo
         CType(Me.txtPriority.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtSupplier.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridSupplier, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.duplicateid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1256,4 +1273,5 @@ Partial Class frmRequisitionInfo
     Friend WithEvents txtAddSupplier As DevExpress.XtraEditors.HyperlinkLabelControl
     Friend WithEvents txtSupplier As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gridSupplier As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents duplicateid As DevExpress.XtraEditors.TextEdit
 End Class

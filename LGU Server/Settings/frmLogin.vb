@@ -48,6 +48,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub cmdlogin_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdlogin.Click
+        ' MsgBox(DecryptTripleDES("Wypqrj/Lh0tCIpExQ76u7A=="))
         If mode.Text = "view" Then
             Me.Close()
         Else

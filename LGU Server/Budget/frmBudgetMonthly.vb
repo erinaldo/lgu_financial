@@ -40,17 +40,31 @@ Public Class frmBudgetMonthly
 
     Public Sub LoadExpenditureItem()
         If txtFund.Text = "" Or (txtOffice.Text = "" And CheckEdit1.Checked = False) Then Exit Sub
-        LoadXgrid("select *,(January+February+March+April+May+June+July+August+September+October+November+December+nydd+dd+cleared) as TOTAL from (SELECT b.id, a.itemcode, (select officename from tblcompoffice where officeid=b.officeid) as 'Office', b.classcode as 'Class', a.itemname as 'Account Title', ifnull(b.totalbudget,0) as 'Total Budget', " _
+        LoadXgrid("select *, COALESCE(NULLIF(((ifnull(January,0)+ifnull(February,0)+ifnull(March,0)+ifnull(April,0)+ifnull(May,0)+ifnull(June,0)+ifnull(July,0)+ifnull(August,0)+ifnull(September,0)+ifnull(October,0)+ifnull(November,0)+ifnull(December,0)+ifnull(nydd,0)+ifnull(dd,0)+ifnull(cleared,0)+`Current Month Balance`)-Amount)-`Total Budget`, 0.00), null) as VARIANCE " _
+                  + " from (SELECT b.id, a.itemcode, (select officename from tblcompoffice where officeid=b.officeid) as 'Office', b.classcode as 'Class', a.itemname as 'Account Title', ifnull(b.totalbudget,0) as 'Total Budget', " _
                   + " amount-(select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode And b.itemcode=a.itemcode And b.officeid=a.officeid And b.monthcode=a.monthcode And a.cancelled=0)  as 'Current Month Balance', " _
-                  + " January, February, March, April, May, June, July, August, September, October, November, December, " _
-                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and (a.pid not in (select pid from tbldisbursementvoucher as dv where dv.cancelled=0) or a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=0 and dv.cancelled=0))) as 'NYDD', " _
-                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=1 and dv.cleared=0 and dv.cancelled=0)) as 'DD', " _
-                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=1 and dv.cleared=1 and dv.cancelled=0)) as 'CLEARED' " _
+                  + " Amount, " _
+                  + " if(January=0, null, January) As January, " _
+                  + " if(February=0, null, February) As February, " _
+                  + " if(March=0, null, March) As March, " _
+                  + " if(April=0, null, April) As April, " _
+                  + " if(May=0, null, May) As May, " _
+                  + " if(June=0, null, June) As June, " _
+                  + " if(July=0, null, July) As July, " _
+                  + " if(August=0, null, August) As August, " _
+                  + " if(September=0, null, September) As September, " _
+                  + " if(October=0, null, October) As October, " _
+                  + " if(November=0, null, November) As November, " _
+                  + " if(December=0, null, December) As December, " _
+                  + " COALESCE(NULLIF((Select ifnull(sum(amount),0) from tblrequisitionfund As a where b.periodcode= a.periodcode And b.itemcode = a.itemcode And b.officeid = a.officeid And a.cancelled = 0 And (a.pid Not in (select pid from tbldisbursementvoucher as dv where dv.cancelled=0) Or a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=0 And dv.cancelled=0))), 0 ), null) as 'NYDD', " _
+                  + " COALESCE(NULLIF((select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=1 and dv.cleared=0 and dv.cancelled=0)), 0), null) as 'DD', " _
+                  + " COALESCE(NULLIF((select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=1 and dv.cleared=1 and dv.cancelled=0)), 0), null) as 'CLEARED' " _
                   + " FROM `tblglitem` as a left join tblbudgetcomposition as b on a.itemcode=b.itemcode and b.periodcode='" & periodcode.Text & "' " & If(CheckEdit1.Checked = True, "", " and b.officeid='" & officeid.Text & "' ") & "  where b.totalbudget > 0) as x order by office,`Account Title` asc;", "tblglitem", Em, GridView1, Me)
         XgridHideColumn({"id", "itemcode"}, GridView1)
-        XgridColCurrency({"Total Budget", "Current Month Balance", "NYDD", "DD", "CLEARED", "TOTAL", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}, GridView1)
-        XgridGeneralSummaryCurrency({"Total Budget", "Current Month Balance", "NYDD", "DD", "CLEARED", "TOTAL", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}, GridView1)
+        XgridColCurrency({"Total Budget", "Current Month Balance", "NYDD", "DD", "CLEARED", "VARIANCE", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}, GridView1)
+        XgridGeneralSummaryCurrency({"Total Budget", "Current Month Balance", "NYDD", "DD", "CLEARED", "VARIANCE", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}, GridView1)
 
+        XgridHideColumn({"Amount"}, GridView1)
         'XgridColWidth({"Total Budget", "Current Quarter Balance", "1st Quarter", "2nd Quarter", "3rd Quarter", "4th Quarter"}, GridView1, 130)
         GridView1.BestFitColumns()
         XgridColWidth({"Account Title"}, GridView1, 300)
@@ -76,11 +90,9 @@ Public Class frmBudgetMonthly
             e.Appearance.ForeColor = Color.Black
             e.Appearance.BackColor = Color.LightYellow
             e.Appearance.BackColor2 = Color.LightYellow
-        ElseIf e.Column.Name = "colTOTAL" Then
-            Dim totalBudget As Double = Val(View.GetRowCellDisplayText(e.RowHandle, View.Columns("Total Budget")))
-            Dim totalTrans As Double = Val(View.GetRowCellDisplayText(e.RowHandle, View.Columns("TOTAL")))
-
-            If totalBudget <> totalTrans Then
+        ElseIf e.Column.Name = "colVARIANCE" Then
+            Dim variance As Double = Val(View.GetRowCellDisplayText(e.RowHandle, View.Columns("VARIANCE")))
+            If variance <> 0 Then
                 e.Appearance.ForeColor = Color.White
                 e.Appearance.BackColor = Color.Red
                 e.Appearance.BackColor2 = Color.Red

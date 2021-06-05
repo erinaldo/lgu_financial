@@ -61,6 +61,9 @@ Partial Class frmBudgetEditLine
         Me.txtOverallTotal = New DevExpress.XtraEditors.TextEdit()
         Me.txtAmount = New DevExpress.XtraEditors.TextEdit()
         Me.txtOriginalBalance = New DevExpress.XtraEditors.TextEdit()
+        Me.Em = New DevExpress.XtraGrid.GridControl()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         CType(Me.txtJanuary.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFebruary.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtMarch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,6 +86,9 @@ Partial Class frmBudgetEditLine
         CType(Me.txtOverallTotal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtOriginalBalance.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl1
@@ -710,11 +716,40 @@ Partial Class frmBudgetEditLine
         Me.txtOriginalBalance.TabIndex = 644
         Me.txtOriginalBalance.Visible = False
         '
+        'Em
+        '
+        Me.Em.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Em.Location = New System.Drawing.Point(484, 19)
+        Me.Em.MainView = Me.GridView1
+        Me.Em.Name = "Em"
+        Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
+        Me.Em.Size = New System.Drawing.Size(464, 633)
+        Me.Em.TabIndex = 633
+        Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        '
+        'GridView1
+        '
+        Me.GridView1.GridControl = Me.Em
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsBehavior.Editable = False
+        Me.GridView1.OptionsSelection.MultiSelect = True
+        Me.GridView1.OptionsSelection.UseIndicatorForSelection = False
+        Me.GridView1.OptionsView.ColumnAutoWidth = False
+        Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'RepositoryItemCheckEdit1
+        '
+        Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
+        Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
+        '
         'frmBudgetEditLine
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(506, 677)
+        Me.ClientSize = New System.Drawing.Size(959, 667)
+        Me.Controls.Add(Me.Em)
         Me.Controls.Add(Me.txtOriginalBalance)
         Me.Controls.Add(Me.txtAmount)
         Me.Controls.Add(Me.LabelControl19)
@@ -757,8 +792,6 @@ Partial Class frmBudgetEditLine
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.txtJanuary)
         Me.Controls.Add(Me.txtAccountTitle)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(393, 517)
         Me.Name = "frmBudgetEditLine"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -785,6 +818,9 @@ Partial Class frmBudgetEditLine
         CType(Me.txtOverallTotal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtOriginalBalance.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -831,4 +867,7 @@ Partial Class frmBudgetEditLine
     Friend WithEvents txtOverallTotal As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtAmount As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtOriginalBalance As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents Em As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
 End Class

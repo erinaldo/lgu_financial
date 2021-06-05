@@ -53,11 +53,21 @@ Public Class frmRequisitionInfo
         officeid.Text = compOfficeid
         txtOffice.EditValue = compOfficeid
 
+
         If mode.Text = "edit" Then
             ShowRequisitionInfo()
             LoadRequestType()
             CreateFundTable()
             LoadRequisitionFund()
+            LoadSource()
+
+        ElseIf mode.Text = "duplicate" Then
+            ShowRequisitionInfo()
+            LoadRequestType()
+            CreateFundTable()
+            LoadRequisitionFund()
+            DuplicateRequest()
+
         Else
             pid.Text = GetTransactionSeries("requisition")
             LoadRequestType()
@@ -66,10 +76,12 @@ Public Class frmRequisitionInfo
             ReadOnlyForm(False, mode.Text)
             txtStatus.Text = "NEW REQUEST"
         End If
-        LoadSource()
+
         LoadFiles()
         ApprovingHistory()
         LoadApproverDeatils()
+
+
     End Sub
     Public Sub CreateFundTable()
         com.CommandText = "CREATE TEMPORARY TABLE IF NOT EXISTS `tmprequisitionfund` (  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,  `pid` varchar(45) NOT NULL DEFAULT '',  `officeid` varchar(45) NOT NULL DEFAULT '',  `periodcode` varchar(45) NOT NULL DEFAULT '',  `requestno` varchar(45) NOT NULL DEFAULT '',  `monthcode` varchar(2) NOT NULL DEFAULT '',  `classcode` varchar(45) NOT NULL DEFAULT '',  `itemcode` varchar(45) NOT NULL DEFAULT '',  `prevbalance` double NOT NULL DEFAULT '0',  `amount` double NOT NULL DEFAULT '0',  `newbalance` double NOT NULL DEFAULT '0',  `cancelled` tinyint(1) NOT NULL DEFAULT '0',  PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;" : com.ExecuteNonQuery()
@@ -339,7 +351,7 @@ Public Class frmRequisitionInfo
 
     Public Sub ShowRequisitionInfo()
         da = Nothing : st = New DataSet
-        da = New MySqlDataAdapter("select * from tblrequisition as a where pid='" & pid.Text & "'", conn)
+        da = New MySqlDataAdapter("select * from tblrequisition as a where pid='" & If(mode.Text = "duplicate", duplicateid.Text, pid.Text) & "'", conn)
         da.Fill(st, 0)
         For cnt = 0 To st.Tables(0).Rows.Count - 1
             With (st.Tables(0))
@@ -407,6 +419,20 @@ Public Class frmRequisitionInfo
         Next
         LoadRequestBy()
         CheckOptionalSettings()
+    End Sub
+
+    Public Sub DuplicateRequest()
+        mode.Text = "new"
+        pid.Text = GetTransactionSeries("requisition")
+        ReadOnlyForm(False, mode.Text)
+        txtStatus.Text = "NEW REQUEST"
+        txtRequestNumber.Text = "AUTO GENERATE"
+        tabDisbursement.PageVisible = False
+        CheckOptionalSettings()
+
+        com.CommandText = "insert into tmprequisitionfund (pid,officeid,periodcode,requestno,monthcode,classcode,itemcode,prevbalance,amount,newbalance,cancelled) " _
+                        + " select '" & pid.Text & "',officeid,periodcode,requestno,(select monthcode from tblbudgetcomposition where periodcode=a.periodcode and classcode=a.classcode and itemcode=a.itemcode and officeid=a.officeid),classcode,itemcode,0,0,0,0 from tblrequisitionfund as a where pid='" & duplicateid.Text & "'" : com.ExecuteNonQuery()
+        LoadSource()
     End Sub
 
     Private Sub txtStatus_EditValueChanged(sender As Object, e As EventArgs) Handles txtStatus.EditValueChanged
@@ -530,6 +556,7 @@ Public Class frmRequisitionInfo
         gridview_approval.BestFitColumns()
         XgridColMemo({"Remarks"}, gridview_approval)
         XgridColWidth({"Remarks"}, gridview_approval, 300)
+
 
     End Sub
 
@@ -819,6 +846,5 @@ Public Class frmRequisitionInfo
             frmRequisitionDocManager.Show(Me)
         End If
     End Sub
-
 
 End Class

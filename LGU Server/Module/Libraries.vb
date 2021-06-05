@@ -9,6 +9,7 @@ Imports DevExpress.XtraSplashScreen
 Imports System.Security.Cryptography
 Imports System.Text
 Imports DevExpress.XtraGrid.Views.Grid
+Imports System.Globalization
 
 Module Libraries
     Public bmpScreenShot As Bitmap
@@ -40,12 +41,12 @@ Module Libraries
             End If
         Catch errMYSQL As MySqlException
             XtraMessageBox.Show("Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -68,12 +69,12 @@ Module Libraries
             End Try
         Catch errMYSQL As MySqlException
             XtraMessageBox.Show("Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -92,7 +93,7 @@ Module Libraries
             msda.SelectCommand.CommandTimeout = 600000
             msda.Fill(dst, tbl)
             Em.DataSource = dst.Tables(tbl)
-           xgrid.PopulateColumns(dst.Tables(tbl))
+            xgrid.PopulateColumns(dst.Tables(tbl))
             xgrid.BestFitColumns()
             Em.ForceInitialize()
 
@@ -102,7 +103,7 @@ Module Libraries
             XtraMessageBox.Show("Module: " & myform.Text & vbCrLf _
                              & "Message: " & errMYSQL.Message & vbCrLf _
                              & "Details: " & errMYSQL.StackTrace & Environment.NewLine _
-                             & "Error Code: " & errMYSQL.ErrorCode, _
+                             & "Error Code: " & errMYSQL.ErrorCode,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -126,7 +127,7 @@ Module Libraries
             XtraMessageBox.Show("Module: " & myform.Text & vbCrLf _
                              & "Message: " & errMYSQL.Message & vbCrLf _
                              & "Details: " & errMYSQL.StackTrace & Environment.NewLine _
-                             & "Error Code: " & errMYSQL.ErrorCode, _
+                             & "Error Code: " & errMYSQL.ErrorCode,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -148,14 +149,14 @@ Module Libraries
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -180,14 +181,14 @@ Module Libraries
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -211,7 +212,7 @@ Module Libraries
             Next
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -228,13 +229,13 @@ Module Libraries
                             xgrid.Columns(col).AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
                         End If
                     Next
-                   
-               
+
+
                 End If
             Next
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -255,7 +256,7 @@ Module Libraries
             Next
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -276,7 +277,7 @@ Module Libraries
 
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -299,7 +300,7 @@ Module Libraries
 
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -308,9 +309,9 @@ Module Libraries
 
     Public Function GridHideColumn(ByVal grdView As DataGridView, ByVal column As Array) As DataGridView
         For Each valueArr As String In column
-            For i = 0 To grdView.ColumnCount - 1
-                If valueArr = grdView.Columns(i).Name Then
-                    grdView.Columns(i).Visible = False
+            For I = 0 To grdView.ColumnCount - 1
+                If valueArr = grdView.Columns(I).Name Then
+                    grdView.Columns(I).Visible = False
                 End If
             Next
         Next
@@ -323,7 +324,7 @@ Module Libraries
             Next
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -340,10 +341,10 @@ Module Libraries
                     Next
                 End If
             Next
-         
+
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -371,7 +372,7 @@ Module Libraries
 
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -398,7 +399,7 @@ Module Libraries
 
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -419,7 +420,7 @@ Module Libraries
             Next
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -440,7 +441,7 @@ Module Libraries
             Next
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -461,7 +462,7 @@ Module Libraries
             Next
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -486,7 +487,7 @@ Module Libraries
             Next
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -505,7 +506,7 @@ Module Libraries
             Next
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -522,7 +523,7 @@ Module Libraries
             Next
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -547,7 +548,7 @@ Module Libraries
             Next Ctl
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -581,14 +582,14 @@ Module Libraries
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -611,14 +612,14 @@ Module Libraries
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -641,14 +642,14 @@ Module Libraries
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -676,14 +677,14 @@ Module Libraries
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -737,14 +738,14 @@ Module Libraries
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -780,14 +781,14 @@ Module Libraries
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -817,14 +818,14 @@ Module Libraries
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -857,14 +858,14 @@ Module Libraries
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         End Try
@@ -883,14 +884,14 @@ Module Libraries
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -912,12 +913,12 @@ Module Libraries
 
         Catch errMYSQL As MySqlException
             XtraMessageBox.Show("Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -934,14 +935,14 @@ Module Libraries
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -957,17 +958,17 @@ Module Libraries
             View.AddNewRow()
         Catch errMYSQL As MySqlException
             XtraMessageBox.Show("Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
     End Sub
-   
+
     Public Function qrysingledata(ByVal field As String, ByVal fqry As String, ByVal addwhere As String, ByVal tbl As String)
         Dim def As String = ""
         Try
@@ -982,12 +983,12 @@ Module Libraries
             End If
         Catch errMYSQL As MySqlException
             XtraMessageBox.Show("Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         Catch errMS As Exception
             XtraMessageBox.Show("Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PrintError()
         End Try
@@ -1039,7 +1040,7 @@ Module Libraries
 
                 sr.Close()
             Catch errMS As Exception
-                XtraMessageBox.Show("Message: Invalid column filter format! Please update your columns" & vbCrLf, _
+                XtraMessageBox.Show("Message: Invalid column filter format! Please update your columns" & vbCrLf,
                                   "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 sr.Close()
             End Try
@@ -1212,13 +1213,13 @@ Module Libraries
         Return ASCIIEncoding.ASCII.GetString(desCrypto.Key)
     End Function
 
-    Public Sub EncryptFile(ByVal sInputFilename As String, _
-                    ByVal sOutputFilename As String, _
+    Public Sub EncryptFile(ByVal sInputFilename As String,
+                    ByVal sOutputFilename As String,
                     ByVal sKey As String)
 
-        Dim fsInput As New FileStream(sInputFilename, _
+        Dim fsInput As New FileStream(sInputFilename,
                                     FileMode.Open, FileAccess.Read)
-        Dim fsEncrypted As New FileStream(sOutputFilename, _
+        Dim fsEncrypted As New FileStream(sOutputFilename,
                                     FileMode.Create, FileAccess.Write)
 
         Dim DES As New DESCryptoServiceProvider()
@@ -1233,8 +1234,8 @@ Module Libraries
         'Create the DES encryptor from this instance.
         Dim desencrypt As ICryptoTransform = DES.CreateEncryptor()
         'Create the crypto stream that transforms the file stream by using DES encryption.
-        Dim cryptostream As New CryptoStream(fsEncrypted, _
-                                            desencrypt, _
+        Dim cryptostream As New CryptoStream(fsEncrypted,
+                                            desencrypt,
                                             CryptoStreamMode.Write)
 
         'Read the file text to the byte array.
@@ -1245,8 +1246,8 @@ Module Libraries
         cryptostream.Close()
     End Sub
 
-    Public Sub DecryptFile(ByVal sInputFilename As String, _
-       ByVal sOutputFilename As String, _
+    Public Sub DecryptFile(ByVal sInputFilename As String,
+       ByVal sOutputFilename As String,
        ByVal sKey As String)
 
         Dim DES As New DESCryptoServiceProvider()
@@ -1272,10 +1273,10 @@ Module Libraries
     Public Function GridColumnAlignment(ByVal grdView As DataGridView, ByVal column As Array, ByVal alignment As DataGridViewContentAlignment) As DataGridView
         '   Dim array() As String = {a}
         For Each valueArr As String In column
-            For i = 0 To grdView.ColumnCount - 1
-                If valueArr = grdView.Columns(i).Name Then
-                    grdView.Columns(i).DefaultCellStyle.Alignment = alignment
-                    grdView.Columns(i).HeaderCell.Style.Alignment = alignment
+            For I = 0 To grdView.ColumnCount - 1
+                If valueArr = grdView.Columns(I).Name Then
+                    grdView.Columns(I).DefaultCellStyle.Alignment = alignment
+                    grdView.Columns(I).HeaderCell.Style.Alignment = alignment
                 End If
             Next
         Next
@@ -1284,13 +1285,13 @@ Module Libraries
 
     Public Function GridCurrencyColumn(ByVal grdView As DataGridView, ByVal column As Array) As DataGridView
         For Each valueArr As String In column
-            For i = 0 To grdView.ColumnCount - 1
-                If valueArr = grdView.Columns(i).Name Then
+            For I = 0 To grdView.ColumnCount - 1
+                If valueArr = grdView.Columns(I).Name Then
                     ' grdView.Columns(i).ValueType = System.Type.GetType("System.Decimal")
-                    grdView.Columns(i).ValueType = GetType(Decimal)
-                    grdView.Columns(i).DefaultCellStyle.Format = "n2"
-                    grdView.Columns(i).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-                    grdView.Columns(i).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight
+                    grdView.Columns(I).ValueType = GetType(Decimal)
+                    grdView.Columns(I).DefaultCellStyle.Format = "n2"
+                    grdView.Columns(I).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                    grdView.Columns(I).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight
                 End If
             Next
         Next
@@ -1428,6 +1429,21 @@ Module Libraries
         End While
         rst.Close()
         Return imageSign
+    End Function
+
+    Public Function RemoveDiacritics(ByVal text As String) As String
+        Dim normalizedString = text.Normalize(NormalizationForm.FormD)
+        Dim stringBuilder = New StringBuilder()
+
+        For Each c In normalizedString
+            Dim unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c)
+
+            If unicodeCategory <> UnicodeCategory.NonSpacingMark Then
+                stringBuilder.Append(c)
+            End If
+        Next
+
+        Return stringBuilder.ToString().Normalize(NormalizationForm.FormC)
     End Function
 
 End Module

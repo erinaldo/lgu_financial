@@ -781,4 +781,4 @@ D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.vbproj.CopyCo
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.exe
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.xml
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.pdb
-D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.vbprojAssemblyReference.cache
+D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.vbproj.AssemblyReference.cache

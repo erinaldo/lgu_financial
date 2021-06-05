@@ -25,6 +25,7 @@ Partial Class frmRegistry
         Me.BarLargeButtonItem2 = New DevExpress.XtraBars.BarLargeButtonItem()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
@@ -48,7 +49,6 @@ Partial Class frmRegistry
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
-        Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,21 +116,27 @@ Partial Class frmRegistry
         Me.BarButtonItem2.Id = 5
         Me.BarButtonItem2.Name = "BarButtonItem2"
         '
+        'BarButtonItem3
+        '
+        Me.BarButtonItem3.Caption = "Export Registry Batching"
+        Me.BarButtonItem3.Id = 6
+        Me.BarButtonItem3.Name = "BarButtonItem3"
+        '
         'barDockControlTop
         '
         Me.barDockControlTop.CausesValidation = False
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(1156, 24)
+        Me.barDockControlTop.Size = New System.Drawing.Size(1162, 24)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 651)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 649)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1156, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1162, 0)
         '
         'barDockControlLeft
         '
@@ -138,15 +144,15 @@ Partial Class frmRegistry
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 24)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 627)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 625)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(1156, 24)
+        Me.BarDockControl1.Location = New System.Drawing.Point(1162, 24)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 627)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 625)
         '
         'RepositoryItemTextEdit1
         '
@@ -163,9 +169,9 @@ Partial Class frmRegistry
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(1156, 24)
+        Me.barDockControlRight.Location = New System.Drawing.Point(1162, 24)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 627)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 625)
         '
         'SplitContainerControl1
         '
@@ -185,7 +191,7 @@ Partial Class frmRegistry
         Me.SplitContainerControl1.Panel1.Text = "Panel1"
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
-        Me.SplitContainerControl1.Size = New System.Drawing.Size(1156, 627)
+        Me.SplitContainerControl1.Size = New System.Drawing.Size(1162, 625)
         Me.SplitContainerControl1.SplitterPosition = 69
         Me.SplitContainerControl1.TabIndex = 6
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
@@ -332,7 +338,7 @@ Partial Class frmRegistry
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(1156, 548)
+        Me.Em.Size = New System.Drawing.Size(1162, 546)
         Me.Em.TabIndex = 633
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -351,17 +357,11 @@ Partial Class frmRegistry
         Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
         Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
         '
-        'BarButtonItem3
-        '
-        Me.BarButtonItem3.Caption = "Export Registry Batching"
-        Me.BarButtonItem3.Id = 6
-        Me.BarButtonItem3.Name = "BarButtonItem3"
-        '
         'frmRegistry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1156, 651)
+        Me.ClientSize = New System.Drawing.Size(1162, 649)
         Me.Controls.Add(Me.SplitContainerControl1)
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlLeft)
@@ -371,7 +371,7 @@ Partial Class frmRegistry
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(370, 376)
+        Me.MinimumSize = New System.Drawing.Size(364, 378)
         Me.Name = "frmRegistry"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Registry Report"

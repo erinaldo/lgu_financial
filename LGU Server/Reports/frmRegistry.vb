@@ -40,9 +40,9 @@ Public Class frmRegistry
         Dim query As String = "" : Dim listItemName As New List(Of String)() : Dim strRequisition As String = "" : Dim strItemColumn As String = "" : Dim ItemCode As String = "" : Dim BlanckItem As String = ""
         com.CommandText = "select * from tblbudgethistory where " & BudgetQuery & " order by itemcode asc" : rst = com.ExecuteReader
         While rst.Read
-            listItemName.Add(rchar(rst("itemname").ToString))
+            listItemName.Add(RemoveDiacritics(rchar(rst("itemname").ToString)))
 
-            query += ", " & rst("amount").ToString & " as '" & rchar(rst("itemname").ToString) & "'"
+            query += ", " & rst("amount").ToString & " as '" & RemoveDiacritics(rchar(rst("itemname").ToString)) & "'"
             strItemColumn += "`" & rst("itemcode").ToString & "` DOUBLE NOT NULL DEFAULT 0,"
             ItemCode += ", `" & rst("itemcode").ToString & "`"
             BlanckItem += ", null "

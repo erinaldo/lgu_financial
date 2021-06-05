@@ -28,8 +28,7 @@ Module Template
         For Each arrCol In colItemNameParam
             colItem += " <th align='center'><b>" & arrCol & "</b></th> "
         Next
-
-        com.CommandText = query : rst = com.ExecuteReader
+        com.CommandText = Replace(query, Chr(160), Chr(64)) : rst = com.ExecuteReader
         While rst.Read
             Dim itemValue As String = ""
             For Each itemRowValue In colItemNameParam

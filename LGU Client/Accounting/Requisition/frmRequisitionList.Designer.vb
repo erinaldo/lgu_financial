@@ -22,7 +22,6 @@ Partial Class frmRequisitionList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.HiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PropertiesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -32,7 +31,8 @@ Partial Class frmRequisitionList
         Me.RightToolStripPanel = New System.Windows.Forms.ToolStripPanel()
         Me.LeftToolStripPanel = New System.Windows.Forms.ToolStripPanel()
         Me.ContentPanel = New System.Windows.Forms.ToolStripContentPanel()
-        Me.cms_em = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.cms_em = New System.Windows.Forms.ContextMenuStrip()
+        Me.cmdDuplicate = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdView = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdCancel = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
@@ -156,9 +156,16 @@ Partial Class frmRequisitionList
         '
         'cms_em
         '
-        Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdView, Me.cmdCancel, Me.ToolStripSeparator4, Me.cmdLocalData})
+        Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdDuplicate, Me.cmdView, Me.cmdCancel, Me.ToolStripSeparator4, Me.cmdLocalData})
         Me.cms_em.Name = "ContextMenuStrip1"
-        Me.cms_em.Size = New System.Drawing.Size(203, 76)
+        Me.cms_em.Size = New System.Drawing.Size(203, 98)
+        '
+        'cmdDuplicate
+        '
+        Me.cmdDuplicate.Image = Global.LGUClient.My.Resources.Resources.blueprints
+        Me.cmdDuplicate.Name = "cmdDuplicate"
+        Me.cmdDuplicate.Size = New System.Drawing.Size(202, 22)
+        Me.cmdDuplicate.Text = "Duplicate Request"
         '
         'cmdView
         '
@@ -645,4 +652,5 @@ Partial Class frmRequisitionList
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents ckDisplayCancelled As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents cmdDuplicate As ToolStripMenuItem
 End Class

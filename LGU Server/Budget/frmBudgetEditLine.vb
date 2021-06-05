@@ -24,13 +24,34 @@ Public Class frmBudgetEditLine
     End Sub
 
     Public Sub LoadBudgetInfo()
-        com.CommandText = "select *,  (select officename from tblcompoffice where officeid=a.officeid) as office, " _
-                            + " (select itemname from tblglitem where itemcode = a.itemcode) as itemname, " _
-                            + " (select ifnull(sum(amount),0) from tblrequisitionfund as x where x.periodcode=a.periodcode and x.itemcode=a.itemcode And x.officeid=a.officeid and x.cancelled=0) as totalused, " _
-                            + " amount-(select ifnull(sum(amount),0) from tblrequisitionfund as x where x.periodcode=a.periodcode and x.itemcode=a.itemcode and x.officeid=a.officeid and x.monthcode=a.monthcode and x.cancelled=0)  as balance " _
-                            + " from tblbudgetcomposition as a where id='" & id.Text & "'" : rst = com.ExecuteReader
+        Dim officeid As String = ""
+        Dim periodcode As String = ""
+        Dim classcode As String = ""
+        Dim itemcode As String = ""
+        'com.CommandText = "select * from (select id, officeid,periodcode,monthcode,classcode,itemcode,itemname, (select officename from tblcompoffice where officeid=a.officeid) as office, " _
+        '                    + " (select ifnull(sum(amount),0) from tblrequisitionfund as x where x.periodcode=a.periodcode and x.itemcode=a.itemcode And x.officeid=a.officeid and x.cancelled=0) as totalused, " _
+        '                    + " (select ifnull(sum(amount),0) from tblrequisitionfund as x where x.periodcode=a.periodcode and x.itemcode=a.itemcode And x.officeid=a.officeid And x.cancelled=0 and (x.pid not in (select pid from tbldisbursementvoucher as dv where dv.cancelled=0) or x.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=0 and dv.cancelled=0))) as 'NYDD', " _
+        '                    + " (select ifnull(sum(amount),0) from tblrequisitionfund as x where x.periodcode=a.periodcode and x.itemcode=a.itemcode And x.officeid=a.officeid And x.cancelled=0 and x.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=1 and dv.cleared=0 and dv.cancelled=0)) as 'DD', " _
+        '                    + " (select ifnull(sum(amount),0) from tblrequisitionfund as x where x.periodcode=a.periodcode and x.itemcode=a.itemcode And x.officeid=a.officeid And x.cancelled=0 and x.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=1 and dv.cleared=1 and dv.cancelled=0)) as 'CLEARED', " _
+        '                    + " amount-(select ifnull(sum(amount),0) from tblrequisitionfund as x where x.periodcode=a.periodcode and x.itemcode=a.itemcode and x.officeid=a.officeid and x.monthcode=a.monthcode and x.cancelled=0)  as balance " _
+        '                    + " from tblbudgetcomposition as a) as y where id='" & id.Text & "'" : rst = com.ExecuteReader
+
+        com.CommandText = "select * from " _
+                  + " (SELECT b.id, a.itemcode, b.officeid, b.periodcode, b.monthcode, b.classcode, a.itemname,b.amount, ifnull(b.totalbudget,0) as 'totalbudget', " _
+                  + " (select officename from tblcompoffice where officeid=b.officeid) As 'Office', " _
+                  + " January, February, March, April, May, June, July, August, September, October, November, December, " _
+                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode And b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0) as totalused, " _
+                  + " amount-(select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode And b.itemcode=a.itemcode And b.officeid=a.officeid And b.monthcode=a.monthcode And a.cancelled=0)  as balance, " _
+                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and (a.pid not in (select pid from tbldisbursementvoucher as dv where dv.cancelled=0) or a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=0 and dv.cancelled=0))) as 'NYDD', " _
+                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=1 and dv.cleared=0 and dv.cancelled=0)) as 'DD', " _
+                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=1 and dv.cleared=1 and dv.cancelled=0)) as 'CLEARED' " _
+                  + " FROM `tblglitem` as a left join tblbudgetcomposition as b on a.itemcode=b.itemcode  where b.id ='" & id.Text & "') as x " : rst = com.ExecuteReader()
         While rst.Read
+            officeid = rst("officeid").ToString
+            periodcode = rst("periodcode").ToString
             monthcode = rst("monthcode").ToString
+            classcode = rst("classcode").ToString
+            itemcode = rst("itemcode").ToString
             txtOffice.Text = rst("office").ToString
             txtAccountTitle.Text = rst("itemname").ToString
             txtClass.Text = rst("classcode").ToString
@@ -52,6 +73,7 @@ Public Class frmBudgetEditLine
             txtOctober.EditValue = rst("october").ToString
             txtNovember.EditValue = rst("november").ToString
             txtDecember.EditValue = rst("december").ToString
+            'txtVariance.EditValue = Val(rst("totaltrans").ToString) - Val(rst("totalbudget").ToString)
 
             'txtJanuary.EditValue = If(monthcode = "01", rst("balance").ToString, rst("january").ToString)
             'txtFebruary.EditValue = If(monthcode = "02", rst("balance").ToString, rst("february").ToString)
@@ -66,12 +88,21 @@ Public Class frmBudgetEditLine
             'txtNovember.EditValue = If(monthcode = "11", rst("balance").ToString, rst("november").ToString)
             'txtDecember.EditValue = If(monthcode = "12", rst("balance").ToString, rst("december").ToString)
 
-
         End While
         rst.Close()
         MonthControl()
 
+        If id.Text <> "" Then
+            LoadXgrid("select date_format(concat(date_format(current_date,'%Y'),'-',monthcode,'-1'),'%M') as 'Month', itemcode as 'Item Code', " _
+                      + "(select itemname from tblglitem where itemcode=a.itemcode) as 'Item Name', Amount, requestno as 'Request No.', (select purpose from tblrequisition where pid=a.pid) as Purpose from tblrequisitionfund as a where officeid='" & officeid & "' and periodcode='" & periodcode & "' and classcode='" & classcode & "' and itemcode='" & itemcode & "' and cancelled=0", "tblrequisitionfund", Em, GridView1, Me)
+            XgridColAlign({"Item Code", "Class", "Month", "Request No."}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+            XgridColCurrency({"Amount"}, GridView1)
+            XgridGeneralSummaryCurrency({"Amount"}, GridView1)
+            GridView1.BestFitColumns()
+        End If
+
     End Sub
+
 
     Public Sub MonthControl()
         Dim ctrl() As TextEdit = {txtJanuary, txtFebruary, txtMarch, txtApril, txtMay, txtJune, txtJuly, txtAugust, txtSeptember, txtOctober, txtNovember, txtDecember}
@@ -92,11 +123,13 @@ Public Class frmBudgetEditLine
                 End If
                 i += 1
             Next
+            txtTotalBudget.ReadOnly = False
         Else
             For Each ctl In ctrl
                 ctl.ReadOnly = True
                 ctl.Properties.Appearance.BackColor = DefaultBackColor
             Next
+            txtTotalBudget.ReadOnly = True
         End If
         ButtonControl()
         Calculator()
@@ -153,9 +186,17 @@ Public Class frmBudgetEditLine
             txtTotalBudget.Properties.Appearance.BackColor = DefaultBackColor
             txtTotalBudget.Properties.Appearance.ForeColor = DefaultForeColor
         End If
+
+        'If Val(CC(txtVariance.Text)) > 0 Then
+        '    txtVariance.Properties.Appearance.BackColor = Color.Red
+        '    txtVariance.Properties.Appearance.ForeColor = Color.White
+        'Else
+        '    txtVariance.Properties.Appearance.BackColor = DefaultBackColor
+        '    txtVariance.Properties.Appearance.ForeColor = DefaultForeColor
+        'End If
     End Sub
 
-    Private Sub Compute_EditValueChanged(sender As Object, e As EventArgs) Handles txtJanuary.EditValueChanged, txtFebruary.EditValueChanged, txtMarch.EditValueChanged, txtApril.EditValueChanged, txtMay.EditValueChanged, txtJune.EditValueChanged, txtJuly.EditValueChanged, txtAugust.EditValueChanged, txtSeptember.EditValueChanged, txtOctober.EditValueChanged, txtNovember.EditValueChanged, txtDecember.EditValueChanged
+    Private Sub Compute_EditValueChanged(sender As Object, e As EventArgs) Handles txtTotalBudget.EditValueChanged, txtJanuary.EditValueChanged, txtFebruary.EditValueChanged, txtMarch.EditValueChanged, txtApril.EditValueChanged, txtMay.EditValueChanged, txtJune.EditValueChanged, txtJuly.EditValueChanged, txtAugust.EditValueChanged, txtSeptember.EditValueChanged, txtOctober.EditValueChanged, txtNovember.EditValueChanged, txtDecember.EditValueChanged
         If UpdateEnable Then
             If monthcode = "01" Then
                 txtCurrentBalance.EditValue = Val(txtJanuary.EditValue) - Val(txtAmount.EditValue) + Val(txtOriginalBalance.EditValue)
@@ -223,7 +264,7 @@ Public Class frmBudgetEditLine
                     UpdateAmount = " amount=" & txtDecember.EditValue & ", "
                 End If
 
-                com.CommandText = "update tblbudgetcomposition set " & UpdateAmount & " january=" & txtJanuary.EditValue & ",february=" & txtFebruary.EditValue & ",march=" & txtMarch.EditValue & ",april=" & txtApril.EditValue & ",may=" & txtMay.EditValue & ",june=" & txtJune.EditValue & ",july=" & txtJuly.EditValue & ",august=" & txtAugust.EditValue & ",september=" & txtSeptember.EditValue & ",october=" & txtOctober.EditValue & ",november=" & txtNovember.EditValue & ",december=" & txtDecember.EditValue & " where id='" & id.Text & "'" : com.ExecuteNonQuery()
+                com.CommandText = "update tblbudgetcomposition set totalbudget=" & txtTotalBudget.EditValue & ", " & UpdateAmount & " january=" & txtJanuary.EditValue & ",february=" & txtFebruary.EditValue & ",march=" & txtMarch.EditValue & ",april=" & txtApril.EditValue & ",may=" & txtMay.EditValue & ",june=" & txtJune.EditValue & ",july=" & txtJuly.EditValue & ",august=" & txtAugust.EditValue & ",september=" & txtSeptember.EditValue & ",october=" & txtOctober.EditValue & ",november=" & txtNovember.EditValue & ",december=" & txtDecember.EditValue & " where id='" & id.Text & "'" : com.ExecuteNonQuery()
                 UpdateEnable = False
                 MonthControl()
                 XtraMessageBox.Show("Figure successfully updated!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)

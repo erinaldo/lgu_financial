@@ -2083,14 +2083,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LGU Server.exe" size="3101696">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LGU Server.exe" size="3108352">
       <assemblyIdentity name="LGU Server" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jhKhbP7+JnkGiKY1HkezM2h+mb49TU1rlSTIPVi1COw=</dsig:DigestValue>
+        <dsig:DigestValue>1hHVYwAVtOZEXRS9MEpO8AUUHrq6s34mJWfvO9+9ES8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2107,14 +2107,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll" size="91416">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll" size="91392">
       <assemblyIdentity name="Microsoft.VisualStudio.QualityTools.UnitTestFramework" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Z+rFxvNxc11BoqY3hbqRnpCvWIDjz5+uTNQAW3loVUU=</dsig:DigestValue>
+        <dsig:DigestValue>XEKi0bhMZlZumHjzFJtO+/+704G8VKqUDHs1+Hd/Hrc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

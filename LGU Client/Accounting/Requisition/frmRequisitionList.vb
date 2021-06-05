@@ -326,4 +326,18 @@ Public Class frmRequisitionList
     Private Sub ckDisplayCancelled_CheckedChanged(sender As Object, e As EventArgs) Handles ckDisplayCancelled.CheckedChanged
         ViewList()
     End Sub
+
+    Private Sub cmdDuplicate_Click(sender As Object, e As EventArgs) Handles cmdDuplicate.Click
+        If globalAllowAdd = False Then
+            XtraMessageBox.Show("Your access not allowed to add!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
+        frmRequisitionInfo.mode.Text = "duplicate"
+        frmRequisitionInfo.duplicateid.Text = GridView1.GetFocusedRowCellValue("Entry Code").ToString
+        If frmRequisitionInfo.Visible = True Then
+            frmRequisitionInfo.Focus()
+        Else
+            frmRequisitionInfo.Show(Me)
+        End If
+    End Sub
 End Class
