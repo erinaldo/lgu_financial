@@ -2277,6 +2277,11 @@ LGU Server
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:LGUFinancial.My.Resources.Resources.user__plus">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:LGUFinancial.My.Resources.Resources.User_Accounts">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

@@ -7,6 +7,7 @@ Imports DevExpress.XtraGrid.Views.Grid
 Public Class frmSourceOfFundInfo
     Public id As String = ""
     Public mode As String = ""
+    Public requiredfund As Boolean
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
         If keyData = (Keys.Escape) Then
             Me.Close()
@@ -31,7 +32,7 @@ Public Class frmSourceOfFundInfo
         If periodcode.Text = "" Then Exit Sub
         LoadXgridLookupSearch("select itemcode, monthcode, classcode as Class, itemname as 'Select', balance as 'Current Balance' from (select itemcode, monthcode, classcode, itemname, " _
                               + " amount-(select ifnull(sum(amount),0) from tblrequisitionfund as a where x.periodcode=a.periodcode And x.itemcode=a.itemcode and x.monthcode=a.monthcode And x.officeid=a.officeid And a.pid<>'" & pid.Text & "' and a.cancelled=0) as balance " _
-                              + " from tblbudgetcomposition as x where periodcode='" & periodcode.Text & "' and officeid='" & officeid.Text & "') as i where i.balance > 0 order by i.classcode, i.itemname asc", "tblbudgetcomposition", txtSource, gridSource)
+                              + " from tblbudgetcomposition as x where periodcode='" & periodcode.Text & "' and officeid='" & officeid.Text & "') as i " & If(requiredfund, " where i.balance > 0 ", "") & " order by i.classcode, i.itemname asc", "tblbudgetcomposition", txtSource, gridSource)
         XgridHideColumn({"itemcode", "monthcode"}, gridSource)
         XgridColCurrency({"Current Balance"}, gridSource)
         XgridColAlign({"Class"}, gridSource, DevExpress.Utils.HorzAlignment.Center)
@@ -107,7 +108,7 @@ Public Class frmSourceOfFundInfo
             XtraMessageBox.Show("Please enter valid amount!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtAmount.Focus()
             Exit Sub
-        ElseIf Val(CC(txtAmount.EditValue)) > Val(CC(txtAvailableBalance.EditValue)) Then
+        ElseIf Val(CC(txtAmount.EditValue)) > Val(CC(txtAvailableBalance.EditValue)) And RequiredFund = True Then
             XtraMessageBox.Show("Insufficient allocated budget balance! Please reduce amount", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         ElseIf countqry("tmprequisitionfund", " pid='" & pid.Text & "' and itemcode='" & sourceid.Text & "' and officeid ='" & officeid.Text & "' and periodcode='" & periodcode.Text & "' and id<>'" & id & "'") > 0 Then
@@ -124,9 +125,9 @@ Public Class frmSourceOfFundInfo
                                 + " monthcode='" & monthcode.Text & "', " _
                                 + " classcode='" & classcode.Text & "', " _
                                 + " itemcode='" & sourceid.Text & "', " _
-                                + " prevbalance='" & CC(txtAvailableBalance.EditValue) & "', " _
+                                + " prevbalance='" & If(requiredfund, CC(txtAvailableBalance.EditValue), 0) & "', " _
                                 + " amount='" & CC(txtAmount.EditValue) & "', " _
-                                + " newbalance='" & CC(txtAvailableBalance.EditValue) - CC(txtAmount.EditValue) & "' " _
+                                + " newbalance='" & If(requiredfund, CC(txtAvailableBalance.EditValue) - CC(txtAmount.EditValue), 0) & "' " _
                                 + " where id='" & id & "'" : com.ExecuteNonQuery()
             frmRequisitionInfo.LoadSource()
             'XtraMessageBox.Show("Fund successfully updated!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -140,9 +141,9 @@ Public Class frmSourceOfFundInfo
                                 + " monthcode='" & monthcode.Text & "', " _
                                 + " classcode='" & classcode.Text & "', " _
                                 + " itemcode='" & sourceid.Text & "', " _
-                                + " prevbalance='" & CC(txtAvailableBalance.EditValue) & "', " _
+                                + " prevbalance='" & If(requiredfund, CC(txtAvailableBalance.EditValue), 0) & "', " _
                                 + " amount='" & CC(txtAmount.EditValue) & "', " _
-                                + " newbalance='" & CC(txtAvailableBalance.EditValue) - CC(txtAmount.EditValue) & "'" : com.ExecuteNonQuery()
+                                + " newbalance='" & If(requiredfund, CC(txtAvailableBalance.EditValue) - CC(txtAmount.EditValue), 0) & "'" : com.ExecuteNonQuery()
             clearInfo()
             frmRequisitionInfo.LoadSource()
             'XtraMessageBox.Show("Fund successfully added!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)

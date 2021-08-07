@@ -43,6 +43,10 @@ Public Class frmFileViewer
     End Sub
 
     Private Sub DeleteCategoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteCategoryToolStripMenuItem.Click
+        If MyDataGridView.RowCount = 0 Then
+            MsgBox("No item is selected!", MsgBoxStyle.Critical)
+            Exit Sub
+        End If
         If MessageBox.Show("Are you sure you want to continue?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             For Each rw As DataGridViewRow In MyDataGridView.SelectedRows
                 If rw.Cells("database").Value.ToString <> "" Then
@@ -56,6 +60,12 @@ Public Class frmFileViewer
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        ViewAttachmentPackage_All({trncode.Text}, "")
+        ViewAttachmentPackage_All({trncode.Text}, trntype.Text)
+    End Sub
+
+    Private Sub MyDataGridView_CellMouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles MyDataGridView.CellMouseDown
+        If e.ColumnIndex >= 0 And e.RowIndex >= 0 Then
+            Me.MyDataGridView.CurrentCell = Me.MyDataGridView.Rows(e.RowIndex).Cells(e.ColumnIndex)
+        End If
     End Sub
 End Class

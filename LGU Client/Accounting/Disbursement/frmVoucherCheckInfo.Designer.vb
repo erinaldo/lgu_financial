@@ -31,32 +31,33 @@ Partial Class frmVoucherCheckInfo
         Me.voucherno = New DevExpress.XtraEditors.TextEdit()
         Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.id = New DevExpress.XtraEditors.TextEdit()
-        Me.txtCheckBankName = New DevExpress.XtraEditors.SearchLookUpEdit()
-        Me.gridBank = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.ckCheckIssued = New DevExpress.XtraEditors.CheckEdit()
         Me.fundcode = New DevExpress.XtraEditors.TextEdit()
         Me.seriesno = New DevExpress.XtraEditors.TextEdit()
         Me.pid = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtAmount = New DevExpress.XtraEditors.TextEdit()
+        Me.txtCheckBankName = New DevExpress.XtraEditors.MemoEdit()
         CType(Me.txtCheckDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCheckDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCheckNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.voucherno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.id.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtCheckBankName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gridBank, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckCheckIssued.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.seriesno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCheckBankName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtCheckDate
         '
         Me.txtCheckDate.EditValue = Nothing
         Me.txtCheckDate.EnterMoveNextControl = True
-        Me.txtCheckDate.Location = New System.Drawing.Point(145, 99)
+        Me.txtCheckDate.Location = New System.Drawing.Point(145, 149)
         Me.txtCheckDate.Name = "txtCheckDate"
-        Me.txtCheckDate.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtCheckDate.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtCheckDate.Properties.Appearance.Options.UseFont = True
         Me.txtCheckDate.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtCheckDate.Properties.AppearanceFocused.Options.UseBackColor = True
@@ -65,14 +66,14 @@ Partial Class frmVoucherCheckInfo
         Me.txtCheckDate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.txtCheckDate.Properties.Mask.EditMask = "MMMM dd, yyyy"
         Me.txtCheckDate.Properties.Mask.UseMaskAsDisplayFormat = True
-        Me.txtCheckDate.Size = New System.Drawing.Size(149, 26)
-        Me.txtCheckDate.TabIndex = 1002
+        Me.txtCheckDate.Size = New System.Drawing.Size(149, 28)
+        Me.txtCheckDate.TabIndex = 1
         '
         'LabelControl5
         '
         Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl5.Appearance.Options.UseFont = True
-        Me.LabelControl5.Location = New System.Drawing.Point(71, 102)
+        Me.LabelControl5.Location = New System.Drawing.Point(71, 152)
         Me.LabelControl5.Name = "LabelControl5"
         Me.LabelControl5.Size = New System.Drawing.Size(65, 17)
         Me.LabelControl5.TabIndex = 1001
@@ -82,17 +83,17 @@ Partial Class frmVoucherCheckInfo
         '
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl1.Appearance.Options.UseFont = True
-        Me.LabelControl1.Location = New System.Drawing.Point(71, 75)
+        Me.LabelControl1.Location = New System.Drawing.Point(62, 47)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(66, 17)
+        Me.LabelControl1.Size = New System.Drawing.Size(77, 17)
         Me.LabelControl1.TabIndex = 1000
-        Me.LabelControl1.Text = "Bank Name"
+        Me.LabelControl1.Text = "Bank Account"
         '
         'LabelControl2
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(77, 47)
+        Me.LabelControl2.Location = New System.Drawing.Point(77, 123)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(59, 17)
         Me.LabelControl2.TabIndex = 999
@@ -101,17 +102,17 @@ Partial Class frmVoucherCheckInfo
         'txtCheckNo
         '
         Me.txtCheckNo.EditValue = ""
-        Me.txtCheckNo.Location = New System.Drawing.Point(145, 43)
+        Me.txtCheckNo.Location = New System.Drawing.Point(145, 119)
         Me.txtCheckNo.Name = "txtCheckNo"
-        Me.txtCheckNo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtCheckNo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtCheckNo.Properties.Appearance.Options.UseFont = True
         Me.txtCheckNo.Properties.Appearance.Options.UseTextOptions = True
         Me.txtCheckNo.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.txtCheckNo.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtCheckNo.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtCheckNo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtCheckNo.Size = New System.Drawing.Size(149, 26)
-        Me.txtCheckNo.TabIndex = 997
+        Me.txtCheckNo.Size = New System.Drawing.Size(149, 28)
+        Me.txtCheckNo.TabIndex = 0
         '
         'LabelControl15
         '
@@ -139,9 +140,10 @@ Partial Class frmVoucherCheckInfo
         Me.voucherno.Properties.Appearance.Options.UseForeColor = True
         Me.voucherno.Properties.Appearance.Options.UseTextOptions = True
         Me.voucherno.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.voucherno.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.voucherno.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.voucherno.Properties.ReadOnly = True
-        Me.voucherno.Size = New System.Drawing.Size(149, 24)
+        Me.voucherno.Size = New System.Drawing.Size(149, 26)
         Me.voucherno.TabIndex = 1003
         '
         'cmdSave
@@ -152,16 +154,16 @@ Partial Class frmVoucherCheckInfo
         Me.cmdSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSave.Appearance.Options.UseBackColor = True
         Me.cmdSave.Appearance.Options.UseFont = True
-        Me.cmdSave.Location = New System.Drawing.Point(145, 128)
+        Me.cmdSave.Location = New System.Drawing.Point(145, 180)
         Me.cmdSave.Name = "cmdSave"
         Me.cmdSave.Size = New System.Drawing.Size(149, 34)
-        Me.cmdSave.TabIndex = 1005
+        Me.cmdSave.TabIndex = 2
         Me.cmdSave.Text = "Confirm"
         '
         'id
         '
         Me.id.EditValue = ""
-        Me.id.Location = New System.Drawing.Point(419, 47)
+        Me.id.Location = New System.Drawing.Point(444, 47)
         Me.id.Name = "id"
         Me.id.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.id.Properties.Appearance.Options.UseFont = True
@@ -174,44 +176,19 @@ Partial Class frmVoucherCheckInfo
         Me.id.TabIndex = 1006
         Me.id.Visible = False
         '
-        'txtCheckBankName
-        '
-        Me.txtCheckBankName.EditValue = "sss"
-        Me.txtCheckBankName.Location = New System.Drawing.Point(145, 71)
-        Me.txtCheckBankName.Name = "txtCheckBankName"
-        Me.txtCheckBankName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtCheckBankName.Properties.Appearance.Options.UseFont = True
-        Me.txtCheckBankName.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtCheckBankName.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.txtCheckBankName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtCheckBankName.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.txtCheckBankName.Properties.DisplayMember = "Bank Name"
-        Me.txtCheckBankName.Properties.NullText = ""
-        Me.txtCheckBankName.Properties.PopupView = Me.gridBank
-        Me.txtCheckBankName.Properties.ValueMember = "Account No."
-        Me.txtCheckBankName.Size = New System.Drawing.Size(232, 26)
-        Me.txtCheckBankName.TabIndex = 1007
-        '
-        'gridBank
-        '
-        Me.gridBank.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.gridBank.Name = "gridBank"
-        Me.gridBank.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.gridBank.OptionsView.ShowGroupPanel = False
-        '
         'ckCheckIssued
         '
-        Me.ckCheckIssued.Location = New System.Drawing.Point(419, 21)
+        Me.ckCheckIssued.Location = New System.Drawing.Point(444, 21)
         Me.ckCheckIssued.Name = "ckCheckIssued"
         Me.ckCheckIssued.Properties.Caption = "Issued"
-        Me.ckCheckIssued.Size = New System.Drawing.Size(75, 20)
+        Me.ckCheckIssued.Size = New System.Drawing.Size(75, 19)
         Me.ckCheckIssued.TabIndex = 1008
         Me.ckCheckIssued.Visible = False
         '
         'fundcode
         '
         Me.fundcode.EditValue = ""
-        Me.fundcode.Location = New System.Drawing.Point(419, 79)
+        Me.fundcode.Location = New System.Drawing.Point(444, 79)
         Me.fundcode.Name = "fundcode"
         Me.fundcode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.fundcode.Properties.Appearance.Options.UseFont = True
@@ -227,7 +204,7 @@ Partial Class frmVoucherCheckInfo
         'seriesno
         '
         Me.seriesno.EditValue = ""
-        Me.seriesno.Location = New System.Drawing.Point(459, 43)
+        Me.seriesno.Location = New System.Drawing.Point(484, 43)
         Me.seriesno.Name = "seriesno"
         Me.seriesno.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.seriesno.Properties.Appearance.Options.UseFont = True
@@ -243,7 +220,7 @@ Partial Class frmVoucherCheckInfo
         'pid
         '
         Me.pid.EditValue = ""
-        Me.pid.Location = New System.Drawing.Point(459, 75)
+        Me.pid.Location = New System.Drawing.Point(484, 75)
         Me.pid.Name = "pid"
         Me.pid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.pid.Properties.Appearance.Options.UseFont = True
@@ -256,13 +233,57 @@ Partial Class frmVoucherCheckInfo
         Me.pid.TabIndex = 1012
         Me.pid.Visible = False
         '
+        'LabelControl8
+        '
+        Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.LabelControl8.Appearance.Options.UseFont = True
+        Me.LabelControl8.Location = New System.Drawing.Point(56, 93)
+        Me.LabelControl8.Name = "LabelControl8"
+        Me.LabelControl8.Size = New System.Drawing.Size(83, 17)
+        Me.LabelControl8.TabIndex = 1014
+        Me.LabelControl8.Text = "Check Amount"
+        '
+        'txtAmount
+        '
+        Me.txtAmount.EditValue = "0"
+        Me.txtAmount.Location = New System.Drawing.Point(145, 89)
+        Me.txtAmount.Name = "txtAmount"
+        Me.txtAmount.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.txtAmount.Properties.Appearance.Options.UseFont = True
+        Me.txtAmount.Properties.Appearance.Options.UseTextOptions = True
+        Me.txtAmount.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.txtAmount.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtAmount.Properties.Mask.EditMask = "n"
+        Me.txtAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.txtAmount.Properties.Mask.UseMaskAsDisplayFormat = True
+        Me.txtAmount.Properties.NullText = "0"
+        Me.txtAmount.Properties.ReadOnly = True
+        Me.txtAmount.Size = New System.Drawing.Size(149, 28)
+        Me.txtAmount.TabIndex = 1013
+        '
+        'txtCheckBankName
+        '
+        Me.txtCheckBankName.EditValue = ""
+        Me.txtCheckBankName.Location = New System.Drawing.Point(145, 45)
+        Me.txtCheckBankName.Name = "txtCheckBankName"
+        Me.txtCheckBankName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtCheckBankName.Properties.Appearance.Options.UseFont = True
+        Me.txtCheckBankName.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtCheckBankName.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.txtCheckBankName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtCheckBankName.Properties.ReadOnly = True
+        Me.txtCheckBankName.Size = New System.Drawing.Size(254, 42)
+        Me.txtCheckBankName.TabIndex = 1007
+        '
         'frmVoucherCheckInfo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(411, 180)
+        Me.ClientSize = New System.Drawing.Size(429, 230)
+        Me.Controls.Add(Me.LabelControl8)
+        Me.Controls.Add(Me.txtAmount)
         Me.Controls.Add(Me.pid)
         Me.Controls.Add(Me.seriesno)
         Me.Controls.Add(Me.fundcode)
@@ -289,12 +310,12 @@ Partial Class frmVoucherCheckInfo
         CType(Me.txtCheckNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.voucherno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.id.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtCheckBankName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gridBank, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckCheckIssued.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.seriesno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCheckBankName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -309,10 +330,11 @@ Partial Class frmVoucherCheckInfo
     Friend WithEvents voucherno As DevExpress.XtraEditors.TextEdit
     Friend WithEvents cmdSave As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents id As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents txtCheckBankName As DevExpress.XtraEditors.SearchLookUpEdit
-    Friend WithEvents gridBank As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents ckCheckIssued As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents fundcode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents seriesno As DevExpress.XtraEditors.TextEdit
     Friend WithEvents pid As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtAmount As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtCheckBankName As DevExpress.XtraEditors.MemoEdit
 End Class

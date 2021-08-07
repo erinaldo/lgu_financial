@@ -39,6 +39,7 @@ Partial Class frmDisbursementList
         Me.CreateJEVTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CheckIssuanceInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdCancel = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportVoucherFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdLocalData = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
@@ -62,8 +63,8 @@ Partial Class frmDisbursementList
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
-        Me.ExportVoucherFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+        Me.CheckEdit1 = New DevExpress.XtraEditors.CheckEdit()
         Me.cms_em.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,6 +78,7 @@ Partial Class frmDisbursementList
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'HiToolStripMenuItem
@@ -188,6 +190,13 @@ Partial Class frmDisbursementList
         Me.cmdCancel.Size = New System.Drawing.Size(221, 22)
         Me.cmdCancel.Text = "Cancel Selected Voucher"
         '
+        'ExportVoucherFileToolStripMenuItem
+        '
+        Me.ExportVoucherFileToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.inbox__arrow
+        Me.ExportVoucherFileToolStripMenuItem.Name = "ExportVoucherFileToolStripMenuItem"
+        Me.ExportVoucherFileToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
+        Me.ExportVoucherFileToolStripMenuItem.Text = "Export Voucher File"
+        '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
@@ -279,6 +288,7 @@ Partial Class frmDisbursementList
         Me.SplitContainerControl1.Horizontal = False
         Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 31)
         Me.SplitContainerControl1.Name = "SplitContainerControl1"
+        Me.SplitContainerControl1.Panel1.Controls.Add(Me.CheckEdit1)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckPendingRequisition)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.cmdFilterSearch)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.txtDateFrom)
@@ -291,6 +301,7 @@ Partial Class frmDisbursementList
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
         Me.SplitContainerControl1.Size = New System.Drawing.Size(990, 609)
+        Me.SplitContainerControl1.SplitterPosition = 126
         Me.SplitContainerControl1.TabIndex = 823
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
         '
@@ -411,7 +422,7 @@ Partial Class frmDisbursementList
         Me.Em.MinimumSize = New System.Drawing.Size(574, 454)
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(990, 499)
+        Me.Em.Size = New System.Drawing.Size(990, 478)
         Me.Em.TabIndex = 634
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -429,12 +440,15 @@ Partial Class frmDisbursementList
         Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
         Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
         '
-        'ExportVoucherFileToolStripMenuItem
+        'CheckEdit1
         '
-        Me.ExportVoucherFileToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.inbox__arrow
-        Me.ExportVoucherFileToolStripMenuItem.Name = "ExportVoucherFileToolStripMenuItem"
-        Me.ExportVoucherFileToolStripMenuItem.Size = New System.Drawing.Size(221, 22)
-        Me.ExportVoucherFileToolStripMenuItem.Text = "Export Voucher File"
+        Me.CheckEdit1.Location = New System.Drawing.Point(142, 89)
+        Me.CheckEdit1.Name = "CheckEdit1"
+        Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.CheckEdit1.Properties.Appearance.Options.UseFont = True
+        Me.CheckEdit1.Properties.Caption = "View Check Issuance Report"
+        Me.CheckEdit1.Size = New System.Drawing.Size(196, 21)
+        Me.CheckEdit1.TabIndex = 933
         '
         'frmDisbursementList
         '
@@ -465,6 +479,7 @@ Partial Class frmDisbursementList
         CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -510,4 +525,5 @@ Partial Class frmDisbursementList
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents ExportVoucherFileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
+    Friend WithEvents CheckEdit1 As DevExpress.XtraEditors.CheckEdit
 End Class

@@ -1037,6 +1037,11 @@ LGU Client
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:LGUClient.My.Resources.Resources.inbox__pencil">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:LGUClient.My.Resources.Resources.inbox__plus">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

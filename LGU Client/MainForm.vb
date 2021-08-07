@@ -459,6 +459,14 @@ Public Class MainForm
             lineBudgetReport.Visible = False
         End If
 
+        If globalAuthHumanResource = True Then
+            cmdHumanResource.Visible = True
+            lineHumanResouce.Visible = True
+        Else
+            cmdHumanResource.Visible = False
+            lineHumanResouce.Visible = False
+        End If
+
         If LCase(globalusername) = "root" Then
             ShowAllMenu(True)
         End If
@@ -519,6 +527,9 @@ Public Class MainForm
 
         cmdBudgetReport.Visible = showMenu
         lineBudgetReport.Visible = showMenu
+
+        cmdHumanResource.Visible = showMenu
+        lineHumanResouce.Visible = showMenu
 
     End Sub
 
@@ -936,6 +947,14 @@ Public Class MainForm
             frmNewDirectJournal.Focus()
         Else
             frmNewDirectJournal.ShowDialog(Me)
+        End If
+    End Sub
+
+    Private Sub cmdHumanResource_Click(sender As Object, e As EventArgs) Handles cmdHumanResource.Click
+        If frmEmpoyeeList.Visible = True Then
+            frmEmpoyeeList.Focus()
+        Else
+            frmEmpoyeeList.ShowDialog(Me)
         End If
     End Sub
 End Class

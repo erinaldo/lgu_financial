@@ -44,16 +44,38 @@ Public Class frmDisbursementList
                         + " (select fullname from tblaccounts where accountid=a.trnby) like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " (select suppliername from tblsupplier where supplierid = a.supplierid) like '%" & rchar(txtSearchBar.Text) & "%')"
         End If
-        LoadXgrid("SELECT pid, voucherid as 'Entry Code',periodcode,officeid, if(cancelled,'CANCELLED',if(cleared,'CLEARED', 'PENDING')) as Status, " _
+        If CheckEdit1.Checked Then
+            LoadXgrid("SELECT voucherid as 'Entry Code', " _
+                        + " voucherno as 'Voucher No.', " _
+                        + " date_format(voucherdate,'%Y-%m-%d') as 'Voucher Date', " _
+                        + " (select suppliername from tblsupplier where supplierid = a.supplierid) as 'Payee', " _
+                        + " checkissued as 'Check Issued', " _
+                        + " checkno as 'Check No.', " _
+                        + " checkamount as 'Check Amount', " _
+                        + " (select description from tblbankaccounts where code=a.checkbank) as 'Bank Name', " _
+                        + " date_format(checkdate,'%Y-%m-%d') as 'Check Date' " _
+                        + " FROM tbldisbursementvoucher as a where  " _
+                        + KeyWordSearch _
+                        + " order by voucherno asc", "tbldisbursementvoucher", Em, GridView1, Me)
+
+            XgridColCurrency({"Check Amount"}, GridView1)
+            XgridColAlign({"Entry Code", "Voucher No.", "JEV No.", "Status", "Fund Period", "Type of Payment", "Voucher Date", "Check No.", "Check Date", "Date Posted", "Cleared", "Date Cleared", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+            XgridGeneralSummaryCurrency({"Check Amount"}, GridView1)
+            GridView1.BestFitColumns()
+            DXgridColumnIndexing(Me.Name, GridView1)
+            SaveFilterColumn(GridView1, Me.Text & "-check")
+        Else
+            LoadXgrid("SELECT pid, voucherid as 'Entry Code',periodcode,officeid, if(cancelled,'CANCELLED',if(cleared,'CLEARED', 'PENDING')) as Status, " _
                         + " voucherno as 'Voucher No.', " _
                         + " (select officename from tblcompoffice where officeid = a.officeid) as 'Office', " _
                         + " (select jevno from tbljournalentryvoucher where dvid=a.voucherid and cancelled=0 limit 1) as 'JEV No.', " _
                         + " concat((select codename from tblfund where code=a.fundcode),'-',yearcode) as 'Fund Period',  " _
+                        + " Amount, " _
                         + " date_format(voucherdate,'%Y-%m-%d') as 'Voucher Date', " _
                         + " (select suppliername from tblsupplier where supplierid = a.supplierid) as 'Payee', " _
-                        + " Amount, " _
                         + " checkissued as 'Check Issued', " _
                         + " checkno as 'Check No.', " _
+                        + " checkamount as 'Check Amount', " _
                         + " (select description from tblbankaccounts where code=a.checkbank) as 'Bank Name', " _
                         + " date_format(checkdate,'%Y-%m-%d') as 'Check Date', " _
                         + " (select fullname from tblaccounts where accountid=a.trnby) as 'Posted By', " _
@@ -66,39 +88,41 @@ Public Class frmDisbursementList
                         + KeyWordSearch _
                         + " order by voucherno asc", "tbldisbursementvoucher", Em, GridView1, Me)
 
-        XgridColCurrency({"Amount"}, GridView1)
-        XgridHideColumn({"periodcode", "officeid", "pid"}, GridView1)
-        XgridColAlign({"Entry Code", "Voucher No.", "JEV No.", "Status", "Fund Period", "Type of Payment", "Voucher Date", "Check No.", "Check Date", "Date Posted", "Cleared", "Date Cleared", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
-        XgridGeneralSummaryCurrency({"Amount"}, GridView1)
-        GridView1.BestFitColumns()
-        DXgridColumnIndexing(Me.Name, GridView1)
-        SaveFilterColumn(GridView1, Me.Text)
+            XgridColCurrency({"Amount", "Check Amount"}, GridView1)
+            XgridHideColumn({"periodcode", "officeid", "pid"}, GridView1)
+            XgridColAlign({"Entry Code", "Voucher No.", "JEV No.", "Status", "Fund Period", "Type of Payment", "Voucher Date", "Check No.", "Check Date", "Date Posted", "Cleared", "Date Cleared", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+            XgridGeneralSummaryCurrency({"Amount", "Check Amount"}, GridView1)
+            GridView1.BestFitColumns()
+            DXgridColumnIndexing(Me.Name, GridView1)
+            SaveFilterColumn(GridView1, Me.Text & "-all")
+        End If
+
     End Sub
 
     Private Sub gridview1_RowCellStyle(ByVal sender As Object, ByVal e As RowCellStyleEventArgs) Handles GridView1.RowCellStyle
-        Dim View As GridView = sender
-        Dim status As String = View.GetRowCellDisplayText(e.RowHandle, View.Columns("Status"))
-        If status = "CANCELLED" Then
-            e.Appearance.ForeColor = Color.Red
-            If Not gen_fontfamily Is Nothing Then
-                e.Appearance.Font = New Font(gen_fontfamily, gen_FontSize, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, (CByte(204)))
-            End If
-        Else
-            If e.Column.Name = "colStatus" Then
-                If status = "PENDING" Then
-                    e.Appearance.BackColor = Color.Orange
-                    e.Appearance.BackColor2 = Color.Orange
-                    e.Appearance.ForeColor = Color.Black
+        If CheckEdit1.Checked = False Then
+            Dim View As GridView = sender
+            Dim status As String = View.GetRowCellDisplayText(e.RowHandle, View.Columns("Status"))
+            If status = "CANCELLED" Then
+                e.Appearance.ForeColor = Color.Red
+                If Not gen_fontfamily Is Nothing Then
+                    e.Appearance.Font = New Font(gen_fontfamily, gen_FontSize, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, (CByte(204)))
+                End If
+            Else
+                If e.Column.Name = "colStatus" Then
+                    If status = "PENDING" Then
+                        e.Appearance.BackColor = Color.Orange
+                        e.Appearance.BackColor2 = Color.Orange
+                        e.Appearance.ForeColor = Color.Black
 
-                ElseIf status = "CLEARED" Then
-                    e.Appearance.BackColor = Color.Green
-                    e.Appearance.BackColor2 = Color.Green
-                    e.Appearance.ForeColor = Color.White
+                    ElseIf status = "CLEARED" Then
+                        e.Appearance.BackColor = Color.Green
+                        e.Appearance.BackColor2 = Color.Green
+                        e.Appearance.ForeColor = Color.White
+                    End If
                 End If
             End If
         End If
-
-
     End Sub
 
     Private Sub GridView1_DragObjectDrop(sender As Object, e As DevExpress.XtraGrid.Views.Base.DragObjectDropEventArgs) Handles GridView1.DragObjectDrop
@@ -114,7 +138,12 @@ Public Class frmDisbursementList
     End Sub
 
     Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles cmdPrint.Click
-        DXExportGridToExcel(Me.Text, GridView1)
+        If CheckEdit1.Checked Then
+            DXExportGridToExcel("Check Issuance Report", GridView1)
+        Else
+            DXExportGridToExcel(Me.Text, GridView1)
+        End If
+
     End Sub
 
     Private Sub cmdNew_Click(sender As Object, e As EventArgs)
@@ -133,9 +162,9 @@ Public Class frmDisbursementList
         If globalAllowDelete = False Then
             XtraMessageBox.Show("Your access not allowed to delete!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
-        ElseIf CBool(GridView1.GetFocusedRowCellValue("Cleared").ToString) Then
-            XtraMessageBox.Show("Selected request is already cleared!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
+            'ElseIf CBool(GridView1.GetFocusedRowCellValue("Cleared").ToString) Then
+            '    XtraMessageBox.Show("Selected request is already cleared!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            '    Exit Sub
 
         ElseIf CBool(GridView1.GetFocusedRowCellValue("Cancelled").ToString) Then
             XtraMessageBox.Show("Selected request is already cancelled!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -167,7 +196,8 @@ Public Class frmDisbursementList
             colname += GridView1.Columns(I).FieldName & ","
         Next
         frmColumnFilter.txtColumn.Text = colname.Remove(colname.Count - 1, 1)
-        frmColumnFilter.GetFilterInfo(GridView1, Me.Text)
+
+        frmColumnFilter.GetFilterInfo(GridView1, If(CheckEdit1.Checked, Me.Text & "-check", Me.Text & "-all"))
         frmColumnFilter.ShowDialog(Me)
     End Sub
 
@@ -245,18 +275,21 @@ Public Class frmDisbursementList
         If globalSpecialApprover = False And globalRootUser = False Then
             XtraMessageBox.Show("Your access not allowed to clear transaction!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Exit Sub
-        ElseIf countqry("tbljournalentryvoucher", "dvid='" & GridView1.GetFocusedRowCellValue("Entry Code").ToString & "'") = 0 Then
+        ElseIf countqry("tbljournalentryvoucher", "dvid='" & GridView1.GetFocusedRowCellValue("Entry Code").ToString & "' and cancelled=0") = 0 Then
             XtraMessageBox.Show("No journal entry for this voucher please create before issuing check", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        ElseIf GridView1.GetFocusedRowCellValue("Bank Name").ToString = "" Then
+            XtraMessageBox.Show("No bank account for check issuance! Please contact accounting", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         ElseIf countqry("tblrequisition", "pid='" & GridView1.GetFocusedRowCellValue("pid").ToString & "' and approved=1 and checkapproved=0 and cancelled=0") > 0 Then
             XtraMessageBox.Show("Issuing check for this voucher is not allowed!" & Environment.NewLine & "Request is currently for approval for check issuance ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
-        ElseIf CBool(GridView1.GetFocusedRowCellValue("Cleared").ToString) Then
-            XtraMessageBox.Show("Selected request is already Cleared!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        ElseIf CBool(GridView1.GetFocusedRowCellValue("Cancelled").ToString) Then
-            XtraMessageBox.Show("Selected request is already cancelled!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
+            'ElseIf CBool(GridView1.GetFocusedRowCellValue("Cleared").ToString) Then
+            '    XtraMessageBox.Show("Selected request is already Cleared!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            '    Exit Sub
+            'ElseIf CBool(GridView1.GetFocusedRowCellValue("Cancelled").ToString) Then
+            '    XtraMessageBox.Show("Selected request is already cancelled!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            '    Exit Sub
         End If
         frmVoucherCheckInfo.id.Text = GridView1.GetFocusedRowCellValue("Entry Code").ToString
         frmVoucherCheckInfo.ShowDialog(Me)
@@ -274,14 +307,17 @@ Public Class frmDisbursementList
     End Sub
 
     Private Sub cmdView_Click(sender As Object, e As EventArgs) Handles cmdView.Click
-        frmRequisitionInfo.mode.Text = ""
-        frmRequisitionInfo.pid.Text = GridView1.GetFocusedRowCellValue("pid").ToString
-        frmRequisitionInfo.mode.Text = "edit"
-        If frmRequisitionInfo.Visible = False Then
-            frmRequisitionInfo.Show(Me)
-        Else
-            frmRequisitionInfo.WindowState = FormWindowState.Normal
+        If CheckEdit1.Checked = False Then
+            frmRequisitionInfo.mode.Text = ""
+            frmRequisitionInfo.pid.Text = GridView1.GetFocusedRowCellValue("pid").ToString
+            frmRequisitionInfo.mode.Text = "edit"
+            If frmRequisitionInfo.Visible = False Then
+                frmRequisitionInfo.Show(Me)
+            Else
+                frmRequisitionInfo.WindowState = FormWindowState.Normal
+            End If
         End If
+
     End Sub
 
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
@@ -302,5 +338,14 @@ Public Class frmDisbursementList
                 VoucherExporter(False, "voucherid='" & GridView1.GetFocusedRowCellValue("Entry Code").ToString & "'", Location, Nothing, Me)
             End If
         End Using
+    End Sub
+
+    Private Sub CheckEdit1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckEdit1.CheckedChanged
+        If CheckEdit1.Checked Then
+            Em.ContextMenuStrip = Nothing
+        Else
+            Em.ContextMenuStrip = cms_em
+        End If
+        ViewList()
     End Sub
 End Class

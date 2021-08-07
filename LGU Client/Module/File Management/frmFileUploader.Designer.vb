@@ -34,6 +34,7 @@ Partial Class frmFileUploader
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.trncode = New System.Windows.Forms.TextBox()
         Me.trntype = New System.Windows.Forms.TextBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.MyDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cms_em.SuspendLayout()
         Me.SuspendLayout()
@@ -41,10 +42,11 @@ Partial Class frmFileUploader
         'Button1
         '
         Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(70, 359)
+        Me.Button1.Location = New System.Drawing.Point(119, 359)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(205, 30)
+        Me.Button1.Size = New System.Drawing.Size(201, 30)
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "Confirm and Upload File"
         Me.Button1.UseVisualStyleBackColor = True
@@ -78,7 +80,7 @@ Partial Class frmFileUploader
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.MyDataGridView.DefaultCellStyle = DataGridViewCellStyle2
-        Me.MyDataGridView.Location = New System.Drawing.Point(8, 11)
+        Me.MyDataGridView.Location = New System.Drawing.Point(1, 1)
         Me.MyDataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.MyDataGridView.Name = "MyDataGridView"
         Me.MyDataGridView.ReadOnly = True
@@ -97,7 +99,7 @@ Partial Class frmFileUploader
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
         Me.MyDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.MyDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.MyDataGridView.Size = New System.Drawing.Size(312, 343)
+        Me.MyDataGridView.Size = New System.Drawing.Size(328, 351)
         Me.MyDataGridView.TabIndex = 374
         '
         'cms_em
@@ -145,11 +147,24 @@ Partial Class frmFileUploader
         Me.trntype.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.trntype.Visible = False
         '
+        'Button2
+        '
+        Me.Button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(8, 359)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(109, 30)
+        Me.Button2.TabIndex = 420
+        Me.Button2.Text = "Browse File"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'frmFileUploader
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(329, 395)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.trntype)
         Me.Controls.Add(Me.trncode)
         Me.Controls.Add(Me.Button1)
@@ -172,5 +187,5 @@ Partial Class frmFileUploader
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents trncode As System.Windows.Forms.TextBox
     Friend WithEvents trntype As System.Windows.Forms.TextBox
-
+    Friend WithEvents Button2 As Button
 End Class

@@ -497,7 +497,7 @@ Public Class frmBudgetTransfer
         End If
 
         If Not trans_id.Text = "" Then
-            com.CommandText = "update tblbudgetcomposition set " & UpdateAmount & " totalbudget='" & txtTransTotalBudget.EditValue & "', january=" & txtTransJanuary.EditValue & ",february=" & txtTransFebruary.EditValue & ",march=" & txtTransMarch.EditValue & ",april=" & txtTransApril.EditValue & ",may=" & txtTransMay.EditValue & ",june=" & txtTransJune.EditValue & ",july=" & txtTransJuly.EditValue & ",august=" & txtTransAugust.EditValue & ",september=" & txtTransSeptember.EditValue & ",october=" & txtTransOctober.EditValue & ",november=" & txtTransNovember.EditValue & ",december=" & txtTransDecember.EditValue & " where id='" & trans_id.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "update tblbudgetcomposition set " & UpdateAmount & " monthcode='" & MonthCode & "', totalbudget='" & txtTransTotalBudget.EditValue & "', january=" & txtTransJanuary.EditValue & ",february=" & txtTransFebruary.EditValue & ",march=" & txtTransMarch.EditValue & ",april=" & txtTransApril.EditValue & ",may=" & txtTransMay.EditValue & ",june=" & txtTransJune.EditValue & ",july=" & txtTransJuly.EditValue & ",august=" & txtTransAugust.EditValue & ",september=" & txtTransSeptember.EditValue & ",october=" & txtTransOctober.EditValue & ",november=" & txtTransNovember.EditValue & ",december=" & txtTransDecember.EditValue & " where id='" & trans_id.Text & "'" : com.ExecuteNonQuery()
         Else
             com.CommandText = "insert into tblbudgetcomposition set periodcode='" & periodcode.Text & "', " _
                     + " fundcode='" & fundcode.Text & "', " _

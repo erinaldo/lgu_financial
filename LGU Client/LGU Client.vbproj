@@ -355,6 +355,18 @@
     <Compile Include="General Settings\frmSupplierInfo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Human Rersource\frmEmpoyeeList.Designer.vb">
+      <DependentUpon>frmEmpoyeeList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Human Rersource\frmEmpoyeeList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Human Rersource\frmPayrollEmployeeInformation.Designer.vb">
+      <DependentUpon>frmPayrollEmployeeInformation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Human Rersource\frmPayrollEmployeeInformation.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Module\Accounting.vb" />
     <Compile Include="Module\Auto Updater\AutoUpdater.vb" />
     <Compile Include="Module\Camera.vb" />
@@ -758,6 +770,12 @@
     <EmbeddedResource Include="General Settings\frmSupplierInfo.resx">
       <DependentUpon>frmSupplierInfo.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Human Rersource\frmEmpoyeeList.resx">
+      <DependentUpon>frmEmpoyeeList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Human Rersource\frmPayrollEmployeeInformation.resx">
+      <DependentUpon>frmPayrollEmployeeInformation.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Module\Chat Box\frmChatPicturePreview.resx">
       <DependentUpon>frmChatPicturePreview.vb</DependentUpon>
     </EmbeddedResource>
@@ -1059,6 +1077,7 @@
   <ItemGroup>
     <Content Include="ico.ico" />
     <Content Include="Module\Auto Updater\Note.txt" />
+    <None Include="Resources\inbox--pencil.png" />
     <None Include="Resources\Action_Inline_Edit.png" />
     <None Include="Resources\plus-circle-frame.png" />
     <None Include="Resources\arrow-circle.png" />

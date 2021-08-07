@@ -28,9 +28,6 @@ Partial Class frmDepartmentInfo
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
         Me.txtAddress = New DevExpress.XtraEditors.TextEdit()
         Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
-        Me.txtOfficerIncharge = New DevExpress.XtraEditors.SearchLookUpEdit()
-        Me.s_grid = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         Me.txtEmailAddress = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.lbloffice = New DevExpress.XtraEditors.LabelControl()
@@ -38,6 +35,7 @@ Partial Class frmDepartmentInfo
         Me.id = New DevExpress.XtraEditors.ButtonEdit()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AddOfficerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdRemove = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -55,11 +53,13 @@ Partial Class frmDepartmentInfo
         Me.txtCenterCode = New DevExpress.XtraEditors.ButtonEdit()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
         Me.ckSB = New DevExpress.XtraEditors.CheckEdit()
+        Me.Em = New DevExpress.XtraGrid.GridControl()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
+        Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
         CType(Me.txtShortName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtContactNumber.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAddress.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtOfficerIncharge.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.s_grid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtEmailAddress.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCompanyName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.id.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,6 +69,11 @@ Partial Class frmDepartmentInfo
         CType(Me.userid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCenterCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckSB.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControl1.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtShortName
@@ -143,43 +148,11 @@ Partial Class frmDepartmentInfo
         Me.cmdSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.cmdSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSave.Appearance.Options.UseFont = True
-        Me.cmdSave.Location = New System.Drawing.Point(176, 252)
+        Me.cmdSave.Location = New System.Drawing.Point(176, 450)
         Me.cmdSave.Name = "cmdSave"
         Me.cmdSave.Size = New System.Drawing.Size(146, 36)
         Me.cmdSave.TabIndex = 7
         Me.cmdSave.Text = "Save Office"
-        '
-        'txtOfficerIncharge
-        '
-        Me.txtOfficerIncharge.EditValue = ""
-        Me.txtOfficerIncharge.Location = New System.Drawing.Point(176, 201)
-        Me.txtOfficerIncharge.Name = "txtOfficerIncharge"
-        Me.txtOfficerIncharge.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtOfficerIncharge.Properties.Appearance.Options.UseFont = True
-        Me.txtOfficerIncharge.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.txtOfficerIncharge.Properties.DisplayMember = "Fullname"
-        Me.txtOfficerIncharge.Properties.NullText = ""
-        Me.txtOfficerIncharge.Properties.PopupView = Me.s_grid
-        Me.txtOfficerIncharge.Properties.ValueMember = "Fullname"
-        Me.txtOfficerIncharge.Size = New System.Drawing.Size(343, 24)
-        Me.txtOfficerIncharge.TabIndex = 6
-        '
-        's_grid
-        '
-        Me.s_grid.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.s_grid.Name = "s_grid"
-        Me.s_grid.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.s_grid.OptionsView.ShowGroupPanel = False
-        '
-        'LabelControl3
-        '
-        Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.LabelControl3.Appearance.Options.UseFont = True
-        Me.LabelControl3.Location = New System.Drawing.Point(73, 205)
-        Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(93, 17)
-        Me.LabelControl3.TabIndex = 623
-        Me.LabelControl3.Text = "Officer Incharge"
         '
         'txtEmailAddress
         '
@@ -235,7 +208,7 @@ Partial Class frmDepartmentInfo
         'id
         '
         Me.id.EditValue = ""
-        Me.id.Location = New System.Drawing.Point(511, 12)
+        Me.id.Location = New System.Drawing.Point(511, 40)
         Me.id.Name = "id"
         Me.id.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.id.Properties.Appearance.Options.UseFont = True
@@ -250,7 +223,7 @@ Partial Class frmDepartmentInfo
         'mode
         '
         Me.mode.EnterMoveNextControl = True
-        Me.mode.Location = New System.Drawing.Point(467, 15)
+        Me.mode.Location = New System.Drawing.Point(467, 43)
         Me.mode.Name = "mode"
         Me.mode.Size = New System.Drawing.Size(38, 20)
         Me.mode.TabIndex = 388
@@ -258,28 +231,35 @@ Partial Class frmDepartmentInfo
         '
         'gridmenustrip
         '
-        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdRemove, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
+        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddOfficerToolStripMenuItem, Me.cmdEdit, Me.cmdRemove, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(153, 76)
+        Me.gridmenustrip.Size = New System.Drawing.Size(153, 98)
+        '
+        'AddOfficerToolStripMenuItem
+        '
+        Me.AddOfficerToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.user__plus
+        Me.AddOfficerToolStripMenuItem.Name = "AddOfficerToolStripMenuItem"
+        Me.AddOfficerToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AddOfficerToolStripMenuItem.Text = "Add Officer"
         '
         'cmdEdit
         '
-        Me.cmdEdit.Image = CType(resources.GetObject("cmdEdit.Image"), System.Drawing.Image)
+        Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.user__pencil
         Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(152, 22)
-        Me.cmdEdit.Text = "Edit Office"
+        Me.cmdEdit.Size = New System.Drawing.Size(180, 22)
+        Me.cmdEdit.Text = "Edit Selected"
         '
         'cmdRemove
         '
-        Me.cmdRemove.Image = CType(resources.GetObject("cmdRemove.Image"), System.Drawing.Image)
+        Me.cmdRemove.Image = Global.LGUFinancial.My.Resources.Resources.user__minus
         Me.cmdRemove.Name = "cmdRemove"
-        Me.cmdRemove.Size = New System.Drawing.Size(152, 22)
+        Me.cmdRemove.Size = New System.Drawing.Size(180, 22)
         Me.cmdRemove.Text = "Remove Office"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
         '
         'RefreshToolStripMenuItem
         '
@@ -331,13 +311,13 @@ Partial Class frmDepartmentInfo
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(560, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(560, 24)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 309)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 504)
         Me.barDockControlBottom.Manager = Me.BarManager1
         Me.barDockControlBottom.Size = New System.Drawing.Size(560, 0)
         '
@@ -345,22 +325,22 @@ Partial Class frmDepartmentInfo
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 24)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 289)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 480)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(560, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(560, 24)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 289)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 480)
         '
         'userid
         '
         Me.userid.EnterMoveNextControl = True
-        Me.userid.Location = New System.Drawing.Point(423, 15)
+        Me.userid.Location = New System.Drawing.Point(423, 43)
         Me.userid.Name = "userid"
         Me.userid.Size = New System.Drawing.Size(38, 20)
         Me.userid.TabIndex = 389
@@ -370,7 +350,7 @@ Partial Class frmDepartmentInfo
         '
         Me.cmdUpdateAccountable.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.cmdUpdateAccountable.Appearance.Options.UseFont = True
-        Me.cmdUpdateAccountable.Location = New System.Drawing.Point(328, 252)
+        Me.cmdUpdateAccountable.Location = New System.Drawing.Point(328, 450)
         Me.cmdUpdateAccountable.Name = "cmdUpdateAccountable"
         Me.cmdUpdateAccountable.Size = New System.Drawing.Size(79, 36)
         Me.cmdUpdateAccountable.TabIndex = 12
@@ -403,21 +383,61 @@ Partial Class frmDepartmentInfo
         '
         'ckSB
         '
-        Me.ckSB.Location = New System.Drawing.Point(176, 228)
+        Me.ckSB.Location = New System.Drawing.Point(176, 201)
         Me.ckSB.MenuManager = Me.BarManager1
         Me.ckSB.Name = "ckSB"
         Me.ckSB.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.ckSB.Properties.Appearance.Options.UseFont = True
         Me.ckSB.Properties.Caption = "Tag as SB"
-        Me.ckSB.Size = New System.Drawing.Size(213, 21)
+        Me.ckSB.Size = New System.Drawing.Size(147, 21)
         Me.ckSB.TabIndex = 646
+        '
+        'Em
+        '
+        Me.Em.ContextMenuStrip = Me.gridmenustrip
+        Me.Em.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Em.Location = New System.Drawing.Point(2, 27)
+        Me.Em.MainView = Me.GridView1
+        Me.Em.Name = "Em"
+        Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
+        Me.Em.Size = New System.Drawing.Size(521, 187)
+        Me.Em.TabIndex = 935
+        Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        '
+        'GridView1
+        '
+        Me.GridView1.GridControl = Me.Em
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsBehavior.Editable = False
+        Me.GridView1.OptionsSelection.MultiSelect = True
+        Me.GridView1.OptionsSelection.UseIndicatorForSelection = False
+        Me.GridView1.OptionsView.ColumnAutoWidth = False
+        Me.GridView1.OptionsView.RowAutoHeight = True
+        Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'RepositoryItemCheckEdit1
+        '
+        Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
+        Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
+        '
+        'GroupControl1
+        '
+        Me.GroupControl1.AppearanceCaption.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.GroupControl1.AppearanceCaption.Options.UseFont = True
+        Me.GroupControl1.Controls.Add(Me.Em)
+        Me.GroupControl1.Location = New System.Drawing.Point(17, 228)
+        Me.GroupControl1.Name = "GroupControl1"
+        Me.GroupControl1.Size = New System.Drawing.Size(525, 216)
+        Me.GroupControl1.TabIndex = 936
+        Me.GroupControl1.Text = "Officer Incharge History"
         '
         'frmDepartmentInfo
         '
         Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(560, 309)
+        Me.ClientSize = New System.Drawing.Size(560, 504)
+        Me.Controls.Add(Me.GroupControl1)
         Me.Controls.Add(Me.ckSB)
         Me.Controls.Add(Me.txtCenterCode)
         Me.Controls.Add(Me.LabelControl6)
@@ -434,9 +454,7 @@ Partial Class frmDepartmentInfo
         Me.Controls.Add(Me.txtCompanyName)
         Me.Controls.Add(Me.cmdSave)
         Me.Controls.Add(Me.lbloffice)
-        Me.Controls.Add(Me.txtOfficerIncharge)
         Me.Controls.Add(Me.LabelControl2)
-        Me.Controls.Add(Me.LabelControl3)
         Me.Controls.Add(Me.txtEmailAddress)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)
@@ -447,12 +465,9 @@ Partial Class frmDepartmentInfo
         Me.Name = "frmDepartmentInfo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Office Info"
-        Me.TopMost = True
         CType(Me.txtShortName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtContactNumber.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtAddress.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtOfficerIncharge.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.s_grid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtEmailAddress.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCompanyName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.id.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -462,6 +477,11 @@ Partial Class frmDepartmentInfo
         CType(Me.userid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCenterCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckSB.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControl1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -485,9 +505,6 @@ Partial Class frmDepartmentInfo
     Friend WithEvents txtEmailAddress As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents txtOfficerIncharge As DevExpress.XtraEditors.SearchLookUpEdit
-    Friend WithEvents s_grid As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents cmdSave As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents txtContactNumber As DevExpress.XtraEditors.TextEdit
@@ -500,4 +517,9 @@ Partial Class frmDepartmentInfo
     Friend WithEvents txtCenterCode As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents ckSB As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents GroupControl1 As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents Em As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents AddOfficerToolStripMenuItem As ToolStripMenuItem
 End Class

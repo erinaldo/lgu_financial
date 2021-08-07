@@ -17,21 +17,15 @@ Public Class frmVoucherCheckInfo
     Private Sub frmVoucherCheckInfo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Icon = ico
         ViewInfo()
-        LoadBankAccount()
-    End Sub
-
-    Public Sub LoadBankAccount()
-        LoadXgridLookupSearch("select code as 'Account No.', description as 'Bank Name' from  tblbankaccounts where fundcode='" & fundcode.Text & "'  order by description asc", "tblbankaccounts", txtCheckBankName, gridBank)
-        XgridColAlign({"Account No."}, gridBank, DevExpress.Utils.HorzAlignment.Center)
-        XgridColWidth({"Account No."}, gridBank, 140)
     End Sub
 
     Public Sub ViewInfo()
-        com.CommandText = "select * from tbldisbursementvoucher as a where voucherid='" & id.Text & "'" : rst = com.ExecuteReader
+        com.CommandText = "select *, (select description from tblbankaccounts where code=a.checkbank) as bank from tbldisbursementvoucher as a where voucherid='" & id.Text & "'" : rst = com.ExecuteReader
         While rst.Read
             voucherno.Text = rst("voucherno").ToString
             txtCheckNo.Text = rst("checkno").ToString
-            txtCheckBankName.EditValue = rst("checkbank").ToString
+            txtCheckBankName.Text = rst("bank").ToString
+            txtAmount.Text = rst("checkamount").ToString
             txtCheckDate.Text = If(rst("checkdate").ToString = "", "", CDate(rst("checkdate").ToString))
             ckCheckIssued.Checked = rst("checkissued")
             fundcode.Text = rst("fundcode").ToString
@@ -64,7 +58,6 @@ Public Class frmVoucherCheckInfo
                 com.CommandText = "UPDATE tbldisbursementvoucher set  " _
                               + " checkissued=1, " _
                               + " checkno='" & txtCheckNo.Text & "', " _
-                              + " checkbank='" & txtCheckBankName.EditValue & "', " _
                               + If(txtCheckDate.Text = "", "checkdate=null ", " checkdate='" & ConvertDate(txtCheckDate.EditValue) & "' ") _
                               + " where voucherid='" & id.Text & "'" : com.ExecuteNonQuery()
             Else
@@ -78,7 +71,6 @@ Public Class frmVoucherCheckInfo
                              + " voucherno='" & voucherno.Text & "', " _
                              + " seriesno='" & seriesno.Text & "', " _
                              + " checkno='" & txtCheckNo.Text & "', " _
-                             + " checkbank='" & txtCheckBankName.EditValue & "', " _
                              + If(txtCheckDate.Text = "", "checkdate=null ", " checkdate='" & ConvertDate(txtCheckDate.EditValue) & "' ") _
                              + " where voucherid='" & id.Text & "'" : com.ExecuteNonQuery()
             End If

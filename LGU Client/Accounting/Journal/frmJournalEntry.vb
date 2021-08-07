@@ -30,6 +30,14 @@ Public Class frmJournalEntry
 
     End Sub
 
+    Private Sub frmJournalEntry_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        com.CommandText = "select ifnull(sum(credit),0) as total from tbljournalentryitem where jevno='" & If(jevno.Text = "", globaluserid & "-temp", jevno.Text) & "' and itemcode in (select itemcode from tblglcashitem)" : rst = com.ExecuteReader
+        While rst.Read
+            txtAmount.EditValue = rst("total").ToString
+        End While
+        rst.Close()
+    End Sub
+
     Private Sub frmBudgetVoucherInfo_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Icon = ico
         SplashScreenManager.ShowForm(GetType(WaitForm1), True, True)
@@ -40,10 +48,16 @@ Public Class frmJournalEntry
         Else
             ShowVoucherInfo()
         End If
+        LoadBankAccount()
         LoadAccountTitle()
         SplashScreenManager.CloseForm()
     End Sub
 
+    Public Sub LoadBankAccount()
+        LoadXgridLookupSearch("select code as 'Account No.', description as 'Bank Name' from  tblbankaccounts where fundcode='" & fundcode.Text & "'  order by description asc", "tblbankaccounts", txtCheckBankName, gridBank)
+        XgridColAlign({"Account No."}, gridBank, DevExpress.Utils.HorzAlignment.Center)
+        XgridColWidth({"Account No."}, gridBank, 140)
+    End Sub
 
     Public Sub loadFundSettings()
         com.CommandText = "SELECT *, concat(yeartrn,'-',(select Description from tblfund where code=tblfundperiod.fundcode)) as 'period'  from tblfundperiod where periodcode='" & periodcode.Text & "'" : rst = com.ExecuteReader
@@ -56,7 +70,9 @@ Public Class frmJournalEntry
     End Sub
     Public Sub ShowVoucherInfo()
         Dim budgettitle As String = ""
-        com.CommandText = "select *,(select officename from tblcompoffice where officeid=a.officeid) as office from tbljournalentryvoucher as a where jevno='" & jevno.Text & "'" : rst = com.ExecuteReader
+        com.CommandText = "select *,(select officename from tblcompoffice where officeid=a.officeid) as office, " _
+                                + " (select checkbank from tbldisbursementvoucher where voucherid=a.dvid) as checkbank, " _
+                                + " (select checkamount from tbldisbursementvoucher where voucherid=a.dvid) as checkamount from tbljournalentryvoucher as a where jevno='" & jevno.Text & "'" : rst = com.ExecuteReader
         While rst.Read
             txtJevNo.Text = rst("jevno").ToString
             txtFund.EditValue = rst("periodcode").ToString
@@ -72,6 +88,9 @@ Public Class frmJournalEntry
             txtLRNo.Text = rst("lrno").ToString
             txtAENo.Text = rst("aeno").ToString
             pid.Text = rst("pid").ToString
+            txtCheckBankName.EditValue = rst("checkbank").ToString
+            txtAmount.Text = rst("checkamount").ToString
+
             If CBool(rst("cancelled")) Then
                 cmdPrint.Visible = False
             Else
@@ -172,6 +191,9 @@ Public Class frmJournalEntry
         ElseIf Gridview1.RowCount = 0 Then
             XtraMessageBox.Show("Please add disbursment item atleast one item", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return False
+        ElseIf txtCheckBankName.Text = "" Then
+            XtraMessageBox.Show("Please select bank account", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
         Else
             Return True
         End If
@@ -217,6 +239,7 @@ Public Class frmJournalEntry
             jevno.Text = newjevno
             mode.Text = "edit"
         End If
+        com.CommandText = "update tbldisbursementvoucher set checkbank='" & txtCheckBankName.EditValue & "',checkamount='" & Val(CC(txtAmount.Text)) & "' where voucherid='" & dvid.Text & "'" : com.ExecuteNonQuery()
     End Sub
 
     Private Sub cmdRefresh_Click(sender As Object, e As EventArgs) Handles cmdRefresh.Click
@@ -317,4 +340,6 @@ Public Class frmJournalEntry
             frmJournalEntryDebit.Show(Me)
         End If
     End Sub
+
+
 End Class

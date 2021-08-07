@@ -56,6 +56,11 @@ Partial Class frmCompanySettings
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
         Me.LabelControl17 = New DevExpress.XtraEditors.LabelControl()
         Me.tabSignatories = New DevExpress.XtraTab.XtraTabPage()
+        Me.txtViceMayorName = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.gridViceMayor = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.LabelControl14 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtViceMayorPosition = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl15 = New DevExpress.XtraEditors.LabelControl()
         Me.txtBudgetName = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridBudgetName = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.LabelControl12 = New DevExpress.XtraEditors.LabelControl()
@@ -77,11 +82,11 @@ Partial Class frmCompanySettings
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl10 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl27 = New DevExpress.XtraEditors.LabelControl()
-        Me.txtViceMayorName = New DevExpress.XtraEditors.SearchLookUpEdit()
-        Me.gridViceMayor = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.LabelControl14 = New DevExpress.XtraEditors.LabelControl()
-        Me.txtViceMayorPosition = New DevExpress.XtraEditors.TextEdit()
-        Me.LabelControl15 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtHrmdName = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.gvHrmdName = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtHrmdPosition = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl18 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.txtinitialcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.companyid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.logo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -104,6 +109,9 @@ Partial Class frmCompanySettings
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl2.SuspendLayout()
         Me.tabSignatories.SuspendLayout()
+        CType(Me.txtViceMayorName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gridViceMayor, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtViceMayorPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtBudgetName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridBudgetName, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtBudgetPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,9 +124,9 @@ Partial Class frmCompanySettings
         CType(Me.txtTreasurerPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAccountantPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtMayorPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtViceMayorName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gridViceMayor, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtViceMayorPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtHrmdName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gvHrmdName, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtHrmdPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtinitialcode
@@ -491,6 +499,10 @@ Partial Class frmCompanySettings
         '
         'tabSignatories
         '
+        Me.tabSignatories.Controls.Add(Me.txtHrmdName)
+        Me.tabSignatories.Controls.Add(Me.LabelControl16)
+        Me.tabSignatories.Controls.Add(Me.txtHrmdPosition)
+        Me.tabSignatories.Controls.Add(Me.LabelControl18)
         Me.tabSignatories.Controls.Add(Me.txtViceMayorName)
         Me.tabSignatories.Controls.Add(Me.LabelControl14)
         Me.tabSignatories.Controls.Add(Me.txtViceMayorPosition)
@@ -515,6 +527,59 @@ Partial Class frmCompanySettings
         Me.tabSignatories.Name = "tabSignatories"
         Me.tabSignatories.Size = New System.Drawing.Size(724, 415)
         Me.tabSignatories.Text = "Official Signatories"
+        '
+        'txtViceMayorName
+        '
+        Me.txtViceMayorName.EditValue = ""
+        Me.txtViceMayorName.EnterMoveNextControl = True
+        Me.txtViceMayorName.Location = New System.Drawing.Point(130, 90)
+        Me.txtViceMayorName.Name = "txtViceMayorName"
+        Me.txtViceMayorName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtViceMayorName.Properties.Appearance.Options.UseFont = True
+        Me.txtViceMayorName.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtViceMayorName.Properties.DisplayMember = "Select"
+        Me.txtViceMayorName.Properties.NullText = ""
+        Me.txtViceMayorName.Properties.PopupView = Me.gridViceMayor
+        Me.txtViceMayorName.Properties.ValueMember = "accountid"
+        Me.txtViceMayorName.Size = New System.Drawing.Size(211, 24)
+        Me.txtViceMayorName.TabIndex = 772
+        '
+        'gridViceMayor
+        '
+        Me.gridViceMayor.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.gridViceMayor.Name = "gridViceMayor"
+        Me.gridViceMayor.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.gridViceMayor.OptionsView.ShowGroupPanel = False
+        '
+        'LabelControl14
+        '
+        Me.LabelControl14.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.LabelControl14.Appearance.Options.UseFont = True
+        Me.LabelControl14.Location = New System.Drawing.Point(77, 120)
+        Me.LabelControl14.Name = "LabelControl14"
+        Me.LabelControl14.Size = New System.Drawing.Size(46, 17)
+        Me.LabelControl14.TabIndex = 771
+        Me.LabelControl14.Text = "Position"
+        '
+        'txtViceMayorPosition
+        '
+        Me.txtViceMayorPosition.EnterMoveNextControl = True
+        Me.txtViceMayorPosition.Location = New System.Drawing.Point(130, 117)
+        Me.txtViceMayorPosition.Name = "txtViceMayorPosition"
+        Me.txtViceMayorPosition.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtViceMayorPosition.Properties.Appearance.Options.UseFont = True
+        Me.txtViceMayorPosition.Size = New System.Drawing.Size(211, 24)
+        Me.txtViceMayorPosition.TabIndex = 769
+        '
+        'LabelControl15
+        '
+        Me.LabelControl15.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.LabelControl15.Appearance.Options.UseFont = True
+        Me.LabelControl15.Location = New System.Drawing.Point(57, 93)
+        Me.LabelControl15.Name = "LabelControl15"
+        Me.LabelControl15.Size = New System.Drawing.Size(66, 17)
+        Me.LabelControl15.TabIndex = 770
+        Me.LabelControl15.Text = "Vice Mayor"
         '
         'txtBudgetName
         '
@@ -646,7 +711,7 @@ Partial Class frmCompanySettings
         Me.cmdSaveSignatories.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSaveSignatories.Appearance.Options.UseBackColor = True
         Me.cmdSaveSignatories.Appearance.Options.UseFont = True
-        Me.cmdSaveSignatories.Location = New System.Drawing.Point(145, 336)
+        Me.cmdSaveSignatories.Location = New System.Drawing.Point(451, 87)
         Me.cmdSaveSignatories.Name = "cmdSaveSignatories"
         Me.cmdSaveSignatories.Size = New System.Drawing.Size(178, 38)
         Me.cmdSaveSignatories.TabIndex = 6
@@ -742,58 +807,58 @@ Partial Class frmCompanySettings
         Me.LabelControl27.TabIndex = 753
         Me.LabelControl27.Text = "Treasurer"
         '
-        'txtViceMayorName
+        'txtHrmdName
         '
-        Me.txtViceMayorName.EditValue = ""
-        Me.txtViceMayorName.EnterMoveNextControl = True
-        Me.txtViceMayorName.Location = New System.Drawing.Point(130, 90)
-        Me.txtViceMayorName.Name = "txtViceMayorName"
-        Me.txtViceMayorName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtViceMayorName.Properties.Appearance.Options.UseFont = True
-        Me.txtViceMayorName.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.txtViceMayorName.Properties.DisplayMember = "Select"
-        Me.txtViceMayorName.Properties.NullText = ""
-        Me.txtViceMayorName.Properties.PopupView = Me.gridViceMayor
-        Me.txtViceMayorName.Properties.ValueMember = "accountid"
-        Me.txtViceMayorName.Size = New System.Drawing.Size(211, 24)
-        Me.txtViceMayorName.TabIndex = 772
+        Me.txtHrmdName.EditValue = ""
+        Me.txtHrmdName.EnterMoveNextControl = True
+        Me.txtHrmdName.Location = New System.Drawing.Point(418, 30)
+        Me.txtHrmdName.Name = "txtHrmdName"
+        Me.txtHrmdName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtHrmdName.Properties.Appearance.Options.UseFont = True
+        Me.txtHrmdName.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtHrmdName.Properties.DisplayMember = "Select"
+        Me.txtHrmdName.Properties.NullText = ""
+        Me.txtHrmdName.Properties.PopupView = Me.gvHrmdName
+        Me.txtHrmdName.Properties.ValueMember = "accountid"
+        Me.txtHrmdName.Size = New System.Drawing.Size(211, 24)
+        Me.txtHrmdName.TabIndex = 776
         '
-        'gridViceMayor
+        'gvHrmdName
         '
-        Me.gridViceMayor.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.gridViceMayor.Name = "gridViceMayor"
-        Me.gridViceMayor.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.gridViceMayor.OptionsView.ShowGroupPanel = False
+        Me.gvHrmdName.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.gvHrmdName.Name = "gvHrmdName"
+        Me.gvHrmdName.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.gvHrmdName.OptionsView.ShowGroupPanel = False
         '
-        'LabelControl14
+        'LabelControl16
         '
-        Me.LabelControl14.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.LabelControl14.Appearance.Options.UseFont = True
-        Me.LabelControl14.Location = New System.Drawing.Point(77, 120)
-        Me.LabelControl14.Name = "LabelControl14"
-        Me.LabelControl14.Size = New System.Drawing.Size(46, 17)
-        Me.LabelControl14.TabIndex = 771
-        Me.LabelControl14.Text = "Position"
+        Me.LabelControl16.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.LabelControl16.Appearance.Options.UseFont = True
+        Me.LabelControl16.Location = New System.Drawing.Point(366, 60)
+        Me.LabelControl16.Name = "LabelControl16"
+        Me.LabelControl16.Size = New System.Drawing.Size(46, 17)
+        Me.LabelControl16.TabIndex = 775
+        Me.LabelControl16.Text = "Position"
         '
-        'txtViceMayorPosition
+        'txtHrmdPosition
         '
-        Me.txtViceMayorPosition.EnterMoveNextControl = True
-        Me.txtViceMayorPosition.Location = New System.Drawing.Point(130, 117)
-        Me.txtViceMayorPosition.Name = "txtViceMayorPosition"
-        Me.txtViceMayorPosition.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtViceMayorPosition.Properties.Appearance.Options.UseFont = True
-        Me.txtViceMayorPosition.Size = New System.Drawing.Size(211, 24)
-        Me.txtViceMayorPosition.TabIndex = 769
+        Me.txtHrmdPosition.EnterMoveNextControl = True
+        Me.txtHrmdPosition.Location = New System.Drawing.Point(418, 57)
+        Me.txtHrmdPosition.Name = "txtHrmdPosition"
+        Me.txtHrmdPosition.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtHrmdPosition.Properties.Appearance.Options.UseFont = True
+        Me.txtHrmdPosition.Size = New System.Drawing.Size(211, 24)
+        Me.txtHrmdPosition.TabIndex = 773
         '
-        'LabelControl15
+        'LabelControl18
         '
-        Me.LabelControl15.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.LabelControl15.Appearance.Options.UseFont = True
-        Me.LabelControl15.Location = New System.Drawing.Point(57, 93)
-        Me.LabelControl15.Name = "LabelControl15"
-        Me.LabelControl15.Size = New System.Drawing.Size(66, 17)
-        Me.LabelControl15.TabIndex = 770
-        Me.LabelControl15.Text = "Vice Mayor"
+        Me.LabelControl18.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.LabelControl18.Appearance.Options.UseFont = True
+        Me.LabelControl18.Location = New System.Drawing.Point(374, 33)
+        Me.LabelControl18.Name = "LabelControl18"
+        Me.LabelControl18.Size = New System.Drawing.Size(38, 17)
+        Me.LabelControl18.TabIndex = 774
+        Me.LabelControl18.Text = "HRMD"
         '
         'frmCompanySettings
         '
@@ -835,6 +900,9 @@ Partial Class frmCompanySettings
         Me.GroupControl2.PerformLayout()
         Me.tabSignatories.ResumeLayout(False)
         Me.tabSignatories.PerformLayout()
+        CType(Me.txtViceMayorName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gridViceMayor, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtViceMayorPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtBudgetName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridBudgetName, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtBudgetPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -847,9 +915,9 @@ Partial Class frmCompanySettings
         CType(Me.txtTreasurerPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtAccountantPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtMayorPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtViceMayorName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gridViceMayor, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtViceMayorPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtHrmdName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gvHrmdName, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtHrmdPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -916,4 +984,9 @@ Partial Class frmCompanySettings
     Friend WithEvents LabelControl14 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents txtViceMayorPosition As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl15 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtHrmdName As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents gvHrmdName As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents LabelControl16 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtHrmdPosition As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl18 As DevExpress.XtraEditors.LabelControl
 End Class

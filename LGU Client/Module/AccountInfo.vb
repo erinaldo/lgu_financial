@@ -81,6 +81,7 @@ Module AccountInfo
     Public globalAuthNewDisbursement As Boolean
     Public globalAuthDisbursementList As Boolean
     Public globalAuthBudgetReport As Boolean
+    Public globalAuthHumanResource As Boolean
 
 
     'Declaration of company profile
@@ -110,6 +111,10 @@ Module AccountInfo
     Public GlobalBudgetID As String
     Public GlobalBudgetName As String
     Public GlobalBudgetPosition As String
+
+    Public GlobalHrmdID As String
+    Public GlobalHrmdName As String
+    Public GlobalHrmdPosition As String
 
     Public GlobalDefaultCollection As String
     Public GlobalDefaultCedulaIndividual As String
@@ -212,6 +217,7 @@ Module AccountInfo
             globalAuthNewDisbursement = rst("newdisbursement")
             globalAuthDisbursementList = rst("disbursementlist")
             globalAuthBudgetReport = rst("budgetreport")
+            globalAuthHumanResource = rst("humanresource")
         End While
         rst.Close()
 
@@ -222,13 +228,18 @@ Module AccountInfo
         End If
 
         '#validate Office Information settings 
-        com.CommandText = "select *,(select fullname from tblaccounts where accountid = tblcompoffice.officerid) as 'incharge', " _
-                        + "(select emailaddress from tblaccounts where accountid = tblcompoffice.officerid) as 'officeremail', " _
-                        + " (select designation from tblaccounts where accountid = tblcompoffice.officerid) as 'position' from tblcompoffice where officeid='" & compOfficeid & "'" : rst = com.ExecuteReader
+        com.CommandText = "select * from tblcompoffice where officeid='" & compOfficeid & "'" : rst = com.ExecuteReader
         While rst.Read
             compOfficename = rst("officename").ToString
             compAddress = rst("address").ToString
             compEmailaddress = rst("officeemail").ToString
+        End While
+        rst.Close()
+
+        com.CommandText = "select *,(select fullname from tblaccounts where accountid = a.officerid) as 'incharge', " _
+                        + "(select emailaddress from tblaccounts where accountid = a.officerid) as 'officeremail', " _
+                        + " (select designation from tblaccounts where accountid = a.officerid) as 'position' from tblcompofficerlog as a where officeid='" & compOfficeid & "' and current=1" : rst = com.ExecuteReader
+        While rst.Read
             compOfficerid = rst("officerid").ToString
             compOfficerIncharge = rst("incharge").ToString
             compOfficerPosition = rst("position").ToString
@@ -242,7 +253,8 @@ Module AccountInfo
             + " (select fullname from tblaccounts where accountid=a.vicemayorname) as vicemayor, " _
             + " (select fullname from tblaccounts where accountid=a.accountantname) as accountant, " _
             + " (select fullname from tblaccounts where accountid=a.treasurermame) as treasurer, " _
-            + " (select fullname from tblaccounts where accountid=a.budgetname) as budget " _
+            + " (select fullname from tblaccounts where accountid=a.budgetname) as budget, " _
+            + " (select fullname from tblaccounts where accountid=a.hrmdname) as hrmd " _
             + " from tblcompanysettings as a"
         rst = com.ExecuteReader
         While rst.Read
@@ -280,6 +292,10 @@ Module AccountInfo
             GlobalBudgetID = rst("budgetname").ToString
             GlobalBudgetName = rst("budget").ToString
             GlobalBudgetPosition = rst("budgetposition").ToString
+
+            GlobalHrmdID = rst("hrmdname").ToString
+            GlobalHrmdName = rst("hrmd").ToString
+            GlobalHrmdPosition = rst("hrmdposition").ToString
         End While
         rst.Close()
 
@@ -479,6 +495,7 @@ Module AccountInfo
         globalAuthNewDisbursement = False
         globalAuthDisbursementList = False
         globalAuthBudgetReport = False
+        globalAuthHumanResource = False
 
         GlobalDefaultCollection = ""
         GlobalDefaultCedulaIndividual = ""

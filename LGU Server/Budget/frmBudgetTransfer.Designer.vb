@@ -100,7 +100,9 @@ Partial Class frmBudgetTransfer
         Me.txtTransAccountTitle = New DevExpress.XtraEditors.MemoEdit()
         Me.cmdSelectAccountTitle = New DevExpress.XtraEditors.HyperlinkLabelControl()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
+        Me.yearcode = New DevExpress.XtraEditors.TextEdit()
         Me.txtFromClassCode = New DevExpress.XtraEditors.TextEdit()
+        Me.fundcode = New DevExpress.XtraEditors.TextEdit()
         Me.txtFromTotalBudget = New DevExpress.XtraEditors.TextEdit()
         Me.periodcode = New DevExpress.XtraEditors.TextEdit()
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
@@ -113,8 +115,6 @@ Partial Class frmBudgetTransfer
         Me.gridoffice = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.LabelControl22 = New DevExpress.XtraEditors.LabelControl()
         Me.trans_id = New DevExpress.XtraEditors.TextEdit()
-        Me.fundcode = New DevExpress.XtraEditors.TextEdit()
-        Me.yearcode = New DevExpress.XtraEditors.TextEdit()
         CType(Me.txtFromJanuary.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFromFebruary.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFromMarch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -159,7 +159,9 @@ Partial Class frmBudgetTransfer
         CType(Me.txtTransAccountTitle.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
+        CType(Me.yearcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFromClassCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFromTotalBudget.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.periodcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -171,8 +173,6 @@ Partial Class frmBudgetTransfer
         CType(Me.txtTransOffice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridoffice, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.trans_id.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.yearcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl1
@@ -1425,6 +1425,19 @@ Partial Class frmBudgetTransfer
         Me.GroupControl1.TabIndex = 688
         Me.GroupControl1.Text = "Source of Transfer"
         '
+        'yearcode
+        '
+        Me.yearcode.EditValue = ""
+        Me.yearcode.Location = New System.Drawing.Point(439, 341)
+        Me.yearcode.Name = "yearcode"
+        Me.yearcode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.yearcode.Properties.Appearance.Options.UseFont = True
+        Me.yearcode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.yearcode.Properties.ReadOnly = True
+        Me.yearcode.Size = New System.Drawing.Size(33, 26)
+        Me.yearcode.TabIndex = 697
+        Me.yearcode.Visible = False
+        '
         'txtFromClassCode
         '
         Me.txtFromClassCode.EditValue = ""
@@ -1437,6 +1450,19 @@ Partial Class frmBudgetTransfer
         Me.txtFromClassCode.Size = New System.Drawing.Size(33, 26)
         Me.txtFromClassCode.TabIndex = 693
         Me.txtFromClassCode.Visible = False
+        '
+        'fundcode
+        '
+        Me.fundcode.EditValue = ""
+        Me.fundcode.Location = New System.Drawing.Point(439, 311)
+        Me.fundcode.Name = "fundcode"
+        Me.fundcode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.fundcode.Properties.Appearance.Options.UseFont = True
+        Me.fundcode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.fundcode.Properties.ReadOnly = True
+        Me.fundcode.Size = New System.Drawing.Size(33, 26)
+        Me.fundcode.TabIndex = 696
+        Me.fundcode.Visible = False
         '
         'txtFromTotalBudget
         '
@@ -1650,43 +1676,17 @@ Partial Class frmBudgetTransfer
         Me.trans_id.TabIndex = 688
         Me.trans_id.Visible = False
         '
-        'fundcode
-        '
-        Me.fundcode.EditValue = ""
-        Me.fundcode.Location = New System.Drawing.Point(439, 311)
-        Me.fundcode.Name = "fundcode"
-        Me.fundcode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fundcode.Properties.Appearance.Options.UseFont = True
-        Me.fundcode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.fundcode.Properties.ReadOnly = True
-        Me.fundcode.Size = New System.Drawing.Size(33, 26)
-        Me.fundcode.TabIndex = 696
-        Me.fundcode.Visible = False
-        '
-        'yearcode
-        '
-        Me.yearcode.EditValue = ""
-        Me.yearcode.Location = New System.Drawing.Point(439, 341)
-        Me.yearcode.Name = "yearcode"
-        Me.yearcode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.yearcode.Properties.Appearance.Options.UseFont = True
-        Me.yearcode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.yearcode.Properties.ReadOnly = True
-        Me.yearcode.Size = New System.Drawing.Size(33, 26)
-        Me.yearcode.TabIndex = 697
-        Me.yearcode.Visible = False
-        '
         'frmBudgetTransfer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1017, 746)
+        Me.ClientSize = New System.Drawing.Size(1015, 744)
         Me.Controls.Add(Me.GroupControl2)
         Me.Controls.Add(Me.GroupControl1)
         Me.Controls.Add(Me.cmdFromSaveButton)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(393, 517)
+        Me.MinimumSize = New System.Drawing.Size(395, 519)
         Me.Name = "frmBudgetTransfer"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Budget Fund Transfer"
@@ -1734,7 +1734,9 @@ Partial Class frmBudgetTransfer
         CType(Me.txtTransAccountTitle.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
+        CType(Me.yearcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtFromClassCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtFromTotalBudget.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.periodcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1747,8 +1749,6 @@ Partial Class frmBudgetTransfer
         CType(Me.txtTransOffice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridoffice, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.trans_id.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.yearcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

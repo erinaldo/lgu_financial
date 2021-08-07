@@ -78,6 +78,7 @@ Public Class frmClientUserPermission
         checklistbox.Items.Add("New Disbursement")
         checklistbox.Items.Add("Disbursement Management")
         checklistbox.Items.Add("Actual Budget Report")
+        checklistbox.Items.Add("Human Resource")
     End Sub
     Public Sub filter()
         Dim strmodule As String = ""
@@ -97,7 +98,8 @@ Public Class frmClientUserPermission
                   + ", requisitionlist as 'Requisition Management' " _
                   + ", newdisbursement as 'New Disbursement' " _
                   + ", disbursementlist as 'Disbursement Management' " _
-                  + ", budgetreport as 'Actual Budget Report' "
+                  + ", budgetreport as 'Actual Budget Report' " _
+                  + ", humanresource as 'Human Resource' "
 
 
 
@@ -166,6 +168,9 @@ Public Class frmClientUserPermission
                 End If
                 If checklistbox.Items(I).ToString = "Actual Budget Report" Then
                     checkeditem += "budgetreport=1,"
+                End If
+                If checklistbox.Items(I).ToString = "Human Resource" Then
+                    checkeditem += "humanresource=1,"
                 End If
             End If
         Next
@@ -359,6 +364,15 @@ Public Class frmClientUserPermission
                 Next
             End If
 
+            If rst("humanresource") = True Then
+                Dim I As Integer = 0
+                For I = 0 To checklistbox.Items.Count - 1
+                    If checklistbox.Items(I).ToString = "Human Resource" Then
+                        checklistbox.SetItemCheckState(I, CheckState.Checked)
+                    End If
+                Next
+            End If
+
         End While
         rst.Close()
 
@@ -436,8 +450,8 @@ Public Class frmClientUserPermission
     End Sub
 
     Private Sub DuplicateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DuplicateToolStripMenuItem.Click
-        com.CommandText = "INSERT INTO  `tblclientaccess` (description,departmenthead,generalapprover,specialapprover,allowadd,allowedit,allowdelete,collectionposting,cedulaindividual,cedulacorporate,realpropertytax,collectionreport,accountableform,businessmgt,realpropertymgt,newdirectjournal,journalentryvoucher,forapproval,checkapproval,newrequisition,requisitionlist,newdisbursement,disbursementlist,budgetreport) " _
-                               + " SELECT concat(description,' - copy'),departmenthead,generalapprover,specialapprover,allowadd,allowedit,allowdelete,collectionposting,cedulaindividual,cedulacorporate,realpropertytax,collectionreport,accountableform,businessmgt,realpropertymgt,newdirectjournal,journalentryvoucher,forapproval,checkapproval,newrequisition,requisitionlist,newdisbursement,disbursementlist,budgetreport FROM `tblclientaccess` where accesscode='" & GridView1.GetFocusedRowCellValue("Access Code").ToString & "'" : com.ExecuteNonQuery()
+        com.CommandText = "INSERT INTO  `tblclientaccess` (description,departmenthead,generalapprover,specialapprover,allowadd,allowedit,allowdelete,collectionposting,cedulaindividual,cedulacorporate,realpropertytax,collectionreport,accountableform,businessmgt,realpropertymgt,newdirectjournal,journalentryvoucher,forapproval,checkapproval,newrequisition,requisitionlist,newdisbursement,disbursementlist,budgetreport,humanresource) " _
+                               + " SELECT concat(description,' - copy'),departmenthead,generalapprover,specialapprover,allowadd,allowedit,allowdelete,collectionposting,cedulaindividual,cedulacorporate,realpropertytax,collectionreport,accountableform,businessmgt,realpropertymgt,newdirectjournal,journalentryvoucher,forapproval,checkapproval,newrequisition,requisitionlist,newdisbursement,disbursementlist,budgetreport,humanresource FROM `tblclientaccess` where accesscode='" & GridView1.GetFocusedRowCellValue("Access Code").ToString & "'" : com.ExecuteNonQuery()
         filter()
         XtraMessageBox.Show("Permission successfully duplicated", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub

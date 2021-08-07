@@ -14,6 +14,7 @@ Public Class frmRequisitionInfo
     Private EnablePR As Boolean = False
     Private EnablePO As Boolean = False
     Private EnableVoucher As Boolean = True
+    Private RequiredFund As Boolean = False
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
         If keyData = (Keys.Escape) Then
             Me.Close()
@@ -205,6 +206,7 @@ Public Class frmRequisitionInfo
             EnablePR = CBool(rst("enablepr").ToString())
             EnablePO = CBool(rst("enablepo").ToString())
             EnableVoucher = CBool(rst("enablevoucher").ToString())
+            RequiredFund = CBool(rst("requiredfund").ToString())
         End While
         rst.Close()
         If DirectApproved Then
@@ -278,6 +280,15 @@ Public Class frmRequisitionInfo
         XgridColCurrency({"Amount"}, GridView1)
         XgridGeneralSummaryCurrency({"Amount"}, GridView1)
         GridView1.BestFitColumns()
+        If GridView1.RowCount > 0 Then
+            txtRequestType.ReadOnly = True
+            txtOffice.ReadOnly = True
+            txtFund.ReadOnly = True
+        Else
+            txtRequestType.ReadOnly = False
+            txtOffice.ReadOnly = False
+            txtFund.ReadOnly = False
+        End If
     End Sub
 
 
@@ -793,6 +804,7 @@ Public Class frmRequisitionInfo
             frmSourceOfFundInfo.officeid.Text = officeid.Text
             frmSourceOfFundInfo.periodcode.Text = periodcode.Text
             frmSourceOfFundInfo.requestno.Text = requestno.Text
+            frmSourceOfFundInfo.requiredfund = RequiredFund
             frmSourceOfFundInfo.ShowDialog(Me)
         End If
     End Sub

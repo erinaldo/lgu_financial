@@ -47,7 +47,10 @@ Public Class frmLogin
             Me.Location = New Point(r.Right - Me.Width, r.Bottom - Me.Height)
             loadimage.ImageLocation = Application.StartupPath & "\logo.png"
             mainname.Text = "Coffeecup " & fversion
-          
+            If OpenMysqlConnection() = True Then
+                SystemDatabaseUpdater()
+            End If
+
         Catch errMYSQL As MySqlException
             MessageBox.Show("Message:" & errMYSQL.Message, vbCrLf _
                             & "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

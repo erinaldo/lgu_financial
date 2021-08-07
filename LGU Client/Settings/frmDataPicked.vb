@@ -32,7 +32,7 @@ Public Class frmDataPicked
                 XtraMessageBox.Show("Please enter Description!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 txtDescription.Focus()
                 Exit Sub
-            ElseIf countqry("tbldatapicked", "fieldname='" & fieldname.Text & "' and Description='" & rchar(txtDescription.Text) & "' ") > 0 Then
+            ElseIf countqry("tbldatapicked", "fieldname='" & fieldname.Text & "' and Description='" & rchar(txtDescription.Text) & "' and id<>'" & id.Text & "' ") > 0 Then
                 XtraMessageBox.Show("description is already exists!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 txtDescription.Focus()
                 Exit Sub

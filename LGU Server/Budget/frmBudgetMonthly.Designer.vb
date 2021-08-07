@@ -19,11 +19,11 @@ Partial Class frmBudgetMonthly
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.cmdSaveButton = New DevExpress.XtraEditors.SimpleButton()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
         Me.EditLineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TranferSelectedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -40,7 +40,6 @@ Partial Class frmBudgetMonthly
         Me.officeid = New DevExpress.XtraEditors.TextEdit()
         Me.CheckEdit1 = New DevExpress.XtraEditors.CheckEdit()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
-        Me.TranferSelectedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gridmenustrip.SuspendLayout()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,7 +64,7 @@ Partial Class frmBudgetMonthly
         Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSaveButton.Appearance.Options.UseBackColor = True
         Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(783, 21)
+        Me.cmdSaveButton.Location = New System.Drawing.Point(779, 21)
         Me.cmdSaveButton.Name = "cmdSaveButton"
         Me.cmdSaveButton.Size = New System.Drawing.Size(207, 56)
         Me.cmdSaveButton.TabIndex = 6
@@ -82,7 +81,7 @@ Partial Class frmBudgetMonthly
         Me.Em.MinimumSize = New System.Drawing.Size(574, 454)
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(979, 499)
+        Me.Em.Size = New System.Drawing.Size(975, 499)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -90,25 +89,32 @@ Partial Class frmBudgetMonthly
         '
         Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditLineToolStripMenuItem, Me.TranferSelectedToolStripMenuItem, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(181, 98)
+        Me.gridmenustrip.Size = New System.Drawing.Size(146, 76)
         '
         'EditLineToolStripMenuItem
         '
         Me.EditLineToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
         Me.EditLineToolStripMenuItem.Name = "EditLineToolStripMenuItem"
-        Me.EditLineToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EditLineToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
         Me.EditLineToolStripMenuItem.Text = "Edit Line"
+        '
+        'TranferSelectedToolStripMenuItem
+        '
+        Me.TranferSelectedToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.notebook__arrow1
+        Me.TranferSelectedToolStripMenuItem.Name = "TranferSelectedToolStripMenuItem"
+        Me.TranferSelectedToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
+        Me.TranferSelectedToolStripMenuItem.Text = "Fund Transfer"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(142, 6)
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
         Me.RefreshToolStripMenuItem.Text = "Refresh Data"
         '
         'GridView1
@@ -258,25 +264,18 @@ Partial Class frmBudgetMonthly
         Me.SimpleButton1.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SimpleButton1.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.SimpleButton1.Appearance.Options.UseFont = True
-        Me.SimpleButton1.Location = New System.Drawing.Point(571, 21)
+        Me.SimpleButton1.Location = New System.Drawing.Point(567, 21)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(207, 56)
         Me.SimpleButton1.TabIndex = 651
         Me.SimpleButton1.Text = "Generate Exel Report"
-        '
-        'TranferSelectedToolStripMenuItem
-        '
-        Me.TranferSelectedToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.notebook__arrow1
-        Me.TranferSelectedToolStripMenuItem.Name = "TranferSelectedToolStripMenuItem"
-        Me.TranferSelectedToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.TranferSelectedToolStripMenuItem.Text = "Fund Transfer"
         '
         'frmBudgetMonthly
         '
         Me.AcceptButton = Me.cmdSaveButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(999, 617)
+        Me.ClientSize = New System.Drawing.Size(995, 617)
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.CheckEdit1)
         Me.Controls.Add(Me.officeid)
@@ -289,7 +288,7 @@ Partial Class frmBudgetMonthly
         Me.Controls.Add(Me.txtFund)
         Me.Controls.Add(Me.cmdSaveButton)
         Me.Controls.Add(Me.Em)
-        Me.MinimumSize = New System.Drawing.Size(985, 647)
+        Me.MinimumSize = New System.Drawing.Size(989, 649)
         Me.Name = "frmBudgetMonthly"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Monthly Budget"

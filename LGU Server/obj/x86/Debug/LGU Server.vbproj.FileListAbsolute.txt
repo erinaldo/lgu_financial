@@ -424,7 +424,6 @@ C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinanci
 C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGLChartofAccounts.resources
 C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGUFinancial.frmErrorCorrect.resources
 C:\My Files\My.Net\System Core\LGU Financial\LGU Server\obj\x86\Debug\LGU Server.vbprojResolveAssemblyReference.cache
-D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.Images.v19.2.dll
 C:\Files\VB.NET\lgu_financial\LGU Server\bin\Debug\LGU Server.exe.config
 C:\Files\VB.NET\lgu_financial\LGU Server\bin\Debug\LGU Server.exe.manifest
 C:\Files\VB.NET\lgu_financial\LGU Server\bin\Debug\LGU Server.application
@@ -719,6 +718,77 @@ C:\Files\VB.NET\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.xml
 C:\Files\VB.NET\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.pdb
 C:\Files\VB.NET\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmRegistryExport.resources
 C:\Files\VB.NET\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbprojAssemblyReference.cache
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.AssemblyReference.cache
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.ResolveComReference.cache
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmErrorCorrect.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetTransferItem.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetTransfer.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmRegistryExport.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmRegistry.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmJevEntries.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmApprovingProcess.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBankAccounts.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGLAroFilter.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCheckApprovalFilter.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGLCaptureChartofAccount.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGLChartofAccounts.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCashItem.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetMonthly.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetMonthlyClosing.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetEditLine.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmExpenditureItem.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetComposition.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmExpenditureClass.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDocumentType.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmRequisitionType.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmRequisitionFilter.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmProductCategory.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmProductClass.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmProductInfo.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmProductManagement.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmProductMeasurement.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmSetProductCategory.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDepartmentOfficer.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmTaxpayerRecord.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCollectionItem.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmReportEntries.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmAccountableForm.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCashFlowItem.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmFundPeriod.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmFund.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmTransactionCodeFilter.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmSystemDownloader.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDBFileUploader.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDBFileViewer.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDataPicked.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBackupTool.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmChangeOwnPassword.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBlockedAccounts.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmClientConnetions.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmResetDatabase.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDatabaseRepair.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmChangePassword.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDepartmentInfo.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmClientUserPermission.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCoffeecupServerPermissionInfo.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCoffeecupServerPermission.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmConnectionSetup.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmColumnFilter.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmAppearance.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmChangeUser.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCompanySettings.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDepartment.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGeneralSettings.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmLogin.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmConversation.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmUserProfile.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmUsersAccounts.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.Resources.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.MdiMainmenu.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.WaitForm1.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmTaxPayerInfo.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.GenerateResource.cache
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.CoreCompileInputs.cache
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\LGU Server.exe.config
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\LGU Server.exe.manifest
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\LGU Server.application
@@ -763,6 +833,7 @@ D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\System.Windows.Forms.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\System.Xml.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\System.Xml.Linq.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\WindowsBase.dll
+D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.Images.v19.2.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraVerticalGrid.v19.2.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.XtraLayout.v19.2.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\DevExpress.DataAccess.v19.2.UI.dll
@@ -937,75 +1008,6 @@ D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\de\DevExpress.Diagram.v19.2.
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\es\DevExpress.Diagram.v19.2.Core.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\ja\DevExpress.Diagram.v19.2.Core.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\ru\DevExpress.Diagram.v19.2.Core.resources.dll
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.ResolveComReference.cache
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmErrorCorrect.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetTransferItem.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetTransfer.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmRegistryExport.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmRegistry.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmJevEntries.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmApprovingProcess.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBankAccounts.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGLAroFilter.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCheckApprovalFilter.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGLCaptureChartofAccount.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGLChartofAccounts.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCashItem.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetMonthly.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetMonthlyClosing.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetEditLine.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmExpenditureItem.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetComposition.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmExpenditureClass.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDocumentType.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmRequisitionType.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmRequisitionFilter.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmProductCategory.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmProductClass.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmProductInfo.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmProductManagement.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmProductMeasurement.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmSetProductCategory.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmTaxpayerRecord.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCollectionItem.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmReportEntries.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmAccountableForm.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCashFlowItem.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmFundPeriod.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmFund.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmTransactionCodeFilter.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmSystemDownloader.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDBFileUploader.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDBFileViewer.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDataPicked.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBackupTool.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmChangeOwnPassword.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBlockedAccounts.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmClientConnetions.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmResetDatabase.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDatabaseRepair.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmChangePassword.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDepartmentInfo.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmClientUserPermission.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCoffeecupServerPermissionInfo.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCoffeecupServerPermission.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmConnectionSetup.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmColumnFilter.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmAppearance.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmChangeUser.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmCompanySettings.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDepartment.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGeneralSettings.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmLogin.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmConversation.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmUserProfile.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmUsersAccounts.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.Resources.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.MdiMainmenu.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.WaitForm1.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmTaxPayerInfo.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.GenerateResource.cache
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.CoreCompileInputs.cache
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.TrustInfo.xml
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.exe.manifest
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.application
@@ -1013,4 +1015,3 @@ D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.CopyCo
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.exe
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.xml
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.pdb
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.AssemblyReference.cache

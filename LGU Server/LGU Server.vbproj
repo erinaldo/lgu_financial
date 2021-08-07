@@ -85,12 +85,6 @@
     <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.DemoReports.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DevExpress.ExpressApp.Win.v19.2.Fakes, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
@@ -396,6 +390,12 @@
       <DependentUpon>frmSetProductCategory.vb</DependentUpon>
     </Compile>
     <Compile Include="Product\frmSetProductCategory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmDepartmentOfficer.designer.vb">
+      <DependentUpon>frmDepartmentOfficer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmDepartmentOfficer.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Tax Payer\frmTaxpayerRecord.Designer.vb">
@@ -737,6 +737,9 @@
     <EmbeddedResource Include="Product\frmSetProductCategory.resx">
       <DependentUpon>frmSetProductCategory.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmDepartmentOfficer.resx">
+      <DependentUpon>frmDepartmentOfficer.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tax Payer\frmTaxpayerRecord.resx">
       <DependentUpon>frmTaxpayerRecord.vb</DependentUpon>
     </EmbeddedResource>
@@ -898,6 +901,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\user--plus.png" />
     <None Include="Resources\User %282%29.png" />
     <None Include="Resources\Person.png" />
     <None Include="Resources\Quality.png" />

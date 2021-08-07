@@ -34,8 +34,7 @@ Partial Class frmRequisitionType
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.code = New DevExpress.XtraEditors.TextEdit()
         Me.ckDirectApproved = New DevExpress.XtraEditors.CheckEdit()
-        Me.ckEnablePr = New DevExpress.XtraEditors.CheckEdit()
-        Me.ckEnablePo = New DevExpress.XtraEditors.CheckEdit()
+        Me.ckRequiredFund = New DevExpress.XtraEditors.CheckEdit()
         Me.ckEnableVoucher = New DevExpress.XtraEditors.CheckEdit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,8 +44,7 @@ Partial Class frmRequisitionType
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckDirectApproved.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ckEnablePr.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ckEnablePo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ckRequiredFund.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckEnableVoucher.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -107,7 +105,7 @@ Partial Class frmRequisitionType
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(733, 551)
+        Me.Em.Size = New System.Drawing.Size(896, 551)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -182,25 +180,15 @@ Partial Class frmRequisitionType
         Me.ckDirectApproved.Size = New System.Drawing.Size(157, 20)
         Me.ckDirectApproved.TabIndex = 956
         '
-        'ckEnablePr
+        'ckRequiredFund
         '
-        Me.ckEnablePr.Location = New System.Drawing.Point(397, 38)
-        Me.ckEnablePr.Name = "ckEnablePr"
-        Me.ckEnablePr.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ckEnablePr.Properties.Appearance.Options.UseFont = True
-        Me.ckEnablePr.Properties.Caption = "Enable PR"
-        Me.ckEnablePr.Size = New System.Drawing.Size(77, 20)
-        Me.ckEnablePr.TabIndex = 957
-        '
-        'ckEnablePo
-        '
-        Me.ckEnablePo.Location = New System.Drawing.Point(480, 38)
-        Me.ckEnablePo.Name = "ckEnablePo"
-        Me.ckEnablePo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ckEnablePo.Properties.Appearance.Options.UseFont = True
-        Me.ckEnablePo.Properties.Caption = "Enable PO"
-        Me.ckEnablePo.Size = New System.Drawing.Size(77, 20)
-        Me.ckEnablePo.TabIndex = 958
+        Me.ckRequiredFund.Location = New System.Drawing.Point(397, 38)
+        Me.ckRequiredFund.Name = "ckRequiredFund"
+        Me.ckRequiredFund.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ckRequiredFund.Properties.Appearance.Options.UseFont = True
+        Me.ckRequiredFund.Properties.Caption = "Required Fund Balance"
+        Me.ckRequiredFund.Size = New System.Drawing.Size(160, 20)
+        Me.ckRequiredFund.TabIndex = 957
         '
         'ckEnableVoucher
         '
@@ -218,10 +206,9 @@ Partial Class frmRequisitionType
         Me.AcceptButton = Me.cmdSaveButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(746, 657)
+        Me.ClientSize = New System.Drawing.Size(909, 657)
         Me.Controls.Add(Me.ckEnableVoucher)
-        Me.Controls.Add(Me.ckEnablePo)
-        Me.Controls.Add(Me.ckEnablePr)
+        Me.Controls.Add(Me.ckRequiredFund)
         Me.Controls.Add(Me.ckDirectApproved)
         Me.Controls.Add(Me.code)
         Me.Controls.Add(Me.txtDescription)
@@ -240,8 +227,7 @@ Partial Class frmRequisitionType
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckDirectApproved.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ckEnablePr.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ckEnablePo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ckRequiredFund.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckEnableVoucher.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -261,7 +247,6 @@ Partial Class frmRequisitionType
     Friend WithEvents RefreshToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents code As DevExpress.XtraEditors.TextEdit
     Friend WithEvents ckDirectApproved As DevExpress.XtraEditors.CheckEdit
-    Friend WithEvents ckEnablePr As DevExpress.XtraEditors.CheckEdit
-    Friend WithEvents ckEnablePo As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents ckRequiredFund As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents ckEnableVoucher As DevExpress.XtraEditors.CheckEdit
 End Class

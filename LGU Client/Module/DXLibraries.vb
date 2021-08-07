@@ -46,6 +46,7 @@ Module Libraries
     Public Sub LoadPickedDataTable(ByVal fieldname As String, ByVal txtControl As SearchLookUpEdit, ByVal gridControl As GridView)
         LoadXgridLookupSearch("select id, description as 'Select' from tbldatapicked where fieldname='" & fieldname & "' order by description asc", "tbldatapicked", txtControl, gridControl)
         gridControl.Columns("id").Visible = False
+        txtControl.Focus()
     End Sub
 
     Public Sub LoadDefaultDropdown(ByVal formname As String, ByVal controlname As SearchLookUpEdit)
@@ -179,7 +180,7 @@ Module Libraries
         Return True
     End Function
 
-    Public Function LoadXgridLookupEdit(ByVal qry As String, ByVal tbl As String, ByVal Xglue As DevExpress.XtraEditors.GridLookUpEdit, ByVal xgrid As DevExpress.XtraGrid.Views.Grid.GridView, ByVal myform As DevExpress.XtraEditors.XtraForm)
+    Public Function LoadXgridLookupEdit(ByVal qry As String, ByVal tbl As String, ByVal Xglue As DevExpress.XtraEditors.GridLookUpEdit, ByVal xgrid As DevExpress.XtraGrid.Views.Grid.GridView)
         Try
 
             Dim dst As New DataSet : dst.Clear()
@@ -193,16 +194,14 @@ Module Libraries
             LoadGridviewAppearance(xgrid)
 
         Catch errMYSQL As MySqlException
-            XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
-                             & "Module:" & "form_load" & vbCrLf _
+            XtraMessageBox.Show("Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMYSQL.Message & vbCrLf _
-                             & "Details:" & errMYSQL.StackTrace, _
+                             & "Details:" & errMYSQL.StackTrace,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Catch errMS As Exception
-            XtraMessageBox.Show("Form:" & myform.Name & vbCrLf _
-                             & "Module:" & "form_load" & vbCrLf _
+            XtraMessageBox.Show("Module:" & "form_load" & vbCrLf _
                              & "Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
         Return 0

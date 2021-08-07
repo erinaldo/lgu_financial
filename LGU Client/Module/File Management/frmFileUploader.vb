@@ -13,6 +13,10 @@ Public Class frmFileUploader
     End Function
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If MyDataGridView.RowCount = 0 Then
+            MsgBox("Please select file to upload", MsgBoxStyle.Critical)
+            Exit Sub
+        End If
         If MyDataGridView.RowCount > 0 Then
             For i = 0 To MyDataGridView.RowCount - 1
                 If MyDataGridView.Rows(i).Cells("Error").Value() = "1" Then
@@ -137,4 +141,13 @@ Public Class frmFileUploader
         End If
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        cmdBrowseFile.PerformClick()
+    End Sub
+
+    Private Sub MyDataGridView_CellMouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles MyDataGridView.CellMouseDown
+        If e.ColumnIndex >= 0 And e.RowIndex >= 0 Then
+            Me.MyDataGridView.CurrentCell = Me.MyDataGridView.Rows(e.RowIndex).Cells(e.ColumnIndex)
+        End If
+    End Sub
 End Class

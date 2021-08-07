@@ -725,7 +725,7 @@ Partial Class frmBudgetEditLine
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(464, 633)
+        Me.Em.Size = New System.Drawing.Size(460, 629)
         Me.Em.TabIndex = 633
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -748,7 +748,7 @@ Partial Class frmBudgetEditLine
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(959, 667)
+        Me.ClientSize = New System.Drawing.Size(955, 663)
         Me.Controls.Add(Me.Em)
         Me.Controls.Add(Me.txtOriginalBalance)
         Me.Controls.Add(Me.txtAmount)
@@ -792,7 +792,7 @@ Partial Class frmBudgetEditLine
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.txtJanuary)
         Me.Controls.Add(Me.txtAccountTitle)
-        Me.MinimumSize = New System.Drawing.Size(393, 517)
+        Me.MinimumSize = New System.Drawing.Size(397, 521)
         Me.Name = "frmBudgetEditLine"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Budget Info Edit Line"

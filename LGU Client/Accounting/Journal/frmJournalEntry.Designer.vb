@@ -62,6 +62,11 @@ Partial Class frmJournalEntry
         Me.txtFund = New DevExpress.XtraEditors.TextEdit()
         Me.pid = New DevExpress.XtraEditors.TextEdit()
         Me.dvid = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtCheckBankName = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.gridBank = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtAmount = New DevExpress.XtraEditors.TextEdit()
         CType(Me.yeartrn.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.jevno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,6 +86,9 @@ Partial Class frmJournalEntry
         CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dvid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCheckBankName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gridBank, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'yeartrn
@@ -135,7 +143,7 @@ Partial Class frmJournalEntry
         Me.LabelControl15.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl15.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.LabelControl15.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal
-        Me.LabelControl15.Location = New System.Drawing.Point(47, 87)
+        Me.LabelControl15.Location = New System.Drawing.Point(49, 87)
         Me.LabelControl15.Name = "LabelControl15"
         Me.LabelControl15.Size = New System.Drawing.Size(45, 17)
         Me.LabelControl15.TabIndex = 909
@@ -169,7 +177,7 @@ Partial Class frmJournalEntry
         Me.cmdSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSave.Appearance.Options.UseBackColor = True
         Me.cmdSave.Appearance.Options.UseFont = True
-        Me.cmdSave.Location = New System.Drawing.Point(926, 503)
+        Me.cmdSave.Location = New System.Drawing.Point(926, 477)
         Me.cmdSave.Name = "cmdSave"
         Me.cmdSave.Size = New System.Drawing.Size(196, 35)
         Me.cmdSave.TabIndex = 907
@@ -238,7 +246,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Location = New System.Drawing.Point(22, 114)
+        Me.LabelControl6.Location = New System.Drawing.Point(24, 114)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(70, 17)
         Me.LabelControl6.TabIndex = 972
@@ -300,7 +308,7 @@ Partial Class frmJournalEntry
         Me.Em.Location = New System.Drawing.Point(341, 55)
         Me.Em.MainView = Me.Gridview1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(781, 442)
+        Me.Em.Size = New System.Drawing.Size(781, 379)
         Me.Em.TabIndex = 3
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.Gridview1})
         '
@@ -322,7 +330,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl7.Appearance.Options.UseFont = True
-        Me.LabelControl7.Location = New System.Drawing.Point(22, 140)
+        Me.LabelControl7.Location = New System.Drawing.Point(24, 140)
         Me.LabelControl7.Name = "LabelControl7"
         Me.LabelControl7.Size = New System.Drawing.Size(70, 17)
         Me.LabelControl7.TabIndex = 977
@@ -351,7 +359,7 @@ Partial Class frmJournalEntry
         Me.cmdPrint.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdPrint.Appearance.Options.UseBackColor = True
         Me.cmdPrint.Appearance.Options.UseFont = True
-        Me.cmdPrint.Location = New System.Drawing.Point(724, 503)
+        Me.cmdPrint.Location = New System.Drawing.Point(724, 477)
         Me.cmdPrint.Name = "cmdPrint"
         Me.cmdPrint.Size = New System.Drawing.Size(196, 35)
         Me.cmdPrint.TabIndex = 978
@@ -380,7 +388,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl4.Appearance.Options.UseFont = True
-        Me.LabelControl4.Location = New System.Drawing.Point(41, 328)
+        Me.LabelControl4.Location = New System.Drawing.Point(43, 327)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(51, 17)
         Me.LabelControl4.TabIndex = 983
@@ -389,7 +397,7 @@ Partial Class frmJournalEntry
         'txtPayrollNo
         '
         Me.txtPayrollNo.EditValue = ""
-        Me.txtPayrollNo.Location = New System.Drawing.Point(101, 324)
+        Me.txtPayrollNo.Location = New System.Drawing.Point(101, 323)
         Me.txtPayrollNo.Name = "txtPayrollNo"
         Me.txtPayrollNo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtPayrollNo.Properties.Appearance.Options.UseFont = True
@@ -403,7 +411,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl5.Appearance.Options.UseFont = True
-        Me.LabelControl5.Location = New System.Drawing.Point(55, 357)
+        Me.LabelControl5.Location = New System.Drawing.Point(57, 355)
         Me.LabelControl5.Name = "LabelControl5"
         Me.LabelControl5.Size = New System.Drawing.Size(37, 17)
         Me.LabelControl5.TabIndex = 985
@@ -412,7 +420,7 @@ Partial Class frmJournalEntry
         'txtRCDNo
         '
         Me.txtRCDNo.EditValue = ""
-        Me.txtRCDNo.Location = New System.Drawing.Point(101, 353)
+        Me.txtRCDNo.Location = New System.Drawing.Point(101, 351)
         Me.txtRCDNo.Name = "txtRCDNo"
         Me.txtRCDNo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtRCDNo.Properties.Appearance.Options.UseFont = True
@@ -426,7 +434,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl9.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl9.Appearance.Options.UseFont = True
-        Me.LabelControl9.Location = New System.Drawing.Point(66, 386)
+        Me.LabelControl9.Location = New System.Drawing.Point(68, 383)
         Me.LabelControl9.Name = "LabelControl9"
         Me.LabelControl9.Size = New System.Drawing.Size(26, 17)
         Me.LabelControl9.TabIndex = 987
@@ -435,7 +443,7 @@ Partial Class frmJournalEntry
         'txtLRNo
         '
         Me.txtLRNo.EditValue = ""
-        Me.txtLRNo.Location = New System.Drawing.Point(101, 382)
+        Me.txtLRNo.Location = New System.Drawing.Point(101, 379)
         Me.txtLRNo.Name = "txtLRNo"
         Me.txtLRNo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtLRNo.Properties.Appearance.Options.UseFont = True
@@ -449,7 +457,7 @@ Partial Class frmJournalEntry
         '
         Me.LabelControl10.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl10.Appearance.Options.UseFont = True
-        Me.LabelControl10.Location = New System.Drawing.Point(65, 415)
+        Me.LabelControl10.Location = New System.Drawing.Point(67, 411)
         Me.LabelControl10.Name = "LabelControl10"
         Me.LabelControl10.Size = New System.Drawing.Size(27, 17)
         Me.LabelControl10.TabIndex = 989
@@ -458,7 +466,7 @@ Partial Class frmJournalEntry
         'txtAENo
         '
         Me.txtAENo.EditValue = ""
-        Me.txtAENo.Location = New System.Drawing.Point(101, 411)
+        Me.txtAENo.Location = New System.Drawing.Point(101, 407)
         Me.txtAENo.Name = "txtAENo"
         Me.txtAENo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtAENo.Properties.Appearance.Options.UseFont = True
@@ -507,7 +515,7 @@ Partial Class frmJournalEntry
         Me.LabelControl11.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl11.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.LabelControl11.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal
-        Me.LabelControl11.Location = New System.Drawing.Point(58, 57)
+        Me.LabelControl11.Location = New System.Drawing.Point(60, 57)
         Me.LabelControl11.Name = "LabelControl11"
         Me.LabelControl11.Size = New System.Drawing.Size(34, 17)
         Me.LabelControl11.TabIndex = 991
@@ -560,13 +568,84 @@ Partial Class frmJournalEntry
         Me.dvid.TabIndex = 1002
         Me.dvid.Visible = False
         '
+        'LabelControl2
+        '
+        Me.LabelControl2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.LabelControl2.Appearance.Options.UseFont = True
+        Me.LabelControl2.Location = New System.Drawing.Point(354, 445)
+        Me.LabelControl2.Name = "LabelControl2"
+        Me.LabelControl2.Size = New System.Drawing.Size(66, 17)
+        Me.LabelControl2.TabIndex = 1008
+        Me.LabelControl2.Text = "Bank Name"
+        '
+        'txtCheckBankName
+        '
+        Me.txtCheckBankName.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtCheckBankName.EditValue = "sss"
+        Me.txtCheckBankName.Location = New System.Drawing.Point(427, 440)
+        Me.txtCheckBankName.Name = "txtCheckBankName"
+        Me.txtCheckBankName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtCheckBankName.Properties.Appearance.Options.UseFont = True
+        Me.txtCheckBankName.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtCheckBankName.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.txtCheckBankName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtCheckBankName.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtCheckBankName.Properties.DisplayMember = "Bank Name"
+        Me.txtCheckBankName.Properties.NullText = ""
+        Me.txtCheckBankName.Properties.PopupView = Me.gridBank
+        Me.txtCheckBankName.Properties.ValueMember = "Account No."
+        Me.txtCheckBankName.Size = New System.Drawing.Size(441, 26)
+        Me.txtCheckBankName.TabIndex = 1009
+        '
+        'gridBank
+        '
+        Me.gridBank.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.gridBank.Name = "gridBank"
+        Me.gridBank.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.gridBank.OptionsView.ShowGroupPanel = False
+        '
+        'LabelControl8
+        '
+        Me.LabelControl8.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.LabelControl8.Appearance.Options.UseFont = True
+        Me.LabelControl8.Location = New System.Drawing.Point(874, 443)
+        Me.LabelControl8.Name = "LabelControl8"
+        Me.LabelControl8.Size = New System.Drawing.Size(83, 17)
+        Me.LabelControl8.TabIndex = 1011
+        Me.LabelControl8.Text = "Check Amount"
+        '
+        'txtAmount
+        '
+        Me.txtAmount.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtAmount.EditValue = "0"
+        Me.txtAmount.Location = New System.Drawing.Point(963, 439)
+        Me.txtAmount.Name = "txtAmount"
+        Me.txtAmount.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.txtAmount.Properties.Appearance.Options.UseFont = True
+        Me.txtAmount.Properties.Appearance.Options.UseTextOptions = True
+        Me.txtAmount.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.txtAmount.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtAmount.Properties.Mask.EditMask = "n"
+        Me.txtAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.txtAmount.Properties.Mask.UseMaskAsDisplayFormat = True
+        Me.txtAmount.Properties.NullText = "0"
+        Me.txtAmount.Properties.ReadOnly = True
+        Me.txtAmount.Size = New System.Drawing.Size(159, 28)
+        Me.txtAmount.TabIndex = 1010
+        '
         'frmJournalEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1134, 546)
+        Me.ClientSize = New System.Drawing.Size(1134, 524)
+        Me.Controls.Add(Me.LabelControl8)
+        Me.Controls.Add(Me.txtAmount)
+        Me.Controls.Add(Me.LabelControl2)
+        Me.Controls.Add(Me.txtCheckBankName)
         Me.Controls.Add(Me.dvid)
         Me.Controls.Add(Me.pid)
         Me.Controls.Add(Me.txtOffice)
@@ -620,6 +699,9 @@ Partial Class frmJournalEntry
         CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dvid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCheckBankName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gridBank, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -663,4 +745,9 @@ Partial Class frmJournalEntry
     Friend WithEvents txtFund As DevExpress.XtraEditors.TextEdit
     Friend WithEvents pid As DevExpress.XtraEditors.TextEdit
     Friend WithEvents dvid As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtCheckBankName As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents gridBank As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtAmount As DevExpress.XtraEditors.TextEdit
 End Class

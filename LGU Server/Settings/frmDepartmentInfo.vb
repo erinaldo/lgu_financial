@@ -16,7 +16,8 @@ Public Class frmDepartmentInfo
 
     Private Sub frmProductCat_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
-        loadOfficer()
+        LoadOfficer()
+
         If globalAllowAdd = True Or LCase(globaluser) = "root" Then
             cmdSave.Enabled = True
         Else
@@ -61,6 +62,7 @@ Public Class frmDepartmentInfo
             End If
             Dim officeid As String = GetOfficeid()
             com.CommandText = "insert into tblcompoffice set officeid='" & officeid & "',officename='" & rchar(txtCompanyName.Text) & "',shortname='" & rchar(Trim(txtShortName.Text)) & "',centercode='" & txtCenterCode.Text & "', address='" & rchar(txtAddress.Text) & "', contactnumber='" & txtContactNumber.Text & "', officeemail='" & txtEmailAddress.Text & "',officerid='" & userid.Text & "', sb=" & ckSB.CheckState & "" : com.ExecuteNonQuery()
+            com.CommandText = "update tblcompofficerlog set officeid='" & officeid & "' where officeid='" & globaluserid & "-temp" & "'" : com.ExecuteNonQuery()
         Else
             com.CommandText = "update tblcompoffice set officename='" & rchar(txtCompanyName.Text) & "',shortname='" & rchar(Trim(txtShortName.Text)) & "',centercode='" & txtCenterCode.Text & "',  address='" & rchar(txtAddress.Text) & "', contactnumber='" & txtContactNumber.Text & "', officeemail='" & txtEmailAddress.Text & "',officerid='" & userid.Text & "', sb=" & ckSB.CheckState & " where officeid='" & id.Text & "'" : com.ExecuteNonQuery()
         End If
@@ -68,41 +70,8 @@ Public Class frmDepartmentInfo
         clearfields()
         frmDepartment.filter()
         XtraMessageBox.Show("Office successfully saved!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Dim GlobalNumberOfDevision As Integer = 0
-        Dim m_procurement As String = ""
-        Dim InfoFile As String = ""
-        If System.IO.File.Exists(Application.StartupPath.ToString & "\System.config") Then
-            If System.IO.File.Exists(System_config) Then
-                InfoFile = DecryptTripleDES(ReadFile(System_config))
-                For Each strLine As String In InfoFile.Split(vbCrLf)
-                    Dim word As String() = strLine.Split("=")
-                    If word(0) = "division" Then
-                        GlobalNumberOfDevision = word(1)
-                    End If
-                Next
-            End If
-        Else
-            GlobalNumberOfDevision = 1
-        End If
-        If GlobalNumberOfDevision > 0 Then
-            If countrecord("tblcompoffice") >= GlobalNumberOfDevision Then
-                Me.Close()
-            End If
-        End If
     End Sub
 
-
-    Public Sub loadOfficer()
-        LoadXgridLookupSearch("select accountid, Fullname from tblaccounts where username<>'ROOT'", "tblaccounts", txtOfficerIncharge, s_grid, Me)
-        s_grid.Columns("accountid").Visible = False
-    End Sub
-
-    Private Sub txtrequestby_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtOfficerIncharge.EditValueChanged
-        On Error Resume Next
-        Dim iCurrentRow As Integer = CInt(txtOfficerIncharge.Properties.View.FocusedRowHandle.ToString)
-        userid.Text = txtOfficerIncharge.Properties.View.GetFocusedRowCellValue("accountid").ToString()
-        txtOfficerIncharge.Text = txtOfficerIncharge.Properties.View.GetFocusedRowCellValue("Fullname").ToString()
-    End Sub
 
     Public Sub clearfields()
         id.Text = ""
@@ -112,17 +81,28 @@ Public Class frmDepartmentInfo
         txtCenterCode.Text = ""
         txtContactNumber.Text = ""
         txtEmailAddress.Text = ""
-        txtOfficerIncharge.Properties.DataSource = Nothing
-        txtOfficerIncharge.Text = ""
-        loadOfficer()
         userid.Text = ""
         mode.Text = ""
         ckSB.Checked = False
+        LoadOfficer()
+    End Sub
+
+    Public Sub LoadOfficer()
+        LoadXgrid("Select id, (select fullname from tblaccounts where accountid=a.officerid) as 'Officer Name',position, date_format(datefrom,'%Y-%m-%d') as 'Date From', date_format(datefrom,'%Y-%m-%d') as 'Date To', Current from tblcompofficerlog as a where officeid='" & id.Text & "' order by datefrom asc", "tblcompofficerlog", Em, GridView1, Me)
+        XgridHideColumn({"id"}, GridView1)
+        XgridColAlign({"Date From", "Date To", "Current"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+        GridView1.BestFitColumns()
+    End Sub
+
+    Private Sub cmdEdit_Click(sender As Object, e As EventArgs) Handles cmdEdit.Click
+        frmDepartmentOfficer.id.Text = GridView1.GetFocusedRowCellValue("id").ToString
+        frmDepartmentOfficer.mode.Text = "edit"
+        frmDepartmentOfficer.ShowDialog(Me)
     End Sub
 
     Private Sub mode_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mode.EditValueChanged
         If mode.Text = "" Then Exit Sub
-        com.CommandText = "select *, (select fullname from tblaccounts where accountid = tblcompoffice.officerid) as 'officer' from tblcompoffice where officeid='" & id.Text & "'"
+        com.CommandText = "select * from tblcompoffice where officeid='" & id.Text & "'"
         rst = com.ExecuteReader
         While rst.Read
             txtShortName.Text = rst("shortname").ToString
@@ -131,8 +111,6 @@ Public Class frmDepartmentInfo
             txtAddress.Text = rst("address").ToString
             txtContactNumber.Text = rst("contactnumber").ToString
             txtEmailAddress.Text = rst("officeemail").ToString
-            txtOfficerIncharge.Text = rst("officer").ToString
-            userid.Text = rst("officerid").ToString
             ckSB.Checked = CBool(rst("sb").ToString)
         End While
         rst.Close()
@@ -155,5 +133,25 @@ Public Class frmDepartmentInfo
         Me.Close()
     End Sub
 
+    Private Sub AddOfficerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddOfficerToolStripMenuItem.Click
+        frmDepartmentOfficer.officeid.Text = If(id.Text = "", globaluserid & "-temp", id.Text)
+        frmDepartmentOfficer.ShowDialog()
+    End Sub
 
+    Private Sub cmdRemove_Click(sender As Object, e As EventArgs) Handles cmdRemove.Click
+        If GridView1.GetFocusedRowCellValue("id").ToString = "" Then
+            XtraMessageBox.Show("There is no item selected! make sure, the selection is on the list", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Exit Sub
+        End If
+        If XtraMessageBox.Show("Are you sure you want to permanently delete this item? " & todelete, compname, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+            For I = 0 To GridView1.SelectedRowsCount - 1
+                com.CommandText = "delete from tblcompofficerlog where id='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "id") & "' " : com.ExecuteNonQuery()
+            Next
+            LoadOfficer()
+        End If
+    End Sub
+
+    Private Sub RefreshToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshToolStripMenuItem.Click
+        LoadOfficer()
+    End Sub
 End Class

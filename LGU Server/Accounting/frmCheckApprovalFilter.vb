@@ -48,10 +48,10 @@ Public Class frmCheckApprovalFilter
         rst.Close()
         If productquery.Length > 0 Then
             productquery = productquery.Remove(productquery.Length - 1, 1)
-            productquery = "where officeid not in (" & productquery & ")"
+            productquery = "and officeid not in (" & productquery & ")"
         End If
         If permissioncode.Text <> "" Then
-            LoadXgrid("select officeid, officename as 'Office' from tblcompoffice " & productquery & " ", "tblcompoffice", Em_unfiltered, GridView1, Me)
+            LoadXgrid("select officeid, officename as 'Office' from tblcompoffice where deleted=0 " & productquery & " ", "tblcompoffice", Em_unfiltered, GridView1, Me)
             GridView1.Columns("officeid").Visible = False
             XgridColMemo({"Office"}, GridView1)
             XgridColWidth({"Office"}, GridView1, Em_unfiltered.Width)

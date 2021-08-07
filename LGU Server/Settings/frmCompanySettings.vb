@@ -52,6 +52,9 @@ Public Class frmCompanySettings
 
         LoadXgridLookupSearch("select accountid, fullname as 'Select'  from tblaccounts order by fullname asc", "tblaccounts", txtBudgetName, gridBudgetName, Me)
         XgridHideColumn({"accountid"}, gridBudgetName)
+
+        LoadXgridLookupSearch("select accountid, fullname as 'Select'  from tblaccounts order by fullname asc", "tblaccounts", txtHrmdName, gvHrmdName, Me)
+        XgridHideColumn({"accountid"}, gvHrmdName)
     End Sub
 
     Public Sub ShowCompanyInfo()
@@ -101,6 +104,9 @@ Public Class frmCompanySettings
 
                     txtBudgetName.EditValue = .Rows(cnt)("budgetname").ToString
                     txtBudgetPosition.Text = .Rows(cnt)("budgetposition").ToString
+
+                    txtHrmdName.EditValue = .Rows(cnt)("hrmdname").ToString
+                    txtHrmdPosition.Text = .Rows(cnt)("hrmdposition").ToString
                 End With
             Next
         Catch errMYSQL As MySqlException
@@ -177,7 +183,7 @@ Public Class frmCompanySettings
     End Sub
 
     Private Sub SimpleButton1_Click_1(sender As Object, e As EventArgs) Handles cmdSaveSignatories.Click
-        com.CommandText = "update tblcompanysettings set mayorname='" & rchar(txtMayorName.EditValue) & "', mayorposition='" & rchar(txtMayorPosition.Text) & "', vicemayorname='" & rchar(txtViceMayorName.EditValue) & "', vicemayorposition='" & rchar(txtViceMayorPosition.Text) & "', accountantname='" & rchar(txtAccountantName.EditValue) & "', accountantposition='" & rchar(txtAccountantPosition.Text) & "', treasurermame='" & rchar(txtTreasurerName.EditValue) & "', treasurerposition='" & rchar(txtTreasurerPosition.Text) & "', budgetname='" & rchar(txtBudgetName.EditValue) & "', budgetposition='" & rchar(txtBudgetPosition.Text) & "'" : com.ExecuteNonQuery()
+        com.CommandText = "update tblcompanysettings set mayorname='" & rchar(txtMayorName.EditValue) & "', mayorposition='" & rchar(txtMayorPosition.Text) & "', vicemayorname='" & rchar(txtViceMayorName.EditValue) & "', vicemayorposition='" & rchar(txtViceMayorPosition.Text) & "', accountantname='" & rchar(txtAccountantName.EditValue) & "', accountantposition='" & rchar(txtAccountantPosition.Text) & "', treasurermame='" & rchar(txtTreasurerName.EditValue) & "', treasurerposition='" & rchar(txtTreasurerPosition.Text) & "', budgetname='" & rchar(txtBudgetName.EditValue) & "', budgetposition='" & rchar(txtBudgetPosition.Text) & "', hrmdname='" & rchar(txtHrmdName.EditValue) & "', hrmdposition='" & rchar(txtHrmdPosition.Text) & "'" : com.ExecuteNonQuery()
         loadcompsettings()
         XtraMessageBox.Show("Setting Successfully Updated", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub

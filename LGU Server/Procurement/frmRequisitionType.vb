@@ -15,7 +15,7 @@ Public Class frmRequisitionType
     End Sub
  
     Public Sub filter()
-        LoadXgrid("Select  Code, Description, enablevoucher as 'Enable Voucher', directapproved as 'Direct Approved', enablepr as 'Enable PR', enablepo as 'Enable PO'  from tblrequisitiontype order by code asc", "tblrequisitiontype", Em, GridView1, Me)
+        LoadXgrid("Select  Code, Description, enablevoucher as 'Enable Voucher', directapproved as 'Direct Approved', requiredfund as 'Required Fund' from tblrequisitiontype order by code asc", "tblrequisitiontype", Em, GridView1, Me)
         XgridColWidth({"Code"}, GridView1, 80)
         XgridColAlign({"Code"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
     End Sub
@@ -33,17 +33,17 @@ Public Class frmRequisitionType
 
         End If
         If mode.Text = "edit" Then
-            com.CommandText = "update tblrequisitiontype set description='" & rchar(txtDescription.Text) & "', enablevoucher=" & ckEnableVoucher.CheckState & ", directapproved=" & ckDirectApproved.CheckState & ", enablepr=" & ckEnablePr.CheckState & ", enablepo=" & ckEnablePo.CheckState & "  where code='" & code.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "update tblrequisitiontype set description='" & rchar(txtDescription.Text) & "', enablevoucher=" & ckEnableVoucher.CheckState & ", directapproved=" & ckDirectApproved.CheckState & ", requiredfund=" & ckRequiredFund.CheckState & "  where code='" & code.Text & "'" : com.ExecuteNonQuery()
             ClearInfo()
             XtraMessageBox.Show("Item successfully saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
-            com.CommandText = "insert into tblrequisitiontype set description='" & rchar(txtDescription.Text) & "', enablevoucher=" & ckEnableVoucher.CheckState & ", directapproved=" & ckDirectApproved.CheckState & ", enablepr=" & ckEnablePr.CheckState & ", enablepo=" & ckEnablePo.CheckState & " " : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblrequisitiontype set description='" & rchar(txtDescription.Text) & "', enablevoucher=" & ckEnableVoucher.CheckState & ", directapproved=" & ckDirectApproved.CheckState & ", requiredfund=" & ckRequiredFund.CheckState & "  " : com.ExecuteNonQuery()
             ClearInfo()
         End If
     End Sub
 
     Public Sub ClearInfo()
-        code.Text = "" : mode.Text = "" : txtDescription.Text = "" : txtDescription.Focus() : ckEnableVoucher.Checked = True : ckDirectApproved.Checked = False : ckEnablePr.Checked = False : ckEnablePo.Checked = False : filter()
+        code.Text = "" : mode.Text = "" : txtDescription.Text = "" : txtDescription.Focus() : ckEnableVoucher.Checked = True : ckDirectApproved.Checked = False : ckRequiredFund.Checked = False : filter()
     End Sub
     Public Sub showInfo()
         If code.Text = "" Then Exit Sub
@@ -52,8 +52,7 @@ Public Class frmRequisitionType
             txtDescription.Text = rst("description").ToString
             ckEnableVoucher.Checked = CBool(rst("enablevoucher").ToString)
             ckDirectApproved.Checked = CBool(rst("directapproved").ToString)
-            ckEnablePr.Checked = CBool(rst("enablepr").ToString)
-            ckEnablePo.Checked = CBool(rst("enablepo").ToString)
+            ckRequiredFund.Checked = CBool(rst("requiredfund").ToString)
         End While
         rst.Close()
     End Sub
