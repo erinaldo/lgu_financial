@@ -48,7 +48,6 @@ Partial Class frmDepartmentInfo
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
-        Me.userid = New DevExpress.XtraEditors.TextEdit()
         Me.cmdUpdateAccountable = New DevExpress.XtraEditors.SimpleButton()
         Me.txtCenterCode = New DevExpress.XtraEditors.ButtonEdit()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
@@ -66,7 +65,6 @@ Partial Class frmDepartmentInfo
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gridmenustrip.SuspendLayout()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.userid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCenterCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckSB.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -239,27 +237,27 @@ Partial Class frmDepartmentInfo
         '
         Me.AddOfficerToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.user__plus
         Me.AddOfficerToolStripMenuItem.Name = "AddOfficerToolStripMenuItem"
-        Me.AddOfficerToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AddOfficerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AddOfficerToolStripMenuItem.Text = "Add Officer"
         '
         'cmdEdit
         '
         Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.user__pencil
         Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(180, 22)
+        Me.cmdEdit.Size = New System.Drawing.Size(152, 22)
         Me.cmdEdit.Text = "Edit Selected"
         '
         'cmdRemove
         '
         Me.cmdRemove.Image = Global.LGUFinancial.My.Resources.Resources.user__minus
         Me.cmdRemove.Name = "cmdRemove"
-        Me.cmdRemove.Size = New System.Drawing.Size(180, 22)
+        Me.cmdRemove.Size = New System.Drawing.Size(152, 22)
         Me.cmdRemove.Text = "Remove Office"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
         '
         'RefreshToolStripMenuItem
         '
@@ -336,15 +334,6 @@ Partial Class frmDepartmentInfo
         Me.barDockControlRight.Location = New System.Drawing.Point(560, 24)
         Me.barDockControlRight.Manager = Me.BarManager1
         Me.barDockControlRight.Size = New System.Drawing.Size(0, 480)
-        '
-        'userid
-        '
-        Me.userid.EnterMoveNextControl = True
-        Me.userid.Location = New System.Drawing.Point(423, 43)
-        Me.userid.Name = "userid"
-        Me.userid.Size = New System.Drawing.Size(38, 20)
-        Me.userid.TabIndex = 389
-        Me.userid.Visible = False
         '
         'cmdUpdateAccountable
         '
@@ -442,7 +431,6 @@ Partial Class frmDepartmentInfo
         Me.Controls.Add(Me.txtCenterCode)
         Me.Controls.Add(Me.LabelControl6)
         Me.Controls.Add(Me.cmdUpdateAccountable)
-        Me.Controls.Add(Me.userid)
         Me.Controls.Add(Me.txtShortName)
         Me.Controls.Add(Me.mode)
         Me.Controls.Add(Me.LabelControl1)
@@ -474,7 +462,6 @@ Partial Class frmDepartmentInfo
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gridmenustrip.ResumeLayout(False)
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.userid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCenterCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckSB.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
@@ -512,7 +499,6 @@ Partial Class frmDepartmentInfo
     Friend WithEvents txtAddress As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtShortName As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents userid As DevExpress.XtraEditors.TextEdit
     Friend WithEvents cmdUpdateAccountable As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents txtCenterCode As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl

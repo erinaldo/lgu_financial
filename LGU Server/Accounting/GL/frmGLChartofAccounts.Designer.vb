@@ -81,7 +81,7 @@ Partial Class frmGLChartofAccounts
         Me.TreeView1.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.TreeView1.Location = New System.Drawing.Point(0, 20)
         Me.TreeView1.Name = "TreeView1"
-        Me.TreeView1.Size = New System.Drawing.Size(637, 573)
+        Me.TreeView1.Size = New System.Drawing.Size(635, 571)
         Me.TreeView1.TabIndex = 648
         '
         'Bar2
@@ -149,15 +149,15 @@ Partial Class frmGLChartofAccounts
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(637, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(635, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 593)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 591)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(637, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(635, 0)
         '
         'barDockControlLeft
         '
@@ -165,15 +165,15 @@ Partial Class frmGLChartofAccounts
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 573)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 571)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(637, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(635, 20)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 573)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 571)
         '
         'BarButtonItem2
         '
@@ -213,7 +213,7 @@ Partial Class frmGLChartofAccounts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(637, 593)
+        Me.ClientSize = New System.Drawing.Size(635, 591)
         Me.Controls.Add(Me.Em)
         Me.Controls.Add(Me.TreeView1)
         Me.Controls.Add(Me.barDockControlLeft)

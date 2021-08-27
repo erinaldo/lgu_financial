@@ -229,6 +229,12 @@
     <Compile Include="Accounting\frmErrorCorrect.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Accounting\GL\frmGLDefaultTransactionItem.Designer.vb">
+      <DependentUpon>frmGLDefaultTransactionItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\GL\frmGLDefaultTransactionItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Budget\frmBudgetTransferItem.Designer.vb">
       <DependentUpon>frmBudgetTransferItem.vb</DependentUpon>
     </Compile>
@@ -655,6 +661,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Accounting\frmErrorCorrect.resx">
       <DependentUpon>frmErrorCorrect.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\GL\frmGLDefaultTransactionItem.resx">
+      <DependentUpon>frmGLDefaultTransactionItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Budget\frmBudgetTransferItem.resx">
       <DependentUpon>frmBudgetTransferItem.vb</DependentUpon>

@@ -23,9 +23,16 @@ Public Class frmCollectionInputAmount
     Private Sub cmdSaveButton_Click(sender As Object, e As EventArgs) Handles cmdSaveButton.Click
         If XtraMessageBox.Show("Are you sure you want to continue? ", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             Dim isdebit As Boolean = False : Dim cashflowcode As String = ""
-            com.CommandText = "select *,(select cashflowcode from tblcashflowtagging where glitemcode=tblglitem.itemcode) as cashflowcode  from tblglitem where itemcode='" & glitemcode.Text & "'" : rst = com.ExecuteReader
+            com.CommandText = "select *,(select cashflowcode from tblcashflowtagging where glitemcode=a.itemcode) as cashflowcode, " _
+                        + " count((select id from tblglreverseitem where itemcode=a.itemcode)) as reverseitem, " _
+                        + " (select debit from tblglreverseitem where itemcode=a.itemcode) as reversedebit " _
+                        + " from tblglitem as a where itemcode='" & glitemcode.Text & "'" : rst = com.ExecuteReader
             While rst.Read
-                isdebit = rst("debitentry")
+                If CInt(rst("reverseitem")) > 0 Then
+                    isdebit = rst("reversedebit")
+                Else
+                    isdebit = rst("debitentry")
+                End If
                 cashflowcode = rst("cashflowcode").ToString
             End While
             rst.Close()

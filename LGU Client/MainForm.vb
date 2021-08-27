@@ -124,7 +124,7 @@ Public Class MainForm
         End If
 
         If globalAuthRequisitionList = True Or globalRootUser = True Then
-            Dim requisitionList As Integer = countqry("tblrequisition", "officeid='" & compOfficeid & "' and (forapproval=1 or draft=1 or hold=1) and cancelled=0")
+            Dim requisitionList As Integer = countqry("tblrequisition", "officeid='" & compOfficeid & "' and (forapproval=1 or draft=1 or hold=1) and cancelled=0 " & If(globalDepartmentHead Or globalSpecialApprover, "", " and trnby='" & globaluserid & "' "))
             If requisitionList > 0 Then
                 cmdRequisitionList.Text = "Pending Requisition (" & requisitionList & ")"
                 If globalFontColor = "LIGHT" Then

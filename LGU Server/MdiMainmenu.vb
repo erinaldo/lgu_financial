@@ -458,4 +458,11 @@ Public Class MdiMainmenu
         SplashScreenManager.CloseForm()
     End Sub
 
+    Private Sub cmdDefaultCollection_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdDefaultCollection.ItemClick
+        If frmGLDefaultTransactionItem.Visible = True Then
+            frmGLDefaultTransactionItem.Focus()
+        Else
+            frmGLDefaultTransactionItem.Show(Me)
+        End If
+    End Sub
 End Class

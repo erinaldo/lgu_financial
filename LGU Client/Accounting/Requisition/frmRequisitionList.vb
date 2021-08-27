@@ -109,6 +109,7 @@ Public Class frmRequisitionList
                         + " where  " _
                         + KeyWordSearch _
                         + If(ckViewAllOffice.Checked, "", " and officeid='" & officeid.Text & "' ") _
+                        + If(globalDepartmentHead Or globalSpecialApprover, "", " and trnby='" & globaluserid & "' ") _
                         + If(ckDisplayCancelled.Checked, "", " and cancelled=0 ") _
                         + " order by requestno asc", "tblrequisition", Em, GridView1, Me)
 

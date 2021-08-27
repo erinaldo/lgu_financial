@@ -372,6 +372,20 @@ Module UpdateEngine
             engineupdated = True
         End If
 
+        updateVersion = "2021-08-08"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "CREATE TABLE `tblcompofficerlog` (  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,  `officeid` varchar(45) NOT NULL,  `officerid` varchar(45) NOT NULL,  `position` varchar(100) NOT NULL,  `datefrom` date NOT NULL,  `dateto` date DEFAULT NULL,  `current` tinyint(1) NOT NULL DEFAULT '0',  PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+        updateVersion = "2021-08-27"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "CREATE TABLE `tblglreverseitem` (  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,  `itemcode` VARCHAR(45) NOT NULL DEFAULT '',  `itemname` VARCHAR(1000) NOT NULL DEFAULT '',  `debit` BOOLEAN NOT NULL DEFAULT 0,  `credit` BOOLEAN NOT NULL DEFAULT 0,  PRIMARY KEY (`id`))ENGINE = InnoDB;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblformreportlogs` ADD INDEX `invrefcode`(`invrefcode`), ADD INDEX `formcode`(`formcode`), ADD INDEX `accountable`(`accountable`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblforminventory` ADD INDEX `officeid`(`officeid`), ADD INDEX `formcode`(`formcode`), ADD INDEX `entryby`(`entryby`), ADD INDEX `accountable`(`accountable`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
         If engineupdated = True Then
             Dim dversion As Date = updateVersion
             XtraMessageBox.Show("Your database engine was updated to Build Version " & dversion.ToString & Environment.NewLine & "Please view update list at ""Main System Menu"" > About > What's New!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)

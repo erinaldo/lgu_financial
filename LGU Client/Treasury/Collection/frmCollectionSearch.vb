@@ -1,4 +1,8 @@
-﻿Public Class frmCollectionSearch
+﻿Imports DevExpress.XtraGrid
+Imports DevExpress.XtraGrid.Columns
+Imports DevExpress.XtraGrid.Views.Base
+
+Public Class frmCollectionSearch
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
         If keyData = (Keys.Escape) Then
             frmCollectionPosting.txtSearchBar.Focus()
@@ -25,14 +29,25 @@
     End Sub
 
     Public Sub SearchAccountTitle(ByVal keyword As String)
-        If RemoveWhiteSpaces(keyword, True) = "" Or RemoveWhiteSpaces(keyword, True) = "%" Then Exit Sub
+        'If RemoveWhiteSpaces(keyword, True) = "" Or RemoveWhiteSpaces(keyword, True) = "%" Then Exit Sub
         Dim SearchCommand As String = " (" & SearchAdvanceCommand("itemname", RemoveWhiteSpaces(keyword, True)) & ") "
 
-        LoadXgrid("SELECT trncode, trnname as 'Transaction Name',glitemcode as 'Item Code', (select itemname from tblglitem where itemcode=a.glitemcode)  as 'Account Title' FROM tblcollectionitem as a order by trnname asc;", "tblcollectionitem", Em, GridView1, Me)
+        LoadXgrid("SELECT trncode, trnname as 'Transaction Name',glitemcode as 'Item Code', (select itemname from tblglitem where itemcode=a.glitemcode)  as 'Account Title' FROM tblcollectionitem as a  order by trnname asc;", "tblcollectionitem", Em, GridView1, Me)
         XgridHideColumn({"trncode", "Item Code", "Account Title"}, GridView1)
         XgridColAlign({"Item Code"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         SplitContainerControl1.Panel2.Focus()
         Em.Focus()
+        FocusOnItem(txtSearchKeyword.Text)
+    End Sub
+
+    Public Sub FocusOnItem(ByVal searchText As String)
+        If searchText = "" Then
+            GridView1.ActiveFilter.Clear()
+        Else
+            GridView1.ActiveFilter.Clear()
+            GridView1.ActiveFilterString = "Contains([Transaction Name], '" & searchText & "')"
+        End If
+
     End Sub
 
     Private Sub txtSearchKeywords_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSearchKeyword.KeyPress
@@ -62,4 +77,5 @@
     Private Sub RefreshToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshToolStripMenuItem.Click
         SearchAccountTitle(txtSearchKeyword.Text)
     End Sub
+
 End Class

@@ -61,10 +61,10 @@ Public Class frmDepartmentInfo
                 Exit Sub
             End If
             Dim officeid As String = GetOfficeid()
-            com.CommandText = "insert into tblcompoffice set officeid='" & officeid & "',officename='" & rchar(txtCompanyName.Text) & "',shortname='" & rchar(Trim(txtShortName.Text)) & "',centercode='" & txtCenterCode.Text & "', address='" & rchar(txtAddress.Text) & "', contactnumber='" & txtContactNumber.Text & "', officeemail='" & txtEmailAddress.Text & "',officerid='" & userid.Text & "', sb=" & ckSB.CheckState & "" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblcompoffice set officeid='" & officeid & "',officename='" & rchar(txtCompanyName.Text) & "',shortname='" & rchar(Trim(txtShortName.Text)) & "',centercode='" & txtCenterCode.Text & "', address='" & rchar(txtAddress.Text) & "', contactnumber='" & txtContactNumber.Text & "', officeemail='" & txtEmailAddress.Text & "', sb=" & ckSB.CheckState & "" : com.ExecuteNonQuery()
             com.CommandText = "update tblcompofficerlog set officeid='" & officeid & "' where officeid='" & globaluserid & "-temp" & "'" : com.ExecuteNonQuery()
         Else
-            com.CommandText = "update tblcompoffice set officename='" & rchar(txtCompanyName.Text) & "',shortname='" & rchar(Trim(txtShortName.Text)) & "',centercode='" & txtCenterCode.Text & "',  address='" & rchar(txtAddress.Text) & "', contactnumber='" & txtContactNumber.Text & "', officeemail='" & txtEmailAddress.Text & "',officerid='" & userid.Text & "', sb=" & ckSB.CheckState & " where officeid='" & id.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "update tblcompoffice set officename='" & rchar(txtCompanyName.Text) & "',shortname='" & rchar(Trim(txtShortName.Text)) & "',centercode='" & txtCenterCode.Text & "',  address='" & rchar(txtAddress.Text) & "', contactnumber='" & txtContactNumber.Text & "', officeemail='" & txtEmailAddress.Text & "', sb=" & ckSB.CheckState & " where officeid='" & id.Text & "'" : com.ExecuteNonQuery()
         End If
 
         clearfields()
@@ -81,7 +81,6 @@ Public Class frmDepartmentInfo
         txtCenterCode.Text = ""
         txtContactNumber.Text = ""
         txtEmailAddress.Text = ""
-        userid.Text = ""
         mode.Text = ""
         ckSB.Checked = False
         LoadOfficer()

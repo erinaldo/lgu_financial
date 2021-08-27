@@ -718,7 +718,6 @@ C:\Files\VB.NET\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.xml
 C:\Files\VB.NET\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.pdb
 C:\Files\VB.NET\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmRegistryExport.resources
 C:\Files\VB.NET\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbprojAssemblyReference.cache
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.AssemblyReference.cache
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.ResolveComReference.cache
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmErrorCorrect.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetTransferItem.resources
@@ -1015,3 +1014,4 @@ D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.CopyCo
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.exe
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.xml
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.pdb
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGLDefaultTransactionItem.resources
