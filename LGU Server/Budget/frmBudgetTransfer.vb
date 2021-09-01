@@ -263,6 +263,7 @@ Public Class frmBudgetTransfer
     Private Sub HyperlinkLabelControl2_Click(sender As Object, e As EventArgs) Handles cmdSelectAccountTitle.Click
         frmBudgetTransferItem.officeid.Text = txtTransOffice.EditValue
         frmBudgetTransferItem.periodcode.Text = periodcode.Text
+        frmBudgetTransferItem.mode.Text = "trans"
         frmBudgetTransferItem.ShowDialog(Me)
         If frmBudgetTransferItem.TransactionDone = True Then
             If frmBudgetTransferItem.SelectedTid = "" Then

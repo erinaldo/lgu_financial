@@ -34,6 +34,7 @@ Partial Class frmBudgetTransferItem
         Me.periodcode = New DevExpress.XtraEditors.TextEdit()
         Me.officeid = New DevExpress.XtraEditors.TextEdit()
         Me.cmdSaveButton = New DevExpress.XtraEditors.SimpleButton()
+        Me.mode = New DevExpress.XtraEditors.TextEdit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gridmenustrip.SuspendLayout()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -42,6 +43,7 @@ Partial Class frmBudgetTransferItem
         CType(Me.classcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.periodcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Em
@@ -184,11 +186,25 @@ Partial Class frmBudgetTransferItem
         Me.cmdSaveButton.TabIndex = 654
         Me.cmdSaveButton.Text = "Confirm selected item"
         '
+        'mode
+        '
+        Me.mode.EditValue = ""
+        Me.mode.Location = New System.Drawing.Point(173, 246)
+        Me.mode.Name = "mode"
+        Me.mode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.mode.Properties.Appearance.Options.UseFont = True
+        Me.mode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.mode.Properties.ReadOnly = True
+        Me.mode.Size = New System.Drawing.Size(33, 26)
+        Me.mode.TabIndex = 699
+        Me.mode.Visible = False
+        '
         'frmBudgetTransferItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(379, 519)
+        Me.Controls.Add(Me.mode)
         Me.Controls.Add(Me.cmdSaveButton)
         Me.Controls.Add(Me.officeid)
         Me.Controls.Add(Me.classcode)
@@ -208,6 +224,7 @@ Partial Class frmBudgetTransferItem
         CType(Me.classcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.periodcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -226,4 +243,5 @@ Partial Class frmBudgetTransferItem
     Friend WithEvents periodcode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents officeid As DevExpress.XtraEditors.TextEdit
     Friend WithEvents cmdSaveButton As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents mode As DevExpress.XtraEditors.TextEdit
 End Class

@@ -136,6 +136,11 @@ Public Class frmBudgetMonthly
     End Sub
 
     Private Sub EditLineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditLineToolStripMenuItem.Click
+        If txtFund.Text = "" Then
+            XtraMessageBox.Show("Please select fund period!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtFund.Focus()
+            Exit Sub
+        End If
         frmBudgetEditLine.id.Text = GridView1.GetFocusedRowCellValue("id").ToString()
         If frmBudgetEditLine.Visible Then
             frmBudgetEditLine.Focus()
@@ -145,11 +150,33 @@ Public Class frmBudgetMonthly
     End Sub
 
     Private Sub TranferSelectedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TranferSelectedToolStripMenuItem.Click
+        If txtFund.Text = "" Then
+            XtraMessageBox.Show("Please select fund period!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtFund.Focus()
+            Exit Sub
+        End If
         frmBudgetTransfer.from_id.Text = GridView1.GetFocusedRowCellValue("id").ToString()
         If frmBudgetTransfer.Visible Then
             frmBudgetTransfer.Focus()
         Else
             frmBudgetTransfer.Show(Me)
+        End If
+    End Sub
+
+    Private Sub NewFundToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewFundToolStripMenuItem.Click
+        If txtFund.Text = "" Then
+            XtraMessageBox.Show("Please select fund period!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtFund.Focus()
+            Exit Sub
+        End If
+
+        frmBudgetNew.periodcode.Text = periodcode.Text
+        frmBudgetNew.fundcode.Text = fundcode.Text
+        frmBudgetNew.yearcode.Text = yearcode.Text
+        If frmBudgetNew.Visible Then
+            frmBudgetNew.Focus()
+        Else
+            frmBudgetNew.Show(Me)
         End If
     End Sub
 End Class

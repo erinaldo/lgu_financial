@@ -1364,10 +1364,12 @@ Partial Class frmBudgetTransfer
         '
         'cmdSelectAccountTitle
         '
+        Me.cmdSelectAccountTitle.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.cmdSelectAccountTitle.Appearance.Options.UseFont = True
         Me.cmdSelectAccountTitle.Enabled = False
-        Me.cmdSelectAccountTitle.Location = New System.Drawing.Point(53, 70)
+        Me.cmdSelectAccountTitle.Location = New System.Drawing.Point(41, 70)
         Me.cmdSelectAccountTitle.Name = "cmdSelectAccountTitle"
-        Me.cmdSelectAccountTitle.Size = New System.Drawing.Size(100, 13)
+        Me.cmdSelectAccountTitle.Size = New System.Drawing.Size(112, 17)
         Me.cmdSelectAccountTitle.TabIndex = 687
         Me.cmdSelectAccountTitle.Text = "Select Account Title"
         '
@@ -1657,7 +1659,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl22.Appearance.Options.UseTextOptions = True
         Me.LabelControl22.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl22.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl22.Location = New System.Drawing.Point(20, 41)
+        Me.LabelControl22.Location = New System.Drawing.Point(17, 41)
         Me.LabelControl22.Name = "LabelControl22"
         Me.LabelControl22.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl22.TabIndex = 689
