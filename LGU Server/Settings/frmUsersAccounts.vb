@@ -36,6 +36,10 @@ Public Class frmUsersAccounts
         LoadPermission()
         loadUserPosition()
         VerifyPermission()
+        PermissionAccess({cmdChangePass, cmdRemovePermission}, globalAdminAccess)
+        PermissionAccess({cmdSaveButton, cmdSaveMenu}, globalAllowAdd)
+        PermissionAccess({cmdEdit}, globalAllowEdit)
+        PermissionAccess({cmdDelete}, globalAllowDelete)
     End Sub
     Public Sub loadUserPosition()
         LoadXgridLookupSearch("select accesscode, description as 'Permission' from tblclientaccess order by description asc", "tblclientaccess", txtClientPermission, gv_clientUserPosition, Me)
@@ -43,26 +47,7 @@ Public Class frmUsersAccounts
     End Sub
 
     Public Sub VerifyPermission()
-        If globalAllowAdd = True Or LCase(globaluser) = "root" Then
-            cmdSaveMenu.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
-            cmdSaveButton.Visible = True
-        Else
-            cmdSaveMenu.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
-            cmdSaveButton.Visible = False
-        End If
-        If globalAllowEdit = True Or LCase(globaluser) = "root" Then
-            cmdEdit.Visible = True
-            cmdRemovePermission.Visible = True
-        Else
-            cmdEdit.Visible = False
-            cmdRemovePermission.Visible = False
-        End If
-        If globalAllowDelete = True Or LCase(globaluser) = "root" Then
-            cmdDelete.Visible = True
-        Else
-            cmdDelete.Visible = False
-        End If
-        If globalAllowAdd = True Or globalAllowEdit = True Or globalAllowDelete = True Then
+        If globalAllowAdd = True Or globalAllowEdit = True Or globalAllowDelete = True And globalAdminAccess = True Then
             Em.ContextMenuStrip = gridmenustrip
         Else
             Em.ContextMenuStrip = Nothing
@@ -355,7 +340,7 @@ Public Class frmUsersAccounts
     Private Sub packgrid_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Em.MouseUp
         getcolidpack()
     End Sub
-    Private Sub RemoveItemToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdDelete.Click
+    Private Sub RemoveItemToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdChangePass.Click
         frmChangePassword.userid.Text = GridView1.GetFocusedRowCellValue("Account ID").ToString()
         frmChangePassword.txtFullname.Text = GridView1.GetFocusedRowCellValue("Username").ToString()
         frmChangePassword.Show(Me)
@@ -393,7 +378,7 @@ Public Class frmUsersAccounts
         End If
     End Sub
 
-    Private Sub DeleteAccountsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteAccountsToolStripMenuItem.Click
+    Private Sub DeleteAccountsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles cmdDelete.Click
         frmBlockedAccounts.Show(Me)
     End Sub
 

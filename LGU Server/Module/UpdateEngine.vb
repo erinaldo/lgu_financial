@@ -386,6 +386,15 @@ Module UpdateEngine
             engineupdated = True
         End If
 
+        updateVersion = "2021-10-29"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "ALTER TABLE `tblcollectionitem` ADD COLUMN `amount` DOUBLE NOT NULL DEFAULT 0 AFTER `glitemcode`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblcollectionitem` ADD COLUMN `deleted` BOOLEAN NOT NULL DEFAULT 0 AFTER `amount`, ADD COLUMN `datedeleted` DATETIME AFTER `deleted`, ADD COLUMN `deletedby` VARCHAR(10) NOT NULL DEFAULT '' AFTER `datedeleted`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "CREATE TABLE `tblbudgettransferlogs` (  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,  `trncode` varchar(105) NOT NULL DEFAULT '',  `periodcode` varchar(45) NOT NULL DEFAULT '',  `fundcode` varchar(45) NOT NULL DEFAULT '',  `yearcode` varchar(45) NOT NULL DEFAULT '',  `monthcode` varchar(2) NOT NULL DEFAULT '',  `from_officeid` varchar(45) NOT NULL DEFAULT '',  `from_classcode` varchar(45) NOT NULL DEFAULT '',  `from_itemcode` varchar(45) NOT NULL DEFAULT '',  `from_itemname` varchar(500) NOT NULL,  `to_officeid` varchar(45) NOT NULL DEFAULT '',  `to_classcode` varchar(45) NOT NULL DEFAULT '',  `to_itemcode` varchar(45) NOT NULL DEFAULT '',  `to_itemname` varchar(500) NOT NULL,  `amounttransfer` double NOT NULL DEFAULT '0',  `datetransfer` datetime NOT NULL,  `transferby` varchar(10) NOT NULL DEFAULT '',  PRIMARY KEY (`id`),  KEY `periodcode` (`periodcode`),  KEY `from_officeid` (`from_officeid`),  KEY `from_itemcode` (`from_itemcode`),  KEY `to_officeid` (`to_officeid`),  KEY `to_itemcode` (`to_itemcode`),  KEY `transferby` (`transferby`)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+
         If engineupdated = True Then
             Dim dversion As Date = updateVersion
             XtraMessageBox.Show("Your database engine was updated to Build Version " & dversion.ToString & Environment.NewLine & "Please view update list at ""Main System Menu"" > About > What's New!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)

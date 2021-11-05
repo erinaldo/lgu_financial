@@ -103,7 +103,7 @@ Public Class frmRequisitionBrowseFile
                 FileSize = fs.Length
 
                 Try
-                    MyDataGridView.Rows.Add(System.IO.Path.GetFileNameWithoutExtension(file), FormatNumber((FileSize / 1024), 2) & " KB", file, If(checkAttachment(file) = False, 1, 0), "")
+                    MyDataGridView.Rows.Add(System.IO.Path.GetFileNameWithoutExtension(rchar(file)), FormatNumber((FileSize / 1024), 2) & " KB", file, If(checkAttachment(file) = False, 1, 0), "")
                 Catch SecEx As SecurityException
                     ' The user lacks appropriate permissions to read files, discover paths, etc.
                     MessageBox.Show("Security error. Please contact your administrator for details.\n\n" &

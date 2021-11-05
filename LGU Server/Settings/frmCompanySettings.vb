@@ -28,11 +28,7 @@ Public Class frmCompanySettings
             cmdResetDatabase.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         End If
 
-        If globalAllowEdit = True Or LCase(globaluser) = "root" Then
-            cmdSave.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
-        Else
-            cmdSave.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
-        End If
+        PermissionAccess({cmdSave, cmdSaveSignatories}, globalAllowEdit)
         LoadAccountInfor()
         ShowCompanyInfo()
     End Sub
@@ -133,7 +129,7 @@ Public Class frmCompanySettings
 
 #End Region
 
-    Private Sub cmdUpdate_Click(sender As Object, e As EventArgs) Handles cmdUpdate.Click
+    Private Sub cmdUpdate_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
         If txtLogoWidth.Text = "" Then
             XtraMessageBox.Show("Please enter logo width!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtLogoWidth.Focus()
@@ -163,13 +159,13 @@ Public Class frmCompanySettings
         Catch errMYSQL As MySqlException
             XtraMessageBox.Show("Form:" & Me.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
-                             & "Message:" & errMYSQL.Message & vbCrLf, _
+                             & "Message:" & errMYSQL.Message & vbCrLf,
                              "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         Catch errMS As Exception
             XtraMessageBox.Show("Form:" & Me.Name & vbCrLf _
                              & "Module:" & "form_load" & vbCrLf _
-                             & "Message:" & errMS.Message & vbCrLf, _
+                             & "Message:" & errMS.Message & vbCrLf,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub

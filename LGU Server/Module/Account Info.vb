@@ -2,7 +2,7 @@
 Imports System.IO
 
 Module Account_Info
-
+    Public GlobalAllowableAttachSize As Double = 102400
     Public globalfullname As String
     Public globaldesignation As String
     Public globalEmailaddress As String
@@ -24,7 +24,7 @@ Module Account_Info
     Public GlobalPageFontName As String
     Public GlobalPageFontSize As Double
 
-    Public globalApproverPermission As Boolean
+    Public globalAdminAccess As Boolean
     Public globalAllowAdd As Boolean
     Public globalAllowEdit As Boolean
     Public globalAllowDelete As Boolean
@@ -87,7 +87,7 @@ Module Account_Info
         Else
             com.CommandText = "select * from tblpermissions where percode='" & globalPermissionAccess & "'" : rst = com.ExecuteReader
             While rst.Read
-                globalApproverPermission = rst("approver")
+                globalAdminAccess = rst("approver")
                 globalAllowAdd = rst("allowadd")
                 globalAllowEdit = rst("allowedit")
                 globalAllowDelete = rst("allowdelete")
@@ -95,6 +95,13 @@ Module Account_Info
             rst.Close()
         End If
         LoadUserGridAppearance()
+
+        '#validate system general settings 
+        com.CommandText = "select * from tblgeneralsettings" : rst = com.ExecuteReader
+        While rst.Read
+            GlobalAllowableAttachSize = Val(rst("allowableattachsize").ToString)
+        End While
+        rst.Close()
     End Sub
 
   
@@ -218,7 +225,7 @@ Module Account_Info
         globallogin = False
         globalusersign = Nothing
         GlobalIconFolder = "default"
-        globalApproverPermission = False
+        globalAdminAccess = False
         globalAllowAdd = False
         globalAllowEdit = False
         globalAllowDelete = False

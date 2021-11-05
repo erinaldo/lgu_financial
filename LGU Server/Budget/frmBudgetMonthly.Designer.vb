@@ -23,9 +23,9 @@ Partial Class frmBudgetMonthly
         Me.cmdSaveButton = New DevExpress.XtraEditors.SimpleButton()
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.EditLineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NewFundToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TranferSelectedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdViewItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdNewFund = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdTransfer = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -89,41 +89,41 @@ Partial Class frmBudgetMonthly
         '
         'gridmenustrip
         '
-        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditLineToolStripMenuItem, Me.NewFundToolStripMenuItem, Me.TranferSelectedToolStripMenuItem, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
+        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdViewItem, Me.cmdNewFund, Me.cmdTransfer, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(181, 120)
+        Me.gridmenustrip.Size = New System.Drawing.Size(146, 98)
         '
-        'EditLineToolStripMenuItem
+        'cmdViewItem
         '
-        Me.EditLineToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
-        Me.EditLineToolStripMenuItem.Name = "EditLineToolStripMenuItem"
-        Me.EditLineToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.EditLineToolStripMenuItem.Text = "Edit Line"
+        Me.cmdViewItem.Image = Global.LGUFinancial.My.Resources.Resources.notebooks
+        Me.cmdViewItem.Name = "cmdViewItem"
+        Me.cmdViewItem.Size = New System.Drawing.Size(145, 22)
+        Me.cmdViewItem.Text = "View Item"
         '
-        'NewFundToolStripMenuItem
+        'cmdNewFund
         '
-        Me.NewFundToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.notebook__plus
-        Me.NewFundToolStripMenuItem.Name = "NewFundToolStripMenuItem"
-        Me.NewFundToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.NewFundToolStripMenuItem.Text = "New Fund"
+        Me.cmdNewFund.Image = Global.LGUFinancial.My.Resources.Resources.notebook__plus
+        Me.cmdNewFund.Name = "cmdNewFund"
+        Me.cmdNewFund.Size = New System.Drawing.Size(145, 22)
+        Me.cmdNewFund.Text = "New Fund"
         '
-        'TranferSelectedToolStripMenuItem
+        'cmdTransfer
         '
-        Me.TranferSelectedToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.notebook__arrow1
-        Me.TranferSelectedToolStripMenuItem.Name = "TranferSelectedToolStripMenuItem"
-        Me.TranferSelectedToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.TranferSelectedToolStripMenuItem.Text = "Fund Transfer"
+        Me.cmdTransfer.Image = Global.LGUFinancial.My.Resources.Resources.notebook__arrow1
+        Me.cmdTransfer.Name = "cmdTransfer"
+        Me.cmdTransfer.Size = New System.Drawing.Size(145, 22)
+        Me.cmdTransfer.Text = "Fund Transfer"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(142, 6)
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
         Me.RefreshToolStripMenuItem.Text = "Refresh Data"
         '
         'GridView1
@@ -336,8 +336,8 @@ Partial Class frmBudgetMonthly
     Friend WithEvents officeid As DevExpress.XtraEditors.TextEdit
     Friend WithEvents CheckEdit1 As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents EditLineToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents cmdViewItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents TranferSelectedToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents NewFundToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents cmdTransfer As ToolStripMenuItem
+    Friend WithEvents cmdNewFund As ToolStripMenuItem
 End Class

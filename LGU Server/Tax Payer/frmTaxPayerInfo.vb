@@ -152,7 +152,7 @@ Public Class frmTaxPayerInfo
         frmDataPicked.ShowDialog(Me)
         LoadProfession()
     End Sub
-     
+
     Private Sub cmdSaveButton_Click(sender As Object, e As EventArgs) Handles cmdSaveButton.Click
         If mode.Text = "view" Then
             mode.Text = "edit"
@@ -185,7 +185,7 @@ Public Class frmTaxPayerInfo
                 XtraMessageBox.Show("Record successfully added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End If
-       
+
     End Sub
 
     Private Sub cifid_EditValueChanged(sender As Object, e As EventArgs) Handles cifid.EditValueChanged

@@ -25,6 +25,8 @@ Partial Class frmCoffeecupServerPermission
         Me.NavBarControl1 = New DevExpress.XtraNavBar.NavBarControl()
         Me.NavBarGroup1 = New DevExpress.XtraNavBar.NavBarGroup()
         Me.cmdAccountingSystem = New DevExpress.XtraNavBar.NavBarItem()
+        Me.cmdTransactionItem = New DevExpress.XtraNavBar.NavBarItem()
+        Me.cmdReports = New DevExpress.XtraNavBar.NavBarItem()
         Me.cmdSettings = New DevExpress.XtraNavBar.NavBarItem()
         Me.SplitContainerControl2 = New DevExpress.XtraEditors.SplitContainerControl()
         Me.Em = New DevExpress.XtraGrid.GridControl()
@@ -47,6 +49,10 @@ Partial Class frmCoffeecupServerPermission
         Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
         Me.TabAccounting = New DevExpress.XtraTab.XtraTabPage()
         Me.list_accounting = New DevExpress.XtraEditors.CheckedListBoxControl()
+        Me.tabTransactionItem = New DevExpress.XtraTab.XtraTabPage()
+        Me.list_transaction_item = New DevExpress.XtraEditors.CheckedListBoxControl()
+        Me.tabReports = New DevExpress.XtraTab.XtraTabPage()
+        Me.list_reports = New DevExpress.XtraEditors.CheckedListBoxControl()
         Me.tabSettings = New DevExpress.XtraTab.XtraTabPage()
         Me.list_settings = New DevExpress.XtraEditors.CheckedListBoxControl()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
@@ -75,6 +81,10 @@ Partial Class frmCoffeecupServerPermission
         Me.XtraTabControl1.SuspendLayout()
         Me.TabAccounting.SuspendLayout()
         CType(Me.list_accounting, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabTransactionItem.SuspendLayout()
+        CType(Me.list_transaction_item, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabReports.SuspendLayout()
+        CType(Me.list_reports, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabSettings.SuspendLayout()
         CType(Me.list_settings, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,7 +119,7 @@ Partial Class frmCoffeecupServerPermission
         Me.NavBarControl1.ActiveGroup = Me.NavBarGroup1
         Me.NavBarControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.NavBarControl1.Groups.AddRange(New DevExpress.XtraNavBar.NavBarGroup() {Me.NavBarGroup1})
-        Me.NavBarControl1.Items.AddRange(New DevExpress.XtraNavBar.NavBarItem() {Me.cmdSettings, Me.cmdAccountingSystem})
+        Me.NavBarControl1.Items.AddRange(New DevExpress.XtraNavBar.NavBarItem() {Me.cmdAccountingSystem, Me.cmdTransactionItem, Me.cmdReports, Me.cmdSettings})
         Me.NavBarControl1.Location = New System.Drawing.Point(0, 0)
         Me.NavBarControl1.Name = "NavBarControl1"
         Me.NavBarControl1.OptionsNavPane.ExpandedWidth = 219
@@ -123,7 +133,7 @@ Partial Class frmCoffeecupServerPermission
         Me.NavBarGroup1.Appearance.Options.UseFont = True
         Me.NavBarGroup1.Caption = "Option Menu"
         Me.NavBarGroup1.Expanded = True
-        Me.NavBarGroup1.ItemLinks.AddRange(New DevExpress.XtraNavBar.NavBarItemLink() {New DevExpress.XtraNavBar.NavBarItemLink(Me.cmdAccountingSystem), New DevExpress.XtraNavBar.NavBarItemLink(Me.cmdSettings)})
+        Me.NavBarGroup1.ItemLinks.AddRange(New DevExpress.XtraNavBar.NavBarItemLink() {New DevExpress.XtraNavBar.NavBarItemLink(Me.cmdAccountingSystem), New DevExpress.XtraNavBar.NavBarItemLink(Me.cmdTransactionItem), New DevExpress.XtraNavBar.NavBarItemLink(Me.cmdReports), New DevExpress.XtraNavBar.NavBarItemLink(Me.cmdSettings)})
         Me.NavBarGroup1.Name = "NavBarGroup1"
         '
         'cmdAccountingSystem
@@ -135,6 +145,18 @@ Partial Class frmCoffeecupServerPermission
         Me.cmdAccountingSystem.Caption = "Accounting System"
         Me.cmdAccountingSystem.ImageOptions.SmallImage = Global.LGUFinancial.My.Resources.Resources.Accounting_32x32
         Me.cmdAccountingSystem.Name = "cmdAccountingSystem"
+        '
+        'cmdTransactionItem
+        '
+        Me.cmdTransactionItem.Caption = "Transaction Item"
+        Me.cmdTransactionItem.ImageOptions.SmallImage = Global.LGUFinancial.My.Resources.Resources.Build_32x32__2_
+        Me.cmdTransactionItem.Name = "cmdTransactionItem"
+        '
+        'cmdReports
+        '
+        Me.cmdReports.Caption = "Reports"
+        Me.cmdReports.ImageOptions.SmallImage = Global.LGUFinancial.My.Resources.Resources.Printer_32x32__2_
+        Me.cmdReports.Name = "cmdReports"
         '
         'cmdSettings
         '
@@ -169,7 +191,7 @@ Partial Class frmCoffeecupServerPermission
         Me.SplitContainerControl2.Panel1.Text = "Panel1"
         Me.SplitContainerControl2.Panel2.Controls.Add(Me.XtraTabControl1)
         Me.SplitContainerControl2.Panel2.Text = "Panel2"
-        Me.SplitContainerControl2.Size = New System.Drawing.Size(539, 601)
+        Me.SplitContainerControl2.Size = New System.Drawing.Size(534, 601)
         Me.SplitContainerControl2.SplitterPosition = 73
         Me.SplitContainerControl2.TabIndex = 6
         Me.SplitContainerControl2.Text = "SplitContainerControl2"
@@ -246,12 +268,12 @@ Partial Class frmCoffeecupServerPermission
         'CheckEdit1
         '
         Me.CheckEdit1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CheckEdit1.Location = New System.Drawing.Point(429, 48)
+        Me.CheckEdit1.Location = New System.Drawing.Point(424, 48)
         Me.CheckEdit1.Name = "CheckEdit1"
         Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit1.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit1.Properties.Caption = "Select All Item"
-        Me.CheckEdit1.Size = New System.Drawing.Size(93, 19)
+        Me.CheckEdit1.Size = New System.Drawing.Size(93, 20)
         Me.CheckEdit1.TabIndex = 683
         '
         'percode
@@ -338,15 +360,15 @@ Partial Class frmCoffeecupServerPermission
         Me.XtraTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.TabAccounting
-        Me.XtraTabControl1.Size = New System.Drawing.Size(539, 523)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(534, 518)
         Me.XtraTabControl1.TabIndex = 0
-        Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.TabAccounting, Me.tabSettings})
+        Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.TabAccounting, Me.tabTransactionItem, Me.tabReports, Me.tabSettings})
         '
         'TabAccounting
         '
         Me.TabAccounting.Controls.Add(Me.list_accounting)
         Me.TabAccounting.Name = "TabAccounting"
-        Me.TabAccounting.Size = New System.Drawing.Size(533, 495)
+        Me.TabAccounting.Size = New System.Drawing.Size(532, 493)
         Me.TabAccounting.Text = "Accounting"
         '
         'list_accounting
@@ -362,14 +384,60 @@ Partial Class frmCoffeecupServerPermission
         Me.list_accounting.Location = New System.Drawing.Point(0, 0)
         Me.list_accounting.MultiColumn = True
         Me.list_accounting.Name = "list_accounting"
-        Me.list_accounting.Size = New System.Drawing.Size(533, 495)
+        Me.list_accounting.Size = New System.Drawing.Size(532, 493)
         Me.list_accounting.TabIndex = 621
+        '
+        'tabTransactionItem
+        '
+        Me.tabTransactionItem.Controls.Add(Me.list_transaction_item)
+        Me.tabTransactionItem.Name = "tabTransactionItem"
+        Me.tabTransactionItem.Size = New System.Drawing.Size(532, 493)
+        Me.tabTransactionItem.Text = "Transaction Item"
+        '
+        'list_transaction_item
+        '
+        Me.list_transaction_item.Appearance.Font = New System.Drawing.Font("Tahoma", 10.25!)
+        Me.list_transaction_item.Appearance.Options.UseFont = True
+        Me.list_transaction_item.CheckOnClick = True
+        Me.list_transaction_item.ColumnWidth = 280
+        Me.list_transaction_item.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.list_transaction_item.HorizontalScrollbar = True
+        Me.list_transaction_item.HotTrackItems = True
+        Me.list_transaction_item.HotTrackSelectMode = DevExpress.XtraEditors.HotTrackSelectMode.SelectItemOnClick
+        Me.list_transaction_item.Location = New System.Drawing.Point(0, 0)
+        Me.list_transaction_item.MultiColumn = True
+        Me.list_transaction_item.Name = "list_transaction_item"
+        Me.list_transaction_item.Size = New System.Drawing.Size(532, 493)
+        Me.list_transaction_item.TabIndex = 622
+        '
+        'tabReports
+        '
+        Me.tabReports.Controls.Add(Me.list_reports)
+        Me.tabReports.Name = "tabReports"
+        Me.tabReports.Size = New System.Drawing.Size(532, 493)
+        Me.tabReports.Text = "Reports"
+        '
+        'list_reports
+        '
+        Me.list_reports.Appearance.Font = New System.Drawing.Font("Tahoma", 10.25!)
+        Me.list_reports.Appearance.Options.UseFont = True
+        Me.list_reports.CheckOnClick = True
+        Me.list_reports.ColumnWidth = 280
+        Me.list_reports.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.list_reports.HorizontalScrollbar = True
+        Me.list_reports.HotTrackItems = True
+        Me.list_reports.HotTrackSelectMode = DevExpress.XtraEditors.HotTrackSelectMode.SelectItemOnClick
+        Me.list_reports.Location = New System.Drawing.Point(0, 0)
+        Me.list_reports.MultiColumn = True
+        Me.list_reports.Name = "list_reports"
+        Me.list_reports.Size = New System.Drawing.Size(532, 493)
+        Me.list_reports.TabIndex = 623
         '
         'tabSettings
         '
         Me.tabSettings.Controls.Add(Me.list_settings)
         Me.tabSettings.Name = "tabSettings"
-        Me.tabSettings.Size = New System.Drawing.Size(533, 491)
+        Me.tabSettings.Size = New System.Drawing.Size(532, 493)
         Me.tabSettings.Text = "Settings"
         '
         'list_settings
@@ -385,7 +453,7 @@ Partial Class frmCoffeecupServerPermission
         Me.list_settings.Location = New System.Drawing.Point(0, 0)
         Me.list_settings.MultiColumn = True
         Me.list_settings.Name = "list_settings"
-        Me.list_settings.Size = New System.Drawing.Size(533, 491)
+        Me.list_settings.Size = New System.Drawing.Size(532, 493)
         Me.list_settings.TabIndex = 623
         '
         'BarManager1
@@ -487,6 +555,10 @@ Partial Class frmCoffeecupServerPermission
         Me.XtraTabControl1.ResumeLayout(False)
         Me.TabAccounting.ResumeLayout(False)
         CType(Me.list_accounting, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabTransactionItem.ResumeLayout(False)
+        CType(Me.list_transaction_item, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabReports.ResumeLayout(False)
+        CType(Me.list_reports, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabSettings.ResumeLayout(False)
         CType(Me.list_settings, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -531,4 +603,10 @@ Partial Class frmCoffeecupServerPermission
     Friend WithEvents Em As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents cmdTransactionItem As DevExpress.XtraNavBar.NavBarItem
+    Friend WithEvents cmdReports As DevExpress.XtraNavBar.NavBarItem
+    Friend WithEvents tabTransactionItem As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents list_transaction_item As DevExpress.XtraEditors.CheckedListBoxControl
+    Friend WithEvents tabReports As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents list_reports As DevExpress.XtraEditors.CheckedListBoxControl
 End Class

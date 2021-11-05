@@ -24,16 +24,12 @@ Partial Class frmGLDefaultTransactionItem
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.BarLargeButtonItem2 = New DevExpress.XtraBars.BarLargeButtonItem()
+        Me.cmdReupdate = New DevExpress.XtraBars.BarButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.BarDockControl1 = New DevExpress.XtraBars.BarDockControl()
         Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BarLargeButtonItem1 = New DevExpress.XtraBars.BarLargeButtonItem()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.Em_unfiltered = New DevExpress.XtraGrid.GridControl()
@@ -41,15 +37,13 @@ Partial Class frmGLDefaultTransactionItem
         Me.Em_filtered = New DevExpress.XtraGrid.GridControl()
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.cmdCredit = New DevExpress.XtraEditors.SimpleButton()
-        Me.cmdMoveLeft = New DevExpress.XtraEditors.SimpleButton()
+        Me.cmdDelete = New DevExpress.XtraEditors.SimpleButton()
         Me.cmdDebit = New DevExpress.XtraEditors.SimpleButton()
-        Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
         Me.TablePanel1 = New DevExpress.Utils.Layout.TablePanel()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gridmenustrip.SuspendLayout()
         CType(Me.Em_unfiltered, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em_filtered, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,7 +69,7 @@ Partial Class frmGLDefaultTransactionItem
         Me.BarManager1.DockControls.Add(Me.BarDockControl1)
         Me.BarManager1.DockManager = Me.DockManager1
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarLargeButtonItem2, Me.BarButtonItem1})
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarLargeButtonItem2, Me.cmdReupdate})
         Me.BarManager1.MainMenu = Me.Bar1
         Me.BarManager1.MaxItemId = 5
         Me.BarManager1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemTextEdit1})
@@ -87,7 +81,7 @@ Partial Class frmGLDefaultTransactionItem
         Me.Bar1.DockRow = 0
         Me.Bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
         Me.Bar1.FloatLocation = New System.Drawing.Point(116, 149)
-        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarLargeButtonItem2), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem1, True)})
+        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarLargeButtonItem2), New DevExpress.XtraBars.LinkPersistInfo(Me.cmdReupdate, True)})
         Me.Bar1.OptionsBar.AllowQuickCustomization = False
         Me.Bar1.OptionsBar.MultiLine = True
         Me.Bar1.OptionsBar.UseWholeRow = True
@@ -98,6 +92,12 @@ Partial Class frmGLDefaultTransactionItem
         Me.BarLargeButtonItem2.Caption = "&Close Window"
         Me.BarLargeButtonItem2.Id = 1
         Me.BarLargeButtonItem2.Name = "BarLargeButtonItem2"
+        '
+        'cmdReupdate
+        '
+        Me.cmdReupdate.Caption = "Re-Update Previous Collection"
+        Me.cmdReupdate.Id = 4
+        Me.cmdReupdate.Name = "cmdReupdate"
         '
         'barDockControlTop
         '
@@ -135,38 +135,6 @@ Partial Class frmGLDefaultTransactionItem
         '
         Me.RepositoryItemTextEdit1.AutoHeight = False
         Me.RepositoryItemTextEdit1.Name = "RepositoryItemTextEdit1"
-        '
-        'gridmenustrip
-        '
-        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
-        Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(146, 76)
-        '
-        'cmdEdit
-        '
-        Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
-        Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(145, 22)
-        Me.cmdEdit.Text = "Edit Category"
-        '
-        'cmdDelete
-        '
-        Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.notebook__minus
-        Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(145, 22)
-        Me.cmdDelete.Text = "Remove Item"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(142, 6)
-        '
-        'RefreshToolStripMenuItem
-        '
-        Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
-        Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
-        Me.RefreshToolStripMenuItem.Text = "Refresh Data"
         '
         'BarLargeButtonItem1
         '
@@ -239,16 +207,16 @@ Partial Class frmGLDefaultTransactionItem
         Me.cmdCredit.TabIndex = 701
         Me.cmdCredit.Text = "Credit >"
         '
-        'cmdMoveLeft
+        'cmdDelete
         '
-        Me.cmdMoveLeft.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.cmdMoveLeft.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdMoveLeft.Appearance.Options.UseFont = True
-        Me.cmdMoveLeft.Location = New System.Drawing.Point(7, 267)
-        Me.cmdMoveLeft.Name = "cmdMoveLeft"
-        Me.cmdMoveLeft.Size = New System.Drawing.Size(80, 46)
-        Me.cmdMoveLeft.TabIndex = 702
-        Me.cmdMoveLeft.Text = "< Remove"
+        Me.cmdDelete.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.cmdDelete.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdDelete.Appearance.Options.UseFont = True
+        Me.cmdDelete.Location = New System.Drawing.Point(7, 267)
+        Me.cmdDelete.Name = "cmdDelete"
+        Me.cmdDelete.Size = New System.Drawing.Size(80, 46)
+        Me.cmdDelete.TabIndex = 702
+        Me.cmdDelete.Text = "< Remove"
         '
         'cmdDebit
         '
@@ -260,12 +228,6 @@ Partial Class frmGLDefaultTransactionItem
         Me.cmdDebit.Size = New System.Drawing.Size(80, 46)
         Me.cmdDebit.TabIndex = 708
         Me.cmdDebit.Text = "Debit >"
-        '
-        'BarButtonItem1
-        '
-        Me.BarButtonItem1.Caption = "Re-Update Previous Collection"
-        Me.BarButtonItem1.Id = 4
-        Me.BarButtonItem1.Name = "BarButtonItem1"
         '
         'TablePanel1
         '
@@ -285,7 +247,7 @@ Partial Class frmGLDefaultTransactionItem
         Me.TablePanel1.SetColumn(Me.PanelControl1, 1)
         Me.PanelControl1.Controls.Add(Me.cmdDebit)
         Me.PanelControl1.Controls.Add(Me.cmdCredit)
-        Me.PanelControl1.Controls.Add(Me.cmdMoveLeft)
+        Me.PanelControl1.Controls.Add(Me.cmdDelete)
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelControl1.Location = New System.Drawing.Point(402, 3)
         Me.PanelControl1.Name = "PanelControl1"
@@ -312,7 +274,6 @@ Partial Class frmGLDefaultTransactionItem
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gridmenustrip.ResumeLayout(False)
         CType(Me.Em_unfiltered, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Em_filtered, System.ComponentModel.ISupportInitialize).EndInit()
@@ -326,11 +287,6 @@ Partial Class frmGLDefaultTransactionItem
 
     End Sub
     Friend WithEvents DockManager1 As DevExpress.XtraBars.Docking.DockManager
-    Friend WithEvents gridmenustrip As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents cmdEdit As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmdDelete As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents RefreshToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
     Friend WithEvents BarLargeButtonItem1 As DevExpress.XtraBars.BarLargeButtonItem
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
@@ -341,14 +297,14 @@ Partial Class frmGLDefaultTransactionItem
     Friend WithEvents BarLargeButtonItem2 As DevExpress.XtraBars.BarLargeButtonItem
     Friend WithEvents RepositoryItemTextEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents Bar1 As DevExpress.XtraBars.Bar
-    Friend WithEvents cmdMoveLeft As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdDelete As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents cmdCredit As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents Em_filtered As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents Em_unfiltered As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents cmdDebit As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdReupdate As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents TablePanel1 As DevExpress.Utils.Layout.TablePanel
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
 End Class

@@ -20,7 +20,7 @@ Partial Class frmBudgetComposition
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.cmdSaveButton = New DevExpress.XtraEditors.SimpleButton()
+        Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
@@ -44,7 +44,7 @@ Partial Class frmBudgetComposition
         Me.officeid = New DevExpress.XtraEditors.TextEdit()
         Me.expensecode = New DevExpress.XtraEditors.TextEdit()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
-        Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
+        Me.cmdImport = New DevExpress.XtraEditors.SimpleButton()
         Me.Bm = New DevExpress.XtraGrid.GridControl()
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.RepositoryItemCheckEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
@@ -68,20 +68,20 @@ Partial Class frmBudgetComposition
         CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'cmdSaveButton
+        'cmdSave
         '
-        Me.cmdSaveButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.cmdSaveButton.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cmdSaveButton.Appearance.BackColor2 = System.Drawing.Color.Khaki
-        Me.cmdSaveButton.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
-        Me.cmdSaveButton.Appearance.Options.UseBackColor = True
-        Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(386, 562)
-        Me.cmdSaveButton.Name = "cmdSaveButton"
-        Me.cmdSaveButton.Size = New System.Drawing.Size(168, 38)
-        Me.cmdSaveButton.TabIndex = 6
-        Me.cmdSaveButton.Text = "Save"
+        Me.cmdSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.cmdSave.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmdSave.Appearance.BackColor2 = System.Drawing.Color.Khaki
+        Me.cmdSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.cmdSave.Appearance.Options.UseBackColor = True
+        Me.cmdSave.Appearance.Options.UseFont = True
+        Me.cmdSave.Location = New System.Drawing.Point(386, 562)
+        Me.cmdSave.Name = "cmdSave"
+        Me.cmdSave.Size = New System.Drawing.Size(168, 38)
+        Me.cmdSave.TabIndex = 6
+        Me.cmdSave.Text = "Save"
         '
         'Em
         '
@@ -320,20 +320,20 @@ Partial Class frmBudgetComposition
         Me.SimpleButton1.TabIndex = 651
         Me.SimpleButton1.Text = "Export Excel"
         '
-        'SimpleButton2
+        'cmdImport
         '
-        Me.SimpleButton2.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.SimpleButton2.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.SimpleButton2.Appearance.BackColor2 = System.Drawing.Color.Khaki
-        Me.SimpleButton2.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SimpleButton2.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
-        Me.SimpleButton2.Appearance.Options.UseBackColor = True
-        Me.SimpleButton2.Appearance.Options.UseFont = True
-        Me.SimpleButton2.Location = New System.Drawing.Point(212, 562)
-        Me.SimpleButton2.Name = "SimpleButton2"
-        Me.SimpleButton2.Size = New System.Drawing.Size(168, 38)
-        Me.SimpleButton2.TabIndex = 652
-        Me.SimpleButton2.Text = "Import Excel"
+        Me.cmdImport.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.cmdImport.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmdImport.Appearance.BackColor2 = System.Drawing.Color.Khaki
+        Me.cmdImport.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdImport.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.cmdImport.Appearance.Options.UseBackColor = True
+        Me.cmdImport.Appearance.Options.UseFont = True
+        Me.cmdImport.Location = New System.Drawing.Point(212, 562)
+        Me.cmdImport.Name = "cmdImport"
+        Me.cmdImport.Size = New System.Drawing.Size(168, 38)
+        Me.cmdImport.TabIndex = 652
+        Me.cmdImport.Text = "Import Excel"
         '
         'Bm
         '
@@ -363,12 +363,12 @@ Partial Class frmBudgetComposition
         '
         'frmBudgetComposition
         '
-        Me.AcceptButton = Me.cmdSaveButton
+        Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(598, 607)
         Me.Controls.Add(Me.Bm)
-        Me.Controls.Add(Me.SimpleButton2)
+        Me.Controls.Add(Me.cmdImport)
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.expensecode)
         Me.Controls.Add(Me.officeid)
@@ -381,7 +381,7 @@ Partial Class frmBudgetComposition
         Me.Controls.Add(Me.fundcode)
         Me.Controls.Add(Me.LabelControl2)
         Me.Controls.Add(Me.txtFund)
-        Me.Controls.Add(Me.cmdSaveButton)
+        Me.Controls.Add(Me.cmdSave)
         Me.Controls.Add(Me.Em)
         Me.MinimumSize = New System.Drawing.Size(600, 639)
         Me.Name = "frmBudgetComposition"
@@ -409,7 +409,7 @@ Partial Class frmBudgetComposition
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents cmdSaveButton As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdSave As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents Em As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
@@ -433,7 +433,7 @@ Partial Class frmBudgetComposition
     Friend WithEvents officeid As DevExpress.XtraEditors.TextEdit
     Friend WithEvents expensecode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdImport As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents Bm As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents RepositoryItemCheckEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit

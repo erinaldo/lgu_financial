@@ -10,6 +10,10 @@ Public Class frmExpenditureClass
         LoadExpenditureItem()
         ShowUnfilteredClient()
         ShowfilteredClients()
+        PermissionAccess({cmdMoveLeft, cmdMoveRight}, globalAdminAccess)
+        PermissionAccess({cmdSaveButton}, globalAllowAdd)
+        PermissionAccess({cmdEdit}, globalAllowEdit)
+        PermissionAccess({cmdDelete}, globalAllowDelete)
     End Sub
 
 
@@ -67,7 +71,6 @@ Public Class frmExpenditureClass
     End Sub
 
 #End Region
-
 
 #Region "Expenditure Tagging"
     Private Sub XtraTabControl1_SelectedPageChanged(sender As Object, e As DevExpress.XtraTab.TabPageChangedEventArgs) Handles XtraTabControl1.SelectedPageChanged

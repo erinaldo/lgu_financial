@@ -44,29 +44,17 @@ Public Class frmDepartment
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
         filter()
 
-        If globalAllowAdd = True Or LCase(globaluser) = "root" Then
-            cmdAdd.Visibility = XtraBars.BarItemVisibility.Always
-        Else
-            cmdAdd.Visibility = XtraBars.BarItemVisibility.Never
-        End If
-        If globalAllowEdit = True Or LCase(globaluser) = "root" Then
-            cmdEdit.Visible = True
-        Else
-            cmdEdit.Visible = False
-        End If
-        If globalAllowDelete = True Or LCase(globaluser) = "root" Then
-            cmdRemove.Enabled = True
-        Else
-            cmdRemove.Enabled = False
-        End If
 
+        PermissionAccess({cmdAdd}, globalAllowAdd)
+        PermissionAccess({cmdEdit}, globalAllowEdit)
+        PermissionAccess({cmdDelete}, globalAllowDelete)
     End Sub
 
     Private Sub RefreshToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RefreshToolStripMenuItem.Click
         filter()
     End Sub
 
-    Private Sub RemoveItemToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdRemove.Click
+    Private Sub RemoveItemToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdDelete.Click
         If GridView1.GetFocusedRowCellValue("Code") = "" Then
             XtraMessageBox.Show("There is no item selected! make sure, the selection is on the list", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
             Exit Sub

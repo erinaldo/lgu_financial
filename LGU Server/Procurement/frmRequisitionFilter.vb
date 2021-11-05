@@ -23,7 +23,7 @@ Public Class frmRequisitionFilter
         LoadCategory()
         ShowUnfilteredProducts()
         ShowfilteredProducts()
-
+        PermissionAccess({cmdMoveLeft, cmdMoveRight}, globalAdminAccess)
     End Sub
 
     Public Sub LoadCategory()

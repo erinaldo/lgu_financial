@@ -19,12 +19,13 @@ Partial Class frmCashFlowItem
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        Me.cmdSaveButton = New DevExpress.XtraEditors.SimpleButton()
+        Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.txtCashFlowName = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -91,19 +92,19 @@ Partial Class frmCashFlowItem
         Me.LabelControl1.TabIndex = 510
         Me.LabelControl1.Text = "Cash Flow Name"
         '
-        'cmdSaveButton
+        'cmdSave
         '
-        Me.cmdSaveButton.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cmdSaveButton.Appearance.BackColor2 = System.Drawing.Color.Khaki
-        Me.cmdSaveButton.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
-        Me.cmdSaveButton.Appearance.Options.UseBackColor = True
-        Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(387, 77)
-        Me.cmdSaveButton.Name = "cmdSaveButton"
-        Me.cmdSaveButton.Size = New System.Drawing.Size(157, 31)
-        Me.cmdSaveButton.TabIndex = 6
-        Me.cmdSaveButton.Text = "Save"
+        Me.cmdSave.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmdSave.Appearance.BackColor2 = System.Drawing.Color.Khaki
+        Me.cmdSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.cmdSave.Appearance.Options.UseBackColor = True
+        Me.cmdSave.Appearance.Options.UseFont = True
+        Me.cmdSave.Location = New System.Drawing.Point(387, 77)
+        Me.cmdSave.Name = "cmdSave"
+        Me.cmdSave.Size = New System.Drawing.Size(157, 31)
+        Me.cmdSave.TabIndex = 6
+        Me.cmdSave.Text = "Save"
         '
         'txtCashFlowName
         '
@@ -215,11 +216,11 @@ Partial Class frmCashFlowItem
         Me.tabCashflowInfo.Controls.Add(Me.LabelControl2)
         Me.tabCashflowInfo.Controls.Add(Me.mode)
         Me.tabCashflowInfo.Controls.Add(Me.LabelControl1)
-        Me.tabCashflowInfo.Controls.Add(Me.cmdSaveButton)
+        Me.tabCashflowInfo.Controls.Add(Me.cmdSave)
         Me.tabCashflowInfo.Controls.Add(Me.Em)
         Me.tabCashflowInfo.Controls.Add(Me.txtCashFlowName)
         Me.tabCashflowInfo.Name = "tabCashflowInfo"
-        Me.tabCashflowInfo.Size = New System.Drawing.Size(706, 474)
+        Me.tabCashflowInfo.Size = New System.Drawing.Size(710, 477)
         Me.tabCashflowInfo.Text = "Cash Flow Info"
         '
         'tabCashflowTagging
@@ -234,7 +235,7 @@ Partial Class frmCashFlowItem
         Me.tabCashflowTagging.Controls.Add(Me.barDockControlRight)
         Me.tabCashflowTagging.Controls.Add(Me.BarDockControl1)
         Me.tabCashflowTagging.Name = "tabCashflowTagging"
-        Me.tabCashflowTagging.Size = New System.Drawing.Size(706, 474)
+        Me.tabCashflowTagging.Size = New System.Drawing.Size(710, 477)
         Me.tabCashflowTagging.Text = "Cash Flow Tagging"
         '
         'LabelControl3
@@ -352,26 +353,26 @@ Partial Class frmCashFlowItem
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(706, 0)
+        Me.barDockControlRight.Location = New System.Drawing.Point(710, 0)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 474)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 477)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(706, 0)
+        Me.BarDockControl1.Location = New System.Drawing.Point(710, 0)
         Me.BarDockControl1.Manager = Nothing
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 474)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 477)
         '
         'frmCashFlowItem
         '
-        Me.AcceptButton = Me.cmdSaveButton
+        Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(712, 506)
         Me.Controls.Add(Me.XtraTabControl1)
-        Me.MinimumSize = New System.Drawing.Size(728, 545)
+        Me.MinimumSize = New System.Drawing.Size(714, 538)
         Me.Name = "frmCashFlowItem"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Cash Flow Item"
@@ -400,7 +401,7 @@ Partial Class frmCashFlowItem
     End Sub
     Friend WithEvents mode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents cmdSaveButton As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdSave As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents txtCashFlowName As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Em As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView

@@ -13,6 +13,7 @@ Public Class frmBudgetComposition
         LoadFund()
         LoadOffice()
         LoadExpensesGL()
+        PermissionAccess({cmdImport, cmdSave}, globalAdminAccess)
     End Sub
 
     Public Sub LoadFund()
@@ -77,7 +78,7 @@ Public Class frmBudgetComposition
 
     End Sub
 
-    Private Sub cmdSaveButton_Click(sender As Object, e As EventArgs) Handles cmdSaveButton.Click
+    Private Sub cmdSaveButton_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
         If txtFund.Text = "" Then
             XtraMessageBox.Show("Budget select fund period!", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtFund.Focus()
@@ -126,7 +127,7 @@ Public Class frmBudgetComposition
 
     End Sub
 
-    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles cmdImport.Click
         If txtFund.Text = "" Then
             XtraMessageBox.Show("Budget select fund period!", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtFund.Focus()

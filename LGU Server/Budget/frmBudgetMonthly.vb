@@ -11,6 +11,9 @@ Public Class frmBudgetMonthly
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
         LoadFund()
         LoadOffice()
+        PermissionAccess({cmdSaveButton}, globalAdminAccess)
+        PermissionAccess({cmdNewFund}, globalAllowAdd)
+        PermissionAccess({cmdTransfer}, globalAllowEdit)
 
     End Sub
 
@@ -135,7 +138,7 @@ Public Class frmBudgetMonthly
         ExportGridToExcel(txtFund.Text & If(CheckEdit1.Checked = True, "", " - " & txtOffice.Text), GridView1)
     End Sub
 
-    Private Sub EditLineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditLineToolStripMenuItem.Click
+    Private Sub EditLineToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles cmdViewItem.Click
         If txtFund.Text = "" Then
             XtraMessageBox.Show("Please select fund period!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtFund.Focus()
@@ -149,7 +152,7 @@ Public Class frmBudgetMonthly
         End If
     End Sub
 
-    Private Sub TranferSelectedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TranferSelectedToolStripMenuItem.Click
+    Private Sub TranferSelectedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles cmdTransfer.Click
         If txtFund.Text = "" Then
             XtraMessageBox.Show("Please select fund period!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtFund.Focus()
@@ -163,7 +166,7 @@ Public Class frmBudgetMonthly
         End If
     End Sub
 
-    Private Sub NewFundToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewFundToolStripMenuItem.Click
+    Private Sub NewFundToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles cmdNewFund.Click
         If txtFund.Text = "" Then
             XtraMessageBox.Show("Please select fund period!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtFund.Focus()

@@ -28,26 +28,26 @@ Partial Class frmCollectionInputAmount
         Me.cmdSaveButton = New DevExpress.XtraEditors.SimpleButton()
         Me.trncode = New DevExpress.XtraEditors.TextEdit()
         Me.grpTitle = New System.Windows.Forms.GroupBox()
+        Me.glitemname = New DevExpress.XtraEditors.TextEdit()
+        Me.txtCollectionName = New DevExpress.XtraEditors.TextEdit()
+        Me.glitemcode = New DevExpress.XtraEditors.TextEdit()
         Me.txtAmount = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        Me.glitemcode = New DevExpress.XtraEditors.TextEdit()
-        Me.txtCollectionName = New DevExpress.XtraEditors.TextEdit()
         Me.txtExplaination = New DevExpress.XtraEditors.TextEdit()
-        Me.glitemname = New DevExpress.XtraEditors.TextEdit()
         CType(Me.trncode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpTitle.SuspendLayout()
-        CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.glitemcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtCollectionName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtExplaination.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.glitemname.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCollectionName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.glitemcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtExplaination.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl5
         '
         Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl5.Appearance.Options.UseFont = True
-        Me.LabelControl5.Location = New System.Drawing.Point(78, 61)
+        Me.LabelControl5.Location = New System.Drawing.Point(81, 61)
         Me.LabelControl5.Name = "LabelControl5"
         Me.LabelControl5.Size = New System.Drawing.Size(45, 17)
         Me.LabelControl5.TabIndex = 656
@@ -57,7 +57,7 @@ Partial Class frmCollectionInputAmount
         '
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl3.Appearance.Options.UseFont = True
-        Me.LabelControl3.Location = New System.Drawing.Point(6, 28)
+        Me.LabelControl3.Location = New System.Drawing.Point(9, 28)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(117, 17)
         Me.LabelControl3.TabIndex = 654
@@ -71,7 +71,7 @@ Partial Class frmCollectionInputAmount
         Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSaveButton.Appearance.Options.UseBackColor = True
         Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(131, 122)
+        Me.cmdSaveButton.Location = New System.Drawing.Point(134, 122)
         Me.cmdSaveButton.Name = "cmdSaveButton"
         Me.cmdSaveButton.Size = New System.Drawing.Size(168, 38)
         Me.cmdSaveButton.TabIndex = 2
@@ -112,10 +112,49 @@ Partial Class frmCollectionInputAmount
         Me.grpTitle.TabIndex = 657
         Me.grpTitle.TabStop = False
         '
+        'glitemname
+        '
+        Me.glitemname.Location = New System.Drawing.Point(610, 83)
+        Me.glitemname.Name = "glitemname"
+        Me.glitemname.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.glitemname.Properties.Appearance.Options.UseFont = True
+        Me.glitemname.Properties.Appearance.Options.UseTextOptions = True
+        Me.glitemname.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.glitemname.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.glitemname.Properties.ReadOnly = True
+        Me.glitemname.Size = New System.Drawing.Size(42, 26)
+        Me.glitemname.TabIndex = 660
+        '
+        'txtCollectionName
+        '
+        Me.txtCollectionName.Location = New System.Drawing.Point(134, 24)
+        Me.txtCollectionName.Name = "txtCollectionName"
+        Me.txtCollectionName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCollectionName.Properties.Appearance.Options.UseFont = True
+        Me.txtCollectionName.Properties.Appearance.Options.UseTextOptions = True
+        Me.txtCollectionName.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.txtCollectionName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtCollectionName.Properties.ReadOnly = True
+        Me.txtCollectionName.Size = New System.Drawing.Size(270, 26)
+        Me.txtCollectionName.TabIndex = 659
+        '
+        'glitemcode
+        '
+        Me.glitemcode.Location = New System.Drawing.Point(610, 52)
+        Me.glitemcode.Name = "glitemcode"
+        Me.glitemcode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.glitemcode.Properties.Appearance.Options.UseFont = True
+        Me.glitemcode.Properties.Appearance.Options.UseTextOptions = True
+        Me.glitemcode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.glitemcode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.glitemcode.Properties.ReadOnly = True
+        Me.glitemcode.Size = New System.Drawing.Size(42, 26)
+        Me.glitemcode.TabIndex = 658
+        '
         'txtAmount
         '
         Me.txtAmount.EditValue = "0"
-        Me.txtAmount.Location = New System.Drawing.Point(131, 54)
+        Me.txtAmount.Location = New System.Drawing.Point(134, 54)
         Me.txtAmount.Name = "txtAmount"
         Me.txtAmount.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 13.0!)
         Me.txtAmount.Properties.Appearance.Options.UseFont = True
@@ -134,61 +173,22 @@ Partial Class frmCollectionInputAmount
         '
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl1.Appearance.Options.UseFont = True
-        Me.LabelControl1.Location = New System.Drawing.Point(53, 92)
+        Me.LabelControl1.Location = New System.Drawing.Point(56, 92)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(70, 17)
         Me.LabelControl1.TabIndex = 657
         Me.LabelControl1.Text = "Explaination"
         '
-        'glitemcode
-        '
-        Me.glitemcode.Location = New System.Drawing.Point(610, 52)
-        Me.glitemcode.Name = "glitemcode"
-        Me.glitemcode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.glitemcode.Properties.Appearance.Options.UseFont = True
-        Me.glitemcode.Properties.Appearance.Options.UseTextOptions = True
-        Me.glitemcode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.glitemcode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.glitemcode.Properties.ReadOnly = True
-        Me.glitemcode.Size = New System.Drawing.Size(42, 26)
-        Me.glitemcode.TabIndex = 658
-        '
-        'txtCollectionName
-        '
-        Me.txtCollectionName.Location = New System.Drawing.Point(131, 24)
-        Me.txtCollectionName.Name = "txtCollectionName"
-        Me.txtCollectionName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCollectionName.Properties.Appearance.Options.UseFont = True
-        Me.txtCollectionName.Properties.Appearance.Options.UseTextOptions = True
-        Me.txtCollectionName.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.txtCollectionName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.txtCollectionName.Properties.ReadOnly = True
-        Me.txtCollectionName.Size = New System.Drawing.Size(270, 26)
-        Me.txtCollectionName.TabIndex = 659
-        '
         'txtExplaination
         '
         Me.txtExplaination.EditValue = ""
-        Me.txtExplaination.Location = New System.Drawing.Point(131, 90)
+        Me.txtExplaination.Location = New System.Drawing.Point(134, 90)
         Me.txtExplaination.Name = "txtExplaination"
         Me.txtExplaination.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtExplaination.Properties.Appearance.Options.UseFont = True
         Me.txtExplaination.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtExplaination.Size = New System.Drawing.Size(364, 26)
         Me.txtExplaination.TabIndex = 1
-        '
-        'glitemname
-        '
-        Me.glitemname.Location = New System.Drawing.Point(610, 83)
-        Me.glitemname.Name = "glitemname"
-        Me.glitemname.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.glitemname.Properties.Appearance.Options.UseFont = True
-        Me.glitemname.Properties.Appearance.Options.UseTextOptions = True
-        Me.glitemname.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.glitemname.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.glitemname.Properties.ReadOnly = True
-        Me.glitemname.Size = New System.Drawing.Size(42, 26)
-        Me.glitemname.TabIndex = 660
         '
         'frmCollectionInputAmount
         '
@@ -209,11 +209,11 @@ Partial Class frmCollectionInputAmount
         CType(Me.trncode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpTitle.ResumeLayout(False)
         Me.grpTitle.PerformLayout()
-        CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.glitemcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtCollectionName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtExplaination.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.glitemname.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCollectionName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.glitemcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtExplaination.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

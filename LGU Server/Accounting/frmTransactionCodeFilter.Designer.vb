@@ -29,11 +29,6 @@ Partial Class frmTransactionCodeFilter
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.BarDockControl1 = New DevExpress.XtraBars.BarDockControl()
         Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BarLargeButtonItem1 = New DevExpress.XtraBars.BarLargeButtonItem()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.Em_unfiltered = New DevExpress.XtraGrid.GridControl()
@@ -48,7 +43,6 @@ Partial Class frmTransactionCodeFilter
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gridmenustrip.SuspendLayout()
         CType(Me.Em_unfiltered, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em_filtered, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -133,38 +127,6 @@ Partial Class frmTransactionCodeFilter
         '
         Me.RepositoryItemTextEdit1.AutoHeight = False
         Me.RepositoryItemTextEdit1.Name = "RepositoryItemTextEdit1"
-        '
-        'gridmenustrip
-        '
-        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
-        Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(146, 76)
-        '
-        'cmdEdit
-        '
-        Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
-        Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(145, 22)
-        Me.cmdEdit.Text = "Edit Category"
-        '
-        'cmdDelete
-        '
-        Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.notebook__minus
-        Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(145, 22)
-        Me.cmdDelete.Text = "Remove Item"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(142, 6)
-        '
-        'RefreshToolStripMenuItem
-        '
-        Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
-        Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
-        Me.RefreshToolStripMenuItem.Text = "Refresh Data"
         '
         'BarLargeButtonItem1
         '
@@ -304,7 +266,6 @@ Partial Class frmTransactionCodeFilter
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gridmenustrip.ResumeLayout(False)
         CType(Me.Em_unfiltered, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Em_filtered, System.ComponentModel.ISupportInitialize).EndInit()
@@ -317,11 +278,6 @@ Partial Class frmTransactionCodeFilter
 
     End Sub
     Friend WithEvents DockManager1 As DevExpress.XtraBars.Docking.DockManager
-    Friend WithEvents gridmenustrip As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents cmdEdit As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmdDelete As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents RefreshToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
     Friend WithEvents BarLargeButtonItem1 As DevExpress.XtraBars.BarLargeButtonItem
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl

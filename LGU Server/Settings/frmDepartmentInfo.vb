@@ -18,21 +18,9 @@ Public Class frmDepartmentInfo
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
         LoadOfficer()
 
-        If globalAllowAdd = True Or LCase(globaluser) = "root" Then
-            cmdSave.Enabled = True
-        Else
-            cmdSave.Enabled = False
-        End If
-        If globalAllowEdit = True Or LCase(globaluser) = "root" Then
-            cmdEdit.Visible = True
-        Else
-            cmdEdit.Visible = False
-        End If
-        If globalAllowDelete = True Or LCase(globaluser) = "root" Then
-            cmdRemove.Enabled = True
-        Else
-            cmdRemove.Enabled = False
-        End If
+        PermissionAccess({cmdSave, cmdAdd}, globalAllowAdd)
+        PermissionAccess({cmdEdit}, globalAllowEdit)
+        PermissionAccess({cmdDelete}, globalAllowDelete)
     End Sub
 
     Private Sub SimpleButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSave.Click
@@ -132,12 +120,12 @@ Public Class frmDepartmentInfo
         Me.Close()
     End Sub
 
-    Private Sub AddOfficerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddOfficerToolStripMenuItem.Click
+    Private Sub AddOfficerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles cmdAdd.Click
         frmDepartmentOfficer.officeid.Text = If(id.Text = "", globaluserid & "-temp", id.Text)
         frmDepartmentOfficer.ShowDialog()
     End Sub
 
-    Private Sub cmdRemove_Click(sender As Object, e As EventArgs) Handles cmdRemove.Click
+    Private Sub cmdRemove_Click(sender As Object, e As EventArgs) Handles cmdDelete.Click
         If GridView1.GetFocusedRowCellValue("id").ToString = "" Then
             XtraMessageBox.Show("There is no item selected! make sure, the selection is on the list", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
             Exit Sub

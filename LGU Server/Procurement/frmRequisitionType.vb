@@ -12,6 +12,9 @@ Public Class frmRequisitionType
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
         SetIcon(Me)
         filter()
+        PermissionAccess({cmdSave}, globalAllowAdd)
+        PermissionAccess({cmdEdit}, globalAllowEdit)
+        PermissionAccess({cmdDelete}, globalAllowDelete)
     End Sub
  
     Public Sub filter()
@@ -20,7 +23,7 @@ Public Class frmRequisitionType
         XgridColAlign({"Code"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
     End Sub
 
-    Private Sub cmdSaveButton_Click(sender As Object, e As EventArgs) Handles cmdSaveButton.Click
+    Private Sub cmdSaveButton_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
         If countqry("tblrequisitiontype", "code='" & code.Text & "'") > 0 And mode.Text <> "edit" Then
             XtraMessageBox.Show("Code already exists!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             code.Focus()
@@ -76,7 +79,7 @@ Public Class frmRequisitionType
 
     Private Sub txtDescription_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDescription.KeyPress
         If e.KeyChar() = Chr(13) Then
-            cmdSaveButton.PerformClick()
+            cmdSave.PerformClick()
         End If
     End Sub
 

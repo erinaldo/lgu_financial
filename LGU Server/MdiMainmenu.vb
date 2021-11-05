@@ -119,6 +119,10 @@ Public Class MdiMainmenu
     End Sub
 
     Private Sub BarButtonItem31_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles cmdCorporateProfileSettings.ItemClick
+        If globalAdminAccess = False And UCase(globaluser) <> "ROOT" Then
+            XtraMessageBox.Show("You dont have permission to access this function!", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
         SplashScreenManager.ShowForm(GetType(WaitForm1), True, True)
         If frmCompanySettings.Visible = True Then
             frmCompanySettings.Focus()
@@ -129,6 +133,10 @@ Public Class MdiMainmenu
     End Sub
 
     Private Sub BarButtonItem32_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles cmdCorporateDivision.ItemClick
+        If globalAdminAccess = False And UCase(globaluser) <> "ROOT" Then
+            XtraMessageBox.Show("You dont have permission to access this function!", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
         SplashScreenManager.ShowForm(GetType(WaitForm1), True, True)
         frmDepartment.MdiParent = Me
         frmDepartment.Show()
@@ -138,6 +146,10 @@ Public Class MdiMainmenu
     End Sub
 
     Private Sub BarButtonItem25_ItemClick_1(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles cmdLoginAppearance.ItemClick
+        If globalAdminAccess = False And UCase(globaluser) <> "ROOT" Then
+            XtraMessageBox.Show("You dont have permission to access this function!", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
         SplashScreenManager.ShowForm(GetType(WaitForm1), True, True)
         If frmAppearance.Visible = True Then
             frmAppearance.Focus()
@@ -148,6 +160,10 @@ Public Class MdiMainmenu
     End Sub
 
     Private Sub BarButtonItem34_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles cmdGeneralSettings.ItemClick
+        If globalAdminAccess = False And UCase(globaluser) <> "ROOT" Then
+            XtraMessageBox.Show("You dont have permission to access this function!", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
         SplashScreenManager.ShowForm(GetType(WaitForm1), True, True)
         If frmGeneralSettings.Visible = True Then
             frmGeneralSettings.Focus()
@@ -208,6 +224,10 @@ Public Class MdiMainmenu
     End Sub
 
     Private Sub cmdBackupDatabase_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdBackupDatabase.ItemClick
+        If globalAdminAccess = False And UCase(globaluser) <> "ROOT" Then
+            XtraMessageBox.Show("You dont have permission to access this function!", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
         If frmBackupTool.Visible = True Then
             frmBackupTool.Focus()
         Else
@@ -253,6 +273,10 @@ Public Class MdiMainmenu
     End Sub
 
     Private Sub cmdClientAccess_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdClientAccess.ItemClick
+        If globalAdminAccess = False And UCase(globaluser) <> "ROOT" Then
+            XtraMessageBox.Show("You dont have permission to access this function!", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
         If frmClientUserPermission.Visible = True Then
             frmClientUserPermission.Focus()
         Else
@@ -301,6 +325,10 @@ Public Class MdiMainmenu
     End Sub
 
     Private Sub cmdBudgetComposition_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdBudgetComposition.ItemClick
+        If globalAdminAccess = False And UCase(globaluser) <> "ROOT" Then
+            XtraMessageBox.Show("You dont have permission to access this function!", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
         If frmBudgetComposition.Visible = True Then
             frmBudgetComposition.Focus()
         Else
@@ -347,7 +375,7 @@ Public Class MdiMainmenu
             frmRequisitionType.Show(Me)
         End If
     End Sub
- 
+
     Private Sub cmdDocumentType_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdDocumentType.ItemClick
         If frmDocumentType.Visible = True Then
             frmDocumentType.Focus()
@@ -381,6 +409,10 @@ Public Class MdiMainmenu
     End Sub
 
     Private Sub cmdUpdateChartofAccounts_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdUpdateChartofAccounts.ItemClick
+        If globalAdminAccess = False And UCase(globaluser) <> "ROOT" Then
+            XtraMessageBox.Show("You dont have permission to access this function!", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
         frmGLCaptureChartofAccount.ShowDialog(Me)
     End Sub
 
@@ -463,6 +495,26 @@ Public Class MdiMainmenu
             frmGLDefaultTransactionItem.Focus()
         Else
             frmGLDefaultTransactionItem.Show(Me)
+        End If
+    End Sub
+
+    Private Sub cmdPayeeTable_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdPayeeTable.ItemClick
+        If frmPayeeTable.Visible = True Then
+            frmPayeeTable.Focus()
+        Else
+            frmPayeeTable.Show(Me)
+        End If
+    End Sub
+
+    Private Sub cmdServerAccessPermission_ItemClick(sender As Object, e As ItemClickEventArgs) Handles cmdServerAccessPermission.ItemClick
+        If globalAdminAccess = False And UCase(globaluser) <> "ROOT" Then
+            XtraMessageBox.Show("You dont have permission to access this function!", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Exit Sub
+        End If
+        If frmCoffeecupServerPermission.Visible = True Then
+            frmCoffeecupServerPermission.Focus()
+        Else
+            frmCoffeecupServerPermission.Show(Me)
         End If
     End Sub
 End Class

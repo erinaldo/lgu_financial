@@ -28,7 +28,6 @@ Module mySettings
     Public Remotetype As Integer
     Public remotecountdown As Integer
 
-    Public GlobalAllowableAttachSize As Double = 10240
     Public GlobalGLitemname As String = "if(a.level=0, a.itemname,if(a.level=1,concat('   ',a.itemname),if(a.level=2,concat('           ',a.itemname),if(a.level=3,concat('                  ',a.itemname),concat('                         ',a.itemname)))))"
 
     Public Function TextBoxColorCode(ByVal txtbox As DevExpress.XtraEditors.TextEdit)
@@ -63,6 +62,15 @@ Module mySettings
         form.Icon = ico
     End Sub
 
+    Public Sub PermissionAccess(ByVal objArray As Array, ByVal permission As Boolean)
+        For Each obj As Object In objArray
+            If UCase(globaluser) = "ROOT" Then
+                obj.Enabled = True
+            Else
+                obj.Enabled = permission
+            End If
+        Next
+    End Sub
 
 #Region "IMAGE VARIABLES"
     Public imgBytes As Byte() = Nothing
@@ -108,6 +116,20 @@ Module mySettings
             End If
         Next
         Return sb.ToString
+    End Function
+
+    Public Function getGlobalDBTrnid() As String
+        Dim strs As Date
+        Dim finalstr As String = ""
+
+        com.CommandText = "select current_timestamp as trnid"
+        rst = com.ExecuteReader
+        While rst.Read
+            strs = rst("trnid").ToString
+            finalstr = strs.ToString("yyMMddhhmmss")
+        End While
+        rst.Close()
+        Return finalstr
     End Function
 
     Public Function getGlobalTrnid(ByVal init As String, ByVal endid As String)

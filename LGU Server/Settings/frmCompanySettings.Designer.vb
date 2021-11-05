@@ -46,9 +46,8 @@ Partial Class frmCompanySettings
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
-        Me.cmdSave = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
-        Me.cmdUpdate = New DevExpress.XtraEditors.SimpleButton()
+        Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
         Me.tabProfile = New DevExpress.XtraTab.XtraTabPage()
         Me.GroupControl3 = New DevExpress.XtraEditors.GroupControl()
@@ -56,6 +55,11 @@ Partial Class frmCompanySettings
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
         Me.LabelControl17 = New DevExpress.XtraEditors.LabelControl()
         Me.tabSignatories = New DevExpress.XtraTab.XtraTabPage()
+        Me.txtHrmdName = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.gvHrmdName = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtHrmdPosition = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl18 = New DevExpress.XtraEditors.LabelControl()
         Me.txtViceMayorName = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridViceMayor = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.LabelControl14 = New DevExpress.XtraEditors.LabelControl()
@@ -82,11 +86,6 @@ Partial Class frmCompanySettings
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl10 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl27 = New DevExpress.XtraEditors.LabelControl()
-        Me.txtHrmdName = New DevExpress.XtraEditors.SearchLookUpEdit()
-        Me.gvHrmdName = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl()
-        Me.txtHrmdPosition = New DevExpress.XtraEditors.TextEdit()
-        Me.LabelControl18 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.txtinitialcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.companyid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.logo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,6 +108,9 @@ Partial Class frmCompanySettings
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl2.SuspendLayout()
         Me.tabSignatories.SuspendLayout()
+        CType(Me.txtHrmdName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gvHrmdName, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtHrmdPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtViceMayorName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridViceMayor, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtViceMayorPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -124,9 +126,6 @@ Partial Class frmCompanySettings
         CType(Me.txtTreasurerPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAccountantPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtMayorPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtHrmdName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gvHrmdName, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtHrmdPosition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtinitialcode
@@ -330,7 +329,7 @@ Partial Class frmCompanySettings
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarButtonItem1, Me.cmdSave, Me.cmdResetDatabase, Me.BarButtonItem2})
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarButtonItem1, Me.cmdResetDatabase, Me.BarButtonItem2})
         Me.BarManager1.MainMenu = Me.Bar2
         Me.BarManager1.MaxItemId = 4
         '
@@ -390,31 +389,25 @@ Partial Class frmCompanySettings
         Me.barDockControlRight.Manager = Me.BarManager1
         Me.barDockControlRight.Size = New System.Drawing.Size(0, 447)
         '
-        'cmdSave
-        '
-        Me.cmdSave.Caption = "Confirm && Save"
-        Me.cmdSave.Id = 1
-        Me.cmdSave.Name = "cmdSave"
-        '
         'BarButtonItem2
         '
         Me.BarButtonItem2.Caption = "Company Table"
         Me.BarButtonItem2.Id = 3
         Me.BarButtonItem2.Name = "BarButtonItem2"
         '
-        'cmdUpdate
+        'cmdSave
         '
-        Me.cmdUpdate.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cmdUpdate.Appearance.BackColor2 = System.Drawing.Color.Khaki
-        Me.cmdUpdate.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.cmdUpdate.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
-        Me.cmdUpdate.Appearance.Options.UseBackColor = True
-        Me.cmdUpdate.Appearance.Options.UseFont = True
-        Me.cmdUpdate.Location = New System.Drawing.Point(432, 349)
-        Me.cmdUpdate.Name = "cmdUpdate"
-        Me.cmdUpdate.Size = New System.Drawing.Size(178, 38)
-        Me.cmdUpdate.TabIndex = 515
-        Me.cmdUpdate.Text = "Save Information"
+        Me.cmdSave.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmdSave.Appearance.BackColor2 = System.Drawing.Color.Khaki
+        Me.cmdSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.cmdSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.cmdSave.Appearance.Options.UseBackColor = True
+        Me.cmdSave.Appearance.Options.UseFont = True
+        Me.cmdSave.Location = New System.Drawing.Point(432, 349)
+        Me.cmdSave.Name = "cmdSave"
+        Me.cmdSave.Size = New System.Drawing.Size(178, 38)
+        Me.cmdSave.TabIndex = 515
+        Me.cmdSave.Text = "Save Information"
         '
         'XtraTabControl1
         '
@@ -435,11 +428,11 @@ Partial Class frmCompanySettings
         Me.tabProfile.Controls.Add(Me.txtModule)
         Me.tabProfile.Controls.Add(Me.companyid)
         Me.tabProfile.Controls.Add(Me.mode)
-        Me.tabProfile.Controls.Add(Me.cmdUpdate)
+        Me.tabProfile.Controls.Add(Me.cmdSave)
         Me.tabProfile.Controls.Add(Me.logo)
         Me.tabProfile.Controls.Add(Me.GroupControl2)
         Me.tabProfile.Name = "tabProfile"
-        Me.tabProfile.Size = New System.Drawing.Size(724, 415)
+        Me.tabProfile.Size = New System.Drawing.Size(728, 418)
         Me.tabProfile.Text = "Company Profile"
         '
         'GroupControl3
@@ -525,8 +518,61 @@ Partial Class frmCompanySettings
         Me.tabSignatories.Controls.Add(Me.LabelControl10)
         Me.tabSignatories.Controls.Add(Me.LabelControl27)
         Me.tabSignatories.Name = "tabSignatories"
-        Me.tabSignatories.Size = New System.Drawing.Size(724, 415)
+        Me.tabSignatories.Size = New System.Drawing.Size(728, 418)
         Me.tabSignatories.Text = "Official Signatories"
+        '
+        'txtHrmdName
+        '
+        Me.txtHrmdName.EditValue = ""
+        Me.txtHrmdName.EnterMoveNextControl = True
+        Me.txtHrmdName.Location = New System.Drawing.Point(418, 30)
+        Me.txtHrmdName.Name = "txtHrmdName"
+        Me.txtHrmdName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtHrmdName.Properties.Appearance.Options.UseFont = True
+        Me.txtHrmdName.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtHrmdName.Properties.DisplayMember = "Select"
+        Me.txtHrmdName.Properties.NullText = ""
+        Me.txtHrmdName.Properties.PopupView = Me.gvHrmdName
+        Me.txtHrmdName.Properties.ValueMember = "accountid"
+        Me.txtHrmdName.Size = New System.Drawing.Size(211, 24)
+        Me.txtHrmdName.TabIndex = 776
+        '
+        'gvHrmdName
+        '
+        Me.gvHrmdName.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.gvHrmdName.Name = "gvHrmdName"
+        Me.gvHrmdName.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.gvHrmdName.OptionsView.ShowGroupPanel = False
+        '
+        'LabelControl16
+        '
+        Me.LabelControl16.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.LabelControl16.Appearance.Options.UseFont = True
+        Me.LabelControl16.Location = New System.Drawing.Point(366, 60)
+        Me.LabelControl16.Name = "LabelControl16"
+        Me.LabelControl16.Size = New System.Drawing.Size(46, 17)
+        Me.LabelControl16.TabIndex = 775
+        Me.LabelControl16.Text = "Position"
+        '
+        'txtHrmdPosition
+        '
+        Me.txtHrmdPosition.EnterMoveNextControl = True
+        Me.txtHrmdPosition.Location = New System.Drawing.Point(418, 57)
+        Me.txtHrmdPosition.Name = "txtHrmdPosition"
+        Me.txtHrmdPosition.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtHrmdPosition.Properties.Appearance.Options.UseFont = True
+        Me.txtHrmdPosition.Size = New System.Drawing.Size(211, 24)
+        Me.txtHrmdPosition.TabIndex = 773
+        '
+        'LabelControl18
+        '
+        Me.LabelControl18.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.LabelControl18.Appearance.Options.UseFont = True
+        Me.LabelControl18.Location = New System.Drawing.Point(374, 33)
+        Me.LabelControl18.Name = "LabelControl18"
+        Me.LabelControl18.Size = New System.Drawing.Size(38, 17)
+        Me.LabelControl18.TabIndex = 774
+        Me.LabelControl18.Text = "HRMD"
         '
         'txtViceMayorName
         '
@@ -711,7 +757,7 @@ Partial Class frmCompanySettings
         Me.cmdSaveSignatories.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSaveSignatories.Appearance.Options.UseBackColor = True
         Me.cmdSaveSignatories.Appearance.Options.UseFont = True
-        Me.cmdSaveSignatories.Location = New System.Drawing.Point(451, 87)
+        Me.cmdSaveSignatories.Location = New System.Drawing.Point(434, 87)
         Me.cmdSaveSignatories.Name = "cmdSaveSignatories"
         Me.cmdSaveSignatories.Size = New System.Drawing.Size(178, 38)
         Me.cmdSaveSignatories.TabIndex = 6
@@ -807,59 +853,6 @@ Partial Class frmCompanySettings
         Me.LabelControl27.TabIndex = 753
         Me.LabelControl27.Text = "Treasurer"
         '
-        'txtHrmdName
-        '
-        Me.txtHrmdName.EditValue = ""
-        Me.txtHrmdName.EnterMoveNextControl = True
-        Me.txtHrmdName.Location = New System.Drawing.Point(418, 30)
-        Me.txtHrmdName.Name = "txtHrmdName"
-        Me.txtHrmdName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtHrmdName.Properties.Appearance.Options.UseFont = True
-        Me.txtHrmdName.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.txtHrmdName.Properties.DisplayMember = "Select"
-        Me.txtHrmdName.Properties.NullText = ""
-        Me.txtHrmdName.Properties.PopupView = Me.gvHrmdName
-        Me.txtHrmdName.Properties.ValueMember = "accountid"
-        Me.txtHrmdName.Size = New System.Drawing.Size(211, 24)
-        Me.txtHrmdName.TabIndex = 776
-        '
-        'gvHrmdName
-        '
-        Me.gvHrmdName.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.gvHrmdName.Name = "gvHrmdName"
-        Me.gvHrmdName.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.gvHrmdName.OptionsView.ShowGroupPanel = False
-        '
-        'LabelControl16
-        '
-        Me.LabelControl16.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.LabelControl16.Appearance.Options.UseFont = True
-        Me.LabelControl16.Location = New System.Drawing.Point(366, 60)
-        Me.LabelControl16.Name = "LabelControl16"
-        Me.LabelControl16.Size = New System.Drawing.Size(46, 17)
-        Me.LabelControl16.TabIndex = 775
-        Me.LabelControl16.Text = "Position"
-        '
-        'txtHrmdPosition
-        '
-        Me.txtHrmdPosition.EnterMoveNextControl = True
-        Me.txtHrmdPosition.Location = New System.Drawing.Point(418, 57)
-        Me.txtHrmdPosition.Name = "txtHrmdPosition"
-        Me.txtHrmdPosition.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.txtHrmdPosition.Properties.Appearance.Options.UseFont = True
-        Me.txtHrmdPosition.Size = New System.Drawing.Size(211, 24)
-        Me.txtHrmdPosition.TabIndex = 773
-        '
-        'LabelControl18
-        '
-        Me.LabelControl18.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.LabelControl18.Appearance.Options.UseFont = True
-        Me.LabelControl18.Location = New System.Drawing.Point(374, 33)
-        Me.LabelControl18.Name = "LabelControl18"
-        Me.LabelControl18.Size = New System.Drawing.Size(38, 17)
-        Me.LabelControl18.TabIndex = 774
-        Me.LabelControl18.Text = "HRMD"
-        '
         'frmCompanySettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -900,6 +893,9 @@ Partial Class frmCompanySettings
         Me.GroupControl2.PerformLayout()
         Me.tabSignatories.ResumeLayout(False)
         Me.tabSignatories.PerformLayout()
+        CType(Me.txtHrmdName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gvHrmdName, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtHrmdPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtViceMayorName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridViceMayor, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtViceMayorPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -915,9 +911,6 @@ Partial Class frmCompanySettings
         CType(Me.txtTreasurerPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtAccountantPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtMayorPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtHrmdName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gvHrmdName, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtHrmdPosition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -943,9 +936,8 @@ Partial Class frmCompanySettings
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents cmdSave As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents mode As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents cmdUpdate As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdSave As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents txtModule As DevExpress.XtraEditors.TextEdit
     Friend WithEvents XtraTabControl1 As DevExpress.XtraTab.XtraTabControl
     Friend WithEvents tabProfile As DevExpress.XtraTab.XtraTabPage

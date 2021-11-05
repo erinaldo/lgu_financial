@@ -77,32 +77,32 @@ Partial Class frmCoffeecupServerPermissionInfo
         '
         'ck_allowEdit
         '
-        Me.ck_allowEdit.Location = New System.Drawing.Point(170, 51)
+        Me.ck_allowEdit.Location = New System.Drawing.Point(155, 51)
         Me.ck_allowEdit.Name = "ck_allowEdit"
         Me.ck_allowEdit.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ck_allowEdit.Properties.Appearance.Options.UseFont = True
         Me.ck_allowEdit.Properties.Caption = "Allow Edit"
-        Me.ck_allowEdit.Size = New System.Drawing.Size(77, 19)
+        Me.ck_allowEdit.Size = New System.Drawing.Size(77, 20)
         Me.ck_allowEdit.TabIndex = 689
         '
         'ck_allowDelete
         '
-        Me.ck_allowDelete.Location = New System.Drawing.Point(255, 51)
+        Me.ck_allowDelete.Location = New System.Drawing.Point(240, 51)
         Me.ck_allowDelete.Name = "ck_allowDelete"
         Me.ck_allowDelete.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ck_allowDelete.Properties.Appearance.Options.UseFont = True
         Me.ck_allowDelete.Properties.Caption = "Allow Delete"
-        Me.ck_allowDelete.Size = New System.Drawing.Size(92, 19)
+        Me.ck_allowDelete.Size = New System.Drawing.Size(92, 20)
         Me.ck_allowDelete.TabIndex = 690
         '
         'ck_allowAdd
         '
-        Me.ck_allowAdd.Location = New System.Drawing.Point(85, 51)
+        Me.ck_allowAdd.Location = New System.Drawing.Point(70, 51)
         Me.ck_allowAdd.Name = "ck_allowAdd"
         Me.ck_allowAdd.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ck_allowAdd.Properties.Appearance.Options.UseFont = True
         Me.ck_allowAdd.Properties.Caption = "Allow Add"
-        Me.ck_allowAdd.Size = New System.Drawing.Size(79, 19)
+        Me.ck_allowAdd.Size = New System.Drawing.Size(79, 20)
         Me.ck_allowAdd.TabIndex = 691
         '
         'ck_special
@@ -111,8 +111,8 @@ Partial Class frmCoffeecupServerPermissionInfo
         Me.ck_special.Name = "ck_special"
         Me.ck_special.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ck_special.Properties.Appearance.Options.UseFont = True
-        Me.ck_special.Properties.Caption = "Approver"
-        Me.ck_special.Size = New System.Drawing.Size(71, 19)
+        Me.ck_special.Properties.Caption = "Admin"
+        Me.ck_special.Size = New System.Drawing.Size(71, 20)
         Me.ck_special.TabIndex = 684
         '
         'frmCoffeecupServerPermissionInfo

@@ -22,14 +22,14 @@ Partial Class frmFundPeriod
         Me.components = New System.ComponentModel.Container()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        Me.cmdSaveButton = New DevExpress.XtraEditors.SimpleButton()
+        Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.txtYear = New DevExpress.XtraEditors.TextEdit()
         Me.txtJev = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CloseTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdClose = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -88,19 +88,19 @@ Partial Class frmFundPeriod
         Me.LabelControl1.TabIndex = 510
         Me.LabelControl1.Text = "Transaction Year"
         '
-        'cmdSaveButton
+        'cmdSave
         '
-        Me.cmdSaveButton.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cmdSaveButton.Appearance.BackColor2 = System.Drawing.Color.Khaki
-        Me.cmdSaveButton.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
-        Me.cmdSaveButton.Appearance.Options.UseBackColor = True
-        Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(167, 206)
-        Me.cmdSaveButton.Name = "cmdSaveButton"
-        Me.cmdSaveButton.Size = New System.Drawing.Size(168, 38)
-        Me.cmdSaveButton.TabIndex = 6
-        Me.cmdSaveButton.Text = "Save"
+        Me.cmdSave.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmdSave.Appearance.BackColor2 = System.Drawing.Color.Khaki
+        Me.cmdSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.cmdSave.Appearance.Options.UseBackColor = True
+        Me.cmdSave.Appearance.Options.UseFont = True
+        Me.cmdSave.Location = New System.Drawing.Point(167, 206)
+        Me.cmdSave.Name = "cmdSave"
+        Me.cmdSave.Size = New System.Drawing.Size(168, 38)
+        Me.cmdSave.TabIndex = 6
+        Me.cmdSave.Text = "Save"
         '
         'txtYear
         '
@@ -136,42 +136,42 @@ Partial Class frmFundPeriod
         '
         'gridmenustrip
         '
-        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.CloseTransactionToolStripMenuItem, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
+        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.cmdClose, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(168, 98)
+        Me.gridmenustrip.Size = New System.Drawing.Size(167, 98)
         '
         'cmdEdit
         '
         Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
         Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(167, 22)
+        Me.cmdEdit.Size = New System.Drawing.Size(180, 22)
         Me.cmdEdit.Text = "Edit Selected"
         '
         'cmdDelete
         '
         Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.notebook__minus
         Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(167, 22)
+        Me.cmdDelete.Size = New System.Drawing.Size(180, 22)
         Me.cmdDelete.Text = "Remove Item"
         Me.cmdDelete.Visible = False
         '
-        'CloseTransactionToolStripMenuItem
+        'cmdClose
         '
-        Me.CloseTransactionToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources._1501
-        Me.CloseTransactionToolStripMenuItem.Name = "CloseTransactionToolStripMenuItem"
-        Me.CloseTransactionToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
-        Me.CloseTransactionToolStripMenuItem.Text = "Close Transaction"
+        Me.cmdClose.Image = Global.LGUFinancial.My.Resources.Resources._1501
+        Me.cmdClose.Name = "cmdClose"
+        Me.cmdClose.Size = New System.Drawing.Size(166, 22)
+        Me.cmdClose.Text = "Close Transaction"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(164, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RefreshToolStripMenuItem.Text = "Refresh Data"
         '
         'GridView1
@@ -341,10 +341,10 @@ Partial Class frmFundPeriod
         '
         'frmFundPeriod
         '
-        Me.AcceptButton = Me.cmdSaveButton
+        Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(666, 605)
+        Me.ClientSize = New System.Drawing.Size(664, 603)
         Me.Controls.Add(Me.code)
         Me.Controls.Add(Me.LabelControl7)
         Me.Controls.Add(Me.id)
@@ -361,7 +361,7 @@ Partial Class frmFundPeriod
         Me.Controls.Add(Me.Em)
         Me.Controls.Add(Me.txtJev)
         Me.Controls.Add(Me.txtYear)
-        Me.Controls.Add(Me.cmdSaveButton)
+        Me.Controls.Add(Me.cmdSave)
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.mode)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -390,7 +390,7 @@ Partial Class frmFundPeriod
     End Sub
     Friend WithEvents mode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents cmdSaveButton As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdSave As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents txtYear As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtJev As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Em As DevExpress.XtraGrid.GridControl
@@ -415,5 +415,5 @@ Partial Class frmFundPeriod
     Friend WithEvents id As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents code As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents CloseTransactionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cmdClose As System.Windows.Forms.ToolStripMenuItem
 End Class

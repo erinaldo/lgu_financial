@@ -22,7 +22,7 @@ Partial Class frmBankAccounts
         Me.components = New System.ComponentModel.Container()
         Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
-        Me.cmdOk = New DevExpress.XtraEditors.SimpleButton()
+        Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.id = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -59,16 +59,16 @@ Partial Class frmBankAccounts
         Me.LabelControl6.TabIndex = 571
         Me.LabelControl6.Text = "Bank Name"
         '
-        'cmdOk
+        'cmdSave
         '
-        Me.cmdOk.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
-        Me.cmdOk.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
-        Me.cmdOk.Appearance.Options.UseFont = True
-        Me.cmdOk.Location = New System.Drawing.Point(242, 92)
-        Me.cmdOk.Name = "cmdOk"
-        Me.cmdOk.Size = New System.Drawing.Size(110, 30)
-        Me.cmdOk.TabIndex = 3
-        Me.cmdOk.Text = "Confirm Save"
+        Me.cmdSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
+        Me.cmdSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.cmdSave.Appearance.Options.UseFont = True
+        Me.cmdSave.Location = New System.Drawing.Point(242, 92)
+        Me.cmdSave.Name = "cmdSave"
+        Me.cmdSave.Size = New System.Drawing.Size(110, 30)
+        Me.cmdSave.TabIndex = 3
+        Me.cmdSave.Text = "Confirm Save"
         '
         'id
         '
@@ -212,7 +212,7 @@ Partial Class frmBankAccounts
         '
         'frmBankAccounts
         '
-        Me.AcceptButton = Me.cmdOk
+        Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(772, 485)
@@ -221,7 +221,7 @@ Partial Class frmBankAccounts
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.txtBankCode)
         Me.Controls.Add(Me.mode)
-        Me.Controls.Add(Me.cmdOk)
+        Me.Controls.Add(Me.cmdSave)
         Me.Controls.Add(Me.id)
         Me.Controls.Add(Me.LabelControl6)
         Me.Controls.Add(Me.txtDescription)
@@ -246,7 +246,7 @@ Partial Class frmBankAccounts
 
     End Sub
     Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents cmdOk As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdSave As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents id As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Em As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView

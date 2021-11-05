@@ -26,8 +26,8 @@ Partial Class frmDataPicked
         Me.id = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.EditApproverToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.gv_datapicked = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -104,23 +104,23 @@ Partial Class frmDataPicked
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditApproverToolStripMenuItem, Me.ToolStripMenuItem4, Me.ToolStripSeparator1, Me.ToolStripMenuItem5})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.ToolStripSeparator1, Me.ToolStripMenuItem5})
         Me.ContextMenuStrip1.Name = "gridmenustrip"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(165, 76)
         '
-        'EditApproverToolStripMenuItem
+        'cmdEdit
         '
-        Me.EditApproverToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
-        Me.EditApproverToolStripMenuItem.Name = "EditApproverToolStripMenuItem"
-        Me.EditApproverToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
-        Me.EditApproverToolStripMenuItem.Text = "Edit Selected"
+        Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
+        Me.cmdEdit.Name = "cmdEdit"
+        Me.cmdEdit.Size = New System.Drawing.Size(164, 22)
+        Me.cmdEdit.Text = "Edit Selected"
         '
-        'ToolStripMenuItem4
+        'cmdDelete
         '
-        Me.ToolStripMenuItem4.Image = Global.LGUFinancial.My.Resources.Resources.window_suppressed
-        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(164, 22)
-        Me.ToolStripMenuItem4.Text = "Remove Selected"
+        Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.window_suppressed
+        Me.cmdDelete.Name = "cmdDelete"
+        Me.cmdDelete.Size = New System.Drawing.Size(164, 22)
+        Me.cmdDelete.Text = "Remove Selected"
         '
         'ToolStripSeparator1
         '
@@ -179,9 +179,9 @@ Partial Class frmDataPicked
     Friend WithEvents Em As DevExpress.XtraGrid.GridControl
     Friend WithEvents gv_datapicked As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem4 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cmdDelete As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripMenuItem5 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents txtDescription As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents EditApproverToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cmdEdit As System.Windows.Forms.ToolStripMenuItem
 End Class

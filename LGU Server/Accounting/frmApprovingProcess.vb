@@ -25,16 +25,10 @@ Public Class frmApprovingProcess
         LoadFund()
         LoadApproverList()
 
-        If globalAllowEdit = True Or LCase(globaluser) = "root" Then
-            Em.ContextMenuStrip = appStrip
-        Else
-            Em.ContextMenuStrip = Nothing
-        End If
-        If globalAllowAdd = True Or LCase(globaluser) = "root" Then
-            cmdUpdate.Enabled = True
-        Else
-            cmdUpdate.Enabled = False
-        End If
+        PermissionAccess({cmdMoveLeft, cmdMoveRight}, globalAdminAccess)
+        PermissionAccess({cmdSave}, globalAllowAdd)
+        PermissionAccess({cmdEdit}, globalAllowEdit)
+        PermissionAccess({cmdDelete}, globalAllowDelete)
     End Sub
 
 #Region "Approving Process"
@@ -86,7 +80,7 @@ Public Class frmApprovingProcess
         GridView1.BestFitColumns()
     End Sub
 
-    Private Sub cmdConfirmsave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdUpdate.Click
+    Private Sub cmdConfirmsave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSave.Click
         If txtProcessType.Text = "" Then
             XtraMessageBox.Show("Please select process type!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtProcessType.Focus()
@@ -123,7 +117,7 @@ Public Class frmApprovingProcess
 
     End Sub
 
-    Private Sub ToolStripMenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdInactive.Click
+    Private Sub ToolStripMenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdDelete.Click
         If XtraMessageBox.Show("Are you sure you want to remove selected approver? " & todelete, compname, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             For I = 0 To GridView1.SelectedRowsCount - 1
                 com.CommandText = "delete from tblapprovingprocess where id='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "id").ToString & "'" : com.ExecuteNonQuery()
@@ -141,7 +135,7 @@ Public Class frmApprovingProcess
         mode.Text = ""
     End Sub
 
-    Private Sub EditApproverToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditApproverToolStripMenuItem.Click
+    Private Sub EditApproverToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles cmdEdit.Click
         id.Text = GridView1.GetFocusedRowCellValue("id").ToString()
         dst = Nothing : dst = New DataSet
         msda = New MySqlDataAdapter("select * from tblapprovingprocess where id='" & id.Text & "'", conn)
@@ -251,4 +245,6 @@ Public Class frmApprovingProcess
         ShowUnfilteredProducts()
         ShowfilteredProducts()
     End Sub
+
+
 End Class

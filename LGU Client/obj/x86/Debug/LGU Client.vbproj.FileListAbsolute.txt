@@ -697,6 +697,7 @@ D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\de\DevExpress.Diagram.v19.2.
 D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\es\DevExpress.Diagram.v19.2.Core.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\ja\DevExpress.Diagram.v19.2.Core.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\ru\DevExpress.Diagram.v19.2.Core.resources.dll
+D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.vbproj.AssemblyReference.cache
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\Interop.Shell32.dll
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.vbproj.ResolveComReference.cache
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmDisbursementList.resources
@@ -721,6 +722,8 @@ D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmForApproval
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmBusinessInfo.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmBusinessManagement.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmSupplierInfo.resources
+D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmEmpoyeeList.resources
+D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmPayrollEmployeeInformation.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmChatPicturePreview.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmChatboxBlasting.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.ListControl.resources
@@ -781,5 +784,3 @@ D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.vbproj.CopyCo
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.exe
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.xml
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.pdb
-D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmEmpoyeeList.resources
-D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmPayrollEmployeeInformation.resources

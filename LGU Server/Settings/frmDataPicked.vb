@@ -25,6 +25,9 @@ Public Class frmDataPicked
     Private Sub frmDataPicked_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         SetIcon(Me)
         LoadDataPicked()
+
+        PermissionAccess({cmdEdit}, globalAllowEdit)
+        PermissionAccess({cmdDelete}, globalAllowDelete)
     End Sub
 
     Public Sub LoadDataPicked()
@@ -35,7 +38,11 @@ Public Class frmDataPicked
 
     Private Sub txtDescription_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDescription.KeyPress
         If e.KeyChar() = Chr(13) Then
-            If txtDescription.Text = "" Then
+            If globalAllowAdd = False Then
+                XtraMessageBox.Show("Your access is not allowed to add!", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                txtDescription.Focus()
+                Exit Sub
+            ElseIf txtDescription.Text = "" Then
                 XtraMessageBox.Show("Please enter Description!", compname, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 txtDescription.Focus()
                 Exit Sub
@@ -54,7 +61,7 @@ Public Class frmDataPicked
         End If
     End Sub
 
-    Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem4.Click
+    Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles cmdDelete.Click
         If XtraMessageBox.Show("Are you sure you want to remove selected item? " & todelete, compname, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             For I = 0 To gv_datapicked.SelectedRowsCount - 1
                 com.CommandText = "delete from tbldatapicked where id='" & gv_datapicked.GetRowCellValue(gv_datapicked.GetSelectedRows(I), "id").ToString & "'" : com.ExecuteNonQuery()
@@ -63,7 +70,7 @@ Public Class frmDataPicked
         End If
     End Sub
 
-    Private Sub EditApproverToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditApproverToolStripMenuItem.Click
+    Private Sub EditApproverToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles cmdEdit.Click
         mode.Text = "edit"
         id.Text = gv_datapicked.GetFocusedRowCellValue("id").ToString()
         txtDescription.Text = gv_datapicked.GetFocusedRowCellValue("Description").ToString()

@@ -19,6 +19,7 @@ Partial Class frmBudgetEditLine
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.txtJanuary = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
@@ -61,9 +62,19 @@ Partial Class frmBudgetEditLine
         Me.txtOverallTotal = New DevExpress.XtraEditors.TextEdit()
         Me.txtAmount = New DevExpress.XtraEditors.TextEdit()
         Me.txtOriginalBalance = New DevExpress.XtraEditors.TextEdit()
-        Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.Em_Requisition = New DevExpress.XtraGrid.GridControl()
+        Me.gridRequisition = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
+        Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
+        Me.tabRequisition = New DevExpress.XtraTab.XtraTabPage()
+        Me.tabTransfered = New DevExpress.XtraTab.XtraTabPage()
+        Me.Em_Transfered = New DevExpress.XtraGrid.GridControl()
+        Me.gridTransfered = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.RepositoryItemCheckEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.cmdTransfer = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.txtJanuary.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFebruary.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtMarch.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,9 +97,17 @@ Partial Class frmBudgetEditLine
         CType(Me.txtOverallTotal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtOriginalBalance.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Em_Requisition, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gridRequisition, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.XtraTabControl1.SuspendLayout()
+        Me.tabRequisition.SuspendLayout()
+        Me.tabTransfered.SuspendLayout()
+        CType(Me.Em_Transfered, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gridTransfered, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gridmenustrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'LabelControl1
@@ -716,40 +735,132 @@ Partial Class frmBudgetEditLine
         Me.txtOriginalBalance.TabIndex = 644
         Me.txtOriginalBalance.Visible = False
         '
-        'Em
+        'Em_Requisition
         '
-        Me.Em.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Em.Location = New System.Drawing.Point(484, 19)
-        Me.Em.MainView = Me.GridView1
-        Me.Em.Name = "Em"
-        Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(460, 629)
-        Me.Em.TabIndex = 633
-        Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        Me.Em_Requisition.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Em_Requisition.Location = New System.Drawing.Point(0, 0)
+        Me.Em_Requisition.MainView = Me.gridRequisition
+        Me.Em_Requisition.Name = "Em_Requisition"
+        Me.Em_Requisition.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
+        Me.Em_Requisition.Size = New System.Drawing.Size(752, 602)
+        Me.Em_Requisition.TabIndex = 633
+        Me.Em_Requisition.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridRequisition})
         '
-        'GridView1
+        'gridRequisition
         '
-        Me.GridView1.GridControl = Me.Em
-        Me.GridView1.Name = "GridView1"
-        Me.GridView1.OptionsBehavior.Editable = False
-        Me.GridView1.OptionsSelection.MultiSelect = True
-        Me.GridView1.OptionsSelection.UseIndicatorForSelection = False
-        Me.GridView1.OptionsView.ColumnAutoWidth = False
-        Me.GridView1.OptionsView.ShowGroupPanel = False
+        Me.gridRequisition.GridControl = Me.Em_Requisition
+        Me.gridRequisition.Name = "gridRequisition"
+        Me.gridRequisition.OptionsBehavior.Editable = False
+        Me.gridRequisition.OptionsSelection.MultiSelect = True
+        Me.gridRequisition.OptionsSelection.UseIndicatorForSelection = False
+        Me.gridRequisition.OptionsView.ColumnAutoWidth = False
+        Me.gridRequisition.OptionsView.ShowGroupPanel = False
         '
         'RepositoryItemCheckEdit1
         '
         Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
         Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
         '
+        'XtraTabControl1
+        '
+        Me.XtraTabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.XtraTabControl1.AppearancePage.Header.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.XtraTabControl1.AppearancePage.Header.Options.UseFont = True
+        Me.XtraTabControl1.AppearancePage.HeaderActive.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.XtraTabControl1.AppearancePage.HeaderActive.Options.UseFont = True
+        Me.XtraTabControl1.AppearancePage.HeaderDisabled.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.XtraTabControl1.AppearancePage.HeaderDisabled.Options.UseFont = True
+        Me.XtraTabControl1.AppearancePage.HeaderHotTracked.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.XtraTabControl1.AppearancePage.HeaderHotTracked.Options.UseFont = True
+        Me.XtraTabControl1.Location = New System.Drawing.Point(492, 19)
+        Me.XtraTabControl1.Name = "XtraTabControl1"
+        Me.XtraTabControl1.SelectedTabPage = Me.tabRequisition
+        Me.XtraTabControl1.Size = New System.Drawing.Size(754, 633)
+        Me.XtraTabControl1.TabIndex = 645
+        Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabRequisition, Me.tabTransfered})
+        '
+        'tabRequisition
+        '
+        Me.tabRequisition.Appearance.Header.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.tabRequisition.Appearance.Header.Options.UseFont = True
+        Me.tabRequisition.Appearance.HeaderActive.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.tabRequisition.Appearance.HeaderActive.Options.UseFont = True
+        Me.tabRequisition.Appearance.HeaderDisabled.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.tabRequisition.Appearance.HeaderDisabled.Options.UseFont = True
+        Me.tabRequisition.Appearance.HeaderHotTracked.Font = New System.Drawing.Font("Segoe UI", 10.25!)
+        Me.tabRequisition.Appearance.HeaderHotTracked.Options.UseFont = True
+        Me.tabRequisition.Controls.Add(Me.Em_Requisition)
+        Me.tabRequisition.Name = "tabRequisition"
+        Me.tabRequisition.Size = New System.Drawing.Size(752, 602)
+        Me.tabRequisition.Text = "Requisition Reports"
+        '
+        'tabTransfered
+        '
+        Me.tabTransfered.Controls.Add(Me.Em_Transfered)
+        Me.tabTransfered.Name = "tabTransfered"
+        Me.tabTransfered.Size = New System.Drawing.Size(752, 602)
+        Me.tabTransfered.Text = "Budget Transfered Report"
+        '
+        'Em_Transfered
+        '
+        Me.Em_Transfered.ContextMenuStrip = Me.gridmenustrip
+        Me.Em_Transfered.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Em_Transfered.Location = New System.Drawing.Point(0, 0)
+        Me.Em_Transfered.MainView = Me.gridTransfered
+        Me.Em_Transfered.Name = "Em_Transfered"
+        Me.Em_Transfered.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2})
+        Me.Em_Transfered.Size = New System.Drawing.Size(752, 602)
+        Me.Em_Transfered.TabIndex = 634
+        Me.Em_Transfered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridTransfered})
+        '
+        'gridTransfered
+        '
+        Me.gridTransfered.GridControl = Me.Em_Transfered
+        Me.gridTransfered.Name = "gridTransfered"
+        Me.gridTransfered.OptionsBehavior.Editable = False
+        Me.gridTransfered.OptionsSelection.MultiSelect = True
+        Me.gridTransfered.OptionsSelection.UseIndicatorForSelection = False
+        Me.gridTransfered.OptionsView.ColumnAutoWidth = False
+        Me.gridTransfered.OptionsView.ShowGroupPanel = False
+        '
+        'RepositoryItemCheckEdit2
+        '
+        Me.RepositoryItemCheckEdit2.Name = "RepositoryItemCheckEdit2"
+        Me.RepositoryItemCheckEdit2.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
+        '
+        'gridmenustrip
+        '
+        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdTransfer, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
+        Me.gridmenustrip.Name = "gridmenustrip"
+        Me.gridmenustrip.Size = New System.Drawing.Size(181, 76)
+        '
+        'cmdTransfer
+        '
+        Me.cmdTransfer.Image = Global.LGUFinancial.My.Resources.Resources.inbox__arrow
+        Me.cmdTransfer.Name = "cmdTransfer"
+        Me.cmdTransfer.Size = New System.Drawing.Size(165, 22)
+        Me.cmdTransfer.Text = "View Attachment"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        '
+        'RefreshToolStripMenuItem
+        '
+        Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
+        Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RefreshToolStripMenuItem.Text = "Refresh Data"
+        '
         'frmBudgetEditLine
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(955, 663)
-        Me.Controls.Add(Me.Em)
+        Me.ClientSize = New System.Drawing.Size(1258, 663)
+        Me.Controls.Add(Me.XtraTabControl1)
         Me.Controls.Add(Me.txtOriginalBalance)
         Me.Controls.Add(Me.txtAmount)
         Me.Controls.Add(Me.LabelControl19)
@@ -792,7 +903,7 @@ Partial Class frmBudgetEditLine
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.txtJanuary)
         Me.Controls.Add(Me.txtAccountTitle)
-        Me.MinimumSize = New System.Drawing.Size(397, 521)
+        Me.MinimumSize = New System.Drawing.Size(992, 695)
         Me.Name = "frmBudgetEditLine"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Budget Info Edit Line"
@@ -818,9 +929,17 @@ Partial Class frmBudgetEditLine
         CType(Me.txtOverallTotal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtOriginalBalance.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Em_Requisition, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gridRequisition, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.XtraTabControl1.ResumeLayout(False)
+        Me.tabRequisition.ResumeLayout(False)
+        Me.tabTransfered.ResumeLayout(False)
+        CType(Me.Em_Transfered, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gridTransfered, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gridmenustrip.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -867,7 +986,17 @@ Partial Class frmBudgetEditLine
     Friend WithEvents txtOverallTotal As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtAmount As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtOriginalBalance As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents Em As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents Em_Requisition As DevExpress.XtraGrid.GridControl
+    Friend WithEvents gridRequisition As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents XtraTabControl1 As DevExpress.XtraTab.XtraTabControl
+    Friend WithEvents tabRequisition As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents tabTransfered As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents Em_Transfered As DevExpress.XtraGrid.GridControl
+    Friend WithEvents gridTransfered As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents RepositoryItemCheckEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents gridmenustrip As ContextMenuStrip
+    Friend WithEvents cmdTransfer As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents RefreshToolStripMenuItem As ToolStripMenuItem
 End Class

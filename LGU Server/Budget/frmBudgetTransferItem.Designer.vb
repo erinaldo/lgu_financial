@@ -19,9 +19,8 @@ Partial Class frmBudgetTransferItem
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -212,7 +211,7 @@ Partial Class frmBudgetTransferItem
         Me.Controls.Add(Me.txtClass)
         Me.Controls.Add(Me.periodcode)
         Me.Controls.Add(Me.Em)
-        Me.MinimumSize = New System.Drawing.Size(379, 549)
+        Me.MinimumSize = New System.Drawing.Size(381, 551)
         Me.Name = "frmBudgetTransferItem"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Select composition item"

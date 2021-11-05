@@ -14,7 +14,7 @@ Public Class frmBudgetEditLine
     End Function
     Private Sub frmBudgetEditLine_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
-
+        PermissionAccess({cmdSaveButton}, globalAllowEdit)
 
     End Sub
 
@@ -94,11 +94,27 @@ Public Class frmBudgetEditLine
 
         If id.Text <> "" Then
             LoadXgrid("select date_format(concat(date_format(current_date,'%Y'),'-',monthcode,'-1'),'%M') as 'Month', itemcode as 'Item Code', " _
-                      + "(select itemname from tblglitem where itemcode=a.itemcode) as 'Item Name', Amount, requestno as 'Request No.', (select purpose from tblrequisition where pid=a.pid) as Purpose from tblrequisitionfund as a where officeid='" & officeid & "' and periodcode='" & periodcode & "' and classcode='" & classcode & "' and itemcode='" & itemcode & "' and cancelled=0", "tblrequisitionfund", Em, GridView1, Me)
-            XgridColAlign({"Item Code", "Class", "Month", "Request No."}, GridView1, DevExpress.Utils.HorzAlignment.Center)
-            XgridColCurrency({"Amount"}, GridView1)
-            XgridGeneralSummaryCurrency({"Amount"}, GridView1)
-            GridView1.BestFitColumns()
+                      + "(select itemname from tblglitem where itemcode=a.itemcode) as 'Item Name', Amount, requestno as 'Request No.', (select purpose from tblrequisition where pid=a.pid) as Purpose from tblrequisitionfund as a where officeid='" & officeid & "' and periodcode='" & periodcode & "' and classcode='" & classcode & "' and itemcode='" & itemcode & "' and cancelled=0", "tblrequisitionfund", Em_Requisition, gridRequisition, Me)
+            XgridColAlign({"Item Code", "Class", "Month", "Request No."}, gridRequisition, DevExpress.Utils.HorzAlignment.Center)
+            XgridColCurrency({"Amount"}, gridRequisition)
+            XgridGeneralSummaryCurrency({"Amount"}, gridRequisition)
+            gridRequisition.BestFitColumns()
+
+            LoadXgrid("select trncode, date_format(concat(date_format(datetransfer,'%Y'),'-',monthcode,'-1'),'%M') as 'Month', " _
+                     + " (select officename from tblcompoffice where officeid = a.to_officeid) as 'Transfered To', " _
+                     + " to_classcode as 'Class', " _
+                     + " to_itemcode as 'Item Code', " _
+                     + " to_itemname as 'Item Name', " _
+                     + " amounttransfer as 'Amount', " _
+                     + " ifnull((select if(count(*)>0,cast(concat(count(*), ' File(s) Attached') as char),null) from " & sqlfiledir & ".tblattachmentlogs where refnumber = a.trncode and trntype='fund_trans'),'-') as 'Attachment', " _
+                     + " date_format(datetransfer, '%M %d, %Y %r') as 'Date Transfered', " _
+                     + " (select fullname from tblaccounts where accountid=a.transferby) as 'Transfered By' " _
+                     + " from tblbudgettransferlogs as a where periodcode='" & periodcode & "' and from_officeid='" & officeid & "' and from_classcode='" & classcode & "' and from_itemcode='" & itemcode & "'", "tblbudgettransferlogs", Em_Transfered, gridTransfered, Me)
+            XgridHideColumn({"trncode"}, gridTransfered)
+            XgridColAlign({"Month", "Class", "Month", "Item Code", "Attachment", "Date Transfered"}, gridTransfered, DevExpress.Utils.HorzAlignment.Center)
+            XgridColCurrency({"Amount"}, gridTransfered)
+            XgridGeneralSummaryCurrency({"Amount"}, gridTransfered)
+            gridTransfered.BestFitColumns()
         End If
 
     End Sub
@@ -270,5 +286,16 @@ Public Class frmBudgetEditLine
                 XtraMessageBox.Show("Figure successfully updated!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End If
+    End Sub
+
+    Private Sub cmdTransfer_Click(sender As Object, e As EventArgs) Handles cmdTransfer.Click
+        frmFileViewer.viewonly = True
+        frmFileViewer.trncode.Text = gridTransfered.GetFocusedRowCellValue("trncode").ToString()
+        frmFileViewer.trntype.Text = "fund_trans"
+        frmFileViewer.ShowDialog()
+    End Sub
+
+    Private Sub RefreshToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshToolStripMenuItem.Click
+        LoadBudgetInfo()
     End Sub
 End Class

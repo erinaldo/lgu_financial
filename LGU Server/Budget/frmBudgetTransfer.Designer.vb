@@ -100,12 +100,16 @@ Partial Class frmBudgetTransfer
         Me.txtTransAccountTitle = New DevExpress.XtraEditors.MemoEdit()
         Me.cmdSelectAccountTitle = New DevExpress.XtraEditors.HyperlinkLabelControl()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
+        Me.trncode = New DevExpress.XtraEditors.TextEdit()
+        Me.fromofficeid = New DevExpress.XtraEditors.TextEdit()
+        Me.txtFromItemCode = New DevExpress.XtraEditors.TextEdit()
         Me.yearcode = New DevExpress.XtraEditors.TextEdit()
         Me.txtFromClassCode = New DevExpress.XtraEditors.TextEdit()
         Me.fundcode = New DevExpress.XtraEditors.TextEdit()
         Me.txtFromTotalBudget = New DevExpress.XtraEditors.TextEdit()
         Me.periodcode = New DevExpress.XtraEditors.TextEdit()
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
+        Me.cmdAttachment = New DevExpress.XtraEditors.SimpleButton()
         Me.txtTransTotalBudgetOriginal = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl23 = New DevExpress.XtraEditors.LabelControl()
         Me.txtAmountTransfer = New DevExpress.XtraEditors.TextEdit()
@@ -159,6 +163,9 @@ Partial Class frmBudgetTransfer
         CType(Me.txtTransAccountTitle.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
+        CType(Me.trncode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.fromofficeid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtFromItemCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.yearcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFromClassCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -804,7 +811,7 @@ Partial Class frmBudgetTransfer
         'txtTransOriginalBalance
         '
         Me.txtTransOriginalBalance.EditValue = "0"
-        Me.txtTransOriginalBalance.Location = New System.Drawing.Point(347, 235)
+        Me.txtTransOriginalBalance.Location = New System.Drawing.Point(347, 229)
         Me.txtTransOriginalBalance.Name = "txtTransOriginalBalance"
         Me.txtTransOriginalBalance.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransOriginalBalance.Properties.Appearance.Options.UseFont = True
@@ -823,7 +830,7 @@ Partial Class frmBudgetTransfer
         'txtTransAmount
         '
         Me.txtTransAmount.EditValue = "0"
-        Me.txtTransAmount.Location = New System.Drawing.Point(347, 266)
+        Me.txtTransAmount.Location = New System.Drawing.Point(347, 260)
         Me.txtTransAmount.Name = "txtTransAmount"
         Me.txtTransAmount.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransAmount.Properties.Appearance.Options.UseFont = True
@@ -846,7 +853,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl20.Appearance.Options.UseTextOptions = True
         Me.LabelControl20.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl20.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl20.Location = New System.Drawing.Point(17, 632)
+        Me.LabelControl20.Location = New System.Drawing.Point(17, 626)
         Me.LabelControl20.Name = "LabelControl20"
         Me.LabelControl20.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl20.TabIndex = 683
@@ -855,7 +862,7 @@ Partial Class frmBudgetTransfer
         'txtTransOverallTotal
         '
         Me.txtTransOverallTotal.EditValue = "0"
-        Me.txtTransOverallTotal.Location = New System.Drawing.Point(159, 626)
+        Me.txtTransOverallTotal.Location = New System.Drawing.Point(159, 620)
         Me.txtTransOverallTotal.Name = "txtTransOverallTotal"
         Me.txtTransOverallTotal.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransOverallTotal.Properties.Appearance.Options.UseFont = True
@@ -877,7 +884,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl21.Appearance.Options.UseTextOptions = True
         Me.LabelControl21.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl21.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl21.Location = New System.Drawing.Point(17, 120)
+        Me.LabelControl21.Location = New System.Drawing.Point(17, 114)
         Me.LabelControl21.Name = "LabelControl21"
         Me.LabelControl21.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl21.TabIndex = 681
@@ -886,7 +893,7 @@ Partial Class frmBudgetTransfer
         'txtTransClass
         '
         Me.txtTransClass.EditValue = ""
-        Me.txtTransClass.Location = New System.Drawing.Point(159, 116)
+        Me.txtTransClass.Location = New System.Drawing.Point(159, 110)
         Me.txtTransClass.Name = "txtTransClass"
         Me.txtTransClass.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTransClass.Properties.Appearance.Options.UseFont = True
@@ -902,7 +909,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl24.Appearance.Options.UseTextOptions = True
         Me.LabelControl24.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl24.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl24.Location = New System.Drawing.Point(17, 241)
+        Me.LabelControl24.Location = New System.Drawing.Point(17, 235)
         Me.LabelControl24.Name = "LabelControl24"
         Me.LabelControl24.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl24.TabIndex = 675
@@ -911,7 +918,7 @@ Partial Class frmBudgetTransfer
         'txtTransCurrentBalance
         '
         Me.txtTransCurrentBalance.EditValue = "0"
-        Me.txtTransCurrentBalance.Location = New System.Drawing.Point(159, 235)
+        Me.txtTransCurrentBalance.Location = New System.Drawing.Point(159, 229)
         Me.txtTransCurrentBalance.Name = "txtTransCurrentBalance"
         Me.txtTransCurrentBalance.Properties.Appearance.BackColor = System.Drawing.Color.Gold
         Me.txtTransCurrentBalance.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -935,7 +942,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl25.Appearance.Options.UseTextOptions = True
         Me.LabelControl25.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl25.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl25.Location = New System.Drawing.Point(17, 211)
+        Me.LabelControl25.Location = New System.Drawing.Point(17, 205)
         Me.LabelControl25.Name = "LabelControl25"
         Me.LabelControl25.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl25.TabIndex = 673
@@ -944,7 +951,7 @@ Partial Class frmBudgetTransfer
         'txtTransTotalUsed
         '
         Me.txtTransTotalUsed.EditValue = "0"
-        Me.txtTransTotalUsed.Location = New System.Drawing.Point(159, 205)
+        Me.txtTransTotalUsed.Location = New System.Drawing.Point(159, 199)
         Me.txtTransTotalUsed.Name = "txtTransTotalUsed"
         Me.txtTransTotalUsed.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransTotalUsed.Properties.Appearance.Options.UseFont = True
@@ -966,7 +973,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl26.Appearance.Options.UseTextOptions = True
         Me.LabelControl26.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl26.Location = New System.Drawing.Point(17, 181)
+        Me.LabelControl26.Location = New System.Drawing.Point(17, 175)
         Me.LabelControl26.Name = "LabelControl26"
         Me.LabelControl26.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl26.TabIndex = 671
@@ -975,7 +982,7 @@ Partial Class frmBudgetTransfer
         'txtTransTotalBudget
         '
         Me.txtTransTotalBudget.EditValue = "0"
-        Me.txtTransTotalBudget.Location = New System.Drawing.Point(159, 175)
+        Me.txtTransTotalBudget.Location = New System.Drawing.Point(159, 169)
         Me.txtTransTotalBudget.Name = "txtTransTotalBudget"
         Me.txtTransTotalBudget.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransTotalBudget.Properties.Appearance.Options.UseFont = True
@@ -997,7 +1004,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl27.Appearance.Options.UseTextOptions = True
         Me.LabelControl27.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl27.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl27.Location = New System.Drawing.Point(17, 602)
+        Me.LabelControl27.Location = New System.Drawing.Point(17, 596)
         Me.LabelControl27.Name = "LabelControl27"
         Me.LabelControl27.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl27.TabIndex = 669
@@ -1006,7 +1013,7 @@ Partial Class frmBudgetTransfer
         'txtTransDecember
         '
         Me.txtTransDecember.EditValue = "0"
-        Me.txtTransDecember.Location = New System.Drawing.Point(159, 596)
+        Me.txtTransDecember.Location = New System.Drawing.Point(159, 590)
         Me.txtTransDecember.Name = "txtTransDecember"
         Me.txtTransDecember.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransDecember.Properties.Appearance.Options.UseFont = True
@@ -1027,7 +1034,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl28.Appearance.Options.UseTextOptions = True
         Me.LabelControl28.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl28.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl28.Location = New System.Drawing.Point(17, 572)
+        Me.LabelControl28.Location = New System.Drawing.Point(17, 566)
         Me.LabelControl28.Name = "LabelControl28"
         Me.LabelControl28.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl28.TabIndex = 668
@@ -1036,7 +1043,7 @@ Partial Class frmBudgetTransfer
         'txtTransNovember
         '
         Me.txtTransNovember.EditValue = "0"
-        Me.txtTransNovember.Location = New System.Drawing.Point(159, 566)
+        Me.txtTransNovember.Location = New System.Drawing.Point(159, 560)
         Me.txtTransNovember.Name = "txtTransNovember"
         Me.txtTransNovember.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransNovember.Properties.Appearance.Options.UseFont = True
@@ -1057,7 +1064,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl29.Appearance.Options.UseTextOptions = True
         Me.LabelControl29.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl29.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl29.Location = New System.Drawing.Point(17, 542)
+        Me.LabelControl29.Location = New System.Drawing.Point(17, 536)
         Me.LabelControl29.Name = "LabelControl29"
         Me.LabelControl29.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl29.TabIndex = 667
@@ -1066,7 +1073,7 @@ Partial Class frmBudgetTransfer
         'txtTransOctober
         '
         Me.txtTransOctober.EditValue = "0"
-        Me.txtTransOctober.Location = New System.Drawing.Point(159, 536)
+        Me.txtTransOctober.Location = New System.Drawing.Point(159, 530)
         Me.txtTransOctober.Name = "txtTransOctober"
         Me.txtTransOctober.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransOctober.Properties.Appearance.Options.UseFont = True
@@ -1087,7 +1094,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl30.Appearance.Options.UseTextOptions = True
         Me.LabelControl30.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl30.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl30.Location = New System.Drawing.Point(17, 512)
+        Me.LabelControl30.Location = New System.Drawing.Point(17, 506)
         Me.LabelControl30.Name = "LabelControl30"
         Me.LabelControl30.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl30.TabIndex = 666
@@ -1096,7 +1103,7 @@ Partial Class frmBudgetTransfer
         'txtTransSeptember
         '
         Me.txtTransSeptember.EditValue = "0"
-        Me.txtTransSeptember.Location = New System.Drawing.Point(159, 506)
+        Me.txtTransSeptember.Location = New System.Drawing.Point(159, 500)
         Me.txtTransSeptember.Name = "txtTransSeptember"
         Me.txtTransSeptember.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransSeptember.Properties.Appearance.Options.UseFont = True
@@ -1117,7 +1124,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl31.Appearance.Options.UseTextOptions = True
         Me.LabelControl31.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl31.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl31.Location = New System.Drawing.Point(17, 482)
+        Me.LabelControl31.Location = New System.Drawing.Point(17, 476)
         Me.LabelControl31.Name = "LabelControl31"
         Me.LabelControl31.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl31.TabIndex = 665
@@ -1126,7 +1133,7 @@ Partial Class frmBudgetTransfer
         'txtTransAugust
         '
         Me.txtTransAugust.EditValue = "0"
-        Me.txtTransAugust.Location = New System.Drawing.Point(159, 476)
+        Me.txtTransAugust.Location = New System.Drawing.Point(159, 470)
         Me.txtTransAugust.Name = "txtTransAugust"
         Me.txtTransAugust.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransAugust.Properties.Appearance.Options.UseFont = True
@@ -1147,7 +1154,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl32.Appearance.Options.UseTextOptions = True
         Me.LabelControl32.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl32.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl32.Location = New System.Drawing.Point(17, 452)
+        Me.LabelControl32.Location = New System.Drawing.Point(17, 446)
         Me.LabelControl32.Name = "LabelControl32"
         Me.LabelControl32.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl32.TabIndex = 664
@@ -1156,7 +1163,7 @@ Partial Class frmBudgetTransfer
         'txtTransJuly
         '
         Me.txtTransJuly.EditValue = "0"
-        Me.txtTransJuly.Location = New System.Drawing.Point(159, 446)
+        Me.txtTransJuly.Location = New System.Drawing.Point(159, 440)
         Me.txtTransJuly.Name = "txtTransJuly"
         Me.txtTransJuly.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransJuly.Properties.Appearance.Options.UseFont = True
@@ -1177,7 +1184,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl33.Appearance.Options.UseTextOptions = True
         Me.LabelControl33.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl33.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl33.Location = New System.Drawing.Point(17, 422)
+        Me.LabelControl33.Location = New System.Drawing.Point(17, 416)
         Me.LabelControl33.Name = "LabelControl33"
         Me.LabelControl33.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl33.TabIndex = 663
@@ -1186,7 +1193,7 @@ Partial Class frmBudgetTransfer
         'txtTransJune
         '
         Me.txtTransJune.EditValue = "0"
-        Me.txtTransJune.Location = New System.Drawing.Point(159, 416)
+        Me.txtTransJune.Location = New System.Drawing.Point(159, 410)
         Me.txtTransJune.Name = "txtTransJune"
         Me.txtTransJune.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransJune.Properties.Appearance.Options.UseFont = True
@@ -1207,7 +1214,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl34.Appearance.Options.UseTextOptions = True
         Me.LabelControl34.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl34.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl34.Location = New System.Drawing.Point(17, 392)
+        Me.LabelControl34.Location = New System.Drawing.Point(17, 386)
         Me.LabelControl34.Name = "LabelControl34"
         Me.LabelControl34.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl34.TabIndex = 662
@@ -1216,7 +1223,7 @@ Partial Class frmBudgetTransfer
         'txtTransMay
         '
         Me.txtTransMay.EditValue = "0"
-        Me.txtTransMay.Location = New System.Drawing.Point(159, 386)
+        Me.txtTransMay.Location = New System.Drawing.Point(159, 380)
         Me.txtTransMay.Name = "txtTransMay"
         Me.txtTransMay.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransMay.Properties.Appearance.Options.UseFont = True
@@ -1237,7 +1244,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl35.Appearance.Options.UseTextOptions = True
         Me.LabelControl35.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl35.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl35.Location = New System.Drawing.Point(17, 362)
+        Me.LabelControl35.Location = New System.Drawing.Point(17, 356)
         Me.LabelControl35.Name = "LabelControl35"
         Me.LabelControl35.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl35.TabIndex = 661
@@ -1246,7 +1253,7 @@ Partial Class frmBudgetTransfer
         'txtTransApril
         '
         Me.txtTransApril.EditValue = "0"
-        Me.txtTransApril.Location = New System.Drawing.Point(159, 356)
+        Me.txtTransApril.Location = New System.Drawing.Point(159, 350)
         Me.txtTransApril.Name = "txtTransApril"
         Me.txtTransApril.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransApril.Properties.Appearance.Options.UseFont = True
@@ -1267,7 +1274,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl36.Appearance.Options.UseTextOptions = True
         Me.LabelControl36.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl36.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl36.Location = New System.Drawing.Point(17, 332)
+        Me.LabelControl36.Location = New System.Drawing.Point(17, 326)
         Me.LabelControl36.Name = "LabelControl36"
         Me.LabelControl36.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl36.TabIndex = 660
@@ -1276,7 +1283,7 @@ Partial Class frmBudgetTransfer
         'txtTransMarch
         '
         Me.txtTransMarch.EditValue = "0"
-        Me.txtTransMarch.Location = New System.Drawing.Point(159, 326)
+        Me.txtTransMarch.Location = New System.Drawing.Point(159, 320)
         Me.txtTransMarch.Name = "txtTransMarch"
         Me.txtTransMarch.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransMarch.Properties.Appearance.Options.UseFont = True
@@ -1297,7 +1304,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl37.Appearance.Options.UseTextOptions = True
         Me.LabelControl37.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl37.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl37.Location = New System.Drawing.Point(17, 302)
+        Me.LabelControl37.Location = New System.Drawing.Point(17, 296)
         Me.LabelControl37.Name = "LabelControl37"
         Me.LabelControl37.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl37.TabIndex = 659
@@ -1306,7 +1313,7 @@ Partial Class frmBudgetTransfer
         'txtTransFebruary
         '
         Me.txtTransFebruary.EditValue = "0"
-        Me.txtTransFebruary.Location = New System.Drawing.Point(159, 296)
+        Me.txtTransFebruary.Location = New System.Drawing.Point(159, 290)
         Me.txtTransFebruary.Name = "txtTransFebruary"
         Me.txtTransFebruary.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransFebruary.Properties.Appearance.Options.UseFont = True
@@ -1327,7 +1334,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl38.Appearance.Options.UseTextOptions = True
         Me.LabelControl38.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl38.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl38.Location = New System.Drawing.Point(17, 272)
+        Me.LabelControl38.Location = New System.Drawing.Point(17, 266)
         Me.LabelControl38.Name = "LabelControl38"
         Me.LabelControl38.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl38.TabIndex = 658
@@ -1336,7 +1343,7 @@ Partial Class frmBudgetTransfer
         'txtTransJanuary
         '
         Me.txtTransJanuary.EditValue = "0"
-        Me.txtTransJanuary.Location = New System.Drawing.Point(159, 266)
+        Me.txtTransJanuary.Location = New System.Drawing.Point(159, 260)
         Me.txtTransJanuary.Name = "txtTransJanuary"
         Me.txtTransJanuary.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransJanuary.Properties.Appearance.Options.UseFont = True
@@ -1353,7 +1360,7 @@ Partial Class frmBudgetTransfer
         'txtTransAccountTitle
         '
         Me.txtTransAccountTitle.EditValue = ""
-        Me.txtTransAccountTitle.Location = New System.Drawing.Point(159, 66)
+        Me.txtTransAccountTitle.Location = New System.Drawing.Point(159, 60)
         Me.txtTransAccountTitle.Name = "txtTransAccountTitle"
         Me.txtTransAccountTitle.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTransAccountTitle.Properties.Appearance.Options.UseFont = True
@@ -1367,7 +1374,7 @@ Partial Class frmBudgetTransfer
         Me.cmdSelectAccountTitle.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.cmdSelectAccountTitle.Appearance.Options.UseFont = True
         Me.cmdSelectAccountTitle.Enabled = False
-        Me.cmdSelectAccountTitle.Location = New System.Drawing.Point(41, 70)
+        Me.cmdSelectAccountTitle.Location = New System.Drawing.Point(41, 64)
         Me.cmdSelectAccountTitle.Name = "cmdSelectAccountTitle"
         Me.cmdSelectAccountTitle.Size = New System.Drawing.Size(112, 17)
         Me.cmdSelectAccountTitle.TabIndex = 687
@@ -1375,6 +1382,9 @@ Partial Class frmBudgetTransfer
         '
         'GroupControl1
         '
+        Me.GroupControl1.Controls.Add(Me.trncode)
+        Me.GroupControl1.Controls.Add(Me.fromofficeid)
+        Me.GroupControl1.Controls.Add(Me.txtFromItemCode)
         Me.GroupControl1.Controls.Add(Me.yearcode)
         Me.GroupControl1.Controls.Add(Me.txtFromClassCode)
         Me.GroupControl1.Controls.Add(Me.fundcode)
@@ -1426,6 +1436,45 @@ Partial Class frmBudgetTransfer
         Me.GroupControl1.Size = New System.Drawing.Size(510, 690)
         Me.GroupControl1.TabIndex = 688
         Me.GroupControl1.Text = "Source of Transfer"
+        '
+        'trncode
+        '
+        Me.trncode.EditValue = ""
+        Me.trncode.Location = New System.Drawing.Point(165, 643)
+        Me.trncode.Name = "trncode"
+        Me.trncode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.trncode.Properties.Appearance.Options.UseFont = True
+        Me.trncode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.trncode.Properties.ReadOnly = True
+        Me.trncode.Size = New System.Drawing.Size(182, 26)
+        Me.trncode.TabIndex = 697
+        Me.trncode.Visible = False
+        '
+        'fromofficeid
+        '
+        Me.fromofficeid.EditValue = ""
+        Me.fromofficeid.Location = New System.Drawing.Point(353, 38)
+        Me.fromofficeid.Name = "fromofficeid"
+        Me.fromofficeid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.fromofficeid.Properties.Appearance.Options.UseFont = True
+        Me.fromofficeid.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.fromofficeid.Properties.ReadOnly = True
+        Me.fromofficeid.Size = New System.Drawing.Size(33, 26)
+        Me.fromofficeid.TabIndex = 699
+        Me.fromofficeid.Visible = False
+        '
+        'txtFromItemCode
+        '
+        Me.txtFromItemCode.EditValue = ""
+        Me.txtFromItemCode.Location = New System.Drawing.Point(392, 38)
+        Me.txtFromItemCode.Name = "txtFromItemCode"
+        Me.txtFromItemCode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFromItemCode.Properties.Appearance.Options.UseFont = True
+        Me.txtFromItemCode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtFromItemCode.Properties.ReadOnly = True
+        Me.txtFromItemCode.Size = New System.Drawing.Size(33, 26)
+        Me.txtFromItemCode.TabIndex = 698
+        Me.txtFromItemCode.Visible = False
         '
         'yearcode
         '
@@ -1499,6 +1548,7 @@ Partial Class frmBudgetTransfer
         '
         'GroupControl2
         '
+        Me.GroupControl2.Controls.Add(Me.cmdAttachment)
         Me.GroupControl2.Controls.Add(Me.txtTransTotalBudgetOriginal)
         Me.GroupControl2.Controls.Add(Me.LabelControl23)
         Me.GroupControl2.Controls.Add(Me.txtAmountTransfer)
@@ -1551,10 +1601,20 @@ Partial Class frmBudgetTransfer
         Me.GroupControl2.TabIndex = 689
         Me.GroupControl2.Text = "Target Fund Transfer"
         '
+        'cmdAttachment
+        '
+        Me.cmdAttachment.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdAttachment.Appearance.Options.UseFont = True
+        Me.cmdAttachment.Location = New System.Drawing.Point(159, 650)
+        Me.cmdAttachment.Name = "cmdAttachment"
+        Me.cmdAttachment.Size = New System.Drawing.Size(182, 33)
+        Me.cmdAttachment.TabIndex = 696
+        Me.cmdAttachment.Text = "Attach FIles"
+        '
         'txtTransTotalBudgetOriginal
         '
         Me.txtTransTotalBudgetOriginal.EditValue = "0"
-        Me.txtTransTotalBudgetOriginal.Location = New System.Drawing.Point(347, 175)
+        Me.txtTransTotalBudgetOriginal.Location = New System.Drawing.Point(347, 169)
         Me.txtTransTotalBudgetOriginal.Name = "txtTransTotalBudgetOriginal"
         Me.txtTransTotalBudgetOriginal.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.txtTransTotalBudgetOriginal.Properties.Appearance.Options.UseFont = True
@@ -1577,7 +1637,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl23.Appearance.Options.UseTextOptions = True
         Me.LabelControl23.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl23.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl23.Location = New System.Drawing.Point(17, 151)
+        Me.LabelControl23.Location = New System.Drawing.Point(17, 145)
         Me.LabelControl23.Name = "LabelControl23"
         Me.LabelControl23.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl23.TabIndex = 694
@@ -1586,7 +1646,7 @@ Partial Class frmBudgetTransfer
         'txtAmountTransfer
         '
         Me.txtAmountTransfer.EditValue = "0"
-        Me.txtAmountTransfer.Location = New System.Drawing.Point(159, 145)
+        Me.txtAmountTransfer.Location = New System.Drawing.Point(159, 139)
         Me.txtAmountTransfer.Name = "txtAmountTransfer"
         Me.txtAmountTransfer.Properties.Appearance.BackColor = System.Drawing.Color.Yellow
         Me.txtAmountTransfer.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1605,7 +1665,7 @@ Partial Class frmBudgetTransfer
         'txtTransClassCode
         '
         Me.txtTransClassCode.EditValue = ""
-        Me.txtTransClassCode.Location = New System.Drawing.Point(347, 116)
+        Me.txtTransClassCode.Location = New System.Drawing.Point(347, 110)
         Me.txtTransClassCode.Name = "txtTransClassCode"
         Me.txtTransClassCode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTransClassCode.Properties.Appearance.Options.UseFont = True
@@ -1618,7 +1678,7 @@ Partial Class frmBudgetTransfer
         'txtTransItemCode
         '
         Me.txtTransItemCode.EditValue = ""
-        Me.txtTransItemCode.Location = New System.Drawing.Point(395, 33)
+        Me.txtTransItemCode.Location = New System.Drawing.Point(395, 27)
         Me.txtTransItemCode.Name = "txtTransItemCode"
         Me.txtTransItemCode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTransItemCode.Properties.Appearance.Options.UseFont = True
@@ -1631,7 +1691,7 @@ Partial Class frmBudgetTransfer
         'txtTransOffice
         '
         Me.txtTransOffice.EditValue = "sss"
-        Me.txtTransOffice.Location = New System.Drawing.Point(159, 38)
+        Me.txtTransOffice.Location = New System.Drawing.Point(159, 32)
         Me.txtTransOffice.Name = "txtTransOffice"
         Me.txtTransOffice.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtTransOffice.Properties.Appearance.Options.UseFont = True
@@ -1659,7 +1719,7 @@ Partial Class frmBudgetTransfer
         Me.LabelControl22.Appearance.Options.UseTextOptions = True
         Me.LabelControl22.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.LabelControl22.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl22.Location = New System.Drawing.Point(17, 41)
+        Me.LabelControl22.Location = New System.Drawing.Point(17, 35)
         Me.LabelControl22.Name = "LabelControl22"
         Me.LabelControl22.Size = New System.Drawing.Size(133, 17)
         Me.LabelControl22.TabIndex = 689
@@ -1668,7 +1728,7 @@ Partial Class frmBudgetTransfer
         'trans_id
         '
         Me.trans_id.EditValue = ""
-        Me.trans_id.Location = New System.Drawing.Point(356, 33)
+        Me.trans_id.Location = New System.Drawing.Point(356, 27)
         Me.trans_id.Name = "trans_id"
         Me.trans_id.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.trans_id.Properties.Appearance.Options.UseFont = True
@@ -1682,13 +1742,13 @@ Partial Class frmBudgetTransfer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1015, 744)
+        Me.ClientSize = New System.Drawing.Size(1013, 742)
         Me.Controls.Add(Me.GroupControl2)
         Me.Controls.Add(Me.GroupControl1)
         Me.Controls.Add(Me.cmdFromSaveButton)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(395, 519)
+        Me.MinimumSize = New System.Drawing.Size(397, 521)
         Me.Name = "frmBudgetTransfer"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Budget Fund Transfer"
@@ -1736,6 +1796,9 @@ Partial Class frmBudgetTransfer
         CType(Me.txtTransAccountTitle.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
+        CType(Me.trncode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.fromofficeid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtFromItemCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.yearcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtFromClassCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1851,4 +1914,8 @@ Partial Class frmBudgetTransfer
     Friend WithEvents txtFromClassCode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents fundcode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents yearcode As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtFromItemCode As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents fromofficeid As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents cmdAttachment As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents trncode As DevExpress.XtraEditors.TextEdit
 End Class

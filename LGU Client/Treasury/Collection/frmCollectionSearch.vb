@@ -32,9 +32,10 @@ Public Class frmCollectionSearch
         'If RemoveWhiteSpaces(keyword, True) = "" Or RemoveWhiteSpaces(keyword, True) = "%" Then Exit Sub
         Dim SearchCommand As String = " (" & SearchAdvanceCommand("itemname", RemoveWhiteSpaces(keyword, True)) & ") "
 
-        LoadXgrid("SELECT trncode, trnname as 'Transaction Name',glitemcode as 'Item Code', (select itemname from tblglitem where itemcode=a.glitemcode)  as 'Account Title' FROM tblcollectionitem as a  order by trnname asc;", "tblcollectionitem", Em, GridView1, Me)
+        LoadXgrid("SELECT trncode, trnname as 'Transaction Name',glitemcode as 'Item Code', (select itemname from tblglitem where itemcode=a.glitemcode)  as 'Account Title', Amount FROM tblcollectionitem as a  order by trnname asc;", "tblcollectionitem", Em, GridView1, Me)
         XgridHideColumn({"trncode", "Item Code", "Account Title"}, GridView1)
         XgridColAlign({"Item Code"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+        XgridColCurrency({"Amount"}, GridView1)
         SplitContainerControl1.Panel2.Focus()
         Em.Focus()
         FocusOnItem(txtSearchKeyword.Text)
@@ -57,20 +58,22 @@ Public Class frmCollectionSearch
     End Sub
 
     Private Sub PickSelectedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PickSelectedToolStripMenuItem.Click
-        PickAccount(GridView1.GetFocusedRowCellValue("Item Code").ToString, GridView1.GetFocusedRowCellValue("Account Title").ToString, GridView1.GetFocusedRowCellValue("trncode").ToString, GridView1.GetFocusedRowCellValue("Transaction Name").ToString)
+        PickAccount(GridView1.GetFocusedRowCellValue("Item Code").ToString, GridView1.GetFocusedRowCellValue("Account Title").ToString, GridView1.GetFocusedRowCellValue("trncode").ToString, GridView1.GetFocusedRowCellValue("Transaction Name").ToString, GridView1.GetFocusedRowCellValue("Amount").ToString)
     End Sub
     Private Sub Em_KeyDown(sender As Object, e As KeyEventArgs) Handles Em.KeyDown
         If e.KeyCode() = Keys.Enter Then
-            PickAccount(GridView1.GetFocusedRowCellValue("Item Code").ToString, GridView1.GetFocusedRowCellValue("Account Title").ToString, GridView1.GetFocusedRowCellValue("trncode").ToString, GridView1.GetFocusedRowCellValue("Transaction Name").ToString)
+            PickAccount(GridView1.GetFocusedRowCellValue("Item Code").ToString, GridView1.GetFocusedRowCellValue("Account Title").ToString, GridView1.GetFocusedRowCellValue("trncode").ToString, GridView1.GetFocusedRowCellValue("Transaction Name").ToString, GridView1.GetFocusedRowCellValue("Amount").ToString)
         End If
     End Sub
 
-    Public Sub PickAccount(ByVal glitemcode As String, ByVal glitemname As String, ByVal trncode As String, ByVal trnname As String)
+    Public Sub PickAccount(ByVal glitemcode As String, ByVal glitemname As String, ByVal trncode As String, ByVal trnname As String, ByVal amount As String)
         frmCollectionInputAmount.glitemcode.Text = glitemcode
         frmCollectionInputAmount.glitemname.Text = glitemname
         frmCollectionInputAmount.trncode.Text = trncode
         frmCollectionInputAmount.grpTitle.Text = trnname
+        frmCollectionInputAmount.txtAmount.Text = amount
         frmCollectionInputAmount.txtCollectionName.Text = trnname
+
         frmCollectionInputAmount.ShowDialog(Me)
     End Sub
 

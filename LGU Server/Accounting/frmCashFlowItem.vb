@@ -9,6 +9,10 @@ Public Class frmCashFlowItem
         LoadCashFlowItem()
         ShowUnfilteredClient()
         ShowfilteredClients()
+        PermissionAccess({cmdMoveLeft, cmdMoveRight}, globalAdminAccess)
+        PermissionAccess({cmdSave}, globalAllowAdd)
+        PermissionAccess({cmdEdit}, globalAllowEdit)
+        PermissionAccess({cmdDelete}, globalAllowDelete)
     End Sub
 
 #Region "CashFlowInfo"
@@ -18,7 +22,7 @@ Public Class frmCashFlowItem
         GridView1.BestFitColumns()
     End Sub
 
-    Private Sub cmdSaveButton_Click(sender As Object, e As EventArgs) Handles cmdSaveButton.Click
+    Private Sub cmdSaveButton_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
         If countqry("tblcashflowitem", "code='" & code.Text & "'") > 0 And mode.Text <> "edit" Then
             XtraMessageBox.Show("Code already exists!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             code.Focus()

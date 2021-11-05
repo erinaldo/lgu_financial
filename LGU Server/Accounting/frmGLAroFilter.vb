@@ -23,6 +23,7 @@ Public Class frmGLAroFilter
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
         ShowUnfiltered()
         Showfiltered()
+        PermissionAccess({cmdMoveLeft, cmdMoveRight}, globalAdminAccess)
     End Sub
 
     Public Sub ShowUnfiltered()

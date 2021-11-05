@@ -7,15 +7,45 @@ Public Class frmBudgetTransfer
     Dim UpdateEnable As Boolean = False
     Dim FromFigureMatch As Boolean = False
     Dim TransFigureMatch As Boolean = False
+    Dim attachedFiles As Boolean = False
+
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
         If keyData = (Keys.Escape) Then
             Me.Close()
         End If
         Return ProcessCmdKey
     End Function
+
+    Private Sub frmBudgetEditLine_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If attachedFiles Then
+            If XtraMessageBox.Show("All attached file will be removed! Are you sure you want to close fund transfer?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = vbYes Then
+                DeleteAttachedFiles(trncode.Text)
+            Else
+                e.Cancel = True
+            End If
+        End If
+    End Sub
+
+    Private Sub frmBudgetTransfer_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        Attachment()
+    End Sub
+
+
     Private Sub frmBudgetEditLine_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
         LoadOffice()
+        trncode.Text = getGlobalTrnid("TR", globaluserid)
+    End Sub
+
+    Public Sub Attachment()
+        Dim totalAttached As Integer = countqry(sqlfiledir & ".tblattachmentlogs", "refnumber='" & trncode.Text & "'")
+        If totalAttached > 0 Then
+            cmdAttachment.Text = totalAttached & " Total File(s)"
+            attachedFiles = True
+        Else
+            cmdAttachment.Text = "Attach FIles"
+            attachedFiles = False
+        End If
     End Sub
 
     Private Sub cmdSaveButton_Click(sender As Object, e As EventArgs) Handles cmdFromSaveButton.Click
@@ -37,12 +67,16 @@ Public Class frmBudgetTransfer
             ElseIf TransFigureMatch = False Then
                 XtraMessageBox.Show("Target transfer figure of total allocated budget doesn't match to overall total figure!" & Environment.NewLine & "Please adjust amount not more than or less than allocated budget " & Environment.NewLine & "amount and try again", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
+            ElseIf countqry(sqlfiledir & ".tblattachmentlogs", "refnumber='" & trncode.Text & "'") = 0 Then
+                XtraMessageBox.Show("Please attach supporting files!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
             End If
             If XtraMessageBox.Show("Are you sure you want to continue?", compname, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
+                LogTransfer()
                 FromAdjustFigure()
                 TransAdjustFigure()
 
-                UpdateEnable = False
+                UpdateEnable = False : trncode.Text = getGlobalTrnid("TR", globaluserid) : Attachment()
                 XtraMessageBox.Show("Transfer successfully updated!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End If
@@ -78,7 +112,9 @@ Public Class frmBudgetTransfer
             yearcode.Text = rst("yearcode").ToString
             MonthCode = rst("monthcode").ToString
             periodcode.Text = rst("periodcode").ToString
+            fromofficeid.Text = rst("officeid").ToString
             txtFromOffice.Text = rst("office").ToString
+            txtFromItemCode.Text = rst("itemcode").ToString
             txtFromAccountTitle.Text = rst("itemname").ToString
             txtFromClass.Text = rst("class").ToString
             txtFromClassCode.Text = rst("classcode").ToString
@@ -521,6 +557,32 @@ Public Class frmBudgetTransfer
             TransCalculator()
         End If
     End Sub
+
+
+#End Region
+
+#Region "TRANSFER LOGS"
+
+    Public Sub LogTransfer()
+        com.CommandText = "insert into tblbudgettransferlogs set trncode='" & trncode.Text & "', periodcode='" & periodcode.Text & "', fundcode='" & fundcode.Text & "', yearcode='" & yearcode.Text & "', monthcode='" & MonthCode & "', from_officeid='" & fromofficeid.EditValue & "', from_classcode='" & txtFromClassCode.Text & "', from_itemcode='" & txtFromItemCode.Text & "', from_itemname='" & rchar(txtFromAccountTitle.Text) & "', to_officeid='" & txtTransOffice.EditValue & "', to_classcode='" & txtTransClassCode.Text & "', to_itemcode='" & txtTransItemCode.Text & "', to_itemname='" & rchar(txtTransAccountTitle.Text) & "', amounttransfer='" & Val(CC(txtAmountTransfer.Text)) & "', datetransfer=current_timestamp, transferby='" & globaluserid & "'" : com.ExecuteNonQuery()
+
+    End Sub
+
+    Private Sub cmdAttachment_Click(sender As Object, e As EventArgs) Handles cmdAttachment.Click
+        Dim totalAttached As Integer = countqry(sqlfiledir & ".tblattachmentlogs", "refnumber='" & trncode.Text & "'")
+        If totalAttached > 0 Then
+            frmFileViewer.trncode.Text = trncode.Text
+            frmFileViewer.trntype.Text = "fund_trans"
+            frmFileViewer.viewonly = False
+            frmFileViewer.ShowDialog()
+        Else
+            frmFileUploader.trncode.Text = trncode.Text
+            frmFileUploader.trntype.Text = "fund_trans"
+            frmFileUploader.ShowDialog()
+        End If
+
+    End Sub
+
 
 
 #End Region

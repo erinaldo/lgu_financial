@@ -19,22 +19,11 @@ Partial Class frmBackupTool
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.txtKey = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
+        Me.cmdFinish = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.txtKey.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(125, 58)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(231, 34)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Confirm Backup"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'txtKey
         '
@@ -61,14 +50,29 @@ Partial Class frmBackupTool
         Me.LabelControl1.TabIndex = 611
         Me.LabelControl1.Text = "Backup Database File"
         '
+        'cmdFinish
+        '
+        Me.cmdFinish.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmdFinish.Appearance.BackColor2 = System.Drawing.Color.Khaki
+        Me.cmdFinish.Appearance.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdFinish.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.cmdFinish.Appearance.Options.UseBackColor = True
+        Me.cmdFinish.Appearance.Options.UseFont = True
+        Me.cmdFinish.Location = New System.Drawing.Point(155, 61)
+        Me.cmdFinish.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cmdFinish.Name = "cmdFinish"
+        Me.cmdFinish.Size = New System.Drawing.Size(161, 39)
+        Me.cmdFinish.TabIndex = 612
+        Me.cmdFinish.Text = "Create Backup"
+        '
         'frmBackupTool
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(482, 106)
+        Me.ClientSize = New System.Drawing.Size(482, 121)
+        Me.Controls.Add(Me.cmdFinish)
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.txtKey)
-        Me.Controls.Add(Me.Button1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -80,7 +84,7 @@ Partial Class frmBackupTool
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents txtKey As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents cmdFinish As DevExpress.XtraEditors.SimpleButton
 End Class

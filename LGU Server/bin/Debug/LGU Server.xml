@@ -507,6 +507,11 @@ LGU Server
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:LGUFinancial.My.Resources.Resources.Build_32x32__2_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:LGUFinancial.My.Resources.Resources.building__arrow">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -1517,6 +1522,11 @@ LGU Server
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:LGUFinancial.My.Resources.Resources.lock__arrow">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:LGUFinancial.My.Resources.Resources.lock__exclamation">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -1898,6 +1908,11 @@ LGU Server
 </summary>
 </member>
 <member name="P:LGUFinancial.My.Resources.Resources.printer__exclamation">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:LGUFinancial.My.Resources.Resources.Printer_32x32__2_">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

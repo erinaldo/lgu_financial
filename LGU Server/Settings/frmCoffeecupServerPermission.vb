@@ -34,6 +34,7 @@ Public Class frmCoffeecupServerPermission
     End Sub
     Private Sub frmUsersAccounts_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
+        XtraTabControl1.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False
         LoadGridviewAppearance(gv_permission)
         Load_Menu()
         LoadPermission()
@@ -79,7 +80,10 @@ Public Class frmCoffeecupServerPermission
         While rst.Read
             If rst("grouppermission").ToString = "rbnAccounting" Then
                 list_accounting.Items.Item(rst("menus").ToString).CheckState = CheckState.Checked
-
+            ElseIf rst("grouppermission").ToString = "rbnTransaction" Then
+                list_transaction_item.Items.Item(rst("menus").ToString).CheckState = CheckState.Checked
+            ElseIf rst("grouppermission").ToString = "rbnReports" Then
+                list_reports.Items.Item(rst("menus").ToString).CheckState = CheckState.Checked
             ElseIf rst("grouppermission").ToString = "rbnSettings" Then
                 list_settings.Items.Item(rst("menus").ToString).CheckState = CheckState.Checked
             End If
@@ -95,6 +99,8 @@ Public Class frmCoffeecupServerPermission
     Sub Load_Menu()
         Dim mCurrentItem As BarItem
         list_accounting.Items.Clear()
+        list_transaction_item.Items.Clear()
+        list_reports.Items.Clear()
         list_settings.Items.Clear()
         For Each currentPage As RibbonPage In MdiMainmenu.MainMenu.Pages
             For Each currentGroup As RibbonPageGroup In currentPage.Groups
@@ -105,6 +111,18 @@ Public Class frmCoffeecupServerPermission
                             list_accounting.Items.Add(mCurrentItem.Name, False)
                             list_accounting.Items.Item(mCurrentItem.Name).Description = mCurrentItem.Caption
                             list_accounting.Items.Item(mCurrentItem.Name).Value = mCurrentItem.Name
+                        End If
+                    ElseIf currentPage.Name = "rbnTransaction" Then
+                        If mCurrentItem.Visibility = BarItemVisibility.Always Then
+                            list_transaction_item.Items.Add(mCurrentItem.Name, False)
+                            list_transaction_item.Items.Item(mCurrentItem.Name).Description = mCurrentItem.Caption
+                            list_transaction_item.Items.Item(mCurrentItem.Name).Value = mCurrentItem.Name
+                        End If
+                    ElseIf currentPage.Name = "rbnReports" Then
+                        If mCurrentItem.Visibility = BarItemVisibility.Always Then
+                            list_reports.Items.Add(mCurrentItem.Name, False)
+                            list_reports.Items.Item(mCurrentItem.Name).Description = mCurrentItem.Caption
+                            list_reports.Items.Item(mCurrentItem.Name).Value = mCurrentItem.Name
                         End If
                     ElseIf currentPage.Name = "rbnSettings" Then
                         If mCurrentItem.Visibility = BarItemVisibility.Always Then
@@ -126,16 +144,30 @@ Public Class frmCoffeecupServerPermission
             txtpermission.Focus()
             Exit Sub
         End If
-        'PROCUREMENT
+
         SplashScreenManager.ShowForm(GetType(WaitForm1), True, True)
         com.CommandText = "DELETE from tblpermissionstemplate where percode='" & percode.Text & "'" : com.ExecuteNonQuery()
         com.CommandText = "DELETE from tblpermissionsclearing where percode='" & percode.Text & "'" : com.ExecuteNonQuery()
-       
+
 
         'ACCOUNTING
         If list_accounting.CheckedItemsCount > 0 Then
             For n = 0 To list_accounting.CheckedItems.Count - 1
                 com.CommandText = "insert into tblpermissionstemplate set percode='" & percode.Text & "',grouppermission='rbnAccounting', menus='" & list_accounting.Items.Item(list_accounting.CheckedItems.Item(n)).Value.ToString & "',caption='" & rchar(list_accounting.Items.Item(list_accounting.CheckedItems.Item(n)).Description.ToString) & "'" : com.ExecuteNonQuery()
+            Next
+        End If
+
+        'TRANSACTION
+        If list_transaction_item.CheckedItemsCount > 0 Then
+            For n = 0 To list_transaction_item.CheckedItems.Count - 1
+                com.CommandText = "insert into tblpermissionstemplate set percode='" & percode.Text & "',grouppermission='rbnTransaction', menus='" & list_transaction_item.Items.Item(list_transaction_item.CheckedItems.Item(n)).Value.ToString & "',caption='" & rchar(list_transaction_item.Items.Item(list_transaction_item.CheckedItems.Item(n)).Description.ToString) & "'" : com.ExecuteNonQuery()
+            Next
+        End If
+
+        'REPORTS
+        If list_reports.CheckedItemsCount > 0 Then
+            For n = 0 To list_reports.CheckedItems.Count - 1
+                com.CommandText = "insert into tblpermissionstemplate set percode='" & percode.Text & "',grouppermission='rbnReports', menus='" & list_reports.Items.Item(list_reports.CheckedItems.Item(n)).Value.ToString & "',caption='" & rchar(list_reports.Items.Item(list_reports.CheckedItems.Item(n)).Description.ToString) & "'" : com.ExecuteNonQuery()
             Next
         End If
 
@@ -156,6 +188,18 @@ Public Class frmCoffeecupServerPermission
             For n = 0 To list_accounting.ItemCount - 1
                 If CheckEdit1.Checked = True Then
                     list_accounting.Items.Item(n).CheckState = CheckState.Checked
+                End If
+            Next
+        ElseIf XtraTabControl1.SelectedTabPage Is tabTransactionItem Then
+            For n = 0 To list_transaction_item.ItemCount - 1
+                If CheckEdit1.Checked = True Then
+                    list_transaction_item.Items.Item(n).CheckState = CheckState.Checked
+                End If
+            Next
+        ElseIf XtraTabControl1.SelectedTabPage Is tabReports Then
+            For n = 0 To list_reports.ItemCount - 1
+                If CheckEdit1.Checked = True Then
+                    list_reports.Items.Item(n).CheckState = CheckState.Checked
                 End If
             Next
         ElseIf XtraTabControl1.SelectedTabPage Is tabSettings Then
@@ -184,6 +228,16 @@ Public Class frmCoffeecupServerPermission
         CheckEdit1.Checked = False
     End Sub
 
+    Private Sub cmdTransactionItem_LinkClicked(sender As Object, e As DevExpress.XtraNavBar.NavBarLinkEventArgs) Handles cmdTransactionItem.LinkClicked
+        XtraTabControl1.SelectedTabPage = tabTransactionItem
+        CheckEdit1.Checked = False
+    End Sub
+
+    Private Sub cmdReports_LinkClicked(sender As Object, e As DevExpress.XtraNavBar.NavBarLinkEventArgs) Handles cmdReports.LinkClicked
+        XtraTabControl1.SelectedTabPage = tabReports
+        CheckEdit1.Checked = False
+    End Sub
+
     Private Sub cmdSettings_LinkClicked(sender As Object, e As DevExpress.XtraNavBar.NavBarLinkEventArgs) Handles cmdSettings.LinkClicked
         XtraTabControl1.SelectedTabPage = tabSettings
         CheckEdit1.Checked = False
@@ -208,7 +262,7 @@ Public Class frmCoffeecupServerPermission
         End If
         Dim saveFileDialog1 As New SaveFileDialog()
         saveFileDialog1.Filter = "Report File (*.xlsx)|*.xlsx|All files (*.*)|*.*"
-        saveFileDialog1.FileName = "Coffeecup Server Permission (" & txtpermission.Text & ").xlsx"
+        saveFileDialog1.FileName = "LGU Server Permission (" & txtpermission.Text & ").xlsx"
         saveFileDialog1.FilterIndex = 2
         saveFileDialog1.RestoreDirectory = True
         If saveFileDialog1.ShowDialog() = DialogResult.OK Then

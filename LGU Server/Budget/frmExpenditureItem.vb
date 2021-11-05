@@ -13,6 +13,9 @@ Public Class frmExpenditureItem
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
         LoadExpensesGL()
         LoadData()
+        PermissionAccess({cmdOk}, globalAllowAdd)
+        PermissionAccess({cmdEdit}, globalAllowEdit)
+        PermissionAccess({cmdDelete}, globalAllowDelete)
     End Sub
 
     Public Sub LoadExpensesGL()

@@ -21,6 +21,7 @@ Public Class frmGLCaptureChartofAccount
 
     Private Sub frmGLCaptureChartofAccount_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
+        PermissionAccess({cmdSave}, globalAdminAccess)
         com.CommandText = "DROP TABLE IF EXISTS tmpglitem;" : com.ExecuteNonQuery()
         com.CommandText = "CREATE TEMPORARY TABLE tmpglitem (  `groupcode` varchar(50) NOT NULL DEFAULT '',  `keycode` varchar(45) NOT NULL DEFAULT '',  `itemcode` varchar(50) NOT NULL DEFAULT '',  `itemname` varchar(500) NOT NULL DEFAULT '',  `parent` varchar(50) NOT NULL DEFAULT '',  `glgroup` tinyint(1) NOT NULL DEFAULT '0',  `gl` tinyint(1) NOT NULL DEFAULT '0',  `sl` tinyint(1) NOT NULL DEFAULT '0',  `bold` tinyint(1) NOT NULL DEFAULT '0',  `summary` tinyint(1) NOT NULL DEFAULT '0',  `unappropriate` tinyint(1) NOT NULL DEFAULT '0',  `treasury` tinyint(1) NOT NULL DEFAULT '0',  `cedula` tinyint(1) NOT NULL DEFAULT '0',  `expenditure` tinyint(1) NOT NULL DEFAULT '0',  `level` int(10) unsigned NOT NULL DEFAULT '0',  `remarks` text,  `latestamount` double NOT NULL DEFAULT '0',  `locked` tinyint(1) NOT NULL DEFAULT '0',  `debitentry` tinyint(1) NOT NULL DEFAULT '0',  PRIMARY KEY (`itemcode`)) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;" : com.ExecuteNonQuery()
     End Sub

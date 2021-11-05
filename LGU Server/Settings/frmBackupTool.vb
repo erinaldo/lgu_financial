@@ -4,7 +4,11 @@ Imports System.IO
 
 Public Class frmBackupTool
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub frmdbUpdater_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        txtKey.Text = "coffecup " & GetDateTimeID() & ".sql"
+    End Sub
+
+    Private Sub cmdFinish_Click(sender As Object, e As EventArgs) Handles cmdFinish.Click
         If XtraMessageBox.Show("Are you sure continue backup data? ", Me.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             Dim saveFileDialog1 As New SaveFileDialog()
             saveFileDialog1.Filter = "MySQL File (*.sql)|*.sql"
@@ -34,21 +38,16 @@ Public Class frmBackupTool
                     Me.Close()
                 End If
             End If
-            
-          
+
+
             Try
-                
+
             Catch errMS As Exception
                 XtraMessageBox.Show("Form:" & Me.Name & vbCrLf _
                              & "Message:" & errMS.Message & vbCrLf _
-                             & "Details:" & errMS.StackTrace, _
+                             & "Details:" & errMS.StackTrace,
                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End If
     End Sub
-
-    Private Sub frmdbUpdater_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        txtKey.Text = "coffecup " & GetDateTimeID() & ".sql"
-    End Sub
-
 End Class

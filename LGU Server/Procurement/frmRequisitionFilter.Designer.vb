@@ -29,11 +29,6 @@ Partial Class frmRequisitionFilter
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.BarDockControl1 = New DevExpress.XtraBars.BarDockControl()
         Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BarLargeButtonItem1 = New DevExpress.XtraBars.BarLargeButtonItem()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.Em_unfiltered = New DevExpress.XtraGrid.GridControl()
@@ -48,7 +43,6 @@ Partial Class frmRequisitionFilter
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gridmenustrip.SuspendLayout()
         CType(Me.Em_unfiltered, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em_filtered, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,15 +97,15 @@ Partial Class frmRequisitionFilter
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(626, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(624, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 396)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 394)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(626, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(624, 0)
         '
         'barDockControlLeft
         '
@@ -119,52 +113,20 @@ Partial Class frmRequisitionFilter
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 376)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 374)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(626, 20)
+        Me.BarDockControl1.Location = New System.Drawing.Point(624, 20)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 376)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 374)
         '
         'RepositoryItemTextEdit1
         '
         Me.RepositoryItemTextEdit1.AutoHeight = False
         Me.RepositoryItemTextEdit1.Name = "RepositoryItemTextEdit1"
-        '
-        'gridmenustrip
-        '
-        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
-        Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(146, 76)
-        '
-        'cmdEdit
-        '
-        Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
-        Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(145, 22)
-        Me.cmdEdit.Text = "Edit Category"
-        '
-        'cmdDelete
-        '
-        Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.notebook__minus
-        Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(145, 22)
-        Me.cmdDelete.Text = "Remove Item"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(142, 6)
-        '
-        'RefreshToolStripMenuItem
-        '
-        Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
-        Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
-        Me.RefreshToolStripMenuItem.Text = "Refresh Data"
         '
         'BarLargeButtonItem1
         '
@@ -176,9 +138,9 @@ Partial Class frmRequisitionFilter
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(626, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(624, 20)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 376)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 374)
         '
         'Em_unfiltered
         '
@@ -282,7 +244,7 @@ Partial Class frmRequisitionFilter
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(626, 396)
+        Me.ClientSize = New System.Drawing.Size(624, 394)
         Me.Controls.Add(Me.code)
         Me.Controls.Add(Me.cmdMoveLeft)
         Me.Controls.Add(Me.cmdMoveRight)
@@ -297,14 +259,13 @@ Partial Class frmRequisitionFilter
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(360, 374)
+        Me.MinimumSize = New System.Drawing.Size(362, 376)
         Me.Name = "frmRequisitionFilter"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Account Title Filter (Note: Move item to the right to give access of a user)"
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gridmenustrip.ResumeLayout(False)
         CType(Me.Em_unfiltered, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Em_filtered, System.ComponentModel.ISupportInitialize).EndInit()
@@ -317,11 +278,6 @@ Partial Class frmRequisitionFilter
 
     End Sub
     Friend WithEvents DockManager1 As DevExpress.XtraBars.Docking.DockManager
-    Friend WithEvents gridmenustrip As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents cmdEdit As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmdDelete As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents RefreshToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
     Friend WithEvents BarLargeButtonItem1 As DevExpress.XtraBars.BarLargeButtonItem
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl

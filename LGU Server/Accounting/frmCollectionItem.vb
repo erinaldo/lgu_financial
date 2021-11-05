@@ -6,6 +6,9 @@ Public Class frmCollectionItem
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
         filter()
         LoadAccountTitle()
+        PermissionAccess({cmdSave}, globalAllowAdd)
+        PermissionAccess({cmdEdit}, globalAllowEdit)
+        PermissionAccess({cmdDelete}, globalAllowDelete)
     End Sub
 
     Public Sub LoadAccountTitle()
@@ -14,12 +17,13 @@ Public Class frmCollectionItem
     End Sub
 
     Public Sub filter()
-        LoadXgrid("Select trncode, trnname as 'Description', (select itemname from tblglitem where itemcode=a.glitemcode) as 'Account Title' from tblcollectionitem as a order by trnname asc", "tblcollectionitem", Em, GridView1, Me)
+        LoadXgrid("Select trncode, trnname as 'Description', (select itemname from tblglitem where itemcode=a.glitemcode) as 'Account Title', amount as 'Default Amount' from tblcollectionitem as a order by trnname asc", "tblcollectionitem", Em, GridView1, Me)
         XgridColAlign({"trncode"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
+        XgridColCurrency({"Default Amount"}, GridView1)
         GridView1.BestFitColumns()
     End Sub
 
-    Private Sub cmdSaveButton_Click(sender As Object, e As EventArgs) Handles cmdSaveButton.Click
+    Private Sub cmdSaveButton_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
         If txtDescription.Text = "" Then
             XtraMessageBox.Show("Please enter collection name!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtDescription.Focus()
@@ -30,11 +34,11 @@ Public Class frmCollectionItem
             Exit Sub
         End If
         If mode.Text = "edit" Then
-            com.CommandText = "update tblcollectionitem set trnname='" & rchar(txtDescription.Text) & "',glitemcode='" & txtAccountTitle.EditValue & "' where trncode='" & code.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "update tblcollectionitem set trnname='" & rchar(txtDescription.Text) & "',glitemcode='" & txtAccountTitle.EditValue & "', amount='" & Val(CC(txtAmount.Text)) & "' where trncode='" & code.Text & "'" : com.ExecuteNonQuery()
         Else
-            com.CommandText = "insert into tblcollectionitem set  trnname='" & rchar(txtDescription.Text) & "',glitemcode='" & txtAccountTitle.EditValue & "'" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblcollectionitem set  trnname='" & rchar(txtDescription.Text) & "',glitemcode='" & txtAccountTitle.EditValue & "', amount='" & Val(CC(txtAmount.Text)) & "'" : com.ExecuteNonQuery()
         End If
-        code.Text = "" : mode.Text = "" : txtDescription.Text = "" : txtDescription.Focus() : filter() : code.Enabled = True
+        code.Text = "" : mode.Text = "" : txtDescription.Text = "" : txtAmount.Text = "0" : txtDescription.Focus() : filter() : code.Enabled = True
         XtraMessageBox.Show("collection item successfully saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
@@ -44,6 +48,7 @@ Public Class frmCollectionItem
         While rst.Read
             txtDescription.Text = rst("trnname").ToString
             txtAccountTitle.EditValue = rst("glitemcode").ToString
+            txtAmount.Text = rst("amount").ToString
         End While
         rst.Close()
     End Sub
@@ -63,7 +68,7 @@ Public Class frmCollectionItem
         If XtraMessageBox.Show("Are you sure you want to permanently remove selected item? ", compname, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             Dim I As Integer = 0
             For I = 0 To GridView1.SelectedRowsCount - 1
-                com.CommandText = "delete from tblcollectionitem where trncode='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "trncode") & "' " : com.ExecuteNonQuery()
+                com.CommandText = "update tblcollectionitem set deleted=1, datedeleted=current_timestamp, deletedby='" & globaluserid & "' where trncode='" & GridView1.GetRowCellValue(GridView1.GetSelectedRows(I), "trncode") & "' " : com.ExecuteNonQuery()
             Next
             filter()
         End If

@@ -226,12 +226,12 @@ Module FileManagementModule
                     Dim ArchievedName As String = NewMd5FileName(flocation & "_" & getGlobalDBTrnid() & cnt) & Path.GetExtension(flocation)
                     Dim FileName As String = getGlobalDBTrnid() & cnt & "_" & rchar(Path.GetFileName(flocation))
 
-                    com.CommandText = "delete from " & sqlfiledir & ".tblattachmentlogs where refnumber='" & refno & "' and trntype='" & trntype & "' and docname='" & docname & "' and filecode='" & filecode & "' and databasename='tbl" & GetAttachmentDate() & "' and filename='" & FileName & "'" : com.ExecuteNonQuery()
-                    com.CommandText = "delete from " & sqlfiledir & ".`tbl" & GetAttachmentDate() & "` where refnumber='" & refno & "' and trntype='" & trntype & "' and docname='" & docname & "' and filecode='" & filecode & "' and filename='" & FileName & "'" : com.ExecuteNonQuery()
+                    com.CommandText = "delete from " & sqlfiledir & ".tblattachmentlogs where refnumber='" & refno & "' and trntype='" & trntype & "' and docname='" & rchar(docname) & "' and filecode='" & filecode & "' and databasename='tbl" & GetAttachmentDate() & "' and filename='" & FileName & "'" : com.ExecuteNonQuery()
+                    com.CommandText = "delete from " & sqlfiledir & ".`tbl" & GetAttachmentDate() & "` where refnumber='" & refno & "' and trntype='" & trntype & "' and docname='" & rchar(docname) & "' and filecode='" & filecode & "' and filename='" & FileName & "'" : com.ExecuteNonQuery()
 
-                    com.CommandText = "insert into " & sqlfiledir & ".tblattachmentlogs set refnumber='" & refno & "', trntype='" & trntype & "',docname='" & docname & "',filecode='" & filecode & "', databasename='tbl" & GetAttachmentDate() & "',filename='" & FileName & "',archievedname='" & ArchievedName & "', filesize='" & FileSize & "'" : com.ExecuteNonQuery()
+                    com.CommandText = "insert into " & sqlfiledir & ".tblattachmentlogs set refnumber='" & refno & "', trntype='" & trntype & "',docname='" & rchar(docname) & "',filecode='" & filecode & "', databasename='tbl" & GetAttachmentDate() & "',filename='" & FileName & "',archievedname='" & ArchievedName & "', filesize='" & FileSize & "'" : com.ExecuteNonQuery()
                     com.CommandText = "INSERT INTO " & sqlfiledir & ".`tbl" & GetAttachmentDate() & "` (refnumber,trntype,docname,filecode,filename,archievedname,extension,attachment,filesize,datesaved) " _
-                        + " VALUES('" & refno & "','" & trntype & "','" & docname & "','" & filecode & "','" & FileName & "','" & ArchievedName & "','" & Path.GetExtension(flocation) & "',?File,?FileSize,current_timestamp)"
+                        + " VALUES('" & refno & "','" & trntype & "','" & rchar(docname) & "','" & filecode & "','" & FileName & "','" & ArchievedName & "','" & Path.GetExtension(flocation) & "',?File,?FileSize,current_timestamp)"
                     com.Parameters.AddWithValue("?File", rawData)
                     com.Parameters.AddWithValue("?FileSize", FileSize)
                     com.ExecuteNonQuery()
@@ -248,7 +248,7 @@ Module FileManagementModule
     End Function
 
     Public Function NewMd5FileName(ByVal str As String) As String
-        com.CommandText = "select md5(concat('" & str & "',date_format(current_timestamp,'%Y%m%d%h%i%s'))) as trackdate" : rst = com.ExecuteReader
+        com.CommandText = "select md5(concat('" & rchar(str) & "',date_format(current_timestamp,'%Y%m%d%h%i%s'))) as trackdate" : rst = com.ExecuteReader
         While rst.Read
             NewMd5FileName = rst("trackdate").ToString
         End While

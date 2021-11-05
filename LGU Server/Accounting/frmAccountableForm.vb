@@ -6,6 +6,9 @@ Public Class frmAccountableForm
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
         LoadSystemFont()
         filter()
+        PermissionAccess({cmdSaveButton}, globalAllowAdd)
+        PermissionAccess({cmdEdit}, globalAllowEdit)
+        PermissionAccess({cmdDelete}, globalAllowDelete)
     End Sub
 
     Private Sub LoadSystemFont()

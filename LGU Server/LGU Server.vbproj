@@ -253,6 +253,24 @@
     <Compile Include="Budget\frmBudgetTransfer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Module\File Management\frmFileUploader.Designer.vb">
+      <DependentUpon>frmFileUploader.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Module\File Management\frmFileUploader.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\File Management\frmFileViewer.Designer.vb">
+      <DependentUpon>frmFileViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Module\File Management\frmFileViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procurement\frmPayeeTable.Designer.vb">
+      <DependentUpon>frmPayeeTable.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procurement\frmPayeeTable.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reports\frmRegistryExport.Designer.vb">
       <DependentUpon>frmRegistryExport.vb</DependentUpon>
     </Compile>
@@ -476,18 +494,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Module\File Management\frmDBFileUploader.Designer.vb">
-      <DependentUpon>frmDBFileUploader.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Module\File Management\frmDBFileUploader.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Module\File Management\frmDBFileViewer.Designer.vb">
-      <DependentUpon>frmDBFileViewer.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Module\File Management\frmDBFileViewer.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Settings\frmDataPicked.Designer.vb">
       <DependentUpon>frmDataPicked.vb</DependentUpon>
     </Compile>
@@ -680,6 +686,15 @@
     <EmbeddedResource Include="Budget\frmBudgetTransfer.resx">
       <DependentUpon>frmBudgetTransfer.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Module\File Management\frmFileUploader.resx">
+      <DependentUpon>frmFileUploader.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\File Management\frmFileViewer.resx">
+      <DependentUpon>frmFileViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procurement\frmPayeeTable.resx">
+      <DependentUpon>frmPayeeTable.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmRegistryExport.resx">
       <DependentUpon>frmRegistryExport.vb</DependentUpon>
     </EmbeddedResource>
@@ -784,12 +799,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Module\Auto Updater\frmSystemDownloader.resx">
       <DependentUpon>frmSystemDownloader.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Module\File Management\frmDBFileUploader.resx">
-      <DependentUpon>frmDBFileUploader.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Module\File Management\frmDBFileViewer.resx">
-      <DependentUpon>frmDBFileViewer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\frmDataPicked.resx">
       <DependentUpon>frmDataPicked.vb</DependentUpon>
@@ -919,6 +928,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\lock--arrow.png" />
+    <None Include="Resources\Printer_32x32 %282%29.png" />
+    <None Include="Resources\Build_32x32 %282%29.png" />
     <None Include="Resources\user--plus.png" />
     <None Include="Resources\User %282%29.png" />
     <None Include="Resources\Person.png" />

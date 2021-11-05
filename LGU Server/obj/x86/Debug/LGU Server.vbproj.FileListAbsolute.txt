@@ -720,8 +720,11 @@ C:\Files\VB.NET\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmRegistryE
 C:\Files\VB.NET\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbprojAssemblyReference.cache
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.ResolveComReference.cache
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmErrorCorrect.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGLDefaultTransactionItem.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetNew.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetTransferItem.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetTransfer.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmPayeeTable.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmRegistryExport.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmRegistry.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmJevEntries.resources
@@ -757,8 +760,6 @@ D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmFundPeri
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmFund.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmTransactionCodeFilter.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmSystemDownloader.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDBFileUploader.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDBFileViewer.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmDataPicked.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBackupTool.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmChangeOwnPassword.resources
@@ -788,6 +789,9 @@ D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.WaitForm1.r
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmTaxPayerInfo.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.GenerateResource.cache
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.CoreCompileInputs.cache
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.AssemblyReference.cache
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmFileUploader.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmFileViewer.resources
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\LGU Server.exe.config
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\LGU Server.exe.manifest
 D:\VB.NET\Others\lgu_financial\LGU Server\bin\Debug\LGU Server.application
@@ -1014,6 +1018,3 @@ D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.CopyCo
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.exe
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.xml
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.pdb
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmGLDefaultTransactionItem.resources
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.AssemblyReference.cache
-D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmBudgetNew.resources

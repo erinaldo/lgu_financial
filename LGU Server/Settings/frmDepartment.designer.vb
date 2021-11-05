@@ -19,12 +19,13 @@ Partial Class frmDepartment
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.components = New System.ComponentModel.Container()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmdRemove = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BarManager1 = New DevExpress.XtraBars.BarManager()
+        Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar2 = New DevExpress.XtraBars.Bar()
         Me.cmdClose = New DevExpress.XtraBars.BarButtonItem()
         Me.cmdAdd = New DevExpress.XtraBars.BarButtonItem()
@@ -43,7 +44,7 @@ Partial Class frmDepartment
         '
         'gridmenustrip
         '
-        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdRemove, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
+        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
         Me.gridmenustrip.Size = New System.Drawing.Size(153, 76)
         '
@@ -54,12 +55,12 @@ Partial Class frmDepartment
         Me.cmdEdit.Size = New System.Drawing.Size(152, 22)
         Me.cmdEdit.Text = "Edit Office"
         '
-        'cmdRemove
+        'cmdDelete
         '
-        Me.cmdRemove.Image = Global.LGUFinancial.My.Resources.Resources.building__minus1
-        Me.cmdRemove.Name = "cmdRemove"
-        Me.cmdRemove.Size = New System.Drawing.Size(152, 22)
-        Me.cmdRemove.Text = "Remove Office"
+        Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.building__minus1
+        Me.cmdDelete.Name = "cmdDelete"
+        Me.cmdDelete.Size = New System.Drawing.Size(152, 22)
+        Me.cmdDelete.Text = "Remove Office"
         '
         'ToolStripSeparator1
         '
@@ -192,7 +193,7 @@ Partial Class frmDepartment
     End Sub
     Friend WithEvents gridmenustrip As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents cmdEdit As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmdRemove As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cmdDelete As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents RefreshToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BarManager1 As DevExpress.XtraBars.BarManager

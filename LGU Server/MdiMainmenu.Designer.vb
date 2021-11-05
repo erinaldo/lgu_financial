@@ -61,13 +61,15 @@ Partial Class MdiMainmenu
         Me.cmdCheckApprovalFilter = New DevExpress.XtraBars.BarButtonItem()
         Me.cmdBankAccounts = New DevExpress.XtraBars.BarButtonItem()
         Me.cmdRegistry = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdDefaultCollection = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdPayeeTable = New DevExpress.XtraBars.BarButtonItem()
         Me.rbnAccounting = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup5 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
-        Me.rbnProduct = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.rbnTransaction = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup4 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
-        Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.rbnReports = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup6 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.rbnSettings = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.grpMainSystemSettings = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -113,7 +115,7 @@ Partial Class MdiMainmenu
         Me.RibbonPage5 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPage6 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
-        Me.cmdDefaultCollection = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdServerAccessPermission = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MainMenu, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -137,11 +139,11 @@ Partial Class MdiMainmenu
         Me.MainMenu.ExpandCollapseItem.Id = 0
         Me.MainMenu.GalleryAnimationLength = 3
         Me.MainMenu.GroupAnimationLength = 3
-        Me.MainMenu.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.MainMenu.ExpandCollapseItem, Me.MainMenu.SearchEditItem, Me.cmdUserAccountManagement, Me.cmdCorporateProfileSettings, Me.cmdCorporateDivision, Me.cmdLoginAppearance, Me.cmdBackupDatabase, Me.cmdGeneralSettings, Me.cmdMyUserProfile, Me.cmdDatabaseRepair, Me.SkinDropDownButtonItem1, Me.cmdFund, Me.cmdFundPeriod, Me.cmdCashflowItem, Me.cmdAccountableForm, Me.cmdClientAccess, Me.cmdAccountTitleFilter, Me.cmdReportEntries, Me.cmdCollectionItem, Me.cmdTaxPayer, Me.cmdExpenditureClass, Me.cmdBudgetComposition, Me.cmdProductCategory, Me.cmdProductManagement, Me.cmdNewProduct, Me.cmdRequisitionType, Me.cmdDocumentType, Me.cmdApprovingProcess, Me.cmdExpenditureItem, Me.cmdJevEntries, Me.cmdUpdateChartofAccounts, Me.cmdGLItem, Me.cmdAdvanceSearch, Me.cmdRequisitionFilter, Me.cmdCashItem, Me.cmdQuarterlyBudget, Me.cmdAROexcemption, Me.cmdCheckApprovalFilter, Me.cmdBankAccounts, Me.cmdRegistry, Me.cmdDefaultCollection})
+        Me.MainMenu.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.MainMenu.ExpandCollapseItem, Me.MainMenu.SearchEditItem, Me.cmdUserAccountManagement, Me.cmdCorporateProfileSettings, Me.cmdCorporateDivision, Me.cmdLoginAppearance, Me.cmdBackupDatabase, Me.cmdGeneralSettings, Me.cmdMyUserProfile, Me.cmdDatabaseRepair, Me.SkinDropDownButtonItem1, Me.cmdFund, Me.cmdFundPeriod, Me.cmdCashflowItem, Me.cmdAccountableForm, Me.cmdClientAccess, Me.cmdAccountTitleFilter, Me.cmdReportEntries, Me.cmdCollectionItem, Me.cmdTaxPayer, Me.cmdExpenditureClass, Me.cmdBudgetComposition, Me.cmdProductCategory, Me.cmdProductManagement, Me.cmdNewProduct, Me.cmdRequisitionType, Me.cmdDocumentType, Me.cmdApprovingProcess, Me.cmdExpenditureItem, Me.cmdJevEntries, Me.cmdUpdateChartofAccounts, Me.cmdGLItem, Me.cmdAdvanceSearch, Me.cmdRequisitionFilter, Me.cmdCashItem, Me.cmdQuarterlyBudget, Me.cmdAROexcemption, Me.cmdCheckApprovalFilter, Me.cmdBankAccounts, Me.cmdRegistry, Me.cmdDefaultCollection, Me.cmdPayeeTable, Me.cmdServerAccessPermission})
         Me.MainMenu.Location = New System.Drawing.Point(0, 21)
-        Me.MainMenu.MaxItemId = 387
+        Me.MainMenu.MaxItemId = 389
         Me.MainMenu.Name = "MainMenu"
-        Me.MainMenu.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.rbnAccounting, Me.rbnProduct, Me.RibbonPage2, Me.rbnSettings})
+        Me.MainMenu.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.rbnAccounting, Me.rbnTransaction, Me.rbnReports, Me.rbnSettings})
         Me.MainMenu.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
         Me.MainMenu.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show
         Me.MainMenu.Size = New System.Drawing.Size(1397, 126)
@@ -402,6 +404,18 @@ Partial Class MdiMainmenu
         Me.cmdRegistry.Id = 384
         Me.cmdRegistry.Name = "cmdRegistry"
         '
+        'cmdDefaultCollection
+        '
+        Me.cmdDefaultCollection.Caption = "Default Transaction Item"
+        Me.cmdDefaultCollection.Id = 386
+        Me.cmdDefaultCollection.Name = "cmdDefaultCollection"
+        '
+        'cmdPayeeTable
+        '
+        Me.cmdPayeeTable.Caption = "Payee Table"
+        Me.cmdPayeeTable.Id = 387
+        Me.cmdPayeeTable.Name = "cmdPayeeTable"
+        '
         'rbnAccounting
         '
         Me.rbnAccounting.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1, Me.RibbonPageGroup5})
@@ -435,11 +449,11 @@ Partial Class MdiMainmenu
         Me.RibbonPageGroup5.Name = "RibbonPageGroup5"
         Me.RibbonPageGroup5.Text = "Chart of Accounts"
         '
-        'rbnProduct
+        'rbnTransaction
         '
-        Me.rbnProduct.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup2, Me.RibbonPageGroup4})
-        Me.rbnProduct.Name = "rbnProduct"
-        Me.rbnProduct.Text = "Transaction Item"
+        Me.rbnTransaction.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup2, Me.RibbonPageGroup4})
+        Me.rbnTransaction.Name = "rbnTransaction"
+        Me.rbnTransaction.Text = "Transaction Item"
         '
         'RibbonPageGroup2
         '
@@ -454,20 +468,20 @@ Partial Class MdiMainmenu
         '
         Me.RibbonPageGroup4.AllowTextClipping = False
         Me.RibbonPageGroup4.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.[False]
+        Me.RibbonPageGroup4.ItemLinks.Add(Me.cmdPayeeTable)
         Me.RibbonPageGroup4.ItemLinks.Add(Me.cmdDocumentType)
         Me.RibbonPageGroup4.ItemLinks.Add(Me.cmdRequisitionType)
-        Me.RibbonPageGroup4.ItemLinks.Add(Me.cmdClientAccess)
         Me.RibbonPageGroup4.ItemLinks.Add(Me.cmdRequisitionFilter)
         Me.RibbonPageGroup4.ItemLinks.Add(Me.cmdCheckApprovalFilter)
         Me.RibbonPageGroup4.ItemLinks.Add(Me.cmdBankAccounts)
         Me.RibbonPageGroup4.Name = "RibbonPageGroup4"
         Me.RibbonPageGroup4.Text = "Requisition Configuration"
         '
-        'RibbonPage2
+        'rbnReports
         '
-        Me.RibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup6})
-        Me.RibbonPage2.Name = "RibbonPage2"
-        Me.RibbonPage2.Text = "Reports"
+        Me.rbnReports.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup6})
+        Me.rbnReports.Name = "rbnReports"
+        Me.rbnReports.Text = "Reports"
         '
         'RibbonPageGroup6
         '
@@ -500,7 +514,9 @@ Partial Class MdiMainmenu
         Me.grpAccountsAndProfile.AllowTextClipping = False
         Me.grpAccountsAndProfile.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.[False]
         Me.grpAccountsAndProfile.ItemLinks.Add(Me.cmdMyUserProfile)
-        Me.grpAccountsAndProfile.ItemLinks.Add(Me.cmdUserAccountManagement, True)
+        Me.grpAccountsAndProfile.ItemLinks.Add(Me.cmdServerAccessPermission, True)
+        Me.grpAccountsAndProfile.ItemLinks.Add(Me.cmdClientAccess)
+        Me.grpAccountsAndProfile.ItemLinks.Add(Me.cmdUserAccountManagement)
         Me.grpAccountsAndProfile.Name = "grpAccountsAndProfile"
         Me.grpAccountsAndProfile.Text = "Accounts and Profile"
         '
@@ -819,11 +835,11 @@ Partial Class MdiMainmenu
         Me.BarButtonItem1.Id = 381
         Me.BarButtonItem1.Name = "BarButtonItem1"
         '
-        'cmdDefaultCollection
+        'cmdServerAccessPermission
         '
-        Me.cmdDefaultCollection.Caption = "Default Transaction Item"
-        Me.cmdDefaultCollection.Id = 386
-        Me.cmdDefaultCollection.Name = "cmdDefaultCollection"
+        Me.cmdServerAccessPermission.Caption = "Server Access Permission"
+        Me.cmdServerAccessPermission.Id = 388
+        Me.cmdServerAccessPermission.Name = "cmdServerAccessPermission"
         '
         'MdiMainmenu
         '
@@ -915,7 +931,7 @@ Partial Class MdiMainmenu
     Friend WithEvents cmdBudgetComposition As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents cmdProductCategory As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents cmdProductClassification As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents rbnProduct As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents rbnTransaction As DevExpress.XtraBars.Ribbon.RibbonPage
     Friend WithEvents RibbonPage4 As DevExpress.XtraBars.Ribbon.RibbonPage
     Friend WithEvents cmdProductManagement As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents cmdNewProduct As DevExpress.XtraBars.BarButtonItem
@@ -941,7 +957,9 @@ Partial Class MdiMainmenu
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents cmdBankAccounts As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents cmdRegistry As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents RibbonPage2 As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents rbnReports As DevExpress.XtraBars.Ribbon.RibbonPage
     Friend WithEvents RibbonPageGroup6 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents cmdDefaultCollection As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdPayeeTable As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdServerAccessPermission As DevExpress.XtraBars.BarButtonItem
 End Class

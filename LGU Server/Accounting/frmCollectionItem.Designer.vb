@@ -21,7 +21,7 @@ Partial Class frmCollectionItem
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        Me.cmdSaveButton = New DevExpress.XtraEditors.SimpleButton()
+        Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.txtDescription = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -36,6 +36,8 @@ Partial Class frmCollectionItem
         Me.gridFund = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.code = New DevExpress.XtraEditors.TextEdit()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
+        Me.txtAmount = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.txtDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gridmenustrip.SuspendLayout()
@@ -45,40 +47,42 @@ Partial Class frmCollectionItem
         CType(Me.gridFund, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl1
         '
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl1.Appearance.Options.UseFont = True
-        Me.LabelControl1.Location = New System.Drawing.Point(48, 15)
+        Me.LabelControl1.Location = New System.Drawing.Point(49, 13)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(96, 17)
         Me.LabelControl1.TabIndex = 510
         Me.LabelControl1.Text = "Collection Name"
         '
-        'cmdSaveButton
+        'cmdSave
         '
-        Me.cmdSaveButton.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cmdSaveButton.Appearance.BackColor2 = System.Drawing.Color.Khaki
-        Me.cmdSaveButton.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
-        Me.cmdSaveButton.Appearance.Options.UseBackColor = True
-        Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(151, 69)
-        Me.cmdSaveButton.Name = "cmdSaveButton"
-        Me.cmdSaveButton.Size = New System.Drawing.Size(157, 31)
-        Me.cmdSaveButton.TabIndex = 6
-        Me.cmdSaveButton.Text = "Save"
+        Me.cmdSave.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmdSave.Appearance.BackColor2 = System.Drawing.Color.Khaki
+        Me.cmdSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.cmdSave.Appearance.Options.UseBackColor = True
+        Me.cmdSave.Appearance.Options.UseFont = True
+        Me.cmdSave.Location = New System.Drawing.Point(151, 98)
+        Me.cmdSave.Name = "cmdSave"
+        Me.cmdSave.Size = New System.Drawing.Size(135, 31)
+        Me.cmdSave.TabIndex = 6
+        Me.cmdSave.Text = "Save"
         '
         'txtDescription
         '
         Me.txtDescription.EditValue = ""
-        Me.txtDescription.Location = New System.Drawing.Point(151, 12)
+        Me.txtDescription.Location = New System.Drawing.Point(151, 10)
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDescription.Properties.Appearance.Options.UseFont = True
-        Me.txtDescription.Size = New System.Drawing.Size(394, 24)
+        Me.txtDescription.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtDescription.Size = New System.Drawing.Size(394, 26)
         Me.txtDescription.TabIndex = 0
         '
         'Em
@@ -87,11 +91,11 @@ Partial Class frmCollectionItem
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Em.ContextMenuStrip = Me.gridmenustrip
-        Me.Em.Location = New System.Drawing.Point(12, 108)
+        Me.Em.Location = New System.Drawing.Point(12, 137)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(652, 406)
+        Me.Em.Size = New System.Drawing.Size(650, 375)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -146,7 +150,7 @@ Partial Class frmCollectionItem
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(70, 42)
+        Me.LabelControl2.Location = New System.Drawing.Point(71, 42)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(74, 17)
         Me.LabelControl2.TabIndex = 636
@@ -159,12 +163,13 @@ Partial Class frmCollectionItem
         Me.txtAccountTitle.Name = "txtAccountTitle"
         Me.txtAccountTitle.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtAccountTitle.Properties.Appearance.Options.UseFont = True
+        Me.txtAccountTitle.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtAccountTitle.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtAccountTitle.Properties.DisplayMember = "Account Title"
         Me.txtAccountTitle.Properties.NullText = ""
         Me.txtAccountTitle.Properties.PopupView = Me.gridFund
         Me.txtAccountTitle.Properties.ValueMember = "itemcode"
-        Me.txtAccountTitle.Size = New System.Drawing.Size(275, 24)
+        Me.txtAccountTitle.Size = New System.Drawing.Size(275, 26)
         Me.txtAccountTitle.TabIndex = 1
         '
         'gridFund
@@ -190,12 +195,41 @@ Partial Class frmCollectionItem
         Me.mode.TabIndex = 638
         Me.mode.Visible = False
         '
+        'txtAmount
+        '
+        Me.txtAmount.EditValue = "0"
+        Me.txtAmount.Location = New System.Drawing.Point(151, 68)
+        Me.txtAmount.Name = "txtAmount"
+        Me.txtAmount.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtAmount.Properties.Appearance.Options.UseFont = True
+        Me.txtAmount.Properties.Appearance.Options.UseTextOptions = True
+        Me.txtAmount.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.txtAmount.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtAmount.Properties.Mask.EditMask = "n"
+        Me.txtAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.txtAmount.Properties.Mask.UseMaskAsDisplayFormat = True
+        Me.txtAmount.Properties.NullText = "0"
+        Me.txtAmount.Size = New System.Drawing.Size(135, 26)
+        Me.txtAmount.TabIndex = 639
+        '
+        'LabelControl3
+        '
+        Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl3.Appearance.Options.UseFont = True
+        Me.LabelControl3.Location = New System.Drawing.Point(55, 72)
+        Me.LabelControl3.Name = "LabelControl3"
+        Me.LabelControl3.Size = New System.Drawing.Size(90, 17)
+        Me.LabelControl3.TabIndex = 640
+        Me.LabelControl3.Text = "Default Amount"
+        '
         'frmCollectionItem
         '
-        Me.AcceptButton = Me.cmdSaveButton
+        Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(672, 523)
+        Me.ClientSize = New System.Drawing.Size(670, 521)
+        Me.Controls.Add(Me.LabelControl3)
+        Me.Controls.Add(Me.txtAmount)
         Me.Controls.Add(Me.mode)
         Me.Controls.Add(Me.code)
         Me.Controls.Add(Me.LabelControl2)
@@ -203,7 +237,7 @@ Partial Class frmCollectionItem
         Me.Controls.Add(Me.Em)
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.txtDescription)
-        Me.Controls.Add(Me.cmdSaveButton)
+        Me.Controls.Add(Me.cmdSave)
         Me.Name = "frmCollectionItem"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Collection Transaction"
@@ -216,12 +250,13 @@ Partial Class frmCollectionItem
         CType(Me.gridFund, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents cmdSaveButton As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdSave As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents txtDescription As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Em As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
@@ -236,4 +271,6 @@ Partial Class frmCollectionItem
     Friend WithEvents gridFund As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents code As DevExpress.XtraEditors.TextEdit
     Friend WithEvents mode As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtAmount As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
 End Class

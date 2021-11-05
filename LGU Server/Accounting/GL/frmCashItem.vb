@@ -22,6 +22,7 @@ Public Class frmCashItem
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
         ShowUnfilteredProducts()
         ShowfilteredProducts()
+        PermissionAccess({cmdMoveLeft, cmdMoveRight}, globalAdminAccess)
 
     End Sub
 

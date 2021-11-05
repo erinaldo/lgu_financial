@@ -21,7 +21,6 @@ Partial Class frmTaxPayerInfo
     Private Sub InitializeComponent()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        Me.cmdSaveButton = New DevExpress.XtraEditors.SimpleButton()
         Me.txtFullname = New DevExpress.XtraEditors.TextEdit()
         Me.txtAddress = New DevExpress.XtraEditors.TextEdit()
         Me.txtAgency = New DevExpress.XtraEditors.SearchLookUpEdit()
@@ -53,6 +52,7 @@ Partial Class frmTaxPayerInfo
         Me.gridCitizenship = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.txtTIN = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
+        Me.cmdSaveButton = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFullname.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAddress.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,20 +97,6 @@ Partial Class frmTaxPayerInfo
         Me.LabelControl1.Size = New System.Drawing.Size(55, 17)
         Me.LabelControl1.TabIndex = 510
         Me.LabelControl1.Text = "Fullname"
-        '
-        'cmdSaveButton
-        '
-        Me.cmdSaveButton.Appearance.BackColor = System.Drawing.Color.LightGreen
-        Me.cmdSaveButton.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
-        Me.cmdSaveButton.Appearance.Options.UseBackColor = True
-        Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.cmdSaveButton.Location = New System.Drawing.Point(153, 486)
-        Me.cmdSaveButton.Name = "cmdSaveButton"
-        Me.cmdSaveButton.Size = New System.Drawing.Size(177, 37)
-        Me.cmdSaveButton.TabIndex = 13
-        Me.cmdSaveButton.Text = "Save"
         '
         'txtFullname
         '
@@ -233,8 +219,6 @@ Partial Class frmTaxPayerInfo
         Me.txtGender.Name = "txtGender"
         Me.txtGender.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.txtGender.Properties.Appearance.Options.UseFont = True
-        Me.txtGender.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtGender.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtGender.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtGender.Properties.Columns = 2
         Me.txtGender.Properties.ItemHorzAlignment = DevExpress.XtraEditors.RadioItemHorzAlignment.Far
@@ -286,8 +270,6 @@ Partial Class frmTaxPayerInfo
         Me.txtProfession.Name = "txtProfession"
         Me.txtProfession.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.txtProfession.Properties.Appearance.Options.UseFont = True
-        Me.txtProfession.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtProfession.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtProfession.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtProfession.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtProfession.Properties.DisplayMember = "Select"
@@ -337,8 +319,6 @@ Partial Class frmTaxPayerInfo
         Me.txtCivilStatus.Properties.Appearance.Options.UseFont = True
         Me.txtCivilStatus.Properties.Appearance.Options.UseTextOptions = True
         Me.txtCivilStatus.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.txtCivilStatus.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtCivilStatus.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtCivilStatus.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtCivilStatus.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.[Default]
         Me.txtCivilStatus.Properties.ItemHorzAlignment = DevExpress.XtraEditors.RadioItemHorzAlignment.Near
@@ -367,8 +347,6 @@ Partial Class frmTaxPayerInfo
         Me.txtWeight.Properties.Appearance.Options.UseFont = True
         Me.txtWeight.Properties.Appearance.Options.UseTextOptions = True
         Me.txtWeight.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.txtWeight.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtWeight.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtWeight.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtWeight.Properties.MaxLength = 50
         Me.txtWeight.Size = New System.Drawing.Size(177, 26)
@@ -394,8 +372,6 @@ Partial Class frmTaxPayerInfo
         Me.txtHeight.Properties.Appearance.Options.UseFont = True
         Me.txtHeight.Properties.Appearance.Options.UseTextOptions = True
         Me.txtHeight.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.txtHeight.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtHeight.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtHeight.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtHeight.Properties.MaxLength = 50
         Me.txtHeight.Size = New System.Drawing.Size(177, 26)
@@ -421,8 +397,6 @@ Partial Class frmTaxPayerInfo
         Me.txtPlaceOfBirth.Name = "txtPlaceOfBirth"
         Me.txtPlaceOfBirth.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.txtPlaceOfBirth.Properties.Appearance.Options.UseFont = True
-        Me.txtPlaceOfBirth.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtPlaceOfBirth.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtPlaceOfBirth.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtPlaceOfBirth.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtPlaceOfBirth.Properties.DisplayMember = "Select"
@@ -459,8 +433,6 @@ Partial Class frmTaxPayerInfo
         Me.txtCitizenship.Name = "txtCitizenship"
         Me.txtCitizenship.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.txtCitizenship.Properties.Appearance.Options.UseFont = True
-        Me.txtCitizenship.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtCitizenship.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtCitizenship.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtCitizenship.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtCitizenship.Properties.DisplayMember = "Select"
@@ -487,8 +459,6 @@ Partial Class frmTaxPayerInfo
         Me.txtTIN.Properties.Appearance.Options.UseFont = True
         Me.txtTIN.Properties.Appearance.Options.UseTextOptions = True
         Me.txtTIN.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.txtTIN.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtTIN.Properties.AppearanceFocused.Options.UseBackColor = True
         Me.txtTIN.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.txtTIN.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtTIN.Properties.Mask.BeepOnError = True
@@ -508,12 +478,27 @@ Partial Class frmTaxPayerInfo
         Me.LabelControl4.TabIndex = 1051
         Me.LabelControl4.Text = "TIN"
         '
+        'cmdSaveButton
+        '
+        Me.cmdSaveButton.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmdSaveButton.Appearance.BackColor2 = System.Drawing.Color.Khaki
+        Me.cmdSaveButton.Appearance.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.cmdSaveButton.Appearance.Options.UseBackColor = True
+        Me.cmdSaveButton.Appearance.Options.UseFont = True
+        Me.cmdSaveButton.Location = New System.Drawing.Point(153, 486)
+        Me.cmdSaveButton.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cmdSaveButton.Name = "cmdSaveButton"
+        Me.cmdSaveButton.Size = New System.Drawing.Size(177, 39)
+        Me.cmdSaveButton.TabIndex = 1052
+        Me.cmdSaveButton.Text = "Create Backup"
+        '
         'frmTaxPayerInfo
         '
-        Me.AcceptButton = Me.cmdSaveButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(486, 545)
+        Me.Controls.Add(Me.cmdSaveButton)
         Me.Controls.Add(Me.LabelControl4)
         Me.Controls.Add(Me.txtTIN)
         Me.Controls.Add(Me.txtBirthdate)
@@ -541,7 +526,6 @@ Partial Class frmTaxPayerInfo
         Me.Controls.Add(Me.txtAgency)
         Me.Controls.Add(Me.txtAddress)
         Me.Controls.Add(Me.txtFullname)
-        Me.Controls.Add(Me.cmdSaveButton)
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.mode)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -575,7 +559,6 @@ Partial Class frmTaxPayerInfo
     End Sub
     Friend WithEvents mode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents cmdSaveButton As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents txtFullname As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtAddress As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtAgency As DevExpress.XtraEditors.SearchLookUpEdit
@@ -607,4 +590,5 @@ Partial Class frmTaxPayerInfo
     Friend WithEvents gridCitizenship As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents txtTIN As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents cmdSaveButton As DevExpress.XtraEditors.SimpleButton
 End Class

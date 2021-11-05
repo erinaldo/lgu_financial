@@ -13,11 +13,7 @@ Public Class frmGeneralSettings
         LoadAdvanceSettings()
         LoadSequenceSettings()
         LoadDefaultSettings()
-        If globalAllowEdit = True Or LCase(globaluser) = "root" Then
-            cmdSaveSettings.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
-        Else
-            cmdSaveSettings.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
-        End If
+        PermissionAccess({cmdSave}, globalAdminAccess)
     End Sub
 
     Private Sub BarButtonItem1_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
@@ -128,7 +124,7 @@ Public Class frmGeneralSettings
 
     End Sub
 
-    Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles cmdSaveSettings.ItemClick
+    Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles cmdSave.ItemClick
         If XtraTabControl1.SelectedTabPage Is tabGeneral Then
             If XtraMessageBox.Show("This action is required an administrative permission! are you wish to continue?", compname, MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
                 com.CommandText = "UPDATE tblgeneralsettings set downloaddefaultlocation='" & rchar(txtWebserverAddress.Text) & "', allowableattachsize='" & Val(txtFileKB.EditValue) * 1024 & "'" : com.ExecuteNonQuery()

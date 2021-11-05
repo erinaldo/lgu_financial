@@ -22,7 +22,7 @@ Partial Class frmRequisitionType
         Me.components = New System.ComponentModel.Container()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
-        Me.cmdSaveButton = New DevExpress.XtraEditors.SimpleButton()
+        Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.txtDescription = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -71,19 +71,19 @@ Partial Class frmRequisitionType
         Me.mode.TabIndex = 508
         Me.mode.Visible = False
         '
-        'cmdSaveButton
+        'cmdSave
         '
-        Me.cmdSaveButton.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cmdSaveButton.Appearance.BackColor2 = System.Drawing.Color.Khaki
-        Me.cmdSaveButton.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
-        Me.cmdSaveButton.Appearance.Options.UseBackColor = True
-        Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(127, 61)
-        Me.cmdSaveButton.Name = "cmdSaveButton"
-        Me.cmdSaveButton.Size = New System.Drawing.Size(146, 34)
-        Me.cmdSaveButton.TabIndex = 3
-        Me.cmdSaveButton.Text = "Save"
+        Me.cmdSave.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmdSave.Appearance.BackColor2 = System.Drawing.Color.Khaki
+        Me.cmdSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.cmdSave.Appearance.Options.UseBackColor = True
+        Me.cmdSave.Appearance.Options.UseFont = True
+        Me.cmdSave.Location = New System.Drawing.Point(127, 61)
+        Me.cmdSave.Name = "cmdSave"
+        Me.cmdSave.Size = New System.Drawing.Size(146, 34)
+        Me.cmdSave.TabIndex = 3
+        Me.cmdSave.Text = "Save"
         '
         'txtDescription
         '
@@ -105,7 +105,7 @@ Partial Class frmRequisitionType
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(896, 551)
+        Me.Em.Size = New System.Drawing.Size(894, 549)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -203,16 +203,16 @@ Partial Class frmRequisitionType
         '
         'frmRequisitionType
         '
-        Me.AcceptButton = Me.cmdSaveButton
+        Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(909, 657)
+        Me.ClientSize = New System.Drawing.Size(907, 655)
         Me.Controls.Add(Me.ckEnableVoucher)
         Me.Controls.Add(Me.ckRequiredFund)
         Me.Controls.Add(Me.ckDirectApproved)
         Me.Controls.Add(Me.code)
         Me.Controls.Add(Me.txtDescription)
-        Me.Controls.Add(Me.cmdSaveButton)
+        Me.Controls.Add(Me.cmdSave)
         Me.Controls.Add(Me.LabelControl2)
         Me.Controls.Add(Me.mode)
         Me.Controls.Add(Me.Em)
@@ -235,7 +235,7 @@ Partial Class frmRequisitionType
     End Sub
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents mode As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents cmdSaveButton As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdSave As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents txtDescription As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Em As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView

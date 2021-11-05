@@ -22,7 +22,8 @@ Public Class frmGLDefaultTransactionItem
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
         ShowUnfilteredProducts()
         ShowfilteredProducts()
-
+        PermissionAccess({cmdCredit, cmdDebit, cmdReupdate}, globalAdminAccess)
+        PermissionAccess({cmdDelete}, globalAllowDelete)
     End Sub
 
     Public Sub ShowUnfilteredProducts()
@@ -92,7 +93,7 @@ Public Class frmGLDefaultTransactionItem
         End If
     End Sub
 
-    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles cmdMoveLeft.Click
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles cmdDelete.Click
         For I = 0 To GridView2.SelectedRowsCount - 1
             com.CommandText = "delete from tblglreverseitem where itemcode='" & GridView2.GetRowCellValue(GridView2.GetSelectedRows(I), "itemcode").ToString & "'" : com.ExecuteNonQuery()
         Next
@@ -100,7 +101,7 @@ Public Class frmGLDefaultTransactionItem
         ShowfilteredProducts()
     End Sub
 
-    Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
+    Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles cmdReupdate.ItemClick
         If XtraMessageBox.Show("Are you sure you want to continue? ", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             com.CommandText = "update tbltransactionentries set credit=debit where itemcode in (select itemcode from tblglreverseitem where debit=0) " : com.ExecuteNonQuery()
             com.CommandText = "update tbltransactionentries set debit=0 where itemcode in (select itemcode from tblglreverseitem where debit=0) " : com.ExecuteNonQuery()

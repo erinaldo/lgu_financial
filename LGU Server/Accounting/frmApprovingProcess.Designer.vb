@@ -36,7 +36,7 @@ Partial Class frmApprovingProcess
         Me.LabelControl25 = New DevExpress.XtraEditors.LabelControl()
         Me.txtProcessType = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
-        Me.cmdUpdate = New DevExpress.XtraEditors.SimpleButton()
+        Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.chfinal = New DevExpress.XtraEditors.CheckEdit()
         Me.cmdCancel = New DevExpress.XtraEditors.SimpleButton()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
@@ -45,8 +45,8 @@ Partial Class frmApprovingProcess
         Me.gridOffice = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.appStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.EditApproverToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmdInactive = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdRefresh = New System.Windows.Forms.ToolStripMenuItem()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -62,11 +62,6 @@ Partial Class frmApprovingProcess
         Me.GridView3 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.txtPermission = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gvpermission = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         CType(Me.tabsettings, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabsettings.SuspendLayout()
@@ -98,7 +93,6 @@ Partial Class frmApprovingProcess
         CType(Me.GridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPermission.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gvpermission, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'tabsettings
@@ -142,7 +136,7 @@ Partial Class frmApprovingProcess
         Me.SplitContainerControl2.Panel1.Controls.Add(Me.LabelControl25)
         Me.SplitContainerControl2.Panel1.Controls.Add(Me.txtProcessType)
         Me.SplitContainerControl2.Panel1.Controls.Add(Me.mode)
-        Me.SplitContainerControl2.Panel1.Controls.Add(Me.cmdUpdate)
+        Me.SplitContainerControl2.Panel1.Controls.Add(Me.cmdSave)
         Me.SplitContainerControl2.Panel1.Controls.Add(Me.chfinal)
         Me.SplitContainerControl2.Panel1.Controls.Add(Me.cmdCancel)
         Me.SplitContainerControl2.Panel1.Controls.Add(Me.LabelControl6)
@@ -301,19 +295,19 @@ Partial Class frmApprovingProcess
         Me.mode.TabIndex = 526
         Me.mode.Visible = False
         '
-        'cmdUpdate
+        'cmdSave
         '
-        Me.cmdUpdate.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.cmdUpdate.Appearance.BackColor2 = System.Drawing.Color.Khaki
-        Me.cmdUpdate.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
-        Me.cmdUpdate.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
-        Me.cmdUpdate.Appearance.Options.UseBackColor = True
-        Me.cmdUpdate.Appearance.Options.UseFont = True
-        Me.cmdUpdate.Location = New System.Drawing.Point(128, 205)
-        Me.cmdUpdate.Name = "cmdUpdate"
-        Me.cmdUpdate.Size = New System.Drawing.Size(122, 30)
-        Me.cmdUpdate.TabIndex = 7
-        Me.cmdUpdate.Text = "Confirm Save"
+        Me.cmdSave.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmdSave.Appearance.BackColor2 = System.Drawing.Color.Khaki
+        Me.cmdSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
+        Me.cmdSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.cmdSave.Appearance.Options.UseBackColor = True
+        Me.cmdSave.Appearance.Options.UseFont = True
+        Me.cmdSave.Location = New System.Drawing.Point(128, 205)
+        Me.cmdSave.Name = "cmdSave"
+        Me.cmdSave.Size = New System.Drawing.Size(122, 30)
+        Me.cmdSave.TabIndex = 7
+        Me.cmdSave.Text = "Confirm Save"
         '
         'chfinal
         '
@@ -396,34 +390,34 @@ Partial Class frmApprovingProcess
         '
         'appStrip
         '
-        Me.appStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditApproverToolStripMenuItem, Me.cmdInactive, Me.ToolStripSeparator2, Me.cmdRefresh})
+        Me.appStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.ToolStripSeparator2, Me.cmdRefresh})
         Me.appStrip.Name = "gridmenustrip"
         Me.appStrip.Size = New System.Drawing.Size(170, 76)
         '
-        'EditApproverToolStripMenuItem
+        'cmdEdit
         '
-        Me.EditApproverToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.edit_3
-        Me.EditApproverToolStripMenuItem.Name = "EditApproverToolStripMenuItem"
-        Me.EditApproverToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
-        Me.EditApproverToolStripMenuItem.Text = "Edit Approver"
+        Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.edit_3
+        Me.cmdEdit.Name = "cmdEdit"
+        Me.cmdEdit.Size = New System.Drawing.Size(180, 22)
+        Me.cmdEdit.Text = "Edit Approver"
         '
-        'cmdInactive
+        'cmdDelete
         '
-        Me.cmdInactive.Image = Global.LGUFinancial.My.Resources.Resources.window_suppressed
-        Me.cmdInactive.Name = "cmdInactive"
-        Me.cmdInactive.Size = New System.Drawing.Size(169, 22)
-        Me.cmdInactive.Text = "Remove Approver"
+        Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.window_suppressed
+        Me.cmdDelete.Name = "cmdDelete"
+        Me.cmdDelete.Size = New System.Drawing.Size(169, 22)
+        Me.cmdDelete.Text = "Remove Approver"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(166, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
         '
         'cmdRefresh
         '
         Me.cmdRefresh.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.cmdRefresh.Name = "cmdRefresh"
-        Me.cmdRefresh.Size = New System.Drawing.Size(169, 22)
+        Me.cmdRefresh.Size = New System.Drawing.Size(180, 22)
         Me.cmdRefresh.Text = "Refresh Data"
         '
         'GridView1
@@ -445,7 +439,7 @@ Partial Class frmApprovingProcess
         Me.tabRequiredAttachment.Controls.Add(Me.Em_filtered)
         Me.tabRequiredAttachment.Controls.Add(Me.txtPermission)
         Me.tabRequiredAttachment.Name = "tabRequiredAttachment"
-        Me.tabRequiredAttachment.Size = New System.Drawing.Size(1004, 446)
+        Me.tabRequiredAttachment.Size = New System.Drawing.Size(1002, 448)
         Me.tabRequiredAttachment.Text = "Required Attachment Filter"
         '
         'ckRequester
@@ -566,38 +560,6 @@ Partial Class frmApprovingProcess
         Me.gvpermission.OptionsSelection.EnableAppearanceFocusedCell = False
         Me.gvpermission.OptionsView.ShowGroupPanel = False
         '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ToolStripMenuItem4, Me.ToolStripSeparator1, Me.ToolStripMenuItem5})
-        Me.ContextMenuStrip1.Name = "gridmenustrip"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(170, 76)
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Image = Global.LGUFinancial.My.Resources.Resources.edit_3
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(169, 22)
-        Me.ToolStripMenuItem1.Text = "Edit Approver"
-        '
-        'ToolStripMenuItem4
-        '
-        Me.ToolStripMenuItem4.Image = Global.LGUFinancial.My.Resources.Resources.window_suppressed
-        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(169, 22)
-        Me.ToolStripMenuItem4.Text = "Remove Approver"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(166, 6)
-        '
-        'ToolStripMenuItem5
-        '
-        Me.ToolStripMenuItem5.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
-        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(169, 22)
-        Me.ToolStripMenuItem5.Text = "Refresh Data"
-        '
         'barDockControlTop
         '
         Me.barDockControlTop.CausesValidation = False
@@ -645,7 +607,6 @@ Partial Class frmApprovingProcess
         CType(Me.GridView3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPermission.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gvpermission, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -658,25 +619,20 @@ Partial Class frmApprovingProcess
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents barDockControlTop As DevExpress.XtraBars.BarDockControl
     Friend WithEvents appStrip As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents cmdInactive As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cmdDelete As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents cmdRefresh As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents cmdCancel As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents chfinal As DevExpress.XtraEditors.CheckEdit
-    Friend WithEvents cmdUpdate As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents EditApproverToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cmdSave As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdEdit As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents mode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl25 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents txtProcessType As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents id As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem4 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripMenuItem5 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents txtRequestType As DevExpress.XtraEditors.GridLookUpEdit
     Friend WithEvents gridRequestType As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents officeid As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents ckRequiredAttachment As DevExpress.XtraEditors.CheckEdit

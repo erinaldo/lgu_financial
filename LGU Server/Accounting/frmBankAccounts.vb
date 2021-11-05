@@ -13,6 +13,10 @@ Public Class frmBankAccounts
         SkinManager.EnableMdiFormSkins() : SetIcon(Me)
         LoadFund()
         LoadData()
+
+        PermissionAccess({cmdSave}, globalAllowAdd)
+        PermissionAccess({cmdEdit}, globalAllowEdit)
+        PermissionAccess({cmdDelete}, globalAllowDelete)
     End Sub
 
     Public Sub LoadData()
@@ -32,7 +36,7 @@ Public Class frmBankAccounts
         LoadData()
     End Sub
 
-    Private Sub cmdOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdOk.Click
+    Private Sub cmdOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSave.Click
         If txtFund.Text = "" Then
             XtraMessageBox.Show("Please select fund type!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtFund.Focus()
