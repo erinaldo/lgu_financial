@@ -19,7 +19,6 @@ Partial Class frmFund
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
@@ -29,7 +28,7 @@ Partial Class frmFund
         Me.txtcodename = New DevExpress.XtraEditors.TextEdit()
         Me.txtDescription = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -233,7 +232,7 @@ Partial Class frmFund
         Me.XtraTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.tabInfo
-        Me.XtraTabControl1.Size = New System.Drawing.Size(629, 515)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(627, 513)
         Me.XtraTabControl1.TabIndex = 633
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabInfo, Me.tabFilter})
         '
@@ -251,7 +250,7 @@ Partial Class frmFund
         Me.tabInfo.Controls.Add(Me.cmdSave)
         Me.tabInfo.Controls.Add(Me.LabelControl4)
         Me.tabInfo.Name = "tabInfo"
-        Me.tabInfo.Size = New System.Drawing.Size(627, 486)
+        Me.tabInfo.Size = New System.Drawing.Size(625, 484)
         Me.tabInfo.Text = "Fund Information"
         '
         'LabelControl3
@@ -291,7 +290,7 @@ Partial Class frmFund
         Me.tabFilter.Controls.Add(Me.Em_filtered)
         Me.tabFilter.Controls.Add(Me.txtFund)
         Me.tabFilter.Name = "tabFilter"
-        Me.tabFilter.Size = New System.Drawing.Size(627, 486)
+        Me.tabFilter.Size = New System.Drawing.Size(627, 482)
         Me.tabFilter.Text = "Fund Access Filter"
         '
         'fundcode
@@ -397,7 +396,7 @@ Partial Class frmFund
         Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(629, 515)
+        Me.ClientSize = New System.Drawing.Size(627, 513)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False

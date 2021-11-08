@@ -490,7 +490,7 @@ Public Class frmRequisitionInfo
                                        + " fundcode='" & fundcode.Text & "', " _
                                        + " yeartrn='" & yearcode.Text & "', " _
                                        + " requesttype='" & requesttype.Text & "', " _
-                                       + " purpose='" & rchar(txtPurpose.Text) & "', " _
+                                       + " purpose='" & rchar(RemoveWhitespace(txtPurpose.Text)) & "', " _
                                        + " priority='" & txtPriority.Text & "'," _
                                        + " currentlevel='" & CurrentLevel.Text & "'," _
                                        + " currentapprover='" & CurrentApprover.Text & "', " _
@@ -512,7 +512,7 @@ Public Class frmRequisitionInfo
                                        + " yeartrn='" & yearcode.Text & "', " _
                                        + " requesttype='" & requesttype.Text & "', " _
                                        + " postingdate=current_date, " _
-                                       + " purpose='" & rchar(txtPurpose.Text) & "', " _
+                                       + " purpose='" & rchar(RemoveWhitespace(txtPurpose.Text)) & "', " _
                                        + " priority='" & txtPriority.Text & "'," _
                                        + " headofficeapproval=0," _
                                        + " currentlevel='0'," _
@@ -539,7 +539,7 @@ Public Class frmRequisitionInfo
                                        + " yeartrn='" & yearcode.Text & "', " _
                                        + " requesttype='" & requesttype.Text & "', " _
                                        + " postingdate=current_date, " _
-                                       + " purpose='" & rchar(txtPurpose.Text) & "', " _
+                                       + " purpose='" & rchar(RemoveWhitespace(txtPurpose.Text)) & "', " _
                                        + " priority='" & txtPriority.Text & "'," _
                                        + " headofficeapproval=1," _
                                        + " currentlevel='0'," _
@@ -562,10 +562,11 @@ Public Class frmRequisitionInfo
     End Function
 
     Public Sub ApprovingHistory()
-        LoadXgrid("select (select officename from tblcompoffice where officeid=a.officeid) as 'Confirmed Office',ucase(status) as 'Status', Remarks, confirmby as 'Confirmed By', Position, date_format(dateconfirm,'%Y-%m-%d %r') as 'Date Confirmed' from tblapprovalhistory as a where mainreference='" & pid.Text & "'", "tblapprovalhistory", Em_approval, gridview_approval, Me)
+        LoadXgrid("select (select officename from tblcompoffice where officeid=a.officeid) as 'Confirmed Office',ucase(status) as 'Status', Remarks, " _
+                  + " if(authorized=1, concat(confirmby,'\nAuthorized By: ',(select fullname from tblaccounts where accountid=a.authorizedby)), confirmby)  as 'Confirmed By', Position, date_format(dateconfirm,'%Y-%m-%d %r') as 'Date Confirmed' from tblapprovalhistory as a where mainreference='" & pid.Text & "'", "tblapprovalhistory", Em_approval, gridview_approval, Me)
         XgridColAlign({"Status", "Date Confirmed"}, gridview_approval, DevExpress.Utils.HorzAlignment.Center)
         gridview_approval.BestFitColumns()
-        XgridColMemo({"Remarks"}, gridview_approval)
+        XgridColMemo({"Remarks", "Confirmed By"}, gridview_approval)
         XgridColWidth({"Remarks"}, gridview_approval, 300)
 
 
@@ -771,7 +772,7 @@ Public Class frmRequisitionInfo
                 If frmApprovalConfirmation.TransactionDone = True Then
 
                     If SaveRequisitionInfo(False, True) = True Then
-                        com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "',fundcode='" & fundcode.Text & "', mainreference='" & pid.Text & "', subreference='" & pid.Text & "', status='Processed', remarks='" & rchar(frmApprovalConfirmation.txtRemarks.Text) & "', applevel=0, officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
+                        com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "',fundcode='" & fundcode.Text & "', mainreference='" & pid.Text & "', subreference='" & pid.Text & "', status='Processed', remarks='" & rchar(RemoveWhitespace(frmApprovalConfirmation.txtRemarks.Text)) & "', applevel=0, officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
                         If frmRequisitionList.Visible = True Then
                             frmRequisitionList.ViewList()
                         End If

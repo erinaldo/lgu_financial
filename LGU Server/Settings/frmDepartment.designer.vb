@@ -19,13 +19,12 @@ Partial Class frmDepartment
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
+        Me.BarManager1 = New DevExpress.XtraBars.BarManager()
         Me.Bar2 = New DevExpress.XtraBars.Bar()
         Me.cmdClose = New DevExpress.XtraBars.BarButtonItem()
         Me.cmdAdd = New DevExpress.XtraBars.BarButtonItem()
@@ -124,15 +123,15 @@ Partial Class frmDepartment
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(956, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(954, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 498)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 496)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(956, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(954, 0)
         '
         'barDockControlLeft
         '
@@ -140,15 +139,15 @@ Partial Class frmDepartment
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 478)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 476)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(956, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(954, 20)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 478)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 476)
         '
         'Em
         '
@@ -157,7 +156,7 @@ Partial Class frmDepartment
         Me.Em.Location = New System.Drawing.Point(0, 20)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(956, 478)
+        Me.Em.Size = New System.Drawing.Size(954, 476)
         Me.Em.TabIndex = 685
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -175,7 +174,7 @@ Partial Class frmDepartment
         Me.Appearance.Options.UseFont = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(956, 498)
+        Me.ClientSize = New System.Drawing.Size(954, 496)
         Me.Controls.Add(Me.Em)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)

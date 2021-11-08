@@ -229,6 +229,9 @@
   <data name="blog--minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blog--minus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Paper up1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Paper up1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -346,17 +349,14 @@
   <data name="Mail (2)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mail (2)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="map--minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\map--minus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Dateandtime" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dateandtime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bookmark-5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bookmark-5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Paper up1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Paper up1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="user-red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user-red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dialog-ok-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dialog-ok-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -373,14 +373,11 @@
   <data name="Documents1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Documents1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Desktop (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Desktop (6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="clipboard-sign-out" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clipboard-sign-out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="chart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="blue-document-hf-delete-footer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue-document-hf-delete-footer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="user--pencil" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user--pencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -397,8 +394,8 @@
   <data name="evolution-tasks" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\evolution-tasks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="book-next" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\book-next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lock--pencil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lock--pencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="xfn-friend-met" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\xfn-friend-met.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -459,6 +456,9 @@
   </data>
   <data name="Medium speed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Medium speed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lock--arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lock--arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tables-stacks" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tables-stacks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -682,9 +682,6 @@
   <data name="preferences-system-time" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\preferences-system-time.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="151" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\151.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="cross1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cross1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -711,9 +708,6 @@
   </data>
   <data name="Select" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user-red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user-red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="102" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\102.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -793,8 +787,8 @@
   <data name="024" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\024.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Documents (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Documents (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="chart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="application-x-troff-man" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\application-x-troff-man.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -946,8 +940,8 @@
   <data name="125" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\125.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="update_drivers" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\update_drivers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="edit-size-up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit-size-up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="address-book-open" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\address-book-open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1041,6 +1035,9 @@
   </data>
   <data name="archive-extract-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\archive-extract-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gnome-color-chooser" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gnome-color-chooser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="box-label" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\box-label.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1234,8 +1231,8 @@
   <data name="sched" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sched.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gnome-color-chooser" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gnome-color-chooser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="map--minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\map--minus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrow-curve-180-double" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow-curve-180-double.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1302,6 +1299,9 @@
   </data>
   <data name="Folder Downloads (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Folder Downloads (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="update_drivers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\update_drivers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="coffeeimg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\coffeeimg.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1417,8 +1417,8 @@
   <data name="gpe-todo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gpe-todo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="blue-document-hf-delete-footer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blue-document-hf-delete-footer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Desktop (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Desktop (6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Mail (2)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mail (2)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1435,6 +1435,9 @@
   <data name="conduit-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\conduit-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="osmo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\osmo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="RAM Drive (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RAM Drive (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1446,6 +1449,9 @@
   </data>
   <data name="Money Hot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Money Hot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Documents (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Documents (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="paper-box" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\paper-box.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1507,8 +1513,8 @@
   <data name="document_pencil" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\document_pencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="osmo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\osmo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="book-next" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\book-next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Platte" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Platte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1534,8 +1540,8 @@
   <data name="folder-favorites" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder-favorites.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="clipboard-task" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clipboard-task.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="151" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\151.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Recycle Bin Full (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Recycle Bin Full (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1546,8 +1552,8 @@
   <data name="Paper-warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Paper-warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit-size-up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit-size-up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="clipboard-task" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clipboard-task.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Product_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Product_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1564,7 +1570,7 @@
   <data name="Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lock--arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lock--arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lock--minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lock--minus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

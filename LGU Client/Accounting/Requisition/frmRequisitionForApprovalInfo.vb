@@ -229,10 +229,11 @@ Public Class frmRequisitionForApprovalInfo
         End If
 
         frmApprovalConfirmation.mode.Text = "approved"
+        frmApprovalConfirmation.RequiredAuthorizedAccess = CBool(qrysingledata("enableauthorizedaccess", "enableauthorizedaccess", "tblaccounts where accountid='" & globaluserid & "'"))
         frmApprovalConfirmation.ShowDialog(Me)
         If frmApprovalConfirmation.TransactionDone = True Then
             If approval.Text = "check" Then
-                com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "',fundcode='" & fundcode.Text & "' , mainreference='" & pid.Text & "', subreference='" & pid.Text & "', status='approved', remarks='" & rchar(frmApprovalConfirmation.txtRemarks.Text) & "', applevel=0, officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
+                com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "',fundcode='" & fundcode.Text & "' , mainreference='" & pid.Text & "', subreference='" & pid.Text & "', status='approved', remarks='" & rchar(RemoveWhitespace(frmApprovalConfirmation.txtRemarks.Text)) & "', applevel=0, officeid='" & compOfficeid & "', authorized=" & frmApprovalConfirmation.RequiredAuthorizedAccess & ",authorizedby='" & If(frmApprovalConfirmation.RequiredAuthorizedAccess, frmApprovalConfirmation.txtAccessAccount.EditValue, "") & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
                 com.CommandText = "update tblrequisition set checkapproved=1 where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
 
                 If frmForApprovalCheckReleasing.Visible = True Then
@@ -244,7 +245,7 @@ Public Class frmRequisitionForApprovalInfo
                 XtraMessageBox.Show("Check issuance request successfully approved!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Me.Close()
             Else
-                com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "', fundcode='" & fundcode.Text & "',  mainreference='" & pid.Text & "', subreference='" & pid.Text & "', status='Approved', remarks='" & rchar(frmApprovalConfirmation.txtRemarks.Text) & "', applevel='" & If(HeadOfficeApproval, "0", CurrentLevel.Text) & "', officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=" & ckFinalApprover.CheckState & "" : com.ExecuteNonQuery()
+                com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "', fundcode='" & fundcode.Text & "',  mainreference='" & pid.Text & "', subreference='" & pid.Text & "', status='Approved', remarks='" & rchar(RemoveWhitespace(frmApprovalConfirmation.txtRemarks.Text)) & "', applevel='" & If(HeadOfficeApproval, "0", CurrentLevel.Text) & "', officeid='" & compOfficeid & "', authorized=" & frmApprovalConfirmation.RequiredAuthorizedAccess & ",authorizedby='" & If(frmApprovalConfirmation.RequiredAuthorizedAccess, frmApprovalConfirmation.txtAccessAccount.EditValue, "") & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=" & ckFinalApprover.CheckState & "" : com.ExecuteNonQuery()
 
                 If ckFinalApprover.Checked = True Then
                     com.CommandText = "update tblrequisition set headofficeapproval=0, forapproval=0, approved=1, currentapprover='', nextapprover='', dateapproved=current_timestamp where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
@@ -303,9 +304,10 @@ Public Class frmRequisitionForApprovalInfo
 
 
     Private Sub cmdHoldRequest_Click(sender As Object, e As EventArgs) Handles cmdHoldRequest.Click
+        frmApprovalConfirmation.RequiredAuthorizedAccess = CBool(qrysingledata("enableauthorizedaccess", "enableauthorizedaccess", "tblaccounts where accountid='" & globaluserid & "'"))
         frmApprovalConfirmation.ShowDialog(Me)
         If frmApprovalConfirmation.TransactionDone = True Then
-            com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "',fundcode='" & fundcode.Text & "' , mainreference='" & pid.Text & "', subreference='" & pid.Text & "', status='Hold', remarks='" & rchar(frmApprovalConfirmation.txtRemarks.Text) & "', applevel=0, officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "',fundcode='" & fundcode.Text & "' , mainreference='" & pid.Text & "', subreference='" & pid.Text & "', status='Hold', remarks='" & rchar(frmApprovalConfirmation.txtRemarks.Text) & "', applevel=0, officeid='" & compOfficeid & "',authorized=" & frmApprovalConfirmation.RequiredAuthorizedAccess & ",authorizedby='" & If(frmApprovalConfirmation.RequiredAuthorizedAccess, frmApprovalConfirmation.txtAccessAccount.EditValue, "") & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
             com.CommandText = "update tblrequisition set forapproval=0, hold=1 where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
 
             If frmForApprovalRequisition.Visible = True Then

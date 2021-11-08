@@ -22,13 +22,17 @@ Partial Class frmApprovalConfirmation
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmApprovalConfirmation))
         Me.lbltitle = New DevExpress.XtraEditors.LabelControl()
         Me.cmdConfirm = New DevExpress.XtraEditors.SimpleButton()
         Me.txtRemarks = New DevExpress.XtraEditors.MemoEdit()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtAccessAccount = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.gridAccessTo = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.txtRemarks.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAccessAccount.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gridAccessTo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbltitle
@@ -69,7 +73,7 @@ Partial Class frmApprovalConfirmation
         'mode
         '
         Me.mode.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.mode.Location = New System.Drawing.Point(34, 198)
+        Me.mode.Location = New System.Drawing.Point(34, 196)
         Me.mode.Name = "mode"
         Me.mode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.mode.Properties.Appearance.Options.UseFont = True
@@ -80,6 +84,39 @@ Partial Class frmApprovalConfirmation
         Me.mode.TabIndex = 955
         Me.mode.Visible = False
         '
+        'LabelControl1
+        '
+        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.LabelControl1.Appearance.Options.UseFont = True
+        Me.LabelControl1.Location = New System.Drawing.Point(42, 117)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(105, 17)
+        Me.LabelControl1.TabIndex = 957
+        Me.LabelControl1.Text = "Authorize Account"
+        '
+        'txtAccessAccount
+        '
+        Me.txtAccessAccount.EditValue = ""
+        Me.txtAccessAccount.Location = New System.Drawing.Point(154, 113)
+        Me.txtAccessAccount.Name = "txtAccessAccount"
+        Me.txtAccessAccount.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 10.25!)
+        Me.txtAccessAccount.Properties.Appearance.Options.UseFont = True
+        Me.txtAccessAccount.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtAccessAccount.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtAccessAccount.Properties.DisplayMember = "Fullname"
+        Me.txtAccessAccount.Properties.NullText = ""
+        Me.txtAccessAccount.Properties.PopupView = Me.gridAccessTo
+        Me.txtAccessAccount.Properties.ValueMember = "accessto"
+        Me.txtAccessAccount.Size = New System.Drawing.Size(284, 26)
+        Me.txtAccessAccount.TabIndex = 956
+        '
+        'gridAccessTo
+        '
+        Me.gridAccessTo.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.gridAccessTo.Name = "gridAccessTo"
+        Me.gridAccessTo.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.gridAccessTo.OptionsView.ShowGroupPanel = False
+        '
         'frmApprovalConfirmation
         '
         Me.AcceptButton = Me.cmdConfirm
@@ -87,20 +124,23 @@ Partial Class frmApprovalConfirmation
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(457, 165)
+        Me.ClientSize = New System.Drawing.Size(457, 163)
+        Me.Controls.Add(Me.cmdConfirm)
+        Me.Controls.Add(Me.LabelControl1)
+        Me.Controls.Add(Me.txtAccessAccount)
         Me.Controls.Add(Me.mode)
         Me.Controls.Add(Me.txtRemarks)
         Me.Controls.Add(Me.lbltitle)
-        Me.Controls.Add(Me.cmdConfirm)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.HelpButton = True
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "frmApprovalConfirmation"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Request Confirmation"
         CType(Me.txtRemarks.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAccessAccount.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gridAccessTo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -109,4 +149,7 @@ Partial Class frmApprovalConfirmation
     Friend WithEvents cmdConfirm As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents txtRemarks As DevExpress.XtraEditors.MemoEdit
     Friend WithEvents mode As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtAccessAccount As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents gridAccessTo As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

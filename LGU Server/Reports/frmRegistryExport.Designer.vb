@@ -19,8 +19,7 @@ Partial Class frmRegistryExport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
         Me.cmdCloseBalanceDefault = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdCloseBalanceRecompute = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -203,7 +202,7 @@ Partial Class frmRegistryExport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(481, 227)
+        Me.ClientSize = New System.Drawing.Size(479, 225)
         Me.Controls.Add(Me.LabelControl4)
         Me.Controls.Add(Me.txtMonth)
         Me.Controls.Add(Me.txtClass)

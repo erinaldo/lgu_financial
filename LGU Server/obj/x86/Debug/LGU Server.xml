@@ -1532,6 +1532,16 @@ LGU Server
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:LGUFinancial.My.Resources.Resources.lock__minus">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:LGUFinancial.My.Resources.Resources.lock__pencil">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:LGUFinancial.My.Resources.Resources.lock_unlock">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

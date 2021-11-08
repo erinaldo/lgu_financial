@@ -225,23 +225,25 @@ Module Templates
         My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[name_requestor]", If(officername = "", "_________________", officername)), False)
 
         Dim budget As Boolean = False : Dim treasurer As Boolean = False : Dim accountant As Boolean = False
-        com.CommandText = "select *,date_format(dateconfirm,'%m/%d/%y %h:%i %p') as date_approved from tblapprovalhistory as a where mainreference='" & pid & "' and status='Approved'" : rst = com.ExecuteReader
+        com.CommandText = "select *, if(authorized=1,authorizedby,confirmid) as confirmed_id, " _
+                            + " if(authorized=1,(select fullname from tblaccounts where accountid=a.authorizedby),confirmby) as confirmed_name, " _
+                            + " date_format(dateconfirm,'%m/%d/%y %h:%i %p') as date_approved from tblapprovalhistory as a where mainreference='" & pid & "' and status='Approved'" : rst = com.ExecuteReader
         While rst.Read
-            If rst("confirmid").ToString = GlobalBudgetID Then
+            If rst("confirmed_id").ToString = GlobalBudgetID Then
                 budget = True
-                My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[name_budget]", rst("confirmby").ToString), False)
+                My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[name_budget]", rst("confirmed_name").ToString), False)
                 My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[date_budget]", rst("date_approved").ToString), False)
             End If
 
-            If rst("confirmid").ToString = GlobalTreasurerID Then
+            If rst("confirmed_id").ToString = GlobalTreasurerID Then
                 treasurer = True
-                My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[name_treasurer]", rst("confirmby").ToString), False)
+                My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[name_treasurer]", rst("confirmed_name").ToString), False)
                 My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[date_treasurer]", rst("date_approved").ToString), False)
             End If
 
-            If rst("confirmid").ToString = GlobalAccountantID Then
+            If rst("confirmed_id").ToString = GlobalAccountantID Then
                 accountant = True
-                My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[name_accountant]", rst("confirmby").ToString), False)
+                My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[name_accountant]", rst("confirmed_name").ToString), False)
                 My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[date_accountant]", rst("date_approved").ToString), False)
             End If
         End While

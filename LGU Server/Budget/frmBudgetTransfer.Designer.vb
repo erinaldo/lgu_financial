@@ -1742,13 +1742,13 @@ Partial Class frmBudgetTransfer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1013, 742)
+        Me.ClientSize = New System.Drawing.Size(1011, 740)
         Me.Controls.Add(Me.GroupControl2)
         Me.Controls.Add(Me.GroupControl1)
         Me.Controls.Add(Me.cmdFromSaveButton)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(397, 521)
+        Me.MinimumSize = New System.Drawing.Size(399, 523)
         Me.Name = "frmBudgetTransfer"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Budget Fund Transfer"

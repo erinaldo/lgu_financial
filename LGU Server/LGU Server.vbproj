@@ -422,6 +422,12 @@
     <Compile Include="Product\frmSetProductCategory.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Settings\frmAuthorizedUser.designer.vb">
+      <DependentUpon>frmAuthorizedUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\frmAuthorizedUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Settings\frmDepartmentOfficer.designer.vb">
       <DependentUpon>frmDepartmentOfficer.vb</DependentUpon>
     </Compile>
@@ -770,6 +776,9 @@
     <EmbeddedResource Include="Product\frmSetProductCategory.resx">
       <DependentUpon>frmSetProductCategory.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmAuthorizedUser.resx">
+      <DependentUpon>frmAuthorizedUser.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings\frmDepartmentOfficer.resx">
       <DependentUpon>frmDepartmentOfficer.vb</DependentUpon>
     </EmbeddedResource>
@@ -928,6 +937,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\lock--minus.png" />
+    <None Include="Resources\lock--pencil.png" />
     <None Include="Resources\lock--arrow.png" />
     <None Include="Resources\Printer_32x32 %282%29.png" />
     <None Include="Resources\Build_32x32 %282%29.png" />

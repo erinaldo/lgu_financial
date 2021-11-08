@@ -394,6 +394,24 @@ Module UpdateEngine
             engineupdated = True
         End If
 
+        updateVersion = "2021-11-06"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "update `tblrequisition` set purpose=REPLACE(REPLACE(purpose, '\r', ''), '\n', '');" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update tblapprovalhistory set remarks=REPLACE(REPLACE(remarks, '\r', ''), '\n', '');" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+        updateVersion = "2021-11-07"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "ALTER TABLE `tblapprovalhistory` ADD COLUMN `authorized` BOOLEAN NOT NULL DEFAULT 0 AFTER `officeid`, ADD COLUMN `authorizedby` VARCHAR(45) NOT NULL DEFAULT '' AFTER `autorized`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update `tblapprovalhistory` set authorized=1, authorizedby='101' where confirmid='160' and (applevel=3 or `status`='Hold');" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblaccounts` ADD COLUMN `enableauthorizedaccess` BOOLEAN NOT NULL DEFAULT 0 AFTER `sangguniansecretary`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "CREATE TABLE `tblauthorizedaccess` (  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,  `userid` varchar(5) NOT NULL DEFAULT '',  `accessto` varchar(5) NOT NULL DEFAULT '',  `datefrom` date NOT NULL,  `dateto` date NOT NULL,  `createdby` varchar(5) NOT NULL DEFAULT '',  `datecreated` datetime NOT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+
+
 
         If engineupdated = True Then
             Dim dversion As Date = updateVersion

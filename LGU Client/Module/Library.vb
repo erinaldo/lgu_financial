@@ -847,6 +847,10 @@ Module library
         Return newStrstr
     End Function
 
+    Function RemoveWhitespace(fullString As String) As String
+        Return New String(Regex.Replace(fullString, "^\s+$[\r\n]*", "", RegexOptions.Multiline).Trim())
+    End Function
+
     Public Function ImageToBase64(ByVal image As Image, ByVal format As System.Drawing.Imaging.ImageFormat) As String
         Using ms As MemoryStream = New MemoryStream()
             image.Save(ms, format)

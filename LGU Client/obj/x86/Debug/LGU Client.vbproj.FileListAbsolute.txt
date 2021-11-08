@@ -697,7 +697,6 @@ D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\de\DevExpress.Diagram.v19.2.
 D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\es\DevExpress.Diagram.v19.2.Core.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\ja\DevExpress.Diagram.v19.2.Core.resources.dll
 D:\VB.NET\Others\lgu_financial\LGU Client\bin\Debug\ru\DevExpress.Diagram.v19.2.Core.resources.dll
-D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.vbproj.AssemblyReference.cache
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\Interop.Shell32.dll
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.vbproj.ResolveComReference.cache
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmDisbursementList.resources

@@ -35,6 +35,7 @@ Module AccountInfo
     Public globalBgColor As String
     Public globalFontColor As String
     Public globalUserRequiredUpdateInfo As String
+    Public globalEnableAuthorizedAccess As Boolean
     Public ImageProfile As Image
 
 
@@ -172,6 +173,7 @@ Module AccountInfo
             globalBgColor = rst("bgcolorclient").ToString
             globalFontColor = rst("fontcolorclient").ToString
             globalUserRequiredUpdateInfo = rst("requiredupdate")
+            globalEnableAuthorizedAccess = rst("enableauthorizedaccess")
 
             If LCase(globalusername) = "root" Then
                 globalRootUser = True
@@ -453,6 +455,7 @@ Module AccountInfo
         globalIconfolder = ""
         globalBgColor = ""
         globalFontColor = ""
+        globalEnableAuthorizedAccess = False
 
         'Declaration of appearance
         gen_enablle_features = False

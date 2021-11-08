@@ -10,7 +10,7 @@ Module Accounting
             com.CommandText = "update tblrequisition set approved=0, cancelled=1, cancelledby='" & globaluserid & "',datecancelled=current_timestamp where pid ='" & pid & "'" : com.ExecuteNonQuery()
             com.CommandText = "update tblrequisitionfund set cancelled=1 where pid in (select pid from tbldisbursementvoucher where voucherid='" & voucherid & "')" : com.ExecuteNonQuery()
 
-            com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='', mainreference='" & pid & "', subreference='" & pid & "', status='Cancelled', remarks='" & remarks & "', applevel=0, officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='', mainreference='" & pid & "', subreference='" & pid & "', status='Cancelled', remarks='" & rchar(RemoveWhitespace(remarks)) & "', applevel=0, officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
 
             da = Nothing : st = New DataSet
             da = New MySqlDataAdapter("select *, (select monthcode from tblbudgetcomposition where periodcode=a.periodcode and itemcode=a.itemcode and officeid=a.officeid) current_month_period, " _
@@ -43,7 +43,7 @@ Module Accounting
             com.CommandText = "update tbljournalentryvoucher set cancelled=1,cancelledby='" & globaluserid & "',datecancelled=current_timestamp where dvid in (select voucherid from tbldisbursementvoucher where pid='" & pid & "')" : com.ExecuteNonQuery()
             com.CommandText = "update tbljournalentryitem set cancelled=1 where jevno in (select jevno from tbljournalentryvoucher where dvid in (select voucherid from tbldisbursementvoucher where pid='" & pid & "'))" : com.ExecuteNonQuery()
 
-            com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='', mainreference='" & pid & "', subreference='" & pid & "', status='Cancelled', remarks='" & remarks & "', applevel=0, officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='', mainreference='" & pid & "', subreference='" & pid & "', status='Cancelled', remarks='" & rchar(RemoveWhitespace(remarks)) & "', applevel=0, officeid='" & compOfficeid & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()
 
             da = Nothing : st = New DataSet
             da = New MySqlDataAdapter("select *, (select monthcode from tblbudgetcomposition where periodcode=a.periodcode and itemcode=a.itemcode and officeid=a.officeid) current_month_period, " _

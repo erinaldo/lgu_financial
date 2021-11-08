@@ -19,7 +19,6 @@ Partial Class frmApprovingProcess
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.tabsettings = New DevExpress.XtraTab.XtraTabControl()
         Me.tabCoffeecupMain = New DevExpress.XtraTab.XtraTabPage()
         Me.SplitContainerControl2 = New DevExpress.XtraEditors.SplitContainerControl()
@@ -44,7 +43,7 @@ Partial Class frmApprovingProcess
         Me.txtOffice = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridOffice = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.appStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.appStrip = New System.Windows.Forms.ContextMenuStrip()
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
@@ -105,7 +104,7 @@ Partial Class frmApprovingProcess
         Me.tabsettings.Location = New System.Drawing.Point(0, 0)
         Me.tabsettings.Name = "tabsettings"
         Me.tabsettings.SelectedTabPage = Me.tabCoffeecupMain
-        Me.tabsettings.Size = New System.Drawing.Size(1004, 477)
+        Me.tabsettings.Size = New System.Drawing.Size(1002, 475)
         Me.tabsettings.TabIndex = 371
         Me.tabsettings.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabCoffeecupMain, Me.tabRequiredAttachment})
         '
@@ -116,7 +115,7 @@ Partial Class frmApprovingProcess
         Me.tabCoffeecupMain.AutoScroll = True
         Me.tabCoffeecupMain.Controls.Add(Me.SplitContainerControl2)
         Me.tabCoffeecupMain.Name = "tabCoffeecupMain"
-        Me.tabCoffeecupMain.Size = New System.Drawing.Size(1002, 448)
+        Me.tabCoffeecupMain.Size = New System.Drawing.Size(1000, 446)
         Me.tabCoffeecupMain.Text = "Corporate Level Approving Process"
         '
         'SplitContainerControl2
@@ -145,7 +144,7 @@ Partial Class frmApprovingProcess
         Me.SplitContainerControl2.Panel1.Text = "Panel1"
         Me.SplitContainerControl2.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl2.Panel2.Text = "Panel2"
-        Me.SplitContainerControl2.Size = New System.Drawing.Size(1002, 448)
+        Me.SplitContainerControl2.Size = New System.Drawing.Size(1000, 446)
         Me.SplitContainerControl2.SplitterPosition = 373
         Me.SplitContainerControl2.TabIndex = 531
         Me.SplitContainerControl2.Text = "SplitContainerControl2"
@@ -384,7 +383,7 @@ Partial Class frmApprovingProcess
         Me.Em.Location = New System.Drawing.Point(0, 0)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(619, 448)
+        Me.Em.Size = New System.Drawing.Size(617, 446)
         Me.Em.TabIndex = 4
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -398,7 +397,7 @@ Partial Class frmApprovingProcess
         '
         Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.edit_3
         Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(180, 22)
+        Me.cmdEdit.Size = New System.Drawing.Size(169, 22)
         Me.cmdEdit.Text = "Edit Approver"
         '
         'cmdDelete
@@ -411,13 +410,13 @@ Partial Class frmApprovingProcess
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(166, 6)
         '
         'cmdRefresh
         '
         Me.cmdRefresh.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.cmdRefresh.Name = "cmdRefresh"
-        Me.cmdRefresh.Size = New System.Drawing.Size(180, 22)
+        Me.cmdRefresh.Size = New System.Drawing.Size(169, 22)
         Me.cmdRefresh.Text = "Refresh Data"
         '
         'GridView1
@@ -439,7 +438,7 @@ Partial Class frmApprovingProcess
         Me.tabRequiredAttachment.Controls.Add(Me.Em_filtered)
         Me.tabRequiredAttachment.Controls.Add(Me.txtPermission)
         Me.tabRequiredAttachment.Name = "tabRequiredAttachment"
-        Me.tabRequiredAttachment.Size = New System.Drawing.Size(1002, 448)
+        Me.tabRequiredAttachment.Size = New System.Drawing.Size(1002, 444)
         Me.tabRequiredAttachment.Text = "Required Attachment Filter"
         '
         'ckRequester
@@ -571,7 +570,7 @@ Partial Class frmApprovingProcess
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1004, 477)
+        Me.ClientSize = New System.Drawing.Size(1002, 475)
         Me.Controls.Add(Me.tabsettings)
         Me.Name = "frmApprovingProcess"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

@@ -19,8 +19,7 @@ Partial Class frmGeneralSettings
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
+        Me.BarManager1 = New DevExpress.XtraBars.BarManager()
         Me.Bar2 = New DevExpress.XtraBars.Bar()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
         Me.cmdSave = New DevExpress.XtraBars.BarButtonItem()
@@ -106,15 +105,15 @@ Partial Class frmGeneralSettings
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(835, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(833, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 551)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 549)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(835, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(833, 0)
         '
         'barDockControlLeft
         '
@@ -122,15 +121,15 @@ Partial Class frmGeneralSettings
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 531)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 529)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(835, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(833, 20)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 531)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 529)
         '
         'SimpleButton3
         '
@@ -148,7 +147,7 @@ Partial Class frmGeneralSettings
         Me.XtraTabControl1.Location = New System.Drawing.Point(0, 20)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.tabGeneral
-        Me.XtraTabControl1.Size = New System.Drawing.Size(835, 531)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(833, 529)
         Me.XtraTabControl1.TabIndex = 414
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabGeneral, Me.tabAdvance, Me.tabTransactionSequence, Me.tabDefaultSettings})
         Me.XtraTabControl1.Transition.AllowTransition = DevExpress.Utils.DefaultBoolean.[True]
@@ -163,7 +162,7 @@ Partial Class frmGeneralSettings
         Me.tabGeneral.Controls.Add(Me.LabelControl3)
         Me.tabGeneral.Controls.Add(Me.txtFileMB)
         Me.tabGeneral.Name = "tabGeneral"
-        Me.tabGeneral.Size = New System.Drawing.Size(833, 506)
+        Me.tabGeneral.Size = New System.Drawing.Size(831, 504)
         Me.tabGeneral.Text = "General Settings"
         '
         'txtWebserverAddress
@@ -253,7 +252,7 @@ Partial Class frmGeneralSettings
         '
         Me.tabAdvance.Controls.Add(Me.list_settings)
         Me.tabAdvance.Name = "tabAdvance"
-        Me.tabAdvance.Size = New System.Drawing.Size(833, 506)
+        Me.tabAdvance.Size = New System.Drawing.Size(833, 502)
         Me.tabAdvance.Text = "Advance Option"
         '
         'list_settings
@@ -271,14 +270,14 @@ Partial Class frmGeneralSettings
         Me.list_settings.Location = New System.Drawing.Point(0, 0)
         Me.list_settings.MultiColumn = True
         Me.list_settings.Name = "list_settings"
-        Me.list_settings.Size = New System.Drawing.Size(833, 506)
+        Me.list_settings.Size = New System.Drawing.Size(833, 502)
         Me.list_settings.TabIndex = 619
         '
         'tabTransactionSequence
         '
         Me.tabTransactionSequence.Controls.Add(Me.Em)
         Me.tabTransactionSequence.Name = "tabTransactionSequence"
-        Me.tabTransactionSequence.Size = New System.Drawing.Size(833, 506)
+        Me.tabTransactionSequence.Size = New System.Drawing.Size(833, 502)
         Me.tabTransactionSequence.Text = "Transaction Sequence"
         '
         'Em
@@ -287,7 +286,7 @@ Partial Class frmGeneralSettings
         Me.Em.Location = New System.Drawing.Point(0, 0)
         Me.Em.MainView = Me.Gridview1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(833, 506)
+        Me.Em.Size = New System.Drawing.Size(833, 502)
         Me.Em.TabIndex = 866
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.Gridview1})
         '
@@ -309,7 +308,7 @@ Partial Class frmGeneralSettings
         '
         Me.tabDefaultSettings.Controls.Add(Me.GridControl1)
         Me.tabDefaultSettings.Name = "tabDefaultSettings"
-        Me.tabDefaultSettings.Size = New System.Drawing.Size(833, 506)
+        Me.tabDefaultSettings.Size = New System.Drawing.Size(833, 502)
         Me.tabDefaultSettings.Text = "Default Settings"
         '
         'GridControl1
@@ -318,7 +317,7 @@ Partial Class frmGeneralSettings
         Me.GridControl1.Location = New System.Drawing.Point(0, 0)
         Me.GridControl1.MainView = Me.GridView2
         Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.Size = New System.Drawing.Size(833, 506)
+        Me.GridControl1.Size = New System.Drawing.Size(833, 502)
         Me.GridControl1.TabIndex = 867
         Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView2})
         '
@@ -340,7 +339,7 @@ Partial Class frmGeneralSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(835, 551)
+        Me.ClientSize = New System.Drawing.Size(833, 549)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.Controls.Add(Me.SimpleButton3)
         Me.Controls.Add(Me.barDockControlLeft)

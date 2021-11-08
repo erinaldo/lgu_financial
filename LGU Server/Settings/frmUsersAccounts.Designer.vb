@@ -104,14 +104,14 @@ Partial Class frmUsersAccounts
         '
         Me.SplitContainerControl1.CollapsePanel = DevExpress.XtraEditors.SplitCollapsePanel.Panel1
         Me.SplitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 24)
+        Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 20)
         Me.SplitContainerControl1.Name = "SplitContainerControl1"
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.XtraScrollableControl1)
         Me.SplitContainerControl1.Panel1.Text = "Panel1"
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.kbid)
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
-        Me.SplitContainerControl1.Size = New System.Drawing.Size(991, 551)
+        Me.SplitContainerControl1.Size = New System.Drawing.Size(989, 553)
         Me.SplitContainerControl1.SplitterPosition = 337
         Me.SplitContainerControl1.TabIndex = 1
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
@@ -146,7 +146,7 @@ Partial Class frmUsersAccounts
         Me.XtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.XtraScrollableControl1.Location = New System.Drawing.Point(0, 0)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
-        Me.XtraScrollableControl1.Size = New System.Drawing.Size(337, 551)
+        Me.XtraScrollableControl1.Size = New System.Drawing.Size(337, 553)
         Me.XtraScrollableControl1.TabIndex = 2
         '
         'LabelControl2
@@ -241,31 +241,31 @@ Partial Class frmUsersAccounts
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(991, 24)
+        Me.barDockControlTop.Size = New System.Drawing.Size(989, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 575)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 573)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(991, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(989, 0)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 24)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 551)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 553)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(991, 24)
+        Me.barDockControlRight.Location = New System.Drawing.Point(989, 20)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 551)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 553)
         '
         'BarButtonItem2
         '
@@ -488,9 +488,9 @@ Partial Class frmUsersAccounts
         'signature
         '
         Me.signature.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.signature.Location = New System.Drawing.Point(2, 27)
+        Me.signature.Location = New System.Drawing.Point(2, 23)
         Me.signature.Name = "signature"
-        Me.signature.Size = New System.Drawing.Size(257, 109)
+        Me.signature.Size = New System.Drawing.Size(257, 113)
         Me.signature.TabIndex = 375
         '
         'LabelControl29
@@ -562,7 +562,7 @@ Partial Class frmUsersAccounts
         Me.kbid.Properties.Appearance.Options.UseTextOptions = True
         Me.kbid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.kbid.Properties.ReadOnly = True
-        Me.kbid.Size = New System.Drawing.Size(240, 20)
+        Me.kbid.Size = New System.Drawing.Size(238, 20)
         Me.kbid.TabIndex = 388
         Me.kbid.Visible = False
         '
@@ -573,15 +573,15 @@ Partial Class frmUsersAccounts
         Me.Em.Location = New System.Drawing.Point(0, 0)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(644, 551)
+        Me.Em.Size = New System.Drawing.Size(642, 553)
         Me.Em.TabIndex = 1
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
         'gridmenustrip
         '
-        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.AuthorizedUserToolStripMenuItem, Me.cmdChangePass, Me.cmdRemovePermission, Me.cmdDelete, Me.ToolStripSeparator3, Me.RefreshToolStripMenuItem1})
+        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdChangePass, Me.AuthorizedUserToolStripMenuItem, Me.cmdRemovePermission, Me.cmdDelete, Me.ToolStripSeparator3, Me.RefreshToolStripMenuItem1})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(205, 142)
+        Me.gridmenustrip.Size = New System.Drawing.Size(223, 142)
         '
         'cmdEdit
         '
@@ -594,8 +594,8 @@ Partial Class frmUsersAccounts
         '
         Me.AuthorizedUserToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.lock__arrow
         Me.AuthorizedUserToolStripMenuItem.Name = "AuthorizedUserToolStripMenuItem"
-        Me.AuthorizedUserToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
-        Me.AuthorizedUserToolStripMenuItem.Text = "Authorized User"
+        Me.AuthorizedUserToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
+        Me.AuthorizedUserToolStripMenuItem.Text = "Authorized Approval Access"
         '
         'cmdChangePass
         '
@@ -642,7 +642,7 @@ Partial Class frmUsersAccounts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(991, 575)
+        Me.ClientSize = New System.Drawing.Size(989, 573)
         Me.Controls.Add(Me.SplitContainerControl1)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)

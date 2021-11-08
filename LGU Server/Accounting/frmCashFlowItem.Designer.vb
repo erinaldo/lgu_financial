@@ -19,13 +19,12 @@ Partial Class frmCashFlowItem
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.txtCashFlowName = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -126,7 +125,7 @@ Partial Class frmCashFlowItem
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(688, 355)
+        Me.Em.Size = New System.Drawing.Size(688, 359)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -235,7 +234,7 @@ Partial Class frmCashFlowItem
         Me.tabCashflowTagging.Controls.Add(Me.barDockControlRight)
         Me.tabCashflowTagging.Controls.Add(Me.BarDockControl1)
         Me.tabCashflowTagging.Name = "tabCashflowTagging"
-        Me.tabCashflowTagging.Size = New System.Drawing.Size(710, 477)
+        Me.tabCashflowTagging.Size = New System.Drawing.Size(710, 473)
         Me.tabCashflowTagging.Text = "Cash Flow Tagging"
         '
         'LabelControl3
@@ -355,7 +354,7 @@ Partial Class frmCashFlowItem
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
         Me.barDockControlRight.Location = New System.Drawing.Point(710, 0)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 477)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 473)
         '
         'BarDockControl1
         '
@@ -363,7 +362,7 @@ Partial Class frmCashFlowItem
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
         Me.BarDockControl1.Location = New System.Drawing.Point(710, 0)
         Me.BarDockControl1.Manager = Nothing
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 477)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 473)
         '
         'frmCashFlowItem
         '

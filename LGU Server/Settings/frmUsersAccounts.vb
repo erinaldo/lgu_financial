@@ -392,4 +392,13 @@ Public Class frmUsersAccounts
         Return True
     End Function
 
+    Private Sub AuthorizedUserToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AuthorizedUserToolStripMenuItem.Click
+        frmAuthorizedUser.userid.Text = GridView1.GetFocusedRowCellValue("Account ID").ToString()
+        frmAuthorizedUser.txtAccountName.Text = GridView1.GetFocusedRowCellValue("Fullname").ToString()
+        If frmAuthorizedUser.Visible Then
+            frmAuthorizedUser.Focus()
+        Else
+            frmAuthorizedUser.Show()
+        End If
+    End Sub
 End Class
