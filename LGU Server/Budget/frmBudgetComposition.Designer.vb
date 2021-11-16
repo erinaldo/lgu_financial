@@ -19,9 +19,10 @@ Partial Class frmBudgetComposition
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -76,7 +77,7 @@ Partial Class frmBudgetComposition
         Me.cmdSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSave.Appearance.Options.UseBackColor = True
         Me.cmdSave.Appearance.Options.UseFont = True
-        Me.cmdSave.Location = New System.Drawing.Point(386, 562)
+        Me.cmdSave.Location = New System.Drawing.Point(388, 582)
         Me.cmdSave.Name = "cmdSave"
         Me.cmdSave.Size = New System.Drawing.Size(168, 38)
         Me.cmdSave.TabIndex = 6
@@ -93,40 +94,41 @@ Partial Class frmBudgetComposition
         Me.Em.MinimumSize = New System.Drawing.Size(574, 454)
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(578, 454)
+        Me.Em.Size = New System.Drawing.Size(583, 474)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
         'gridmenustrip
         '
+        Me.gridmenustrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(145, 76)
+        Me.gridmenustrip.Size = New System.Drawing.Size(149, 88)
         '
         'cmdEdit
         '
         Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
         Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(144, 22)
+        Me.cmdEdit.Size = New System.Drawing.Size(148, 26)
         Me.cmdEdit.Text = "Edit Selected"
         '
         'cmdDelete
         '
         Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.notebook__minus
         Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(144, 22)
+        Me.cmdDelete.Size = New System.Drawing.Size(148, 26)
         Me.cmdDelete.Text = "Remove Item"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(141, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(145, 6)
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(148, 26)
         Me.RefreshToolStripMenuItem.Text = "Refresh Data"
         '
         'GridView1
@@ -313,7 +315,7 @@ Partial Class frmBudgetComposition
         Me.SimpleButton1.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.SimpleButton1.Appearance.Options.UseBackColor = True
         Me.SimpleButton1.Appearance.Options.UseFont = True
-        Me.SimpleButton1.Location = New System.Drawing.Point(38, 562)
+        Me.SimpleButton1.Location = New System.Drawing.Point(40, 582)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(168, 38)
         Me.SimpleButton1.TabIndex = 651
@@ -328,7 +330,7 @@ Partial Class frmBudgetComposition
         Me.cmdImport.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdImport.Appearance.Options.UseBackColor = True
         Me.cmdImport.Appearance.Options.UseFont = True
-        Me.cmdImport.Location = New System.Drawing.Point(212, 562)
+        Me.cmdImport.Location = New System.Drawing.Point(214, 582)
         Me.cmdImport.Name = "cmdImport"
         Me.cmdImport.Size = New System.Drawing.Size(168, 38)
         Me.cmdImport.TabIndex = 652
@@ -365,7 +367,7 @@ Partial Class frmBudgetComposition
         Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(598, 607)
+        Me.ClientSize = New System.Drawing.Size(603, 627)
         Me.Controls.Add(Me.Bm)
         Me.Controls.Add(Me.cmdImport)
         Me.Controls.Add(Me.SimpleButton1)
@@ -382,7 +384,7 @@ Partial Class frmBudgetComposition
         Me.Controls.Add(Me.txtFund)
         Me.Controls.Add(Me.cmdSave)
         Me.Controls.Add(Me.Em)
-        Me.MinimumSize = New System.Drawing.Size(600, 639)
+        Me.MinimumSize = New System.Drawing.Size(594, 646)
         Me.Name = "frmBudgetComposition"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Budget Composition"

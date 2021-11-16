@@ -429,6 +429,7 @@ Module Templates
         Dim totalsourcecount As Integer = countqry("tblrequisitionfund", "pid='" & pid & "' ")
         com.CommandText = "select *, (select itemname from tblglitem where itemcode=a.itemcode) as itemname from tblrequisitionfund as a where pid='" & pid & "' " : rst = com.ExecuteReader
         While rst.Read
+
             itemrow += " <tr> " _
                            + " <td class='item_list' align='center'>" & rst("itemname").ToString & "</td> " _
                            + If(totalsourcecount > 1, If(item = 0, "  <td class='item_list' rowspan='" & totalsourcecount & "'>" & purpose & "</td>", ""), "<td class='item_list'>" & purpose & "</td>") _
@@ -460,7 +461,7 @@ Module Templates
         com.CommandText = "SELECT b.postingdate,b.purpose,b.requestno,a.prevbalance,a.amount,a.newbalance, " _
                                     + " b.paid as cleared FROM `tblrequisitionfund` as a " _
                                     + " inner join tblrequisition as b on a.pid=b.pid " _
-                                    + " where a.officeid='" & officeid & "' and a.periodcode='" & periodcode & "' and itemcode in (select itemcode from tblrequisitionfund where pid='" & pid & "' and cancelled=0)  and b.cancelled=0 order by a.itemcode, b.postingdate asc; " : rst = com.ExecuteReader
+                                    + " where a.officeid='" & officeid & "' and a.periodcode='" & periodcode & "' and itemcode in (select itemcode from tblrequisitionfund where pid='" & pid & "' and cancelled=0) and b.pid='" & pid & "' and b.cancelled=0 order by a.itemcode, b.postingdate asc; " : rst = com.ExecuteReader
         While rst.Read
             Dim cleared As Boolean = CBool(rst("cleared"))
             AcctRow += " <tr> " _

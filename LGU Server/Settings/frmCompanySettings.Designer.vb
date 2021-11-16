@@ -131,25 +131,27 @@ Partial Class frmCompanySettings
         'txtinitialcode
         '
         Me.txtinitialcode.EnterMoveNextControl = True
-        Me.txtinitialcode.Location = New System.Drawing.Point(125, 38)
+        Me.txtinitialcode.Location = New System.Drawing.Point(146, 47)
+        Me.txtinitialcode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtinitialcode.Name = "txtinitialcode"
         Me.txtinitialcode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtinitialcode.Properties.Appearance.Options.UseFont = True
         Me.txtinitialcode.Properties.Appearance.Options.UseTextOptions = True
         Me.txtinitialcode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.txtinitialcode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtinitialcode.Size = New System.Drawing.Size(107, 24)
+        Me.txtinitialcode.Size = New System.Drawing.Size(125, 28)
         Me.txtinitialcode.TabIndex = 394
         '
         'companyid
         '
         Me.companyid.EnterMoveNextControl = True
-        Me.companyid.Location = New System.Drawing.Point(552, 465)
+        Me.companyid.Location = New System.Drawing.Point(644, 572)
+        Me.companyid.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.companyid.Name = "companyid"
         Me.companyid.Properties.Appearance.Options.UseFont = True
         Me.companyid.Properties.Appearance.Options.UseTextOptions = True
         Me.companyid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.companyid.Size = New System.Drawing.Size(71, 20)
+        Me.companyid.Size = New System.Drawing.Size(83, 22)
         Me.companyid.TabIndex = 393
         '
         'logo
@@ -160,9 +162,10 @@ Partial Class frmCompanySettings
         Me.logo.Controls.Add(Me.txtLogoWidth)
         Me.logo.Controls.Add(Me.piclogo)
         Me.logo.GroupStyle = DevExpress.Utils.GroupStyle.Title
-        Me.logo.Location = New System.Drawing.Point(364, 9)
+        Me.logo.Location = New System.Drawing.Point(425, 11)
+        Me.logo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.logo.Name = "logo"
-        Me.logo.Size = New System.Drawing.Size(324, 265)
+        Me.logo.Size = New System.Drawing.Size(378, 326)
         Me.logo.TabIndex = 410
         Me.logo.Text = "LGU Logo"
         '
@@ -170,9 +173,10 @@ Partial Class frmCompanySettings
         '
         Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl5.Appearance.Options.UseFont = True
-        Me.LabelControl5.Location = New System.Drawing.Point(105, 35)
+        Me.LabelControl5.Location = New System.Drawing.Point(122, 43)
+        Me.LabelControl5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(146, 17)
+        Me.LabelControl5.Size = New System.Drawing.Size(177, 21)
         Me.LabelControl5.TabIndex = 748
         Me.LabelControl5.Text = "Scale Width (200 Default)"
         '
@@ -181,43 +185,47 @@ Partial Class frmCompanySettings
         Me.txtLogoWidth.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtLogoWidth.FormattingEnabled = True
         Me.txtLogoWidth.Items.AddRange(New Object() {"160", "200", "250", "270"})
-        Me.txtLogoWidth.Location = New System.Drawing.Point(257, 31)
+        Me.txtLogoWidth.Location = New System.Drawing.Point(300, 38)
+        Me.txtLogoWidth.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtLogoWidth.Name = "txtLogoWidth"
-        Me.txtLogoWidth.Size = New System.Drawing.Size(65, 25)
+        Me.txtLogoWidth.Size = New System.Drawing.Size(75, 29)
         Me.txtLogoWidth.TabIndex = 747
         Me.txtLogoWidth.Text = "200"
         '
         'piclogo
         '
         Me.piclogo.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.piclogo.Location = New System.Drawing.Point(0, 60)
+        Me.piclogo.Location = New System.Drawing.Point(0, 74)
+        Me.piclogo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.piclogo.Name = "piclogo"
-        Me.piclogo.Size = New System.Drawing.Size(324, 205)
+        Me.piclogo.Size = New System.Drawing.Size(378, 252)
         Me.piclogo.TabIndex = 375
         '
         'txtModule
         '
         Me.txtModule.EnterMoveNextControl = True
-        Me.txtModule.Location = New System.Drawing.Point(310, 465)
+        Me.txtModule.Location = New System.Drawing.Point(362, 572)
+        Me.txtModule.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtModule.Name = "txtModule"
         Me.txtModule.Properties.Appearance.Options.UseFont = True
         Me.txtModule.Properties.Appearance.Options.UseTextOptions = True
         Me.txtModule.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.txtModule.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtModule.Size = New System.Drawing.Size(71, 20)
+        Me.txtModule.Size = New System.Drawing.Size(83, 22)
         Me.txtModule.TabIndex = 396
         Me.txtModule.Visible = False
         '
         'mode
         '
         Me.mode.EnterMoveNextControl = True
-        Me.mode.Location = New System.Drawing.Point(387, 465)
+        Me.mode.Location = New System.Drawing.Point(451, 572)
+        Me.mode.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.mode.Name = "mode"
         Me.mode.Properties.Appearance.Options.UseFont = True
         Me.mode.Properties.Appearance.Options.UseTextOptions = True
         Me.mode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.mode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.mode.Size = New System.Drawing.Size(71, 20)
+        Me.mode.Size = New System.Drawing.Size(83, 22)
         Me.mode.TabIndex = 395
         Me.mode.Visible = False
         '
@@ -225,69 +233,76 @@ Partial Class frmCompanySettings
         '
         Me.LabelControl9.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl9.Appearance.Options.UseFont = True
-        Me.LabelControl9.Location = New System.Drawing.Point(66, 179)
+        Me.LabelControl9.Location = New System.Drawing.Point(77, 220)
+        Me.LabelControl9.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl9.Name = "LabelControl9"
-        Me.LabelControl9.Size = New System.Drawing.Size(47, 17)
+        Me.LabelControl9.Size = New System.Drawing.Size(56, 21)
         Me.LabelControl9.TabIndex = 408
         Me.LabelControl9.Text = "Website"
         '
         'txtweb
         '
         Me.txtweb.EnterMoveNextControl = True
-        Me.txtweb.Location = New System.Drawing.Point(125, 176)
+        Me.txtweb.Location = New System.Drawing.Point(146, 217)
+        Me.txtweb.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtweb.Name = "txtweb"
         Me.txtweb.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtweb.Properties.Appearance.Options.UseFont = True
-        Me.txtweb.Size = New System.Drawing.Size(211, 24)
+        Me.txtweb.Size = New System.Drawing.Size(246, 28)
         Me.txtweb.TabIndex = 399
         '
         'txtcomp
         '
         Me.txtcomp.EnterMoveNextControl = True
-        Me.txtcomp.Location = New System.Drawing.Point(125, 66)
+        Me.txtcomp.Location = New System.Drawing.Point(146, 81)
+        Me.txtcomp.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtcomp.Name = "txtcomp"
         Me.txtcomp.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtcomp.Properties.Appearance.Options.UseFont = True
-        Me.txtcomp.Size = New System.Drawing.Size(211, 24)
+        Me.txtcomp.Size = New System.Drawing.Size(246, 28)
         Me.txtcomp.TabIndex = 395
         '
         'LabelControl8
         '
         Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl8.Appearance.Options.UseFont = True
-        Me.LabelControl8.Location = New System.Drawing.Point(30, 151)
+        Me.LabelControl8.Location = New System.Drawing.Point(35, 186)
+        Me.LabelControl8.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl8.Name = "LabelControl8"
-        Me.LabelControl8.Size = New System.Drawing.Size(83, 17)
+        Me.LabelControl8.Size = New System.Drawing.Size(98, 21)
         Me.LabelControl8.TabIndex = 407
         Me.LabelControl8.Text = "Email Address"
         '
         'txtadd
         '
         Me.txtadd.EnterMoveNextControl = True
-        Me.txtadd.Location = New System.Drawing.Point(125, 94)
+        Me.txtadd.Location = New System.Drawing.Point(146, 116)
+        Me.txtadd.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtadd.Name = "txtadd"
         Me.txtadd.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtadd.Properties.Appearance.Options.UseFont = True
-        Me.txtadd.Size = New System.Drawing.Size(211, 24)
+        Me.txtadd.Size = New System.Drawing.Size(246, 28)
         Me.txtadd.TabIndex = 396
         '
         'txtemail
         '
         Me.txtemail.EnterMoveNextControl = True
-        Me.txtemail.Location = New System.Drawing.Point(125, 148)
+        Me.txtemail.Location = New System.Drawing.Point(146, 182)
+        Me.txtemail.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtemail.Name = "txtemail"
         Me.txtemail.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtemail.Properties.Appearance.Options.UseFont = True
-        Me.txtemail.Size = New System.Drawing.Size(211, 24)
+        Me.txtemail.Size = New System.Drawing.Size(246, 28)
         Me.txtemail.TabIndex = 398
         '
         'LabelControl4
         '
         Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl4.Appearance.Options.UseFont = True
-        Me.LabelControl4.Location = New System.Drawing.Point(5, 97)
+        Me.LabelControl4.Location = New System.Drawing.Point(6, 119)
+        Me.LabelControl4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(108, 17)
+        Me.LabelControl4.Size = New System.Drawing.Size(127, 21)
         Me.LabelControl4.TabIndex = 404
         Me.LabelControl4.Text = "Complete Address"
         '
@@ -295,9 +310,10 @@ Partial Class frmCompanySettings
         '
         Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl7.Appearance.Options.UseFont = True
-        Me.LabelControl7.Location = New System.Drawing.Point(27, 124)
+        Me.LabelControl7.Location = New System.Drawing.Point(31, 153)
+        Me.LabelControl7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl7.Name = "LabelControl7"
-        Me.LabelControl7.Size = New System.Drawing.Size(86, 17)
+        Me.LabelControl7.Size = New System.Drawing.Size(100, 21)
         Me.LabelControl7.TabIndex = 406
         Me.LabelControl7.Text = "Telephone No."
         '
@@ -305,20 +321,22 @@ Partial Class frmCompanySettings
         '
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl3.Appearance.Options.UseFont = True
-        Me.LabelControl3.Location = New System.Drawing.Point(50, 69)
+        Me.LabelControl3.Location = New System.Drawing.Point(58, 85)
+        Me.LabelControl3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(63, 17)
+        Me.LabelControl3.Size = New System.Drawing.Size(76, 21)
         Me.LabelControl3.TabIndex = 405
         Me.LabelControl3.Text = "LGU Name"
         '
         'txttell
         '
         Me.txttell.EnterMoveNextControl = True
-        Me.txttell.Location = New System.Drawing.Point(125, 121)
+        Me.txttell.Location = New System.Drawing.Point(146, 149)
+        Me.txttell.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txttell.Name = "txttell"
         Me.txttell.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txttell.Properties.Appearance.Options.UseFont = True
-        Me.txttell.Size = New System.Drawing.Size(211, 24)
+        Me.txttell.Size = New System.Drawing.Size(246, 28)
         Me.txttell.TabIndex = 397
         '
         'BarManager1
@@ -328,6 +346,7 @@ Partial Class frmCompanySettings
         Me.BarManager1.DockControls.Add(Me.barDockControlBottom)
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
+        Me.BarManager1.DockWindowTabFont = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BarManager1.Form = Me
         Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarButtonItem1, Me.cmdResetDatabase, Me.BarButtonItem2})
         Me.BarManager1.MainMenu = Me.Bar2
@@ -363,31 +382,35 @@ Partial Class frmCompanySettings
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(730, 20)
+        Me.barDockControlTop.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.barDockControlTop.Size = New System.Drawing.Size(852, 25)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 467)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 575)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(730, 0)
+        Me.barDockControlBottom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(852, 0)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 25)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 447)
+        Me.barDockControlLeft.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 550)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(730, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(852, 25)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 447)
+        Me.barDockControlRight.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 550)
         '
         'BarButtonItem2
         '
@@ -403,9 +426,10 @@ Partial Class frmCompanySettings
         Me.cmdSave.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSave.Appearance.Options.UseBackColor = True
         Me.cmdSave.Appearance.Options.UseFont = True
-        Me.cmdSave.Location = New System.Drawing.Point(432, 349)
+        Me.cmdSave.Location = New System.Drawing.Point(403, 344)
+        Me.cmdSave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cmdSave.Name = "cmdSave"
-        Me.cmdSave.Size = New System.Drawing.Size(178, 38)
+        Me.cmdSave.Size = New System.Drawing.Size(166, 38)
         Me.cmdSave.TabIndex = 515
         Me.cmdSave.Text = "Save Information"
         '
@@ -414,10 +438,11 @@ Partial Class frmCompanySettings
         Me.XtraTabControl1.AppearancePage.Header.Font = New System.Drawing.Font("Segoe UI", 9.55!)
         Me.XtraTabControl1.AppearancePage.Header.Options.UseFont = True
         Me.XtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.XtraTabControl1.Location = New System.Drawing.Point(0, 20)
+        Me.XtraTabControl1.Location = New System.Drawing.Point(0, 25)
+        Me.XtraTabControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.tabProfile
-        Me.XtraTabControl1.Size = New System.Drawing.Size(730, 447)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(852, 550)
         Me.XtraTabControl1.TabIndex = 520
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabProfile, Me.tabSignatories})
         Me.XtraTabControl1.Transition.AllowTransition = DevExpress.Utils.DefaultBoolean.[True]
@@ -431,8 +456,9 @@ Partial Class frmCompanySettings
         Me.tabProfile.Controls.Add(Me.cmdSave)
         Me.tabProfile.Controls.Add(Me.logo)
         Me.tabProfile.Controls.Add(Me.GroupControl2)
+        Me.tabProfile.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tabProfile.Name = "tabProfile"
-        Me.tabProfile.Size = New System.Drawing.Size(728, 418)
+        Me.tabProfile.Size = New System.Drawing.Size(850, 515)
         Me.tabProfile.Text = "Company Profile"
         '
         'GroupControl3
@@ -441,20 +467,22 @@ Partial Class frmCompanySettings
         Me.GroupControl3.AppearanceCaption.Options.UseFont = True
         Me.GroupControl3.Controls.Add(Me.txtLogoUrl)
         Me.GroupControl3.GroupStyle = DevExpress.Utils.GroupStyle.Title
-        Me.GroupControl3.Location = New System.Drawing.Point(364, 280)
+        Me.GroupControl3.Location = New System.Drawing.Point(340, 276)
+        Me.GroupControl3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl3.Name = "GroupControl3"
-        Me.GroupControl3.Size = New System.Drawing.Size(324, 63)
+        Me.GroupControl3.Size = New System.Drawing.Size(302, 62)
         Me.GroupControl3.TabIndex = 748
         Me.GroupControl3.Text = "Online Logo Address"
         '
         'txtLogoUrl
         '
         Me.txtLogoUrl.EnterMoveNextControl = True
-        Me.txtLogoUrl.Location = New System.Drawing.Point(0, 33)
+        Me.txtLogoUrl.Location = New System.Drawing.Point(0, 41)
+        Me.txtLogoUrl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtLogoUrl.Name = "txtLogoUrl"
         Me.txtLogoUrl.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
         Me.txtLogoUrl.Properties.Appearance.Options.UseFont = True
-        Me.txtLogoUrl.Size = New System.Drawing.Size(322, 22)
+        Me.txtLogoUrl.Size = New System.Drawing.Size(376, 26)
         Me.txtLogoUrl.TabIndex = 516
         '
         'GroupControl2
@@ -474,9 +502,10 @@ Partial Class frmCompanySettings
         Me.GroupControl2.Controls.Add(Me.LabelControl7)
         Me.GroupControl2.Controls.Add(Me.LabelControl4)
         Me.GroupControl2.GroupStyle = DevExpress.Utils.GroupStyle.Title
-        Me.GroupControl2.Location = New System.Drawing.Point(11, 9)
+        Me.GroupControl2.Location = New System.Drawing.Point(10, 8)
+        Me.GroupControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl2.Name = "GroupControl2"
-        Me.GroupControl2.Size = New System.Drawing.Size(343, 334)
+        Me.GroupControl2.Size = New System.Drawing.Size(320, 329)
         Me.GroupControl2.TabIndex = 747
         Me.GroupControl2.Text = "LGU Profile Information"
         '
@@ -484,9 +513,10 @@ Partial Class frmCompanySettings
         '
         Me.LabelControl17.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl17.Appearance.Options.UseFont = True
-        Me.LabelControl17.Location = New System.Drawing.Point(54, 41)
+        Me.LabelControl17.Location = New System.Drawing.Point(63, 50)
+        Me.LabelControl17.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl17.Name = "LabelControl17"
-        Me.LabelControl17.Size = New System.Drawing.Size(59, 17)
+        Me.LabelControl17.Size = New System.Drawing.Size(70, 21)
         Me.LabelControl17.TabIndex = 747
         Me.LabelControl17.Text = "LGU Code"
         '
@@ -517,15 +547,17 @@ Partial Class frmCompanySettings
         Me.tabSignatories.Controls.Add(Me.LabelControl1)
         Me.tabSignatories.Controls.Add(Me.LabelControl10)
         Me.tabSignatories.Controls.Add(Me.LabelControl27)
+        Me.tabSignatories.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tabSignatories.Name = "tabSignatories"
-        Me.tabSignatories.Size = New System.Drawing.Size(728, 418)
+        Me.tabSignatories.Size = New System.Drawing.Size(850, 515)
         Me.tabSignatories.Text = "Official Signatories"
         '
         'txtHrmdName
         '
         Me.txtHrmdName.EditValue = ""
         Me.txtHrmdName.EnterMoveNextControl = True
-        Me.txtHrmdName.Location = New System.Drawing.Point(418, 30)
+        Me.txtHrmdName.Location = New System.Drawing.Point(390, 29)
+        Me.txtHrmdName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtHrmdName.Name = "txtHrmdName"
         Me.txtHrmdName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtHrmdName.Properties.Appearance.Options.UseFont = True
@@ -534,7 +566,7 @@ Partial Class frmCompanySettings
         Me.txtHrmdName.Properties.NullText = ""
         Me.txtHrmdName.Properties.PopupView = Me.gvHrmdName
         Me.txtHrmdName.Properties.ValueMember = "accountid"
-        Me.txtHrmdName.Size = New System.Drawing.Size(211, 24)
+        Me.txtHrmdName.Size = New System.Drawing.Size(197, 22)
         Me.txtHrmdName.TabIndex = 776
         '
         'gvHrmdName
@@ -548,29 +580,32 @@ Partial Class frmCompanySettings
         '
         Me.LabelControl16.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl16.Appearance.Options.UseFont = True
-        Me.LabelControl16.Location = New System.Drawing.Point(366, 60)
+        Me.LabelControl16.Location = New System.Drawing.Point(534, 93)
+        Me.LabelControl16.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl16.Name = "LabelControl16"
-        Me.LabelControl16.Size = New System.Drawing.Size(46, 17)
+        Me.LabelControl16.Size = New System.Drawing.Size(56, 21)
         Me.LabelControl16.TabIndex = 775
         Me.LabelControl16.Text = "Position"
         '
         'txtHrmdPosition
         '
         Me.txtHrmdPosition.EnterMoveNextControl = True
-        Me.txtHrmdPosition.Location = New System.Drawing.Point(418, 57)
+        Me.txtHrmdPosition.Location = New System.Drawing.Point(390, 56)
+        Me.txtHrmdPosition.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtHrmdPosition.Name = "txtHrmdPosition"
         Me.txtHrmdPosition.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtHrmdPosition.Properties.Appearance.Options.UseFont = True
-        Me.txtHrmdPosition.Size = New System.Drawing.Size(211, 24)
+        Me.txtHrmdPosition.Size = New System.Drawing.Size(197, 22)
         Me.txtHrmdPosition.TabIndex = 773
         '
         'LabelControl18
         '
         Me.LabelControl18.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl18.Appearance.Options.UseFont = True
-        Me.LabelControl18.Location = New System.Drawing.Point(374, 33)
+        Me.LabelControl18.Location = New System.Drawing.Point(545, 51)
+        Me.LabelControl18.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl18.Name = "LabelControl18"
-        Me.LabelControl18.Size = New System.Drawing.Size(38, 17)
+        Me.LabelControl18.Size = New System.Drawing.Size(46, 21)
         Me.LabelControl18.TabIndex = 774
         Me.LabelControl18.Text = "HRMD"
         '
@@ -578,7 +613,8 @@ Partial Class frmCompanySettings
         '
         Me.txtViceMayorName.EditValue = ""
         Me.txtViceMayorName.EnterMoveNextControl = True
-        Me.txtViceMayorName.Location = New System.Drawing.Point(130, 90)
+        Me.txtViceMayorName.Location = New System.Drawing.Point(121, 88)
+        Me.txtViceMayorName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtViceMayorName.Name = "txtViceMayorName"
         Me.txtViceMayorName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtViceMayorName.Properties.Appearance.Options.UseFont = True
@@ -587,7 +623,7 @@ Partial Class frmCompanySettings
         Me.txtViceMayorName.Properties.NullText = ""
         Me.txtViceMayorName.Properties.PopupView = Me.gridViceMayor
         Me.txtViceMayorName.Properties.ValueMember = "accountid"
-        Me.txtViceMayorName.Size = New System.Drawing.Size(211, 24)
+        Me.txtViceMayorName.Size = New System.Drawing.Size(197, 22)
         Me.txtViceMayorName.TabIndex = 772
         '
         'gridViceMayor
@@ -601,29 +637,32 @@ Partial Class frmCompanySettings
         '
         Me.LabelControl14.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl14.Appearance.Options.UseFont = True
-        Me.LabelControl14.Location = New System.Drawing.Point(77, 120)
+        Me.LabelControl14.Location = New System.Drawing.Point(113, 185)
+        Me.LabelControl14.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl14.Name = "LabelControl14"
-        Me.LabelControl14.Size = New System.Drawing.Size(46, 17)
+        Me.LabelControl14.Size = New System.Drawing.Size(56, 21)
         Me.LabelControl14.TabIndex = 771
         Me.LabelControl14.Text = "Position"
         '
         'txtViceMayorPosition
         '
         Me.txtViceMayorPosition.EnterMoveNextControl = True
-        Me.txtViceMayorPosition.Location = New System.Drawing.Point(130, 117)
+        Me.txtViceMayorPosition.Location = New System.Drawing.Point(121, 115)
+        Me.txtViceMayorPosition.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtViceMayorPosition.Name = "txtViceMayorPosition"
         Me.txtViceMayorPosition.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtViceMayorPosition.Properties.Appearance.Options.UseFont = True
-        Me.txtViceMayorPosition.Size = New System.Drawing.Size(211, 24)
+        Me.txtViceMayorPosition.Size = New System.Drawing.Size(197, 22)
         Me.txtViceMayorPosition.TabIndex = 769
         '
         'LabelControl15
         '
         Me.LabelControl15.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl15.Appearance.Options.UseFont = True
-        Me.LabelControl15.Location = New System.Drawing.Point(57, 93)
+        Me.LabelControl15.Location = New System.Drawing.Point(83, 143)
+        Me.LabelControl15.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl15.Name = "LabelControl15"
-        Me.LabelControl15.Size = New System.Drawing.Size(66, 17)
+        Me.LabelControl15.Size = New System.Drawing.Size(78, 21)
         Me.LabelControl15.TabIndex = 770
         Me.LabelControl15.Text = "Vice Mayor"
         '
@@ -631,7 +670,8 @@ Partial Class frmCompanySettings
         '
         Me.txtBudgetName.EditValue = ""
         Me.txtBudgetName.EnterMoveNextControl = True
-        Me.txtBudgetName.Location = New System.Drawing.Point(130, 279)
+        Me.txtBudgetName.Location = New System.Drawing.Point(121, 274)
+        Me.txtBudgetName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtBudgetName.Name = "txtBudgetName"
         Me.txtBudgetName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtBudgetName.Properties.Appearance.Options.UseFont = True
@@ -640,7 +680,7 @@ Partial Class frmCompanySettings
         Me.txtBudgetName.Properties.NullText = ""
         Me.txtBudgetName.Properties.PopupView = Me.gridBudgetName
         Me.txtBudgetName.Properties.ValueMember = "accountid"
-        Me.txtBudgetName.Size = New System.Drawing.Size(211, 24)
+        Me.txtBudgetName.Size = New System.Drawing.Size(197, 22)
         Me.txtBudgetName.TabIndex = 768
         '
         'gridBudgetName
@@ -654,29 +694,32 @@ Partial Class frmCompanySettings
         '
         Me.LabelControl12.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl12.Appearance.Options.UseFont = True
-        Me.LabelControl12.Location = New System.Drawing.Point(77, 309)
+        Me.LabelControl12.Location = New System.Drawing.Point(113, 475)
+        Me.LabelControl12.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl12.Name = "LabelControl12"
-        Me.LabelControl12.Size = New System.Drawing.Size(46, 17)
+        Me.LabelControl12.Size = New System.Drawing.Size(56, 21)
         Me.LabelControl12.TabIndex = 767
         Me.LabelControl12.Text = "Position"
         '
         'txtBudgetPosition
         '
         Me.txtBudgetPosition.EnterMoveNextControl = True
-        Me.txtBudgetPosition.Location = New System.Drawing.Point(130, 306)
+        Me.txtBudgetPosition.Location = New System.Drawing.Point(121, 301)
+        Me.txtBudgetPosition.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtBudgetPosition.Name = "txtBudgetPosition"
         Me.txtBudgetPosition.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtBudgetPosition.Properties.Appearance.Options.UseFont = True
-        Me.txtBudgetPosition.Size = New System.Drawing.Size(211, 24)
+        Me.txtBudgetPosition.Size = New System.Drawing.Size(197, 22)
         Me.txtBudgetPosition.TabIndex = 765
         '
         'LabelControl13
         '
         Me.LabelControl13.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl13.Appearance.Options.UseFont = True
-        Me.LabelControl13.Location = New System.Drawing.Point(82, 282)
+        Me.LabelControl13.Location = New System.Drawing.Point(120, 434)
+        Me.LabelControl13.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl13.Name = "LabelControl13"
-        Me.LabelControl13.Size = New System.Drawing.Size(41, 17)
+        Me.LabelControl13.Size = New System.Drawing.Size(49, 21)
         Me.LabelControl13.TabIndex = 766
         Me.LabelControl13.Text = "Budget"
         '
@@ -684,7 +727,8 @@ Partial Class frmCompanySettings
         '
         Me.txtTreasurerName.EditValue = ""
         Me.txtTreasurerName.EnterMoveNextControl = True
-        Me.txtTreasurerName.Location = New System.Drawing.Point(130, 214)
+        Me.txtTreasurerName.Location = New System.Drawing.Point(121, 210)
+        Me.txtTreasurerName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtTreasurerName.Name = "txtTreasurerName"
         Me.txtTreasurerName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtTreasurerName.Properties.Appearance.Options.UseFont = True
@@ -693,7 +737,7 @@ Partial Class frmCompanySettings
         Me.txtTreasurerName.Properties.NullText = ""
         Me.txtTreasurerName.Properties.PopupView = Me.gridTreasurerName
         Me.txtTreasurerName.Properties.ValueMember = "accountid"
-        Me.txtTreasurerName.Size = New System.Drawing.Size(211, 24)
+        Me.txtTreasurerName.Size = New System.Drawing.Size(197, 22)
         Me.txtTreasurerName.TabIndex = 764
         '
         'gridTreasurerName
@@ -707,7 +751,8 @@ Partial Class frmCompanySettings
         '
         Me.txtAccountantName.EditValue = ""
         Me.txtAccountantName.EnterMoveNextControl = True
-        Me.txtAccountantName.Location = New System.Drawing.Point(130, 150)
+        Me.txtAccountantName.Location = New System.Drawing.Point(121, 148)
+        Me.txtAccountantName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtAccountantName.Name = "txtAccountantName"
         Me.txtAccountantName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtAccountantName.Properties.Appearance.Options.UseFont = True
@@ -716,7 +761,7 @@ Partial Class frmCompanySettings
         Me.txtAccountantName.Properties.NullText = ""
         Me.txtAccountantName.Properties.PopupView = Me.gridAccountantName
         Me.txtAccountantName.Properties.ValueMember = "accountid"
-        Me.txtAccountantName.Size = New System.Drawing.Size(211, 24)
+        Me.txtAccountantName.Size = New System.Drawing.Size(197, 22)
         Me.txtAccountantName.TabIndex = 763
         '
         'gridAccountantName
@@ -730,7 +775,8 @@ Partial Class frmCompanySettings
         '
         Me.txtMayorName.EditValue = ""
         Me.txtMayorName.EnterMoveNextControl = True
-        Me.txtMayorName.Location = New System.Drawing.Point(130, 30)
+        Me.txtMayorName.Location = New System.Drawing.Point(121, 29)
+        Me.txtMayorName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtMayorName.Name = "txtMayorName"
         Me.txtMayorName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtMayorName.Properties.Appearance.Options.UseFont = True
@@ -739,7 +785,7 @@ Partial Class frmCompanySettings
         Me.txtMayorName.Properties.NullText = ""
         Me.txtMayorName.Properties.PopupView = Me.gridMayorName
         Me.txtMayorName.Properties.ValueMember = "accountid"
-        Me.txtMayorName.Size = New System.Drawing.Size(211, 24)
+        Me.txtMayorName.Size = New System.Drawing.Size(197, 22)
         Me.txtMayorName.TabIndex = 762
         '
         'gridMayorName
@@ -757,9 +803,10 @@ Partial Class frmCompanySettings
         Me.cmdSaveSignatories.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSaveSignatories.Appearance.Options.UseBackColor = True
         Me.cmdSaveSignatories.Appearance.Options.UseFont = True
-        Me.cmdSaveSignatories.Location = New System.Drawing.Point(434, 87)
+        Me.cmdSaveSignatories.Location = New System.Drawing.Point(405, 85)
+        Me.cmdSaveSignatories.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cmdSaveSignatories.Name = "cmdSaveSignatories"
-        Me.cmdSaveSignatories.Size = New System.Drawing.Size(178, 38)
+        Me.cmdSaveSignatories.Size = New System.Drawing.Size(166, 38)
         Me.cmdSaveSignatories.TabIndex = 6
         Me.cmdSaveSignatories.Text = "Save Information"
         '
@@ -767,69 +814,76 @@ Partial Class frmCompanySettings
         '
         Me.LabelControl11.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl11.Appearance.Options.UseFont = True
-        Me.LabelControl11.Location = New System.Drawing.Point(77, 244)
+        Me.LabelControl11.Location = New System.Drawing.Point(113, 375)
+        Me.LabelControl11.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl11.Name = "LabelControl11"
-        Me.LabelControl11.Size = New System.Drawing.Size(46, 17)
+        Me.LabelControl11.Size = New System.Drawing.Size(56, 21)
         Me.LabelControl11.TabIndex = 761
         Me.LabelControl11.Text = "Position"
         '
         'txtTreasurerPosition
         '
         Me.txtTreasurerPosition.EnterMoveNextControl = True
-        Me.txtTreasurerPosition.Location = New System.Drawing.Point(130, 241)
+        Me.txtTreasurerPosition.Location = New System.Drawing.Point(121, 237)
+        Me.txtTreasurerPosition.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtTreasurerPosition.Name = "txtTreasurerPosition"
         Me.txtTreasurerPosition.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtTreasurerPosition.Properties.Appearance.Options.UseFont = True
-        Me.txtTreasurerPosition.Size = New System.Drawing.Size(211, 24)
+        Me.txtTreasurerPosition.Size = New System.Drawing.Size(197, 22)
         Me.txtTreasurerPosition.TabIndex = 5
         '
         'LabelControl6
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Location = New System.Drawing.Point(77, 180)
+        Me.LabelControl6.Location = New System.Drawing.Point(113, 278)
+        Me.LabelControl6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(46, 17)
+        Me.LabelControl6.Size = New System.Drawing.Size(56, 21)
         Me.LabelControl6.TabIndex = 759
         Me.LabelControl6.Text = "Position"
         '
         'txtAccountantPosition
         '
         Me.txtAccountantPosition.EnterMoveNextControl = True
-        Me.txtAccountantPosition.Location = New System.Drawing.Point(130, 177)
+        Me.txtAccountantPosition.Location = New System.Drawing.Point(121, 174)
+        Me.txtAccountantPosition.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtAccountantPosition.Name = "txtAccountantPosition"
         Me.txtAccountantPosition.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtAccountantPosition.Properties.Appearance.Options.UseFont = True
-        Me.txtAccountantPosition.Size = New System.Drawing.Size(211, 24)
+        Me.txtAccountantPosition.Size = New System.Drawing.Size(197, 22)
         Me.txtAccountantPosition.TabIndex = 3
         '
         'LabelControl2
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(77, 60)
+        Me.LabelControl2.Location = New System.Drawing.Point(113, 93)
+        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(46, 17)
+        Me.LabelControl2.Size = New System.Drawing.Size(56, 21)
         Me.LabelControl2.TabIndex = 757
         Me.LabelControl2.Text = "Position"
         '
         'txtMayorPosition
         '
         Me.txtMayorPosition.EnterMoveNextControl = True
-        Me.txtMayorPosition.Location = New System.Drawing.Point(130, 57)
+        Me.txtMayorPosition.Location = New System.Drawing.Point(121, 56)
+        Me.txtMayorPosition.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtMayorPosition.Name = "txtMayorPosition"
         Me.txtMayorPosition.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtMayorPosition.Properties.Appearance.Options.UseFont = True
-        Me.txtMayorPosition.Size = New System.Drawing.Size(211, 24)
+        Me.txtMayorPosition.Size = New System.Drawing.Size(197, 22)
         Me.txtMayorPosition.TabIndex = 1
         '
         'LabelControl1
         '
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl1.Appearance.Options.UseFont = True
-        Me.LabelControl1.Location = New System.Drawing.Point(85, 33)
+        Me.LabelControl1.Location = New System.Drawing.Point(124, 51)
+        Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(38, 17)
+        Me.LabelControl1.Size = New System.Drawing.Size(45, 21)
         Me.LabelControl1.TabIndex = 755
         Me.LabelControl1.Text = "Mayor"
         '
@@ -837,9 +891,10 @@ Partial Class frmCompanySettings
         '
         Me.LabelControl10.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl10.Appearance.Options.UseFont = True
-        Me.LabelControl10.Location = New System.Drawing.Point(59, 153)
+        Me.LabelControl10.Location = New System.Drawing.Point(86, 235)
+        Me.LabelControl10.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl10.Name = "LabelControl10"
-        Me.LabelControl10.Size = New System.Drawing.Size(64, 17)
+        Me.LabelControl10.Size = New System.Drawing.Size(78, 21)
         Me.LabelControl10.TabIndex = 752
         Me.LabelControl10.Text = "Accountant"
         '
@@ -847,23 +902,25 @@ Partial Class frmCompanySettings
         '
         Me.LabelControl27.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.LabelControl27.Appearance.Options.UseFont = True
-        Me.LabelControl27.Location = New System.Drawing.Point(67, 217)
+        Me.LabelControl27.Location = New System.Drawing.Point(98, 334)
+        Me.LabelControl27.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl27.Name = "LabelControl27"
-        Me.LabelControl27.Size = New System.Drawing.Size(56, 17)
+        Me.LabelControl27.Size = New System.Drawing.Size(66, 21)
         Me.LabelControl27.TabIndex = 753
         Me.LabelControl27.Text = "Treasurer"
         '
         'frmCompanySettings
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(730, 467)
+        Me.ClientSize = New System.Drawing.Size(852, 575)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.barDockControlTop)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.Name = "frmCompanySettings"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

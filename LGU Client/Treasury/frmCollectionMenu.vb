@@ -22,7 +22,7 @@ Public Class frmCollectionMenu
         txtCollectionDate.Properties.MaxValue = CDate(GetServerDate())
         txtCollectionDate.EditValue = CDate(GetServerDate())
         ViewFormList()
-        LoadToComboBoxDB("select id,concat(yeartrn,' - ',(select description from tblfund where code=a.fundcode)) as activedfund from tblfundperiod as a where closed='0'", "activedfund", "id", txtFundcode)
+        LoadToComboBoxDB("select id,concat(yeartrn,' - ',(select description from tblfund where code=a.fundcode)) as activedfund from tblfundperiod as a where closed='0' " & If(LCase(globalusername) = "root", "", " and fundcode in (select fundcode from tblfundfilter where filtered_id='" & globalAuthcode & "' and filtered_type='client')") & "", "activedfund", "id", txtFundcode)
         SecurityCheck()
     End Sub
 

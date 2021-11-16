@@ -65,8 +65,8 @@ Partial Class frmUsersAccounts
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AuthorizedUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdChangePass = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AuthorizedUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdRemovePermission = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
@@ -111,7 +111,7 @@ Partial Class frmUsersAccounts
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.kbid)
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
-        Me.SplitContainerControl1.Size = New System.Drawing.Size(989, 553)
+        Me.SplitContainerControl1.Size = New System.Drawing.Size(994, 547)
         Me.SplitContainerControl1.SplitterPosition = 337
         Me.SplitContainerControl1.TabIndex = 1
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
@@ -146,14 +146,14 @@ Partial Class frmUsersAccounts
         Me.XtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.XtraScrollableControl1.Location = New System.Drawing.Point(0, 0)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
-        Me.XtraScrollableControl1.Size = New System.Drawing.Size(337, 553)
+        Me.XtraScrollableControl1.Size = New System.Drawing.Size(337, 547)
         Me.XtraScrollableControl1.TabIndex = 2
         '
         'LabelControl2
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(36, 197)
+        Me.LabelControl2.Location = New System.Drawing.Point(37, 210)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(83, 17)
         Me.LabelControl2.TabIndex = 650
@@ -162,21 +162,21 @@ Partial Class frmUsersAccounts
         'txtEmail
         '
         Me.txtEmail.EnterMoveNextControl = True
-        Me.txtEmail.Location = New System.Drawing.Point(125, 194)
+        Me.txtEmail.Location = New System.Drawing.Point(127, 207)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.txtEmail.Properties.Appearance.Options.UseFont = True
         Me.txtEmail.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
         Me.txtEmail.Properties.Mask.EditMask = ".+@.+"
         Me.txtEmail.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
-        Me.txtEmail.Size = New System.Drawing.Size(191, 24)
+        Me.txtEmail.Size = New System.Drawing.Size(175, 24)
         Me.txtEmail.TabIndex = 7
         '
         'LabelControl4
         '
         Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.LabelControl4.Appearance.Options.UseFont = True
-        Me.LabelControl4.Location = New System.Drawing.Point(20, 277)
+        Me.LabelControl4.Location = New System.Drawing.Point(21, 287)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(99, 17)
         Me.LabelControl4.TabIndex = 647
@@ -184,13 +184,13 @@ Partial Class frmUsersAccounts
         '
         'ckClientUser
         '
-        Me.ckClientUser.Location = New System.Drawing.Point(125, 250)
+        Me.ckClientUser.Location = New System.Drawing.Point(127, 261)
         Me.ckClientUser.MenuManager = Me.BarManager1
         Me.ckClientUser.Name = "ckClientUser"
         Me.ckClientUser.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.ckClientUser.Properties.Appearance.Options.UseFont = True
         Me.ckClientUser.Properties.Caption = "Client User Access"
-        Me.ckClientUser.Size = New System.Drawing.Size(162, 21)
+        Me.ckClientUser.Size = New System.Drawing.Size(129, 21)
         Me.ckClientUser.TabIndex = 645
         '
         'BarManager1
@@ -200,6 +200,7 @@ Partial Class frmUsersAccounts
         Me.BarManager1.DockControls.Add(Me.barDockControlBottom)
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
+        Me.BarManager1.DockWindowTabFont = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BarManager1.Form = Me
         Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarButtonItem1, Me.cmdSaveMenu, Me.BarButtonItem4, Me.BarButtonItem2})
         Me.BarManager1.MainMenu = Me.Bar2
@@ -241,15 +242,15 @@ Partial Class frmUsersAccounts
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(989, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(994, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 573)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 567)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(989, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(994, 0)
         '
         'barDockControlLeft
         '
@@ -257,15 +258,15 @@ Partial Class frmUsersAccounts
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 553)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 547)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(989, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(994, 20)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 553)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 547)
         '
         'BarButtonItem2
         '
@@ -277,7 +278,7 @@ Partial Class frmUsersAccounts
         '
         Me.txtServerPermission.EditValue = ""
         Me.txtServerPermission.EnterMoveNextControl = True
-        Me.txtServerPermission.Location = New System.Drawing.Point(125, 220)
+        Me.txtServerPermission.Location = New System.Drawing.Point(127, 234)
         Me.txtServerPermission.Name = "txtServerPermission"
         Me.txtServerPermission.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.txtServerPermission.Properties.Appearance.Options.UseFont = True
@@ -286,7 +287,7 @@ Partial Class frmUsersAccounts
         Me.txtServerPermission.Properties.NullText = ""
         Me.txtServerPermission.Properties.PopupView = Me.gv_permission
         Me.txtServerPermission.Properties.ValueMember = "percode"
-        Me.txtServerPermission.Size = New System.Drawing.Size(191, 24)
+        Me.txtServerPermission.Size = New System.Drawing.Size(175, 24)
         Me.txtServerPermission.TabIndex = 7
         '
         'gv_permission
@@ -304,25 +305,25 @@ Partial Class frmUsersAccounts
         Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSaveButton.Appearance.Options.UseBackColor = True
         Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(113, 445)
+        Me.cmdSaveButton.Location = New System.Drawing.Point(105, 439)
         Me.cmdSaveButton.Name = "cmdSaveButton"
-        Me.cmdSaveButton.Size = New System.Drawing.Size(139, 32)
+        Me.cmdSaveButton.Size = New System.Drawing.Size(134, 32)
         Me.cmdSaveButton.TabIndex = 9
         Me.cmdSaveButton.Text = "Save"
         '
         'txtfullname
         '
         Me.txtfullname.EnterMoveNextControl = True
-        Me.txtfullname.Location = New System.Drawing.Point(125, 38)
+        Me.txtfullname.Location = New System.Drawing.Point(127, 44)
         Me.txtfullname.Name = "txtfullname"
         Me.txtfullname.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.txtfullname.Properties.Appearance.Options.UseFont = True
-        Me.txtfullname.Size = New System.Drawing.Size(191, 24)
+        Me.txtfullname.Size = New System.Drawing.Size(175, 24)
         Me.txtfullname.TabIndex = 1
         '
         'LabelControl1
         '
-        Me.LabelControl1.Location = New System.Drawing.Point(137, 528)
+        Me.LabelControl1.Location = New System.Drawing.Point(171, 661)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(0, 13)
         Me.LabelControl1.TabIndex = 609
@@ -330,21 +331,21 @@ Partial Class frmUsersAccounts
         'txtuserid
         '
         Me.txtuserid.EnterMoveNextControl = True
-        Me.txtuserid.Location = New System.Drawing.Point(125, 12)
+        Me.txtuserid.Location = New System.Drawing.Point(127, 17)
         Me.txtuserid.Name = "txtuserid"
         Me.txtuserid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.txtuserid.Properties.Appearance.Options.UseFont = True
         Me.txtuserid.Properties.Appearance.Options.UseTextOptions = True
         Me.txtuserid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.txtuserid.Properties.ReadOnly = True
-        Me.txtuserid.Size = New System.Drawing.Size(68, 24)
+        Me.txtuserid.Size = New System.Drawing.Size(54, 24)
         Me.txtuserid.TabIndex = 381
         '
         'LabelControl16
         '
         Me.LabelControl16.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.LabelControl16.Appearance.Options.UseFont = True
-        Me.LabelControl16.Location = New System.Drawing.Point(60, 119)
+        Me.LabelControl16.Location = New System.Drawing.Point(61, 128)
         Me.LabelControl16.Name = "LabelControl16"
         Me.LabelControl16.Size = New System.Drawing.Size(59, 17)
         Me.LabelControl16.TabIndex = 368
@@ -353,7 +354,7 @@ Partial Class frmUsersAccounts
         'txtoffice
         '
         Me.txtoffice.EditValue = ""
-        Me.txtoffice.Location = New System.Drawing.Point(125, 90)
+        Me.txtoffice.Location = New System.Drawing.Point(127, 98)
         Me.txtoffice.Name = "txtoffice"
         Me.txtoffice.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.txtoffice.Properties.Appearance.Options.UseFont = True
@@ -362,7 +363,7 @@ Partial Class frmUsersAccounts
         Me.txtoffice.Properties.NullText = ""
         Me.txtoffice.Properties.PopupView = Me.txtofficeView
         Me.txtoffice.Properties.ValueMember = "officeid"
-        Me.txtoffice.Size = New System.Drawing.Size(191, 24)
+        Me.txtoffice.Size = New System.Drawing.Size(175, 24)
         Me.txtoffice.TabIndex = 3
         '
         'txtofficeView
@@ -376,7 +377,7 @@ Partial Class frmUsersAccounts
         '
         Me.LabelControl17.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.LabelControl17.Appearance.Options.UseFont = True
-        Me.LabelControl17.Location = New System.Drawing.Point(68, 41)
+        Me.LabelControl17.Location = New System.Drawing.Point(69, 48)
         Me.LabelControl17.Name = "LabelControl17"
         Me.LabelControl17.Size = New System.Drawing.Size(51, 17)
         Me.LabelControl17.TabIndex = 370
@@ -387,21 +388,21 @@ Partial Class frmUsersAccounts
         Me.txtdesignation.AllowDrop = True
         Me.txtdesignation.EditValue = ""
         Me.txtdesignation.EnterMoveNextControl = True
-        Me.txtdesignation.Location = New System.Drawing.Point(125, 64)
+        Me.txtdesignation.Location = New System.Drawing.Point(127, 71)
         Me.txtdesignation.Name = "txtdesignation"
         Me.txtdesignation.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.txtdesignation.Properties.Appearance.Options.UseFont = True
         Me.txtdesignation.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtdesignation.Properties.PopupSizeable = True
         Me.txtdesignation.Properties.ValidateOnEnterKey = True
-        Me.txtdesignation.Size = New System.Drawing.Size(191, 24)
+        Me.txtdesignation.Size = New System.Drawing.Size(175, 24)
         Me.txtdesignation.TabIndex = 2
         '
         'LabelControl18
         '
         Me.LabelControl18.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.LabelControl18.Appearance.Options.UseFont = True
-        Me.LabelControl18.Location = New System.Drawing.Point(63, 145)
+        Me.LabelControl18.Location = New System.Drawing.Point(64, 156)
         Me.LabelControl18.Name = "LabelControl18"
         Me.LabelControl18.Size = New System.Drawing.Size(56, 17)
         Me.LabelControl18.TabIndex = 372
@@ -410,19 +411,19 @@ Partial Class frmUsersAccounts
         'txtusername
         '
         Me.txtusername.EnterMoveNextControl = True
-        Me.txtusername.Location = New System.Drawing.Point(125, 116)
+        Me.txtusername.Location = New System.Drawing.Point(127, 125)
         Me.txtusername.Name = "txtusername"
         Me.txtusername.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.txtusername.Properties.Appearance.Options.UseFont = True
         Me.txtusername.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtusername.Size = New System.Drawing.Size(191, 24)
+        Me.txtusername.Size = New System.Drawing.Size(175, 24)
         Me.txtusername.TabIndex = 4
         '
         'LabelControl19
         '
         Me.LabelControl19.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.LabelControl19.Appearance.Options.UseFont = True
-        Me.LabelControl19.Location = New System.Drawing.Point(26, 172)
+        Me.LabelControl19.Location = New System.Drawing.Point(27, 182)
         Me.LabelControl19.Name = "LabelControl19"
         Me.LabelControl19.Size = New System.Drawing.Size(93, 17)
         Me.LabelControl19.TabIndex = 374
@@ -431,12 +432,12 @@ Partial Class frmUsersAccounts
         'mode
         '
         Me.mode.EnterMoveNextControl = True
-        Me.mode.Location = New System.Drawing.Point(124, 521)
+        Me.mode.Location = New System.Drawing.Point(142, 498)
         Me.mode.Name = "mode"
         Me.mode.Properties.Appearance.Options.UseTextOptions = True
         Me.mode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.mode.Properties.ReadOnly = True
-        Me.mode.Size = New System.Drawing.Size(54, 20)
+        Me.mode.Size = New System.Drawing.Size(43, 20)
         Me.mode.TabIndex = 383
         Me.mode.Visible = False
         '
@@ -444,7 +445,7 @@ Partial Class frmUsersAccounts
         '
         Me.LabelControl11.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.LabelControl11.Appearance.Options.UseFont = True
-        Me.LabelControl11.Location = New System.Drawing.Point(50, 67)
+        Me.LabelControl11.Location = New System.Drawing.Point(51, 101)
         Me.LabelControl11.Name = "LabelControl11"
         Me.LabelControl11.Size = New System.Drawing.Size(69, 17)
         Me.LabelControl11.TabIndex = 376
@@ -454,20 +455,20 @@ Partial Class frmUsersAccounts
         '
         Me.txtpassword.EditValue = ""
         Me.txtpassword.EnterMoveNextControl = True
-        Me.txtpassword.Location = New System.Drawing.Point(125, 142)
+        Me.txtpassword.Location = New System.Drawing.Point(127, 152)
         Me.txtpassword.Name = "txtpassword"
         Me.txtpassword.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.txtpassword.Properties.Appearance.Options.UseFont = True
         Me.txtpassword.Properties.AutoHeight = False
         Me.txtpassword.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(108)
-        Me.txtpassword.Size = New System.Drawing.Size(191, 24)
+        Me.txtpassword.Size = New System.Drawing.Size(175, 24)
         Me.txtpassword.TabIndex = 5
         '
         'LabelControl28
         '
         Me.LabelControl28.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.LabelControl28.Appearance.Options.UseFont = True
-        Me.LabelControl28.Location = New System.Drawing.Point(15, 223)
+        Me.LabelControl28.Location = New System.Drawing.Point(16, 238)
         Me.LabelControl28.Name = "LabelControl28"
         Me.LabelControl28.Size = New System.Drawing.Size(104, 17)
         Me.LabelControl28.TabIndex = 380
@@ -479,9 +480,9 @@ Partial Class frmUsersAccounts
         Me.GroupControl2.Appearance.Options.UseFont = True
         Me.GroupControl2.AppearanceCaption.Options.UseFont = True
         Me.GroupControl2.Controls.Add(Me.signature)
-        Me.GroupControl2.Location = New System.Drawing.Point(55, 303)
+        Me.GroupControl2.Location = New System.Drawing.Point(58, 314)
         Me.GroupControl2.Name = "GroupControl2"
-        Me.GroupControl2.Size = New System.Drawing.Size(261, 138)
+        Me.GroupControl2.Size = New System.Drawing.Size(244, 119)
         Me.GroupControl2.TabIndex = 379
         Me.GroupControl2.Text = "Digital Signature"
         '
@@ -490,14 +491,14 @@ Partial Class frmUsersAccounts
         Me.signature.Dock = System.Windows.Forms.DockStyle.Fill
         Me.signature.Location = New System.Drawing.Point(2, 23)
         Me.signature.Name = "signature"
-        Me.signature.Size = New System.Drawing.Size(257, 113)
+        Me.signature.Size = New System.Drawing.Size(240, 94)
         Me.signature.TabIndex = 375
         '
         'LabelControl29
         '
         Me.LabelControl29.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.LabelControl29.Appearance.Options.UseFont = True
-        Me.LabelControl29.Location = New System.Drawing.Point(76, 16)
+        Me.LabelControl29.Location = New System.Drawing.Point(77, 20)
         Me.LabelControl29.Name = "LabelControl29"
         Me.LabelControl29.Size = New System.Drawing.Size(43, 17)
         Me.LabelControl29.TabIndex = 382
@@ -509,10 +510,9 @@ Partial Class frmUsersAccounts
         Me.lblOffie.Appearance.Options.UseFont = True
         Me.lblOffie.Appearance.Options.UseTextOptions = True
         Me.lblOffie.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.lblOffie.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.lblOffie.Location = New System.Drawing.Point(39, 95)
+        Me.lblOffie.Location = New System.Drawing.Point(51, 74)
         Me.lblOffie.Name = "lblOffie"
-        Me.lblOffie.Size = New System.Drawing.Size(80, 14)
+        Me.lblOffie.Size = New System.Drawing.Size(69, 17)
         Me.lblOffie.TabIndex = 388
         Me.lblOffie.Text = "Department"
         '
@@ -520,20 +520,20 @@ Partial Class frmUsersAccounts
         '
         Me.txtverify.EditValue = ""
         Me.txtverify.EnterMoveNextControl = True
-        Me.txtverify.Location = New System.Drawing.Point(125, 168)
+        Me.txtverify.Location = New System.Drawing.Point(127, 179)
         Me.txtverify.Name = "txtverify"
         Me.txtverify.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.txtverify.Properties.Appearance.Options.UseFont = True
         Me.txtverify.Properties.AutoHeight = False
         Me.txtverify.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(108)
-        Me.txtverify.Size = New System.Drawing.Size(191, 24)
+        Me.txtverify.Size = New System.Drawing.Size(175, 24)
         Me.txtverify.TabIndex = 6
         '
         'txtClientPermission
         '
         Me.txtClientPermission.EditValue = "Select Group"
         Me.txtClientPermission.Enabled = False
-        Me.txtClientPermission.Location = New System.Drawing.Point(125, 274)
+        Me.txtClientPermission.Location = New System.Drawing.Point(127, 284)
         Me.txtClientPermission.Name = "txtClientPermission"
         Me.txtClientPermission.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.5!)
         Me.txtClientPermission.Properties.Appearance.Options.UseFont = True
@@ -542,7 +542,7 @@ Partial Class frmUsersAccounts
         Me.txtClientPermission.Properties.NullText = ""
         Me.txtClientPermission.Properties.PopupView = Me.gv_clientUserPosition
         Me.txtClientPermission.Properties.ValueMember = "accesscode"
-        Me.txtClientPermission.Size = New System.Drawing.Size(191, 24)
+        Me.txtClientPermission.Size = New System.Drawing.Size(175, 24)
         Me.txtClientPermission.TabIndex = 8
         '
         'gv_clientUserPosition
@@ -562,7 +562,7 @@ Partial Class frmUsersAccounts
         Me.kbid.Properties.Appearance.Options.UseTextOptions = True
         Me.kbid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.kbid.Properties.ReadOnly = True
-        Me.kbid.Size = New System.Drawing.Size(238, 20)
+        Me.kbid.Size = New System.Drawing.Size(237, 20)
         Me.kbid.TabIndex = 388
         Me.kbid.Visible = False
         '
@@ -573,61 +573,62 @@ Partial Class frmUsersAccounts
         Me.Em.Location = New System.Drawing.Point(0, 0)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(642, 553)
+        Me.Em.Size = New System.Drawing.Size(647, 547)
         Me.Em.TabIndex = 1
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
         'gridmenustrip
         '
+        Me.gridmenustrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdChangePass, Me.AuthorizedUserToolStripMenuItem, Me.cmdRemovePermission, Me.cmdDelete, Me.ToolStripSeparator3, Me.RefreshToolStripMenuItem1})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(223, 142)
+        Me.gridmenustrip.Size = New System.Drawing.Size(227, 166)
         '
         'cmdEdit
         '
         Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.user__pencil
         Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(204, 22)
+        Me.cmdEdit.Size = New System.Drawing.Size(226, 26)
         Me.cmdEdit.Text = "Edit Account"
-        '
-        'AuthorizedUserToolStripMenuItem
-        '
-        Me.AuthorizedUserToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.lock__arrow
-        Me.AuthorizedUserToolStripMenuItem.Name = "AuthorizedUserToolStripMenuItem"
-        Me.AuthorizedUserToolStripMenuItem.Size = New System.Drawing.Size(222, 22)
-        Me.AuthorizedUserToolStripMenuItem.Text = "Authorized Approval Access"
         '
         'cmdChangePass
         '
         Me.cmdChangePass.Image = Global.LGUFinancial.My.Resources.Resources.lock__exclamation
         Me.cmdChangePass.Name = "cmdChangePass"
-        Me.cmdChangePass.Size = New System.Drawing.Size(204, 22)
+        Me.cmdChangePass.Size = New System.Drawing.Size(226, 26)
         Me.cmdChangePass.Text = "Change Password"
+        '
+        'AuthorizedUserToolStripMenuItem
+        '
+        Me.AuthorizedUserToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.lock__arrow
+        Me.AuthorizedUserToolStripMenuItem.Name = "AuthorizedUserToolStripMenuItem"
+        Me.AuthorizedUserToolStripMenuItem.Size = New System.Drawing.Size(226, 26)
+        Me.AuthorizedUserToolStripMenuItem.Text = "Authorized Approval Access"
         '
         'cmdRemovePermission
         '
         Me.cmdRemovePermission.Image = Global.LGUFinancial.My.Resources.Resources.user_red1
         Me.cmdRemovePermission.Name = "cmdRemovePermission"
-        Me.cmdRemovePermission.Size = New System.Drawing.Size(204, 22)
+        Me.cmdRemovePermission.Size = New System.Drawing.Size(226, 26)
         Me.cmdRemovePermission.Text = "Remove User Permission"
         '
         'cmdDelete
         '
         Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.user__minus
         Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(204, 22)
+        Me.cmdDelete.Size = New System.Drawing.Size(226, 26)
         Me.cmdDelete.Text = "Block/Remove Accounts"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(201, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(223, 6)
         '
         'RefreshToolStripMenuItem1
         '
         Me.RefreshToolStripMenuItem1.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.RefreshToolStripMenuItem1.Name = "RefreshToolStripMenuItem1"
-        Me.RefreshToolStripMenuItem1.Size = New System.Drawing.Size(204, 22)
+        Me.RefreshToolStripMenuItem1.Size = New System.Drawing.Size(226, 26)
         Me.RefreshToolStripMenuItem1.Text = "Refresh"
         '
         'GridView1
@@ -642,7 +643,7 @@ Partial Class frmUsersAccounts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(989, 573)
+        Me.ClientSize = New System.Drawing.Size(994, 567)
         Me.Controls.Add(Me.SplitContainerControl1)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)

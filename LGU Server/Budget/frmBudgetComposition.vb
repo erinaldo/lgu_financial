@@ -17,7 +17,7 @@ Public Class frmBudgetComposition
     End Sub
 
     Public Sub LoadFund()
-        LoadXgridLookupSearch("SELECT periodcode as code,fundcode,yeartrn, concat(yeartrn,'-',(select Description from tblfund where code=tblfundperiod.fundcode)) as 'Select'  from tblfundperiod where closed=0 order by yeartrn asc", "tblfundperiod", txtFund, gridFund, Me)
+        LoadXgridLookupSearch("SELECT periodcode as code,fundcode,yeartrn, concat(yeartrn,'-',(select Description from tblfund where code=tblfundperiod.fundcode)) as 'Select'  from tblfundperiod where closed=0 " & If(LCase(globaluser) = "root", "", " and fundcode in (select fundcode from tblfundfilter where filtered_id='" & globalPermissionAccess & "' and filtered_type='server')") & "  order by yeartrn asc", "tblfundperiod", txtFund, gridFund, Me)
         XgridHideColumn({"code", "fundcode", "yeartrn"}, gridFund)
     End Sub
     Private Sub txtFund_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtFund.EditValueChanged

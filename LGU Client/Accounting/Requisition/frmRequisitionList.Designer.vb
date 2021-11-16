@@ -22,7 +22,6 @@ Partial Class frmRequisitionList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.HiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PropertiesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -32,7 +31,7 @@ Partial Class frmRequisitionList
         Me.RightToolStripPanel = New System.Windows.Forms.ToolStripPanel()
         Me.LeftToolStripPanel = New System.Windows.Forms.ToolStripPanel()
         Me.ContentPanel = New System.Windows.Forms.ToolStripContentPanel()
-        Me.cms_em = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.cms_em = New System.Windows.Forms.ContextMenuStrip()
         Me.cmdDuplicate = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdView = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdCancel = New System.Windows.Forms.ToolStripMenuItem()
@@ -157,41 +156,42 @@ Partial Class frmRequisitionList
         '
         'cms_em
         '
+        Me.cms_em.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdDuplicate, Me.cmdView, Me.cmdCancel, Me.ToolStripSeparator4, Me.cmdLocalData})
         Me.cms_em.Name = "ContextMenuStrip1"
-        Me.cms_em.Size = New System.Drawing.Size(203, 98)
+        Me.cms_em.Size = New System.Drawing.Size(207, 114)
         '
         'cmdDuplicate
         '
         Me.cmdDuplicate.Image = Global.LGUClient.My.Resources.Resources.blueprints
         Me.cmdDuplicate.Name = "cmdDuplicate"
-        Me.cmdDuplicate.Size = New System.Drawing.Size(202, 22)
+        Me.cmdDuplicate.Size = New System.Drawing.Size(206, 26)
         Me.cmdDuplicate.Text = "Duplicate Request"
         '
         'cmdView
         '
         Me.cmdView.Image = Global.LGUClient.My.Resources.Resources.notebook__arrow
         Me.cmdView.Name = "cmdView"
-        Me.cmdView.Size = New System.Drawing.Size(202, 22)
+        Me.cmdView.Size = New System.Drawing.Size(206, 26)
         Me.cmdView.Text = "View Requisition Info"
         '
         'cmdCancel
         '
         Me.cmdCancel.Image = Global.LGUClient.My.Resources.Resources.notebook__minus
         Me.cmdCancel.Name = "cmdCancel"
-        Me.cmdCancel.Size = New System.Drawing.Size(202, 22)
+        Me.cmdCancel.Size = New System.Drawing.Size(206, 26)
         Me.cmdCancel.Text = "Cancel Selected Request"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(199, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(203, 6)
         '
         'cmdLocalData
         '
         Me.cmdLocalData.Image = Global.LGUClient.My.Resources.Resources.arrow_continue_090
         Me.cmdLocalData.Name = "cmdLocalData"
-        Me.cmdLocalData.Size = New System.Drawing.Size(202, 22)
+        Me.cmdLocalData.Size = New System.Drawing.Size(206, 26)
         Me.cmdLocalData.Tag = "1"
         Me.cmdLocalData.Text = "Refresh Data"
         '
@@ -200,6 +200,7 @@ Partial Class frmRequisitionList
         Me.ToolStrip1.AutoSize = False
         Me.ToolStrip1.BackgroundImage = Global.LGUClient.My.Resources.Resources.wide_blank2
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdNewProperty, Me.ToolStripSeparator1, Me.cmdPrint, Me.ToolStripSeparator3, Me.cmdColumnSettings, Me.ToolStripSeparator2, Me.cmdClose})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
@@ -215,7 +216,7 @@ Partial Class frmRequisitionList
         Me.cmdNewProperty.Image = Global.LGUClient.My.Resources.Resources.receipt__plus
         Me.cmdNewProperty.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdNewProperty.Name = "cmdNewProperty"
-        Me.cmdNewProperty.Size = New System.Drawing.Size(150, 24)
+        Me.cmdNewProperty.Size = New System.Drawing.Size(154, 24)
         Me.cmdNewProperty.Text = "Create New Requisition"
         '
         'ToolStripSeparator1
@@ -229,7 +230,7 @@ Partial Class frmRequisitionList
         Me.cmdPrint.Image = Global.LGUClient.My.Resources.Resources.document_excel_table
         Me.cmdPrint.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.Size = New System.Drawing.Size(105, 24)
+        Me.cmdPrint.Size = New System.Drawing.Size(109, 24)
         Me.cmdPrint.Text = "Export to Excel"
         '
         'ToolStripSeparator3
@@ -243,7 +244,7 @@ Partial Class frmRequisitionList
         Me.cmdColumnSettings.Image = Global.LGUClient.My.Resources.Resources.application_task
         Me.cmdColumnSettings.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdColumnSettings.Name = "cmdColumnSettings"
-        Me.cmdColumnSettings.Size = New System.Drawing.Size(115, 24)
+        Me.cmdColumnSettings.Size = New System.Drawing.Size(119, 24)
         Me.cmdColumnSettings.Text = "Column Settings"
         '
         'ToolStripSeparator2
@@ -257,7 +258,7 @@ Partial Class frmRequisitionList
         Me.cmdClose.Image = Global.LGUClient.My.Resources.Resources.slash
         Me.cmdClose.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdClose.Name = "cmdClose"
-        Me.cmdClose.Size = New System.Drawing.Size(103, 24)
+        Me.cmdClose.Size = New System.Drawing.Size(107, 24)
         Me.cmdClose.Text = "Close Window"
         '
         'updates

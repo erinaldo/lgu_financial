@@ -72,6 +72,7 @@ Partial Class frmCheckApprovalFilter
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.BarDockControl1)
         Me.BarManager1.DockManager = Me.DockManager1
+        Me.BarManager1.DockWindowTabFont = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BarManager1.Form = Me
         Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarLargeButtonItem2})
         Me.BarManager1.MainMenu = Me.Bar1
@@ -103,15 +104,15 @@ Partial Class frmCheckApprovalFilter
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(624, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(629, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 394)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 388)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(624, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(629, 0)
         '
         'barDockControlLeft
         '
@@ -119,15 +120,15 @@ Partial Class frmCheckApprovalFilter
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 374)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 368)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(624, 20)
+        Me.BarDockControl1.Location = New System.Drawing.Point(629, 20)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 374)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 368)
         '
         'RepositoryItemTextEdit1
         '
@@ -136,34 +137,35 @@ Partial Class frmCheckApprovalFilter
         '
         'gridmenustrip
         '
+        Me.gridmenustrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(146, 76)
+        Me.gridmenustrip.Size = New System.Drawing.Size(150, 88)
         '
         'cmdEdit
         '
         Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
         Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(145, 22)
+        Me.cmdEdit.Size = New System.Drawing.Size(149, 26)
         Me.cmdEdit.Text = "Edit Category"
         '
         'cmdDelete
         '
         Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.notebook__minus
         Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(145, 22)
+        Me.cmdDelete.Size = New System.Drawing.Size(149, 26)
         Me.cmdDelete.Text = "Remove Item"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(142, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(146, 6)
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(149, 26)
         Me.RefreshToolStripMenuItem.Text = "Refresh Data"
         '
         'BarLargeButtonItem1
@@ -176,9 +178,9 @@ Partial Class frmCheckApprovalFilter
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(624, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(629, 20)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 374)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 368)
         '
         'Em_unfiltered
         '
@@ -282,7 +284,7 @@ Partial Class frmCheckApprovalFilter
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(624, 394)
+        Me.ClientSize = New System.Drawing.Size(629, 388)
         Me.Controls.Add(Me.permissioncode)
         Me.Controls.Add(Me.cmdMoveLeft)
         Me.Controls.Add(Me.cmdMoveRight)
@@ -297,7 +299,7 @@ Partial Class frmCheckApprovalFilter
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(362, 376)
+        Me.MinimumSize = New System.Drawing.Size(356, 383)
         Me.Name = "frmCheckApprovalFilter"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Check Approval Filter (Note: Move item to the right to give access of a user)"

@@ -19,11 +19,12 @@ Partial Class frmCollectionItem
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.txtDescription = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -37,6 +38,7 @@ Partial Class frmCollectionItem
         Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.txtAmount = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
+        Me.CheckEdit1 = New DevExpress.XtraEditors.CheckEdit()
         CType(Me.txtDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gridmenustrip.SuspendLayout()
@@ -47,6 +49,7 @@ Partial Class frmCollectionItem
         CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl1
@@ -94,40 +97,41 @@ Partial Class frmCollectionItem
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(648, 373)
+        Me.Em.Size = New System.Drawing.Size(653, 367)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
         'gridmenustrip
         '
+        Me.gridmenustrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(145, 76)
+        Me.gridmenustrip.Size = New System.Drawing.Size(149, 88)
         '
         'cmdEdit
         '
         Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
         Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(144, 22)
+        Me.cmdEdit.Size = New System.Drawing.Size(148, 26)
         Me.cmdEdit.Text = "Edit Selected"
         '
         'cmdDelete
         '
         Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.notebook__minus
         Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(144, 22)
+        Me.cmdDelete.Size = New System.Drawing.Size(148, 26)
         Me.cmdDelete.Text = "Remove Item"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(141, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(145, 6)
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(148, 26)
         Me.RefreshToolStripMenuItem.Text = "Refresh Data"
         '
         'GridView1
@@ -221,12 +225,23 @@ Partial Class frmCollectionItem
         Me.LabelControl3.TabIndex = 640
         Me.LabelControl3.Text = "Default Amount"
         '
+        'CheckEdit1
+        '
+        Me.CheckEdit1.Location = New System.Drawing.Point(292, 69)
+        Me.CheckEdit1.Name = "CheckEdit1"
+        Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.CheckEdit1.Properties.Appearance.Options.UseFont = True
+        Me.CheckEdit1.Properties.Caption = "Lock Amount"
+        Me.CheckEdit1.Size = New System.Drawing.Size(117, 21)
+        Me.CheckEdit1.TabIndex = 641
+        '
         'frmCollectionItem
         '
         Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(668, 519)
+        Me.ClientSize = New System.Drawing.Size(673, 513)
+        Me.Controls.Add(Me.CheckEdit1)
         Me.Controls.Add(Me.LabelControl3)
         Me.Controls.Add(Me.txtAmount)
         Me.Controls.Add(Me.mode)
@@ -250,6 +265,7 @@ Partial Class frmCollectionItem
         CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -272,4 +288,5 @@ Partial Class frmCollectionItem
     Friend WithEvents mode As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtAmount As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents CheckEdit1 As DevExpress.XtraEditors.CheckEdit
 End Class

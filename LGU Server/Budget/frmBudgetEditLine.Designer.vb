@@ -19,6 +19,7 @@ Partial Class frmBudgetEditLine
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.txtJanuary = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
@@ -68,7 +69,7 @@ Partial Class frmBudgetEditLine
         Me.tabRequisition = New DevExpress.XtraTab.XtraTabPage()
         Me.tabTransfered = New DevExpress.XtraTab.XtraTabPage()
         Me.Em_Transfered = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdTransfer = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -741,7 +742,7 @@ Partial Class frmBudgetEditLine
         Me.Em_Requisition.MainView = Me.gridRequisition
         Me.Em_Requisition.Name = "Em_Requisition"
         Me.Em_Requisition.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em_Requisition.Size = New System.Drawing.Size(750, 602)
+        Me.Em_Requisition.Size = New System.Drawing.Size(755, 609)
         Me.Em_Requisition.TabIndex = 633
         Me.Em_Requisition.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridRequisition})
         '
@@ -776,7 +777,7 @@ Partial Class frmBudgetEditLine
         Me.XtraTabControl1.Location = New System.Drawing.Point(492, 19)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.tabRequisition
-        Me.XtraTabControl1.Size = New System.Drawing.Size(752, 633)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(757, 640)
         Me.XtraTabControl1.TabIndex = 645
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabRequisition, Me.tabTransfered})
         '
@@ -792,14 +793,14 @@ Partial Class frmBudgetEditLine
         Me.tabRequisition.Appearance.HeaderHotTracked.Options.UseFont = True
         Me.tabRequisition.Controls.Add(Me.Em_Requisition)
         Me.tabRequisition.Name = "tabRequisition"
-        Me.tabRequisition.Size = New System.Drawing.Size(750, 602)
+        Me.tabRequisition.Size = New System.Drawing.Size(755, 609)
         Me.tabRequisition.Text = "Requisition Reports"
         '
         'tabTransfered
         '
         Me.tabTransfered.Controls.Add(Me.Em_Transfered)
         Me.tabTransfered.Name = "tabTransfered"
-        Me.tabTransfered.Size = New System.Drawing.Size(752, 598)
+        Me.tabTransfered.Size = New System.Drawing.Size(757, 594)
         Me.tabTransfered.Text = "Budget Transfered Report"
         '
         'Em_Transfered
@@ -810,33 +811,34 @@ Partial Class frmBudgetEditLine
         Me.Em_Transfered.MainView = Me.gridTransfered
         Me.Em_Transfered.Name = "Em_Transfered"
         Me.Em_Transfered.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2})
-        Me.Em_Transfered.Size = New System.Drawing.Size(752, 598)
+        Me.Em_Transfered.Size = New System.Drawing.Size(757, 594)
         Me.Em_Transfered.TabIndex = 634
         Me.Em_Transfered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridTransfered})
         '
         'gridmenustrip
         '
+        Me.gridmenustrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdTransfer, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(166, 54)
+        Me.gridmenustrip.Size = New System.Drawing.Size(170, 62)
         '
         'cmdTransfer
         '
         Me.cmdTransfer.Image = Global.LGUFinancial.My.Resources.Resources.inbox__arrow
         Me.cmdTransfer.Name = "cmdTransfer"
-        Me.cmdTransfer.Size = New System.Drawing.Size(165, 22)
+        Me.cmdTransfer.Size = New System.Drawing.Size(169, 26)
         Me.cmdTransfer.Text = "View Attachment"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(162, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(166, 6)
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(169, 26)
         Me.RefreshToolStripMenuItem.Text = "Refresh Data"
         '
         'gridTransfered
@@ -858,7 +860,7 @@ Partial Class frmBudgetEditLine
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1256, 663)
+        Me.ClientSize = New System.Drawing.Size(1261, 670)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.Controls.Add(Me.txtOriginalBalance)
         Me.Controls.Add(Me.txtAmount)
@@ -902,7 +904,7 @@ Partial Class frmBudgetEditLine
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.txtJanuary)
         Me.Controls.Add(Me.txtAccountTitle)
-        Me.MinimumSize = New System.Drawing.Size(994, 695)
+        Me.MinimumSize = New System.Drawing.Size(988, 702)
         Me.Name = "frmBudgetEditLine"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Budget Info Edit Line"

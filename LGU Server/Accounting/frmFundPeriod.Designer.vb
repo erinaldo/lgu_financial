@@ -19,13 +19,14 @@ Partial Class frmFundPeriod
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.txtYear = New DevExpress.XtraEditors.TextEdit()
         Me.txtJev = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdClose = New System.Windows.Forms.ToolStripMenuItem()
@@ -135,22 +136,23 @@ Partial Class frmFundPeriod
         '
         'gridmenustrip
         '
+        Me.gridmenustrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.cmdClose, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(167, 98)
+        Me.gridmenustrip.Size = New System.Drawing.Size(171, 114)
         '
         'cmdEdit
         '
         Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
         Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(166, 22)
+        Me.cmdEdit.Size = New System.Drawing.Size(170, 26)
         Me.cmdEdit.Text = "Edit Selected"
         '
         'cmdDelete
         '
         Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.notebook__minus
         Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(166, 22)
+        Me.cmdDelete.Size = New System.Drawing.Size(170, 26)
         Me.cmdDelete.Text = "Remove Item"
         Me.cmdDelete.Visible = False
         '
@@ -158,19 +160,19 @@ Partial Class frmFundPeriod
         '
         Me.cmdClose.Image = Global.LGUFinancial.My.Resources.Resources._1501
         Me.cmdClose.Name = "cmdClose"
-        Me.cmdClose.Size = New System.Drawing.Size(166, 22)
+        Me.cmdClose.Size = New System.Drawing.Size(170, 26)
         Me.cmdClose.Text = "Close Transaction"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(163, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(167, 6)
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(170, 26)
         Me.RefreshToolStripMenuItem.Text = "Refresh Data"
         '
         'GridView1
@@ -343,7 +345,7 @@ Partial Class frmFundPeriod
         Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(662, 601)
+        Me.ClientSize = New System.Drawing.Size(667, 595)
         Me.Controls.Add(Me.code)
         Me.Controls.Add(Me.LabelControl7)
         Me.Controls.Add(Me.id)

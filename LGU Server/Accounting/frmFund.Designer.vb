@@ -19,6 +19,7 @@ Partial Class frmFund
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
@@ -28,7 +29,7 @@ Partial Class frmFund
         Me.txtcodename = New DevExpress.XtraEditors.TextEdit()
         Me.txtDescription = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -39,16 +40,42 @@ Partial Class frmFund
         Me.tabInfo = New DevExpress.XtraTab.XtraTabPage()
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         Me.txtTemplate = New DevExpress.XtraEditors.ComboBoxEdit()
-        Me.tabFilter = New DevExpress.XtraTab.XtraTabPage()
-        Me.fundcode = New DevExpress.XtraEditors.ButtonEdit()
-        Me.cmdMoveLeft = New DevExpress.XtraEditors.SimpleButton()
-        Me.cmdMoveRight = New DevExpress.XtraEditors.SimpleButton()
-        Me.Em_unfiltered = New DevExpress.XtraGrid.GridControl()
-        Me.gridUnfiltered = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.Em_filtered = New DevExpress.XtraGrid.GridControl()
-        Me.gridFiltered = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.txtFund = New DevExpress.XtraEditors.SearchLookUpEdit()
-        Me.gridFund = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.tabOfficeFilter = New DevExpress.XtraTab.XtraTabPage()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.em_office_filtered = New DevExpress.XtraGrid.GridControl()
+        Me.grid_office_filtered = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.em_office_unfiltered = New DevExpress.XtraGrid.GridControl()
+        Me.grid_office_unfiltered = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.txtOfficeFund = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.grid_office_fund = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.cmdOfficeMoveRight = New DevExpress.XtraEditors.SimpleButton()
+        Me.cmdOfficeMoveLeft = New DevExpress.XtraEditors.SimpleButton()
+        Me.tabClientUserFilter = New DevExpress.XtraTab.XtraTabPage()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.em_client_unfiltered = New DevExpress.XtraGrid.GridControl()
+        Me.grid_client_unfiltered = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.txtClientFund = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.grid_client_fund = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cmdClientMoveRight = New DevExpress.XtraEditors.SimpleButton()
+        Me.cmdClientMoveLeft = New DevExpress.XtraEditors.SimpleButton()
+        Me.em_client_filtered = New DevExpress.XtraGrid.GridControl()
+        Me.grid_client_filtered = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.tabServerUserFilter = New DevExpress.XtraTab.XtraTabPage()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.em_server_unfiltered = New DevExpress.XtraGrid.GridControl()
+        Me.grid_server_unfiltered = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.txtServerFund = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.grid_server_fund = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.cmdServerMoveRight = New DevExpress.XtraEditors.SimpleButton()
+        Me.cmdServerMoveLeft = New DevExpress.XtraEditors.SimpleButton()
+        Me.em_server_filtered = New DevExpress.XtraGrid.GridControl()
+        Me.grid_server_filtered = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtcodename.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -61,21 +88,43 @@ Partial Class frmFund
         Me.XtraTabControl1.SuspendLayout()
         Me.tabInfo.SuspendLayout()
         CType(Me.txtTemplate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tabFilter.SuspendLayout()
-        CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Em_unfiltered, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gridUnfiltered, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Em_filtered, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gridFiltered, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.gridFund, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabOfficeFilter.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
+        CType(Me.em_office_filtered, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grid_office_filtered, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
+        CType(Me.em_office_unfiltered, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grid_office_unfiltered, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtOfficeFund.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grid_office_fund, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel4.SuspendLayout()
+        Me.tabClientUserFilter.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        CType(Me.em_client_unfiltered, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grid_client_unfiltered, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtClientFund.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grid_client_fund, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        CType(Me.em_client_filtered, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grid_client_filtered, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabServerUserFilter.SuspendLayout()
+        Me.TableLayoutPanel3.SuspendLayout()
+        Me.Panel5.SuspendLayout()
+        CType(Me.em_server_unfiltered, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grid_server_unfiltered, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtServerFund.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grid_server_fund, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel6.SuspendLayout()
+        CType(Me.em_server_filtered, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grid_server_filtered, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LabelControl2
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(31, 68)
+        Me.LabelControl2.Location = New System.Drawing.Point(30, 68)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(66, 17)
         Me.LabelControl2.TabIndex = 507
@@ -98,7 +147,7 @@ Partial Class frmFund
         '
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl1.Appearance.Options.UseFont = True
-        Me.LabelControl1.Location = New System.Drawing.Point(27, 42)
+        Me.LabelControl1.Location = New System.Drawing.Point(26, 42)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(70, 17)
         Me.LabelControl1.TabIndex = 510
@@ -122,7 +171,7 @@ Partial Class frmFund
         '
         Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl4.Appearance.Options.UseFont = True
-        Me.LabelControl4.Location = New System.Drawing.Point(66, 16)
+        Me.LabelControl4.Location = New System.Drawing.Point(65, 16)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(31, 17)
         Me.LabelControl4.TabIndex = 628
@@ -162,45 +211,49 @@ Partial Class frmFund
         '
         'Em
         '
+        Me.Em.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Em.ContextMenuStrip = Me.gridmenustrip
-        Me.Em.Location = New System.Drawing.Point(3, 165)
+        Me.Em.Location = New System.Drawing.Point(3, 164)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(621, 314)
+        Me.Em.Size = New System.Drawing.Size(645, 300)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
         'gridmenustrip
         '
+        Me.gridmenustrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(145, 76)
+        Me.gridmenustrip.Size = New System.Drawing.Size(149, 88)
         '
         'cmdEdit
         '
         Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
         Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(144, 22)
+        Me.cmdEdit.Size = New System.Drawing.Size(148, 26)
         Me.cmdEdit.Text = "Edit Selected"
         '
         'cmdDelete
         '
         Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.notebook__minus
         Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(144, 22)
+        Me.cmdDelete.Size = New System.Drawing.Size(148, 26)
         Me.cmdDelete.Text = "Remove Item"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(141, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(145, 6)
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(148, 26)
         Me.RefreshToolStripMenuItem.Text = "Refresh Data"
         '
         'GridView1
@@ -232,9 +285,9 @@ Partial Class frmFund
         Me.XtraTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.tabInfo
-        Me.XtraTabControl1.Size = New System.Drawing.Size(627, 513)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(653, 495)
         Me.XtraTabControl1.TabIndex = 633
-        Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabInfo, Me.tabFilter})
+        Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabInfo, Me.tabOfficeFilter, Me.tabClientUserFilter, Me.tabServerUserFilter})
         '
         'tabInfo
         '
@@ -250,14 +303,14 @@ Partial Class frmFund
         Me.tabInfo.Controls.Add(Me.cmdSave)
         Me.tabInfo.Controls.Add(Me.LabelControl4)
         Me.tabInfo.Name = "tabInfo"
-        Me.tabInfo.Size = New System.Drawing.Size(625, 484)
+        Me.tabInfo.Size = New System.Drawing.Size(651, 466)
         Me.tabInfo.Text = "Fund Information"
         '
         'LabelControl3
         '
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl3.Appearance.Options.UseFont = True
-        Me.LabelControl3.Location = New System.Drawing.Point(43, 94)
+        Me.LabelControl3.Location = New System.Drawing.Point(42, 94)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(54, 17)
         Me.LabelControl3.TabIndex = 962
@@ -278,128 +331,407 @@ Partial Class frmFund
         Me.txtTemplate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtTemplate.Properties.Items.AddRange(New Object() {"FURS", "CAFOA"})
         Me.txtTemplate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.txtTemplate.Size = New System.Drawing.Size(168, 24)
+        Me.txtTemplate.Size = New System.Drawing.Size(135, 24)
         Me.txtTemplate.TabIndex = 961
         '
-        'tabFilter
+        'tabOfficeFilter
         '
-        Me.tabFilter.Controls.Add(Me.fundcode)
-        Me.tabFilter.Controls.Add(Me.cmdMoveLeft)
-        Me.tabFilter.Controls.Add(Me.cmdMoveRight)
-        Me.tabFilter.Controls.Add(Me.Em_unfiltered)
-        Me.tabFilter.Controls.Add(Me.Em_filtered)
-        Me.tabFilter.Controls.Add(Me.txtFund)
-        Me.tabFilter.Name = "tabFilter"
-        Me.tabFilter.Size = New System.Drawing.Size(627, 482)
-        Me.tabFilter.Text = "Fund Access Filter"
+        Me.tabOfficeFilter.Controls.Add(Me.TableLayoutPanel2)
+        Me.tabOfficeFilter.Name = "tabOfficeFilter"
+        Me.tabOfficeFilter.Size = New System.Drawing.Size(651, 466)
+        Me.tabOfficeFilter.Text = "Department Access Filter"
         '
-        'fundcode
+        'TableLayoutPanel2
         '
-        Me.fundcode.EditValue = ""
-        Me.fundcode.Location = New System.Drawing.Point(287, 12)
-        Me.fundcode.Name = "fundcode"
-        Me.fundcode.Properties.Appearance.Font = New System.Drawing.Font("Times New Roman", 10.0!)
-        Me.fundcode.Properties.Appearance.Options.UseFont = True
-        Me.fundcode.Properties.Appearance.Options.UseTextOptions = True
-        Me.fundcode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.fundcode.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.fundcode.Properties.Mask.BeepOnError = True
-        Me.fundcode.Properties.ReadOnly = True
-        Me.fundcode.Size = New System.Drawing.Size(33, 22)
-        Me.fundcode.TabIndex = 709
-        Me.fundcode.Visible = False
+        Me.TableLayoutPanel2.ColumnCount = 3
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.em_office_filtered, 2, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Panel3, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Panel4, 1, 0)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(651, 466)
+        Me.TableLayoutPanel2.TabIndex = 710
         '
-        'cmdMoveLeft
+        'em_office_filtered
         '
-        Me.cmdMoveLeft.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdMoveLeft.Appearance.Options.UseFont = True
-        Me.cmdMoveLeft.Location = New System.Drawing.Point(287, 179)
-        Me.cmdMoveLeft.Name = "cmdMoveLeft"
-        Me.cmdMoveLeft.Size = New System.Drawing.Size(46, 46)
-        Me.cmdMoveLeft.TabIndex = 708
-        Me.cmdMoveLeft.Text = "<"
+        Me.em_office_filtered.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.em_office_filtered.Location = New System.Drawing.Point(349, 3)
+        Me.em_office_filtered.MainView = Me.grid_office_filtered
+        Me.em_office_filtered.Name = "em_office_filtered"
+        Me.em_office_filtered.Size = New System.Drawing.Size(299, 460)
+        Me.em_office_filtered.TabIndex = 706
+        Me.em_office_filtered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grid_office_filtered})
         '
-        'cmdMoveRight
+        'grid_office_filtered
         '
-        Me.cmdMoveRight.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdMoveRight.Appearance.Options.UseFont = True
-        Me.cmdMoveRight.Location = New System.Drawing.Point(287, 127)
-        Me.cmdMoveRight.Name = "cmdMoveRight"
-        Me.cmdMoveRight.Size = New System.Drawing.Size(46, 46)
-        Me.cmdMoveRight.TabIndex = 707
-        Me.cmdMoveRight.Text = ">"
+        Me.grid_office_filtered.Appearance.FocusedCell.BackColor = System.Drawing.Color.Yellow
+        Me.grid_office_filtered.Appearance.FocusedCell.Options.UseBackColor = True
+        Me.grid_office_filtered.GridControl = Me.em_office_filtered
+        Me.grid_office_filtered.Name = "grid_office_filtered"
+        Me.grid_office_filtered.OptionsBehavior.Editable = False
+        Me.grid_office_filtered.OptionsSelection.MultiSelect = True
+        Me.grid_office_filtered.OptionsView.RowAutoHeight = True
+        Me.grid_office_filtered.OptionsView.ShowGroupPanel = False
         '
-        'Em_unfiltered
+        'Panel3
         '
-        Me.Em_unfiltered.Location = New System.Drawing.Point(11, 38)
-        Me.Em_unfiltered.MainView = Me.gridUnfiltered
-        Me.Em_unfiltered.Name = "Em_unfiltered"
-        Me.Em_unfiltered.Size = New System.Drawing.Size(272, 433)
-        Me.Em_unfiltered.TabIndex = 705
-        Me.Em_unfiltered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridUnfiltered})
+        Me.Panel3.Controls.Add(Me.em_office_unfiltered)
+        Me.Panel3.Controls.Add(Me.txtOfficeFund)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel3.Location = New System.Drawing.Point(3, 3)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(298, 460)
+        Me.Panel3.TabIndex = 703
         '
-        'gridUnfiltered
+        'em_office_unfiltered
         '
-        Me.gridUnfiltered.Appearance.FocusedCell.BackColor = System.Drawing.Color.Yellow
-        Me.gridUnfiltered.Appearance.FocusedCell.Options.UseBackColor = True
-        Me.gridUnfiltered.GridControl = Me.Em_unfiltered
-        Me.gridUnfiltered.Name = "gridUnfiltered"
-        Me.gridUnfiltered.OptionsBehavior.Editable = False
-        Me.gridUnfiltered.OptionsSelection.MultiSelect = True
-        Me.gridUnfiltered.OptionsView.RowAutoHeight = True
-        Me.gridUnfiltered.OptionsView.ShowGroupPanel = False
+        Me.em_office_unfiltered.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.em_office_unfiltered.Location = New System.Drawing.Point(0, 24)
+        Me.em_office_unfiltered.MainView = Me.grid_office_unfiltered
+        Me.em_office_unfiltered.Name = "em_office_unfiltered"
+        Me.em_office_unfiltered.Size = New System.Drawing.Size(298, 436)
+        Me.em_office_unfiltered.TabIndex = 705
+        Me.em_office_unfiltered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grid_office_unfiltered})
         '
-        'Em_filtered
+        'grid_office_unfiltered
         '
-        Me.Em_filtered.Location = New System.Drawing.Point(337, 18)
-        Me.Em_filtered.MainView = Me.gridFiltered
-        Me.Em_filtered.Name = "Em_filtered"
-        Me.Em_filtered.Size = New System.Drawing.Size(272, 453)
-        Me.Em_filtered.TabIndex = 706
-        Me.Em_filtered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridFiltered})
+        Me.grid_office_unfiltered.Appearance.FocusedCell.BackColor = System.Drawing.Color.Yellow
+        Me.grid_office_unfiltered.Appearance.FocusedCell.Options.UseBackColor = True
+        Me.grid_office_unfiltered.GridControl = Me.em_office_unfiltered
+        Me.grid_office_unfiltered.Name = "grid_office_unfiltered"
+        Me.grid_office_unfiltered.OptionsBehavior.Editable = False
+        Me.grid_office_unfiltered.OptionsSelection.MultiSelect = True
+        Me.grid_office_unfiltered.OptionsView.RowAutoHeight = True
+        Me.grid_office_unfiltered.OptionsView.ShowGroupPanel = False
         '
-        'gridFiltered
+        'txtOfficeFund
         '
-        Me.gridFiltered.Appearance.FocusedCell.BackColor = System.Drawing.Color.Yellow
-        Me.gridFiltered.Appearance.FocusedCell.Options.UseBackColor = True
-        Me.gridFiltered.GridControl = Me.Em_filtered
-        Me.gridFiltered.Name = "gridFiltered"
-        Me.gridFiltered.OptionsBehavior.Editable = False
-        Me.gridFiltered.OptionsSelection.MultiSelect = True
-        Me.gridFiltered.OptionsView.RowAutoHeight = True
-        Me.gridFiltered.OptionsView.ShowGroupPanel = False
+        Me.txtOfficeFund.Dock = System.Windows.Forms.DockStyle.Top
+        Me.txtOfficeFund.EditValue = ""
+        Me.txtOfficeFund.Location = New System.Drawing.Point(0, 0)
+        Me.txtOfficeFund.Name = "txtOfficeFund"
+        Me.txtOfficeFund.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.txtOfficeFund.Properties.Appearance.Options.UseFont = True
+        Me.txtOfficeFund.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtOfficeFund.Properties.DisplayMember = "Select"
+        Me.txtOfficeFund.Properties.NullText = ""
+        Me.txtOfficeFund.Properties.PopupView = Me.grid_office_fund
+        Me.txtOfficeFund.Properties.ValueMember = "code"
+        Me.txtOfficeFund.Size = New System.Drawing.Size(298, 24)
+        Me.txtOfficeFund.TabIndex = 704
         '
-        'txtFund
+        'grid_office_fund
         '
-        Me.txtFund.EditValue = ""
-        Me.txtFund.Location = New System.Drawing.Point(11, 11)
-        Me.txtFund.Name = "txtFund"
-        Me.txtFund.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.txtFund.Properties.Appearance.Options.UseFont = True
-        Me.txtFund.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.txtFund.Properties.DisplayMember = "Select"
-        Me.txtFund.Properties.NullText = ""
-        Me.txtFund.Properties.PopupView = Me.gridFund
-        Me.txtFund.Properties.ValueMember = "code"
-        Me.txtFund.Size = New System.Drawing.Size(272, 24)
-        Me.txtFund.TabIndex = 704
+        Me.grid_office_fund.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.grid_office_fund.Name = "grid_office_fund"
+        Me.grid_office_fund.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.grid_office_fund.OptionsView.ShowGroupPanel = False
         '
-        'gridFund
+        'Panel4
         '
-        Me.gridFund.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.gridFund.Name = "gridFund"
-        Me.gridFund.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.gridFund.OptionsView.ShowGroupPanel = False
+        Me.Panel4.Controls.Add(Me.cmdOfficeMoveRight)
+        Me.Panel4.Controls.Add(Me.cmdOfficeMoveLeft)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel4.Location = New System.Drawing.Point(307, 3)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(36, 460)
+        Me.Panel4.TabIndex = 0
+        '
+        'cmdOfficeMoveRight
+        '
+        Me.cmdOfficeMoveRight.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdOfficeMoveRight.Appearance.Options.UseFont = True
+        Me.cmdOfficeMoveRight.Location = New System.Drawing.Point(1, 47)
+        Me.cmdOfficeMoveRight.Name = "cmdOfficeMoveRight"
+        Me.cmdOfficeMoveRight.Size = New System.Drawing.Size(34, 36)
+        Me.cmdOfficeMoveRight.TabIndex = 707
+        Me.cmdOfficeMoveRight.Text = ">"
+        '
+        'cmdOfficeMoveLeft
+        '
+        Me.cmdOfficeMoveLeft.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdOfficeMoveLeft.Appearance.Options.UseFont = True
+        Me.cmdOfficeMoveLeft.Location = New System.Drawing.Point(1, 89)
+        Me.cmdOfficeMoveLeft.Name = "cmdOfficeMoveLeft"
+        Me.cmdOfficeMoveLeft.Size = New System.Drawing.Size(34, 36)
+        Me.cmdOfficeMoveLeft.TabIndex = 708
+        Me.cmdOfficeMoveLeft.Text = "<"
+        '
+        'tabClientUserFilter
+        '
+        Me.tabClientUserFilter.Controls.Add(Me.TableLayoutPanel1)
+        Me.tabClientUserFilter.Name = "tabClientUserFilter"
+        Me.tabClientUserFilter.Size = New System.Drawing.Size(651, 466)
+        Me.tabClientUserFilter.Text = "Client User Access Filter"
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 3
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Panel2, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.em_client_filtered, 2, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(651, 466)
+        Me.TableLayoutPanel1.TabIndex = 709
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.em_client_unfiltered)
+        Me.Panel2.Controls.Add(Me.txtClientFund)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.Location = New System.Drawing.Point(3, 3)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(298, 460)
+        Me.Panel2.TabIndex = 703
+        '
+        'em_client_unfiltered
+        '
+        Me.em_client_unfiltered.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.em_client_unfiltered.Location = New System.Drawing.Point(0, 24)
+        Me.em_client_unfiltered.MainView = Me.grid_client_unfiltered
+        Me.em_client_unfiltered.Name = "em_client_unfiltered"
+        Me.em_client_unfiltered.Size = New System.Drawing.Size(298, 436)
+        Me.em_client_unfiltered.TabIndex = 699
+        Me.em_client_unfiltered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grid_client_unfiltered})
+        '
+        'grid_client_unfiltered
+        '
+        Me.grid_client_unfiltered.Appearance.FocusedCell.BackColor = System.Drawing.Color.Yellow
+        Me.grid_client_unfiltered.Appearance.FocusedCell.Options.UseBackColor = True
+        Me.grid_client_unfiltered.GridControl = Me.em_client_unfiltered
+        Me.grid_client_unfiltered.Name = "grid_client_unfiltered"
+        Me.grid_client_unfiltered.OptionsBehavior.Editable = False
+        Me.grid_client_unfiltered.OptionsSelection.MultiSelect = True
+        Me.grid_client_unfiltered.OptionsView.RowAutoHeight = True
+        Me.grid_client_unfiltered.OptionsView.ShowGroupPanel = False
+        '
+        'txtClientFund
+        '
+        Me.txtClientFund.Dock = System.Windows.Forms.DockStyle.Top
+        Me.txtClientFund.EditValue = ""
+        Me.txtClientFund.Location = New System.Drawing.Point(0, 0)
+        Me.txtClientFund.Name = "txtClientFund"
+        Me.txtClientFund.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.txtClientFund.Properties.Appearance.Options.UseFont = True
+        Me.txtClientFund.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtClientFund.Properties.DisplayMember = "Select"
+        Me.txtClientFund.Properties.NullText = ""
+        Me.txtClientFund.Properties.PopupView = Me.grid_client_fund
+        Me.txtClientFund.Properties.ValueMember = "code"
+        Me.txtClientFund.Size = New System.Drawing.Size(298, 24)
+        Me.txtClientFund.TabIndex = 705
+        '
+        'grid_client_fund
+        '
+        Me.grid_client_fund.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.grid_client_fund.Name = "grid_client_fund"
+        Me.grid_client_fund.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.grid_client_fund.OptionsView.ShowGroupPanel = False
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.cmdClientMoveRight)
+        Me.Panel1.Controls.Add(Me.cmdClientMoveLeft)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(307, 3)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(36, 460)
+        Me.Panel1.TabIndex = 0
+        '
+        'cmdClientMoveRight
+        '
+        Me.cmdClientMoveRight.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmdClientMoveRight.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdClientMoveRight.Appearance.Options.UseFont = True
+        Me.cmdClientMoveRight.Location = New System.Drawing.Point(1, 47)
+        Me.cmdClientMoveRight.Name = "cmdClientMoveRight"
+        Me.cmdClientMoveRight.Size = New System.Drawing.Size(34, 36)
+        Me.cmdClientMoveRight.TabIndex = 701
+        Me.cmdClientMoveRight.Text = ">"
+        '
+        'cmdClientMoveLeft
+        '
+        Me.cmdClientMoveLeft.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmdClientMoveLeft.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdClientMoveLeft.Appearance.Options.UseFont = True
+        Me.cmdClientMoveLeft.Location = New System.Drawing.Point(1, 89)
+        Me.cmdClientMoveLeft.Name = "cmdClientMoveLeft"
+        Me.cmdClientMoveLeft.Size = New System.Drawing.Size(34, 36)
+        Me.cmdClientMoveLeft.TabIndex = 702
+        Me.cmdClientMoveLeft.Text = "<"
+        '
+        'em_client_filtered
+        '
+        Me.em_client_filtered.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.em_client_filtered.Location = New System.Drawing.Point(349, 3)
+        Me.em_client_filtered.MainView = Me.grid_client_filtered
+        Me.em_client_filtered.Name = "em_client_filtered"
+        Me.em_client_filtered.Size = New System.Drawing.Size(299, 460)
+        Me.em_client_filtered.TabIndex = 700
+        Me.em_client_filtered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grid_client_filtered})
+        '
+        'grid_client_filtered
+        '
+        Me.grid_client_filtered.Appearance.FocusedCell.BackColor = System.Drawing.Color.Yellow
+        Me.grid_client_filtered.Appearance.FocusedCell.Options.UseBackColor = True
+        Me.grid_client_filtered.GridControl = Me.em_client_filtered
+        Me.grid_client_filtered.Name = "grid_client_filtered"
+        Me.grid_client_filtered.OptionsBehavior.Editable = False
+        Me.grid_client_filtered.OptionsSelection.MultiSelect = True
+        Me.grid_client_filtered.OptionsView.RowAutoHeight = True
+        Me.grid_client_filtered.OptionsView.ShowGroupPanel = False
+        '
+        'tabServerUserFilter
+        '
+        Me.tabServerUserFilter.Controls.Add(Me.TableLayoutPanel3)
+        Me.tabServerUserFilter.Name = "tabServerUserFilter"
+        Me.tabServerUserFilter.Size = New System.Drawing.Size(651, 466)
+        Me.tabServerUserFilter.Text = "Server User Access Filter"
+        '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.ColumnCount = 3
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.Panel5, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Panel6, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.em_server_filtered, 2, 0)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 1
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(651, 466)
+        Me.TableLayoutPanel3.TabIndex = 710
+        '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.em_server_unfiltered)
+        Me.Panel5.Controls.Add(Me.txtServerFund)
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel5.Location = New System.Drawing.Point(3, 3)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(298, 460)
+        Me.Panel5.TabIndex = 703
+        '
+        'em_server_unfiltered
+        '
+        Me.em_server_unfiltered.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.em_server_unfiltered.Location = New System.Drawing.Point(0, 24)
+        Me.em_server_unfiltered.MainView = Me.grid_server_unfiltered
+        Me.em_server_unfiltered.Name = "em_server_unfiltered"
+        Me.em_server_unfiltered.Size = New System.Drawing.Size(298, 436)
+        Me.em_server_unfiltered.TabIndex = 699
+        Me.em_server_unfiltered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grid_server_unfiltered})
+        '
+        'grid_server_unfiltered
+        '
+        Me.grid_server_unfiltered.Appearance.FocusedCell.BackColor = System.Drawing.Color.Yellow
+        Me.grid_server_unfiltered.Appearance.FocusedCell.Options.UseBackColor = True
+        Me.grid_server_unfiltered.GridControl = Me.em_server_unfiltered
+        Me.grid_server_unfiltered.Name = "grid_server_unfiltered"
+        Me.grid_server_unfiltered.OptionsBehavior.Editable = False
+        Me.grid_server_unfiltered.OptionsSelection.MultiSelect = True
+        Me.grid_server_unfiltered.OptionsView.RowAutoHeight = True
+        Me.grid_server_unfiltered.OptionsView.ShowGroupPanel = False
+        '
+        'txtServerFund
+        '
+        Me.txtServerFund.Dock = System.Windows.Forms.DockStyle.Top
+        Me.txtServerFund.EditValue = ""
+        Me.txtServerFund.Location = New System.Drawing.Point(0, 0)
+        Me.txtServerFund.Name = "txtServerFund"
+        Me.txtServerFund.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.txtServerFund.Properties.Appearance.Options.UseFont = True
+        Me.txtServerFund.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtServerFund.Properties.DisplayMember = "Select"
+        Me.txtServerFund.Properties.NullText = ""
+        Me.txtServerFund.Properties.PopupView = Me.grid_server_fund
+        Me.txtServerFund.Properties.ValueMember = "code"
+        Me.txtServerFund.Size = New System.Drawing.Size(298, 24)
+        Me.txtServerFund.TabIndex = 705
+        '
+        'grid_server_fund
+        '
+        Me.grid_server_fund.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.grid_server_fund.Name = "grid_server_fund"
+        Me.grid_server_fund.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.grid_server_fund.OptionsView.ShowGroupPanel = False
+        '
+        'Panel6
+        '
+        Me.Panel6.Controls.Add(Me.cmdServerMoveRight)
+        Me.Panel6.Controls.Add(Me.cmdServerMoveLeft)
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel6.Location = New System.Drawing.Point(307, 3)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(36, 460)
+        Me.Panel6.TabIndex = 0
+        '
+        'cmdServerMoveRight
+        '
+        Me.cmdServerMoveRight.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmdServerMoveRight.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdServerMoveRight.Appearance.Options.UseFont = True
+        Me.cmdServerMoveRight.Location = New System.Drawing.Point(1, 47)
+        Me.cmdServerMoveRight.Name = "cmdServerMoveRight"
+        Me.cmdServerMoveRight.Size = New System.Drawing.Size(34, 36)
+        Me.cmdServerMoveRight.TabIndex = 701
+        Me.cmdServerMoveRight.Text = ">"
+        '
+        'cmdServerMoveLeft
+        '
+        Me.cmdServerMoveLeft.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmdServerMoveLeft.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdServerMoveLeft.Appearance.Options.UseFont = True
+        Me.cmdServerMoveLeft.Location = New System.Drawing.Point(1, 89)
+        Me.cmdServerMoveLeft.Name = "cmdServerMoveLeft"
+        Me.cmdServerMoveLeft.Size = New System.Drawing.Size(34, 36)
+        Me.cmdServerMoveLeft.TabIndex = 702
+        Me.cmdServerMoveLeft.Text = "<"
+        '
+        'em_server_filtered
+        '
+        Me.em_server_filtered.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.em_server_filtered.Location = New System.Drawing.Point(349, 3)
+        Me.em_server_filtered.MainView = Me.grid_server_filtered
+        Me.em_server_filtered.Name = "em_server_filtered"
+        Me.em_server_filtered.Size = New System.Drawing.Size(299, 460)
+        Me.em_server_filtered.TabIndex = 700
+        Me.em_server_filtered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grid_server_filtered})
+        '
+        'grid_server_filtered
+        '
+        Me.grid_server_filtered.Appearance.FocusedCell.BackColor = System.Drawing.Color.Yellow
+        Me.grid_server_filtered.Appearance.FocusedCell.Options.UseBackColor = True
+        Me.grid_server_filtered.GridControl = Me.em_server_filtered
+        Me.grid_server_filtered.Name = "grid_server_filtered"
+        Me.grid_server_filtered.OptionsBehavior.Editable = False
+        Me.grid_server_filtered.OptionsSelection.MultiSelect = True
+        Me.grid_server_filtered.OptionsView.RowAutoHeight = True
+        Me.grid_server_filtered.OptionsView.ShowGroupPanel = False
         '
         'frmFund
         '
         Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(627, 513)
+        Me.ClientSize = New System.Drawing.Size(653, 495)
         Me.Controls.Add(Me.XtraTabControl1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.MaximizeBox = False
         Me.Name = "frmFund"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Fund Table"
@@ -416,14 +748,36 @@ Partial Class frmFund
         Me.tabInfo.ResumeLayout(False)
         Me.tabInfo.PerformLayout()
         CType(Me.txtTemplate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.tabFilter.ResumeLayout(False)
-        CType(Me.fundcode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Em_unfiltered, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gridUnfiltered, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Em_filtered, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gridFiltered, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.gridFund, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabOfficeFilter.ResumeLayout(False)
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        CType(Me.em_office_filtered, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid_office_filtered, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        CType(Me.em_office_unfiltered, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid_office_unfiltered, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtOfficeFund.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid_office_fund, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel4.ResumeLayout(False)
+        Me.tabClientUserFilter.ResumeLayout(False)
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        CType(Me.em_client_unfiltered, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid_client_unfiltered, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtClientFund.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid_client_fund, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        CType(Me.em_client_filtered, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid_client_filtered, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabServerUserFilter.ResumeLayout(False)
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.Panel5.ResumeLayout(False)
+        CType(Me.em_server_unfiltered, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid_server_unfiltered, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtServerFund.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid_server_fund, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel6.ResumeLayout(False)
+        CType(Me.em_server_filtered, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grid_server_filtered, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -445,16 +799,42 @@ Partial Class frmFund
     Friend WithEvents RefreshToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents XtraTabControl1 As DevExpress.XtraTab.XtraTabControl
     Friend WithEvents tabInfo As DevExpress.XtraTab.XtraTabPage
-    Friend WithEvents tabFilter As DevExpress.XtraTab.XtraTabPage
-    Friend WithEvents fundcode As DevExpress.XtraEditors.ButtonEdit
-    Friend WithEvents cmdMoveLeft As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents cmdMoveRight As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents Em_unfiltered As DevExpress.XtraGrid.GridControl
-    Friend WithEvents gridUnfiltered As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents Em_filtered As DevExpress.XtraGrid.GridControl
-    Friend WithEvents gridFiltered As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents txtFund As DevExpress.XtraEditors.SearchLookUpEdit
-    Friend WithEvents gridFund As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents tabOfficeFilter As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents cmdOfficeMoveLeft As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdOfficeMoveRight As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents em_office_unfiltered As DevExpress.XtraGrid.GridControl
+    Friend WithEvents grid_office_unfiltered As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents em_office_filtered As DevExpress.XtraGrid.GridControl
+    Friend WithEvents grid_office_filtered As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents txtOfficeFund As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents grid_office_fund As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents txtTemplate As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents tabClientUserFilter As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents cmdClientMoveRight As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdClientMoveLeft As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents em_client_filtered As DevExpress.XtraGrid.GridControl
+    Friend WithEvents grid_client_filtered As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents em_client_unfiltered As DevExpress.XtraGrid.GridControl
+    Friend WithEvents grid_client_unfiltered As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents txtClientFund As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents grid_client_fund As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents tabServerUserFilter As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents em_server_unfiltered As DevExpress.XtraGrid.GridControl
+    Friend WithEvents grid_server_unfiltered As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents txtServerFund As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents grid_server_fund As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents cmdServerMoveRight As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdServerMoveLeft As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents em_server_filtered As DevExpress.XtraGrid.GridControl
+    Friend WithEvents grid_server_filtered As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

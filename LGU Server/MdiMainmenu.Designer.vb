@@ -63,6 +63,7 @@ Partial Class MdiMainmenu
         Me.cmdRegistry = New DevExpress.XtraBars.BarButtonItem()
         Me.cmdDefaultCollection = New DevExpress.XtraBars.BarButtonItem()
         Me.cmdPayeeTable = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdServerAccessPermission = New DevExpress.XtraBars.BarButtonItem()
         Me.rbnAccounting = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup5 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -115,7 +116,6 @@ Partial Class MdiMainmenu
         Me.RibbonPage5 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPage6 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
-        Me.cmdServerAccessPermission = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MainMenu, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -140,13 +140,14 @@ Partial Class MdiMainmenu
         Me.MainMenu.GalleryAnimationLength = 3
         Me.MainMenu.GroupAnimationLength = 3
         Me.MainMenu.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.MainMenu.ExpandCollapseItem, Me.MainMenu.SearchEditItem, Me.cmdUserAccountManagement, Me.cmdCorporateProfileSettings, Me.cmdCorporateDivision, Me.cmdLoginAppearance, Me.cmdBackupDatabase, Me.cmdGeneralSettings, Me.cmdMyUserProfile, Me.cmdDatabaseRepair, Me.SkinDropDownButtonItem1, Me.cmdFund, Me.cmdFundPeriod, Me.cmdCashflowItem, Me.cmdAccountableForm, Me.cmdClientAccess, Me.cmdAccountTitleFilter, Me.cmdReportEntries, Me.cmdCollectionItem, Me.cmdTaxPayer, Me.cmdExpenditureClass, Me.cmdBudgetComposition, Me.cmdProductCategory, Me.cmdProductManagement, Me.cmdNewProduct, Me.cmdRequisitionType, Me.cmdDocumentType, Me.cmdApprovingProcess, Me.cmdExpenditureItem, Me.cmdJevEntries, Me.cmdUpdateChartofAccounts, Me.cmdGLItem, Me.cmdAdvanceSearch, Me.cmdRequisitionFilter, Me.cmdCashItem, Me.cmdQuarterlyBudget, Me.cmdAROexcemption, Me.cmdCheckApprovalFilter, Me.cmdBankAccounts, Me.cmdRegistry, Me.cmdDefaultCollection, Me.cmdPayeeTable, Me.cmdServerAccessPermission})
-        Me.MainMenu.Location = New System.Drawing.Point(0, 21)
+        Me.MainMenu.Location = New System.Drawing.Point(0, 29)
+        Me.MainMenu.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MainMenu.MaxItemId = 389
         Me.MainMenu.Name = "MainMenu"
         Me.MainMenu.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.rbnAccounting, Me.rbnTransaction, Me.rbnReports, Me.rbnSettings})
         Me.MainMenu.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
         Me.MainMenu.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.Show
-        Me.MainMenu.Size = New System.Drawing.Size(1397, 126)
+        Me.MainMenu.Size = New System.Drawing.Size(1630, 153)
         Me.MainMenu.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden
         '
         'cmdUserAccountManagement
@@ -416,6 +417,12 @@ Partial Class MdiMainmenu
         Me.cmdPayeeTable.Id = 387
         Me.cmdPayeeTable.Name = "cmdPayeeTable"
         '
+        'cmdServerAccessPermission
+        '
+        Me.cmdServerAccessPermission.Caption = "Server Access Permission"
+        Me.cmdServerAccessPermission.Id = 388
+        Me.cmdServerAccessPermission.Name = "cmdServerAccessPermission"
+        '
         'rbnAccounting
         '
         Me.rbnAccounting.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1, Me.RibbonPageGroup5})
@@ -573,6 +580,7 @@ Partial Class MdiMainmenu
         Me.BarManager1.DockControls.Add(Me.barDockControlBottom)
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
+        Me.BarManager1.DockWindowTabFont = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BarManager1.Form = Me
         Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.MenuMenu, Me.MenuHelp, Me.MenuAbout, Me.cmdMenuLogout, Me.cmdMenuHelp, Me.cmdMenuPurchasingAbout, Me.statDatetime, Me.cmdMenuExit, Me.cmdMenuAccountProfile, Me.cmdWhatsNew, Me.txtDatabaseVersion, Me.BarButtonItem7, Me.BarButtonItem8})
         Me.BarManager1.MainMenu = Me.mainbar
@@ -713,31 +721,35 @@ Partial Class MdiMainmenu
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(1397, 21)
+        Me.barDockControlTop.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.barDockControlTop.Size = New System.Drawing.Size(1630, 29)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 660)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 813)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1397, 23)
+        Me.barDockControlBottom.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1630, 28)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 21)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 29)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 639)
+        Me.barDockControlLeft.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 784)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(1397, 21)
+        Me.barDockControlRight.Location = New System.Drawing.Point(1630, 29)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 639)
+        Me.barDockControlRight.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 784)
         '
         'BarStaticItem1
         '
@@ -835,24 +847,19 @@ Partial Class MdiMainmenu
         Me.BarButtonItem1.Id = 381
         Me.BarButtonItem1.Name = "BarButtonItem1"
         '
-        'cmdServerAccessPermission
-        '
-        Me.cmdServerAccessPermission.Caption = "Server Access Permission"
-        Me.cmdServerAccessPermission.Id = 388
-        Me.cmdServerAccessPermission.Name = "cmdServerAccessPermission"
-        '
         'MdiMainmenu
         '
         Me.Appearance.Options.UseFont = True
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1397, 683)
+        Me.ClientSize = New System.Drawing.Size(1630, 841)
         Me.Controls.Add(Me.MainMenu)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.barDockControlTop)
         Me.IsMdiContainer = True
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "MdiMainmenu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Coffeecup computing system"

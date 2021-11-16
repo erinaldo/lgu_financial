@@ -19,7 +19,8 @@ Partial Class frmRegistryExport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.components = New System.ComponentModel.Container()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdCloseBalanceDefault = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdCloseBalanceRecompute = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -47,34 +48,35 @@ Partial Class frmRegistryExport
         '
         'gridmenustrip
         '
+        Me.gridmenustrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdCloseBalanceDefault, Me.cmdCloseBalanceRecompute, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(433, 76)
+        Me.gridmenustrip.Size = New System.Drawing.Size(437, 88)
         '
         'cmdCloseBalanceDefault
         '
         Me.cmdCloseBalanceDefault.Image = Global.LGUFinancial.My.Resources.Resources.tick
         Me.cmdCloseBalanceDefault.Name = "cmdCloseBalanceDefault"
-        Me.cmdCloseBalanceDefault.Size = New System.Drawing.Size(432, 22)
+        Me.cmdCloseBalanceDefault.Size = New System.Drawing.Size(436, 26)
         Me.cmdCloseBalanceDefault.Text = "Close and transfer all balances for next month"
         '
         'cmdCloseBalanceRecompute
         '
         Me.cmdCloseBalanceRecompute.Image = Global.LGUFinancial.My.Resources.Resources.exclamation_red_frame
         Me.cmdCloseBalanceRecompute.Name = "cmdCloseBalanceRecompute"
-        Me.cmdCloseBalanceRecompute.Size = New System.Drawing.Size(432, 22)
+        Me.cmdCloseBalanceRecompute.Size = New System.Drawing.Size(436, 26)
         Me.cmdCloseBalanceRecompute.Text = "Close and transfer all balances for next month (Re-Update Balances)"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(429, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(433, 6)
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(432, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(436, 26)
         Me.RefreshToolStripMenuItem.Text = "Refresh data table list"
         '
         'ProgressBarControl1
@@ -202,7 +204,7 @@ Partial Class frmRegistryExport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(479, 225)
+        Me.ClientSize = New System.Drawing.Size(484, 219)
         Me.Controls.Add(Me.LabelControl4)
         Me.Controls.Add(Me.txtMonth)
         Me.Controls.Add(Me.txtClass)

@@ -138,34 +138,35 @@ Partial Class frmAuthorizedUser
         '
         'gridmenustrip
         '
+        Me.gridmenustrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(165, 76)
+        Me.gridmenustrip.Size = New System.Drawing.Size(169, 88)
         '
         'cmdEdit
         '
         Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.lock__pencil
         Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(180, 22)
+        Me.cmdEdit.Size = New System.Drawing.Size(168, 26)
         Me.cmdEdit.Text = "Edit Selected"
         '
         'cmdDelete
         '
         Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.lock__minus
         Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(180, 22)
+        Me.cmdDelete.Size = New System.Drawing.Size(168, 26)
         Me.cmdDelete.Text = "Remove Selected"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(165, 6)
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Image = CType(resources.GetObject("RefreshToolStripMenuItem.Image"), System.Drawing.Image)
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(168, 26)
         Me.RefreshToolStripMenuItem.Text = "Refresh"
         '
         'BarManager1
@@ -175,6 +176,7 @@ Partial Class frmAuthorizedUser
         Me.BarManager1.DockControls.Add(Me.barDockControlBottom)
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
+        Me.BarManager1.DockWindowTabFont = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BarManager1.Form = Me
         Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.cmdClose})
         Me.BarManager1.MainMenu = Me.Bar2
@@ -213,15 +215,15 @@ Partial Class frmAuthorizedUser
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(518, 22)
+        Me.barDockControlTop.Size = New System.Drawing.Size(523, 22)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 514)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 508)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(518, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(523, 0)
         '
         'barDockControlLeft
         '
@@ -229,15 +231,15 @@ Partial Class frmAuthorizedUser
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 22)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 492)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 486)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(518, 22)
+        Me.barDockControlRight.Location = New System.Drawing.Point(523, 22)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 492)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 486)
         '
         'Em
         '
@@ -247,7 +249,7 @@ Partial Class frmAuthorizedUser
         Me.Em.MainView = Me.gridActiveAccess
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(509, 309)
+        Me.Em.Size = New System.Drawing.Size(514, 303)
         Me.Em.TabIndex = 935
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridActiveAccess})
         '
@@ -278,7 +280,7 @@ Partial Class frmAuthorizedUser
         Me.XtraTabControl1.Location = New System.Drawing.Point(4, 173)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.tabActive
-        Me.XtraTabControl1.Size = New System.Drawing.Size(511, 338)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(516, 332)
         Me.XtraTabControl1.TabIndex = 936
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabActive, Me.tabPrevious})
         '
@@ -286,14 +288,14 @@ Partial Class frmAuthorizedUser
         '
         Me.tabActive.Controls.Add(Me.Em)
         Me.tabActive.Name = "tabActive"
-        Me.tabActive.Size = New System.Drawing.Size(509, 309)
+        Me.tabActive.Size = New System.Drawing.Size(514, 303)
         Me.tabActive.Text = "Active Access"
         '
         'tabPrevious
         '
         Me.tabPrevious.Controls.Add(Me.Em_Logs)
         Me.tabPrevious.Name = "tabPrevious"
-        Me.tabPrevious.Size = New System.Drawing.Size(509, 309)
+        Me.tabPrevious.Size = New System.Drawing.Size(516, 301)
         Me.tabPrevious.Text = "Authorized Access Logs"
         '
         'Em_Logs
@@ -303,7 +305,7 @@ Partial Class frmAuthorizedUser
         Me.Em_Logs.MainView = Me.gridLogs
         Me.Em_Logs.Name = "Em_Logs"
         Me.Em_Logs.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2})
-        Me.Em_Logs.Size = New System.Drawing.Size(509, 309)
+        Me.Em_Logs.Size = New System.Drawing.Size(516, 301)
         Me.Em_Logs.TabIndex = 936
         Me.Em_Logs.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridLogs})
         '
@@ -466,7 +468,7 @@ Partial Class frmAuthorizedUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(518, 514)
+        Me.ClientSize = New System.Drawing.Size(523, 508)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.Controls.Add(Me.ckEnableAuthorizedAccess)
         Me.Controls.Add(Me.accessid)

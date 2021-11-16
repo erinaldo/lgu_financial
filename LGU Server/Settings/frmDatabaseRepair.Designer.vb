@@ -36,7 +36,7 @@ Partial Class frmDatabaseRepair
         Me.reportid.Name = "reportid"
         Me.reportid.Properties.ReadOnly = True
         Me.reportid.Properties.ValidateOnEnterKey = True
-        Me.reportid.Size = New System.Drawing.Size(80, 20)
+        Me.reportid.Size = New System.Drawing.Size(80, 22)
         Me.reportid.TabIndex = 543
         Me.reportid.Visible = False
         '
@@ -62,7 +62,7 @@ Partial Class frmDatabaseRepair
         Me.LabelControl34.Location = New System.Drawing.Point(108, 14)
         Me.LabelControl34.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl34.Name = "LabelControl34"
-        Me.LabelControl34.Size = New System.Drawing.Size(183, 17)
+        Me.LabelControl34.Size = New System.Drawing.Size(236, 23)
         Me.LabelControl34.TabIndex = 551
         Me.LabelControl34.Text = "Select database to start repair.."
         '
@@ -79,14 +79,14 @@ Partial Class frmDatabaseRepair
         Me.txtReportForm.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtReportForm.Properties.PopupSizeable = True
         Me.txtReportForm.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.txtReportForm.Size = New System.Drawing.Size(261, 28)
+        Me.txtReportForm.Size = New System.Drawing.Size(261, 34)
         Me.txtReportForm.TabIndex = 0
         '
         'frmDatabaseRepair
         '
         Me.AcceptButton = Me.cmdFinish
         Me.Appearance.Options.UseFont = True
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(398, 119)
         Me.Controls.Add(Me.LabelControl34)

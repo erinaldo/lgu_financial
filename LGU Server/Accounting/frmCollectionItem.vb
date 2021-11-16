@@ -17,7 +17,7 @@ Public Class frmCollectionItem
     End Sub
 
     Public Sub filter()
-        LoadXgrid("Select trncode, trnname as 'Description', (select itemname from tblglitem where itemcode=a.glitemcode) as 'Account Title', amount as 'Default Amount' from tblcollectionitem as a order by trnname asc", "tblcollectionitem", Em, GridView1, Me)
+        LoadXgrid("Select trncode, trnname as 'Description', (select itemname from tblglitem where itemcode=a.glitemcode) as 'Account Title', amount as 'Default Amount', Locked from tblcollectionitem as a order by trnname asc", "tblcollectionitem", Em, GridView1, Me)
         XgridColAlign({"trncode"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         XgridColCurrency({"Default Amount"}, GridView1)
         GridView1.BestFitColumns()
@@ -34,11 +34,11 @@ Public Class frmCollectionItem
             Exit Sub
         End If
         If mode.Text = "edit" Then
-            com.CommandText = "update tblcollectionitem set trnname='" & rchar(txtDescription.Text) & "',glitemcode='" & txtAccountTitle.EditValue & "', amount='" & Val(CC(txtAmount.Text)) & "' where trncode='" & code.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "update tblcollectionitem set trnname='" & rchar(txtDescription.Text) & "',glitemcode='" & txtAccountTitle.EditValue & "', amount='" & Val(CC(txtAmount.Text)) & "',locked=" & CheckEdit1.CheckState & " where trncode='" & code.Text & "'" : com.ExecuteNonQuery()
         Else
-            com.CommandText = "insert into tblcollectionitem set  trnname='" & rchar(txtDescription.Text) & "',glitemcode='" & txtAccountTitle.EditValue & "', amount='" & Val(CC(txtAmount.Text)) & "'" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblcollectionitem set  trnname='" & rchar(txtDescription.Text) & "',glitemcode='" & txtAccountTitle.EditValue & "', amount='" & Val(CC(txtAmount.Text)) & "',locked=" & CheckEdit1.CheckState & "" : com.ExecuteNonQuery()
         End If
-        code.Text = "" : mode.Text = "" : txtDescription.Text = "" : txtAmount.Text = "0" : txtDescription.Focus() : filter() : code.Enabled = True
+        code.Text = "" : mode.Text = "" : txtDescription.Text = "" : txtAmount.Text = "0" : CheckEdit1.Checked = False : txtDescription.Focus() : filter() : code.Enabled = True
         XtraMessageBox.Show("collection item successfully saved", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
@@ -49,6 +49,7 @@ Public Class frmCollectionItem
             txtDescription.Text = rst("trnname").ToString
             txtAccountTitle.EditValue = rst("glitemcode").ToString
             txtAmount.Text = rst("amount").ToString
+            CheckEdit1.Checked = CBool(rst("locked"))
         End While
         rst.Close()
     End Sub

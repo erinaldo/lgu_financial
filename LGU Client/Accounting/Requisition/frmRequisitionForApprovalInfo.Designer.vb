@@ -22,7 +22,6 @@ Partial Class frmRequisitionForApprovalInfo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.txtRequestNumber = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
@@ -39,7 +38,7 @@ Partial Class frmRequisitionForApprovalInfo
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.BarDockControl1 = New DevExpress.XtraBars.BarDockControl()
         Me.Em_files = New DevExpress.XtraGrid.GridControl()
-        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdViewAttachmentMain = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -290,35 +289,36 @@ Partial Class frmRequisitionForApprovalInfo
         '
         'ContextMenuStrip2
         '
+        Me.ContextMenuStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.cmdViewAttachmentMain, Me.ToolStripSeparator1, Me.ToolStripMenuItem2})
         Me.ContextMenuStrip2.Name = "gridmenustrip"
-        Me.ContextMenuStrip2.Size = New System.Drawing.Size(213, 76)
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(217, 88)
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem1.Image = Global.LGUClient.My.Resources.Resources.inbox__plus
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(212, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(216, 26)
         Me.ToolStripMenuItem1.Text = "Attach Document Files"
         '
         'cmdViewAttachmentMain
         '
         Me.cmdViewAttachmentMain.Image = Global.LGUClient.My.Resources.Resources.inbox_document_text
         Me.cmdViewAttachmentMain.Name = "cmdViewAttachmentMain"
-        Me.cmdViewAttachmentMain.Size = New System.Drawing.Size(212, 22)
+        Me.cmdViewAttachmentMain.Size = New System.Drawing.Size(216, 26)
         Me.cmdViewAttachmentMain.Text = "View Selected Attachment"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(209, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(213, 6)
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Image = Global.LGUClient.My.Resources.Resources.arrow_continue_090
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(212, 22)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(216, 26)
         Me.ToolStripMenuItem2.Text = "Refresh Data"
         '
         'gridview_files
@@ -473,6 +473,7 @@ Partial Class frmRequisitionForApprovalInfo
         Me.ToolStrip1.AutoSize = False
         Me.ToolStrip1.BackColor = System.Drawing.Color.Black
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdClose, Me.linePostPayment, Me.cmdDocManager, Me.lineApproveRequest, Me.cmdApprove, Me.lineHold, Me.cmdHoldRequest})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
@@ -831,7 +832,7 @@ Partial Class frmRequisitionForApprovalInfo
         Me.Controls.Add(Me.txtPostingDate)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.HelpButton = True
-        Me.MinimumSize = New System.Drawing.Size(1147, 525)
+        Me.MinimumSize = New System.Drawing.Size(1146, 523)
         Me.Name = "frmRequisitionForApprovalInfo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Requistion Information"

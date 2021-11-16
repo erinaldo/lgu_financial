@@ -19,8 +19,9 @@ Partial Class frmGLAroFilter
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager()
-        Me.BarManager1 = New DevExpress.XtraBars.BarManager()
+        Me.components = New System.ComponentModel.Container()
+        Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
+        Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.BarLargeButtonItem2 = New DevExpress.XtraBars.BarLargeButtonItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
@@ -63,6 +64,7 @@ Partial Class frmGLAroFilter
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.BarDockControl1)
         Me.BarManager1.DockManager = Me.DockManager1
+        Me.BarManager1.DockWindowTabFont = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BarManager1.Form = Me
         Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarLargeButtonItem2})
         Me.BarManager1.MainMenu = Me.Bar1
@@ -94,15 +96,15 @@ Partial Class frmGLAroFilter
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(1139, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(1144, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 661)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 668)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1139, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1144, 0)
         '
         'barDockControlLeft
         '
@@ -110,15 +112,15 @@ Partial Class frmGLAroFilter
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 641)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 648)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(1139, 20)
+        Me.BarDockControl1.Location = New System.Drawing.Point(1144, 20)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 641)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 648)
         '
         'RepositoryItemTextEdit1
         '
@@ -135,9 +137,9 @@ Partial Class frmGLAroFilter
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(1139, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(1144, 20)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 641)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 648)
         '
         'Em_unfiltered
         '
@@ -145,7 +147,7 @@ Partial Class frmGLAroFilter
         Me.Em_unfiltered.Location = New System.Drawing.Point(3, 3)
         Me.Em_unfiltered.MainView = Me.gridUnFiltered
         Me.Em_unfiltered.Name = "Em_unfiltered"
-        Me.Em_unfiltered.Size = New System.Drawing.Size(513, 635)
+        Me.Em_unfiltered.Size = New System.Drawing.Size(516, 642)
         Me.Em_unfiltered.TabIndex = 699
         Me.Em_unfiltered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridUnFiltered})
         '
@@ -163,10 +165,10 @@ Partial Class frmGLAroFilter
         'Em_filtered
         '
         Me.Em_filtered.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Em_filtered.Location = New System.Drawing.Point(622, 3)
+        Me.Em_filtered.Location = New System.Drawing.Point(625, 3)
         Me.Em_filtered.MainView = Me.GridView2
         Me.Em_filtered.Name = "Em_filtered"
-        Me.Em_filtered.Size = New System.Drawing.Size(514, 635)
+        Me.Em_filtered.Size = New System.Drawing.Size(516, 642)
         Me.Em_filtered.TabIndex = 700
         Me.Em_filtered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView2})
         '
@@ -217,7 +219,7 @@ Partial Class frmGLAroFilter
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1139, 641)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1144, 648)
         Me.TableLayoutPanel1.TabIndex = 708
         '
         'Panel1
@@ -225,23 +227,23 @@ Partial Class frmGLAroFilter
         Me.Panel1.Controls.Add(Me.cmdMoveRight)
         Me.Panel1.Controls.Add(Me.cmdMoveLeft)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(522, 3)
+        Me.Panel1.Location = New System.Drawing.Point(525, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(94, 635)
+        Me.Panel1.Size = New System.Drawing.Size(94, 642)
         Me.Panel1.TabIndex = 0
         '
         'frmGLAroFilter
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1139, 661)
+        Me.ClientSize = New System.Drawing.Size(1144, 668)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.BarDockControl1)
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.barDockControlTop)
-        Me.MinimumSize = New System.Drawing.Size(1133, 693)
+        Me.MinimumSize = New System.Drawing.Size(1127, 700)
         Me.Name = "frmGLAroFilter"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Monthly ARO Exemption (Note: Move item to the right to give access of a user)"

@@ -19,12 +19,13 @@ Partial Class frmCashFlowItem
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.cmdSave = New DevExpress.XtraEditors.SimpleButton()
         Me.txtCashFlowName = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -125,40 +126,41 @@ Partial Class frmCashFlowItem
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(688, 359)
+        Me.Em.Size = New System.Drawing.Size(697, 373)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
         'gridmenustrip
         '
+        Me.gridmenustrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(145, 76)
+        Me.gridmenustrip.Size = New System.Drawing.Size(149, 88)
         '
         'cmdEdit
         '
         Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
         Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(144, 22)
+        Me.cmdEdit.Size = New System.Drawing.Size(148, 26)
         Me.cmdEdit.Text = "Edit Selected"
         '
         'cmdDelete
         '
         Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.notebook__minus
         Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(144, 22)
+        Me.cmdDelete.Size = New System.Drawing.Size(148, 26)
         Me.cmdDelete.Text = "Remove Item"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(141, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(145, 6)
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(148, 26)
         Me.RefreshToolStripMenuItem.Text = "Refresh Data"
         '
         'GridView1
@@ -205,7 +207,7 @@ Partial Class frmCashFlowItem
         Me.XtraTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.tabCashflowInfo
-        Me.XtraTabControl1.Size = New System.Drawing.Size(712, 506)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(717, 513)
         Me.XtraTabControl1.TabIndex = 645
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabCashflowInfo, Me.tabCashflowTagging})
         '
@@ -219,7 +221,7 @@ Partial Class frmCashFlowItem
         Me.tabCashflowInfo.Controls.Add(Me.Em)
         Me.tabCashflowInfo.Controls.Add(Me.txtCashFlowName)
         Me.tabCashflowInfo.Name = "tabCashflowInfo"
-        Me.tabCashflowInfo.Size = New System.Drawing.Size(710, 477)
+        Me.tabCashflowInfo.Size = New System.Drawing.Size(715, 484)
         Me.tabCashflowInfo.Text = "Cash Flow Info"
         '
         'tabCashflowTagging
@@ -234,14 +236,14 @@ Partial Class frmCashFlowItem
         Me.tabCashflowTagging.Controls.Add(Me.barDockControlRight)
         Me.tabCashflowTagging.Controls.Add(Me.BarDockControl1)
         Me.tabCashflowTagging.Name = "tabCashflowTagging"
-        Me.tabCashflowTagging.Size = New System.Drawing.Size(710, 473)
+        Me.tabCashflowTagging.Size = New System.Drawing.Size(717, 469)
         Me.tabCashflowTagging.Text = "Cash Flow Tagging"
         '
         'LabelControl3
         '
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl3.Appearance.Options.UseFont = True
-        Me.LabelControl3.Location = New System.Drawing.Point(9, 6)
+        Me.LabelControl3.Location = New System.Drawing.Point(11, 7)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(196, 17)
         Me.LabelControl3.TabIndex = 713
@@ -252,9 +254,9 @@ Partial Class frmCashFlowItem
         Me.cmdMoveLeft.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdMoveLeft.Appearance.Font = New System.Drawing.Font("Tahoma", 10.25!)
         Me.cmdMoveLeft.Appearance.Options.UseFont = True
-        Me.cmdMoveLeft.Location = New System.Drawing.Point(328, 232)
+        Me.cmdMoveLeft.Location = New System.Drawing.Point(411, 291)
         Me.cmdMoveLeft.Name = "cmdMoveLeft"
-        Me.cmdMoveLeft.Size = New System.Drawing.Size(46, 46)
+        Me.cmdMoveLeft.Size = New System.Drawing.Size(58, 58)
         Me.cmdMoveLeft.TabIndex = 710
         Me.cmdMoveLeft.Text = "<"
         '
@@ -263,9 +265,9 @@ Partial Class frmCashFlowItem
         Me.cmdMoveRight.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdMoveRight.Appearance.Font = New System.Drawing.Font("Tahoma", 10.25!)
         Me.cmdMoveRight.Appearance.Options.UseFont = True
-        Me.cmdMoveRight.Location = New System.Drawing.Point(328, 180)
+        Me.cmdMoveRight.Location = New System.Drawing.Point(411, 226)
         Me.cmdMoveRight.Name = "cmdMoveRight"
-        Me.cmdMoveRight.Size = New System.Drawing.Size(46, 46)
+        Me.cmdMoveRight.Size = New System.Drawing.Size(58, 58)
         Me.cmdMoveRight.TabIndex = 709
         Me.cmdMoveRight.Text = ">"
         '
@@ -274,10 +276,10 @@ Partial Class frmCashFlowItem
         Me.Em_unfiltered.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Em_unfiltered.Location = New System.Drawing.Point(9, 59)
+        Me.Em_unfiltered.Location = New System.Drawing.Point(11, 74)
         Me.Em_unfiltered.MainView = Me.gridUnFiltered
         Me.Em_unfiltered.Name = "Em_unfiltered"
-        Me.Em_unfiltered.Size = New System.Drawing.Size(306, 408)
+        Me.Em_unfiltered.Size = New System.Drawing.Size(382, 510)
         Me.Em_unfiltered.TabIndex = 707
         Me.Em_unfiltered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridUnFiltered})
         '
@@ -295,17 +297,17 @@ Partial Class frmCashFlowItem
         'cashflowcode
         '
         Me.cashflowcode.EditValue = ""
-        Me.cashflowcode.Location = New System.Drawing.Point(323, 47)
+        Me.cashflowcode.Location = New System.Drawing.Point(258, 37)
         Me.cashflowcode.Name = "cashflowcode"
         Me.cashflowcode.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.cashflowcode.Size = New System.Drawing.Size(33, 20)
+        Me.cashflowcode.Size = New System.Drawing.Size(26, 20)
         Me.cashflowcode.TabIndex = 706
         Me.cashflowcode.Visible = False
         '
         'txtTagCashFlowName
         '
         Me.txtTagCashFlowName.EditValue = ""
-        Me.txtTagCashFlowName.Location = New System.Drawing.Point(9, 29)
+        Me.txtTagCashFlowName.Location = New System.Drawing.Point(7, 24)
         Me.txtTagCashFlowName.Name = "txtTagCashFlowName"
         Me.txtTagCashFlowName.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtTagCashFlowName.Properties.Appearance.Options.UseFont = True
@@ -316,7 +318,7 @@ Partial Class frmCashFlowItem
         Me.txtTagCashFlowName.Properties.NullText = ""
         Me.txtTagCashFlowName.Properties.PopupView = Me.gridTagCashFlowName
         Me.txtTagCashFlowName.Properties.ValueMember = "code"
-        Me.txtTagCashFlowName.Size = New System.Drawing.Size(306, 24)
+        Me.txtTagCashFlowName.Size = New System.Drawing.Size(245, 24)
         Me.txtTagCashFlowName.TabIndex = 705
         '
         'gridTagCashFlowName
@@ -330,10 +332,10 @@ Partial Class frmCashFlowItem
         '
         Me.Em_filtered.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Em_filtered.Location = New System.Drawing.Point(386, 59)
+        Me.Em_filtered.Location = New System.Drawing.Point(483, 74)
         Me.Em_filtered.MainView = Me.gridFiltered
         Me.Em_filtered.Name = "Em_filtered"
-        Me.Em_filtered.Size = New System.Drawing.Size(310, 408)
+        Me.Em_filtered.Size = New System.Drawing.Size(388, 510)
         Me.Em_filtered.TabIndex = 708
         Me.Em_filtered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridFiltered})
         '
@@ -352,26 +354,26 @@ Partial Class frmCashFlowItem
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(710, 0)
+        Me.barDockControlRight.Location = New System.Drawing.Point(717, 0)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 473)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 469)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(710, 0)
+        Me.BarDockControl1.Location = New System.Drawing.Point(717, 0)
         Me.BarDockControl1.Manager = Nothing
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 473)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 469)
         '
         'frmCashFlowItem
         '
         Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(712, 506)
+        Me.ClientSize = New System.Drawing.Size(717, 513)
         Me.Controls.Add(Me.XtraTabControl1)
-        Me.MinimumSize = New System.Drawing.Size(714, 538)
+        Me.MinimumSize = New System.Drawing.Size(708, 545)
         Me.Name = "frmCashFlowItem"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Cash Flow Item"

@@ -253,6 +253,8 @@ Partial Class frmRequisitionInfo
         '
         'txtPurpose
         '
+        Me.txtPurpose.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtPurpose.EditValue = ""
         Me.txtPurpose.Location = New System.Drawing.Point(132, 250)
         Me.txtPurpose.Name = "txtPurpose"
@@ -276,6 +278,7 @@ Partial Class frmRequisitionInfo
         '
         'txtSourceAmount
         '
+        Me.txtSourceAmount.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtSourceAmount.EditValue = ""
         Me.txtSourceAmount.Location = New System.Drawing.Point(132, 382)
         Me.txtSourceAmount.Name = "txtSourceAmount"
@@ -294,6 +297,7 @@ Partial Class frmRequisitionInfo
         '
         'LabelControl2
         '
+        Me.LabelControl2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl2.Appearance.Options.UseFont = True
         Me.LabelControl2.Location = New System.Drawing.Point(32, 386)
@@ -316,15 +320,16 @@ Partial Class frmRequisitionInfo
         '
         'ContextMenuStrip1
         '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdAddItem, Me.SelectItemToolStripMenuItem, Me.DeleteItemToolStripMenuItem, Me.ToolStripSeparator4, Me.ToolStripMenuItem5})
         Me.ContextMenuStrip1.Name = "gridmenustrip"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(147, 98)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(151, 114)
         '
         'cmdAddItem
         '
         Me.cmdAddItem.Image = Global.LGUClient.My.Resources.Resources.notebook__plus
         Me.cmdAddItem.Name = "cmdAddItem"
-        Me.cmdAddItem.Size = New System.Drawing.Size(146, 22)
+        Me.cmdAddItem.Size = New System.Drawing.Size(150, 26)
         Me.cmdAddItem.Text = "Add Source"
         '
         'SelectItemToolStripMenuItem
@@ -332,26 +337,26 @@ Partial Class frmRequisitionInfo
         Me.SelectItemToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SelectItemToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.notebook__pencil
         Me.SelectItemToolStripMenuItem.Name = "SelectItemToolStripMenuItem"
-        Me.SelectItemToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.SelectItemToolStripMenuItem.Size = New System.Drawing.Size(150, 26)
         Me.SelectItemToolStripMenuItem.Text = "Edit Source"
         '
         'DeleteItemToolStripMenuItem
         '
         Me.DeleteItemToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.notebook__minus
         Me.DeleteItemToolStripMenuItem.Name = "DeleteItemToolStripMenuItem"
-        Me.DeleteItemToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.DeleteItemToolStripMenuItem.Size = New System.Drawing.Size(150, 26)
         Me.DeleteItemToolStripMenuItem.Text = "Delete Source"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(143, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(147, 6)
         '
         'ToolStripMenuItem5
         '
         Me.ToolStripMenuItem5.Image = Global.LGUClient.My.Resources.Resources.arrow_continue_090
         Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(146, 22)
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(150, 26)
         Me.ToolStripMenuItem5.Text = "Refresh Data"
         '
         'GridView1
@@ -439,105 +444,105 @@ Partial Class frmRequisitionInfo
         '
         'TextEdit4
         '
-        Me.TextEdit4.Location = New System.Drawing.Point(1055, 25)
+        Me.TextEdit4.Location = New System.Drawing.Point(844, 20)
         Me.TextEdit4.Name = "TextEdit4"
         Me.TextEdit4.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextEdit4.Properties.Appearance.Options.UseFont = True
         Me.TextEdit4.Properties.Appearance.Options.UseTextOptions = True
         Me.TextEdit4.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.TextEdit4.Properties.ReadOnly = True
-        Me.TextEdit4.Size = New System.Drawing.Size(77, 24)
+        Me.TextEdit4.Size = New System.Drawing.Size(62, 24)
         Me.TextEdit4.TabIndex = 508
         Me.TextEdit4.Visible = False
         '
         'officeid
         '
-        Me.officeid.Location = New System.Drawing.Point(613, 63)
+        Me.officeid.Location = New System.Drawing.Point(490, 51)
         Me.officeid.Name = "officeid"
         Me.officeid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.officeid.Properties.Appearance.Options.UseFont = True
         Me.officeid.Properties.Appearance.Options.UseTextOptions = True
         Me.officeid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.officeid.Properties.ReadOnly = True
-        Me.officeid.Size = New System.Drawing.Size(37, 24)
+        Me.officeid.Size = New System.Drawing.Size(29, 24)
         Me.officeid.TabIndex = 958
         Me.officeid.Visible = False
         '
         'periodcode
         '
-        Me.periodcode.Location = New System.Drawing.Point(533, 63)
+        Me.periodcode.Location = New System.Drawing.Point(427, 51)
         Me.periodcode.Name = "periodcode"
         Me.periodcode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.periodcode.Properties.Appearance.Options.UseFont = True
         Me.periodcode.Properties.Appearance.Options.UseTextOptions = True
         Me.periodcode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.periodcode.Properties.ReadOnly = True
-        Me.periodcode.Size = New System.Drawing.Size(37, 24)
+        Me.periodcode.Size = New System.Drawing.Size(29, 24)
         Me.periodcode.TabIndex = 941
         Me.periodcode.Visible = False
         '
         'fundcode
         '
-        Me.fundcode.Location = New System.Drawing.Point(572, 63)
+        Me.fundcode.Location = New System.Drawing.Point(458, 51)
         Me.fundcode.Name = "fundcode"
         Me.fundcode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.fundcode.Properties.Appearance.Options.UseFont = True
         Me.fundcode.Properties.Appearance.Options.UseTextOptions = True
         Me.fundcode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.fundcode.Properties.ReadOnly = True
-        Me.fundcode.Size = New System.Drawing.Size(37, 24)
+        Me.fundcode.Size = New System.Drawing.Size(29, 24)
         Me.fundcode.TabIndex = 942
         Me.fundcode.Visible = False
         '
         'yearcode
         '
-        Me.yearcode.Location = New System.Drawing.Point(394, 103)
+        Me.yearcode.Location = New System.Drawing.Point(315, 83)
         Me.yearcode.Name = "yearcode"
         Me.yearcode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.yearcode.Properties.Appearance.Options.UseFont = True
         Me.yearcode.Properties.Appearance.Options.UseTextOptions = True
         Me.yearcode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.yearcode.Properties.ReadOnly = True
-        Me.yearcode.Size = New System.Drawing.Size(37, 24)
+        Me.yearcode.Size = New System.Drawing.Size(29, 24)
         Me.yearcode.TabIndex = 943
         Me.yearcode.Visible = False
         '
         'requesttype
         '
-        Me.requesttype.Location = New System.Drawing.Point(494, 63)
+        Me.requesttype.Location = New System.Drawing.Point(396, 51)
         Me.requesttype.Name = "requesttype"
         Me.requesttype.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.requesttype.Properties.Appearance.Options.UseFont = True
         Me.requesttype.Properties.Appearance.Options.UseTextOptions = True
         Me.requesttype.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.requesttype.Properties.ReadOnly = True
-        Me.requesttype.Size = New System.Drawing.Size(37, 24)
+        Me.requesttype.Size = New System.Drawing.Size(29, 24)
         Me.requesttype.TabIndex = 944
         Me.requesttype.Visible = False
         '
         'requestby
         '
-        Me.requestby.Location = New System.Drawing.Point(533, 89)
+        Me.requestby.Location = New System.Drawing.Point(427, 72)
         Me.requestby.Name = "requestby"
         Me.requestby.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.requestby.Properties.Appearance.Options.UseFont = True
         Me.requestby.Properties.Appearance.Options.UseTextOptions = True
         Me.requestby.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.requestby.Properties.ReadOnly = True
-        Me.requestby.Size = New System.Drawing.Size(37, 24)
+        Me.requestby.Size = New System.Drawing.Size(29, 24)
         Me.requestby.TabIndex = 950
         Me.requestby.Visible = False
         '
         'requestno
         '
-        Me.requestno.Location = New System.Drawing.Point(494, 119)
+        Me.requestno.Location = New System.Drawing.Point(396, 95)
         Me.requestno.Name = "requestno"
         Me.requestno.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.requestno.Properties.Appearance.Options.UseFont = True
         Me.requestno.Properties.Appearance.Options.UseTextOptions = True
         Me.requestno.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.requestno.Properties.ReadOnly = True
-        Me.requestno.Size = New System.Drawing.Size(37, 24)
+        Me.requestno.Size = New System.Drawing.Size(29, 24)
         Me.requestno.TabIndex = 947
         Me.requestno.Visible = False
         '
@@ -546,6 +551,7 @@ Partial Class frmRequisitionInfo
         Me.ToolStrip2.AutoSize = False
         Me.ToolStrip2.BackColor = System.Drawing.Color.Black
         Me.ToolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdItemRefresh, Me.ToolStripSeparator2, Me.cmdAddParticularItem})
         Me.ToolStrip2.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip2.Name = "ToolStrip2"
@@ -593,7 +599,7 @@ Partial Class frmRequisitionInfo
         Me.tabAttachment.Controls.Add(Me.ckFinalApprover)
         Me.tabAttachment.Controls.Add(Me.CurrentApprover)
         Me.tabAttachment.Name = "tabAttachment"
-        Me.tabAttachment.Size = New System.Drawing.Size(628, 452)
+        Me.tabAttachment.Size = New System.Drawing.Size(628, 456)
         Me.tabAttachment.Text = "Attached Document Files"
         '
         'Em_files
@@ -604,55 +610,56 @@ Partial Class frmRequisitionInfo
         Me.Em_files.MainView = Me.gridview_files
         Me.Em_files.Name = "Em_files"
         Me.Em_files.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2})
-        Me.Em_files.Size = New System.Drawing.Size(628, 417)
+        Me.Em_files.Size = New System.Drawing.Size(628, 421)
         Me.Em_files.TabIndex = 935
         Me.Em_files.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridview_files})
         '
         'ContextMenuStrip2
         '
+        Me.ContextMenuStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.cmdViewAttachmentMain, Me.cmdModifyAttachment, Me.cmdRemoveAttachment, Me.ToolStripSeparator1, Me.ToolStripMenuItem2})
         Me.ContextMenuStrip2.Name = "gridmenustrip"
-        Me.ContextMenuStrip2.Size = New System.Drawing.Size(201, 120)
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(205, 140)
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem1.Image = Global.LGUClient.My.Resources.Resources.inbox__plus
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(200, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(204, 26)
         Me.ToolStripMenuItem1.Text = "Attach Document Files"
         '
         'cmdViewAttachmentMain
         '
         Me.cmdViewAttachmentMain.Image = Global.LGUClient.My.Resources.Resources.inbox_document_text
         Me.cmdViewAttachmentMain.Name = "cmdViewAttachmentMain"
-        Me.cmdViewAttachmentMain.Size = New System.Drawing.Size(200, 22)
+        Me.cmdViewAttachmentMain.Size = New System.Drawing.Size(204, 26)
         Me.cmdViewAttachmentMain.Text = "Extract Attachment"
         '
         'cmdModifyAttachment
         '
         Me.cmdModifyAttachment.Image = Global.LGUClient.My.Resources.Resources.report__pencil
         Me.cmdModifyAttachment.Name = "cmdModifyAttachment"
-        Me.cmdModifyAttachment.Size = New System.Drawing.Size(200, 22)
+        Me.cmdModifyAttachment.Size = New System.Drawing.Size(204, 26)
         Me.cmdModifyAttachment.Text = "Modify Attachment"
         '
         'cmdRemoveAttachment
         '
         Me.cmdRemoveAttachment.Image = Global.LGUClient.My.Resources.Resources.inbox__minus
         Me.cmdRemoveAttachment.Name = "cmdRemoveAttachment"
-        Me.cmdRemoveAttachment.Size = New System.Drawing.Size(200, 22)
+        Me.cmdRemoveAttachment.Size = New System.Drawing.Size(204, 26)
         Me.cmdRemoveAttachment.Text = "Remove Attachment"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(197, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(201, 6)
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Image = Global.LGUClient.My.Resources.Resources.arrow_continue_090
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(200, 22)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(204, 26)
         Me.ToolStripMenuItem2.Text = "Refresh Data"
         '
         'gridview_files
@@ -675,6 +682,7 @@ Partial Class frmRequisitionInfo
         Me.ToolStrip3.AutoSize = False
         Me.ToolStrip3.BackColor = System.Drawing.Color.Black
         Me.ToolStrip3.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip3.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripSeparator3, Me.ToolStripButton3})
         Me.ToolStrip3.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip3.Name = "ToolStrip3"
@@ -717,7 +725,7 @@ Partial Class frmRequisitionInfo
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
         Me.barDockControlRight.Location = New System.Drawing.Point(628, 0)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 452)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 456)
         '
         'BarDockControl1
         '
@@ -725,55 +733,55 @@ Partial Class frmRequisitionInfo
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
         Me.BarDockControl1.Location = New System.Drawing.Point(628, 0)
         Me.BarDockControl1.Manager = Nothing
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 452)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 456)
         '
         'NextApprover
         '
-        Me.NextApprover.Location = New System.Drawing.Point(322, 345)
+        Me.NextApprover.Location = New System.Drawing.Point(258, 276)
         Me.NextApprover.Name = "NextApprover"
         Me.NextApprover.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NextApprover.Properties.Appearance.Options.UseFont = True
         Me.NextApprover.Properties.Appearance.Options.UseTextOptions = True
         Me.NextApprover.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.NextApprover.Properties.ReadOnly = True
-        Me.NextApprover.Size = New System.Drawing.Size(37, 24)
+        Me.NextApprover.Size = New System.Drawing.Size(29, 24)
         Me.NextApprover.TabIndex = 954
         Me.NextApprover.Visible = False
         '
         'CurrentLevel
         '
-        Me.CurrentLevel.Location = New System.Drawing.Point(233, 345)
+        Me.CurrentLevel.Location = New System.Drawing.Point(187, 276)
         Me.CurrentLevel.Name = "CurrentLevel"
         Me.CurrentLevel.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CurrentLevel.Properties.Appearance.Options.UseFont = True
         Me.CurrentLevel.Properties.Appearance.Options.UseTextOptions = True
         Me.CurrentLevel.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CurrentLevel.Properties.ReadOnly = True
-        Me.CurrentLevel.Size = New System.Drawing.Size(37, 24)
+        Me.CurrentLevel.Size = New System.Drawing.Size(29, 24)
         Me.CurrentLevel.TabIndex = 952
         Me.CurrentLevel.Visible = False
         '
         'ckFinalApprover
         '
-        Me.ckFinalApprover.Location = New System.Drawing.Point(365, 348)
+        Me.ckFinalApprover.Location = New System.Drawing.Point(292, 278)
         Me.ckFinalApprover.Name = "ckFinalApprover"
         Me.ckFinalApprover.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ckFinalApprover.Properties.Appearance.Options.UseFont = True
         Me.ckFinalApprover.Properties.Caption = "FinalApprover"
-        Me.ckFinalApprover.Size = New System.Drawing.Size(99, 20)
+        Me.ckFinalApprover.Size = New System.Drawing.Size(80, 20)
         Me.ckFinalApprover.TabIndex = 955
         Me.ckFinalApprover.Visible = False
         '
         'CurrentApprover
         '
-        Me.CurrentApprover.Location = New System.Drawing.Point(279, 345)
+        Me.CurrentApprover.Location = New System.Drawing.Point(224, 276)
         Me.CurrentApprover.Name = "CurrentApprover"
         Me.CurrentApprover.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CurrentApprover.Properties.Appearance.Options.UseFont = True
         Me.CurrentApprover.Properties.Appearance.Options.UseTextOptions = True
         Me.CurrentApprover.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.CurrentApprover.Properties.ReadOnly = True
-        Me.CurrentApprover.Size = New System.Drawing.Size(37, 24)
+        Me.CurrentApprover.Size = New System.Drawing.Size(29, 24)
         Me.CurrentApprover.TabIndex = 953
         Me.CurrentApprover.Visible = False
         '
@@ -781,7 +789,7 @@ Partial Class frmRequisitionInfo
         '
         Me.tabApprovalHistory.Controls.Add(Me.Em_approval)
         Me.tabApprovalHistory.Name = "tabApprovalHistory"
-        Me.tabApprovalHistory.Size = New System.Drawing.Size(628, 452)
+        Me.tabApprovalHistory.Size = New System.Drawing.Size(628, 456)
         Me.tabApprovalHistory.Text = "Approval History"
         '
         'Em_approval
@@ -791,7 +799,7 @@ Partial Class frmRequisitionInfo
         Me.Em_approval.MainView = Me.gridview_approval
         Me.Em_approval.Name = "Em_approval"
         Me.Em_approval.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit3})
-        Me.Em_approval.Size = New System.Drawing.Size(628, 452)
+        Me.Em_approval.Size = New System.Drawing.Size(628, 456)
         Me.Em_approval.TabIndex = 936
         Me.Em_approval.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridview_approval})
         '
@@ -815,7 +823,7 @@ Partial Class frmRequisitionInfo
         '
         Me.tabDisbursement.Controls.Add(Me.Em_disbursement)
         Me.tabDisbursement.Name = "tabDisbursement"
-        Me.tabDisbursement.Size = New System.Drawing.Size(628, 452)
+        Me.tabDisbursement.Size = New System.Drawing.Size(628, 456)
         Me.tabDisbursement.Text = "Disbursement Voucher"
         '
         'Em_disbursement
@@ -825,7 +833,7 @@ Partial Class frmRequisitionInfo
         Me.Em_disbursement.MainView = Me.gridDisbursement
         Me.Em_disbursement.Name = "Em_disbursement"
         Me.Em_disbursement.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit4})
-        Me.Em_disbursement.Size = New System.Drawing.Size(628, 452)
+        Me.Em_disbursement.Size = New System.Drawing.Size(628, 456)
         Me.Em_disbursement.TabIndex = 935
         Me.Em_disbursement.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridDisbursement})
         '
@@ -897,6 +905,7 @@ Partial Class frmRequisitionInfo
         Me.ToolStrip1.AutoSize = False
         Me.ToolStrip1.BackColor = System.Drawing.Color.Black
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdClose, Me.lineapproval, Me.cmdForApproval, Me.linePrintObligation, Me.cmdPrintObligation})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
@@ -1004,6 +1013,7 @@ Partial Class frmRequisitionInfo
         '
         'txtPriority
         '
+        Me.txtPriority.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtPriority.EditValue = ""
         Me.txtPriority.Location = New System.Drawing.Point(132, 353)
         Me.txtPriority.Name = "txtPriority"
@@ -1023,6 +1033,7 @@ Partial Class frmRequisitionInfo
         '
         'LabelControl10
         '
+        Me.LabelControl10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LabelControl10.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl10.Appearance.Options.UseFont = True
         Me.LabelControl10.Location = New System.Drawing.Point(82, 357)
@@ -1121,7 +1132,7 @@ Partial Class frmRequisitionInfo
         Me.Controls.Add(Me.LabelControl4)
         Me.Controls.Add(Me.LabelControl5)
         Me.HelpButton = True
-        Me.MinimumSize = New System.Drawing.Size(1078, 579)
+        Me.MinimumSize = New System.Drawing.Size(1077, 578)
         Me.Name = "frmRequisitionInfo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Requistion Information"

@@ -19,7 +19,8 @@ Partial Class frmJevEntries
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.BarManager1 = New DevExpress.XtraBars.BarManager()
+        Me.components = New System.ComponentModel.Container()
+        Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar1 = New DevExpress.XtraBars.Bar()
         Me.BarLargeButtonItem2 = New DevExpress.XtraBars.BarLargeButtonItem()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
@@ -64,6 +65,7 @@ Partial Class frmJevEntries
         Me.BarManager1.DockControls.Add(Me.barDockControlBottom)
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.BarDockControl1)
+        Me.BarManager1.DockWindowTabFont = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BarManager1.Form = Me
         Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarLargeButtonItem2, Me.BarButtonItem1})
         Me.BarManager1.MainMenu = Me.Bar1
@@ -108,15 +110,15 @@ Partial Class frmJevEntries
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(1156, 24)
+        Me.barDockControlTop.Size = New System.Drawing.Size(1161, 24)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 651)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 645)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1156, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1161, 0)
         '
         'barDockControlLeft
         '
@@ -124,15 +126,15 @@ Partial Class frmJevEntries
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 24)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 627)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 621)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(1156, 24)
+        Me.BarDockControl1.Location = New System.Drawing.Point(1161, 24)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 627)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 621)
         '
         'RepositoryItemTextEdit1
         '
@@ -149,9 +151,9 @@ Partial Class frmJevEntries
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(1156, 24)
+        Me.barDockControlRight.Location = New System.Drawing.Point(1161, 24)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 627)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 621)
         '
         'SplitContainerControl1
         '
@@ -170,7 +172,7 @@ Partial Class frmJevEntries
         Me.SplitContainerControl1.Panel1.Text = "Panel1"
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
-        Me.SplitContainerControl1.Size = New System.Drawing.Size(1156, 627)
+        Me.SplitContainerControl1.Size = New System.Drawing.Size(1161, 621)
         Me.SplitContainerControl1.SplitterPosition = 93
         Me.SplitContainerControl1.TabIndex = 6
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
@@ -288,7 +290,7 @@ Partial Class frmJevEntries
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(1156, 524)
+        Me.Em.Size = New System.Drawing.Size(1161, 518)
         Me.Em.TabIndex = 633
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -310,7 +312,7 @@ Partial Class frmJevEntries
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1156, 651)
+        Me.ClientSize = New System.Drawing.Size(1161, 645)
         Me.Controls.Add(Me.SplitContainerControl1)
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlLeft)
@@ -320,7 +322,7 @@ Partial Class frmJevEntries
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(370, 376)
+        Me.MinimumSize = New System.Drawing.Size(364, 383)
         Me.Name = "frmJevEntries"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "JEV Report"

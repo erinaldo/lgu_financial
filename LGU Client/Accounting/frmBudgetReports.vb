@@ -40,7 +40,7 @@ Public Class frmBudgetReports
     End Sub
 
     Public Sub LoadFund()
-        LoadXgridLookupSearch("SELECT periodcode as code,fundcode,yeartrn, concat(yeartrn,'-',(select Description from tblfund where code=tblfundperiod.fundcode)) as 'Select'  from tblfundperiod where closed=0 order by yeartrn asc", "tblfundperiod", txtFund, gridFund)
+        LoadXgridLookupSearch("SELECT periodcode as code,fundcode,yeartrn, concat(yeartrn,'-',(select Description from tblfund where code=tblfundperiod.fundcode)) as 'Select'  from tblfundperiod where closed=0 " & If(LCase(globalusername) = "root", "", " and fundcode in (select fundcode from tblfundfilter where filtered_id='" & globalAuthcode & "' and filtered_type='client')") & " order by yeartrn asc", "tblfundperiod", txtFund, gridFund)
         XgridHideColumn({"code", "fundcode", "yeartrn"}, gridFund)
     End Sub
 

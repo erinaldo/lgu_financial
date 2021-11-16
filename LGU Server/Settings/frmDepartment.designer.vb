@@ -19,12 +19,13 @@ Partial Class frmDepartment
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.components = New System.ComponentModel.Container()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BarManager1 = New DevExpress.XtraBars.BarManager()
+        Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar2 = New DevExpress.XtraBars.Bar()
         Me.cmdClose = New DevExpress.XtraBars.BarButtonItem()
         Me.cmdAdd = New DevExpress.XtraBars.BarButtonItem()
@@ -43,34 +44,35 @@ Partial Class frmDepartment
         '
         'gridmenustrip
         '
+        Me.gridmenustrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
         Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(153, 76)
+        Me.gridmenustrip.Size = New System.Drawing.Size(157, 88)
         '
         'cmdEdit
         '
         Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.building__pencil1
         Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(152, 22)
+        Me.cmdEdit.Size = New System.Drawing.Size(156, 26)
         Me.cmdEdit.Text = "Edit Office"
         '
         'cmdDelete
         '
         Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.building__minus1
         Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(152, 22)
+        Me.cmdDelete.Size = New System.Drawing.Size(156, 26)
         Me.cmdDelete.Text = "Remove Office"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(153, 6)
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(156, 26)
         Me.RefreshToolStripMenuItem.Text = "Refresh"
         '
         'BarManager1
@@ -123,15 +125,15 @@ Partial Class frmDepartment
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(954, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(959, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 496)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 490)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(954, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(959, 0)
         '
         'barDockControlLeft
         '
@@ -139,15 +141,15 @@ Partial Class frmDepartment
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 476)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 470)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(954, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(959, 20)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 476)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 470)
         '
         'Em
         '
@@ -156,7 +158,7 @@ Partial Class frmDepartment
         Me.Em.Location = New System.Drawing.Point(0, 20)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(954, 476)
+        Me.Em.Size = New System.Drawing.Size(959, 470)
         Me.Em.TabIndex = 685
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -174,7 +176,7 @@ Partial Class frmDepartment
         Me.Appearance.Options.UseFont = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(954, 496)
+        Me.ClientSize = New System.Drawing.Size(959, 490)
         Me.Controls.Add(Me.Em)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)

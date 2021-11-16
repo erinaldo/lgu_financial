@@ -13,7 +13,7 @@ Public Class frmJevEntries
     End Sub
 
     Public Sub LoadFund()
-        LoadXgridLookupSearch("SELECT code,Description from tblfund", "tblfund", txtFund, gridFund, Me)
+        LoadXgridLookupSearch("SELECT code,Description from tblfund " & If(LCase(globaluser) = "root", "", " where code in (select fundcode from tblfundfilter where filtered_id='" & globalPermissionAccess & "' and filtered_type='server')") & " ", "tblfund", txtFund, gridFund, Me)
         gridFund.Columns("code").Visible = False
     End Sub
 

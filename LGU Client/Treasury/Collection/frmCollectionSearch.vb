@@ -58,22 +58,16 @@ Public Class frmCollectionSearch
     End Sub
 
     Private Sub PickSelectedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PickSelectedToolStripMenuItem.Click
-        PickAccount(GridView1.GetFocusedRowCellValue("Item Code").ToString, GridView1.GetFocusedRowCellValue("Account Title").ToString, GridView1.GetFocusedRowCellValue("trncode").ToString, GridView1.GetFocusedRowCellValue("Transaction Name").ToString, GridView1.GetFocusedRowCellValue("Amount").ToString)
+        PickAccount(GridView1.GetFocusedRowCellValue("trncode").ToString)
     End Sub
     Private Sub Em_KeyDown(sender As Object, e As KeyEventArgs) Handles Em.KeyDown
         If e.KeyCode() = Keys.Enter Then
-            PickAccount(GridView1.GetFocusedRowCellValue("Item Code").ToString, GridView1.GetFocusedRowCellValue("Account Title").ToString, GridView1.GetFocusedRowCellValue("trncode").ToString, GridView1.GetFocusedRowCellValue("Transaction Name").ToString, GridView1.GetFocusedRowCellValue("Amount").ToString)
+            PickAccount(GridView1.GetFocusedRowCellValue("trncode").ToString)
         End If
     End Sub
 
-    Public Sub PickAccount(ByVal glitemcode As String, ByVal glitemname As String, ByVal trncode As String, ByVal trnname As String, ByVal amount As String)
-        frmCollectionInputAmount.glitemcode.Text = glitemcode
-        frmCollectionInputAmount.glitemname.Text = glitemname
+    Public Sub PickAccount(ByVal trncode As String)
         frmCollectionInputAmount.trncode.Text = trncode
-        frmCollectionInputAmount.grpTitle.Text = trnname
-        frmCollectionInputAmount.txtAmount.Text = amount
-        frmCollectionInputAmount.txtCollectionName.Text = trnname
-
         frmCollectionInputAmount.ShowDialog(Me)
     End Sub
 

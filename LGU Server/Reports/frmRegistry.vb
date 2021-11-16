@@ -15,7 +15,7 @@ Public Class frmRegistry
     End Sub
 
     Public Sub LoadFund()
-        LoadXgridLookupSearch("SELECT periodcode, concat((select description from tblfund where code=a.fundcode), '-', yeartrn) as fund FROM `tblfundperiod` as a where closed=0 order by fundcode;", "tblfundperiod", txtFund, gridFund, Me)
+        LoadXgridLookupSearch("SELECT periodcode, concat((select description from tblfund where code=a.fundcode), '-', yeartrn) as fund FROM `tblfundperiod` as a where closed=0 " & If(LCase(globaluser) = "root", "", " and fundcode in (select fundcode from tblfundfilter where filtered_id='" & globalPermissionAccess & "' and filtered_type='server')") & "  order by fundcode;", "tblfundperiod", txtFund, gridFund, Me)
         gridFund.Columns("periodcode").Visible = False
     End Sub
 

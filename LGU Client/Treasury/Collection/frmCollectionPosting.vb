@@ -7,7 +7,7 @@ Public Class frmCollectionPosting
 
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
         If keyData = (Keys.Escape) Then
-            Me.Close()
+
         ElseIf keyData = Keys.Space Then
             If Me.txtSearchBar.Focus = True Then
                 txtSearchBar.SelectAll()
@@ -232,7 +232,6 @@ Public Class frmCollectionPosting
         End If
     End Sub
     Public Sub ProcessCollection(ByVal trncode As String, ByVal trnname As String, ByVal glitemcode As String, ByVal glitemname As String, ByVal explaination As String, ByVal isdebit As Boolean, ByVal amount As Double, ByVal cashflowcode As String)
-        com.CommandText = "update tblcollectionitem set amount='" & Val(CC(amount)) & "' where trncode='" & trncode & "'" : com.ExecuteNonQuery()
         com.CommandText = "insert into tmpcollection set trncode='" & trncode & "', trnname='" & rchar(trnname) & "',glitemcode='" & glitemcode & "', glitemname='" & rchar(glitemname) & "', explaination='" & rchar(explaination) & "', debit=" & isdebit & ", amount='" & Val(amount) & "', cashflowcode='" & cashflowcode & "'" : com.ExecuteNonQuery()
         LoadTransactionInfo()
         txtSearchBar.Text = "" : txtSearchBar.Focus()

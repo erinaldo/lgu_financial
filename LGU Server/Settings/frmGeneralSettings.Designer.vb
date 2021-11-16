@@ -19,7 +19,8 @@ Partial Class frmGeneralSettings
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.BarManager1 = New DevExpress.XtraBars.BarManager()
+        Me.components = New System.ComponentModel.Container()
+        Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar2 = New DevExpress.XtraBars.Bar()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
         Me.cmdSave = New DevExpress.XtraBars.BarButtonItem()
@@ -69,6 +70,7 @@ Partial Class frmGeneralSettings
         Me.BarManager1.DockControls.Add(Me.barDockControlBottom)
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
+        Me.BarManager1.DockWindowTabFont = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BarManager1.Form = Me
         Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarButtonItem1, Me.cmdSave})
         Me.BarManager1.MainMenu = Me.Bar2
@@ -105,15 +107,15 @@ Partial Class frmGeneralSettings
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(833, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(838, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 549)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 543)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(833, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(838, 0)
         '
         'barDockControlLeft
         '
@@ -121,15 +123,15 @@ Partial Class frmGeneralSettings
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 529)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 523)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(833, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(838, 20)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 529)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 523)
         '
         'SimpleButton3
         '
@@ -147,7 +149,7 @@ Partial Class frmGeneralSettings
         Me.XtraTabControl1.Location = New System.Drawing.Point(0, 20)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.tabGeneral
-        Me.XtraTabControl1.Size = New System.Drawing.Size(833, 529)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(838, 523)
         Me.XtraTabControl1.TabIndex = 414
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabGeneral, Me.tabAdvance, Me.tabTransactionSequence, Me.tabDefaultSettings})
         Me.XtraTabControl1.Transition.AllowTransition = DevExpress.Utils.DefaultBoolean.[True]
@@ -162,24 +164,24 @@ Partial Class frmGeneralSettings
         Me.tabGeneral.Controls.Add(Me.LabelControl3)
         Me.tabGeneral.Controls.Add(Me.txtFileMB)
         Me.tabGeneral.Name = "tabGeneral"
-        Me.tabGeneral.Size = New System.Drawing.Size(831, 504)
+        Me.tabGeneral.Size = New System.Drawing.Size(836, 498)
         Me.tabGeneral.Text = "General Settings"
         '
         'txtWebserverAddress
         '
         Me.txtWebserverAddress.EnterMoveNextControl = True
-        Me.txtWebserverAddress.Location = New System.Drawing.Point(21, 36)
+        Me.txtWebserverAddress.Location = New System.Drawing.Point(16, 28)
         Me.txtWebserverAddress.Name = "txtWebserverAddress"
         Me.txtWebserverAddress.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.25!)
         Me.txtWebserverAddress.Properties.Appearance.Options.UseFont = True
-        Me.txtWebserverAddress.Size = New System.Drawing.Size(390, 26)
+        Me.txtWebserverAddress.Size = New System.Drawing.Size(312, 26)
         Me.txtWebserverAddress.TabIndex = 684
         '
         'LabelControl18
         '
         Me.LabelControl18.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.25!)
         Me.LabelControl18.Appearance.Options.UseFont = True
-        Me.LabelControl18.Location = New System.Drawing.Point(21, 15)
+        Me.LabelControl18.Location = New System.Drawing.Point(26, 19)
         Me.LabelControl18.Name = "LabelControl18"
         Me.LabelControl18.Size = New System.Drawing.Size(171, 19)
         Me.LabelControl18.TabIndex = 685
@@ -189,7 +191,7 @@ Partial Class frmGeneralSettings
         '
         Me.LabelControl17.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.25!)
         Me.LabelControl17.Appearance.Options.UseFont = True
-        Me.LabelControl17.Location = New System.Drawing.Point(21, 72)
+        Me.LabelControl17.Location = New System.Drawing.Point(26, 90)
         Me.LabelControl17.Name = "LabelControl17"
         Me.LabelControl17.Size = New System.Drawing.Size(185, 19)
         Me.LabelControl17.TabIndex = 683
@@ -199,7 +201,7 @@ Partial Class frmGeneralSettings
         '
         Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.25!)
         Me.LabelControl4.Appearance.Options.UseFont = True
-        Me.LabelControl4.Location = New System.Drawing.Point(230, 99)
+        Me.LabelControl4.Location = New System.Drawing.Point(287, 124)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(16, 19)
         Me.LabelControl4.TabIndex = 682
@@ -209,7 +211,7 @@ Partial Class frmGeneralSettings
         '
         Me.txtFileKB.EditValue = "0"
         Me.txtFileKB.EnterMoveNextControl = True
-        Me.txtFileKB.Location = New System.Drawing.Point(126, 96)
+        Me.txtFileKB.Location = New System.Drawing.Point(100, 76)
         Me.txtFileKB.Name = "txtFileKB"
         Me.txtFileKB.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.25!)
         Me.txtFileKB.Properties.Appearance.Options.UseFont = True
@@ -219,14 +221,14 @@ Partial Class frmGeneralSettings
         Me.txtFileKB.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.txtFileKB.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.txtFileKB.Properties.ReadOnly = True
-        Me.txtFileKB.Size = New System.Drawing.Size(100, 26)
+        Me.txtFileKB.Size = New System.Drawing.Size(81, 26)
         Me.txtFileKB.TabIndex = 681
         '
         'LabelControl3
         '
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.25!)
         Me.LabelControl3.Appearance.Options.UseFont = True
-        Me.LabelControl3.Location = New System.Drawing.Point(99, 99)
+        Me.LabelControl3.Location = New System.Drawing.Point(123, 124)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(21, 19)
         Me.LabelControl3.TabIndex = 680
@@ -236,7 +238,7 @@ Partial Class frmGeneralSettings
         '
         Me.txtFileMB.EditValue = "0"
         Me.txtFileMB.EnterMoveNextControl = True
-        Me.txtFileMB.Location = New System.Drawing.Point(21, 96)
+        Me.txtFileMB.Location = New System.Drawing.Point(16, 76)
         Me.txtFileMB.Name = "txtFileMB"
         Me.txtFileMB.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.25!)
         Me.txtFileMB.Properties.Appearance.Options.UseFont = True
@@ -245,14 +247,14 @@ Partial Class frmGeneralSettings
         Me.txtFileMB.Properties.Mask.EditMask = "n"
         Me.txtFileMB.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.txtFileMB.Properties.Mask.UseMaskAsDisplayFormat = True
-        Me.txtFileMB.Size = New System.Drawing.Size(71, 26)
+        Me.txtFileMB.Size = New System.Drawing.Size(57, 26)
         Me.txtFileMB.TabIndex = 679
         '
         'tabAdvance
         '
         Me.tabAdvance.Controls.Add(Me.list_settings)
         Me.tabAdvance.Name = "tabAdvance"
-        Me.tabAdvance.Size = New System.Drawing.Size(833, 502)
+        Me.tabAdvance.Size = New System.Drawing.Size(838, 496)
         Me.tabAdvance.Text = "Advance Option"
         '
         'list_settings
@@ -270,14 +272,14 @@ Partial Class frmGeneralSettings
         Me.list_settings.Location = New System.Drawing.Point(0, 0)
         Me.list_settings.MultiColumn = True
         Me.list_settings.Name = "list_settings"
-        Me.list_settings.Size = New System.Drawing.Size(833, 502)
+        Me.list_settings.Size = New System.Drawing.Size(838, 496)
         Me.list_settings.TabIndex = 619
         '
         'tabTransactionSequence
         '
         Me.tabTransactionSequence.Controls.Add(Me.Em)
         Me.tabTransactionSequence.Name = "tabTransactionSequence"
-        Me.tabTransactionSequence.Size = New System.Drawing.Size(833, 502)
+        Me.tabTransactionSequence.Size = New System.Drawing.Size(838, 496)
         Me.tabTransactionSequence.Text = "Transaction Sequence"
         '
         'Em
@@ -286,7 +288,7 @@ Partial Class frmGeneralSettings
         Me.Em.Location = New System.Drawing.Point(0, 0)
         Me.Em.MainView = Me.Gridview1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(833, 502)
+        Me.Em.Size = New System.Drawing.Size(838, 496)
         Me.Em.TabIndex = 866
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.Gridview1})
         '
@@ -308,7 +310,7 @@ Partial Class frmGeneralSettings
         '
         Me.tabDefaultSettings.Controls.Add(Me.GridControl1)
         Me.tabDefaultSettings.Name = "tabDefaultSettings"
-        Me.tabDefaultSettings.Size = New System.Drawing.Size(833, 502)
+        Me.tabDefaultSettings.Size = New System.Drawing.Size(838, 496)
         Me.tabDefaultSettings.Text = "Default Settings"
         '
         'GridControl1
@@ -317,7 +319,7 @@ Partial Class frmGeneralSettings
         Me.GridControl1.Location = New System.Drawing.Point(0, 0)
         Me.GridControl1.MainView = Me.GridView2
         Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.Size = New System.Drawing.Size(833, 502)
+        Me.GridControl1.Size = New System.Drawing.Size(838, 496)
         Me.GridControl1.TabIndex = 867
         Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView2})
         '
@@ -339,7 +341,7 @@ Partial Class frmGeneralSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(833, 549)
+        Me.ClientSize = New System.Drawing.Size(838, 543)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.Controls.Add(Me.SimpleButton3)
         Me.Controls.Add(Me.barDockControlLeft)
