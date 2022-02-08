@@ -104,15 +104,15 @@ Partial Class frmCheckApprovalFilter
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(629, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(649, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 388)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 384)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(629, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(649, 0)
         '
         'barDockControlLeft
         '
@@ -120,15 +120,15 @@ Partial Class frmCheckApprovalFilter
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 368)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 364)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(629, 20)
+        Me.BarDockControl1.Location = New System.Drawing.Point(649, 20)
         Me.BarDockControl1.Manager = Me.BarManager1
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 368)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 364)
         '
         'RepositoryItemTextEdit1
         '
@@ -178,9 +178,9 @@ Partial Class frmCheckApprovalFilter
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(629, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(649, 20)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 368)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 364)
         '
         'Em_unfiltered
         '
@@ -284,7 +284,7 @@ Partial Class frmCheckApprovalFilter
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(629, 388)
+        Me.ClientSize = New System.Drawing.Size(649, 384)
         Me.Controls.Add(Me.permissioncode)
         Me.Controls.Add(Me.cmdMoveLeft)
         Me.Controls.Add(Me.cmdMoveRight)
@@ -299,7 +299,7 @@ Partial Class frmCheckApprovalFilter
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(356, 383)
+        Me.MinimumSize = New System.Drawing.Size(336, 387)
         Me.Name = "frmCheckApprovalFilter"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Check Approval Filter (Note: Move item to the right to give access of a user)"

@@ -22,7 +22,6 @@ Partial Class frmCollectionPosting
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCollectionPosting))
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.lblFullname = New DevExpress.XtraEditors.LabelControl()
@@ -43,6 +42,10 @@ Partial Class frmCollectionPosting
         Me.groupCollection = New System.Windows.Forms.GroupBox()
         Me.SplitContainerControl1 = New DevExpress.XtraEditors.SplitContainerControl()
         Me.txtSearchBar = New DevExpress.XtraEditors.TextEdit()
+        Me.trnby = New DevExpress.XtraEditors.TextEdit()
+        Me.officeid = New DevExpress.XtraEditors.TextEdit()
+        Me.jevid = New DevExpress.XtraEditors.TextEdit()
+        Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.txtCollectionDate = New DevExpress.XtraEditors.DateEdit()
         Me.txtFundTitle = New DevExpress.XtraEditors.TextEdit()
         Me.periodcode = New DevExpress.XtraEditors.TextEdit()
@@ -52,7 +55,7 @@ Partial Class frmCollectionPosting
         Me.invrefcode = New DevExpress.XtraEditors.TextEdit()
         Me.fundcode = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
         Me.PickSelectedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -67,12 +70,8 @@ Partial Class frmCollectionPosting
         Me.cmdEnterPayment = New DevExpress.XtraEditors.SimpleButton()
         Me.cmdCancelTransaction = New DevExpress.XtraEditors.SimpleButton()
         Me.txtFormTitle = New DevExpress.XtraEditors.TextEdit()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer1 = New System.Windows.Forms.Timer()
         Me.groupCustomer = New System.Windows.Forms.GroupBox()
-        Me.officeid = New DevExpress.XtraEditors.TextEdit()
-        Me.jevid = New DevExpress.XtraEditors.TextEdit()
-        Me.mode = New DevExpress.XtraEditors.TextEdit()
-        Me.trnby = New DevExpress.XtraEditors.TextEdit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         Me.ToolStrip3.SuspendLayout()
@@ -85,6 +84,10 @@ Partial Class frmCollectionPosting
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerControl1.SuspendLayout()
         CType(Me.txtSearchBar.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.trnby.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.jevid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCollectionDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCollectionDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFundTitle.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,10 +109,6 @@ Partial Class frmCollectionPosting
         CType(Me.txtCheckDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFormTitle.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.groupCustomer.SuspendLayout()
-        CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.jevid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.trnby.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelControl1
@@ -381,6 +380,78 @@ Partial Class frmCollectionPosting
         Me.txtSearchBar.Size = New System.Drawing.Size(540, 32)
         Me.txtSearchBar.TabIndex = 0
         '
+        'trnby
+        '
+        Me.trnby.EditValue = ""
+        Me.trnby.EnterMoveNextControl = True
+        Me.trnby.Location = New System.Drawing.Point(333, 244)
+        Me.trnby.Name = "trnby"
+        Me.trnby.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.trnby.Properties.Appearance.Options.UseFont = True
+        Me.trnby.Properties.Appearance.Options.UseTextOptions = True
+        Me.trnby.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.trnby.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.trnby.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.trnby.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.trnby.Properties.MaxLength = 50
+        Me.trnby.Size = New System.Drawing.Size(45, 30)
+        Me.trnby.TabIndex = 1043
+        Me.trnby.Visible = False
+        '
+        'officeid
+        '
+        Me.officeid.EditValue = ""
+        Me.officeid.EnterMoveNextControl = True
+        Me.officeid.Location = New System.Drawing.Point(489, 244)
+        Me.officeid.Name = "officeid"
+        Me.officeid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.officeid.Properties.Appearance.Options.UseFont = True
+        Me.officeid.Properties.Appearance.Options.UseTextOptions = True
+        Me.officeid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.officeid.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.officeid.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.officeid.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.officeid.Properties.MaxLength = 50
+        Me.officeid.Size = New System.Drawing.Size(45, 30)
+        Me.officeid.TabIndex = 1042
+        Me.officeid.Visible = False
+        '
+        'jevid
+        '
+        Me.jevid.EditValue = ""
+        Me.jevid.EnterMoveNextControl = True
+        Me.jevid.Location = New System.Drawing.Point(435, 244)
+        Me.jevid.Name = "jevid"
+        Me.jevid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.jevid.Properties.Appearance.Options.UseFont = True
+        Me.jevid.Properties.Appearance.Options.UseTextOptions = True
+        Me.jevid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.jevid.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.jevid.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.jevid.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.jevid.Properties.MaxLength = 50
+        Me.jevid.Size = New System.Drawing.Size(45, 30)
+        Me.jevid.TabIndex = 1041
+        Me.jevid.Visible = False
+        '
+        'mode
+        '
+        Me.mode.EditValue = ""
+        Me.mode.EnterMoveNextControl = True
+        Me.mode.Location = New System.Drawing.Point(384, 244)
+        Me.mode.Name = "mode"
+        Me.mode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.mode.Properties.Appearance.Options.UseFont = True
+        Me.mode.Properties.Appearance.Options.UseTextOptions = True
+        Me.mode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.mode.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.mode.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.mode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.mode.Properties.MaxLength = 50
+        Me.mode.Size = New System.Drawing.Size(45, 30)
+        Me.mode.TabIndex = 1040
+        Me.mode.Visible = False
+        '
         'txtCollectionDate
         '
         Me.txtCollectionDate.EditValue = New Date(2019, 6, 10, 16, 23, 25, 399)
@@ -515,7 +586,7 @@ Partial Class frmCollectionPosting
         Me.Em.Location = New System.Drawing.Point(0, 0)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(540, 319)
+        Me.Em.Size = New System.Drawing.Size(540, 314)
         Me.Em.TabIndex = 833
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -741,78 +812,6 @@ Partial Class frmCollectionPosting
         Me.groupCustomer.TabStop = False
         Me.groupCustomer.Text = "Search by firrstname or lastname then hit enter"
         '
-        'officeid
-        '
-        Me.officeid.EditValue = ""
-        Me.officeid.EnterMoveNextControl = True
-        Me.officeid.Location = New System.Drawing.Point(489, 244)
-        Me.officeid.Name = "officeid"
-        Me.officeid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.officeid.Properties.Appearance.Options.UseFont = True
-        Me.officeid.Properties.Appearance.Options.UseTextOptions = True
-        Me.officeid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.officeid.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.officeid.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.officeid.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.officeid.Properties.MaxLength = 50
-        Me.officeid.Size = New System.Drawing.Size(45, 30)
-        Me.officeid.TabIndex = 1042
-        Me.officeid.Visible = False
-        '
-        'jevid
-        '
-        Me.jevid.EditValue = ""
-        Me.jevid.EnterMoveNextControl = True
-        Me.jevid.Location = New System.Drawing.Point(435, 244)
-        Me.jevid.Name = "jevid"
-        Me.jevid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.jevid.Properties.Appearance.Options.UseFont = True
-        Me.jevid.Properties.Appearance.Options.UseTextOptions = True
-        Me.jevid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.jevid.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.jevid.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.jevid.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.jevid.Properties.MaxLength = 50
-        Me.jevid.Size = New System.Drawing.Size(45, 30)
-        Me.jevid.TabIndex = 1041
-        Me.jevid.Visible = False
-        '
-        'mode
-        '
-        Me.mode.EditValue = ""
-        Me.mode.EnterMoveNextControl = True
-        Me.mode.Location = New System.Drawing.Point(384, 244)
-        Me.mode.Name = "mode"
-        Me.mode.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mode.Properties.Appearance.Options.UseFont = True
-        Me.mode.Properties.Appearance.Options.UseTextOptions = True
-        Me.mode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.mode.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.mode.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.mode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.mode.Properties.MaxLength = 50
-        Me.mode.Size = New System.Drawing.Size(45, 30)
-        Me.mode.TabIndex = 1040
-        Me.mode.Visible = False
-        '
-        'trnby
-        '
-        Me.trnby.EditValue = ""
-        Me.trnby.EnterMoveNextControl = True
-        Me.trnby.Location = New System.Drawing.Point(333, 244)
-        Me.trnby.Name = "trnby"
-        Me.trnby.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.trnby.Properties.Appearance.Options.UseFont = True
-        Me.trnby.Properties.Appearance.Options.UseTextOptions = True
-        Me.trnby.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.trnby.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.trnby.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.trnby.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.trnby.Properties.MaxLength = 50
-        Me.trnby.Size = New System.Drawing.Size(45, 30)
-        Me.trnby.TabIndex = 1043
-        Me.trnby.Visible = False
-        '
         'frmCollectionPosting
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -853,6 +852,10 @@ Partial Class frmCollectionPosting
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainerControl1.ResumeLayout(False)
         CType(Me.txtSearchBar.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.trnby.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.jevid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCollectionDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCollectionDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtFundTitle.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -874,10 +877,6 @@ Partial Class frmCollectionPosting
         CType(Me.txtCheckDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtFormTitle.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.groupCustomer.ResumeLayout(False)
-        CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.jevid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.trnby.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

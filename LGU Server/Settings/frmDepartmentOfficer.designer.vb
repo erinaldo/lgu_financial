@@ -215,7 +215,7 @@ Partial Class frmDepartmentOfficer
         Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(451, 153)
+        Me.ClientSize = New System.Drawing.Size(471, 149)
         Me.Controls.Add(Me.officeid)
         Me.Controls.Add(Me.LabelControl3)
         Me.Controls.Add(Me.ckCurrent)

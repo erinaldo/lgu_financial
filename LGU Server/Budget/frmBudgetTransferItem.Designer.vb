@@ -19,8 +19,9 @@ Partial Class frmBudgetTransferItem
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -54,7 +55,7 @@ Partial Class frmBudgetTransferItem
         Me.Em.Location = New System.Drawing.Point(12, 37)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(355, 430)
+        Me.Em.Size = New System.Drawing.Size(375, 430)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -179,7 +180,7 @@ Partial Class frmBudgetTransferItem
         Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSaveButton.Appearance.Options.UseBackColor = True
         Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(12, 473)
+        Me.cmdSaveButton.Location = New System.Drawing.Point(22, 473)
         Me.cmdSaveButton.Name = "cmdSaveButton"
         Me.cmdSaveButton.Size = New System.Drawing.Size(355, 38)
         Me.cmdSaveButton.TabIndex = 654
@@ -202,7 +203,7 @@ Partial Class frmBudgetTransferItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(379, 519)
+        Me.ClientSize = New System.Drawing.Size(399, 519)
         Me.Controls.Add(Me.mode)
         Me.Controls.Add(Me.cmdSaveButton)
         Me.Controls.Add(Me.officeid)
@@ -211,7 +212,7 @@ Partial Class frmBudgetTransferItem
         Me.Controls.Add(Me.txtClass)
         Me.Controls.Add(Me.periodcode)
         Me.Controls.Add(Me.Em)
-        Me.MinimumSize = New System.Drawing.Size(381, 551)
+        Me.MinimumSize = New System.Drawing.Size(361, 551)
         Me.Name = "frmBudgetTransferItem"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Select composition item"

@@ -19,6 +19,7 @@ Partial Class frmLogin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Me.cmdlogin = New DevExpress.XtraEditors.SimpleButton()
         Me.panelbg = New DevExpress.XtraEditors.PanelControl()
@@ -30,7 +31,7 @@ Partial Class frmLogin
         Me.mode = New DevExpress.XtraEditors.TextEdit()
         Me.txtpassword = New DevExpress.XtraEditors.TextEdit()
         Me.txtusername = New DevExpress.XtraEditors.TextEdit()
-        Me.Timer1 = New System.Windows.Forms.Timer()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.panelbg, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelbg.SuspendLayout()
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,7 +51,7 @@ Partial Class frmLogin
         Me.cmdlogin.Appearance.Options.UseBorderColor = True
         Me.cmdlogin.Appearance.Options.UseForeColor = True
         Me.cmdlogin.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat
-        Me.cmdlogin.Location = New System.Drawing.Point(77, 235)
+        Me.cmdlogin.Location = New System.Drawing.Point(81, 235)
         Me.cmdlogin.Name = "cmdlogin"
         Me.cmdlogin.Size = New System.Drawing.Size(123, 26)
         Me.cmdlogin.TabIndex = 622
@@ -71,13 +72,13 @@ Partial Class frmLogin
         Me.panelbg.Dock = System.Windows.Forms.DockStyle.Fill
         Me.panelbg.Location = New System.Drawing.Point(0, 0)
         Me.panelbg.Name = "panelbg"
-        Me.panelbg.Size = New System.Drawing.Size(271, 282)
+        Me.panelbg.Size = New System.Drawing.Size(279, 282)
         Me.panelbg.TabIndex = 376
         '
         'ProgressBar1
         '
         Me.ProgressBar1.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.ProgressBar1.Location = New System.Drawing.Point(72, 147)
+        Me.ProgressBar1.Location = New System.Drawing.Point(76, 147)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(130, 10)
         Me.ProgressBar1.TabIndex = 624
@@ -87,7 +88,7 @@ Partial Class frmLogin
         '
         Me.txtDownloadLocation.Location = New System.Drawing.Point(311, 97)
         Me.txtDownloadLocation.Name = "txtDownloadLocation"
-        Me.txtDownloadLocation.Size = New System.Drawing.Size(66, 22)
+        Me.txtDownloadLocation.Size = New System.Drawing.Size(66, 21)
         Me.txtDownloadLocation.TabIndex = 627
         Me.txtDownloadLocation.Visible = False
         '
@@ -95,7 +96,7 @@ Partial Class frmLogin
         '
         Me.txtversion.Location = New System.Drawing.Point(312, 88)
         Me.txtversion.Name = "txtversion"
-        Me.txtversion.Size = New System.Drawing.Size(66, 22)
+        Me.txtversion.Size = New System.Drawing.Size(66, 21)
         Me.txtversion.TabIndex = 626
         Me.txtversion.Visible = False
         '
@@ -103,7 +104,7 @@ Partial Class frmLogin
         '
         Me.txtUpdateUrl.Location = New System.Drawing.Point(317, 61)
         Me.txtUpdateUrl.Name = "txtUpdateUrl"
-        Me.txtUpdateUrl.Size = New System.Drawing.Size(66, 22)
+        Me.txtUpdateUrl.Size = New System.Drawing.Size(66, 21)
         Me.txtUpdateUrl.TabIndex = 625
         Me.txtUpdateUrl.Visible = False
         '
@@ -114,7 +115,7 @@ Partial Class frmLogin
         Me.Label1.Appearance.Options.UseTextOptions = True
         Me.Label1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.Label1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.Label1.Location = New System.Drawing.Point(43, 161)
+        Me.Label1.Location = New System.Drawing.Point(47, 161)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(191, 13)
         Me.Label1.TabIndex = 377
@@ -125,7 +126,7 @@ Partial Class frmLogin
         Me.mode.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.mode.EditValue = ""
         Me.mode.EnterMoveNextControl = True
-        Me.mode.Location = New System.Drawing.Point(16, 288)
+        Me.mode.Location = New System.Drawing.Point(20, 288)
         Me.mode.Name = "mode"
         Me.mode.Properties.Appearance.Options.UseTextOptions = True
         Me.mode.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
@@ -150,7 +151,7 @@ Partial Class frmLogin
         Me.txtpassword.Properties.AppearanceFocused.Options.UseForeColor = True
         Me.txtpassword.Properties.AutoHeight = False
         Me.txtpassword.Properties.UseSystemPasswordChar = True
-        Me.txtpassword.Size = New System.Drawing.Size(195, 22)
+        Me.txtpassword.Size = New System.Drawing.Size(203, 22)
         Me.txtpassword.TabIndex = 374
         '
         'txtusername
@@ -169,7 +170,7 @@ Partial Class frmLogin
         Me.txtusername.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.txtusername.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black
         Me.txtusername.Properties.AppearanceFocused.Options.UseForeColor = True
-        Me.txtusername.Size = New System.Drawing.Size(195, 22)
+        Me.txtusername.Size = New System.Drawing.Size(203, 22)
         Me.txtusername.TabIndex = 373
         '
         'Timer1
@@ -181,13 +182,13 @@ Partial Class frmLogin
         Me.AcceptButton = Me.cmdlogin
         Me.Appearance.Options.UseFont = True
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
-        Me.ClientSize = New System.Drawing.Size(271, 282)
+        Me.ClientSize = New System.Drawing.Size(279, 282)
         Me.Controls.Add(Me.panelbg)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.IconOptions.Icon = CType(resources.GetObject("frmLogin.IconOptions.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(265, 314)
+        Me.MinimumSize = New System.Drawing.Size(257, 314)
         Me.Name = "frmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Coffeecup"

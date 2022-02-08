@@ -22,6 +22,7 @@ Partial Class frmRequisitionList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.HiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PropertiesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -31,10 +32,11 @@ Partial Class frmRequisitionList
         Me.RightToolStripPanel = New System.Windows.Forms.ToolStripPanel()
         Me.LeftToolStripPanel = New System.Windows.Forms.ToolStripPanel()
         Me.ContentPanel = New System.Windows.Forms.ToolStripContentPanel()
-        Me.cms_em = New System.Windows.Forms.ContextMenuStrip()
+        Me.cms_em = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdDuplicate = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdView = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdCancel = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdRequestOveride = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdLocalData = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
@@ -157,41 +159,48 @@ Partial Class frmRequisitionList
         'cms_em
         '
         Me.cms_em.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdDuplicate, Me.cmdView, Me.cmdCancel, Me.ToolStripSeparator4, Me.cmdLocalData})
+        Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdDuplicate, Me.cmdView, Me.cmdCancel, Me.cmdRequestOveride, Me.ToolStripSeparator4, Me.cmdLocalData})
         Me.cms_em.Name = "ContextMenuStrip1"
-        Me.cms_em.Size = New System.Drawing.Size(207, 114)
+        Me.cms_em.Size = New System.Drawing.Size(216, 162)
         '
         'cmdDuplicate
         '
         Me.cmdDuplicate.Image = Global.LGUClient.My.Resources.Resources.blueprints
         Me.cmdDuplicate.Name = "cmdDuplicate"
-        Me.cmdDuplicate.Size = New System.Drawing.Size(206, 26)
+        Me.cmdDuplicate.Size = New System.Drawing.Size(215, 26)
         Me.cmdDuplicate.Text = "Duplicate Request"
         '
         'cmdView
         '
         Me.cmdView.Image = Global.LGUClient.My.Resources.Resources.notebook__arrow
         Me.cmdView.Name = "cmdView"
-        Me.cmdView.Size = New System.Drawing.Size(206, 26)
+        Me.cmdView.Size = New System.Drawing.Size(215, 26)
         Me.cmdView.Text = "View Requisition Info"
         '
         'cmdCancel
         '
         Me.cmdCancel.Image = Global.LGUClient.My.Resources.Resources.notebook__minus
         Me.cmdCancel.Name = "cmdCancel"
-        Me.cmdCancel.Size = New System.Drawing.Size(206, 26)
+        Me.cmdCancel.Size = New System.Drawing.Size(215, 26)
         Me.cmdCancel.Text = "Cancel Selected Request"
+        '
+        'cmdRequestOveride
+        '
+        Me.cmdRequestOveride.Image = Global.LGUClient.My.Resources.Resources.lock__exclamation
+        Me.cmdRequestOveride.Name = "cmdRequestOveride"
+        Me.cmdRequestOveride.Size = New System.Drawing.Size(215, 26)
+        Me.cmdRequestOveride.Text = "Request Override Revision"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(203, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(212, 6)
         '
         'cmdLocalData
         '
         Me.cmdLocalData.Image = Global.LGUClient.My.Resources.Resources.arrow_continue_090
         Me.cmdLocalData.Name = "cmdLocalData"
-        Me.cmdLocalData.Size = New System.Drawing.Size(206, 26)
+        Me.cmdLocalData.Size = New System.Drawing.Size(215, 26)
         Me.cmdLocalData.Tag = "1"
         Me.cmdLocalData.Text = "Refresh Data"
         '
@@ -655,4 +664,5 @@ Partial Class frmRequisitionList
     Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents ckDisplayCancelled As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents cmdDuplicate As ToolStripMenuItem
+    Friend WithEvents cmdRequestOveride As ToolStripMenuItem
 End Class

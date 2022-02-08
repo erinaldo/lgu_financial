@@ -59,7 +59,7 @@ Partial Class frmClientConnetions
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(474, 0)
+        Me.barDockControlTop.Size = New System.Drawing.Size(482, 0)
         '
         'BarManager1
         '
@@ -77,7 +77,7 @@ Partial Class frmClientConnetions
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.barDockControlBottom.Location = New System.Drawing.Point(0, 145)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(474, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(482, 0)
         '
         'barDockControlLeft
         '
@@ -91,7 +91,7 @@ Partial Class frmClientConnetions
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(474, 0)
+        Me.barDockControlRight.Location = New System.Drawing.Point(482, 0)
         Me.barDockControlRight.Manager = Me.BarManager1
         Me.barDockControlRight.Size = New System.Drawing.Size(0, 145)
         '
@@ -139,7 +139,7 @@ Partial Class frmClientConnetions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(474, 145)
+        Me.ClientSize = New System.Drawing.Size(482, 145)
         Me.Controls.Add(Me.LabelControl11)
         Me.Controls.Add(Me.cmdConnect)
         Me.Controls.Add(Me.txtServer)

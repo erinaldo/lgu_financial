@@ -331,7 +331,7 @@ Partial Class frmAccountableForm
         Me.AcceptButton = Me.cmdSaveButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(717, 517)
+        Me.ClientSize = New System.Drawing.Size(737, 513)
         Me.Controls.Add(Me.ckLandScape)
         Me.Controls.Add(Me.ckEnablePrintSettings)
         Me.Controls.Add(Me.LabelControl7)

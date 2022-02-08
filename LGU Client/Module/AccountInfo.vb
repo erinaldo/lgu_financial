@@ -65,6 +65,7 @@ Module AccountInfo
     Public globalAllowAdd As Boolean
     Public globalAllowEdit As Boolean
     Public globalAllowDelete As Boolean
+    Public globalRequestOverride As Boolean
     Public globalAuthCollectionPosting As Boolean
     Public globalAuthCedulaIndividual As Boolean
     Public globalAuthCedulaCorporation As Boolean
@@ -202,6 +203,7 @@ Module AccountInfo
             globalAllowAdd = rst("allowadd")
             globalAllowEdit = rst("allowedit")
             globalAllowDelete = rst("allowdelete")
+            globalRequestOverride = rst("requestoverride")
             globalAuthCollectionPosting = rst("collectionposting")
             globalAuthCedulaIndividual = rst("cedulaindividual")
             globalAuthCedulaCorporation = rst("cedulacorporate")

@@ -62,7 +62,7 @@ Partial Class frmBlockedAccounts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(455, 111)
+        Me.ClientSize = New System.Drawing.Size(463, 111)
         Me.Controls.Add(Me.cmdMove)
         Me.Controls.Add(Me.LabelControl8)
         Me.Controls.Add(Me.txtdetails)

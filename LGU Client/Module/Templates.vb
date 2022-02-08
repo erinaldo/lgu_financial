@@ -405,13 +405,15 @@ Module Templates
         DigitalReportSigniture(SaveLocation, requestorid, "requestor")
 
         Dim budget As Boolean = False : Dim treasurer As Boolean = False : Dim accountant As Boolean = False
-        com.CommandText = "select *,date_format(dateconfirm,'%m/%d/%y %h:%i %p') as date_approved, (select designation from tblaccounts where accountid=a.confirmid) as position from tblapprovalhistory as a where mainreference='" & pid & "' and status='Approved'" : rst = com.ExecuteReader
+        com.CommandText = "select *, if(authorized=1,authorizedby,confirmid) as confirmed_id, " _
+                        + "if(authorized=1,(select fullname from tblaccounts where accountid=a.authorizedby),confirmby) as confirmed_name, " _
+                        + "date_format(dateconfirm,'%m/%d/%y %h:%i %p') as date_approved, (select designation from tblaccounts where accountid=a.confirmid) as position from tblapprovalhistory as a where mainreference='" & pid & "' and status='Approved'" : rst = com.ExecuteReader
         While rst.Read
-            If rst("confirmid").ToString = GlobalAccountantID Then
+            If rst("confirmed_id").ToString = GlobalAccountantID Then
                 accountant = True
-                My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[name_accountant]", rst("confirmby").ToString), False)
+                My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[name_accountant]", GlobalAccountantName), False)
                 My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[date_accountant]", rst("date_approved").ToString), False)
-                My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[position_accountant]", rst("position").ToString), False)
+                My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[position_accountant]", GlobalAccountantPosition), False)
             End If
         End While
         rst.Close()

@@ -219,7 +219,7 @@ Partial Class frmFund
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(645, 300)
+        Me.Em.Size = New System.Drawing.Size(677, 313)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -285,7 +285,7 @@ Partial Class frmFund
         Me.XtraTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.tabInfo
-        Me.XtraTabControl1.Size = New System.Drawing.Size(653, 495)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(673, 491)
         Me.XtraTabControl1.TabIndex = 633
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabInfo, Me.tabOfficeFilter, Me.tabClientUserFilter, Me.tabServerUserFilter})
         '
@@ -303,7 +303,7 @@ Partial Class frmFund
         Me.tabInfo.Controls.Add(Me.cmdSave)
         Me.tabInfo.Controls.Add(Me.LabelControl4)
         Me.tabInfo.Name = "tabInfo"
-        Me.tabInfo.Size = New System.Drawing.Size(651, 466)
+        Me.tabInfo.Size = New System.Drawing.Size(671, 462)
         Me.tabInfo.Text = "Fund Information"
         '
         'LabelControl3
@@ -338,7 +338,7 @@ Partial Class frmFund
         '
         Me.tabOfficeFilter.Controls.Add(Me.TableLayoutPanel2)
         Me.tabOfficeFilter.Name = "tabOfficeFilter"
-        Me.tabOfficeFilter.Size = New System.Drawing.Size(651, 466)
+        Me.tabOfficeFilter.Size = New System.Drawing.Size(659, 459)
         Me.tabOfficeFilter.Text = "Department Access Filter"
         '
         'TableLayoutPanel2
@@ -355,16 +355,16 @@ Partial Class frmFund
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(651, 466)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(659, 459)
         Me.TableLayoutPanel2.TabIndex = 710
         '
         'em_office_filtered
         '
         Me.em_office_filtered.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.em_office_filtered.Location = New System.Drawing.Point(349, 3)
+        Me.em_office_filtered.Location = New System.Drawing.Point(353, 3)
         Me.em_office_filtered.MainView = Me.grid_office_filtered
         Me.em_office_filtered.Name = "em_office_filtered"
-        Me.em_office_filtered.Size = New System.Drawing.Size(299, 460)
+        Me.em_office_filtered.Size = New System.Drawing.Size(303, 453)
         Me.em_office_filtered.TabIndex = 706
         Me.em_office_filtered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grid_office_filtered})
         '
@@ -386,7 +386,7 @@ Partial Class frmFund
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(3, 3)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(298, 460)
+        Me.Panel3.Size = New System.Drawing.Size(302, 453)
         Me.Panel3.TabIndex = 703
         '
         'em_office_unfiltered
@@ -395,7 +395,7 @@ Partial Class frmFund
         Me.em_office_unfiltered.Location = New System.Drawing.Point(0, 24)
         Me.em_office_unfiltered.MainView = Me.grid_office_unfiltered
         Me.em_office_unfiltered.Name = "em_office_unfiltered"
-        Me.em_office_unfiltered.Size = New System.Drawing.Size(298, 436)
+        Me.em_office_unfiltered.Size = New System.Drawing.Size(302, 429)
         Me.em_office_unfiltered.TabIndex = 705
         Me.em_office_unfiltered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grid_office_unfiltered})
         '
@@ -423,7 +423,7 @@ Partial Class frmFund
         Me.txtOfficeFund.Properties.NullText = ""
         Me.txtOfficeFund.Properties.PopupView = Me.grid_office_fund
         Me.txtOfficeFund.Properties.ValueMember = "code"
-        Me.txtOfficeFund.Size = New System.Drawing.Size(298, 24)
+        Me.txtOfficeFund.Size = New System.Drawing.Size(302, 24)
         Me.txtOfficeFund.TabIndex = 704
         '
         'grid_office_fund
@@ -438,9 +438,9 @@ Partial Class frmFund
         Me.Panel4.Controls.Add(Me.cmdOfficeMoveRight)
         Me.Panel4.Controls.Add(Me.cmdOfficeMoveLeft)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel4.Location = New System.Drawing.Point(307, 3)
+        Me.Panel4.Location = New System.Drawing.Point(311, 3)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(36, 460)
+        Me.Panel4.Size = New System.Drawing.Size(36, 453)
         Me.Panel4.TabIndex = 0
         '
         'cmdOfficeMoveRight
@@ -467,7 +467,7 @@ Partial Class frmFund
         '
         Me.tabClientUserFilter.Controls.Add(Me.TableLayoutPanel1)
         Me.tabClientUserFilter.Name = "tabClientUserFilter"
-        Me.tabClientUserFilter.Size = New System.Drawing.Size(651, 466)
+        Me.tabClientUserFilter.Size = New System.Drawing.Size(659, 459)
         Me.tabClientUserFilter.Text = "Client User Access Filter"
         '
         'TableLayoutPanel1
@@ -484,7 +484,7 @@ Partial Class frmFund
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(651, 466)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(659, 459)
         Me.TableLayoutPanel1.TabIndex = 709
         '
         'Panel2
@@ -494,7 +494,7 @@ Partial Class frmFund
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(3, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(298, 460)
+        Me.Panel2.Size = New System.Drawing.Size(302, 453)
         Me.Panel2.TabIndex = 703
         '
         'em_client_unfiltered
@@ -503,7 +503,7 @@ Partial Class frmFund
         Me.em_client_unfiltered.Location = New System.Drawing.Point(0, 24)
         Me.em_client_unfiltered.MainView = Me.grid_client_unfiltered
         Me.em_client_unfiltered.Name = "em_client_unfiltered"
-        Me.em_client_unfiltered.Size = New System.Drawing.Size(298, 436)
+        Me.em_client_unfiltered.Size = New System.Drawing.Size(302, 429)
         Me.em_client_unfiltered.TabIndex = 699
         Me.em_client_unfiltered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grid_client_unfiltered})
         '
@@ -531,7 +531,7 @@ Partial Class frmFund
         Me.txtClientFund.Properties.NullText = ""
         Me.txtClientFund.Properties.PopupView = Me.grid_client_fund
         Me.txtClientFund.Properties.ValueMember = "code"
-        Me.txtClientFund.Size = New System.Drawing.Size(298, 24)
+        Me.txtClientFund.Size = New System.Drawing.Size(302, 24)
         Me.txtClientFund.TabIndex = 705
         '
         'grid_client_fund
@@ -546,9 +546,9 @@ Partial Class frmFund
         Me.Panel1.Controls.Add(Me.cmdClientMoveRight)
         Me.Panel1.Controls.Add(Me.cmdClientMoveLeft)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(307, 3)
+        Me.Panel1.Location = New System.Drawing.Point(311, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(36, 460)
+        Me.Panel1.Size = New System.Drawing.Size(36, 453)
         Me.Panel1.TabIndex = 0
         '
         'cmdClientMoveRight
@@ -576,10 +576,10 @@ Partial Class frmFund
         'em_client_filtered
         '
         Me.em_client_filtered.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.em_client_filtered.Location = New System.Drawing.Point(349, 3)
+        Me.em_client_filtered.Location = New System.Drawing.Point(353, 3)
         Me.em_client_filtered.MainView = Me.grid_client_filtered
         Me.em_client_filtered.Name = "em_client_filtered"
-        Me.em_client_filtered.Size = New System.Drawing.Size(299, 460)
+        Me.em_client_filtered.Size = New System.Drawing.Size(303, 453)
         Me.em_client_filtered.TabIndex = 700
         Me.em_client_filtered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grid_client_filtered})
         '
@@ -598,7 +598,7 @@ Partial Class frmFund
         '
         Me.tabServerUserFilter.Controls.Add(Me.TableLayoutPanel3)
         Me.tabServerUserFilter.Name = "tabServerUserFilter"
-        Me.tabServerUserFilter.Size = New System.Drawing.Size(651, 466)
+        Me.tabServerUserFilter.Size = New System.Drawing.Size(659, 459)
         Me.tabServerUserFilter.Text = "Server User Access Filter"
         '
         'TableLayoutPanel3
@@ -615,7 +615,7 @@ Partial Class frmFund
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(651, 466)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(659, 459)
         Me.TableLayoutPanel3.TabIndex = 710
         '
         'Panel5
@@ -625,7 +625,7 @@ Partial Class frmFund
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(3, 3)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(298, 460)
+        Me.Panel5.Size = New System.Drawing.Size(302, 453)
         Me.Panel5.TabIndex = 703
         '
         'em_server_unfiltered
@@ -634,7 +634,7 @@ Partial Class frmFund
         Me.em_server_unfiltered.Location = New System.Drawing.Point(0, 24)
         Me.em_server_unfiltered.MainView = Me.grid_server_unfiltered
         Me.em_server_unfiltered.Name = "em_server_unfiltered"
-        Me.em_server_unfiltered.Size = New System.Drawing.Size(298, 436)
+        Me.em_server_unfiltered.Size = New System.Drawing.Size(302, 429)
         Me.em_server_unfiltered.TabIndex = 699
         Me.em_server_unfiltered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grid_server_unfiltered})
         '
@@ -662,7 +662,7 @@ Partial Class frmFund
         Me.txtServerFund.Properties.NullText = ""
         Me.txtServerFund.Properties.PopupView = Me.grid_server_fund
         Me.txtServerFund.Properties.ValueMember = "code"
-        Me.txtServerFund.Size = New System.Drawing.Size(298, 24)
+        Me.txtServerFund.Size = New System.Drawing.Size(302, 24)
         Me.txtServerFund.TabIndex = 705
         '
         'grid_server_fund
@@ -677,9 +677,9 @@ Partial Class frmFund
         Me.Panel6.Controls.Add(Me.cmdServerMoveRight)
         Me.Panel6.Controls.Add(Me.cmdServerMoveLeft)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel6.Location = New System.Drawing.Point(307, 3)
+        Me.Panel6.Location = New System.Drawing.Point(311, 3)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(36, 460)
+        Me.Panel6.Size = New System.Drawing.Size(36, 453)
         Me.Panel6.TabIndex = 0
         '
         'cmdServerMoveRight
@@ -707,10 +707,10 @@ Partial Class frmFund
         'em_server_filtered
         '
         Me.em_server_filtered.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.em_server_filtered.Location = New System.Drawing.Point(349, 3)
+        Me.em_server_filtered.Location = New System.Drawing.Point(353, 3)
         Me.em_server_filtered.MainView = Me.grid_server_filtered
         Me.em_server_filtered.Name = "em_server_filtered"
-        Me.em_server_filtered.Size = New System.Drawing.Size(299, 460)
+        Me.em_server_filtered.Size = New System.Drawing.Size(303, 453)
         Me.em_server_filtered.TabIndex = 700
         Me.em_server_filtered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grid_server_filtered})
         '
@@ -730,7 +730,7 @@ Partial Class frmFund
         Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(653, 495)
+        Me.ClientSize = New System.Drawing.Size(673, 491)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.Name = "frmFund"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

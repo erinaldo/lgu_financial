@@ -104,14 +104,14 @@ Partial Class frmUsersAccounts
         '
         Me.SplitContainerControl1.CollapsePanel = DevExpress.XtraEditors.SplitCollapsePanel.Panel1
         Me.SplitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 24)
+        Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 20)
         Me.SplitContainerControl1.Name = "SplitContainerControl1"
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.XtraScrollableControl1)
         Me.SplitContainerControl1.Panel1.Text = "Panel1"
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.kbid)
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
-        Me.SplitContainerControl1.Size = New System.Drawing.Size(994, 543)
+        Me.SplitContainerControl1.Size = New System.Drawing.Size(1010, 547)
         Me.SplitContainerControl1.SplitterPosition = 337
         Me.SplitContainerControl1.TabIndex = 1
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
@@ -146,7 +146,7 @@ Partial Class frmUsersAccounts
         Me.XtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.XtraScrollableControl1.Location = New System.Drawing.Point(0, 0)
         Me.XtraScrollableControl1.Name = "XtraScrollableControl1"
-        Me.XtraScrollableControl1.Size = New System.Drawing.Size(337, 543)
+        Me.XtraScrollableControl1.Size = New System.Drawing.Size(337, 547)
         Me.XtraScrollableControl1.TabIndex = 2
         '
         'LabelControl2
@@ -242,7 +242,7 @@ Partial Class frmUsersAccounts
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(994, 24)
+        Me.barDockControlTop.Size = New System.Drawing.Size(1010, 20)
         '
         'barDockControlBottom
         '
@@ -250,23 +250,23 @@ Partial Class frmUsersAccounts
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.barDockControlBottom.Location = New System.Drawing.Point(0, 567)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(994, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1010, 0)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
-        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 24)
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 543)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 547)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(994, 24)
+        Me.barDockControlRight.Location = New System.Drawing.Point(1010, 20)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 543)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 547)
         '
         'BarButtonItem2
         '
@@ -489,9 +489,9 @@ Partial Class frmUsersAccounts
         'signature
         '
         Me.signature.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.signature.Location = New System.Drawing.Point(2, 27)
+        Me.signature.Location = New System.Drawing.Point(2, 23)
         Me.signature.Name = "signature"
-        Me.signature.Size = New System.Drawing.Size(240, 90)
+        Me.signature.Size = New System.Drawing.Size(240, 94)
         Me.signature.TabIndex = 375
         '
         'LabelControl29
@@ -562,7 +562,7 @@ Partial Class frmUsersAccounts
         Me.kbid.Properties.Appearance.Options.UseTextOptions = True
         Me.kbid.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.kbid.Properties.ReadOnly = True
-        Me.kbid.Size = New System.Drawing.Size(237, 20)
+        Me.kbid.Size = New System.Drawing.Size(243, 20)
         Me.kbid.TabIndex = 388
         Me.kbid.Visible = False
         '
@@ -573,7 +573,7 @@ Partial Class frmUsersAccounts
         Me.Em.Location = New System.Drawing.Point(0, 0)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(647, 543)
+        Me.Em.Size = New System.Drawing.Size(663, 547)
         Me.Em.TabIndex = 1
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -643,7 +643,7 @@ Partial Class frmUsersAccounts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(994, 567)
+        Me.ClientSize = New System.Drawing.Size(1010, 567)
         Me.Controls.Add(Me.SplitContainerControl1)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)

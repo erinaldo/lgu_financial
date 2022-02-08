@@ -97,7 +97,7 @@ Partial Class frmCollectionItem
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(653, 367)
+        Me.Em.Size = New System.Drawing.Size(673, 363)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -240,7 +240,7 @@ Partial Class frmCollectionItem
         Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(673, 513)
+        Me.ClientSize = New System.Drawing.Size(693, 509)
         Me.Controls.Add(Me.CheckEdit1)
         Me.Controls.Add(Me.LabelControl3)
         Me.Controls.Add(Me.txtAmount)

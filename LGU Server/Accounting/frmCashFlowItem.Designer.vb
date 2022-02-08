@@ -126,7 +126,7 @@ Partial Class frmCashFlowItem
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(697, 373)
+        Me.Em.Size = New System.Drawing.Size(729, 390)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -207,7 +207,7 @@ Partial Class frmCashFlowItem
         Me.XtraTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.tabCashflowInfo
-        Me.XtraTabControl1.Size = New System.Drawing.Size(717, 513)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(737, 513)
         Me.XtraTabControl1.TabIndex = 645
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabCashflowInfo, Me.tabCashflowTagging})
         '
@@ -221,7 +221,7 @@ Partial Class frmCashFlowItem
         Me.tabCashflowInfo.Controls.Add(Me.Em)
         Me.tabCashflowInfo.Controls.Add(Me.txtCashFlowName)
         Me.tabCashflowInfo.Name = "tabCashflowInfo"
-        Me.tabCashflowInfo.Size = New System.Drawing.Size(715, 484)
+        Me.tabCashflowInfo.Size = New System.Drawing.Size(735, 484)
         Me.tabCashflowInfo.Text = "Cash Flow Info"
         '
         'tabCashflowTagging
@@ -236,7 +236,7 @@ Partial Class frmCashFlowItem
         Me.tabCashflowTagging.Controls.Add(Me.barDockControlRight)
         Me.tabCashflowTagging.Controls.Add(Me.BarDockControl1)
         Me.tabCashflowTagging.Name = "tabCashflowTagging"
-        Me.tabCashflowTagging.Size = New System.Drawing.Size(717, 469)
+        Me.tabCashflowTagging.Size = New System.Drawing.Size(723, 481)
         Me.tabCashflowTagging.Text = "Cash Flow Tagging"
         '
         'LabelControl3
@@ -354,26 +354,26 @@ Partial Class frmCashFlowItem
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(717, 0)
+        Me.barDockControlRight.Location = New System.Drawing.Point(723, 0)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 469)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 481)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(717, 0)
+        Me.BarDockControl1.Location = New System.Drawing.Point(723, 0)
         Me.BarDockControl1.Manager = Nothing
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 469)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 481)
         '
         'frmCashFlowItem
         '
         Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(717, 513)
+        Me.ClientSize = New System.Drawing.Size(737, 513)
         Me.Controls.Add(Me.XtraTabControl1)
-        Me.MinimumSize = New System.Drawing.Size(708, 545)
+        Me.MinimumSize = New System.Drawing.Size(688, 545)
         Me.Name = "frmCashFlowItem"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Cash Flow Item"

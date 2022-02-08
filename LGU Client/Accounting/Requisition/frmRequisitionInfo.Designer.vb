@@ -22,7 +22,6 @@ Partial Class frmRequisitionInfo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.txtRequestNumber = New DevExpress.XtraEditors.TextEdit()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
@@ -35,7 +34,7 @@ Partial Class frmRequisitionInfo
         Me.txtSourceAmount = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip()
         Me.cmdAddItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SelectItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -62,7 +61,7 @@ Partial Class frmRequisitionInfo
         Me.cmdAddParticularItem = New System.Windows.Forms.ToolStripButton()
         Me.tabAttachment = New DevExpress.XtraTab.XtraTabPage()
         Me.Em_files = New DevExpress.XtraGrid.GridControl()
-        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdViewAttachmentMain = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdModifyAttachment = New System.Windows.Forms.ToolStripMenuItem()
@@ -599,7 +598,7 @@ Partial Class frmRequisitionInfo
         Me.tabAttachment.Controls.Add(Me.ckFinalApprover)
         Me.tabAttachment.Controls.Add(Me.CurrentApprover)
         Me.tabAttachment.Name = "tabAttachment"
-        Me.tabAttachment.Size = New System.Drawing.Size(628, 456)
+        Me.tabAttachment.Size = New System.Drawing.Size(624, 453)
         Me.tabAttachment.Text = "Attached Document Files"
         '
         'Em_files
@@ -610,7 +609,7 @@ Partial Class frmRequisitionInfo
         Me.Em_files.MainView = Me.gridview_files
         Me.Em_files.Name = "Em_files"
         Me.Em_files.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2})
-        Me.Em_files.Size = New System.Drawing.Size(628, 421)
+        Me.Em_files.Size = New System.Drawing.Size(624, 418)
         Me.Em_files.TabIndex = 935
         Me.Em_files.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridview_files})
         '
@@ -688,7 +687,7 @@ Partial Class frmRequisitionInfo
         Me.ToolStrip3.Name = "ToolStrip3"
         Me.ToolStrip3.Padding = New System.Windows.Forms.Padding(10, 2, 1, 2)
         Me.ToolStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.ToolStrip3.Size = New System.Drawing.Size(628, 35)
+        Me.ToolStrip3.Size = New System.Drawing.Size(624, 35)
         Me.ToolStrip3.TabIndex = 960
         Me.ToolStrip3.Text = "ToolStrip3"
         '
@@ -723,17 +722,17 @@ Partial Class frmRequisitionInfo
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(628, 0)
+        Me.barDockControlRight.Location = New System.Drawing.Point(624, 0)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 456)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 453)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(628, 0)
+        Me.BarDockControl1.Location = New System.Drawing.Point(624, 0)
         Me.BarDockControl1.Manager = Nothing
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 456)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 453)
         '
         'NextApprover
         '
@@ -789,7 +788,7 @@ Partial Class frmRequisitionInfo
         '
         Me.tabApprovalHistory.Controls.Add(Me.Em_approval)
         Me.tabApprovalHistory.Name = "tabApprovalHistory"
-        Me.tabApprovalHistory.Size = New System.Drawing.Size(628, 456)
+        Me.tabApprovalHistory.Size = New System.Drawing.Size(624, 453)
         Me.tabApprovalHistory.Text = "Approval History"
         '
         'Em_approval
@@ -799,7 +798,7 @@ Partial Class frmRequisitionInfo
         Me.Em_approval.MainView = Me.gridview_approval
         Me.Em_approval.Name = "Em_approval"
         Me.Em_approval.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit3})
-        Me.Em_approval.Size = New System.Drawing.Size(628, 456)
+        Me.Em_approval.Size = New System.Drawing.Size(624, 453)
         Me.Em_approval.TabIndex = 936
         Me.Em_approval.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridview_approval})
         '
@@ -823,7 +822,7 @@ Partial Class frmRequisitionInfo
         '
         Me.tabDisbursement.Controls.Add(Me.Em_disbursement)
         Me.tabDisbursement.Name = "tabDisbursement"
-        Me.tabDisbursement.Size = New System.Drawing.Size(628, 456)
+        Me.tabDisbursement.Size = New System.Drawing.Size(624, 453)
         Me.tabDisbursement.Text = "Disbursement Voucher"
         '
         'Em_disbursement
@@ -833,7 +832,7 @@ Partial Class frmRequisitionInfo
         Me.Em_disbursement.MainView = Me.gridDisbursement
         Me.Em_disbursement.Name = "Em_disbursement"
         Me.Em_disbursement.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit4})
-        Me.Em_disbursement.Size = New System.Drawing.Size(628, 456)
+        Me.Em_disbursement.Size = New System.Drawing.Size(624, 453)
         Me.Em_disbursement.TabIndex = 935
         Me.Em_disbursement.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridDisbursement})
         '

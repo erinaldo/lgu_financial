@@ -32,19 +32,19 @@ Module Template
         While rst.Read
             Dim itemValue As String = ""
             For Each itemRowValue In colItemNameParam
-                itemValue += " <td align='right'>" & If(rst(itemRowValue).ToString.Length > 0, FormatNumber(rst(itemRowValue).ToString, 2), "&nbsp") & "</td> "
+                itemValue += " <td align='right'>" & If(Val(rst(itemRowValue).ToString) > 0, FormatNumber(rst(itemRowValue).ToString, 2), "&nbsp") & "</td> "
             Next
 
             If itemValue.Length = 0 Then
                 itemValue = "<td align='right'>&nbsp</td>"
             End If
             TableRow += "<tr> " _
-                           + " <td align='right'>" & If(rst("Amount of Appropriation").ToString.Length > 0, FormatNumber(rst("Amount of Appropriation").ToString, 2), "&nbsp") & "</td> " _
-                           + " <td align='right'>" & If(rst("Amount of Allotment").ToString.Length > 0, FormatNumber(rst("Amount of Allotment").ToString, 2), "&nbsp") & "</td> " _
+                           + " <td align='right'>" & If(Val(rst("Amount of Appropriation").ToString) > 0, FormatNumber(rst("Amount of Appropriation").ToString, 2), "&nbsp") & "</td> " _
+                           + " <td align='right'>" & If(Val(rst("Amount of Allotment").ToString) > 0, FormatNumber(rst("Amount of Allotment").ToString, 2), "&nbsp") & "</td> " _
                            + " <td align='center' >" & If(rst("Date").ToString.Length > 1, CDate(rst("Date").ToString).ToString("MM/dd/yyyy"), "&nbsp") & "</td> " _
                            + " <td align='center'>" & rst("Reference/CAFOA No.").ToString & "</td> " _
                            + " <td>" & rst("Particulars").ToString & "</td> " _
-                           + " <td align='right'>" & If(rst("Total Amount of Allotment Obligation").ToString.Length > 0, FormatNumber(rst("Total Amount of Allotment Obligation").ToString, 2), "&nbsp") & "</td> " _
+                           + " <td align='right'>" & If(Val(rst("Total Amount of Allotment Obligation").ToString) > 0, FormatNumber(rst("Total Amount of Allotment Obligation").ToString, 2), "&nbsp") & "</td> " _
                            + itemValue _
                      + " </tr> " & Chr(13)
 

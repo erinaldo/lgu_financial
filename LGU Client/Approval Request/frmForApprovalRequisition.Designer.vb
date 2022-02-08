@@ -22,7 +22,6 @@ Partial Class frmForApprovalRequisition
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.HiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PropertiesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -32,7 +31,7 @@ Partial Class frmForApprovalRequisition
         Me.RightToolStripPanel = New System.Windows.Forms.ToolStripPanel()
         Me.LeftToolStripPanel = New System.Windows.Forms.ToolStripPanel()
         Me.ContentPanel = New System.Windows.Forms.ToolStripContentPanel()
-        Me.cms_em = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.cms_em = New System.Windows.Forms.ContextMenuStrip()
         Me.cmdView = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdLocalData = New System.Windows.Forms.ToolStripMenuItem()
@@ -124,25 +123,25 @@ Partial Class frmForApprovalRequisition
         Me.cms_em.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdView, Me.ToolStripSeparator4, Me.cmdLocalData})
         Me.cms_em.Name = "ContextMenuStrip1"
-        Me.cms_em.Size = New System.Drawing.Size(254, 62)
+        Me.cms_em.Size = New System.Drawing.Size(215, 62)
         '
         'cmdView
         '
         Me.cmdView.Image = Global.LGUClient.My.Resources.Resources.notebook__arrow
         Me.cmdView.Name = "cmdView"
-        Me.cmdView.Size = New System.Drawing.Size(253, 26)
+        Me.cmdView.Size = New System.Drawing.Size(214, 26)
         Me.cmdView.Text = "View Request Information"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(250, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(211, 6)
         '
         'cmdLocalData
         '
         Me.cmdLocalData.Image = Global.LGUClient.My.Resources.Resources.arrow_continue_090
         Me.cmdLocalData.Name = "cmdLocalData"
-        Me.cmdLocalData.Size = New System.Drawing.Size(253, 26)
+        Me.cmdLocalData.Size = New System.Drawing.Size(214, 26)
         Me.cmdLocalData.Tag = "1"
         Me.cmdLocalData.Text = "Refresh Data"
         '
@@ -167,7 +166,7 @@ Partial Class frmForApprovalRequisition
         Me.cmdPrint.Image = Global.LGUClient.My.Resources.Resources.Print_Normal
         Me.cmdPrint.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdPrint.Name = "cmdPrint"
-        Me.cmdPrint.Size = New System.Drawing.Size(112, 24)
+        Me.cmdPrint.Size = New System.Drawing.Size(94, 24)
         Me.cmdPrint.Text = "Print Report"
         '
         'ToolStripSeparator3
@@ -181,7 +180,7 @@ Partial Class frmForApprovalRequisition
         Me.cmdColumnSettings.Image = Global.LGUClient.My.Resources.Resources.application_task
         Me.cmdColumnSettings.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdColumnSettings.Name = "cmdColumnSettings"
-        Me.cmdColumnSettings.Size = New System.Drawing.Size(141, 24)
+        Me.cmdColumnSettings.Size = New System.Drawing.Size(119, 24)
         Me.cmdColumnSettings.Text = "Column Settings"
         '
         'ToolStripSeparator2
@@ -195,7 +194,7 @@ Partial Class frmForApprovalRequisition
         Me.cmdClose.Image = Global.LGUClient.My.Resources.Resources.slash
         Me.cmdClose.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmdClose.Name = "cmdClose"
-        Me.cmdClose.Size = New System.Drawing.Size(128, 24)
+        Me.cmdClose.Size = New System.Drawing.Size(107, 24)
         Me.cmdClose.Text = "Close Window"
         '
         'updates
@@ -243,7 +242,7 @@ Partial Class frmForApprovalRequisition
         Me.Em.MinimumSize = New System.Drawing.Size(574, 454)
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(1020, 565)
+        Me.Em.Size = New System.Drawing.Size(1020, 567)
         Me.Em.TabIndex = 636
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -264,7 +263,7 @@ Partial Class frmForApprovalRequisition
         '
         'frmForApprovalRequisition
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None

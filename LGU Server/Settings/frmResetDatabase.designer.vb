@@ -41,7 +41,7 @@ Partial Class frmResetDatabase
         Me.CheckedListBox1.HotTrackSelectMode = DevExpress.XtraEditors.HotTrackSelectMode.SelectItemOnClick
         Me.CheckedListBox1.Location = New System.Drawing.Point(2, 0)
         Me.CheckedListBox1.Name = "CheckedListBox1"
-        Me.CheckedListBox1.Size = New System.Drawing.Size(409, 456)
+        Me.CheckedListBox1.Size = New System.Drawing.Size(417, 456)
         Me.CheckedListBox1.TabIndex = 617
         '
         'txtColumn
@@ -64,7 +64,7 @@ Partial Class frmResetDatabase
         Me.cmdUpdate.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdUpdate.Appearance.Options.UseBackColor = True
         Me.cmdUpdate.Appearance.Options.UseFont = True
-        Me.cmdUpdate.Location = New System.Drawing.Point(229, 461)
+        Me.cmdUpdate.Location = New System.Drawing.Point(233, 461)
         Me.cmdUpdate.Name = "cmdUpdate"
         Me.cmdUpdate.Size = New System.Drawing.Size(181, 30)
         Me.cmdUpdate.TabIndex = 620
@@ -77,14 +77,14 @@ Partial Class frmResetDatabase
         Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit1.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit1.Properties.Caption = "Check All"
-        Me.CheckEdit1.Size = New System.Drawing.Size(138, 19)
+        Me.CheckEdit1.Size = New System.Drawing.Size(138, 20)
         Me.CheckEdit1.TabIndex = 621
         '
         'frmResetDatabase
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(413, 499)
+        Me.ClientSize = New System.Drawing.Size(421, 499)
         Me.Controls.Add(Me.CheckEdit1)
         Me.Controls.Add(Me.cmdUpdate)
         Me.Controls.Add(Me.txtColumn)

@@ -27,6 +27,11 @@ Partial Class frmExpenditureClass
         Me.code = New DevExpress.XtraEditors.TextEdit()
         Me.txtDescription = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
@@ -47,15 +52,11 @@ Partial Class frmExpenditureClass
         Me.gridTagCashFlowName = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.BarDockControl1 = New DevExpress.XtraBars.BarDockControl()
-        Me.cmdEdit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmdDelete = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         CType(Me.mode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDescription.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gridmenustrip.SuspendLayout()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,7 +75,6 @@ Partial Class frmExpenditureClass
         CType(Me.expenditurecode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTagCashFlowName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridTagCashFlowName, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gridmenustrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'LabelControl2
@@ -155,9 +155,41 @@ Partial Class frmExpenditureClass
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(698, 393)
+        Me.Em.Size = New System.Drawing.Size(730, 410)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        '
+        'gridmenustrip
+        '
+        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
+        Me.gridmenustrip.Name = "gridmenustrip"
+        Me.gridmenustrip.Size = New System.Drawing.Size(145, 76)
+        '
+        'cmdEdit
+        '
+        Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
+        Me.cmdEdit.Name = "cmdEdit"
+        Me.cmdEdit.Size = New System.Drawing.Size(144, 22)
+        Me.cmdEdit.Text = "Edit Selected"
+        '
+        'cmdDelete
+        '
+        Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.notebook__minus
+        Me.cmdDelete.Name = "cmdDelete"
+        Me.cmdDelete.Size = New System.Drawing.Size(144, 22)
+        Me.cmdDelete.Text = "Remove Item"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(141, 6)
+        '
+        'RefreshToolStripMenuItem
+        '
+        Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
+        Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.RefreshToolStripMenuItem.Text = "Refresh Data"
         '
         'GridView1
         '
@@ -181,7 +213,7 @@ Partial Class frmExpenditureClass
         Me.XtraTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.tabExpenditureInfo
-        Me.XtraTabControl1.Size = New System.Drawing.Size(718, 536)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(738, 536)
         Me.XtraTabControl1.TabIndex = 646
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabExpenditureInfo, Me.tabExpenditureTagging})
         '
@@ -196,7 +228,7 @@ Partial Class frmExpenditureClass
         Me.tabExpenditureInfo.Controls.Add(Me.LabelControl4)
         Me.tabExpenditureInfo.Controls.Add(Me.cmdSaveButton)
         Me.tabExpenditureInfo.Name = "tabExpenditureInfo"
-        Me.tabExpenditureInfo.Size = New System.Drawing.Size(716, 507)
+        Me.tabExpenditureInfo.Size = New System.Drawing.Size(736, 507)
         Me.tabExpenditureInfo.Text = "Expenditure Info"
         '
         'TextEdit2
@@ -221,7 +253,7 @@ Partial Class frmExpenditureClass
         Me.tabExpenditureTagging.Controls.Add(Me.barDockControlRight)
         Me.tabExpenditureTagging.Controls.Add(Me.BarDockControl1)
         Me.tabExpenditureTagging.Name = "tabExpenditureTagging"
-        Me.tabExpenditureTagging.Size = New System.Drawing.Size(716, 507)
+        Me.tabExpenditureTagging.Size = New System.Drawing.Size(724, 504)
         Me.tabExpenditureTagging.Text = "Expenditure Tagging"
         '
         'SplitContainerControl2
@@ -369,58 +401,26 @@ Partial Class frmExpenditureClass
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(716, 0)
+        Me.barDockControlRight.Location = New System.Drawing.Point(724, 0)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 507)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 504)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(716, 0)
+        Me.BarDockControl1.Location = New System.Drawing.Point(724, 0)
         Me.BarDockControl1.Manager = Nothing
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 507)
-        '
-        'cmdEdit
-        '
-        Me.cmdEdit.Image = Global.LGUFinancial.My.Resources.Resources.notebook__pencil
-        Me.cmdEdit.Name = "cmdEdit"
-        Me.cmdEdit.Size = New System.Drawing.Size(144, 22)
-        Me.cmdEdit.Text = "Edit Selected"
-        '
-        'cmdDelete
-        '
-        Me.cmdDelete.Image = Global.LGUFinancial.My.Resources.Resources.notebook__minus
-        Me.cmdDelete.Name = "cmdDelete"
-        Me.cmdDelete.Size = New System.Drawing.Size(144, 22)
-        Me.cmdDelete.Text = "Remove Item"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(141, 6)
-        '
-        'RefreshToolStripMenuItem
-        '
-        Me.RefreshToolStripMenuItem.Image = Global.LGUFinancial.My.Resources.Resources.arrow_continue_090_left
-        Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
-        Me.RefreshToolStripMenuItem.Text = "Refresh Data"
-        '
-        'gridmenustrip
-        '
-        Me.gridmenustrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdEdit, Me.cmdDelete, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem})
-        Me.gridmenustrip.Name = "gridmenustrip"
-        Me.gridmenustrip.Size = New System.Drawing.Size(145, 76)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 504)
         '
         'frmExpenditureClass
         '
         Me.AcceptButton = Me.cmdSaveButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(718, 536)
+        Me.ClientSize = New System.Drawing.Size(738, 536)
         Me.Controls.Add(Me.XtraTabControl1)
-        Me.MinimumSize = New System.Drawing.Size(720, 568)
+        Me.MinimumSize = New System.Drawing.Size(700, 568)
         Me.Name = "frmExpenditureClass"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Expenditure Class"
@@ -428,6 +428,7 @@ Partial Class frmExpenditureClass
         CType(Me.code.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDescription.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gridmenustrip.ResumeLayout(False)
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -448,7 +449,6 @@ Partial Class frmExpenditureClass
         CType(Me.expenditurecode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTagCashFlowName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridTagCashFlowName, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gridmenustrip.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

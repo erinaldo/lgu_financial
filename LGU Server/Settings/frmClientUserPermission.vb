@@ -101,11 +101,7 @@ Public Class frmClientUserPermission
                   + ", budgetreport as 'Actual Budget Report' " _
                   + ", humanresource as 'Human Resource' "
 
-
-
-
-
-        LoadXgrid("Select accesscode as 'Access Code', description as 'Authorize Person', departmenthead as 'Department Head',  generalapprover as 'General Approver', specialapprover as 'Special Authority', AllowAdd,AllowEdit,AllowDelete " & strmodule & "  from tblclientaccess order by description asc", "tblclientaccess", Em, GridView1, Me)
+        LoadXgrid("Select accesscode as 'Access Code', description as 'Authorize Person', departmenthead as 'Department Head',  generalapprover as 'General Approver', specialapprover as 'Special Authority', AllowAdd,AllowEdit,AllowDelete, requestoverride as 'Requisition Override' " & strmodule & "  from tblclientaccess order by description asc", "tblclientaccess", Em, GridView1, Me)
         XgridColAlign({"Access Code"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         GridView1.BestFitColumns()
     End Sub
@@ -181,10 +177,10 @@ Public Class frmClientUserPermission
                 txtdesc.Focus()
                 Exit Sub
             End If
-            com.CommandText = "insert into tblclientaccess set description='" & rchar(txtdesc.Text) & "', " & checkeditem & " generalapprover=" & ckGeneralApprover.CheckState & ", departmenthead=" & ckDepartmentHead.CheckState & ",specialapprover=" & ckSpecialApprover.CheckState & ", allowadd=" & ckAllowAdd.CheckState & ",allowedit=" & ckAllowEdit.CheckState & ", allowdelete=" & ckAllowDelete.CheckState & "" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblclientaccess set description='" & rchar(txtdesc.Text) & "', " & checkeditem & " generalapprover=" & ckGeneralApprover.CheckState & ", departmenthead=" & ckDepartmentHead.CheckState & ",specialapprover=" & ckSpecialApprover.CheckState & ", allowadd=" & ckAllowAdd.CheckState & ",allowedit=" & ckAllowEdit.CheckState & ", allowdelete=" & ckAllowDelete.CheckState & ", requestoverride=" & ckRequisitionOveride.CheckState & "" : com.ExecuteNonQuery()
         Else
             com.CommandText = "delete from tblclientaccess where accesscode='" & id.Text & "'" : com.ExecuteNonQuery()
-            com.CommandText = "insert into tblclientaccess set accesscode='" & id.Text & "', description='" & rchar(txtdesc.Text) & "', " & checkeditem & " generalapprover=" & ckGeneralApprover.CheckState & ", departmenthead=" & ckDepartmentHead.CheckState & ",specialapprover=" & ckSpecialApprover.CheckState & ", allowadd=" & ckAllowAdd.CheckState & ",allowedit=" & ckAllowEdit.CheckState & ", allowdelete=" & ckAllowDelete.CheckState & "" : com.ExecuteNonQuery()
+            com.CommandText = "insert into tblclientaccess set accesscode='" & id.Text & "', description='" & rchar(txtdesc.Text) & "', " & checkeditem & " generalapprover=" & ckGeneralApprover.CheckState & ", departmenthead=" & ckDepartmentHead.CheckState & ",specialapprover=" & ckSpecialApprover.CheckState & ", allowadd=" & ckAllowAdd.CheckState & ",allowedit=" & ckAllowEdit.CheckState & ", allowdelete=" & ckAllowDelete.CheckState & ", requestoverride=" & ckRequisitionOveride.CheckState & "" : com.ExecuteNonQuery()
         End If
 
         clearfields() : ClearAuthority()
@@ -217,6 +213,7 @@ Public Class frmClientUserPermission
             ckAllowAdd.Checked = rst("allowadd")
             ckAllowEdit.Checked = rst("allowedit")
             ckAllowDelete.Checked = rst("allowdelete")
+            ckRequisitionOveride.Checked = rst("requestoverride")
 
             If rst("collectionposting") = True Then
                 Dim I As Integer = 0
@@ -450,8 +447,8 @@ Public Class frmClientUserPermission
     End Sub
 
     Private Sub DuplicateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DuplicateToolStripMenuItem.Click
-        com.CommandText = "INSERT INTO  `tblclientaccess` (description,departmenthead,generalapprover,specialapprover,allowadd,allowedit,allowdelete,collectionposting,cedulaindividual,cedulacorporate,realpropertytax,collectionreport,accountableform,businessmgt,realpropertymgt,newdirectjournal,journalentryvoucher,forapproval,checkapproval,newrequisition,requisitionlist,newdisbursement,disbursementlist,budgetreport,humanresource) " _
-                               + " SELECT concat(description,' - copy'),departmenthead,generalapprover,specialapprover,allowadd,allowedit,allowdelete,collectionposting,cedulaindividual,cedulacorporate,realpropertytax,collectionreport,accountableform,businessmgt,realpropertymgt,newdirectjournal,journalentryvoucher,forapproval,checkapproval,newrequisition,requisitionlist,newdisbursement,disbursementlist,budgetreport,humanresource FROM `tblclientaccess` where accesscode='" & GridView1.GetFocusedRowCellValue("Access Code").ToString & "'" : com.ExecuteNonQuery()
+        com.CommandText = "INSERT INTO  `tblclientaccess` (description,departmenthead,generalapprover,specialapprover,allowadd,allowedit,allowdelete,requestoverride,collectionposting,cedulaindividual,cedulacorporate,realpropertytax,collectionreport,accountableform,businessmgt,realpropertymgt,newdirectjournal,journalentryvoucher,forapproval,checkapproval,newrequisition,requisitionlist,newdisbursement,disbursementlist,budgetreport,humanresource) " _
+                               + "SELECT concat(description,' - copy'),departmenthead,generalapprover,specialapprover,allowadd,allowedit,allowdelete,requestoverride,collectionposting,cedulaindividual,cedulacorporate,realpropertytax,collectionreport,accountableform,businessmgt,realpropertymgt,newdirectjournal,journalentryvoucher,forapproval,checkapproval,newrequisition,requisitionlist,newdisbursement,disbursementlist,budgetreport,humanresource FROM `tblclientaccess` where accesscode='" & GridView1.GetFocusedRowCellValue("Access Code").ToString & "'" : com.ExecuteNonQuery()
         filter()
         XtraMessageBox.Show("Permission successfully duplicated", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub

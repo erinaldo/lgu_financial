@@ -19,6 +19,7 @@ Partial Class frmAppearance
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
         Me.tablogin = New DevExpress.XtraTab.XtraTabPage()
         Me.cmdUpdate = New DevExpress.XtraEditors.SimpleButton()
@@ -29,7 +30,7 @@ Partial Class frmAppearance
         Me.txthieght = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
-        Me.BarManager1 = New DevExpress.XtraBars.BarManager()
+        Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar2 = New DevExpress.XtraBars.Bar()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
@@ -54,7 +55,7 @@ Partial Class frmAppearance
         Me.XtraTabControl1.Location = New System.Drawing.Point(0, 20)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.tablogin
-        Me.XtraTabControl1.Size = New System.Drawing.Size(428, 453)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(436, 453)
         Me.XtraTabControl1.TabIndex = 0
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tablogin})
         '
@@ -68,7 +69,7 @@ Partial Class frmAppearance
         Me.tablogin.Controls.Add(Me.LabelControl4)
         Me.tablogin.Controls.Add(Me.LabelControl3)
         Me.tablogin.Name = "tablogin"
-        Me.tablogin.Size = New System.Drawing.Size(422, 425)
+        Me.tablogin.Size = New System.Drawing.Size(434, 428)
         Me.tablogin.Text = "Login Wallpaper"
         '
         'cmdUpdate
@@ -86,9 +87,9 @@ Partial Class frmAppearance
         'LabelControl1
         '
         Me.LabelControl1.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.LabelControl1.Location = New System.Drawing.Point(213, 332)
+        Me.LabelControl1.Location = New System.Drawing.Point(219, 335)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(5, 13)
+        Me.LabelControl1.Size = New System.Drawing.Size(6, 13)
         Me.LabelControl1.TabIndex = 387
         Me.LabelControl1.Text = "x"
         '
@@ -100,16 +101,16 @@ Partial Class frmAppearance
         Me.logo.Controls.Add(Me.piclogo)
         Me.logo.Location = New System.Drawing.Point(29, 11)
         Me.logo.Name = "logo"
-        Me.logo.Size = New System.Drawing.Size(357, 299)
+        Me.logo.Size = New System.Drawing.Size(369, 302)
         Me.logo.TabIndex = 386
         Me.logo.Text = "Import File"
         '
         'piclogo
         '
         Me.piclogo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.piclogo.Location = New System.Drawing.Point(2, 20)
+        Me.piclogo.Location = New System.Drawing.Point(2, 23)
         Me.piclogo.Name = "piclogo"
-        Me.piclogo.Size = New System.Drawing.Size(353, 277)
+        Me.piclogo.Size = New System.Drawing.Size(365, 277)
         Me.piclogo.TabIndex = 375
         '
         'txtwidth
@@ -117,7 +118,7 @@ Partial Class frmAppearance
         Me.txtwidth.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.txtwidth.EditValue = "237"
         Me.txtwidth.EnterMoveNextControl = True
-        Me.txtwidth.Location = New System.Drawing.Point(152, 329)
+        Me.txtwidth.Location = New System.Drawing.Point(158, 332)
         Me.txtwidth.Name = "txtwidth"
         Me.txtwidth.Properties.Appearance.Options.UseTextOptions = True
         Me.txtwidth.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
@@ -129,7 +130,7 @@ Partial Class frmAppearance
         Me.txthieght.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.txthieght.EditValue = "341"
         Me.txthieght.EnterMoveNextControl = True
-        Me.txthieght.Location = New System.Drawing.Point(225, 329)
+        Me.txthieght.Location = New System.Drawing.Point(231, 332)
         Me.txthieght.Name = "txthieght"
         Me.txthieght.Properties.Appearance.Options.UseTextOptions = True
         Me.txthieght.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
@@ -139,18 +140,18 @@ Partial Class frmAppearance
         'LabelControl4
         '
         Me.LabelControl4.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.LabelControl4.Location = New System.Drawing.Point(152, 355)
+        Me.LabelControl4.Location = New System.Drawing.Point(158, 358)
         Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(138, 13)
+        Me.LabelControl4.Size = New System.Drawing.Size(130, 13)
         Me.LabelControl4.TabIndex = 384
         Me.LabelControl4.Text = "Default login size 273, 341 "
         '
         'LabelControl3
         '
         Me.LabelControl3.Anchor = System.Windows.Forms.AnchorStyles.Bottom
-        Me.LabelControl3.Location = New System.Drawing.Point(100, 331)
+        Me.LabelControl3.Location = New System.Drawing.Point(106, 334)
         Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(49, 13)
+        Me.LabelControl3.Size = New System.Drawing.Size(46, 13)
         Me.LabelControl3.TabIndex = 385
         Me.LabelControl3.Text = "Form Size"
         '
@@ -196,7 +197,7 @@ Partial Class frmAppearance
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(428, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(436, 20)
         '
         'barDockControlBottom
         '
@@ -204,7 +205,7 @@ Partial Class frmAppearance
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.barDockControlBottom.Location = New System.Drawing.Point(0, 473)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(428, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(436, 0)
         '
         'barDockControlLeft
         '
@@ -218,7 +219,7 @@ Partial Class frmAppearance
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(428, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(436, 20)
         Me.barDockControlRight.Manager = Me.BarManager1
         Me.barDockControlRight.Size = New System.Drawing.Size(0, 453)
         '
@@ -226,14 +227,14 @@ Partial Class frmAppearance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(428, 473)
+        Me.ClientSize = New System.Drawing.Size(436, 473)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.barDockControlTop)
         Me.MaximizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(444, 511)
+        Me.MinimumSize = New System.Drawing.Size(430, 505)
         Me.Name = "frmAppearance"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Appearance Settings"

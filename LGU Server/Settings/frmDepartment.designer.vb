@@ -125,15 +125,15 @@ Partial Class frmDepartment
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(959, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(981, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 490)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 488)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(959, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(981, 0)
         '
         'barDockControlLeft
         '
@@ -141,15 +141,15 @@ Partial Class frmDepartment
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 470)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 468)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(959, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(981, 20)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 470)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 468)
         '
         'Em
         '
@@ -158,7 +158,7 @@ Partial Class frmDepartment
         Me.Em.Location = New System.Drawing.Point(0, 20)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(959, 470)
+        Me.Em.Size = New System.Drawing.Size(981, 468)
         Me.Em.TabIndex = 685
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -176,7 +176,7 @@ Partial Class frmDepartment
         Me.Appearance.Options.UseFont = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(959, 490)
+        Me.ClientSize = New System.Drawing.Size(981, 488)
         Me.Controls.Add(Me.Em)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)

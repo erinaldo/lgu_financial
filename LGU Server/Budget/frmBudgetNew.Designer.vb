@@ -840,7 +840,7 @@ Partial Class frmBudgetNew
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(495, 682)
+        Me.ClientSize = New System.Drawing.Size(515, 678)
         Me.Controls.Add(Me.yearcode)
         Me.Controls.Add(Me.fundcode)
         Me.Controls.Add(Me.periodcode)
@@ -892,7 +892,7 @@ Partial Class frmBudgetNew
         Me.Controls.Add(Me.txtTransNovember)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(393, 530)
+        Me.MinimumSize = New System.Drawing.Size(373, 534)
         Me.Name = "frmBudgetNew"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "New Budget Composition"

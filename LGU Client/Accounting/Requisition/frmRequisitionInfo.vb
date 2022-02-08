@@ -15,6 +15,7 @@ Public Class frmRequisitionInfo
     Private EnablePO As Boolean = False
     Private EnableVoucher As Boolean = True
     Private RequiredFund As Boolean = False
+    Public RequestOveride As Boolean
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
         If keyData = (Keys.Escape) Then
             Me.Close()
@@ -213,7 +214,11 @@ Public Class frmRequisitionInfo
             mode.Text = "direct"
             cmdForApproval.Text = "Proceed for DV Preparation"
         Else
-            cmdForApproval.Text = "Submit for Approval"
+            If RequestOveride Then
+                cmdForApproval.Text = "Submit Revised for Approval"
+            Else
+                cmdForApproval.Text = "Submit for Approval"
+            End If
         End If
         If EnableVoucher Then
             txtSupplier.Enabled = True
@@ -382,50 +387,53 @@ Public Class frmRequisitionInfo
                 txtPurpose.Text = .Rows(cnt)("purpose").ToString()
                 txtPriority.EditValue = .Rows(cnt)("priority").ToString()
                 HeadOfficeApprover = CBool(.Rows(cnt)("headofficeapproval").ToString())
-                If CBool(.Rows(cnt)("cancelled").ToString()) = True Then
-                    ReadOnlyForm(True, "cancelled")
-                    txtStatus.Text = "CANCELLED"
-
+                If RequestOveride Then
+                    ReadOnlyForm(False, "edit")
+                    txtStatus.Text = "FOR APPROVAL"
                 Else
-                    If CBool(.Rows(cnt)("cleared").ToString()) = True Then
-                        ReadOnlyForm(True, "view")
-                        txtStatus.Text = "CHECK CLAIMED"
-                        tabDisbursement.PageVisible = True
-                        LoadDisbursement()
+                    If CBool(.Rows(cnt)("cancelled").ToString()) = True Then
+                        ReadOnlyForm(True, "cancelled")
+                        txtStatus.Text = "CANCELLED"
+
                     Else
-                        If CBool(.Rows(cnt)("approved").ToString()) = True Then
+                        If CBool(.Rows(cnt)("cleared").ToString()) = True Then
                             ReadOnlyForm(True, "view")
-                            If CBool(.Rows(cnt)("voucher").ToString()) = True Then
-                                If CBool(.Rows(cnt)("paid").ToString()) = True Then
-                                    txtStatus.Text = "CHECK ISSUED"
-                                Else
-                                    txtStatus.Text = "FOR CHECK ISSUANCE"
-                                End If
-                                tabDisbursement.PageVisible = True
-                                LoadDisbursement()
-                            Else
-                                txtStatus.Text = "APPROVED"
-                                tabDisbursement.PageVisible = False
-                            End If
+                            txtStatus.Text = "CHECK CLAIMED"
+                            tabDisbursement.PageVisible = True
+                            LoadDisbursement()
                         Else
-                            tabDisbursement.PageVisible = False
-                            If CBool(.Rows(cnt)("forapproval").ToString()) = True Then
-                                ReadOnlyForm(True, "approval")
-                                txtStatus.Text = "FOR APPROVAL"
+                            If CBool(.Rows(cnt)("approved").ToString()) = True Then
+                                ReadOnlyForm(True, "view")
+                                If CBool(.Rows(cnt)("voucher").ToString()) = True Then
+                                    If CBool(.Rows(cnt)("paid").ToString()) = True Then
+                                        txtStatus.Text = "CHECK ISSUED"
+                                    Else
+                                        txtStatus.Text = "FOR CHECK ISSUANCE"
+                                    End If
+                                    tabDisbursement.PageVisible = True
+                                    LoadDisbursement()
+                                Else
+                                    txtStatus.Text = "APPROVED"
+                                    tabDisbursement.PageVisible = False
+                                End If
+                            Else
+                                tabDisbursement.PageVisible = False
+                                If CBool(.Rows(cnt)("forapproval").ToString()) = True Then
+                                    ReadOnlyForm(True, "approval")
+                                    txtStatus.Text = "FOR APPROVAL"
 
-                            ElseIf CBool(.Rows(cnt)("draft").ToString()) = True Then
-                                ReadOnlyForm(False, "edit")
-                                txtStatus.Text = "DRAFT"
+                                ElseIf CBool(.Rows(cnt)("draft").ToString()) = True Then
+                                    ReadOnlyForm(False, "edit")
+                                    txtStatus.Text = "DRAFT"
 
-                            ElseIf CBool(.Rows(cnt)("hold").ToString()) = True Then
-                                ReadOnlyForm(False, "edit")
-                                txtStatus.Text = "ON HOLD"
+                                ElseIf CBool(.Rows(cnt)("hold").ToString()) = True Then
+                                    ReadOnlyForm(False, "edit")
+                                    txtStatus.Text = "ON HOLD"
+                                End If
                             End If
                         End If
                     End If
-
                 End If
-
             End With
         Next
         LoadRequestBy()

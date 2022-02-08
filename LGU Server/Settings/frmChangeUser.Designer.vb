@@ -33,7 +33,7 @@ Partial Class frmChangeUser
         '
         Me.LabelControl2.Location = New System.Drawing.Point(24, 25)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(56, 13)
+        Me.LabelControl2.Size = New System.Drawing.Size(54, 13)
         Me.LabelControl2.TabIndex = 507
         Me.LabelControl2.Text = "Select User"
         '
@@ -86,7 +86,7 @@ Partial Class frmChangeUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(349, 93)
+        Me.ClientSize = New System.Drawing.Size(357, 93)
         Me.Controls.Add(Me.cmdUpdate)
         Me.Controls.Add(Me.uid)
         Me.Controls.Add(Me.LabelControl2)

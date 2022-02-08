@@ -159,7 +159,7 @@ Partial Class frmChangeOwnPassword
         Me.AcceptButton = Me.cmdSaveButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(421, 150)
+        Me.ClientSize = New System.Drawing.Size(429, 150)
         Me.Controls.Add(Me.txtCurrentPassword)
         Me.Controls.Add(Me.LabelControl4)
         Me.Controls.Add(Me.userid)

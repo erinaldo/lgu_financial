@@ -256,24 +256,24 @@ Partial Class frmRequisitionForApprovalInfo
         Me.tabAttachment.Controls.Add(Me.BarDockControl1)
         Me.tabAttachment.Controls.Add(Me.Em_files)
         Me.tabAttachment.Name = "tabAttachment"
-        Me.tabAttachment.Size = New System.Drawing.Size(697, 398)
+        Me.tabAttachment.Size = New System.Drawing.Size(693, 399)
         Me.tabAttachment.Text = "Attached Document Files"
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(697, 0)
+        Me.barDockControlRight.Location = New System.Drawing.Point(693, 0)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 398)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 399)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(697, 0)
+        Me.BarDockControl1.Location = New System.Drawing.Point(693, 0)
         Me.BarDockControl1.Manager = Nothing
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 398)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 399)
         '
         'Em_files
         '
@@ -283,7 +283,7 @@ Partial Class frmRequisitionForApprovalInfo
         Me.Em_files.MainView = Me.gridview_files
         Me.Em_files.Name = "Em_files"
         Me.Em_files.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2})
-        Me.Em_files.Size = New System.Drawing.Size(697, 398)
+        Me.Em_files.Size = New System.Drawing.Size(693, 399)
         Me.Em_files.TabIndex = 935
         Me.Em_files.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridview_files})
         '
@@ -340,7 +340,7 @@ Partial Class frmRequisitionForApprovalInfo
         '
         Me.tabApprovalHistory.Controls.Add(Me.Em_approval)
         Me.tabApprovalHistory.Name = "tabApprovalHistory"
-        Me.tabApprovalHistory.Size = New System.Drawing.Size(697, 398)
+        Me.tabApprovalHistory.Size = New System.Drawing.Size(693, 399)
         Me.tabApprovalHistory.Text = "Approval History"
         '
         'Em_approval
@@ -350,7 +350,7 @@ Partial Class frmRequisitionForApprovalInfo
         Me.Em_approval.MainView = Me.gridview_approval
         Me.Em_approval.Name = "Em_approval"
         Me.Em_approval.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit3})
-        Me.Em_approval.Size = New System.Drawing.Size(697, 398)
+        Me.Em_approval.Size = New System.Drawing.Size(693, 399)
         Me.Em_approval.TabIndex = 936
         Me.Em_approval.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridview_approval})
         '

@@ -24,7 +24,7 @@ Public Class frmRequisitionList
         LoadOffice()
         officeid.Text = compOfficeid
         txtOffice.EditValue = compOfficeid
-        If globalSpecialApprover = True Then
+        If globalSpecialApprover Then
             lbloffice.Visible = True
             txtOffice.Visible = True
             ckViewAllOffice.Visible = True
@@ -34,6 +34,11 @@ Public Class frmRequisitionList
             txtOffice.Visible = False
             ckViewAllOffice.Visible = False
             ckViewAllOffice.Checked = False
+        End If
+        If globalRequestOverride Then
+            cmdRequestOveride.Visible = True
+        Else
+            cmdRequestOveride.Visible = False
         End If
         LoadRequestType()
         ViewList()
@@ -339,6 +344,22 @@ Public Class frmRequisitionList
             frmRequisitionInfo.Focus()
         Else
             frmRequisitionInfo.Show(Me)
+        End If
+    End Sub
+
+    Private Sub cmdRequestOveride_Click(sender As Object, e As EventArgs) Handles cmdRequestOveride.Click
+        If CBool(GridView1.GetFocusedRowCellValue("ForApproval").ToString) = False Then
+            XtraMessageBox.Show("Only for approval request can be override!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        frmRequisitionInfo.mode.Text = ""
+        frmRequisitionInfo.pid.Text = GridView1.GetFocusedRowCellValue("Entry Code").ToString
+        frmRequisitionInfo.mode.Text = "edit"
+        frmRequisitionInfo.RequestOveride = True
+        If frmRequisitionInfo.Visible = False Then
+            frmRequisitionInfo.Show(Me)
+        Else
+            frmRequisitionInfo.WindowState = FormWindowState.Normal
         End If
     End Sub
 End Class

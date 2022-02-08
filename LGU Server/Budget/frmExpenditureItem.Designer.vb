@@ -91,7 +91,7 @@ Partial Class frmExpenditureItem
         Me.Em.Location = New System.Drawing.Point(1, 106)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(502, 378)
+        Me.Em.Size = New System.Drawing.Size(522, 378)
         Me.Em.TabIndex = 636
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -203,7 +203,7 @@ Partial Class frmExpenditureItem
         Me.AcceptButton = Me.cmdOk
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(505, 485)
+        Me.ClientSize = New System.Drawing.Size(525, 485)
         Me.Controls.Add(Me.CheckEdit1)
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.txtExpenseClass)
@@ -215,7 +215,7 @@ Partial Class frmExpenditureItem
         Me.Controls.Add(Me.Em)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(409, 517)
+        Me.MinimumSize = New System.Drawing.Size(389, 517)
         Me.Name = "frmExpenditureItem"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Expenditure Item"

@@ -311,15 +311,15 @@ Partial Class frmDepartmentInfo
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
         Me.barDockControlTop.Manager = Me.BarManager1
-        Me.barDockControlTop.Size = New System.Drawing.Size(561, 20)
+        Me.barDockControlTop.Size = New System.Drawing.Size(581, 20)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 494)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 490)
         Me.barDockControlBottom.Manager = Me.BarManager1
-        Me.barDockControlBottom.Size = New System.Drawing.Size(561, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(581, 0)
         '
         'barDockControlLeft
         '
@@ -327,15 +327,15 @@ Partial Class frmDepartmentInfo
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 20)
         Me.barDockControlLeft.Manager = Me.BarManager1
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 474)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 470)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(561, 20)
+        Me.barDockControlRight.Location = New System.Drawing.Point(581, 20)
         Me.barDockControlRight.Manager = Me.BarManager1
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 474)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 470)
         '
         'cmdUpdateAccountable
         '
@@ -427,7 +427,7 @@ Partial Class frmDepartmentInfo
         Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(561, 494)
+        Me.ClientSize = New System.Drawing.Size(581, 490)
         Me.Controls.Add(Me.GroupControl1)
         Me.Controls.Add(Me.ckSB)
         Me.Controls.Add(Me.txtCenterCode)

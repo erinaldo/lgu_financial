@@ -19,10 +19,9 @@ Partial Class frmBudgetMonthly
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.cmdSaveButton = New DevExpress.XtraEditors.SimpleButton()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.gridmenustrip = New System.Windows.Forms.ContextMenuStrip()
         Me.cmdViewItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdNewFund = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdTransfer = New System.Windows.Forms.ToolStripMenuItem()
@@ -66,7 +65,7 @@ Partial Class frmBudgetMonthly
         Me.cmdSaveButton.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.cmdSaveButton.Appearance.Options.UseBackColor = True
         Me.cmdSaveButton.Appearance.Options.UseFont = True
-        Me.cmdSaveButton.Location = New System.Drawing.Point(779, 21)
+        Me.cmdSaveButton.Location = New System.Drawing.Point(783, 21)
         Me.cmdSaveButton.Name = "cmdSaveButton"
         Me.cmdSaveButton.Size = New System.Drawing.Size(207, 56)
         Me.cmdSaveButton.TabIndex = 6
@@ -83,7 +82,7 @@ Partial Class frmBudgetMonthly
         Me.Em.MinimumSize = New System.Drawing.Size(574, 454)
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(975, 499)
+        Me.Em.Size = New System.Drawing.Size(979, 499)
         Me.Em.TabIndex = 632
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -273,7 +272,7 @@ Partial Class frmBudgetMonthly
         Me.SimpleButton1.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SimpleButton1.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
         Me.SimpleButton1.Appearance.Options.UseFont = True
-        Me.SimpleButton1.Location = New System.Drawing.Point(567, 21)
+        Me.SimpleButton1.Location = New System.Drawing.Point(571, 21)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(207, 56)
         Me.SimpleButton1.TabIndex = 651
@@ -284,7 +283,7 @@ Partial Class frmBudgetMonthly
         Me.AcceptButton = Me.cmdSaveButton
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(995, 617)
+        Me.ClientSize = New System.Drawing.Size(999, 617)
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.CheckEdit1)
         Me.Controls.Add(Me.officeid)
@@ -297,7 +296,7 @@ Partial Class frmBudgetMonthly
         Me.Controls.Add(Me.txtFund)
         Me.Controls.Add(Me.cmdSaveButton)
         Me.Controls.Add(Me.Em)
-        Me.MinimumSize = New System.Drawing.Size(989, 649)
+        Me.MinimumSize = New System.Drawing.Size(985, 649)
         Me.Name = "frmBudgetMonthly"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Monthly Budget"

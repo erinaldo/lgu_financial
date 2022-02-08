@@ -92,7 +92,7 @@ Partial Class frmBudgetMonthlyClosing
         Me.Em.Location = New System.Drawing.Point(1, 63)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(506, 423)
+        Me.Em.Size = New System.Drawing.Size(526, 423)
         Me.Em.TabIndex = 636
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -141,14 +141,14 @@ Partial Class frmBudgetMonthlyClosing
         Me.AcceptButton = Me.cmdOk
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(509, 485)
+        Me.ClientSize = New System.Drawing.Size(529, 485)
         Me.Controls.Add(Me.fundcode)
         Me.Controls.Add(Me.periodcode)
         Me.Controls.Add(Me.cmdOk)
         Me.Controls.Add(Me.Em)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(405, 515)
+        Me.MinimumSize = New System.Drawing.Size(385, 517)
         Me.Name = "frmBudgetMonthlyClosing"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Budget Quarter"

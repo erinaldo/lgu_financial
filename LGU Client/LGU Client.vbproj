@@ -483,10 +483,10 @@
     <Compile Include="Accounting\Requisition\frmRequisitionInfo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registry\frmTaxDeclarationInfo.Designer.vb">
+    <Compile Include="Real Property\frmTaxDeclarationInfo.Designer.vb">
       <DependentUpon>frmTaxDeclarationInfo.vb</DependentUpon>
     </Compile>
-    <Compile Include="Registry\frmTaxDeclarationInfo.vb">
+    <Compile Include="Real Property\frmTaxDeclarationInfo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Settings\frmColumnFilter.designer.vb">
@@ -600,16 +600,16 @@
     <Compile Include="Settings\frmDataPicked.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registry\frmRealProperty.Designer.vb">
+    <Compile Include="Real Property\frmRealProperty.Designer.vb">
       <DependentUpon>frmRealProperty.vb</DependentUpon>
     </Compile>
-    <Compile Include="Registry\frmRealProperty.vb">
+    <Compile Include="Real Property\frmRealProperty.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registry\frmRealPropertyInfo.Designer.vb">
+    <Compile Include="Real Property\frmRealPropertyInfo.Designer.vb">
       <DependentUpon>frmRealPropertyInfo.vb</DependentUpon>
     </Compile>
-    <Compile Include="Registry\frmRealPropertyInfo.vb">
+    <Compile Include="Real Property\frmRealPropertyInfo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Treasury\Cedula\frmCedulaCorporation.Designer.vb">
@@ -825,7 +825,7 @@
     <EmbeddedResource Include="Accounting\Requisition\frmRequisitionInfo.resx">
       <DependentUpon>frmRequisitionInfo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registry\frmTaxDeclarationInfo.resx">
+    <EmbeddedResource Include="Real Property\frmTaxDeclarationInfo.resx">
       <DependentUpon>frmTaxDeclarationInfo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\frmColumnFilter.resx">
@@ -882,10 +882,10 @@
     <EmbeddedResource Include="Settings\frmDataPicked.resx">
       <DependentUpon>frmDataPicked.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registry\frmRealProperty.resx">
+    <EmbeddedResource Include="Real Property\frmRealProperty.resx">
       <DependentUpon>frmRealProperty.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registry\frmRealPropertyInfo.resx">
+    <EmbeddedResource Include="Real Property\frmRealPropertyInfo.resx">
       <DependentUpon>frmRealPropertyInfo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Treasury\Cedula\frmCedulaCorporation.resx">

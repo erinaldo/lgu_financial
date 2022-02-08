@@ -43,7 +43,7 @@ Public Class frmRegistry
             listItemName.Add(RemoveDiacritics(rchar(rst("itemname").ToString)))
 
             query += ", " & rst("amount").ToString & " as '" & RemoveDiacritics(rchar(rst("itemname").ToString)) & "'"
-            strItemColumn += "`" & rst("itemcode").ToString & "` DOUBLE NOT NULL DEFAULT 0,"
+            strItemColumn += "`" & rst("itemcode").ToString & "` DOUBLE,"
             ItemCode += ", `" & rst("itemcode").ToString & "`"
             BlanckItem += ", null "
         End While
@@ -76,7 +76,7 @@ Public Class frmRegistry
                 Dim ItemObligation As String = ""
                 com.CommandText = "select * from tblrequisitionfund where pid='" & .Rows(cnt)("pid").ToString() & "' and classcode='" & txtClass.EditValue & "'  and cancelled=0" : rst = com.ExecuteReader
                 While rst.Read
-                    ItemObligation += ", `" & rst("itemcode").ToString & "`='" & rst("amount").ToString & "' "
+                    ItemObligation += ", `" & rst("itemcode").ToString & "`=" & If(Val(rst("amount").ToString) > 0, "'" & rst("amount").ToString & "'", "null") & " "
                 End While
                 rst.Close()
 
@@ -130,6 +130,11 @@ Public Class frmRegistry
     End Sub
 
     Private Sub cmdSaveButton_Click(sender As Object, e As EventArgs) Handles cmdSaveButton.Click
+        Dim yearcode As String() = txtFund.EditValue.Split("-")
+        If countqry("tblbudgetmonthly", "fundperiod='" & txtFund.EditValue & "' and monthcode='" & String.Format("{0:0#}", Month(txtMonth.EditValue & " 1, " & yearcode(1))) & "' and closed=1") = 0 Then
+            XtraMessageBox.Show("Selected month " & txtMonth.Text & " not yet close!", compname, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
         LoadReport(False)
     End Sub
 

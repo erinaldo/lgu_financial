@@ -22,13 +22,12 @@ Partial Class frmCollectionMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.txtFundcode = New System.Windows.Forms.ComboBox()
         Me.TextEdit2 = New DevExpress.XtraEditors.TextEdit()
         Me.periodcode = New DevExpress.XtraEditors.TextEdit()
         Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.cms_em = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.cms_em = New System.Windows.Forms.ContextMenuStrip()
         Me.cmdSetActiveForm = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdReturnForm = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
@@ -208,7 +207,7 @@ Partial Class frmCollectionMenu
         Me.GroupBox1.Size = New System.Drawing.Size(617, 285)
         Me.GroupBox1.TabIndex = 822
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Activate one of your accountable forms to start posting (right click then set in-" & _
+        Me.GroupBox1.Text = "Activate one of your accountable forms to start posting (right click then set in-" &
     "used form)"
         '
         'mode

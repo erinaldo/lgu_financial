@@ -742,7 +742,7 @@ Partial Class frmBudgetEditLine
         Me.Em_Requisition.MainView = Me.gridRequisition
         Me.Em_Requisition.Name = "Em_Requisition"
         Me.Em_Requisition.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em_Requisition.Size = New System.Drawing.Size(755, 609)
+        Me.Em_Requisition.Size = New System.Drawing.Size(775, 609)
         Me.Em_Requisition.TabIndex = 633
         Me.Em_Requisition.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridRequisition})
         '
@@ -777,7 +777,7 @@ Partial Class frmBudgetEditLine
         Me.XtraTabControl1.Location = New System.Drawing.Point(492, 19)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.tabRequisition
-        Me.XtraTabControl1.Size = New System.Drawing.Size(757, 640)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(777, 640)
         Me.XtraTabControl1.TabIndex = 645
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabRequisition, Me.tabTransfered})
         '
@@ -793,14 +793,14 @@ Partial Class frmBudgetEditLine
         Me.tabRequisition.Appearance.HeaderHotTracked.Options.UseFont = True
         Me.tabRequisition.Controls.Add(Me.Em_Requisition)
         Me.tabRequisition.Name = "tabRequisition"
-        Me.tabRequisition.Size = New System.Drawing.Size(755, 609)
+        Me.tabRequisition.Size = New System.Drawing.Size(775, 609)
         Me.tabRequisition.Text = "Requisition Reports"
         '
         'tabTransfered
         '
         Me.tabTransfered.Controls.Add(Me.Em_Transfered)
         Me.tabTransfered.Name = "tabTransfered"
-        Me.tabTransfered.Size = New System.Drawing.Size(757, 594)
+        Me.tabTransfered.Size = New System.Drawing.Size(763, 606)
         Me.tabTransfered.Text = "Budget Transfered Report"
         '
         'Em_Transfered
@@ -811,7 +811,7 @@ Partial Class frmBudgetEditLine
         Me.Em_Transfered.MainView = Me.gridTransfered
         Me.Em_Transfered.Name = "Em_Transfered"
         Me.Em_Transfered.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2})
-        Me.Em_Transfered.Size = New System.Drawing.Size(757, 594)
+        Me.Em_Transfered.Size = New System.Drawing.Size(763, 606)
         Me.Em_Transfered.TabIndex = 634
         Me.Em_Transfered.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridTransfered})
         '
@@ -860,7 +860,7 @@ Partial Class frmBudgetEditLine
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1261, 670)
+        Me.ClientSize = New System.Drawing.Size(1281, 670)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.Controls.Add(Me.txtOriginalBalance)
         Me.Controls.Add(Me.txtAmount)
@@ -904,7 +904,7 @@ Partial Class frmBudgetEditLine
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.txtJanuary)
         Me.Controls.Add(Me.txtAccountTitle)
-        Me.MinimumSize = New System.Drawing.Size(988, 702)
+        Me.MinimumSize = New System.Drawing.Size(968, 702)
         Me.Name = "frmBudgetEditLine"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Budget Info Edit Line"

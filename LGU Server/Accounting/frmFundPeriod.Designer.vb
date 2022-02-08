@@ -345,7 +345,7 @@ Partial Class frmFundPeriod
         Me.AcceptButton = Me.cmdSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(667, 595)
+        Me.ClientSize = New System.Drawing.Size(687, 591)
         Me.Controls.Add(Me.code)
         Me.Controls.Add(Me.LabelControl7)
         Me.Controls.Add(Me.id)

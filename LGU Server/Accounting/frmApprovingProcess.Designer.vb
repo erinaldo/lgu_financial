@@ -105,7 +105,7 @@ Partial Class frmApprovingProcess
         Me.tabsettings.Location = New System.Drawing.Point(0, 0)
         Me.tabsettings.Name = "tabsettings"
         Me.tabsettings.SelectedTabPage = Me.tabCoffeecupMain
-        Me.tabsettings.Size = New System.Drawing.Size(1007, 469)
+        Me.tabsettings.Size = New System.Drawing.Size(1027, 465)
         Me.tabsettings.TabIndex = 371
         Me.tabsettings.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.tabCoffeecupMain, Me.tabRequiredAttachment})
         '
@@ -116,7 +116,7 @@ Partial Class frmApprovingProcess
         Me.tabCoffeecupMain.AutoScroll = True
         Me.tabCoffeecupMain.Controls.Add(Me.SplitContainerControl2)
         Me.tabCoffeecupMain.Name = "tabCoffeecupMain"
-        Me.tabCoffeecupMain.Size = New System.Drawing.Size(1005, 440)
+        Me.tabCoffeecupMain.Size = New System.Drawing.Size(1025, 436)
         Me.tabCoffeecupMain.Text = "Corporate Level Approving Process"
         '
         'SplitContainerControl2
@@ -145,7 +145,7 @@ Partial Class frmApprovingProcess
         Me.SplitContainerControl2.Panel1.Text = "Panel1"
         Me.SplitContainerControl2.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl2.Panel2.Text = "Panel2"
-        Me.SplitContainerControl2.Size = New System.Drawing.Size(1005, 440)
+        Me.SplitContainerControl2.Size = New System.Drawing.Size(1025, 436)
         Me.SplitContainerControl2.SplitterPosition = 373
         Me.SplitContainerControl2.TabIndex = 531
         Me.SplitContainerControl2.Text = "SplitContainerControl2"
@@ -384,7 +384,7 @@ Partial Class frmApprovingProcess
         Me.Em.Location = New System.Drawing.Point(0, 0)
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
-        Me.Em.Size = New System.Drawing.Size(622, 440)
+        Me.Em.Size = New System.Drawing.Size(642, 436)
         Me.Em.TabIndex = 4
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -440,7 +440,7 @@ Partial Class frmApprovingProcess
         Me.tabRequiredAttachment.Controls.Add(Me.Em_filtered)
         Me.tabRequiredAttachment.Controls.Add(Me.txtPermission)
         Me.tabRequiredAttachment.Name = "tabRequiredAttachment"
-        Me.tabRequiredAttachment.Size = New System.Drawing.Size(1007, 438)
+        Me.tabRequiredAttachment.Size = New System.Drawing.Size(1013, 433)
         Me.tabRequiredAttachment.Text = "Required Attachment Filter"
         '
         'ckRequester
@@ -572,7 +572,7 @@ Partial Class frmApprovingProcess
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1007, 469)
+        Me.ClientSize = New System.Drawing.Size(1027, 465)
         Me.Controls.Add(Me.tabsettings)
         Me.Name = "frmApprovingProcess"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

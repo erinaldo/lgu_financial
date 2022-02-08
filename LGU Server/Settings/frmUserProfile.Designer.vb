@@ -253,9 +253,9 @@ Partial Class frmUserProfile
         'signature
         '
         Me.signature.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.signature.Location = New System.Drawing.Point(2, 20)
+        Me.signature.Location = New System.Drawing.Point(2, 23)
         Me.signature.Name = "signature"
-        Me.signature.Size = New System.Drawing.Size(225, 90)
+        Me.signature.Size = New System.Drawing.Size(225, 87)
         Me.signature.TabIndex = 375
         '
         'txtverify
@@ -331,7 +331,7 @@ Partial Class frmUserProfile
         Me.XtraTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.XtraTabPage1
-        Me.XtraTabControl1.Size = New System.Drawing.Size(465, 517)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(473, 517)
         Me.XtraTabControl1.TabIndex = 435
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage1, Me.XtraTabPage2})
         Me.XtraTabControl1.Transition.AllowTransition = DevExpress.Utils.DefaultBoolean.[True]
@@ -368,7 +368,7 @@ Partial Class frmUserProfile
         Me.XtraTabPage1.Controls.Add(Me.LabelControl9)
         Me.XtraTabPage1.Controls.Add(Me.LabelControl10)
         Me.XtraTabPage1.Name = "XtraTabPage1"
-        Me.XtraTabPage1.Size = New System.Drawing.Size(459, 485)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(471, 488)
         Me.XtraTabPage1.Text = "Account Information"
         '
         'txtPagefontName
@@ -510,7 +510,7 @@ Partial Class frmUserProfile
         Me.LabelControl8.Appearance.Options.UseFont = True
         Me.LabelControl8.Location = New System.Drawing.Point(130, 38)
         Me.LabelControl8.Name = "LabelControl8"
-        Me.LabelControl8.Size = New System.Drawing.Size(302, 13)
+        Me.LabelControl8.Size = New System.Drawing.Size(303, 13)
         Me.LabelControl8.TabIndex = 556
         Me.LabelControl8.Text = "This form is allow user to update own account Information"
         '
@@ -533,7 +533,7 @@ Partial Class frmUserProfile
         Me.LabelControl10.Name = "LabelControl10"
         Me.LabelControl10.Size = New System.Drawing.Size(280, 13)
         Me.LabelControl10.TabIndex = 554
-        Me.LabelControl10.Text = "_________________________________________________________________________________" & _
+        Me.LabelControl10.Text = "_________________________________________________________________________________" &
     "_____"
         '
         'XtraTabPage2
@@ -563,7 +563,7 @@ Partial Class frmUserProfile
         Me.XtraTabPage2.Controls.Add(Me.LabelControl4)
         Me.XtraTabPage2.Controls.Add(Me.txtFontSize)
         Me.XtraTabPage2.Name = "XtraTabPage2"
-        Me.XtraTabPage2.Size = New System.Drawing.Size(463, 484)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(459, 485)
         Me.XtraTabPage2.Text = "Report View Appearance"
         '
         'PanelControl2
@@ -607,7 +607,7 @@ Partial Class frmUserProfile
         Me.LabelControl21.Name = "LabelControl21"
         Me.LabelControl21.Size = New System.Drawing.Size(280, 13)
         Me.LabelControl21.TabIndex = 625
-        Me.LabelControl21.Text = "_________________________________________________________________________________" & _
+        Me.LabelControl21.Text = "_________________________________________________________________________________" &
     "_____"
         '
         'cmdAppearanceSave1
@@ -674,7 +674,7 @@ Partial Class frmUserProfile
         Me.ck_enablefilterappearance.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ck_enablefilterappearance.Properties.Appearance.Options.UseFont = True
         Me.ck_enablefilterappearance.Properties.Caption = "Enable Filter Appearance"
-        Me.ck_enablefilterappearance.Size = New System.Drawing.Size(148, 19)
+        Me.ck_enablefilterappearance.Size = New System.Drawing.Size(148, 20)
         Me.ck_enablefilterappearance.TabIndex = 446
         '
         'ck_indicatorline
@@ -684,7 +684,7 @@ Partial Class frmUserProfile
         Me.ck_indicatorline.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ck_indicatorline.Properties.Appearance.Options.UseFont = True
         Me.ck_indicatorline.Properties.Caption = "Show Left Indicator Line"
-        Me.ck_indicatorline.Size = New System.Drawing.Size(148, 19)
+        Me.ck_indicatorline.Size = New System.Drawing.Size(148, 20)
         Me.ck_indicatorline.TabIndex = 445
         '
         'ck_ShowVertLines
@@ -694,7 +694,7 @@ Partial Class frmUserProfile
         Me.ck_ShowVertLines.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ck_ShowVertLines.Properties.Appearance.Options.UseFont = True
         Me.ck_ShowVertLines.Properties.Caption = "Show Vertical Lines"
-        Me.ck_ShowVertLines.Size = New System.Drawing.Size(148, 19)
+        Me.ck_ShowVertLines.Size = New System.Drawing.Size(148, 20)
         Me.ck_ShowVertLines.TabIndex = 444
         '
         'ck_ShowHorzLines
@@ -704,7 +704,7 @@ Partial Class frmUserProfile
         Me.ck_ShowHorzLines.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ck_ShowHorzLines.Properties.Appearance.Options.UseFont = True
         Me.ck_ShowHorzLines.Properties.Caption = "Show Horizontal Lines"
-        Me.ck_ShowHorzLines.Size = New System.Drawing.Size(134, 19)
+        Me.ck_ShowHorzLines.Size = New System.Drawing.Size(134, 20)
         Me.ck_ShowHorzLines.TabIndex = 443
         '
         'ck_evenrowenable
@@ -714,7 +714,7 @@ Partial Class frmUserProfile
         Me.ck_evenrowenable.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ck_evenrowenable.Properties.Appearance.Options.UseFont = True
         Me.ck_evenrowenable.Properties.Caption = "Enable Even Row"
-        Me.ck_evenrowenable.Size = New System.Drawing.Size(124, 19)
+        Me.ck_evenrowenable.Size = New System.Drawing.Size(124, 20)
         Me.ck_evenrowenable.TabIndex = 442
         '
         'ck_enablle_features
@@ -724,7 +724,7 @@ Partial Class frmUserProfile
         Me.ck_enablle_features.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ck_enablle_features.Properties.Appearance.Options.UseFont = True
         Me.ck_enablle_features.Properties.Caption = "Enable Gridview Appearance"
-        Me.ck_enablle_features.Size = New System.Drawing.Size(237, 19)
+        Me.ck_enablle_features.Size = New System.Drawing.Size(237, 20)
         Me.ck_enablle_features.TabIndex = 441
         '
         'ck_footer_bold
@@ -734,7 +734,7 @@ Partial Class frmUserProfile
         Me.ck_footer_bold.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ck_footer_bold.Properties.Appearance.Options.UseFont = True
         Me.ck_footer_bold.Properties.Caption = "Bold Footer Display"
-        Me.ck_footer_bold.Size = New System.Drawing.Size(148, 19)
+        Me.ck_footer_bold.Size = New System.Drawing.Size(148, 20)
         Me.ck_footer_bold.TabIndex = 439
         '
         'ck_main_bold
@@ -744,7 +744,7 @@ Partial Class frmUserProfile
         Me.ck_main_bold.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ck_main_bold.Properties.Appearance.Options.UseFont = True
         Me.ck_main_bold.Properties.Caption = "Bold Main Display"
-        Me.ck_main_bold.Size = New System.Drawing.Size(118, 19)
+        Me.ck_main_bold.Size = New System.Drawing.Size(118, 20)
         Me.ck_main_bold.TabIndex = 438
         '
         'ck_header_bold
@@ -754,7 +754,7 @@ Partial Class frmUserProfile
         Me.ck_header_bold.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ck_header_bold.Properties.Appearance.Options.UseFont = True
         Me.ck_header_bold.Properties.Caption = "Bold Header Display"
-        Me.ck_header_bold.Size = New System.Drawing.Size(124, 19)
+        Me.ck_header_bold.Size = New System.Drawing.Size(124, 20)
         Me.ck_header_bold.TabIndex = 437
         '
         'txtforecolor
@@ -832,7 +832,7 @@ Partial Class frmUserProfile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(465, 517)
+        Me.ClientSize = New System.Drawing.Size(473, 517)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.Controls.Add(Me.mode)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle

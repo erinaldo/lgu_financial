@@ -418,6 +418,12 @@ Module UpdateEngine
             engineupdated = True
         End If
 
+        updateVersion = "2022-02-09"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "ALTER TABLE `tblclientaccess` ADD COLUMN `requestoverride` TINYINT(1) NOT NULL DEFAULT 0 AFTER `allowdelete`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
         If engineupdated = True Then
             Dim dversion As Date = updateVersion
             XtraMessageBox.Show("Your database engine was updated to Build Version " & dversion.ToString & Environment.NewLine & "Please view update list at ""Main System Menu"" > About > What's New!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)

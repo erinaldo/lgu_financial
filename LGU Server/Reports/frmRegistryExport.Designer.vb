@@ -204,7 +204,7 @@ Partial Class frmRegistryExport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(484, 219)
+        Me.ClientSize = New System.Drawing.Size(504, 215)
         Me.Controls.Add(Me.LabelControl4)
         Me.Controls.Add(Me.txtMonth)
         Me.Controls.Add(Me.txtClass)

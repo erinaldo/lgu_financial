@@ -155,7 +155,7 @@ Partial Class frmChangePassword
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(367, 130)
+        Me.ClientSize = New System.Drawing.Size(375, 130)
         Me.Controls.Add(Me.userid)
         Me.Controls.Add(Me.txtFullname)
         Me.Controls.Add(Me.LabelControl3)

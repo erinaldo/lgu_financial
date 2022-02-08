@@ -29,7 +29,7 @@ Partial Class frmBackupTool
         '
         Me.txtKey.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.txtKey.EnterMoveNextControl = True
-        Me.txtKey.Location = New System.Drawing.Point(86, 32)
+        Me.txtKey.Location = New System.Drawing.Point(90, 32)
         Me.txtKey.Name = "txtKey"
         Me.txtKey.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtKey.Properties.Appearance.Options.UseFont = True
@@ -44,7 +44,7 @@ Partial Class frmBackupTool
         Me.LabelControl1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl1.Appearance.Options.UseFont = True
-        Me.LabelControl1.Location = New System.Drawing.Point(185, 13)
+        Me.LabelControl1.Location = New System.Drawing.Point(189, 13)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(111, 15)
         Me.LabelControl1.TabIndex = 611
@@ -69,7 +69,7 @@ Partial Class frmBackupTool
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(482, 121)
+        Me.ClientSize = New System.Drawing.Size(490, 121)
         Me.Controls.Add(Me.cmdFinish)
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.txtKey)
