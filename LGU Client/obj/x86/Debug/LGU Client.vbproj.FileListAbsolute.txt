@@ -722,7 +722,6 @@ D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmBusinessInf
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmBusinessManagement.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmSupplierInfo.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmEmpoyeeList.resources
-D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmPayrollEmployeeInformation.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmChatPicturePreview.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmChatboxBlasting.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.ListControl.resources
@@ -783,4 +782,7 @@ D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.vbproj.CopyCo
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.exe
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.xml
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.pdb
-D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.vbproj.AssemblyReference.cache
+D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmHoldMessage.resources
+D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmEmployeeInfo.resources
+D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmRequisitionFundReturn.resources
+D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmRequisitionFundReturnAmount.resources

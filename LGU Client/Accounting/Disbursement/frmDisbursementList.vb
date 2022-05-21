@@ -21,10 +21,16 @@ Public Class frmDisbursementList
         Me.Icon = ico : ApplySystemTheme(ToolStrip1)
         txtDateFrom.EditValue = CDate(Now)
         txtDateTo.EditValue = CDate(Now)
-
+        LoadFund()
         ViewList()
+        txtFund.EditValue = loadDefaultSelection(Me.Name, txtFund.Name)
     End Sub
-     
+
+    Public Sub LoadFund()
+        LoadXgridLookupSearch("Select code, Description as 'Select'  from tblfund " & If(LCase(globalusername) = "root", "", " where code in (select fundcode from tblfundfilter where filtered_id='" & compOfficeid & "' and filtered_type='office')") & "  order by code asc", "tblfund", txtFund, gridFund)
+        XgridHideColumn({"code"}, gridFund)
+    End Sub
+
     Private Sub txtSearchBar_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSearchBar.KeyPress
         If e.KeyChar() = Chr(13) Then
             If txtSearchBar.Text = "" Then Exit Sub
@@ -36,12 +42,23 @@ Public Class frmDisbursementList
     Public Sub ViewList()
         Dim KeyWordSearch As String = ""
         If txtSearchBar.Text = "" Then
-            KeyWordSearch = If(ckPendingRequisition.Checked, " cleared=0 and cancelled=0  ", " date_format(voucherdate,'%Y-%m-%d') between '" & ConvertDate(txtDateFrom.EditValue) & "' and '" & ConvertDate(txtDateTo.EditValue) & "' ")
+            If radFilter.EditValue = "pending" Then
+                KeyWordSearch = " and cleared=0 and cancelled=0 "
+            ElseIf radFilter.EditValue = "cancelled" Then
+                KeyWordSearch = " and cancelled=1 "
+            ElseIf radFilter.EditValue = "cleared" Then
+                KeyWordSearch = " and cleared=1 and cancelled=0 "
+            ElseIf radFilter.EditValue = "date" Then
+                KeyWordSearch = " and date_format(voucherdate,'%Y-%m-%d') between '" & ConvertDate(txtDateFrom.EditValue) & "' and '" & ConvertDate(txtDateTo.EditValue) & "' "
+            End If
+            'KeyWordSearch = If(ckPendingRequisition.Checked, " cleared=0 and cancelled=0 and  " & If(ckUnissuedJev.Checked, " and voucherid not in (select dvid from tbljournalentryvoucher where cancelled=0) ", ""), " fundcode='" & txtFund.EditValue & "' and date_format(voucherdate,'%Y-%m-%d') between '" & ConvertDate(txtDateFrom.EditValue) & "' and '" & ConvertDate(txtDateTo.EditValue) & "' ")
         Else
-            KeyWordSearch = " (voucherno like '%" & rchar(txtSearchBar.Text) & "%' or " _
+            KeyWordSearch = " and (pid like '%" & rchar(txtSearchBar.Text) & "%' or " _
+                        + " voucherno Like '%" & rchar(txtSearchBar.Text) & "%' or " _
+                        + " checkno Like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " date_format(voucherdate,'%Y-%m-%d') like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " amount like '%" & rchar(txtSearchBar.Text) & "%' or " _
-                        + " (select fullname from tblaccounts where accountid=a.trnby) like '%" & rchar(txtSearchBar.Text) & "%' or " _
+                        + " (select purpose from tblrequisition where pid=a.pid) like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " (select suppliername from tblsupplier where supplierid = a.supplierid) like '%" & rchar(txtSearchBar.Text) & "%')"
         End If
         If CheckEdit1.Checked Then
@@ -54,7 +71,7 @@ Public Class frmDisbursementList
                         + " checkamount as 'Check Amount', " _
                         + " (select description from tblbankaccounts where code=a.checkbank) as 'Bank Name', " _
                         + " date_format(checkdate,'%Y-%m-%d') as 'Check Date' " _
-                        + " FROM tbldisbursementvoucher as a where  " _
+                        + " FROM tbldisbursementvoucher as a where fundcode='" & txtFund.EditValue & "' " & If(ckUnissuedJev.Checked, " and voucherid not in (select dvid from tbljournalentryvoucher where cancelled=0) ", "") _
                         + KeyWordSearch _
                         + " order by voucherno asc", "tbldisbursementvoucher", Em, GridView1, Me)
 
@@ -62,17 +79,17 @@ Public Class frmDisbursementList
             XgridColAlign({"Entry Code", "Voucher No.", "JEV No.", "Status", "Fund Period", "Type of Payment", "Voucher Date", "Check No.", "Check Date", "Date Posted", "Cleared", "Date Cleared", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
             XgridGeneralSummaryCurrency({"Check Amount"}, GridView1)
             GridView1.BestFitColumns()
-            DXgridColumnIndexing(Me.Name, GridView1)
-            SaveFilterColumn(GridView1, Me.Text & "-check")
+            DXgridColumnIndexing(Me.Name & "-check", GridView1)
+            SaveFilterColumn(GridView1, Me.Name & "-check")
         Else
-            LoadXgrid("SELECT pid, voucherid as 'Entry Code',periodcode,officeid, if(cancelled,'CANCELLED',if(cleared,'CLEARED', 'PENDING')) as Status, " _
+            LoadXgrid("SELECT pid, voucherid as 'Entry Code',periodcode,officeid, if(cancelled,'CANCELLED',if(cleared,'CLEARED', if(checkissued, 'CHECK ISSUED', 'PENDING'))) as Status, " _
                         + " voucherno as 'Voucher No.', " _
                         + " (select officename from tblcompoffice where officeid = a.officeid) as 'Office', " _
                         + " (select jevno from tbljournalentryvoucher where dvid=a.voucherid and cancelled=0 limit 1) as 'JEV No.', " _
                         + " concat((select codename from tblfund where code=a.fundcode),'-',yearcode) as 'Fund Period',  " _
                         + " Amount, " _
-                        + " date_format(voucherdate,'%Y-%m-%d') as 'Voucher Date', " _
                         + " (select suppliername from tblsupplier where supplierid = a.supplierid) as 'Payee', " _
+                        + " date_format(voucherdate,'%Y-%m-%d') as 'Voucher Date', " _
                         + " checkissued as 'Check Issued', " _
                         + " checkno as 'Check No.', " _
                         + " checkamount as 'Check Amount', " _
@@ -84,7 +101,7 @@ Public Class frmDisbursementList
                         + " Cancelled, date_format(datecancelled,'%Y-%m-%d') as 'Date Cancelled', " _
                         + " (select purpose from tblrequisition where pid=a.pid) as Remarks " _
                         + " FROM tbldisbursementvoucher as a " _
-                        + " where  " _
+                        + " where fundcode='" & txtFund.EditValue & "' " & If(ckUnissuedJev.Checked, " and voucherid not in (select dvid from tbljournalentryvoucher where cancelled=0) ", "") _
                         + KeyWordSearch _
                         + " order by voucherno asc", "tbldisbursementvoucher", Em, GridView1, Me)
 
@@ -93,10 +110,10 @@ Public Class frmDisbursementList
             XgridColAlign({"Entry Code", "Voucher No.", "JEV No.", "Status", "Fund Period", "Type of Payment", "Voucher Date", "Check No.", "Check Date", "Date Posted", "Cleared", "Date Cleared", "Cancelled", "Date Cancelled"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
             XgridGeneralSummaryCurrency({"Amount", "Check Amount"}, GridView1)
             GridView1.BestFitColumns()
-            DXgridColumnIndexing(Me.Name, GridView1)
-            SaveFilterColumn(GridView1, Me.Text & "-all")
+            DXgridColumnIndexing(Me.Name & "-all", GridView1)
+            SaveFilterColumn(GridView1, Me.Name & "-all")
         End If
-
+        SaveDefaultSelection(Me.Name, txtFund.Name, txtFund.EditValue)
     End Sub
 
     Private Sub gridview1_RowCellStyle(ByVal sender As Object, ByVal e As RowCellStyleEventArgs) Handles GridView1.RowCellStyle
@@ -115,6 +132,11 @@ Public Class frmDisbursementList
                         e.Appearance.BackColor2 = Color.Orange
                         e.Appearance.ForeColor = Color.Black
 
+                    ElseIf status = "CHECK ISSUED" Then
+                        e.Appearance.BackColor = Color.LightSkyBlue
+                        e.Appearance.BackColor2 = Color.LightSkyBlue
+                        e.Appearance.ForeColor = Color.Black
+
                     ElseIf status = "CLEARED" Then
                         e.Appearance.BackColor = Color.Green
                         e.Appearance.BackColor2 = Color.Green
@@ -126,11 +148,11 @@ Public Class frmDisbursementList
     End Sub
 
     Private Sub GridView1_DragObjectDrop(sender As Object, e As DevExpress.XtraGrid.Views.Base.DragObjectDropEventArgs) Handles GridView1.DragObjectDrop
-        XgridColumnDropChanged(GridView1, Me.Name)
+        XgridColumnDropChanged(GridView1, Me.Name & If(CheckEdit1.Checked, "-check", "-all"))
     End Sub
 
     Private Sub GridView1_ColumnWidthChanged(sender As Object, e As ColumnEventArgs) Handles GridView1.ColumnWidthChanged
-        XgridColumnWidthChanged(GridView1, Me.Name)
+        XgridColumnWidthChanged(GridView1, Me.Name & If(CheckEdit1.Checked, "-check", "-all"))
     End Sub
 
     Private Sub cmdPrint_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdClose.Click
@@ -210,16 +232,6 @@ Public Class frmDisbursementList
     End Sub
 
 
-    Private Sub ckPendingRequisition_CheckedChanged_1(sender As Object, e As EventArgs) Handles ckPendingRequisition.CheckedChanged
-        If ckPendingRequisition.Checked Then
-            txtDateFrom.Enabled = False
-            txtDateTo.Enabled = False
-        Else
-            txtDateFrom.Enabled = True
-            txtDateTo.Enabled = True
-        End If
-        ViewList()
-    End Sub
 
     Private Sub cmdClearedDisbursement_Click(sender As Object, e As EventArgs) Handles cmdClearedDisbursement.Click
         If globalSpecialApprover = False And globalRootUser = False Then
@@ -345,6 +357,26 @@ Public Class frmDisbursementList
             Em.ContextMenuStrip = Nothing
         Else
             Em.ContextMenuStrip = cms_em
+        End If
+        ViewList()
+    End Sub
+
+    Private Sub CheckEdit2_CheckedChanged(sender As Object, e As EventArgs) Handles ckUnissuedJev.CheckedChanged
+        ViewList()
+    End Sub
+
+    Private Sub txtFund_EditValueChanged(sender As Object, e As EventArgs) Handles txtFund.EditValueChanged
+        If txtFund.EditValue = "" Then Exit Sub
+        ViewList()
+    End Sub
+
+    Private Sub radFilter_SelectedIndexChanged(sender As Object, e As EventArgs) Handles radFilter.SelectedIndexChanged
+        If radFilter.EditValue = "date" Then
+            txtDateFrom.Enabled = True
+            txtDateTo.Enabled = True
+        Else
+            txtDateFrom.Enabled = False
+            txtDateTo.Enabled = False
         End If
         ViewList()
     End Sub

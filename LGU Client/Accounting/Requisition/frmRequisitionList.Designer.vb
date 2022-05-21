@@ -37,6 +37,8 @@ Partial Class frmRequisitionList
         Me.cmdView = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdCancel = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdRequestOveride = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdClearedRequisition = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmdReturnUnusedFund = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdLocalData = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
@@ -49,14 +51,15 @@ Partial Class frmRequisitionList
         Me.cmdClose = New System.Windows.Forms.ToolStripButton()
         Me.updates = New System.Windows.Forms.ToolStripLabel()
         Me.SplitContainerControl1 = New DevExpress.XtraEditors.SplitContainerControl()
-        Me.ckDisplayCancelled = New DevExpress.XtraEditors.CheckEdit()
+        Me.txtFund = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.gridFund = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
         Me.ckAllType = New DevExpress.XtraEditors.CheckEdit()
         Me.ckViewAllOffice = New DevExpress.XtraEditors.CheckEdit()
         Me.txtOffice = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridOffice = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.lbloffice = New DevExpress.XtraEditors.LabelControl()
         Me.officeid = New DevExpress.XtraEditors.TextEdit()
-        Me.requesttype = New DevExpress.XtraEditors.TextEdit()
         Me.cmdFilterSearch = New DevExpress.XtraEditors.SimpleButton()
         Me.txtRequestType = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.gridRequestType = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -66,8 +69,8 @@ Partial Class frmRequisitionList
         Me.txtDateTo = New DevExpress.XtraEditors.DateEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        Me.ckPendingRequisition = New DevExpress.XtraEditors.CheckEdit()
         Me.txtSearchBar = New DevExpress.XtraEditors.TextEdit()
+        Me.radFilter = New DevExpress.XtraEditors.RadioGroup()
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
@@ -75,21 +78,21 @@ Partial Class frmRequisitionList
         Me.ToolStrip1.SuspendLayout()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerControl1.SuspendLayout()
-        CType(Me.ckDisplayCancelled.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gridFund, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckAllType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckViewAllOffice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtOffice.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridOffice, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.requesttype.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtRequestType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gridRequestType, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDateFrom.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDateFrom.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDateTo.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDateTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ckPendingRequisition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtSearchBar.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.radFilter.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -159,48 +162,69 @@ Partial Class frmRequisitionList
         'cms_em
         '
         Me.cms_em.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdDuplicate, Me.cmdView, Me.cmdCancel, Me.cmdRequestOveride, Me.ToolStripSeparator4, Me.cmdLocalData})
+        Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdDuplicate, Me.cmdView, Me.cmdCancel, Me.cmdRequestOveride, Me.cmdClearedRequisition, Me.cmdReturnUnusedFund, Me.ToolStripSeparator4, Me.cmdLocalData})
         Me.cms_em.Name = "ContextMenuStrip1"
-        Me.cms_em.Size = New System.Drawing.Size(216, 162)
+        Me.cms_em.Size = New System.Drawing.Size(224, 186)
         '
         'cmdDuplicate
         '
         Me.cmdDuplicate.Image = Global.LGUClient.My.Resources.Resources.blueprints
+        Me.cmdDuplicate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.cmdDuplicate.Name = "cmdDuplicate"
-        Me.cmdDuplicate.Size = New System.Drawing.Size(215, 26)
+        Me.cmdDuplicate.Size = New System.Drawing.Size(223, 22)
         Me.cmdDuplicate.Text = "Duplicate Request"
         '
         'cmdView
         '
         Me.cmdView.Image = Global.LGUClient.My.Resources.Resources.notebook__arrow
+        Me.cmdView.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.cmdView.Name = "cmdView"
-        Me.cmdView.Size = New System.Drawing.Size(215, 26)
+        Me.cmdView.Size = New System.Drawing.Size(223, 22)
         Me.cmdView.Text = "View Requisition Info"
         '
         'cmdCancel
         '
         Me.cmdCancel.Image = Global.LGUClient.My.Resources.Resources.notebook__minus
+        Me.cmdCancel.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.cmdCancel.Name = "cmdCancel"
-        Me.cmdCancel.Size = New System.Drawing.Size(215, 26)
+        Me.cmdCancel.Size = New System.Drawing.Size(223, 22)
         Me.cmdCancel.Text = "Cancel Selected Request"
         '
         'cmdRequestOveride
         '
         Me.cmdRequestOveride.Image = Global.LGUClient.My.Resources.Resources.lock__exclamation
+        Me.cmdRequestOveride.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.cmdRequestOveride.Name = "cmdRequestOveride"
-        Me.cmdRequestOveride.Size = New System.Drawing.Size(215, 26)
+        Me.cmdRequestOveride.Size = New System.Drawing.Size(223, 22)
         Me.cmdRequestOveride.Text = "Request Override Revision"
+        '
+        'cmdClearedRequisition
+        '
+        Me.cmdClearedRequisition.Image = Global.LGUClient.My.Resources.Resources.tick
+        Me.cmdClearedRequisition.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.cmdClearedRequisition.Name = "cmdClearedRequisition"
+        Me.cmdClearedRequisition.Size = New System.Drawing.Size(223, 22)
+        Me.cmdClearedRequisition.Text = "Cleared Selected Requisition"
+        '
+        'cmdReturnUnusedFund
+        '
+        Me.cmdReturnUnusedFund.Image = Global.LGUClient.My.Resources.Resources.notebook__backarrow
+        Me.cmdReturnUnusedFund.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.cmdReturnUnusedFund.Name = "cmdReturnUnusedFund"
+        Me.cmdReturnUnusedFund.Size = New System.Drawing.Size(223, 22)
+        Me.cmdReturnUnusedFund.Text = "Return Unused Fund"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(212, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(220, 6)
         '
         'cmdLocalData
         '
         Me.cmdLocalData.Image = Global.LGUClient.My.Resources.Resources.arrow_continue_090
+        Me.cmdLocalData.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.cmdLocalData.Name = "cmdLocalData"
-        Me.cmdLocalData.Size = New System.Drawing.Size(215, 26)
+        Me.cmdLocalData.Size = New System.Drawing.Size(223, 22)
         Me.cmdLocalData.Tag = "1"
         Me.cmdLocalData.Text = "Refresh Data"
         '
@@ -281,15 +305,16 @@ Partial Class frmRequisitionList
         '
         Me.SplitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainerControl1.Horizontal = False
+        Me.SplitContainerControl1.IsSplitterFixed = True
         Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 31)
         Me.SplitContainerControl1.Name = "SplitContainerControl1"
-        Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckDisplayCancelled)
+        Me.SplitContainerControl1.Panel1.Controls.Add(Me.txtFund)
+        Me.SplitContainerControl1.Panel1.Controls.Add(Me.LabelControl4)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckAllType)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckViewAllOffice)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.txtOffice)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.lbloffice)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.officeid)
-        Me.SplitContainerControl1.Panel1.Controls.Add(Me.requesttype)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.cmdFilterSearch)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.txtRequestType)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.txtDateFrom)
@@ -298,30 +323,55 @@ Partial Class frmRequisitionList
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.txtDateTo)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.LabelControl2)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.LabelControl1)
-        Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckPendingRequisition)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.txtSearchBar)
+        Me.SplitContainerControl1.Panel1.Controls.Add(Me.radFilter)
         Me.SplitContainerControl1.Panel1.Text = "Panel1"
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
         Me.SplitContainerControl1.Size = New System.Drawing.Size(990, 609)
-        Me.SplitContainerControl1.SplitterPosition = 122
+        Me.SplitContainerControl1.SplitterPosition = 153
         Me.SplitContainerControl1.TabIndex = 823
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
         '
-        'ckDisplayCancelled
+        'txtFund
         '
-        Me.ckDisplayCancelled.Location = New System.Drawing.Point(332, 7)
-        Me.ckDisplayCancelled.Name = "ckDisplayCancelled"
-        Me.ckDisplayCancelled.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.ckDisplayCancelled.Properties.Appearance.Options.UseFont = True
-        Me.ckDisplayCancelled.Properties.Caption = "Display Cancelled Request"
-        Me.ckDisplayCancelled.Size = New System.Drawing.Size(196, 21)
-        Me.ckDisplayCancelled.TabIndex = 967
+        Me.txtFund.EditValue = ""
+        Me.txtFund.Location = New System.Drawing.Point(132, 59)
+        Me.txtFund.Name = "txtFund"
+        Me.txtFund.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtFund.Properties.Appearance.Options.UseFont = True
+        Me.txtFund.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtFund.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.txtFund.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtFund.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtFund.Properties.DisplayMember = "Select"
+        Me.txtFund.Properties.NullText = ""
+        Me.txtFund.Properties.PopupView = Me.gridFund
+        Me.txtFund.Properties.ValueMember = "code"
+        Me.txtFund.Size = New System.Drawing.Size(196, 26)
+        Me.txtFund.TabIndex = 970
+        '
+        'gridFund
+        '
+        Me.gridFund.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.gridFund.Name = "gridFund"
+        Me.gridFund.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.gridFund.OptionsView.ShowGroupPanel = False
+        '
+        'LabelControl4
+        '
+        Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.LabelControl4.Appearance.Options.UseFont = True
+        Me.LabelControl4.Location = New System.Drawing.Point(59, 64)
+        Me.LabelControl4.Name = "LabelControl4"
+        Me.LabelControl4.Size = New System.Drawing.Size(66, 17)
+        Me.LabelControl4.TabIndex = 971
+        Me.LabelControl4.Text = "Select Fund"
         '
         'ckAllType
         '
         Me.ckAllType.EditValue = True
-        Me.ckAllType.Location = New System.Drawing.Point(454, 33)
+        Me.ckAllType.Location = New System.Drawing.Point(444, 34)
         Me.ckAllType.Name = "ckAllType"
         Me.ckAllType.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.ckAllType.Properties.Appearance.Options.UseFont = True
@@ -332,7 +382,7 @@ Partial Class frmRequisitionList
         'ckViewAllOffice
         '
         Me.ckViewAllOffice.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ckViewAllOffice.Location = New System.Drawing.Point(694, 33)
+        Me.ckViewAllOffice.Location = New System.Drawing.Point(694, 61)
         Me.ckViewAllOffice.Name = "ckViewAllOffice"
         Me.ckViewAllOffice.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.ckViewAllOffice.Properties.Appearance.Options.UseFont = True
@@ -344,7 +394,7 @@ Partial Class frmRequisitionList
         '
         Me.txtOffice.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtOffice.EditValue = "sss"
-        Me.txtOffice.Location = New System.Drawing.Point(694, 58)
+        Me.txtOffice.Location = New System.Drawing.Point(694, 86)
         Me.txtOffice.Name = "txtOffice"
         Me.txtOffice.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtOffice.Properties.Appearance.Options.UseFont = True
@@ -371,7 +421,7 @@ Partial Class frmRequisitionList
         Me.lbloffice.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbloffice.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.lbloffice.Appearance.Options.UseFont = True
-        Me.lbloffice.Location = New System.Drawing.Point(585, 62)
+        Me.lbloffice.Location = New System.Drawing.Point(585, 90)
         Me.lbloffice.Name = "lbloffice"
         Me.lbloffice.Size = New System.Drawing.Size(103, 17)
         Me.lbloffice.TabIndex = 964
@@ -379,7 +429,7 @@ Partial Class frmRequisitionList
         '
         'officeid
         '
-        Me.officeid.Location = New System.Drawing.Point(941, 28)
+        Me.officeid.Location = New System.Drawing.Point(941, 56)
         Me.officeid.Name = "officeid"
         Me.officeid.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.officeid.Properties.Appearance.Options.UseFont = True
@@ -390,26 +440,13 @@ Partial Class frmRequisitionList
         Me.officeid.TabIndex = 962
         Me.officeid.Visible = False
         '
-        'requesttype
-        '
-        Me.requesttype.Location = New System.Drawing.Point(898, 28)
-        Me.requesttype.Name = "requesttype"
-        Me.requesttype.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.requesttype.Properties.Appearance.Options.UseFont = True
-        Me.requesttype.Properties.Appearance.Options.UseTextOptions = True
-        Me.requesttype.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.requesttype.Properties.ReadOnly = True
-        Me.requesttype.Size = New System.Drawing.Size(37, 24)
-        Me.requesttype.TabIndex = 959
-        Me.requesttype.Visible = False
-        '
         'cmdFilterSearch
         '
         Me.cmdFilterSearch.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.cmdFilterSearch.Appearance.Options.UseFont = True
-        Me.cmdFilterSearch.Location = New System.Drawing.Point(344, 60)
+        Me.cmdFilterSearch.Location = New System.Drawing.Point(332, 59)
         Me.cmdFilterSearch.Name = "cmdFilterSearch"
-        Me.cmdFilterSearch.Size = New System.Drawing.Size(106, 53)
+        Me.cmdFilterSearch.Size = New System.Drawing.Size(108, 81)
         Me.cmdFilterSearch.TabIndex = 4
         Me.cmdFilterSearch.Text = "Filter Search"
         '
@@ -417,7 +454,7 @@ Partial Class frmRequisitionList
         '
         Me.txtRequestType.EditValue = ""
         Me.txtRequestType.Enabled = False
-        Me.txtRequestType.Location = New System.Drawing.Point(142, 30)
+        Me.txtRequestType.Location = New System.Drawing.Point(132, 31)
         Me.txtRequestType.Name = "txtRequestType"
         Me.txtRequestType.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtRequestType.Properties.Appearance.Options.UseFont = True
@@ -444,7 +481,7 @@ Partial Class frmRequisitionList
         Me.txtDateFrom.EditValue = New Date(2019, 6, 10, 16, 23, 25, 399)
         Me.txtDateFrom.Enabled = False
         Me.txtDateFrom.EnterMoveNextControl = True
-        Me.txtDateFrom.Location = New System.Drawing.Point(142, 60)
+        Me.txtDateFrom.Location = New System.Drawing.Point(132, 87)
         Me.txtDateFrom.Name = "txtDateFrom"
         Me.txtDateFrom.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.txtDateFrom.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
@@ -464,7 +501,7 @@ Partial Class frmRequisitionList
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Location = New System.Drawing.Point(26, 64)
+        Me.LabelControl6.Location = New System.Drawing.Point(16, 91)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(108, 17)
         Me.LabelControl6.TabIndex = 927
@@ -474,7 +511,7 @@ Partial Class frmRequisitionList
         '
         Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl8.Appearance.Options.UseFont = True
-        Me.LabelControl8.Location = New System.Drawing.Point(54, 34)
+        Me.LabelControl8.Location = New System.Drawing.Point(44, 35)
         Me.LabelControl8.Name = "LabelControl8"
         Me.LabelControl8.Size = New System.Drawing.Size(79, 17)
         Me.LabelControl8.TabIndex = 937
@@ -485,7 +522,7 @@ Partial Class frmRequisitionList
         Me.txtDateTo.EditValue = New Date(2019, 6, 10, 16, 23, 25, 399)
         Me.txtDateTo.Enabled = False
         Me.txtDateTo.EnterMoveNextControl = True
-        Me.txtDateTo.Location = New System.Drawing.Point(142, 88)
+        Me.txtDateTo.Location = New System.Drawing.Point(132, 115)
         Me.txtDateTo.Name = "txtDateTo"
         Me.txtDateTo.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.txtDateTo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
@@ -506,7 +543,7 @@ Partial Class frmRequisitionList
         Me.LabelControl2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(596, 90)
+        Me.LabelControl2.Location = New System.Drawing.Point(596, 118)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(92, 17)
         Me.LabelControl2.TabIndex = 931
@@ -516,28 +553,17 @@ Partial Class frmRequisitionList
         '
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl1.Appearance.Options.UseFont = True
-        Me.LabelControl1.Location = New System.Drawing.Point(41, 92)
+        Me.LabelControl1.Location = New System.Drawing.Point(31, 119)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(93, 17)
         Me.LabelControl1.TabIndex = 929
         Me.LabelControl1.Text = "Posting Date To"
         '
-        'ckPendingRequisition
-        '
-        Me.ckPendingRequisition.EditValue = True
-        Me.ckPendingRequisition.Location = New System.Drawing.Point(142, 7)
-        Me.ckPendingRequisition.Name = "ckPendingRequisition"
-        Me.ckPendingRequisition.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.ckPendingRequisition.Properties.Appearance.Options.UseFont = True
-        Me.ckPendingRequisition.Properties.Caption = "View All Pending Requisition"
-        Me.ckPendingRequisition.Size = New System.Drawing.Size(196, 21)
-        Me.ckPendingRequisition.TabIndex = 930
-        '
         'txtSearchBar
         '
         Me.txtSearchBar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtSearchBar.EditValue = ""
-        Me.txtSearchBar.Location = New System.Drawing.Point(694, 87)
+        Me.txtSearchBar.Location = New System.Drawing.Point(694, 115)
         Me.txtSearchBar.Name = "txtSearchBar"
         Me.txtSearchBar.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtSearchBar.Properties.Appearance.Options.UseFont = True
@@ -546,6 +572,21 @@ Partial Class frmRequisitionList
         Me.txtSearchBar.Properties.NullValuePrompt = "Enter any keyword to search"
         Me.txtSearchBar.Size = New System.Drawing.Size(284, 25)
         Me.txtSearchBar.TabIndex = 0
+        '
+        'radFilter
+        '
+        Me.radFilter.EditValue = "pending"
+        Me.radFilter.Location = New System.Drawing.Point(130, 2)
+        Me.radFilter.Margin = New System.Windows.Forms.Padding(0)
+        Me.radFilter.Name = "radFilter"
+        Me.radFilter.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.radFilter.Properties.Appearance.Options.UseFont = True
+        Me.radFilter.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.radFilter.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem("pending", "Pending"), New DevExpress.XtraEditors.Controls.RadioGroupItem("cancelled", "Cancelled"), New DevExpress.XtraEditors.Controls.RadioGroupItem("cleared", "Cleared"), New DevExpress.XtraEditors.Controls.RadioGroupItem("date", "By Date")})
+        Me.radFilter.Properties.ItemsLayout = DevExpress.XtraEditors.RadioGroupItemsLayout.Flow
+        Me.radFilter.Properties.ItemVertAlignment = DevExpress.XtraEditors.RadioItemVertAlignment.Top
+        Me.radFilter.Size = New System.Drawing.Size(471, 30)
+        Me.radFilter.TabIndex = 969
         '
         'Em
         '
@@ -556,7 +597,7 @@ Partial Class frmRequisitionList
         Me.Em.MinimumSize = New System.Drawing.Size(574, 454)
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(990, 477)
+        Me.Em.Size = New System.Drawing.Size(990, 454)
         Me.Em.TabIndex = 635
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -595,21 +636,21 @@ Partial Class frmRequisitionList
         Me.ToolStrip1.PerformLayout()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainerControl1.ResumeLayout(False)
-        CType(Me.ckDisplayCancelled.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gridFund, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckAllType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckViewAllOffice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtOffice.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridOffice, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.officeid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.requesttype.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtRequestType.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.gridRequestType, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDateFrom.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDateFrom.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDateTo.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDateTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ckPendingRequisition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtSearchBar.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.radFilter.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -647,12 +688,9 @@ Partial Class frmRequisitionList
     Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents txtDateFrom As DevExpress.XtraEditors.DateEdit
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents ckPendingRequisition As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents cmdFilterSearch As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents txtRequestType As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gridRequestType As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents requesttype As DevExpress.XtraEditors.TextEdit
     Friend WithEvents officeid As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtOffice As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gridOffice As DevExpress.XtraGrid.Views.Grid.GridView
@@ -662,7 +700,13 @@ Partial Class frmRequisitionList
     Friend WithEvents Em As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-    Friend WithEvents ckDisplayCancelled As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents cmdDuplicate As ToolStripMenuItem
     Friend WithEvents cmdRequestOveride As ToolStripMenuItem
+    Friend WithEvents cmdClearedRequisition As ToolStripMenuItem
+    Friend WithEvents cmdReturnUnusedFund As ToolStripMenuItem
+    Friend WithEvents radFilter As DevExpress.XtraEditors.RadioGroup
+    Public WithEvents txtRequestType As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents txtFund As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents gridFund As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
 End Class

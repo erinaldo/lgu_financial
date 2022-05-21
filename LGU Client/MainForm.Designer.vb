@@ -142,7 +142,7 @@ Partial Class MainForm
         Me.ToolStrip.ImageScalingSize = New System.Drawing.Size(48, 48)
         Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdChatbox, Me.ToolStripSeparator2, Me.cmdforapproval, Me.lineForApproval, Me.cmdCheckIssuanceRequest, Me.lineCheckIssuanceRequest, Me.cmdNewRequisition, Me.lineNewRequisition, Me.cmdRequisitionList, Me.lineRequisitionList, Me.cmdNewDisbursement, Me.lineNewDisbursement, Me.cmdDisbursementMgt, Me.lineDisbursementMgt, Me.cmdDirectJournal, Me.lineDirectJournal, Me.cmdJournalEntryVoucher, Me.lineJournalEntryVoucher, Me.cmdBudgetReport, Me.lineBudgetReport, Me.cmdCollection, Me.lineCollection, Me.cmdCedulaIndividual, Me.lineCedulaIndividual, Me.cmdCedulaCorporation, Me.lineCedulaCorporation, Me.cmdRealPropertyTax, Me.lineRealPropertyTax, Me.cmdCollectionReport, Me.lineCollectionReport, Me.cmdAccountableForms, Me.lineAccountableForms, Me.cmdHumanResource, Me.lineHumanResouce, Me.cmdBusinessManagement, Me.lineBusinessManagement, Me.cmdRealPropertyManagement, Me.lineRealProperty})
         Me.ToolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow
-        Me.ToolStrip.Location = New System.Drawing.Point(0, -196)
+        Me.ToolStrip.Location = New System.Drawing.Point(0, -1)
         Me.ToolStrip.Name = "ToolStrip"
         Me.ToolStrip.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
         Me.ToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System

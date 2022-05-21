@@ -36,10 +36,22 @@ Public Class frmJournalEntryList
     Public Sub ViewList()
         Dim KeyWordSearch As String = ""
         If txtSearchBar.Text = "" Then
-            KeyWordSearch = If(ckPendingRequisition.Checked, " cleared=0 and cancelled=0  ", " date_format(postingdate,'%Y-%m-%d') between '" & ConvertDate(txtDateFrom.EditValue) & "' and '" & ConvertDate(txtDateTo.EditValue) & "' ")
+            If radFilter.EditValue = "pending" Then
+                KeyWordSearch = " cleared=0 and cancelled=0 "
+            ElseIf radFilter.EditValue = "cancelled" Then
+                KeyWordSearch = " cancelled=1 "
+            ElseIf radFilter.EditValue = "cleared" Then
+                KeyWordSearch = " cleared=1 and cancelled=0 "
+            ElseIf radFilter.EditValue = "date" Then
+                KeyWordSearch = " date_format(postingdate,'%Y-%m-%d') between '" & ConvertDate(txtDateFrom.EditValue) & "' and '" & ConvertDate(txtDateTo.EditValue) & "' "
+            End If
         Else
             KeyWordSearch = " (jevno like '%" & rchar(txtSearchBar.Text) & "%' or " _
-                        + " date_format(postingdate,'%Y-%m-%d') like '%" & rchar(txtSearchBar.Text) & "%')"
+                        + " pid like '%" & rchar(txtSearchBar.Text) & "%' or " _
+                        + " (select voucherno from tbldisbursementvoucher where voucherid=a.dvid) like '%" & rchar(txtSearchBar.Text) & "%' or " _
+                        + " date_format(postingdate,'%Y-%m-%d') like '%" & rchar(txtSearchBar.Text) & "%' or " _
+                        + " (select officename from tblcompoffice where officeid = a.officeid)  like '%" & rchar(txtSearchBar.Text) & "%' or " _
+                        + " remarks like '%" & rchar(txtSearchBar.Text) & "%') "
         End If
         LoadXgrid("SELECT id as 'Entry Code', pid, if(cancelled,'CANCELLED',if(cleared,'CLEARED', 'PENDING')) as Status, " _
                         + " jevno as 'JEV No.', " _
@@ -190,17 +202,6 @@ Public Class frmJournalEntryList
 
     End Sub
 
-    Private Sub ckPendingRequisition_CheckedChanged_1(sender As Object, e As EventArgs) Handles ckPendingRequisition.CheckedChanged
-        If ckPendingRequisition.Checked Then
-            txtDateFrom.Enabled = False
-            txtDateTo.Enabled = False
-        Else
-            txtDateFrom.Enabled = True
-            txtDateTo.Enabled = True
-        End If
-        ViewList()
-    End Sub
-
     Private Sub cmdClearedDisbursement_Click(sender As Object, e As EventArgs) Handles cmdClearedDisbursement.Click
         If globalSpecialApprover = False And globalRootUser = False Then
             XtraMessageBox.Show("Your access not allowed to clear transaction!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -222,5 +223,16 @@ Public Class frmJournalEntryList
             ViewList()
             XtraMessageBox.Show("Journal entry voucher successfully cleared!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
+    End Sub
+
+    Private Sub radFilter_SelectedIndexChanged(sender As Object, e As EventArgs) Handles radFilter.SelectedIndexChanged
+        If radFilter.EditValue = "date" Then
+            txtDateFrom.Enabled = True
+            txtDateTo.Enabled = True
+        Else
+            txtDateFrom.Enabled = False
+            txtDateTo.Enabled = False
+        End If
+        ViewList()
     End Sub
 End Class

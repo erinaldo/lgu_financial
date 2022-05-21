@@ -265,6 +265,7 @@ Public Class frmJournalEntry
         Else
             frmJournalEntryDebit.mode.Text = "edit"
             frmJournalEntryDebit.jevno.Text = jevno.Text
+            frmJournalEntryDebit.pid.Text = pid.Text
             frmJournalEntryDebit.id.Text = Gridview1.GetFocusedRowCellValue("id").ToString
             If frmJournalEntryDebit.Visible = True Then
                 frmJournalEntryDebit.Focus()
@@ -303,29 +304,14 @@ Public Class frmJournalEntry
         End If
     End Sub
 
-    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
-        If txtFund.Text = "" Then
-            XtraMessageBox.Show("Please select fund ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            txtFund.Focus()
-            Exit Sub
-
-        End If
-        frmJournalEntryCredit.jevno.Text = jevno.Text
-        If frmJournalEntryCredit.Visible = True Then
-            frmJournalEntryCredit.Focus()
-        Else
-            frmJournalEntryCredit.Show(Me)
-        End If
-    End Sub
-
-    Private Sub ExpenditureItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExpenditureItemToolStripMenuItem.Click
+    Private Sub ByExpenditureItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ByExpenditureItemToolStripMenuItem.Click
         frmJournalEntryExpenditure.jevno.Text = jevno.Text
         frmJournalEntryExpenditure.officeid.Text = jevno.Text
         frmJournalEntryExpenditure.pid.Text = pid.Text
         frmJournalEntryExpenditure.ShowDialog(Me)
     End Sub
 
-    Private Sub ManualJournalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ManualJournalToolStripMenuItem.Click
+    Private Sub ByManualJournalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ByManualJournalToolStripMenuItem.Click
         If txtFund.Text = "" Then
             XtraMessageBox.Show("Please select fund ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtFund.Focus()
@@ -341,5 +327,22 @@ Public Class frmJournalEntry
         End If
     End Sub
 
+    Private Sub cmdNewEmployee_Click(sender As Object, e As EventArgs) Handles cmdNewEmployee.Click
+        If txtFund.Text = "" Then
+            XtraMessageBox.Show("Please select fund ", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            txtFund.Focus()
+            Exit Sub
 
+        End If
+        frmJournalEntryCredit.jevno.Text = jevno.Text
+        If frmJournalEntryCredit.Visible = True Then
+            frmJournalEntryCredit.Focus()
+        Else
+            frmJournalEntryCredit.Show(Me)
+        End If
+    End Sub
+
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        LoadAccountTitle()
+    End Sub
 End Class

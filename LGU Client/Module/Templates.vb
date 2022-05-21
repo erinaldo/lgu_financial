@@ -199,15 +199,15 @@ Module Templates
         com.CommandText = "select *, date_format(postingdate,'%M %d, %Y') as daterequest, " _
             + " date_format(postingdate,'%m') as month_request, " _
             + " (select sb from tblcompoffice where officeid=a.officeid) as sb,  " _
-            + " (select fullname from tblaccounts where accountid=a.requestedby) as payee,  " _
-            + " ifnull((select sum(amount) from tblrequisitionfund where pid=a.pid),0) as total " _
+            + " (select suppliername from tblsupplier where supplierid=a.payee) as 'payeename', " _
+            + " ifnull((select sum(original) from tblrequisitionfund where pid=a.pid),0) as total " _
             + " from tblrequisition as a where pid='" & pid & "'" : rst = com.ExecuteReader
         While rst.Read
             postingdate = CDate(rst("postingdate").ToString)
             periodcode = rst("periodcode").ToString : officeid = rst("officeid").ToString : sb = CBool(rst("sb").ToString)
             My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[remarks]", rst("purpose").ToString), False)
             My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[obligation_no]", rst("requestno").ToString), False)
-            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[payee]", rst("payee").ToString), False)
+            My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[payee]", rst("payeename").ToString), False)
 
             My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[date_requestor]", rst("daterequest").ToString), False)
             My.Computer.FileSystem.WriteAllText(SaveLocation, My.Computer.FileSystem.ReadAllText(SaveLocation).Replace("[total_amount]", FormatNumber(rst("total").ToString, 2)), False)
@@ -285,7 +285,8 @@ Module Templates
                            + " <td align='center' style='font-size: 12px; white-space: nowrap;'>" & rst("centercode").ToString & "-" & rst("office").ToString & "</td> " _
                            + " <td style='font-size: 12px'>" & rst("fund").ToString & " (" & rst("expenditure").ToString & ")" & "</td> " _
                            + " <td align='center' style='font-size: 12px; white-space: nowrap;'>" & rst("itemcode").ToString & "</td> " _
-                           + " <td align='right' style='font-size: 12px; white-space: nowrap;'>" & FormatNumber(rst("amount").ToString, 2) & "</td> " _
+                           + " <td align='right' style='font-size: 12px; white-space: nowrap;'>" & FormatNumber(rst("original").ToString, 2) & "</td> " _
+                           + " <td align='right' style='font-size: 12px; white-space: nowrap;'>" & FormatNumber(rst("returnfund").ToString, 2) & "</td> " _
                         + "</tr> " & Chr(13)
             acctint += 1
         End While
@@ -296,6 +297,7 @@ Module Templates
                            + " <td align='center' style='font-size: 0.6vw; white-space: nowrap;'>&nbsp;</td> " _
                            + " <td style='font-size: 0.6vw;'>&nbsp;</td> " _
                            + " <td align='center' style='font-size: 0.6vw; white-space: nowrap;'>&nbsp;</td> " _
+                           + " <td align='right' style='font-size: 0.6vw; white-space: nowrap;'>&nbsp;</td> " _
                            + " <td align='right' style='font-size: 0.6vw; white-space: nowrap;'>&nbsp;</td> " _
                         + "</tr> " & Chr(13)
         Next
@@ -308,15 +310,15 @@ Module Templates
 
 
         Dim AcctRow = "" : Dim acct As Integer = 0
-        com.CommandText = "SELECT b.postingdate, (select itemname from tblglitem where itemcode = a.itemcode) as itemname, a.requestno,a.prevbalance,a.amount,a.newbalance, " _
+        com.CommandText = "SELECT b.postingdate, (select itemname from tblglitem where itemcode = a.itemcode) as itemname, a.requestno,a.prevbalance,a.original,a.newbalance, " _
                                     + " b.paid as cleared FROM `tblrequisitionfund` as a inner join tblrequisition as b on a.pid = b.pid where a.pid='" & pid & "' order by a.itemcode, b.postingdate asc; " : rst = com.ExecuteReader
         While rst.Read
             Dim cleared As Boolean = CBool(rst("cleared"))
             AcctRow += " <tr> " _
                            + " <td class='item_list' align='center'>" & rst("postingdate").ToString & "</td> " _
                            + " <td class='item_list' align='center'>" & rst("itemname").ToString & "</td> " _
-                           + " <td class='item_list' align='right'>" & If(cleared, FormatNumber(Val(rst("amount").ToString), 2), "") & "</td> " _
-                           + " <td class='item_list' align='right'>" & If(Not cleared, FormatNumber(Val(rst("amount").ToString), 2), "") & "</td> " _
+                           + " <td class='item_list' align='right'>" & If(cleared, FormatNumber(Val(rst("original").ToString), 2), "") & "</td> " _
+                           + " <td class='item_list' align='right'>" & If(Not cleared, FormatNumber(Val(rst("original").ToString), 2), "") & "</td> " _
                            + " <td class='item_list' align='right'>" & FormatNumber(Val(rst("newbalance").ToString), 2) & "</td> " _
                         + "</tr> " & Chr(13)
             acct += 1
@@ -378,7 +380,6 @@ Module Templates
         com.CommandText = "select *, date_format(postingdate,'%M %d, %Y') as daterequest,  date_format(postingdate,'%m') as month_request, " _
                             + " (select officename from tblcompoffice where officeid=a.officeid) as office, " _
                             + " (select sb from tblcompoffice where officeid=a.officeid) as sb,  " _
-                            + " (select fullname from tblaccounts where accountid=a.requestedby) as payee,  " _
                             + " ifnull((select sum(amount) from tblrequisitionfund where pid=a.pid),0) as total " _
                             + " from tblrequisition as a where pid='" & pid & "'" : rst = com.ExecuteReader
         While rst.Read

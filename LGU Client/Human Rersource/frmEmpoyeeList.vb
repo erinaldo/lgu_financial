@@ -125,6 +125,16 @@ Public Class frmEmpoyeeList
         End Try
     End Sub
 
+
+    Private Sub GridView1_DragObjectDrop(sender As Object, e As DevExpress.XtraGrid.Views.Base.DragObjectDropEventArgs) Handles gridview1.DragObjectDrop
+        XgridColumnDropChanged(gridview1, Me.Name)
+    End Sub
+
+    Private Sub GridView1_ColumnWidthChanged(sender As Object, e As ColumnEventArgs) Handles gridview1.ColumnWidthChanged
+        XgridColumnWidthChanged(gridview1, Me.Name)
+    End Sub
+
+
     Public Sub FilterBirthdayList()
         Try
             If txtBirthMonth.Text = "" Then Exit Sub
@@ -153,14 +163,14 @@ Public Class frmEmpoyeeList
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
         If XtraTabControl1.SelectedTabPage Is tabEmployeeList Then
-            frmPayrollEmployeeInformation.id.Text = gridview1.GetFocusedRowCellValue("Control No.").ToString : frmPayrollEmployeeInformation.mode.Text = "edit"
+            frmEmployeeInfo.id.Text = gridview1.GetFocusedRowCellValue("Control No.").ToString : frmEmployeeInfo.mode.Text = "edit"
         ElseIf XtraTabControl1.SelectedTabPage Is tabBirthDay Then
-            frmPayrollEmployeeInformation.id.Text = gridBirthDay.GetFocusedRowCellValue("Control No.").ToString : frmPayrollEmployeeInformation.mode.Text = "edit"
+            frmEmployeeInfo.id.Text = gridBirthDay.GetFocusedRowCellValue("Control No.").ToString : frmEmployeeInfo.mode.Text = "edit"
         End If
-        If frmPayrollEmployeeInformation.Visible = True Then
-            frmPayrollEmployeeInformation.Focus()
+        If frmEmployeeInfo.Visible = True Then
+            frmEmployeeInfo.Focus()
         Else
-            frmPayrollEmployeeInformation.Show()
+            frmEmployeeInfo.Show()
         End If
     End Sub
 
@@ -345,10 +355,10 @@ Public Class frmEmpoyeeList
     End Sub
 
     Private Sub cmdNewEmployee_Click(sender As Object, e As EventArgs) Handles cmdNewEmployee.Click
-        If frmPayrollEmployeeInformation.Visible = True Then
-            frmPayrollEmployeeInformation.Focus()
+        If frmEmployeeInfo.Visible = True Then
+            frmEmployeeInfo.Focus()
         Else
-            frmPayrollEmployeeInformation.Show(Me)
+            frmEmployeeInfo.Show(Me)
         End If
     End Sub
 

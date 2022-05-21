@@ -52,11 +52,14 @@ Module Accounting
             da.Fill(st, 0)
             For cnt = 0 To st.Tables(0).Rows.Count - 1
                 With (st.Tables(0))
-                    If Val(.Rows(cnt)("current_month_period").ToString()) > Val(.Rows(cnt)("monthcode").ToString()) Then
-                        com.CommandText = "update tblbudgetcomposition set " _
-                           + " amount=amount+" & .Rows(cnt)("amount").ToString() & ", " _
-                           + .Rows(cnt)("monthname").ToString() & "=" & .Rows(cnt)("monthname").ToString() & "+" & .Rows(cnt)("amount").ToString() & " " _
-                           + " where periodcode='" & .Rows(cnt)("periodcode").ToString() & "' and itemcode='" & .Rows(cnt)("itemcode").ToString() & "' and officeid='" & .Rows(cnt)("officeid").ToString() & "'" : com.ExecuteNonQuery()
+                    If getCurrentTransactionMonth(.Rows(cnt)("periodcode").ToString()) <> "" Then
+                        If Val(.Rows(cnt)("current_month_period").ToString()) <> Val(.Rows(cnt)("monthcode").ToString()) Then
+                            Dim CurrentMonth As String = MonthName(CInt(getCurrentTransactionMonth(.Rows(cnt)("periodcode").ToString())), False)
+                            com.CommandText = "update tblbudgetcomposition set " _
+                               + " amount=(amount+" & .Rows(cnt)("amount").ToString() & "), " _
+                               + CurrentMonth & "=(" & CurrentMonth & "+" & .Rows(cnt)("amount").ToString() & ") " _
+                               + " where periodcode='" & .Rows(cnt)("periodcode").ToString() & "' and itemcode='" & .Rows(cnt)("itemcode").ToString() & "' and officeid='" & .Rows(cnt)("officeid").ToString() & "'" : com.ExecuteNonQuery()
+                        End If
                     End If
                 End With
             Next

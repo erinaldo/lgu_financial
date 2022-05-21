@@ -44,7 +44,7 @@ Public Class frmRequisitionInfo
         txtSourceAmount.EditValue = qrysingledata("total", "sum(amount) as total", "tmprequisitionfund where pid='" & pid.Text & "'")
     End Sub
 
-    Private Sub ffrmRequisitionInfo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmRequisitionInfo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Icon = ico
         ApplySystemTheme(ToolStrip1)
 
@@ -83,11 +83,17 @@ Public Class frmRequisitionInfo
         ApprovingHistory()
         LoadApproverDeatils()
 
+        If txtStatus.Text = "ON HOLD" Then
+            frmHoldMessage.txtMessage.Text = qrysingledata("remarks", "remarks", "tblapprovalhistory as a where mainreference='" & pid.Text & "' and status='Hold' order by dateconfirm desc limit 1")
+            frmHoldMessage.ShowDialog()
+        End If
+
+
 
     End Sub
     Public Sub CreateFundTable()
-        com.CommandText = "CREATE TEMPORARY TABLE IF NOT EXISTS `tmprequisitionfund` (  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,  `pid` varchar(45) NOT NULL DEFAULT '',  `officeid` varchar(45) NOT NULL DEFAULT '',  `periodcode` varchar(45) NOT NULL DEFAULT '',  `requestno` varchar(45) NOT NULL DEFAULT '',  `monthcode` varchar(2) NOT NULL DEFAULT '',  `classcode` varchar(45) NOT NULL DEFAULT '',  `itemcode` varchar(45) NOT NULL DEFAULT '',  `prevbalance` double NOT NULL DEFAULT '0',  `amount` double NOT NULL DEFAULT '0',  `newbalance` double NOT NULL DEFAULT '0',  `cancelled` tinyint(1) NOT NULL DEFAULT '0',  PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;" : com.ExecuteNonQuery()
-        com.CommandText = "DELETE FROM tmprequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
+        com.CommandText = "DROP TEMPORARY TABLE IF EXISTS `tmprequisitionfund`" : com.ExecuteNonQuery()
+        com.CommandText = "CREATE TEMPORARY TABLE IF NOT EXISTS `tmprequisitionfund` (  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,  `pid` varchar(45) NOT NULL DEFAULT '',  `officeid` varchar(45) NOT NULL DEFAULT '',  `periodcode` varchar(45) NOT NULL DEFAULT '',  `requestno` varchar(45) NOT NULL DEFAULT '',  `monthcode` varchar(2) NOT NULL DEFAULT '',  `classcode` varchar(45) NOT NULL DEFAULT '',  `itemcode` varchar(45) NOT NULL DEFAULT '',  `prevbalance` double NOT NULL DEFAULT '0',  `amount` double NOT NULL DEFAULT '0',  `newbalance` double NOT NULL DEFAULT '0', `original` double NOT NULL DEFAULT '0',   `returnfund` double NOT NULL DEFAULT '0',  `cancelled` tinyint(1) NOT NULL DEFAULT '0',  PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;" : com.ExecuteNonQuery()
         com.CommandText = "INSERT INTO tmprequisitionfund select * from tblrequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
     End Sub
 
@@ -279,11 +285,15 @@ Public Class frmRequisitionInfo
     End Sub
 
     Public Sub LoadSource()
-        LoadXgrid("select id,classcode as 'Class', date_format(concat(date_format(current_date,'%Y'),'-',monthcode,'-1'),'%M') as 'Month', itemcode as 'Item Code', (select itemname from tblglitem where itemcode=a.itemcode) as 'Item Name', Amount from tmprequisitionfund as a where pid='" & pid.Text & "'", "tmprequisitionfund", Em, GridView1, Me)
+        If countqry("tmprequisitionfund", "pid='" & pid.Text & "' and returnfund > 0") > 0 Then
+            LoadXgrid("select id,classcode as 'Class', date_format(concat(date_format(current_date,'%Y'),'-',monthcode,'-1'),'%M') as 'Month', itemcode as 'Item Code', (select itemname from tblglitem where itemcode=a.itemcode) as 'Item Name', Original, Amount, returnfund as 'Return' from tmprequisitionfund as a where pid='" & pid.Text & "'", "tmprequisitionfund", Em, GridView1, Me)
+        Else
+            LoadXgrid("select id,classcode as 'Class', date_format(concat(date_format(current_date,'%Y'),'-',monthcode,'-1'),'%M') as 'Month', itemcode as 'Item Code', (select itemname from tblglitem where itemcode=a.itemcode) as 'Item Name', Amount from tmprequisitionfund as a where pid='" & pid.Text & "'", "tmprequisitionfund", Em, GridView1, Me)
+        End If
         XgridHideColumn({"id"}, GridView1)
         XgridColAlign({"Item Code", "Class", "Month"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
-        XgridColCurrency({"Amount"}, GridView1)
-        XgridGeneralSummaryCurrency({"Amount"}, GridView1)
+        XgridColCurrency({"Amount", "Original", "Return"}, GridView1)
+        XgridGeneralSummaryCurrency({"Amount", "Original", "Return"}, GridView1)
         GridView1.BestFitColumns()
         If GridView1.RowCount > 0 Then
             txtRequestType.ReadOnly = True
@@ -398,7 +408,7 @@ Public Class frmRequisitionInfo
                     Else
                         If CBool(.Rows(cnt)("cleared").ToString()) = True Then
                             ReadOnlyForm(True, "view")
-                            txtStatus.Text = "CHECK CLAIMED"
+                            txtStatus.Text = "CHECK RELEASED"
                             tabDisbursement.PageVisible = True
                             LoadDisbursement()
                         Else
@@ -475,7 +485,7 @@ Public Class frmRequisitionInfo
             txtStatus.BackColor = Color.LightSkyBlue
             txtStatus.ForeColor = Color.Black
 
-        ElseIf txtStatus.Text = "CHECK CLAIMED" Then
+        ElseIf txtStatus.Text = "CHECK RELEASED" Or txtStatus.Text = "CLEARED" Then
             txtStatus.BackColor = Color.Gold
             txtStatus.ForeColor = Color.Black
 
@@ -561,7 +571,7 @@ Public Class frmRequisitionInfo
                 com.CommandText = "update tmprequisitionfund set requestno='" & RequestNumber & "' where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
             End If
             com.CommandText = "DELETE FROM tblrequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
-            com.CommandText = "INSERT INTO tblrequisitionfund (pid,officeid,periodcode,requestno,monthcode,classcode,itemcode,prevbalance,amount,newbalance,cancelled) select pid,officeid,periodcode,requestno,monthcode,classcode,itemcode,prevbalance,amount,newbalance,cancelled from tmprequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
+            com.CommandText = "INSERT INTO tblrequisitionfund (pid,officeid,periodcode,requestno,monthcode,classcode,itemcode,prevbalance,amount,newbalance,original,returnfund,cancelled) select pid,officeid,periodcode,requestno,monthcode,classcode,itemcode,prevbalance,amount,newbalance,original,returnfund,cancelled from tmprequisitionfund where pid='" & pid.Text & "'" : com.ExecuteNonQuery()
         Catch ex As Exception
             Return False
         End Try
@@ -635,7 +645,7 @@ Public Class frmRequisitionInfo
     End Sub
 
     Public Sub LoadDisbursement()
-        LoadXgrid("SELECT if(cancelled,'CANCELLED',if(cleared,'CLEARED', 'PENDING')) as Status, " _
+        LoadXgrid("SELECT if(cancelled,'CANCELLED',if(cleared,'CLEARED', if(checkissued, 'CHECK ISSUED', 'PENDING'))) as Status,  " _
                       + " voucherno as 'Voucher No.', " _
                       + " date_format(voucherdate,'%Y-%m-%d') as 'Voucher Date', " _
                       + " (select suppliername from tblsupplier where supplierid = a.supplierid) as 'Payee', " _
@@ -664,6 +674,11 @@ Public Class frmRequisitionInfo
                 If status = "PENDING" Then
                     e.Appearance.BackColor = Color.Orange
                     e.Appearance.BackColor2 = Color.Orange
+                    e.Appearance.ForeColor = Color.Black
+
+                ElseIf status = "CHECK ISSUED" Then
+                    e.Appearance.BackColor = Color.LightSkyBlue
+                    e.Appearance.BackColor2 = Color.LightSkyBlue
                     e.Appearance.ForeColor = Color.Black
 
                 ElseIf status = "CLEARED" Then
@@ -737,7 +752,7 @@ Public Class frmRequisitionInfo
     End Sub
 
 
-    Private Sub cmdConfirmReservation_Click(sender As Object, e As EventArgs) Handles cmdForApproval.Click
+    Private Sub cmdForApproval_Click(sender As Object, e As EventArgs) Handles cmdForApproval.Click
         If SecurityCheck() = True Then
             If Val(CC(txtSourceAmount.Text)) = 0 Then
                 XtraMessageBox.Show("Please select from item from budget source!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)

@@ -305,6 +305,7 @@ Public Class frmRequisitionForApprovalInfo
 
     Private Sub cmdHoldRequest_Click(sender As Object, e As EventArgs) Handles cmdHoldRequest.Click
         frmApprovalConfirmation.RequiredAuthorizedAccess = CBool(qrysingledata("enableauthorizedaccess", "enableauthorizedaccess", "tblaccounts where accountid='" & globaluserid & "'"))
+        frmApprovalConfirmation.mode.Text = "hold"
         frmApprovalConfirmation.ShowDialog(Me)
         If frmApprovalConfirmation.TransactionDone = True Then
             com.CommandText = "insert into tblapprovalhistory set apptype='requisition', trncode='" & requesttype.Text & "',fundcode='" & fundcode.Text & "' , mainreference='" & pid.Text & "', subreference='" & pid.Text & "', status='Hold', remarks='" & rchar(frmApprovalConfirmation.txtRemarks.Text) & "', applevel=0, officeid='" & compOfficeid & "',authorized=" & frmApprovalConfirmation.RequiredAuthorizedAccess & ",authorizedby='" & If(frmApprovalConfirmation.RequiredAuthorizedAccess, frmApprovalConfirmation.txtAccessAccount.EditValue, "") & "', confirmid='" & globaluserid & "', confirmby='" & globalfullname & "', position='" & globalposition & "', dateconfirm=current_timestamp,finalapprover=0" : com.ExecuteNonQuery()

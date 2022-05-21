@@ -307,10 +307,28 @@
     <Compile Include="Accounting\Journal\frmJournalEntryExpenditure.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Accounting\Requisition\frmHoldMessage.Designer.vb">
+      <DependentUpon>frmHoldMessage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\Requisition\frmHoldMessage.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Accounting\Requisition\frmProductItem.Designer.vb">
       <DependentUpon>frmProductItem.vb</DependentUpon>
     </Compile>
     <Compile Include="Accounting\Requisition\frmProductItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\Requisition\frmRequisitionFundReturn.Designer.vb">
+      <DependentUpon>frmRequisitionFundReturn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\Requisition\frmRequisitionFundReturn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\Requisition\frmRequisitionFundReturnAmount.Designer.vb">
+      <DependentUpon>frmRequisitionFundReturnAmount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\Requisition\frmRequisitionFundReturnAmount.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accounting\Requisition\frmSourceOfFundInfo.Designer.vb">
@@ -361,10 +379,10 @@
     <Compile Include="Human Rersource\frmEmpoyeeList.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Human Rersource\frmPayrollEmployeeInformation.Designer.vb">
-      <DependentUpon>frmPayrollEmployeeInformation.vb</DependentUpon>
+    <Compile Include="Human Rersource\frmEmployeeInfo.Designer.vb">
+      <DependentUpon>frmEmployeeInfo.vb</DependentUpon>
     </Compile>
-    <Compile Include="Human Rersource\frmPayrollEmployeeInformation.vb">
+    <Compile Include="Human Rersource\frmEmployeeInfo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module\Accounting.vb" />
@@ -746,8 +764,17 @@
     <EmbeddedResource Include="Accounting\Journal\frmJournalEntryExpenditure.resx">
       <DependentUpon>frmJournalEntryExpenditure.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\Requisition\frmHoldMessage.resx">
+      <DependentUpon>frmHoldMessage.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accounting\Requisition\frmProductItem.resx">
       <DependentUpon>frmProductItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\Requisition\frmRequisitionFundReturn.resx">
+      <DependentUpon>frmRequisitionFundReturn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\Requisition\frmRequisitionFundReturnAmount.resx">
+      <DependentUpon>frmRequisitionFundReturnAmount.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounting\Requisition\frmSourceOfFundInfo.resx">
       <DependentUpon>frmSourceOfFundInfo.vb</DependentUpon>
@@ -773,8 +800,8 @@
     <EmbeddedResource Include="Human Rersource\frmEmpoyeeList.resx">
       <DependentUpon>frmEmpoyeeList.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Human Rersource\frmPayrollEmployeeInformation.resx">
-      <DependentUpon>frmPayrollEmployeeInformation.vb</DependentUpon>
+    <EmbeddedResource Include="Human Rersource\frmEmployeeInfo.resx">
+      <DependentUpon>frmEmployeeInfo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Module\Chat Box\frmChatPicturePreview.resx">
       <DependentUpon>frmChatPicturePreview.vb</DependentUpon>
@@ -1077,6 +1104,7 @@
   <ItemGroup>
     <Content Include="ico.ico" />
     <Content Include="Module\Auto Updater\Note.txt" />
+    <None Include="Resources\187.png" />
     <None Include="Resources\inbox--pencil.png" />
     <None Include="Resources\Action_Inline_Edit.png" />
     <None Include="Resources\plus-circle-frame.png" />

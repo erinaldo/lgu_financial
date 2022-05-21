@@ -50,8 +50,13 @@ Public Class frmApprovalConfirmation
 
     Private Sub cmdaction_Click(sender As Object, e As EventArgs) Handles cmdConfirm.Click
         If mode.Text = "cancel" Then
-            If txtRemarks.Text = "" Then
-                MessageBox.Show("Please provide cancel reason to justify your actions!", "Error Access", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If txtRemarks.Text = "" Or txtRemarks.Text.Length < 5 Then
+                MessageBox.Show("Please provide cancel reason to justify your approval!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End If
+        ElseIf mode.Text = "hold" Then
+            If txtRemarks.Text = "" Or txtRemarks.Text.Length < 5 Then
+                MessageBox.Show("Please provide hold reason to justify your approval!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End If
         ElseIf RequiredAuthorizedAccess = True And txtAccessAccount.Text = "" Then

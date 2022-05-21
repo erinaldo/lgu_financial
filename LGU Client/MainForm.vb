@@ -624,7 +624,7 @@ Public Class MainForm
 
     Public Sub CheckChatNotification()
         dst2 = New DataSet : dst2.Clear()
-        msda2 = New MySqlDataAdapter("select id, message,isnotified,(select fullname from tblaccounts where accountid=tblchatlogs.sender) as namesender from tblchatlogs where receiver='" & globaluserid & "' and isread=0", conn)
+        msda2 = New MySqlDataAdapter("select id, message,isnotified,(select fullname from tblaccounts where accountid=tblchatlogs.sender) as namesender from tblchatlogs where receiver='" & globaluserid & "' and isread=0 and s_deleted=0", conn)
         msda2.SelectCommand.CommandTimeout = 6000000
         msda2.Fill(dst2, 0)
 

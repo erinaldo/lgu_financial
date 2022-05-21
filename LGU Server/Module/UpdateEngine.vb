@@ -424,6 +424,18 @@ Module UpdateEngine
             engineupdated = True
         End If
 
+        updateVersion = "2022-05-16"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "ALTER TABLE `tbltransactionentries` ADD INDEX `ornumber`(`ornumber`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tbltransactionentries` ADD INDEX `invrefcode`(`invrefcode`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblrequisition` ADD INDEX `payee`(`payee`);" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblrequisitionfund` ADD COLUMN `returnfund` DOUBLE NOT NULL DEFAULT 0 AFTER `newbalance`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "ALTER TABLE `tblrequisitionfund` ADD COLUMN `original` DOUBLE NOT NULL DEFAULT 0 AFTER `newbalance`;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            com.CommandText = "update `tblrequisitionfund` set original = amount;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+
         If engineupdated = True Then
             Dim dversion As Date = updateVersion
             XtraMessageBox.Show("Your database engine was updated to Build Version " & dversion.ToString & Environment.NewLine & "Please view update list at ""Main System Menu"" > About > What's New!", compname, MessageBoxButtons.OK, MessageBoxIcon.Information)

@@ -23,7 +23,7 @@ Public Class frmCollectionDetails
     End Sub
 
     Public Sub ViewList()
-        LoadXgrid("select id,jevno,formcode,fundcode,cifid,companyid,invrefcode,officeid,(select fullname from tbltaxpayerprofile where cifid=a.cifid) as 'Tax Payer', ornumber as 'OR Number', sum(credit) as Amount,(select fullname from tblaccounts where accountid=a.trnby) as 'Transaction By', date_format(datetrn, '%Y-%m-%d %r') as 'Date Transaction',Cancelled,(select fullname from tblaccounts where accountid=a.cancelledby) as 'Cancelled By' from tbltransactionentries as a where credit>0 and invrefcode='" & invrefcode.Text & "' and ornumber between " & seriesfrom.Text & " and " & seriesto.Text & " group by jevno,ornumber order by ornumber asc", "tbltransactionentries", Em, GridView1, Me)
+        LoadXgrid("select id,jevno,formcode,fundcode,cifid,companyid,invrefcode,officeid,(select fullname from tbltaxpayerprofile where cifid=a.cifid) as 'Tax Payer', ornumber as 'OR Number', sum(credit) as Amount,(select fullname from tblaccounts where accountid=a.trnby) as 'Transaction By', date_format(datetrn, '%Y-%m-%d %r') as 'Date Transaction',Cancelled,(select fullname from tblaccounts where accountid=a.cancelledby) as 'Cancelled By' from tbltransactionentries as a where credit>0 and invrefcode='" & invrefcode.Text & "' group by jevno,ornumber order by ornumber asc", "tbltransactionentries", Em, GridView1, Me)
         XgridHideColumn({"id", "jevno", "formcode", "fundcode", "cifid", "companyid", "invrefcode", "officeid"}, GridView1)
         XgridColAlign({"Form Code", "OR Number", "Date Transaction"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         XgridColCurrency({"Amount"}, GridView1)

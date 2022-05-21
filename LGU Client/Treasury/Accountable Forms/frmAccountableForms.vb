@@ -20,16 +20,28 @@ Public Class frmAccountableForms
         ApplySystemTheme(ToolStrip3)
         LoadForm()
         ViewList()
+        LoadAccountable()
     End Sub
+
 
     Public Sub LoadForm()
         LoadXgridLookupSearch("SELECT code,Description from tblaccountableform order by Description", "tblaccountableform", txtForm, gridForm)
         gridForm.Columns("code").Visible = False
     End Sub
 
+    Public Sub LoadAccountable()
+        LoadXgridLookupSearch("select * from (SELECT distinct accountable,(select fullname from tblaccounts where accountid=a.accountable) as 'AccountablePerson' from tblforminventory as a where accountable<>'') as x order by AccountablePerson", "tblforminventory", txtAccountable, gridAccountable)
+        gridAccountable.Columns("accountable").Visible = False
+    End Sub
+
     Public Sub ViewList()
-        LoadXgrid("Select  id as 'Inventory Code',accountable, (select description from tblaccountableform where code=a.formcode) as 'Form',formcode as 'Form Code', SeriesFrom,SeriesTo,CurrentNo,  (select sum(credit) from tbltransactionentries where cancelled=0 and invrefcode=a.id and ornumber between a.seriesfrom and a.seriesto) as 'Total Collection', (select fullname from tblaccounts where accountid=a.accountable) as 'Accountable Person', InUsed, " & FormatDate("dateupdated", False) & " as 'Date Updated',   (select fullname from tblaccounts where accountid=a.entryby) as 'Entry By' , " & FormatDate("dateentry", False) & " as 'Date Entry' " _
-                  + " from tblforminventory as a where inused=" & ckCurrentlyInUsed.CheckState & If(ckViewAllForms.Checked = True, "", " and formcode='" & txtForm.EditValue & "' ") & " " & If(LCase(globalusername) = "root" Or globalSpecialApprover = True, "", " and officeid='" & compOfficeid & "'") & " order by seriesfrom asc", "tblforminventory", Em, GridView1, Me)
+        com.CommandText = "drop temporary table if exists tmpcollection;" : com.ExecuteNonQuery()
+        com.CommandText = "create temporary table tmpcollection select invrefcode, sum(credit) as total from tbltransactionentries where cancelled=0 and invrefcode in (select id from tblforminventory as a where inused=" & ckCurrentlyInUsed.CheckState & If(ckViewAllForms.Checked = True, "", " and formcode='" & txtForm.EditValue & "' ") & " " & If(LCase(globalusername) = "root" Or globalSpecialApprover = True, "", " and officeid='" & compOfficeid & "'") & If(CheckEdit1.Checked, "", " and accountable='" & txtAccountable.EditValue & "'") & ") group by invrefcode" : com.ExecuteNonQuery()
+        LoadXgrid("select * from (Select id as 'Inventory Code',accountable, formcode as 'Form Code', SeriesFrom,SeriesTo,CurrentNo, " _
+                  + " (select total from tmpcollection where  invrefcode=a.id) as 'Total Collection', " _
+                  + " (select fullname from tblaccounts where accountid=a.accountable) as 'Accountable Person', InUsed,  " _
+                  + " (select fullname from tblaccounts where accountid=a.entryby) as 'Entry By' , " & FormatDate("dateentry", False) & " as 'Date Entry' " _
+                  + " from tblforminventory as a where inused=" & ckCurrentlyInUsed.CheckState & If(ckViewAllForms.Checked = True, "", " and formcode='" & txtForm.EditValue & "' ") & " " & If(LCase(globalusername) = "root" Or globalSpecialApprover = True, "", " and officeid='" & compOfficeid & "'") & If(CheckEdit1.Checked, "", " and accountable='" & txtAccountable.EditValue & "'") & ") as x order by seriesfrom asc", "tblforminventory", Em, GridView1, Me)
         XgridHideColumn({"accountable"}, GridView1)
         XgridColAlign({"Inventory Code", "Form Code", "SeriesFrom", "SeriesTo", "CurrentNo", "Date Updated", "Date Entry"}, GridView1, DevExpress.Utils.HorzAlignment.Center)
         XgridColCurrency({"Total Collection"}, GridView1)
@@ -158,6 +170,19 @@ Public Class frmAccountableForms
     End Sub
 
     Private Sub txtForm_EditValueChanged(sender As Object, e As EventArgs) Handles txtForm.EditValueChanged
+        ViewList()
+    End Sub
+
+    Private Sub CheckEdit1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckEdit1.CheckedChanged
+        If CheckEdit1.Checked = True Then
+            txtAccountable.Enabled = False
+        Else
+            txtAccountable.Enabled = True
+        End If
+        ViewList()
+    End Sub
+
+    Private Sub txtAccountable_EditValueChanged(sender As Object, e As EventArgs) Handles txtAccountable.EditValueChanged
         ViewList()
     End Sub
 End Class

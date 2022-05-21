@@ -41,10 +41,7 @@ Public Class frmBudgetEditLine
                   + " (select officename from tblcompoffice where officeid=b.officeid) As 'Office', " _
                   + " January, February, March, April, May, June, July, August, September, October, November, December, " _
                   + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode And b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0) as totalused, " _
-                  + " amount-(select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode And b.itemcode=a.itemcode And b.officeid=a.officeid And b.monthcode=a.monthcode And a.cancelled=0)  as balance, " _
-                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and (a.pid not in (select pid from tbldisbursementvoucher as dv where dv.cancelled=0) or a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=0 and dv.cancelled=0))) as 'NYDD', " _
-                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=1 and dv.cleared=0 and dv.cancelled=0)) as 'DD', " _
-                  + " (select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode and b.itemcode=a.itemcode And b.officeid=a.officeid And a.cancelled=0 and a.pid in (select pid from tbldisbursementvoucher as dv where dv.checkissued=1 and dv.cleared=1 and dv.cancelled=0)) as 'CLEARED' " _
+                  + " amount-(select ifnull(sum(amount),0) from tblrequisitionfund as a where b.periodcode=a.periodcode And b.itemcode=a.itemcode And b.officeid=a.officeid And b.monthcode=a.monthcode And a.cancelled=0)  as balance " _
                   + " FROM `tblglitem` as a left join tblbudgetcomposition as b on a.itemcode=b.itemcode  where b.id ='" & id.Text & "') as x " : rst = com.ExecuteReader()
         While rst.Read
             officeid = rst("officeid").ToString
@@ -94,10 +91,10 @@ Public Class frmBudgetEditLine
 
         If id.Text <> "" Then
             LoadXgrid("select date_format(concat(date_format(current_date,'%Y'),'-',monthcode,'-1'),'%M') as 'Month', itemcode as 'Item Code', " _
-                      + "(select itemname from tblglitem where itemcode=a.itemcode) as 'Item Name', Amount, requestno as 'Request No.', (select purpose from tblrequisition where pid=a.pid) as Purpose from tblrequisitionfund as a where officeid='" & officeid & "' and periodcode='" & periodcode & "' and classcode='" & classcode & "' and itemcode='" & itemcode & "' and cancelled=0", "tblrequisitionfund", Em_Requisition, gridRequisition, Me)
+                      + "(select itemname from tblglitem where itemcode=a.itemcode) as 'Item Name', Original, Amount, returnfund as 'Return', requestno as 'Request No.', (select purpose from tblrequisition where pid=a.pid) as Purpose from tblrequisitionfund as a where officeid='" & officeid & "' and periodcode='" & periodcode & "' and classcode='" & classcode & "' and itemcode='" & itemcode & "' and cancelled=0", "tblrequisitionfund", Em_Requisition, gridRequisition, Me)
             XgridColAlign({"Item Code", "Class", "Month", "Request No."}, gridRequisition, DevExpress.Utils.HorzAlignment.Center)
-            XgridColCurrency({"Amount"}, gridRequisition)
-            XgridGeneralSummaryCurrency({"Amount"}, gridRequisition)
+            XgridColCurrency({"Amount", "Original", "Return"}, gridRequisition)
+            XgridGeneralSummaryCurrency({"Amount", "Original", "Return"}, gridRequisition)
             gridRequisition.BestFitColumns()
 
             LoadXgrid("select trncode, date_format(concat(date_format(datetransfer,'%Y'),'-',monthcode,'-1'),'%M') as 'Month', " _

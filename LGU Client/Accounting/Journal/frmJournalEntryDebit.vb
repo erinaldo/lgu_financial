@@ -80,6 +80,7 @@ Public Class frmJournalEntryDebit
             txtDebit.Text = rst("debit").ToString
         End While
         rst.Close()
+        LoadExpenditureItem()
     End Sub
 
     Private Sub cmdOk_Click(sender As Object, e As EventArgs) Handles cmdOk.Click

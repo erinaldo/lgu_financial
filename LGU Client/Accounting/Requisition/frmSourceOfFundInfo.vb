@@ -126,6 +126,7 @@ Public Class frmSourceOfFundInfo
                                 + " classcode='" & classcode.Text & "', " _
                                 + " itemcode='" & sourceid.Text & "', " _
                                 + " prevbalance='" & If(requiredfund, CC(txtAvailableBalance.EditValue), 0) & "', " _
+                                + " original='" & CC(txtAmount.EditValue) & "', " _
                                 + " amount='" & CC(txtAmount.EditValue) & "', " _
                                 + " newbalance='" & If(requiredfund, CC(txtAvailableBalance.EditValue) - CC(txtAmount.EditValue), 0) & "' " _
                                 + " where id='" & id & "'" : com.ExecuteNonQuery()
@@ -142,6 +143,7 @@ Public Class frmSourceOfFundInfo
                                 + " classcode='" & classcode.Text & "', " _
                                 + " itemcode='" & sourceid.Text & "', " _
                                 + " prevbalance='" & If(requiredfund, CC(txtAvailableBalance.EditValue), 0) & "', " _
+                                + " original='" & CC(txtAmount.EditValue) & "', " _
                                 + " amount='" & CC(txtAmount.EditValue) & "', " _
                                 + " newbalance='" & If(requiredfund, CC(txtAvailableBalance.EditValue) - CC(txtAmount.EditValue), 0) & "'" : com.ExecuteNonQuery()
             clearInfo()

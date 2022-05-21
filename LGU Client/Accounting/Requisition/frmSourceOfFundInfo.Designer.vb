@@ -22,7 +22,6 @@ Partial Class frmSourceOfFundInfo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSourceOfFundInfo))
         Me.cmdaction = New DevExpress.XtraEditors.SimpleButton()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.txtAmount = New DevExpress.XtraEditors.TextEdit()
@@ -53,8 +52,11 @@ Partial Class frmSourceOfFundInfo
         '
         'cmdaction
         '
+        Me.cmdaction.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmdaction.Appearance.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.cmdaction.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.25!)
         Me.cmdaction.Appearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.cmdaction.Appearance.Options.UseBackColor = True
         Me.cmdaction.Appearance.Options.UseFont = True
         Me.cmdaction.Location = New System.Drawing.Point(210, 104)
         Me.cmdaction.Name = "cmdaction"
@@ -268,7 +270,6 @@ Partial Class frmSourceOfFundInfo
         Me.Controls.Add(Me.txtAvailableBalance)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.HelpButton = True
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "frmSourceOfFundInfo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

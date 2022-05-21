@@ -9,6 +9,7 @@
         rst.Close()
         Return monthcode
     End Function
+
     Public Function getGlobalDBTrnid() As String
         Dim strs As Date
         Dim finalstr As String = ""

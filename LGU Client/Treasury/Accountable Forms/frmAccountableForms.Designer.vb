@@ -22,8 +22,7 @@ Partial Class frmAccountableForms
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer1 = New System.Windows.Forms.Timer()
         Me.HiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PropertiesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -33,7 +32,7 @@ Partial Class frmAccountableForms
         Me.RightToolStripPanel = New System.Windows.Forms.ToolStripPanel()
         Me.LeftToolStripPanel = New System.Windows.Forms.ToolStripPanel()
         Me.ContentPanel = New System.Windows.Forms.ToolStripContentPanel()
-        Me.cms_em = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.cms_em = New System.Windows.Forms.ContextMenuStrip()
         Me.cmdView = New System.Windows.Forms.ToolStripMenuItem()
         Me.AssignAccountableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewDetailTransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -52,6 +51,10 @@ Partial Class frmAccountableForms
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.Em = New DevExpress.XtraGrid.GridControl()
         Me.SplitContainerControl1 = New DevExpress.XtraEditors.SplitContainerControl()
+        Me.CheckEdit1 = New DevExpress.XtraEditors.CheckEdit()
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtAccountable = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.gridAccountable = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.ckCurrentlyInUsed = New DevExpress.XtraEditors.CheckEdit()
         Me.ckViewAllForms = New DevExpress.XtraEditors.CheckEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
@@ -64,6 +67,9 @@ Partial Class frmAccountableForms
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerControl1.SuspendLayout()
+        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAccountable.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gridAccountable, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckCurrentlyInUsed.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckViewAllForms.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtForm.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -280,7 +286,7 @@ Partial Class frmAccountableForms
         Me.Em.MainView = Me.GridView1
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit1})
-        Me.Em.Size = New System.Drawing.Size(923, 588)
+        Me.Em.Size = New System.Drawing.Size(923, 569)
         Me.Em.TabIndex = 820
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -290,6 +296,9 @@ Partial Class frmAccountableForms
         Me.SplitContainerControl1.Horizontal = False
         Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 31)
         Me.SplitContainerControl1.Name = "SplitContainerControl1"
+        Me.SplitContainerControl1.Panel1.Controls.Add(Me.CheckEdit1)
+        Me.SplitContainerControl1.Panel1.Controls.Add(Me.LabelControl1)
+        Me.SplitContainerControl1.Panel1.Controls.Add(Me.txtAccountable)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckCurrentlyInUsed)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckViewAllForms)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.LabelControl2)
@@ -298,14 +307,56 @@ Partial Class frmAccountableForms
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
         Me.SplitContainerControl1.Size = New System.Drawing.Size(923, 671)
-        Me.SplitContainerControl1.SplitterPosition = 73
+        Me.SplitContainerControl1.SplitterPosition = 92
         Me.SplitContainerControl1.TabIndex = 821
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
+        '
+        'CheckEdit1
+        '
+        Me.CheckEdit1.Location = New System.Drawing.Point(388, 41)
+        Me.CheckEdit1.Name = "CheckEdit1"
+        Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckEdit1.Properties.Appearance.Options.UseFont = True
+        Me.CheckEdit1.Properties.Caption = "View All Accountable"
+        Me.CheckEdit1.Size = New System.Drawing.Size(134, 20)
+        Me.CheckEdit1.TabIndex = 660
+        '
+        'LabelControl1
+        '
+        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl1.Appearance.Options.UseFont = True
+        Me.LabelControl1.Location = New System.Drawing.Point(17, 42)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(109, 17)
+        Me.LabelControl1.TabIndex = 659
+        Me.LabelControl1.Text = "Select Accountable"
+        '
+        'txtAccountable
+        '
+        Me.txtAccountable.EditValue = ""
+        Me.txtAccountable.Location = New System.Drawing.Point(131, 39)
+        Me.txtAccountable.Name = "txtAccountable"
+        Me.txtAccountable.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtAccountable.Properties.Appearance.Options.UseFont = True
+        Me.txtAccountable.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtAccountable.Properties.DisplayMember = "AccountablePerson"
+        Me.txtAccountable.Properties.NullText = ""
+        Me.txtAccountable.Properties.PopupView = Me.gridAccountable
+        Me.txtAccountable.Properties.ValueMember = "accountable"
+        Me.txtAccountable.Size = New System.Drawing.Size(251, 24)
+        Me.txtAccountable.TabIndex = 658
+        '
+        'gridAccountable
+        '
+        Me.gridAccountable.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.gridAccountable.Name = "gridAccountable"
+        Me.gridAccountable.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.gridAccountable.OptionsView.ShowGroupPanel = False
         '
         'ckCurrentlyInUsed
         '
         Me.ckCurrentlyInUsed.EditValue = True
-        Me.ckCurrentlyInUsed.Location = New System.Drawing.Point(90, 39)
+        Me.ckCurrentlyInUsed.Location = New System.Drawing.Point(131, 67)
         Me.ckCurrentlyInUsed.Name = "ckCurrentlyInUsed"
         Me.ckCurrentlyInUsed.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ckCurrentlyInUsed.Properties.Appearance.Options.UseFont = True
@@ -315,8 +366,7 @@ Partial Class frmAccountableForms
         '
         'ckViewAllForms
         '
-        Me.ckViewAllForms.EditValue = True
-        Me.ckViewAllForms.Location = New System.Drawing.Point(347, 15)
+        Me.ckViewAllForms.Location = New System.Drawing.Point(388, 15)
         Me.ckViewAllForms.Name = "ckViewAllForms"
         Me.ckViewAllForms.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ckViewAllForms.Properties.Appearance.Options.UseFont = True
@@ -328,7 +378,7 @@ Partial Class frmAccountableForms
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(14, 15)
+        Me.LabelControl2.Location = New System.Drawing.Point(58, 15)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(68, 17)
         Me.LabelControl2.TabIndex = 655
@@ -337,8 +387,7 @@ Partial Class frmAccountableForms
         'txtForm
         '
         Me.txtForm.EditValue = ""
-        Me.txtForm.Enabled = False
-        Me.txtForm.Location = New System.Drawing.Point(90, 12)
+        Me.txtForm.Location = New System.Drawing.Point(131, 12)
         Me.txtForm.Name = "txtForm"
         Me.txtForm.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtForm.Properties.Appearance.Options.UseFont = True
@@ -379,6 +428,9 @@ Partial Class frmAccountableForms
         CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainerControl1.ResumeLayout(False)
+        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAccountable.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gridAccountable, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckCurrentlyInUsed.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckViewAllForms.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtForm.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -421,4 +473,8 @@ Partial Class frmAccountableForms
     Friend WithEvents txtForm As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents gridForm As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents ckCurrentlyInUsed As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents CheckEdit1 As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtAccountable As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents gridAccountable As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

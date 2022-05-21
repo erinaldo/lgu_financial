@@ -22,7 +22,6 @@ Partial Class frmForApprovalCheckReleasing
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.HiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PropertiesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -32,7 +31,7 @@ Partial Class frmForApprovalCheckReleasing
         Me.RightToolStripPanel = New System.Windows.Forms.ToolStripPanel()
         Me.LeftToolStripPanel = New System.Windows.Forms.ToolStripPanel()
         Me.ContentPanel = New System.Windows.Forms.ToolStripContentPanel()
-        Me.cms_em = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.cms_em = New System.Windows.Forms.ContextMenuStrip()
         Me.cmdView = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.cmdLocalData = New System.Windows.Forms.ToolStripMenuItem()

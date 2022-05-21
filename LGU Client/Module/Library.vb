@@ -981,4 +981,27 @@ Module library
         Return True
     End Function
 
+    Public Sub SaveDefaultSelection(ByVal formname As String, ByVal controlname As String, ByVal value As String)
+        If value.Length > 0 Then
+            If countqry("tbldefaultdropdown", "formname='" & formname & "' and controlname='" & controlname & "' and userid='" & globaluserid & "'") = 0 Then
+                com.CommandText = "insert into tbldefaultdropdown set formname='" & formname & "', controlname='" & controlname & "', defaultcode='" & value & "', userid='" & globaluserid & "'" : com.ExecuteNonQuery()
+            Else
+                com.CommandText = "update tbldefaultdropdown set defaultcode='" & value & "' where formname='" & formname & "' and controlname='" & controlname & "' and userid='" & globaluserid & "'" : com.ExecuteNonQuery()
+            End If
+        End If
+
+    End Sub
+
+    Public Function loadDefaultSelection(ByVal formname As String, ByVal controlname As String) As String
+        Dim val As String = ""
+        dst = New DataSet
+        msda = New MySqlDataAdapter("select * from tbldefaultdropdown where formname='" & formname & "' and controlname='" & controlname & "' and userid='" & globaluserid & "'", conn)
+        msda.Fill(dst, 0)
+        For cnt = 0 To dst.Tables(0).Rows.Count - 1
+            With (dst.Tables(0))
+                val = .Rows(cnt)("defaultcode").ToString
+            End With
+        Next
+        Return val
+    End Function
 End Module

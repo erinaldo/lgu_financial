@@ -52,7 +52,12 @@ Partial Class frmDisbursementList
         Me.cmdClose = New System.Windows.Forms.ToolStripButton()
         Me.updates = New System.Windows.Forms.ToolStripLabel()
         Me.SplitContainerControl1 = New DevExpress.XtraEditors.SplitContainerControl()
-        Me.ckPendingRequisition = New DevExpress.XtraEditors.CheckEdit()
+        Me.radFilter = New DevExpress.XtraEditors.RadioGroup()
+        Me.txtFund = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.gridFund = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
+        Me.ckUnissuedJev = New DevExpress.XtraEditors.CheckEdit()
+        Me.CheckEdit1 = New DevExpress.XtraEditors.CheckEdit()
         Me.cmdFilterSearch = New DevExpress.XtraEditors.SimpleButton()
         Me.txtDateFrom = New DevExpress.XtraEditors.DateEdit()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
@@ -64,12 +69,15 @@ Partial Class frmDisbursementList
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-        Me.CheckEdit1 = New DevExpress.XtraEditors.CheckEdit()
         Me.cms_em.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerControl1.SuspendLayout()
-        CType(Me.ckPendingRequisition.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.radFilter.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gridFund, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ckUnissuedJev.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDateFrom.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDateFrom.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtDateTo.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,7 +86,6 @@ Partial Class frmDisbursementList
         CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'HiToolStripMenuItem
@@ -286,10 +293,14 @@ Partial Class frmDisbursementList
         '
         Me.SplitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainerControl1.Horizontal = False
+        Me.SplitContainerControl1.IsSplitterFixed = True
         Me.SplitContainerControl1.Location = New System.Drawing.Point(0, 31)
         Me.SplitContainerControl1.Name = "SplitContainerControl1"
+        Me.SplitContainerControl1.Panel1.Controls.Add(Me.radFilter)
+        Me.SplitContainerControl1.Panel1.Controls.Add(Me.txtFund)
+        Me.SplitContainerControl1.Panel1.Controls.Add(Me.LabelControl4)
+        Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckUnissuedJev)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.CheckEdit1)
-        Me.SplitContainerControl1.Panel1.Controls.Add(Me.ckPendingRequisition)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.cmdFilterSearch)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.txtDateFrom)
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.LabelControl6)
@@ -301,28 +312,87 @@ Partial Class frmDisbursementList
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.Em)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
         Me.SplitContainerControl1.Size = New System.Drawing.Size(990, 609)
-        Me.SplitContainerControl1.SplitterPosition = 126
+        Me.SplitContainerControl1.SplitterPosition = 155
         Me.SplitContainerControl1.TabIndex = 823
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
         '
-        'ckPendingRequisition
+        'radFilter
         '
-        Me.ckPendingRequisition.EditValue = True
-        Me.ckPendingRequisition.Location = New System.Drawing.Point(142, 8)
-        Me.ckPendingRequisition.Name = "ckPendingRequisition"
-        Me.ckPendingRequisition.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.ckPendingRequisition.Properties.Appearance.Options.UseFont = True
-        Me.ckPendingRequisition.Properties.Caption = "View All Pending Voucher"
-        Me.ckPendingRequisition.Size = New System.Drawing.Size(196, 21)
-        Me.ckPendingRequisition.TabIndex = 932
+        Me.radFilter.EditValue = "pending"
+        Me.radFilter.Location = New System.Drawing.Point(140, 6)
+        Me.radFilter.Margin = New System.Windows.Forms.Padding(0)
+        Me.radFilter.Name = "radFilter"
+        Me.radFilter.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.radFilter.Properties.Appearance.Options.UseFont = True
+        Me.radFilter.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.radFilter.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem("pending", "Pending"), New DevExpress.XtraEditors.Controls.RadioGroupItem("cancelled", "Cancelled"), New DevExpress.XtraEditors.Controls.RadioGroupItem("cleared", "Cleared"), New DevExpress.XtraEditors.Controls.RadioGroupItem("date", "By Date")})
+        Me.radFilter.Properties.ItemsLayout = DevExpress.XtraEditors.RadioGroupItemsLayout.Flow
+        Me.radFilter.Properties.ItemVertAlignment = DevExpress.XtraEditors.RadioItemVertAlignment.Top
+        Me.radFilter.Size = New System.Drawing.Size(471, 30)
+        Me.radFilter.TabIndex = 970
+        '
+        'txtFund
+        '
+        Me.txtFund.EditValue = ""
+        Me.txtFund.Location = New System.Drawing.Point(142, 39)
+        Me.txtFund.Name = "txtFund"
+        Me.txtFund.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.txtFund.Properties.Appearance.Options.UseFont = True
+        Me.txtFund.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtFund.Properties.AppearanceFocused.Options.UseBackColor = True
+        Me.txtFund.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.txtFund.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtFund.Properties.DisplayMember = "Select"
+        Me.txtFund.Properties.NullText = ""
+        Me.txtFund.Properties.PopupView = Me.gridFund
+        Me.txtFund.Properties.ValueMember = "code"
+        Me.txtFund.Size = New System.Drawing.Size(196, 26)
+        Me.txtFund.TabIndex = 935
+        '
+        'gridFund
+        '
+        Me.gridFund.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.gridFund.Name = "gridFund"
+        Me.gridFund.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.gridFund.OptionsView.ShowGroupPanel = False
+        '
+        'LabelControl4
+        '
+        Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.LabelControl4.Appearance.Options.UseFont = True
+        Me.LabelControl4.Location = New System.Drawing.Point(69, 44)
+        Me.LabelControl4.Name = "LabelControl4"
+        Me.LabelControl4.Size = New System.Drawing.Size(66, 17)
+        Me.LabelControl4.TabIndex = 936
+        Me.LabelControl4.Text = "Select Fund"
+        '
+        'ckUnissuedJev
+        '
+        Me.ckUnissuedJev.Location = New System.Drawing.Point(341, 122)
+        Me.ckUnissuedJev.Name = "ckUnissuedJev"
+        Me.ckUnissuedJev.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.ckUnissuedJev.Properties.Appearance.Options.UseFont = True
+        Me.ckUnissuedJev.Properties.Caption = "Unissued Jev"
+        Me.ckUnissuedJev.Size = New System.Drawing.Size(109, 21)
+        Me.ckUnissuedJev.TabIndex = 934
+        '
+        'CheckEdit1
+        '
+        Me.CheckEdit1.Location = New System.Drawing.Point(142, 122)
+        Me.CheckEdit1.Name = "CheckEdit1"
+        Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.CheckEdit1.Properties.Appearance.Options.UseFont = True
+        Me.CheckEdit1.Properties.Caption = "View Check Issuance Report"
+        Me.CheckEdit1.Size = New System.Drawing.Size(196, 21)
+        Me.CheckEdit1.TabIndex = 933
         '
         'cmdFilterSearch
         '
         Me.cmdFilterSearch.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.cmdFilterSearch.Appearance.Options.UseFont = True
-        Me.cmdFilterSearch.Location = New System.Drawing.Point(344, 33)
+        Me.cmdFilterSearch.Location = New System.Drawing.Point(344, 38)
         Me.cmdFilterSearch.Name = "cmdFilterSearch"
-        Me.cmdFilterSearch.Size = New System.Drawing.Size(106, 53)
+        Me.cmdFilterSearch.Size = New System.Drawing.Size(106, 81)
         Me.cmdFilterSearch.TabIndex = 4
         Me.cmdFilterSearch.Text = "Filter Search"
         '
@@ -331,7 +401,7 @@ Partial Class frmDisbursementList
         Me.txtDateFrom.EditValue = New Date(2019, 6, 10, 16, 23, 25, 399)
         Me.txtDateFrom.Enabled = False
         Me.txtDateFrom.EnterMoveNextControl = True
-        Me.txtDateFrom.Location = New System.Drawing.Point(142, 32)
+        Me.txtDateFrom.Location = New System.Drawing.Point(142, 67)
         Me.txtDateFrom.Name = "txtDateFrom"
         Me.txtDateFrom.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.txtDateFrom.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
@@ -351,7 +421,7 @@ Partial Class frmDisbursementList
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl6.Appearance.Options.UseFont = True
-        Me.LabelControl6.Location = New System.Drawing.Point(26, 36)
+        Me.LabelControl6.Location = New System.Drawing.Point(27, 71)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(108, 17)
         Me.LabelControl6.TabIndex = 927
@@ -362,7 +432,7 @@ Partial Class frmDisbursementList
         Me.txtDateTo.EditValue = New Date(2019, 6, 10, 16, 23, 25, 399)
         Me.txtDateTo.Enabled = False
         Me.txtDateTo.EnterMoveNextControl = True
-        Me.txtDateTo.Location = New System.Drawing.Point(142, 61)
+        Me.txtDateTo.Location = New System.Drawing.Point(142, 94)
         Me.txtDateTo.Name = "txtDateTo"
         Me.txtDateTo.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
         Me.txtDateTo.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
@@ -383,7 +453,7 @@ Partial Class frmDisbursementList
         Me.LabelControl2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl2.Appearance.Options.UseFont = True
-        Me.LabelControl2.Location = New System.Drawing.Point(596, 60)
+        Me.LabelControl2.Location = New System.Drawing.Point(600, 120)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(92, 17)
         Me.LabelControl2.TabIndex = 931
@@ -393,7 +463,7 @@ Partial Class frmDisbursementList
         '
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.LabelControl1.Appearance.Options.UseFont = True
-        Me.LabelControl1.Location = New System.Drawing.Point(41, 65)
+        Me.LabelControl1.Location = New System.Drawing.Point(42, 98)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(93, 17)
         Me.LabelControl1.TabIndex = 929
@@ -403,7 +473,7 @@ Partial Class frmDisbursementList
         '
         Me.txtSearchBar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtSearchBar.EditValue = ""
-        Me.txtSearchBar.Location = New System.Drawing.Point(694, 57)
+        Me.txtSearchBar.Location = New System.Drawing.Point(698, 117)
         Me.txtSearchBar.Name = "txtSearchBar"
         Me.txtSearchBar.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.txtSearchBar.Properties.Appearance.Options.UseFont = True
@@ -422,7 +492,7 @@ Partial Class frmDisbursementList
         Me.Em.MinimumSize = New System.Drawing.Size(574, 454)
         Me.Em.Name = "Em"
         Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
-        Me.Em.Size = New System.Drawing.Size(990, 478)
+        Me.Em.Size = New System.Drawing.Size(990, 454)
         Me.Em.TabIndex = 634
         Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -439,16 +509,6 @@ Partial Class frmDisbursementList
         '
         Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
         Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
-        '
-        'CheckEdit1
-        '
-        Me.CheckEdit1.Location = New System.Drawing.Point(142, 89)
-        Me.CheckEdit1.Name = "CheckEdit1"
-        Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.CheckEdit1.Properties.Appearance.Options.UseFont = True
-        Me.CheckEdit1.Properties.Caption = "View Check Issuance Report"
-        Me.CheckEdit1.Size = New System.Drawing.Size(196, 21)
-        Me.CheckEdit1.TabIndex = 933
         '
         'frmDisbursementList
         '
@@ -470,7 +530,11 @@ Partial Class frmDisbursementList
         Me.ToolStrip1.PerformLayout()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainerControl1.ResumeLayout(False)
-        CType(Me.ckPendingRequisition.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.radFilter.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtFund.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gridFund, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ckUnissuedJev.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDateFrom.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDateFrom.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDateTo.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -479,7 +543,6 @@ Partial Class frmDisbursementList
         CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -513,7 +576,6 @@ Partial Class frmDisbursementList
     Friend WithEvents txtDateFrom As DevExpress.XtraEditors.DateEdit
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents cmdFilterSearch As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents ckPendingRequisition As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents cmdClearedDisbursement As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CreateJEVTransactionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CheckIssuanceInfoToolStripMenuItem As ToolStripMenuItem
@@ -526,4 +588,9 @@ Partial Class frmDisbursementList
     Friend WithEvents ExportVoucherFileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents CheckEdit1 As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents ckUnissuedJev As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents txtFund As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents gridFund As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents radFilter As DevExpress.XtraEditors.RadioGroup
 End Class

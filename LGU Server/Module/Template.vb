@@ -28,6 +28,10 @@ Module Template
         For Each arrCol In colItemNameParam
             colItem += " <th align='center'><b>" & arrCol & "</b></th> "
         Next
+
+        TableRow += "<tr><td colspan='" & 6 + colItemNameParam.Length & "'><b>A. Budget</b></td></tr> " & Chr(13)
+
+        Dim countBlank As Integer = 0
         com.CommandText = Replace(query, Chr(160), Chr(64)) : rst = com.ExecuteReader
         While rst.Read
             Dim itemValue As String = ""
@@ -38,6 +42,11 @@ Module Template
             If itemValue.Length = 0 Then
                 itemValue = "<td align='right'>&nbsp</td>"
             End If
+
+            If rst("Amount of Appropriation").ToString = "" Then
+                countBlank = countBlank + 1
+            End If
+
             TableRow += "<tr> " _
                            + " <td align='right'>" & If(Val(rst("Amount of Appropriation").ToString) > 0, FormatNumber(rst("Amount of Appropriation").ToString, 2), "&nbsp") & "</td> " _
                            + " <td align='right'>" & If(Val(rst("Amount of Allotment").ToString) > 0, FormatNumber(rst("Amount of Allotment").ToString, 2), "&nbsp") & "</td> " _
@@ -47,6 +56,11 @@ Module Template
                            + " <td align='right'>" & If(Val(rst("Total Amount of Allotment Obligation").ToString) > 0, FormatNumber(rst("Total Amount of Allotment Obligation").ToString, 2), "&nbsp") & "</td> " _
                            + itemValue _
                      + " </tr> " & Chr(13)
+
+            If countBlank = 2 Then
+                TableRow += "<tr><td colspan='" & 6 + colItemNameParam.Length & "'><b>B. Actual</b></td></tr> " & Chr(13)
+                countBlank = 0
+            End If
 
         End While
         rst.Close()

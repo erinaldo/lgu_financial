@@ -22,6 +22,7 @@ Partial Class frmRequisitionInfo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.txtRequestNumber = New DevExpress.XtraEditors.TextEdit()
         Me.mode = New DevExpress.XtraEditors.TextEdit()
@@ -34,7 +35,7 @@ Partial Class frmRequisitionInfo
         Me.txtSourceAmount = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.Em = New DevExpress.XtraGrid.GridControl()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.cmdAddItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SelectItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -61,7 +62,7 @@ Partial Class frmRequisitionInfo
         Me.cmdAddParticularItem = New System.Windows.Forms.ToolStripButton()
         Me.tabAttachment = New DevExpress.XtraTab.XtraTabPage()
         Me.Em_files = New DevExpress.XtraGrid.GridControl()
-        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip()
+        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdViewAttachmentMain = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmdModifyAttachment = New System.Windows.Forms.ToolStripMenuItem()
@@ -322,40 +323,44 @@ Partial Class frmRequisitionInfo
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdAddItem, Me.SelectItemToolStripMenuItem, Me.DeleteItemToolStripMenuItem, Me.ToolStripSeparator4, Me.ToolStripMenuItem5})
         Me.ContextMenuStrip1.Name = "gridmenustrip"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(151, 114)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(147, 98)
         '
         'cmdAddItem
         '
         Me.cmdAddItem.Image = Global.LGUClient.My.Resources.Resources.notebook__plus
+        Me.cmdAddItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.cmdAddItem.Name = "cmdAddItem"
-        Me.cmdAddItem.Size = New System.Drawing.Size(150, 26)
+        Me.cmdAddItem.Size = New System.Drawing.Size(146, 22)
         Me.cmdAddItem.Text = "Add Source"
         '
         'SelectItemToolStripMenuItem
         '
         Me.SelectItemToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SelectItemToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.notebook__pencil
+        Me.SelectItemToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.SelectItemToolStripMenuItem.Name = "SelectItemToolStripMenuItem"
-        Me.SelectItemToolStripMenuItem.Size = New System.Drawing.Size(150, 26)
+        Me.SelectItemToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.SelectItemToolStripMenuItem.Text = "Edit Source"
         '
         'DeleteItemToolStripMenuItem
         '
         Me.DeleteItemToolStripMenuItem.Image = Global.LGUClient.My.Resources.Resources.notebook__minus
+        Me.DeleteItemToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.DeleteItemToolStripMenuItem.Name = "DeleteItemToolStripMenuItem"
-        Me.DeleteItemToolStripMenuItem.Size = New System.Drawing.Size(150, 26)
+        Me.DeleteItemToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.DeleteItemToolStripMenuItem.Text = "Delete Source"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(147, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(143, 6)
         '
         'ToolStripMenuItem5
         '
         Me.ToolStripMenuItem5.Image = Global.LGUClient.My.Resources.Resources.arrow_continue_090
+        Me.ToolStripMenuItem5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(150, 26)
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(146, 22)
         Me.ToolStripMenuItem5.Text = "Refresh Data"
         '
         'GridView1
@@ -598,7 +603,7 @@ Partial Class frmRequisitionInfo
         Me.tabAttachment.Controls.Add(Me.ckFinalApprover)
         Me.tabAttachment.Controls.Add(Me.CurrentApprover)
         Me.tabAttachment.Name = "tabAttachment"
-        Me.tabAttachment.Size = New System.Drawing.Size(624, 453)
+        Me.tabAttachment.Size = New System.Drawing.Size(628, 456)
         Me.tabAttachment.Text = "Attached Document Files"
         '
         'Em_files
@@ -609,7 +614,7 @@ Partial Class frmRequisitionInfo
         Me.Em_files.MainView = Me.gridview_files
         Me.Em_files.Name = "Em_files"
         Me.Em_files.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit2})
-        Me.Em_files.Size = New System.Drawing.Size(624, 418)
+        Me.Em_files.Size = New System.Drawing.Size(628, 421)
         Me.Em_files.TabIndex = 935
         Me.Em_files.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridview_files})
         '
@@ -618,47 +623,52 @@ Partial Class frmRequisitionInfo
         Me.ContextMenuStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.cmdViewAttachmentMain, Me.cmdModifyAttachment, Me.cmdRemoveAttachment, Me.ToolStripSeparator1, Me.ToolStripMenuItem2})
         Me.ContextMenuStrip2.Name = "gridmenustrip"
-        Me.ContextMenuStrip2.Size = New System.Drawing.Size(205, 140)
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(201, 142)
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem1.Image = Global.LGUClient.My.Resources.Resources.inbox__plus
+        Me.ToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(204, 26)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(200, 22)
         Me.ToolStripMenuItem1.Text = "Attach Document Files"
         '
         'cmdViewAttachmentMain
         '
         Me.cmdViewAttachmentMain.Image = Global.LGUClient.My.Resources.Resources.inbox_document_text
+        Me.cmdViewAttachmentMain.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.cmdViewAttachmentMain.Name = "cmdViewAttachmentMain"
-        Me.cmdViewAttachmentMain.Size = New System.Drawing.Size(204, 26)
+        Me.cmdViewAttachmentMain.Size = New System.Drawing.Size(200, 22)
         Me.cmdViewAttachmentMain.Text = "Extract Attachment"
         '
         'cmdModifyAttachment
         '
         Me.cmdModifyAttachment.Image = Global.LGUClient.My.Resources.Resources.report__pencil
+        Me.cmdModifyAttachment.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.cmdModifyAttachment.Name = "cmdModifyAttachment"
-        Me.cmdModifyAttachment.Size = New System.Drawing.Size(204, 26)
+        Me.cmdModifyAttachment.Size = New System.Drawing.Size(200, 22)
         Me.cmdModifyAttachment.Text = "Modify Attachment"
         '
         'cmdRemoveAttachment
         '
         Me.cmdRemoveAttachment.Image = Global.LGUClient.My.Resources.Resources.inbox__minus
+        Me.cmdRemoveAttachment.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.cmdRemoveAttachment.Name = "cmdRemoveAttachment"
-        Me.cmdRemoveAttachment.Size = New System.Drawing.Size(204, 26)
+        Me.cmdRemoveAttachment.Size = New System.Drawing.Size(200, 22)
         Me.cmdRemoveAttachment.Text = "Remove Attachment"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(201, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(197, 6)
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Image = Global.LGUClient.My.Resources.Resources.arrow_continue_090
+        Me.ToolStripMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(204, 26)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(200, 22)
         Me.ToolStripMenuItem2.Text = "Refresh Data"
         '
         'gridview_files
@@ -687,7 +697,7 @@ Partial Class frmRequisitionInfo
         Me.ToolStrip3.Name = "ToolStrip3"
         Me.ToolStrip3.Padding = New System.Windows.Forms.Padding(10, 2, 1, 2)
         Me.ToolStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.ToolStrip3.Size = New System.Drawing.Size(624, 35)
+        Me.ToolStrip3.Size = New System.Drawing.Size(628, 35)
         Me.ToolStrip3.TabIndex = 960
         Me.ToolStrip3.Text = "ToolStrip3"
         '
@@ -722,17 +732,17 @@ Partial Class frmRequisitionInfo
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(624, 0)
+        Me.barDockControlRight.Location = New System.Drawing.Point(628, 0)
         Me.barDockControlRight.Manager = Nothing
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 453)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 456)
         '
         'BarDockControl1
         '
         Me.BarDockControl1.CausesValidation = False
         Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BarDockControl1.Location = New System.Drawing.Point(624, 0)
+        Me.BarDockControl1.Location = New System.Drawing.Point(628, 0)
         Me.BarDockControl1.Manager = Nothing
-        Me.BarDockControl1.Size = New System.Drawing.Size(0, 453)
+        Me.BarDockControl1.Size = New System.Drawing.Size(0, 456)
         '
         'NextApprover
         '
@@ -788,7 +798,7 @@ Partial Class frmRequisitionInfo
         '
         Me.tabApprovalHistory.Controls.Add(Me.Em_approval)
         Me.tabApprovalHistory.Name = "tabApprovalHistory"
-        Me.tabApprovalHistory.Size = New System.Drawing.Size(624, 453)
+        Me.tabApprovalHistory.Size = New System.Drawing.Size(628, 456)
         Me.tabApprovalHistory.Text = "Approval History"
         '
         'Em_approval
@@ -798,7 +808,7 @@ Partial Class frmRequisitionInfo
         Me.Em_approval.MainView = Me.gridview_approval
         Me.Em_approval.Name = "Em_approval"
         Me.Em_approval.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit3})
-        Me.Em_approval.Size = New System.Drawing.Size(624, 453)
+        Me.Em_approval.Size = New System.Drawing.Size(628, 456)
         Me.Em_approval.TabIndex = 936
         Me.Em_approval.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridview_approval})
         '
@@ -822,7 +832,7 @@ Partial Class frmRequisitionInfo
         '
         Me.tabDisbursement.Controls.Add(Me.Em_disbursement)
         Me.tabDisbursement.Name = "tabDisbursement"
-        Me.tabDisbursement.Size = New System.Drawing.Size(624, 453)
+        Me.tabDisbursement.Size = New System.Drawing.Size(628, 456)
         Me.tabDisbursement.Text = "Disbursement Voucher"
         '
         'Em_disbursement
@@ -832,7 +842,7 @@ Partial Class frmRequisitionInfo
         Me.Em_disbursement.MainView = Me.gridDisbursement
         Me.Em_disbursement.Name = "Em_disbursement"
         Me.Em_disbursement.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit4})
-        Me.Em_disbursement.Size = New System.Drawing.Size(624, 453)
+        Me.Em_disbursement.Size = New System.Drawing.Size(628, 456)
         Me.Em_disbursement.TabIndex = 935
         Me.Em_disbursement.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gridDisbursement})
         '
@@ -1013,7 +1023,7 @@ Partial Class frmRequisitionInfo
         'txtPriority
         '
         Me.txtPriority.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtPriority.EditValue = ""
+        Me.txtPriority.EditValue = "Low"
         Me.txtPriority.Location = New System.Drawing.Point(132, 353)
         Me.txtPriority.Name = "txtPriority"
         Me.txtPriority.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!)
