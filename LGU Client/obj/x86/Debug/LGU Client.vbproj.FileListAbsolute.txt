@@ -786,3 +786,4 @@ D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmHoldMessage
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmEmployeeInfo.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmRequisitionFundReturn.resources
 D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGUClient.frmRequisitionFundReturnAmount.resources
+D:\VB.NET\Others\lgu_financial\LGU Client\obj\x86\Debug\LGU Client.vbproj.AssemblyReference.cache

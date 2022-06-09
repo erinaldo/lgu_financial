@@ -54,6 +54,7 @@ Public Class frmDisbursementList
             'KeyWordSearch = If(ckPendingRequisition.Checked, " cleared=0 and cancelled=0 and  " & If(ckUnissuedJev.Checked, " and voucherid not in (select dvid from tbljournalentryvoucher where cancelled=0) ", ""), " fundcode='" & txtFund.EditValue & "' and date_format(voucherdate,'%Y-%m-%d') between '" & ConvertDate(txtDateFrom.EditValue) & "' and '" & ConvertDate(txtDateTo.EditValue) & "' ")
         Else
             KeyWordSearch = " and (pid like '%" & rchar(txtSearchBar.Text) & "%' or " _
+                        + " voucherid Like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " voucherno Like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " checkno Like '%" & rchar(txtSearchBar.Text) & "%' or " _
                         + " date_format(voucherdate,'%Y-%m-%d') like '%" & rchar(txtSearchBar.Text) & "%' or " _

@@ -84,7 +84,7 @@ Public Class frmRequisitionInfo
         LoadApproverDeatils()
 
         If txtStatus.Text = "ON HOLD" Then
-            frmHoldMessage.txtMessage.Text = qrysingledata("remarks", "remarks", "tblapprovalhistory as a where mainreference='" & pid.Text & "' and status='Hold' order by dateconfirm desc limit 1")
+            frmHoldMessage.txtMessage.Text = qrysingledata("msgby", "concat(remarks, ' - ', confirmby) as msgby", "tblapprovalhistory as a where mainreference='" & pid.Text & "' and status='Hold' order by dateconfirm desc limit 1")
             frmHoldMessage.ShowDialog()
         End If
 

@@ -19,6 +19,13 @@ Module UpdateEngine
         End If
 
 
+        updateVersion = "2022-06-09"
+        If CBool(qrysingledata("proceedupdate", " if(date_format(databaseversion, '%Y-%m-%d') < '" & updateVersion & "',true,false) as proceedupdate", "tbldatabaseupdatelogs order by databaseversion desc limit 1")) = True Then
+            com.CommandText = "CREATE TABLE `tbldisbursementcheckhistory` (  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,  `pid` varchar(45) NOT NULL,  `voucherid` varchar(45) NOT NULL,  `voucherno` varchar(45) NOT NULL,  `voucherdate` date NOT NULL,  `checkno` varchar(45) NOT NULL,  `checkbank` varchar(45) NOT NULL,  `checkdate` date NOT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;" : com.ExecuteNonQuery() : DatabaseUpdateLogs(updateVersion, rchar(com.CommandText.ToCharArray))
+            engineupdated = True
+        End If
+
+
         If engineupdated = True Then
             Dim dversion As Date = updateVersion
             XtraMessageBox.Show("Your database engine was updated to Build Version " & dversion.ToString & Environment.NewLine & "Please view update list at ""Main System Menu"" > About > What's New!", GlobalOrganizationName, MessageBoxButtons.OK, MessageBoxIcon.Information)

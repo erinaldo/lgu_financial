@@ -38,6 +38,11 @@ Partial Class frmVoucherCheckInfo
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
         Me.txtAmount = New DevExpress.XtraEditors.TextEdit()
         Me.txtCheckBankName = New DevExpress.XtraEditors.MemoEdit()
+        Me.Em = New DevExpress.XtraGrid.GridControl()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
+        Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
+        Me.HyperlinkLabelControl1 = New DevExpress.XtraEditors.HyperlinkLabelControl()
         CType(Me.txtCheckDate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCheckDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCheckNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,6 +54,11 @@ Partial Class frmVoucherCheckInfo
         CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCheckBankName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Em, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControl1.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtCheckDate
@@ -181,7 +191,7 @@ Partial Class frmVoucherCheckInfo
         Me.ckCheckIssued.Location = New System.Drawing.Point(444, 21)
         Me.ckCheckIssued.Name = "ckCheckIssued"
         Me.ckCheckIssued.Properties.Caption = "Issued"
-        Me.ckCheckIssued.Size = New System.Drawing.Size(75, 19)
+        Me.ckCheckIssued.Size = New System.Drawing.Size(75, 20)
         Me.ckCheckIssued.TabIndex = 1008
         Me.ckCheckIssued.Visible = False
         '
@@ -275,13 +285,59 @@ Partial Class frmVoucherCheckInfo
         Me.txtCheckBankName.Size = New System.Drawing.Size(254, 42)
         Me.txtCheckBankName.TabIndex = 1007
         '
+        'Em
+        '
+        Me.Em.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Em.Location = New System.Drawing.Point(2, 23)
+        Me.Em.MainView = Me.GridView1
+        Me.Em.Name = "Em"
+        Me.Em.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
+        Me.Em.Size = New System.Drawing.Size(419, 222)
+        Me.Em.TabIndex = 1016
+        Me.Em.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        '
+        'GridView1
+        '
+        Me.GridView1.GridControl = Me.Em
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsBehavior.Editable = False
+        Me.GridView1.OptionsSelection.UseIndicatorForSelection = False
+        Me.GridView1.OptionsView.ColumnAutoWidth = False
+        Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'RepositoryItemCheckEdit1
+        '
+        Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
+        Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
+        '
+        'GroupControl1
+        '
+        Me.GroupControl1.Controls.Add(Me.Em)
+        Me.GroupControl1.Location = New System.Drawing.Point(3, 231)
+        Me.GroupControl1.Name = "GroupControl1"
+        Me.GroupControl1.Size = New System.Drawing.Size(423, 247)
+        Me.GroupControl1.TabIndex = 1017
+        Me.GroupControl1.Text = "Check changes info history"
+        '
+        'HyperlinkLabelControl1
+        '
+        Me.HyperlinkLabelControl1.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.HyperlinkLabelControl1.Appearance.Options.UseFont = True
+        Me.HyperlinkLabelControl1.Location = New System.Drawing.Point(301, 126)
+        Me.HyperlinkLabelControl1.Name = "HyperlinkLabelControl1"
+        Me.HyperlinkLabelControl1.Size = New System.Drawing.Size(105, 15)
+        Me.HyperlinkLabelControl1.TabIndex = 1018
+        Me.HyperlinkLabelControl1.Text = "Change check info.."
+        '
         'frmVoucherCheckInfo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(429, 230)
+        Me.ClientSize = New System.Drawing.Size(429, 226)
+        Me.Controls.Add(Me.HyperlinkLabelControl1)
+        Me.Controls.Add(Me.GroupControl1)
         Me.Controls.Add(Me.LabelControl8)
         Me.Controls.Add(Me.txtAmount)
         Me.Controls.Add(Me.pid)
@@ -316,6 +372,11 @@ Partial Class frmVoucherCheckInfo
         CType(Me.pid.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtAmount.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCheckBankName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Em, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControl1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -337,4 +398,9 @@ Partial Class frmVoucherCheckInfo
     Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents txtAmount As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtCheckBankName As DevExpress.XtraEditors.MemoEdit
+    Friend WithEvents Em As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents GroupControl1 As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents HyperlinkLabelControl1 As DevExpress.XtraEditors.HyperlinkLabelControl
 End Class

@@ -164,7 +164,7 @@ Partial Class frmRequisitionList
         Me.cms_em.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.cms_em.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmdDuplicate, Me.cmdView, Me.cmdCancel, Me.cmdRequestOveride, Me.cmdClearedRequisition, Me.cmdReturnUnusedFund, Me.ToolStripSeparator4, Me.cmdLocalData})
         Me.cms_em.Name = "ContextMenuStrip1"
-        Me.cms_em.Size = New System.Drawing.Size(224, 186)
+        Me.cms_em.Size = New System.Drawing.Size(224, 164)
         '
         'cmdDuplicate
         '

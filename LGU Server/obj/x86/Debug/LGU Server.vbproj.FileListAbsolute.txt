@@ -1018,3 +1018,4 @@ D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.exe
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.xml
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.pdb
 D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGUFinancial.frmAuthorizedUser.resources
+D:\VB.NET\Others\lgu_financial\LGU Server\obj\x86\Debug\LGU Server.vbproj.AssemblyReference.cache
